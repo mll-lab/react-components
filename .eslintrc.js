@@ -1,5 +1,3 @@
-const path = require('path');
-
 module.exports = {
   extends: [
     '@mll-lab/eslint-config',
@@ -24,6 +22,7 @@ module.exports = {
     },
   },
   rules: {
+    'import/no-unresolved': 'off',
     'jsx-a11y/aria-props': 'error',
     'jsx-a11y/control-has-associated-label': 'off',
     'jsx-a11y/heading-has-content': 'off',
@@ -67,10 +66,5 @@ module.exports = {
   },
   settings: {
     'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
-    'import/resolver': {
-      webpack: {
-        config: path.join(__dirname, 'webpack.config.js'),
-      },
-    },
   },
 };
