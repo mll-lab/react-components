@@ -6,7 +6,7 @@ import { ColoredButtonType } from './ColoredButtons';
 
 import { SaveButton } from './index';
 
-interface SaveButtonByNumpadProps {
+export interface SaveButtonByNumpadEnterProps {
   onClick: React.MouseEventHandler;
   isSaving?: boolean;
 }
@@ -16,7 +16,7 @@ configure({
   ignoreEventsCondition: () => false,
 });
 
-export class SaveButtonByNumpadEnter extends Component<SaveButtonByNumpadProps> {
+export class SaveButtonByNumpadEnter extends Component<SaveButtonByNumpadEnterProps> {
   buttonRef: ColoredButtonType | undefined;
 
   dispatchClick = (event?: KeyboardEvent) => {

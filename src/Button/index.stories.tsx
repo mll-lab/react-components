@@ -1,58 +1,49 @@
-import { action } from '@storybook/addon-actions';
-import { withKnobs, boolean, color } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/react';
-import * as React from 'react';
+import { Story } from '@storybook/react';
+import React from 'react';
 
-import { SaveButtonByNumpadEnter } from './SaveButtonByNumpadEnter';
+import {
+  SaveButtonByNumpadEnter,
+  SaveButtonByNumpadEnterProps,
+} from './SaveButtonByNumpadEnter';
 
 import {
   Button,
+  ButtonProps,
   CreateButton,
-  SaveButton,
-  EditButton,
-  WarningButton,
-  ResetButton,
   DeleteButton,
+  EditButton,
   InfoButton,
+  ResetButton,
+  SaveButton,
+  WarningButton,
 } from './index';
 
-function makeButtonDemoProps() {
-  return {
-    onClick: action('clicked'),
-    filled: boolean('filled', false),
-    dashed: boolean('dashed', false),
-    block: boolean('block', false),
-  };
-}
+export default {
+  title: 'Button',
+  component: Button,
+  argTypes: {
+    color: { control: 'color' },
+    onClick: { action: 'clicked' },
+  },
+};
 
-storiesOf('Button', module)
-  .addDecorator(withKnobs)
-  .add('Default', () => (
-    <>
-      <Button color={color('color', 'blue')} {...makeButtonDemoProps()}>
-        Default Button
-      </Button>
-      <Button color={color('color', 'blue')} {...makeButtonDemoProps()}>
-        Default Button
-      </Button>
-    </>
-  ))
-  .add('Create', () => <CreateButton {...makeButtonDemoProps()} />)
-  .add('Save', () => <SaveButton {...makeButtonDemoProps()} />)
-  .add('Save with hotkey', () => (
-    <div>
-      <div style={{ marginBottom: '1em' }}>
-        Triggered also with the Numpad Enter:
-      </div>
-      <SaveButtonByNumpadEnter {...makeButtonDemoProps()} />
+export const Default: Story<ButtonProps> = (args) => (
+  <Button {...args}>Default</Button>
+);
+export const Create: Story<ButtonProps> = (args) => <CreateButton {...args} />;
+export const Save: Story<ButtonProps> = (args) => <SaveButton {...args} />;
+export const SaveWithHotkey: Story<SaveButtonByNumpadEnterProps> = (args) => (
+  <div>
+    <div style={{ marginBottom: '1em' }}>
+      Triggered also with the Numpad Enter:
     </div>
-  ))
-  .add('Info', () => <InfoButton {...makeButtonDemoProps()} />)
-  .add('Edit', () => <EditButton {...makeButtonDemoProps()} />)
-  .add('Warning', () => (
-    <WarningButton {...makeButtonDemoProps()}>
-      Do something slightly dangerous
-    </WarningButton>
-  ))
-  .add('Reset', () => <ResetButton {...makeButtonDemoProps()} />)
-  .add('Delete', () => <DeleteButton {...makeButtonDemoProps()} />);
+    <SaveButtonByNumpadEnter {...args} />
+  </div>
+);
+export const Info: Story<ButtonProps> = (args) => <InfoButton {...args} />;
+export const Edit: Story<ButtonProps> = (args) => <EditButton {...args} />;
+export const Warning: Story<ButtonProps> = (args) => (
+  <WarningButton {...args}>Do something slightly dangerous</WarningButton>
+);
+export const Reset: Story<ButtonProps> = (args) => <ResetButton {...args} />;
+export const Delete: Story<ButtonProps> = (args) => <DeleteButton {...args} />;

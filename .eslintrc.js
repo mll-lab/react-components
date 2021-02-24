@@ -66,5 +66,8 @@ module.exports = {
   },
   settings: {
     'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
+    react: {
+      version: '16.13',
+    },
   },
 };
