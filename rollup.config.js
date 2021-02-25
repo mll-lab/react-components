@@ -5,18 +5,11 @@ import typescript from '@rollup/plugin-typescript';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import styles from 'rollup-plugin-styles';
 
-const packageJson = require('./package.json');
-
 export default {
   input: 'src/index.ts',
   output: [
     {
-      file: packageJson.main,
-      format: 'cjs',
-      sourcemap: true,
-    },
-    {
-      file: packageJson.module,
+      dir: 'dist',
       format: 'esm',
       sourcemap: true,
     },
@@ -25,7 +18,9 @@ export default {
     peerDepsExternal(),
     resolve(),
     commonjs(),
-    typescript(),
+    typescript({
+      exclude: '**/*.test.(ts|tsx)',
+    }),
     styles({
       less: {
         javascriptEnabled: true,
