@@ -17,6 +17,8 @@ import {
   GhostButton,
 } from './ColoredButtons';
 
+export * from './SaveButtonByNumpadEnter';
+
 export interface ButtonProps extends Omit<ColoredButtonProps, 'type'> {
   filled?: boolean;
   dashed?: boolean;

@@ -2,11 +2,6 @@ import { Story } from '@storybook/react';
 import React from 'react';
 
 import {
-  SaveButtonByNumpadEnter,
-  SaveButtonByNumpadEnterProps,
-} from './SaveButtonByNumpadEnter';
-
-import {
   Button,
   ButtonProps,
   CreateButton,
@@ -16,7 +11,9 @@ import {
   ResetButton,
   SaveButton,
   WarningButton,
-} from './index';
+  SaveButtonByNumpadEnter,
+  SaveButtonByNumpadEnterProps,
+} from '..';
 
 export default {
   title: 'Button',
@@ -24,6 +21,12 @@ export default {
   argTypes: {
     color: { control: 'color' },
     onClick: { action: 'clicked' },
+    size: {
+      control: {
+        type: 'select',
+        options: ['small', 'medium', 'large'],
+      },
+    },
   },
 };
 

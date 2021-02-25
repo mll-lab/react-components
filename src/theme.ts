@@ -8,7 +8,7 @@ export const MLL_THEME = {
   borderColor: '#50a0d0',
   dividerColor: '#dadada',
   tableBorderColor: '#e8e8e8',
-  containerBorderColor: 'LightGray',
+  containerBorderColor: '#d3d3d3',
   backgroundColor: '#f0f2f5',
   panelBackgroundColor: '#eaeaea',
   collapseBackgroundColor: '#d4edfc',
