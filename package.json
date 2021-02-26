@@ -1,6 +1,6 @@
 {
   "name": "@mll-lab/react-components",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "module": "dist/index.js",
   "files": [
     "dist"
@@ -14,7 +14,8 @@
     "storybook": "start-storybook --port=6006",
     "storybook:build": "build-storybook",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint --ignore-path .gitignore --ext .ts,.tsx src"
+    "lint": "eslint --ignore-path .gitignore --ext .ts,.tsx src",
+    "release": "standard-version"
   },
   "repository": {
     "type": "git",
@@ -35,8 +36,11 @@
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
   },
-  "devDependencies": {
+  "dependencies": {
     "@ant-design/icons": "^4.5.0",
+    "antd": "^4.12.3"
+  },
+  "devDependencies": {
     "@babel/core": "^7.13.1",
     "@babel/plugin-transform-runtime": "^7.13.6",
     "@babel/preset-env": "^7.13.0",
@@ -62,7 +66,6 @@
     "@types/react": "^16.9.12",
     "@types/react-dom": "^16.9.8",
     "@types/styled-components": "^5.1.7",
-    "antd": "^4.12.3",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.2",
@@ -86,6 +89,7 @@
     "rollup": "^2.36.1",
     "rollup-plugin-peer-deps-external": "^2.2.0",
     "rollup-plugin-styles": "^3.14.1",
+    "standard-version": "^9.1.1",
     "style-loader": "^2.0.0",
     "styled-components": "^5.2.1",
     "ts-jest": "^26.5.1",
