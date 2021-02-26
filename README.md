@@ -1,3 +1,32 @@
 # @mll-lab/react-components
 
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+
 Shared react components of MLL
+
+## Install
+
+    yarn add --dev @mll-lab/react-components
+
+## Usage
+
+To set up proper styles, wrap your entire app (or a section of it) in the `Provider`:
+
+```typescript jsx
+import { Provider } from '@mll-lab/react-components';
+import * as React from 'react';
+import { render } from 'react-dom';
+
+render(
+    <Provider>
+        <App />
+    </Provider>,
+    document.getElementById('app'),
+);
+```
+
+Optionally, you may pass a theme:
+
+```typescript jsx
+<Provider theme={{ backgroundColor: 'purple' }}>
+```
