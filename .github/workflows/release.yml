@@ -1,0 +1,33 @@
+name: "Release"
+
+on:
+  release:
+    types:
+      - created
+
+jobs:
+  # https://docs.github.com/en/actions/guides/publishing-nodejs-packages#publishing-packages-using-yarn
+  publish:
+    name: "Build and publish npm package"
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Checkout"
+        uses: actions/checkout@v2
+
+      - name: "Setup node"
+        with:
+          node-version: 15.x
+          registry-url: https://registry.npmjs.org
+
+      - name: "Install dependencies"
+        run: yarn install
+
+      - name: "Build dist"
+        run: yarn build
+
+      - name: "Publish"
+        run: yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
