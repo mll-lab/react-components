@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/mll-lab/react-components/compare/v1.0.2...v2.0.0) (2021-02-26)
+
+
+### Features
+
+* Reduce bundle size ([d648ce7](https://github.com/mll-lab/react-components/commit/d648ce72b794438aca49a39b629d019337c1db0f))
+
+
+### BREAKING CHANGES
+
+* Table is no longer exported
+
 ## [1.0.2](https://github.com/mll-lab/react-components/compare/v1.0.1...v1.0.2) (2021-02-26)
 
 
