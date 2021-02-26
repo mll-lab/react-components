@@ -107,5 +107,5 @@ export const DeleteButton = makeSpecializedButton({
 export const SendButton = makeSpecializedButton({
   color: 'green',
   icon: <ExportOutlined />,
-  children: 'Abschicken',
+  children: 'Senden',
 });
