@@ -8,5 +8,4 @@ export default {
   component: Spinner,
 };
 
-export const Default: Story<SpinnerProps> = (args
-) => <Spinner {...args} />;
+export const Default: Story<SpinnerProps> = (args) => <Spinner {...args} />;
