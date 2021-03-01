@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/mll-lab/react-components/compare/v2.0.0...v2.1.0) (2021-03-01)
+
+
+### Features
+
+* Add Spinner component ([7664a23](https://github.com/mll-lab/react-components/commit/7664a235f8ff87af9d7e2e5940b7605b4987dfed))
+
 # [2.0.0](https://github.com/mll-lab/react-components/compare/v1.0.2...v2.0.0) (2021-02-26)
 
 
