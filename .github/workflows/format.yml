@@ -3,10 +3,12 @@ on:
   push:
 
 jobs:
-  format:
+  eslint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
       - uses: actions/setup-node@v2
       - run: yarn install
       - run: yarn run format
