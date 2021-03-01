@@ -15,6 +15,7 @@
     "storybook:build": "build-storybook",
     "typecheck": "tsc --noEmit",
     "lint": "eslint --ignore-path .gitignore --ext .ts,.tsx src",
+    "format": "yarn run lint --fix",
     "release": "standard-version"
   },
   "repository": {
