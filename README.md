@@ -7,7 +7,7 @@ Shared react components of MLL
 
 ## Install
 
-    yarn add --dev @mll-lab/react-components
+    yarn add @mll-lab/react-components
 
 ## Usage
 
