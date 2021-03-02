@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/mll-lab/react-components/compare/v2.1.0...v2.1.1) (2021-03-02)
+
+
+### Bug Fixes
+
+* Target ES2015 ([bfebae9](https://github.com/mll-lab/react-components/commit/bfebae974e2b947d43f1dfb88bc4bf016609b57d))
+
 # [2.1.0](https://github.com/mll-lab/react-components/compare/v2.0.0...v2.1.0) (2021-03-01)
 
 
