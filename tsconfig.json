@@ -1,12 +1,12 @@
 {
   "extends": "@mll-lab/tsconfig",
   "compilerOptions": {
-    "module": "ESNext",
-    "target": "ES2020",
+    "module": "ES2015",
+    "target": "ES2015",
     "rootDir": "src",
     "declaration": true,
     "declarationDir": "dist",
-    "lib": ["dom", "ES5", "ES2015", "ES2016", "ES2017", "ES2018", "ES2019", "ES2020"],
+    "lib": ["dom", "ES5", "ES2015"],
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
