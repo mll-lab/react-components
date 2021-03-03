@@ -1526,15 +1526,15 @@
     eslint-plugin-unused-imports "^1.0.1"
     typescript "^3 || ^4"
 
-"@mll-lab/prettier-config@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@mll-lab/prettier-config/-/prettier-config-0.0.1.tgz#fa190673d43ba3ee64af1fe29f474f355d2299ba"
-  integrity sha512-gOeLCNllEzCjSqxdne332sXN7rIGzuic+TRzLS+gwU4pBdjSNZursgXIhirYRhVu++VwkLy57OjKg89yVXWR+g==
+"@mll-lab/prettier-config@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@mll-lab/prettier-config/-/prettier-config-1.0.0.tgz#e46490204f9ca1a2131d1790e246e7ca74d23c7d"
+  integrity sha512-bGo5u8+3t06xONsIrJYZvwy5iVZWA/Zm1EDdhT3xpiln9aSj0kZdd/+KyBTvj9pVKUYB50f58JBmqApY45Fxuw==
 
-"@mll-lab/tsconfig@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@mll-lab/tsconfig/-/tsconfig-0.0.3.tgz#a88aacee3120a6b81ba6c19510a473345b961e56"
-  integrity sha512-fYCXs50sqkl3Q8G5SVMet9VR8F1Jn+1UneRLtHzTEPhi+S3oriTbsc5L9vwh66n/OTgso1DF573XkyeGfjWpSw==
+"@mll-lab/tsconfig@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@mll-lab/tsconfig/-/tsconfig-1.1.0.tgz#0804d54169177fa7999f0c51084765824b4ae18e"
+  integrity sha512-evtRLVOQ9nImzFMjehrU2iBzpnufcgVAAXIL7sLGyB6PamZ90/+Z5Dr4/NihyTfBGVn1pvrD+6aUVffsrQ1HBA==
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
