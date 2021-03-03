@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/mll-lab/react-components/compare/v2.1.1...v2.2.0) (2021-03-03)
+
+
+### Features
+
+* Add Tabs component ([698ecba](https://github.com/mll-lab/react-components/commit/698ecbaa45760aa3ee259f4ea3583cbaecf78802))
+
 ## [2.1.1](https://github.com/mll-lab/react-components/compare/v2.1.0...v2.1.1) (2021-03-02)
 
 
