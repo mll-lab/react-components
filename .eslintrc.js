@@ -20,8 +20,11 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
+    project: ['./tsconfig.json'],
   },
   rules: {
+    '@typescript-eslint/switch-exhaustiveness-check': 'error',
+    'default-case': 'off', // Replaced by @typescript-eslint/switch-exhaustiveness-check
     'import/no-unresolved': 'off',
     'jsx-a11y/aria-props': 'error',
     'jsx-a11y/control-has-associated-label': 'off',
