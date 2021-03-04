@@ -19,9 +19,7 @@ export function Provider({
   return (
     <ThemeProvider theme={theme ?? MLL_THEME}>
       <AntdConfigProvider prefixCls={PREFIX_CLS}>
-        <div id={PREFIX_CLS}>
-          {children}
-        </div>
+        <div id={PREFIX_CLS}>{children}</div>
       </AntdConfigProvider>
     </ThemeProvider>
   );
