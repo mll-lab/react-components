@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/mll-lab/react-components/compare/v2.2.0...v2.3.0) (2021-03-04)
+
+
+### Features
+
+* Add List component ([e89cd7b](https://github.com/mll-lab/react-components/commit/e89cd7bae89934fae00c0a7eace0e28e8b305800))
+
 # [2.2.0](https://github.com/mll-lab/react-components/compare/v2.1.1...v2.2.0) (2021-03-03)
 
 
