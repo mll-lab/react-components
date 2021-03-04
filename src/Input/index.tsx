@@ -1,3 +1,3 @@
 import { Input as AntdInput } from 'antd';
 
-export const Input = AntdInput;
+export const Input: typeof AntdInput = AntdInput;

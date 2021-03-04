@@ -1,3 +1,3 @@
 import { Radio as AntdRadio } from 'antd';
 
-export const Radio = AntdRadio;
+export const Radio: typeof AntdRadio = AntdRadio;
