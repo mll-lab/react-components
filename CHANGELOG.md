@@ -1,3 +1,10 @@
+# [2.4.0](https://github.com/mll-lab/react-components/compare/v2.3.0...v2.4.0) (2021-03-04)
+
+
+### Features
+
+* Add Tooltip component ([64eeacf](https://github.com/mll-lab/react-components/commit/64eeacf0e110662d7edee2987a9cbf07138a48e9))
+
 # [2.3.0](https://github.com/mll-lab/react-components/compare/v2.2.0...v2.3.0) (2021-03-04)
 
 
