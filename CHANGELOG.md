@@ -1,3 +1,16 @@
+# [2.5.0](https://github.com/mll-lab/react-components/compare/v2.4.0...v2.5.0) (2021-03-04)
+
+
+### Bug Fixes
+
+* Add explicit types to reexported types ([1194c55](https://github.com/mll-lab/react-components/commit/1194c55106e60ca566fb45926e5ab40b88411776))
+* Prevent antd from polluting global styles ([f57db55](https://github.com/mll-lab/react-components/commit/f57db552122ea8ba68ef314c6433a44821fb3a0e))
+
+
+### Features
+
+* Add data entry components: Checkbox, Input, Radio ([67851ba](https://github.com/mll-lab/react-components/commit/67851baddaed2ed7a74a9dcaa61aaea8cebdba7d))
+
 # [2.4.0](https://github.com/mll-lab/react-components/compare/v2.3.0...v2.4.0) (2021-03-04)
 
 
