@@ -10,3 +10,14 @@ import Adapter from 'enzyme-adapter-react-16';
 registerRequireContextHook();
 
 configure({ adapter: new Adapter() });
+
+// Used by some antd components, such as List, and not implemented in jsdom
+Object.defineProperty(window, 'matchMedia', {
+    value: () => {
+        return {
+            matches: false,
+            addListener: () => {},
+            removeListener: () => {}
+        };
+    }
+})
