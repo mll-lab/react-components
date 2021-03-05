@@ -1,3 +1,10 @@
+## [2.5.1](https://github.com/mll-lab/react-components/compare/v2.5.0...v2.5.1) (2021-03-05)
+
+
+### Bug Fixes
+
+* Allow partial theme ([530ee6f](https://github.com/mll-lab/react-components/commit/530ee6ffca0554ca384e455c6964dfdbfeb54f2a))
+
 # [2.5.0](https://github.com/mll-lab/react-components/compare/v2.4.0...v2.5.0) (2021-03-04)
 
 
