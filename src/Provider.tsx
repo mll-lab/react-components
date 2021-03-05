@@ -1,5 +1,5 @@
 import { ConfigProvider as AntdConfigProvider } from 'antd';
-import React, { PropsWithChildren, useRef } from 'react';
+import React, {PropsWithChildren, useEffect, useRef} from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import { MLL_THEME, MllTheme } from './theme';
@@ -13,6 +13,11 @@ export function Provider({
   theme,
 }: PropsWithChildren<ProviderProps>) {
   const styleScopeDiv = useRef(null);
+
+  useEffect(() => {
+      const body = document.body;
+      body.classList.add('mll-ant');
+  }, [])
 
   AntdConfigProvider.config({
     prefixCls: PREFIX_CLS,

@@ -16,4 +16,4 @@ export * from './Spinner';
 export * from './Table';
 export * from './Tabs';
 export * from './Tooltip';
-export * from './Notification';
+export * from './notification';
