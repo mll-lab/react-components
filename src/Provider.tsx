@@ -4,7 +4,7 @@ import { ThemeProvider } from 'styled-components';
 
 import { MLL_THEME, MllTheme } from './theme';
 
-type ProviderProps = { theme?: MllTheme };
+type ProviderProps = { theme?: Partial<MllTheme> };
 
 const PREFIX_CLS = 'mll-ant';
 
@@ -17,7 +17,7 @@ export function Provider({
   });
 
   return (
-    <ThemeProvider theme={theme ?? MLL_THEME}>
+    <ThemeProvider theme={{ ...MLL_THEME, ...theme }}>
       <AntdConfigProvider prefixCls={PREFIX_CLS}>
         <div id={PREFIX_CLS}>{children}</div>
       </AntdConfigProvider>
