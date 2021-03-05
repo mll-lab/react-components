@@ -1,6 +1,10 @@
 module.exports = {
   stories: ['../src/**/*.stories.tsx'],
   addons: ['@storybook/addon-essentials'],
+  reactOptions: {
+    fastRefresh: true,
+    strictMode: true
+  },
   webpackFinal: (config) => {
     config.module.rules = [
       {
