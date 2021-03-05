@@ -1,3 +1,10 @@
+## [2.5.2](https://github.com/mll-lab/react-components/compare/v2.5.1...v2.5.2) (2021-03-05)
+
+
+### Bug Fixes
+
+* Render popups within style scope div ([947af3d](https://github.com/mll-lab/react-components/commit/947af3de9169b3d31fae5963306582854dff41b2))
+
 ## [2.5.1](https://github.com/mll-lab/react-components/compare/v2.5.0...v2.5.1) (2021-03-05)
 
 
