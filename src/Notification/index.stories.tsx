@@ -10,17 +10,12 @@ export default {
 
 export const Default: Story<NotificationProps> = (args) => {
   function showNotification() {
-      notification.warning({
-        message: 'Notification Title',
-        description:
-            'This is the content of the notification.',
-      });
-      return;
+    notification.warning({
+      ...args,
+      message: 'Notification Title',
+      description: 'This is the content of the notification.',
+    });
   }
 
-  return (
-      <p
-          onClick={showNotification}
-      >Click Me!</p>
-  );
+  return <p onClick={showNotification}>Click Me!</p>;
 };
