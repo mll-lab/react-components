@@ -8,7 +8,7 @@ const TitleList = styled.ul`
   padding-left: 0;
   list-style: none;
   margin: 0;
-  border-bottom: 1px solid #dfdfdf;
+  border-bottom: 1px solid ${(props) => props.theme.dividerColor};
 `;
 
 interface TabTitleProps {
@@ -22,17 +22,19 @@ const TabTitle = styled.li<TabTitleProps>`
   opacity: 0.4;
   display: inline-block;
   border-bottom: solid 3px transparent;
+
   :hover {
     opacity: 1;
-    border-bottom: solid 3px #50a0d0;
+    border-bottom: solid 3px ${(props) => props.theme.borderColor};
   }
+
   ${(props) =>
     props.isActiveTab &&
     css`
       transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
       cursor: default;
       opacity: 1;
-      border-bottom: solid 3px #50a0d0;
+      border-bottom: solid 3px ${props.theme.borderColor};
     `}
 `;
 
