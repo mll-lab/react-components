@@ -1,3 +1,4 @@
+// eslint-disable-next-line @mll-lab/no-global-styles
 import './antd.less';
 
 export * from './theme';
