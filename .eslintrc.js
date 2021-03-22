@@ -1,6 +1,7 @@
 module.exports = {
   extends: [
     '@mll-lab/eslint-config',
+    'plugin:@mll-lab/recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:testing-library/react',

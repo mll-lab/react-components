@@ -1,3 +1,5 @@
+/* eslint-disable @mll-lab/no-color-literals */
+
 /**
  * We omit special purpose colors:
  * - 'white': Brightest possible
