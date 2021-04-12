@@ -1,3 +1,10 @@
+# [2.6.0](https://github.com/mll-lab/react-components/compare/v2.5.2...v2.6.0) (2021-04-12)
+
+
+### Features
+
+* Use theme in TabsHeader ([27b7183](https://github.com/mll-lab/react-components/commit/27b718391af4cf40b14f88a9e7ff2ff1313bd912))
+
 ## [2.5.2](https://github.com/mll-lab/react-components/compare/v2.5.1...v2.5.2) (2021-03-05)
 
 
