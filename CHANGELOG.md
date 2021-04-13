@@ -1,3 +1,10 @@
+# [2.8.0](https://github.com/mll-lab/react-components/compare/v2.7.0...v2.8.0) (2021-04-13)
+
+
+### Features
+
+* Add Table component ([d0505b5](https://github.com/mll-lab/react-components/commit/d0505b5ea6438165f2be11bf36451708d98b7669))
+
 # [2.7.0](https://github.com/mll-lab/react-components/compare/v2.6.0...v2.7.0) (2021-04-13)
 
 
