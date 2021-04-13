@@ -1,13 +1,12 @@
 import { Story } from '@storybook/react';
+import { Input } from 'antd';
 import React from 'react';
 
 import { Radio } from './index';
-import { Input} from "antd";
 
 export default {
   title: 'Radio',
   component: Input,
-
 };
 
 const options = [
@@ -16,8 +15,9 @@ const options = [
   { label: 'Orange', value: 'Orange' },
 ];
 
-export const Default: Story = (args) => <Radio.Group  options={options} {...args} />;
-
+export const Default: Story = (args) => (
+  <Radio.Group options={options} {...args} />
+);
 
 Default.argTypes = {
   optionType: {
