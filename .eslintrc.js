@@ -5,7 +5,6 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:testing-library/react',
-    'prettier/react',
   ],
   plugins: ['react', 'react-hooks', 'jsx-a11y', 'testing-library'],
   ignorePatterns: ['dist', '!.storybook'],
