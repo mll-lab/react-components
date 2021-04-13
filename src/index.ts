@@ -4,6 +4,7 @@ import './antd.less';
 export * from './theme';
 export * from './Button';
 export * from './Checkbox';
+export * from './Empty';
 export * from './Input';
 export * from './List';
 export * from './Radio';
