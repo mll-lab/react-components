@@ -1,3 +1,10 @@
+# [2.7.0](https://github.com/mll-lab/react-components/compare/v2.6.0...v2.7.0) (2021-04-13)
+
+
+### Features
+
+* add story for radio component ([5829553](https://github.com/mll-lab/react-components/commit/5829553b8e277c0c4c83d99a819c0f18d8331eec))
+
 # [2.6.0](https://github.com/mll-lab/react-components/compare/v2.5.2...v2.6.0) (2021-04-12)
 
 
