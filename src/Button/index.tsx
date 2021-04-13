@@ -19,10 +19,10 @@ import {
 
 export * from './SaveButtonByNumpadEnter';
 
-export interface ButtonProps extends Omit<ColoredButtonProps, 'type'> {
+export type ButtonProps = {
   filled?: boolean;
   dashed?: boolean;
-}
+} & Omit<ColoredButtonProps, 'type'>;
 
 function ButtonVariousTypes(
   { filled, dashed, ...rest }: ButtonProps,

@@ -6,10 +6,10 @@ import { ColoredButtonType } from './ColoredButtons';
 
 import { SaveButton } from './index';
 
-export interface SaveButtonByNumpadEnterProps {
+export type SaveButtonByNumpadEnterProps = {
   onClick: React.MouseEventHandler;
   isSaving?: boolean;
-}
+};
 
 configure({
   ignoreTags: [],

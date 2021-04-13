@@ -11,9 +11,9 @@ const TitleList = styled.ul`
   border-bottom: 1px solid ${(props) => props.theme.dividerColor};
 `;
 
-interface TabTitleProps {
+type TabTitleProps = {
   isActiveTab: boolean;
-}
+};
 
 const TabTitle = styled.li<TabTitleProps>`
   font-weight: 600;

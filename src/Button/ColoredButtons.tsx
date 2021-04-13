@@ -5,17 +5,16 @@ import styled, { ThemedStyledProps } from 'styled-components';
 
 import { MllTheme } from '../theme';
 
-export interface ColoredButtonType
-  extends React.ForwardRefExoticComponent<
-    ColoredButtonProps & React.RefAttributes<HTMLElement>
-  > {
+export type ColoredButtonType = {
   Group: typeof ButtonGroup;
   __ANT_BUTTON: boolean;
-}
+} & React.ForwardRefExoticComponent<
+  ColoredButtonProps & React.RefAttributes<HTMLElement>
+>;
 
-export interface ColoredButtonProps extends AntdButtonProps {
+export type ColoredButtonProps = {
   color?: string;
-}
+} & AntdButtonProps;
 
 function colorFromPropsOrTheme(
   props: ThemedStyledProps<ColoredButtonProps, MllTheme>,

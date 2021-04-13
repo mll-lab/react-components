@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 
-export interface TabPanelProps {
+export type TabPanelProps = {
   id: number | string;
   title: ReactNode;
   children?: ReactNode;
-}
+};
