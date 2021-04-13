@@ -6,7 +6,7 @@ import { MLL_THEME, MllTheme } from './theme';
 
 type ProviderProps = { theme?: Partial<MllTheme> };
 
-const PREFIX_CLS = 'mll-ant';
+export const PREFIX_CLS = 'mll-ant';
 
 export function Provider({
   children,
@@ -25,7 +25,7 @@ export function Provider({
         // Necessary so that styles apply to components such as Tooltip
         getPopupContainer={() => styleScopeDiv.current ?? document.body}
       >
-        <div id={PREFIX_CLS} ref={styleScopeDiv}>
+        <div className={PREFIX_CLS} ref={styleScopeDiv}>
           {children}
         </div>
       </AntdConfigProvider>
