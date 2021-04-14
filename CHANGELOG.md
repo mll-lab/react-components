@@ -1,3 +1,16 @@
+# [2.13.0](https://github.com/mll-lab/react-components/compare/v2.12.0...v2.13.0) (2021-04-14)
+
+
+### Bug Fixes
+
+* make args overwritable in List Component ([d78c9fb](https://github.com/mll-lab/react-components/commit/d78c9fb02e2328bcf5839a702e0d578b2cb898ce))
+
+
+### Features
+
+* Add Description component ([6c90d31](https://github.com/mll-lab/react-components/commit/6c90d318fb6fbccf50253c821a9855d4c4aa31f2))
+* add form component ([6d782b7](https://github.com/mll-lab/react-components/commit/6d782b70ea69bcb743b07fcc0417e0ba63823292))
+
 # [2.12.0](https://github.com/mll-lab/react-components/compare/v2.11.0...v2.12.0) (2021-04-14)
 
 
