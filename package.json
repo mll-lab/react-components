@@ -1,6 +1,6 @@
 {
   "name": "@mll-lab/react-components",
-  "version": "2.13.0",
+  "version": "2.14.0",
   "module": "dist/index.js",
   "files": [
     "dist"

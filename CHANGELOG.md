@@ -1,3 +1,10 @@
+# [2.14.0](https://github.com/mll-lab/react-components/compare/v2.13.0...v2.14.0) (2021-04-14)
+
+
+### Features
+
+* Add Skeleton component ([a6a0510](https://github.com/mll-lab/react-components/commit/a6a0510495ccc41c4ab9fd88c4f1200acf249519))
+
 # [2.13.0](https://github.com/mll-lab/react-components/compare/v2.12.0...v2.13.0) (2021-04-14)
 
 
