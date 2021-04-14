@@ -8,6 +8,7 @@ export * from './Provider';
 // Individual components
 export * from './Button';
 export * from './Checkbox';
+export * from './Divider';
 export * from './Comment';
 export * from './Empty';
 export * from './Input';
