@@ -1,3 +1,15 @@
+# [2.9.0](https://github.com/mll-lab/react-components/compare/v2.8.0...v2.9.0) (2021-04-14)
+
+
+### Bug Fixes
+
+* Reexport EmptyType ([00075d8](https://github.com/mll-lab/react-components/commit/00075d8cb1f75e7a35ab8c40483de1aa82ab249a))
+
+
+### Features
+
+* add Empty component ([3265516](https://github.com/mll-lab/react-components/commit/326551667b6974d3f74f885b514c439ec52743ad))
+
 # [2.8.0](https://github.com/mll-lab/react-components/compare/v2.7.0...v2.8.0) (2021-04-13)
 
 
