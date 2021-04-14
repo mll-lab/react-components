@@ -1,3 +1,11 @@
+# [2.12.0](https://github.com/mll-lab/react-components/compare/v2.11.0...v2.12.0) (2021-04-14)
+
+
+### Features
+
+* Add Avatar component ([9dbea50](https://github.com/mll-lab/react-components/commit/9dbea509486b64b67048736fcd5a420484537516))
+* Add Divider component ([ace0e8c](https://github.com/mll-lab/react-components/commit/ace0e8c26b2993d09b84d50c5848c4f63257a16d))
+
 # [2.11.0](https://github.com/mll-lab/react-components/compare/v2.10.0...v2.11.0) (2021-04-14)
 
 
