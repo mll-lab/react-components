@@ -14,8 +14,8 @@ export default {
 
 export const Strings: Story<ListProps<string>> = (args) => (
   <List
-    {...args}
     dataSource={['foo', 'bar', 'baz']}
     renderItem={(item) => <List.Item>{item}</List.Item>}
+    {...args}
   />
 );
