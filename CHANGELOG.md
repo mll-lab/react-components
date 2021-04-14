@@ -1,3 +1,11 @@
+# [2.11.0](https://github.com/mll-lab/react-components/compare/v2.10.0...v2.11.0) (2021-04-14)
+
+
+### Features
+
+* Add Modal component ([3d5fc9d](https://github.com/mll-lab/react-components/commit/3d5fc9d1a333c1f6fba39072500d9bf325881c10))
+* Add Progress component ([a12cb22](https://github.com/mll-lab/react-components/commit/a12cb2205b1148933c73f049302244ab94479133))
+
 # [2.10.0](https://github.com/mll-lab/react-components/compare/v2.9.0...v2.10.0) (2021-04-14)
 
 
