@@ -12,14 +12,11 @@ export default {
     bordered: { control: 'boolean' },
     loading: { control: 'boolean' },
     onFinish: { action: 'clicked' },
-    onFinishFailed: { action: 'clicked' }
+    onFinishFailed: { action: 'clicked' },
   },
 };
 export const Default: Story<FormProps<string>> = (args) => (
-  <Form
-    name="basic"
-    {...args}
-  >
+  <Form name="basic" {...args}>
     <Form.Item
       label="Username"
       name="username"
