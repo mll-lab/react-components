@@ -12,6 +12,7 @@ export * from './Comment';
 export * from './Empty';
 export * from './Input';
 export * from './List';
+export * from './Modal';
 export * from './Radio';
 export * from './Spinner';
 export * from './Table';
