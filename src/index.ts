@@ -15,4 +15,5 @@ export * from './Radio';
 export * from './Spinner';
 export * from './Table';
 export * from './Tabs';
+export * from './Tag';
 export * from './Tooltip';
