@@ -1,3 +1,11 @@
+# [2.10.0](https://github.com/mll-lab/react-components/compare/v2.9.0...v2.10.0) (2021-04-14)
+
+
+### Features
+
+* add comment ([b338744](https://github.com/mll-lab/react-components/commit/b338744f209735a61057644b71c620f4c374a453))
+* Add Tag component ([68dd10b](https://github.com/mll-lab/react-components/commit/68dd10bb83173e6998efa753600bc6968d3be6be))
+
 # [2.9.0](https://github.com/mll-lab/react-components/compare/v2.8.0...v2.9.0) (2021-04-14)
 
 
