@@ -1,4 +1,4 @@
-import {Tag as AntdTag, TagProps as AntdTagProps} from 'antd';
+import { Tag as AntdTag, TagProps as AntdTagProps } from 'antd';
 
-export const Tag:  typeof AntdTag = AntdTag;
+export const Tag: typeof AntdTag = AntdTag;
 export type TagProps = AntdTagProps;
