@@ -6,6 +6,7 @@ export * from './Button';
 export * from './Checkbox';
 export * from './Input';
 export * from './List';
+export * from './Modal';
 export * from './Radio';
 export * from './Tabs';
 export * from './Provider';
