@@ -10,3 +10,4 @@ export * from './Tabs';
 export * from './Provider';
 export * from './Spinner';
 export * from './Tooltip';
+export * from './Progress';
