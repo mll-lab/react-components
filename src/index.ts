@@ -13,6 +13,7 @@ export * from './Divider';
 export * from './Comment';
 export * from './Empty';
 export * from './Input';
+export * from './Descriptions';
 export * from './List';
 export * from './Modal';
 export * from './Radio';
