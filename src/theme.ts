@@ -17,7 +17,10 @@ export const MLL_THEME = {
   focusedRowColor: '#d4edfc',
   titleColor: '#c0c0c0',
   menuGroupBackgroundColor: '#fafafa',
+  successColor: '#52c41a',
   warningColor: '#faad14',
+  errorColor: '#f5222d',
+  infoColor: '#d9d9d9',
 };
 
 export type MllTheme = typeof MLL_THEME;

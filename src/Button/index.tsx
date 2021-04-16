@@ -8,7 +8,10 @@ import {
   WarningOutlined,
 } from '@ant-design/icons';
 import * as React from 'react';
-import { Ref } from 'react';
+import { Ref, useContext } from 'react';
+import { ThemeContext } from 'styled-components';
+
+import { MllTheme } from '../theme';
 
 import {
   ColoredButtonProps,
@@ -52,60 +55,69 @@ export const Button = React.forwardRef<ColoredButtonType, ButtonProps>(
 
 function makeSpecializedButton({
   children: defaultChildren,
+  colorFromTheme,
   ...defaults
-}: Partial<ButtonProps>) {
+}: Partial<ButtonProps> & {
+  colorFromTheme: (theme: MllTheme) => string;
+}) {
   const ButtonWithRef = (
     { children, ...rest }: ButtonProps,
     ref: Ref<ColoredButtonType>,
-  ) => (
-    <Button ref={ref} {...defaults} {...rest}>
-      {children ?? defaultChildren}
-    </Button>
-  );
+  ) => {
+    const themeContext = useContext<MllTheme>(ThemeContext);
+    const color = colorFromTheme ? { color: colorFromTheme(themeContext) } : {};
+
+    return (
+      <Button ref={ref} {...defaults} {...color} {...rest}>
+        {children ?? defaultChildren}
+      </Button>
+    );
+  };
 
   return React.forwardRef<ColoredButtonType, ButtonProps>(ButtonWithRef);
 }
 
 export const CreateButton = makeSpecializedButton({
-  color: 'green',
+  colorFromTheme: (theme) => theme.successColor,
   icon: <PlusOutlined />,
   children: 'Hinzufügen',
 });
 
 export const SaveButton = makeSpecializedButton({
-  color: 'green',
+  colorFromTheme: (theme) => theme.successColor,
   icon: <SaveOutlined />,
   children: 'Speichern',
 });
 
 export const EditButton = makeSpecializedButton({
+  colorFromTheme: (theme) => theme.borderColor,
   icon: <EditOutlined />,
   children: 'Bearbeiten',
 });
 
 export const InfoButton = makeSpecializedButton({
-  color: 'gray',
+  colorFromTheme: (theme) => theme.infoColor,
 });
 
 export const WarningButton = makeSpecializedButton({
-  color: 'orange',
+  colorFromTheme: (theme) => theme.warningColor,
   icon: <WarningOutlined />,
 });
 
 export const ResetButton = makeSpecializedButton({
-  color: 'red',
+  colorFromTheme: (theme) => theme.errorColor,
   icon: <CloseOutlined />,
   children: 'Zurücksetzen',
 });
 
 export const DeleteButton = makeSpecializedButton({
-  color: 'red',
+  colorFromTheme: (theme) => theme.errorColor,
   icon: <DeleteOutlined />,
   children: 'Löschen',
 });
 
 export const SendButton = makeSpecializedButton({
-  color: 'green',
+  colorFromTheme: (theme) => theme.successColor,
   icon: <ExportOutlined />,
   children: 'Senden',
 });
