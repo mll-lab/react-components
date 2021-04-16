@@ -1,3 +1,10 @@
+# [2.15.0](https://github.com/mll-lab/react-components/compare/v2.14.0...v2.15.0) (2021-04-16)
+
+
+### Features
+
+* Define Button colors in MllTheme ([99c5a41](https://github.com/mll-lab/react-components/commit/99c5a41dc5571f6ea10c54ceb558097a818add6a))
+
 # [2.14.0](https://github.com/mll-lab/react-components/compare/v2.13.0...v2.14.0) (2021-04-14)
 
 
