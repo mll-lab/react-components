@@ -6,6 +6,7 @@ export * from './theme';
 export * from './Provider';
 
 // Individual components
+export * from './Alert';
 export * from './Avatar';
 export * from './Button';
 export * from './Checkbox';
