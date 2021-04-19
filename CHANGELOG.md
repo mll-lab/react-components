@@ -1,3 +1,10 @@
+# [2.16.0](https://github.com/mll-lab/react-components/compare/v2.15.0...v2.16.0) (2021-04-19)
+
+
+### Features
+
+* Add Alert component ([5d3d761](https://github.com/mll-lab/react-components/commit/5d3d761a60c4dfc7be589108ae8502bc97ad94e1))
+
 # [2.15.0](https://github.com/mll-lab/react-components/compare/v2.14.0...v2.15.0) (2021-04-16)
 
 
