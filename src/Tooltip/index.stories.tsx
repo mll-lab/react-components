@@ -1,7 +1,7 @@
 import { Story } from '@storybook/react';
 import React from 'react';
 
-import { Tooltip, TooltipProps } from './index';
+import { DateWithToolTip, Tooltip, TooltipProps } from './index';
 
 export default {
   title: 'Tooltip',
@@ -13,3 +13,11 @@ export const Default: Story<TooltipProps> = (args) => (
     <p>Text</p>
   </Tooltip>
 );
+
+export const TooltipForDate: Story = (args) => (
+  <DateWithToolTip date={new Date()} {...args} />
+);
+
+TooltipForDate.argTypes = {
+  date: { control: { type: 'date' } },
+};
