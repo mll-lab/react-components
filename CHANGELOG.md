@@ -1,3 +1,10 @@
+# [2.17.0](https://github.com/mll-lab/react-components/compare/v2.16.0...v2.17.0) (2021-04-22)
+
+
+### Features
+
+* Add DateWithToolTip component ([d756a16](https://github.com/mll-lab/react-components/commit/d756a1679770edf45b7c45390474d124a3b3de6a))
+
 # [2.16.0](https://github.com/mll-lab/react-components/compare/v2.15.0...v2.16.0) (2021-04-19)
 
 
