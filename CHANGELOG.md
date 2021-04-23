@@ -1,3 +1,10 @@
+# [2.18.0](https://github.com/mll-lab/react-components/compare/v2.17.0...v2.18.0) (2021-04-23)
+
+
+### Features
+
+* Add Steps component ([93b77b0](https://github.com/mll-lab/react-components/commit/93b77b0f1293af8a4cf8f8d41ce971211e17d931))
+
 # [2.17.0](https://github.com/mll-lab/react-components/compare/v2.16.0...v2.17.0) (2021-04-22)
 
 
