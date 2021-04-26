@@ -1,3 +1,10 @@
+# [2.19.0](https://github.com/mll-lab/react-components/compare/v2.18.0...v2.19.0) (2021-04-26)
+
+
+### Features
+
+* Add InputNumber component ([b7e06f9](https://github.com/mll-lab/react-components/commit/b7e06f9cce59b782368bcede877c67fbfc36eb68))
+
 # [2.18.0](https://github.com/mll-lab/react-components/compare/v2.17.0...v2.18.0) (2021-04-23)
 
 
