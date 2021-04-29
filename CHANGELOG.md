@@ -1,3 +1,10 @@
+# [2.22.0](https://github.com/mll-lab/react-components/compare/v2.21.0...v2.22.0) (2021-04-29)
+
+
+### Features
+
+* Add Space component ([66b73b6](https://github.com/mll-lab/react-components/commit/66b73b68328a42b8f4f9cd0bfc05b72f9fa538b2))
+
 # [2.21.0](https://github.com/mll-lab/react-components/compare/v2.20.0...v2.21.0) (2021-04-29)
 
 
