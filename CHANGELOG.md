@@ -1,3 +1,10 @@
+# [2.20.0](https://github.com/mll-lab/react-components/compare/v2.19.0...v2.20.0) (2021-04-29)
+
+
+### Features
+
+* Add Dropdown with Menu component ([2da7e49](https://github.com/mll-lab/react-components/commit/2da7e4961922f783dd3d907ab62ef477b1b889e7))
+
 # [2.19.0](https://github.com/mll-lab/react-components/compare/v2.18.0...v2.19.0) (2021-04-26)
 
 
