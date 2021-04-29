@@ -24,6 +24,7 @@ export * from './Progress';
 export * from './Radio';
 export * from './Select';
 export * from './Skeleton';
+export * from './Space';
 export * from './Spinner';
 export * from './Steps';
 export * from './Table';
