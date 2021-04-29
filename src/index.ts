@@ -22,6 +22,7 @@ export * from './Menu';
 export * from './Modal';
 export * from './Progress';
 export * from './Radio';
+export * from './Select';
 export * from './Skeleton';
 export * from './Spinner';
 export * from './Steps';
