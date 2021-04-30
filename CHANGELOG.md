@@ -1,3 +1,10 @@
+# [2.23.0](https://github.com/mll-lab/react-components/compare/v2.22.0...v2.23.0) (2021-04-30)
+
+
+### Features
+
+* Add popconfirm component ([a64511a](https://github.com/mll-lab/react-components/commit/a64511a17d053114eecace184a377db9a26513af))
+
 # [2.22.0](https://github.com/mll-lab/react-components/compare/v2.21.0...v2.22.0) (2021-04-29)
 
 
