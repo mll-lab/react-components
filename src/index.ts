@@ -20,6 +20,7 @@ export * from './Input';
 export * from './List';
 export * from './Menu';
 export * from './Modal';
+export * from './Popconfirm';
 export * from './Progress';
 export * from './Radio';
 export * from './Select';
