@@ -31,7 +31,7 @@
   "bugs": {
     "url": "https://github.com/mll-lab/react-components/issues"
   },
-  "homepage": "https://github.com/mll-lab/react-components#readme",
+  "homepage": "https://github.com/mll-lab/react-components",
   "peerDependencies": {
     "@babel/runtime": ">=7.13.6",
     "react": ">=16.8.0",
