@@ -6,7 +6,7 @@
     "dist"
   ],
   "types": "dist/index.d.ts",
-  "description": "Shared react components of MLL",
+  "description": "Shared React components of MLL",
   "scripts": {
     "build": "rollup --config",
     "test": "jest",
