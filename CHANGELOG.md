@@ -1,3 +1,10 @@
+# [2.24.0](https://github.com/mll-lab/react-components/compare/v2.23.0...v2.24.0) (2021-05-10)
+
+
+### Features
+
+* Publish commonjs build ([8320a05](https://github.com/mll-lab/react-components/commit/8320a05ed9b61f9fa0ba2f46fe13ea3ce69e9389))
+
 # [2.23.0](https://github.com/mll-lab/react-components/compare/v2.22.0...v2.23.0) (2021-04-30)
 
 
