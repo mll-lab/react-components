@@ -9,6 +9,7 @@ export * from './Provider';
 export * from './Alert';
 export * from './Avatar';
 export * from './Button';
+export * from './Card';
 export * from './Checkbox';
 export * from './Comment';
 export * from './Descriptions';
