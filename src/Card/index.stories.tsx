@@ -8,10 +8,9 @@ export default {
 };
 
 export const Default: Story<CardProps> = (args) => (
-    <Card title="Default size card" {...args}>
-        <p>Card content</p>
-        <p>Card content</p>
-        <p>Card content</p>
-    </Card>
+  <Card title="Default size card" {...args}>
+    <p>Card content</p>
+    <p>Card content</p>
+    <p>Card content</p>
+  </Card>
 );
-
