@@ -1,3 +1,10 @@
+# [2.25.0](https://github.com/mll-lab/react-components/compare/v2.24.0...v2.25.0) (2021-05-18)
+
+
+### Features
+
+* Add card component ([7547d17](https://github.com/mll-lab/react-components/commit/7547d17d90f8f9df552fe1262b580ac0cefa6ed2))
+
 # [2.24.0](https://github.com/mll-lab/react-components/compare/v2.23.0...v2.24.0) (2021-05-10)
 
 
