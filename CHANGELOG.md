@@ -1,3 +1,10 @@
+## [2.26.1](https://github.com/mll-lab/react-components/compare/v2.26.0...v2.26.1) (2021-05-20)
+
+
+### Bug Fixes
+
+* Export Typography component ([b459dc1](https://github.com/mll-lab/react-components/commit/b459dc158c3eb0779025b781819dcfb2f1eae1e1))
+
 # [2.26.0](https://github.com/mll-lab/react-components/compare/v2.25.2...v2.26.0) (2021-05-20)
 
 
