@@ -9,25 +9,17 @@ export default {
 };
 
 export const Link: Story<TypographyProps> = (args) => (
-  <Typography.Link {...args}>
-    Test
-  </Typography.Link>
+  <Typography.Link {...args}>Test</Typography.Link>
 );
 
 export const Paragraph: Story<TypographyProps> = (args) => (
-  <Typography.Paragraph {...args}>
-    Test
-  </Typography.Paragraph>
+  <Typography.Paragraph {...args}>Test</Typography.Paragraph>
 );
 
 export const Text: Story<TypographyProps> = (args) => (
-  <Typography.Text {...args}>
-    Test
-  </Typography.Text>
+  <Typography.Text {...args}>Test</Typography.Text>
 );
 
 export const Title: Story<TypographyProps> = (args) => (
-  <Typography.Title {...args}>
-    Test
-  </Typography.Title>
+  <Typography.Title {...args}>Test</Typography.Title>
 );
