@@ -1,7 +1,7 @@
 {
   "name": "@mll-lab/react-components",
   "description": "Shared React components of MLL",
-  "version": "2.25.0",
+  "version": "2.25.1",
   "main": "cjs/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",

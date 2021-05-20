@@ -1,3 +1,10 @@
+## [2.25.1](https://github.com/mll-lab/react-components/compare/v2.25.0...v2.25.1) (2021-05-20)
+
+
+### Bug Fixes
+
+* Ensure types for cjs build are recognized ([48b0801](https://github.com/mll-lab/react-components/commit/48b0801bd54679b4239a3ae0b9e80fed13e9f16f))
+
 # [2.25.0](https://github.com/mll-lab/react-components/compare/v2.24.0...v2.25.0) (2021-05-18)
 
 
