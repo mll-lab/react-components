@@ -1,6 +1,7 @@
 .idea
 cjs
-dist
+esm
+types
 node_modules
 storybook-static
 *.log

@@ -3,7 +3,7 @@
   "compilerOptions": {
     "rootDir": "src",
     "declaration": true,
-    "declarationDir": "dist",
+    "declarationDir": "types",
     "lib": ["dom", "ES5", "ES2015"],
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -16,5 +16,5 @@
     ]
   },
   "include": ["src"],
-  "exclude": ["node_modules", "dist"]
+  "exclude": ["node_modules", "cjs", "esm", "types"]
 }
