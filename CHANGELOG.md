@@ -1,3 +1,10 @@
+## [2.25.2](https://github.com/mll-lab/react-components/compare/v2.25.1...v2.25.2) (2021-05-20)
+
+
+### Bug Fixes
+
+* Build types separately ([ab68819](https://github.com/mll-lab/react-components/commit/ab688192d218d4d1393fcfe64a07775d36532afd))
+
 ## [2.25.1](https://github.com/mll-lab/react-components/compare/v2.25.0...v2.25.1) (2021-05-20)
 
 
