@@ -1,13 +1,14 @@
 {
   "name": "@mll-lab/react-components",
+  "description": "Shared React components of MLL",
   "version": "2.25.0",
-  "main": "dist/index.common.js",
+  "main": "cjs/index.js",
   "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
+    "cjs",
     "dist"
   ],
-  "types": "dist/index.d.ts",
-  "description": "Shared React components of MLL",
   "scripts": {
     "build": "rollup --config",
     "test": "jest",
@@ -27,7 +28,10 @@
     "react",
     "components"
   ],
-  "author": "Benedikt Franke <benedikt@franke.tech>",
+  "author": {
+    "name": "Benedikt Franke",
+    "email": "benedikt@franke.tech"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mll-lab/react-components/issues"
@@ -39,10 +43,10 @@
     "react-dom": ">=16.8.0"
   },
   "dependencies": {
-    "@ant-design/icons": "^4.5.0",
-    "antd": "^4.13.0",
-    "date-fns": "^2.21.1",
-    "lodash": "^4.17.21"
+    "@ant-design/icons": "^4.6.2",
+    "antd": "^4.15.6",
+    "date-fns": " 2.21.3",
+    "lodash": " 4.17.21"
   },
   "devDependencies": {
     "@babel/core": "^7.13.1",
