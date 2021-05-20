@@ -8,6 +8,7 @@ export * from './Provider';
 // Individual components
 export * from './Alert';
 export * from './Avatar';
+export * from './Breadcrumb';
 export * from './Button';
 export * from './Card';
 export * from './Checkbox';
