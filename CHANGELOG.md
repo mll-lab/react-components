@@ -1,3 +1,10 @@
+# [2.26.0](https://github.com/mll-lab/react-components/compare/v2.25.2...v2.26.0) (2021-05-20)
+
+
+### Features
+
+* Add Typography component ([a4983a5](https://github.com/mll-lab/react-components/commit/a4983a50e1d85f4c56bbc8f2714aa3068df6ebc3))
+
 ## [2.25.2](https://github.com/mll-lab/react-components/compare/v2.25.1...v2.25.2) (2021-05-20)
 
 
