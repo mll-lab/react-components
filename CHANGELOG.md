@@ -1,3 +1,10 @@
+# [2.27.0](https://github.com/mll-lab/react-components/compare/v2.26.1...v2.27.0) (2021-05-26)
+
+
+### Features
+
+* Add Breadcrumb component ([9fc6cd6](https://github.com/mll-lab/react-components/commit/9fc6cd6afb30527a5ecd17b1c7792c78a277fdc6))
+
 ## [2.26.1](https://github.com/mll-lab/react-components/compare/v2.26.0...v2.26.1) (2021-05-20)
 
 
