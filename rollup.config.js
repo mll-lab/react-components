@@ -5,11 +5,13 @@ import typescript from '@rollup/plugin-typescript';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import styles from 'rollup-plugin-styles';
 
+
 // eslint-disable-next-line import/extensions
 import pkg from './package.json';
 
 export default {
   input: 'src/index.ts',
+  assetFileNames: "[name]-[hash][extname]",
   output: [
     {
       file: pkg.main,
@@ -21,6 +23,7 @@ export default {
       format: 'esm',
       sourcemap: true,
     },
+
   ],
 
   // this resolves to window in the browser, thus enabling caching in the antd code below
