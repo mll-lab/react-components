@@ -1,9 +1,10 @@
 import React from 'react';
 import DatePicker, { ReactDatePickerProps } from 'react-datepicker';
 import styled from 'styled-components';
+
 // eslint-disable-next-line @mll-lab/no-global-styles
 import 'react-datepicker/dist/react-datepicker.css';
-import {MLL_THEME} from "../theme";
+import { MLL_THEME } from '../theme';
 
 const StyledDatePickerContainer = styled.div`
   .react-datepicker-wrapper,
