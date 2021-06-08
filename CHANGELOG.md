@@ -1,3 +1,10 @@
+# [2.28.0](https://github.com/mll-lab/react-components/compare/v2.27.0...v2.28.0) (2021-06-08)
+
+
+### Features
+
+* Add Upload component ([d9016c0](https://github.com/mll-lab/react-components/commit/d9016c0296122943ac1880f045389d37a0f2746d))
+
 # [2.27.0](https://github.com/mll-lab/react-components/compare/v2.26.1...v2.27.0) (2021-05-26)
 
 
