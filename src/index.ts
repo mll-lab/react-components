@@ -35,3 +35,4 @@ export * from './Tabs';
 export * from './Tag';
 export * from './Tooltip';
 export * from './Typography';
+export * from './Upload';
