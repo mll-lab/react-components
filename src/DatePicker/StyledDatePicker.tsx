@@ -49,10 +49,10 @@ export function StyledDatePicker(props: ReactDatePickerProps) {
   return (
     <StyledDatePickerContainer>
       <DatePicker
-        {...props}
         calendarClassName="gray-stripes"
         className="ant-input"
         autoComplete="off"
+        {...props}
       />
     </StyledDatePickerContainer>
   );
