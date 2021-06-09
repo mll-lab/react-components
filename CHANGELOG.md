@@ -1,3 +1,15 @@
+# [2.29.0](https://github.com/mll-lab/react-components/compare/v2.28.0...v2.29.0) (2021-06-09)
+
+
+### Bug Fixes
+
+* Spread props last ([ce341c7](https://github.com/mll-lab/react-components/commit/ce341c71c1c314e756fd78476f7ffc893a976b84))
+
+
+### Features
+
+* Add DatePicker component ([6299fd9](https://github.com/mll-lab/react-components/commit/6299fd95a49e486391957ec6d651223eb81b9965))
+
 # [2.28.0](https://github.com/mll-lab/react-components/compare/v2.27.0...v2.28.0) (2021-06-08)
 
 
