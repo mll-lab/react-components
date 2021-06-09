@@ -21,7 +21,7 @@ setDefaultLocale('de');
 
 export type DatePickerProps = Omit<ReactDatePickerProps, 'onChangeRaw'>;
 
-export default function DatePicker(props: DatePickerProps) {
+export function DatePicker(props: DatePickerProps) {
   return (
     <StyledDatePicker
       {...props}
@@ -48,8 +48,8 @@ export default function DatePicker(props: DatePickerProps) {
           return;
         }
 
+        // Only propagate the change if the user actually entered a valid date
         const inputDate = parseGermanDateFlexible(rawInput);
-        // Only propagate the change to redux if the user actually entered a valid date
         if (inputDate) {
           props.onChange(inputDate, event);
         }

@@ -2,7 +2,7 @@ import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
 
-import DatePicker from './index';
+import { DatePicker } from './index';
 
 describe('<DatePicker />', () => {
   it('should open the popup', () => {
