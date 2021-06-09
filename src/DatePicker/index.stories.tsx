@@ -1,7 +1,7 @@
 import { Story } from '@storybook/react';
 import React from 'react';
 
-import DatePicker, { DatePickerProps } from './index';
+import { DatePicker, DatePickerProps } from './index';
 
 export default {
   title: 'DatePicker',
