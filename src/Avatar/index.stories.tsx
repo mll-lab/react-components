@@ -22,7 +22,7 @@ export const Default: Story = (args) => (
 );
 
 export const ColoredUserAvatar: Story<AvatarProps> = (args) => (
-  <UserAvatar toolTipLabel={'Test User'} initials={'TU'} {...args}/>
+  <UserAvatar toolTipLabel={'Test User'} initials={'TU'} {...args} />
 );
 
 ColoredUserAvatar.argTypes = {
