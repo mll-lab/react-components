@@ -1,3 +1,10 @@
+# [2.30.0](https://github.com/mll-lab/react-components/compare/v2.29.0...v2.30.0) (2021-06-10)
+
+
+### Features
+
+* Add Timeline component ([7ffdd3f](https://github.com/mll-lab/react-components/commit/7ffdd3f0bdd86e8347613edd207989f7e8e6d825))
+
 # [2.29.0](https://github.com/mll-lab/react-components/compare/v2.28.0...v2.29.0) (2021-06-09)
 
 
