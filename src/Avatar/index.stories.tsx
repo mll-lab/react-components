@@ -22,11 +22,10 @@ export const Default: Story = (args) => (
 );
 
 export const ColoredUserAvatar: Story<AvatarProps> = (args) => (
-  <UserAvatar username={'Test'} {...args}>
-    Test
-  </UserAvatar>
+  <UserAvatar toolTipLabel={'Test User'} initials={'TU'} {...args}/>
 );
 
 ColoredUserAvatar.argTypes = {
-  username: { control: { type: 'text' } },
+  initials: { control: { type: 'text' } },
+  toolTipLabel: { control: { type: 'text' } },
 };
