@@ -34,6 +34,7 @@ export * from './Steps';
 export * from './Table';
 export * from './Tabs';
 export * from './Tag';
+export * from './Timeline';
 export * from './Tooltip';
 export * from './Typography';
 export * from './Upload';
