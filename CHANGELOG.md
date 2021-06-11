@@ -1,3 +1,10 @@
+# [2.31.0](https://github.com/mll-lab/react-components/compare/v2.30.0...v2.31.0) (2021-06-11)
+
+
+### Features
+
+* Add Slider component ([56b4f86](https://github.com/mll-lab/react-components/commit/56b4f8672da324a4d166f1a197bebfdbd89993f0))
+
 # [2.30.0](https://github.com/mll-lab/react-components/compare/v2.29.0...v2.30.0) (2021-06-10)
 
 
