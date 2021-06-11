@@ -28,6 +28,7 @@ export * from './Progress';
 export * from './Radio';
 export * from './Select';
 export * from './Skeleton';
+export * from './Slider';
 export * from './Space';
 export * from './Spinner';
 export * from './Steps';
