@@ -23,6 +23,7 @@ export * from './Input';
 export * from './List';
 export * from './Menu';
 export * from './Modal';
+export * from './Plate';
 export * from './Popconfirm';
 export * from './Progress';
 export * from './Radio';
