@@ -1,3 +1,10 @@
+# [2.32.0](https://github.com/mll-lab/react-components/compare/v2.31.0...v2.32.0) (2021-06-16)
+
+
+### Features
+
+* Add Plate component ([3a61a7b](https://github.com/mll-lab/react-components/commit/3a61a7b03b636cc6594fc9e83b9e5389ecc353a8))
+
 # [2.31.0](https://github.com/mll-lab/react-components/compare/v2.30.0...v2.31.0) (2021-06-11)
 
 
