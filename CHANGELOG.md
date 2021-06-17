@@ -1,3 +1,10 @@
+# [2.33.0](https://github.com/mll-lab/react-components/compare/v2.32.0...v2.33.0) (2021-06-17)
+
+
+### Features
+
+* Add coordinate functions to Plate ([9555c3b](https://github.com/mll-lab/react-components/commit/9555c3ba3d4304136bdd04a300c51fd5b975f179))
+
 # [2.32.0](https://github.com/mll-lab/react-components/compare/v2.31.0...v2.32.0) (2021-06-16)
 
 
