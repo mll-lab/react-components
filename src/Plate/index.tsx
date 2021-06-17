@@ -76,8 +76,8 @@ export function columnForPosition(
 }
 
 export function coordinatesForPosition(
-    position: number,
-    flowDirection: FlowDirection,
+  position: number,
+  flowDirection: FlowDirection,
 ): Coordinates {
   return {
     row: rowForPosition(position, flowDirection),
