@@ -45,27 +45,60 @@ const ROWS: Array<Coordinates['row']> = [
   'H',
 ];
 
-function rowForPosition(position: number): Coordinates['row'] {
-  return ROWS[Math.floor(position / COLUMNS.length)];
+type FlowDirection = 'row' | 'column';
+
+export function rowForPosition(
+  position: number,
+  flowDirection: FlowDirection,
+): Coordinates['row'] {
+  switch (flowDirection) {
+    case 'row':
+      return ROWS[Math.floor((position - 1) / COLUMNS.length)];
+    case 'column':
+      return ROWS[(position - 1) % ROWS.length];
+    default:
+      throw new Error(`Unknown flow direction: ${flowDirection}`);
+  }
 }
 
-function columnForPosition(position: number): Coordinates['column'] {
-  return COLUMNS[(position - 1) % COLUMNS.length];
+export function columnForPosition(
+  position: number,
+  flowDirection: FlowDirection,
+): Coordinates['column'] {
+  switch (flowDirection) {
+    case 'row':
+      return COLUMNS[(position - 1) % COLUMNS.length];
+    case 'column':
+      return COLUMNS[Math.floor((position - 1) / ROWS.length)];
+    default:
+      throw new Error(`Unknown flow direction: ${flowDirection}`);
+  }
 }
 
-function wellForPosition(
+export function coordinatesForPosition(
+    position: number,
+    flowDirection: FlowDirection,
+): Coordinates {
+  return {
+    row: rowForPosition(position, flowDirection),
+    column: columnForPosition(position, flowDirection),
+  };
+}
+
+export function wellAtPosition(
   position: number,
   data: Array<PlateWell>,
+  flowDirection: FlowDirection,
 ): PlateWell | undefined {
   return data.find(
     (well) =>
-      well.coordinates.row === rowForPosition(position) &&
-      well.coordinates.column === columnForPosition(position),
+      well.coordinates.row === rowForPosition(position, flowDirection) &&
+      well.coordinates.column === columnForPosition(position, flowDirection),
   );
 }
 
 const LINE_STYLE = {
-  padding: '8px 4px',
+  padding: 4,
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
@@ -82,6 +115,8 @@ function assertUniquePositions(data: Array<PlateWell>): void {
     );
   }
 }
+
+const PLATE_FLOW: FlowDirection = 'row';
 
 export function Plate(props: PlateProps) {
   assertUniquePositions(props.data);
@@ -104,13 +139,14 @@ export function Plate(props: PlateProps) {
 
       {WELLS.map((position) => (
         <>
-          {columnForPosition(position) === 1 && (
+          {columnForPosition(position, PLATE_FLOW) === 1 && (
             <RowLabel position={position} />
           )}
+
           <Well
             key={position}
             position={position}
-            wellData={wellForPosition(position, props.data)}
+            well={wellAtPosition(position, props.data, PLATE_FLOW)}
           />
         </>
       ))}
@@ -118,20 +154,23 @@ export function Plate(props: PlateProps) {
   );
 }
 
-function Well(props: { position: number; wellData?: PlateWell }) {
+function Well(props: { position: number; well?: PlateWell }) {
   return (
     <span
       style={{
-        backgroundColor: props.wellData?.selected
+        backgroundColor: props.well?.selected
           ? MLL_THEME.warningColor
           : MLL_THEME.tableBorderColor,
         border: '1px solid lightgrey',
+        borderRadius: 2,
+        boxShadow: '0 0.5px 1.5px lightgrey',
         ...LINE_STYLE,
       }}
     >
-      {props.wellData?.content ?? (
+      {props.well?.content ?? (
         <small style={{ color: MLL_THEME.menuGroupBackgroundColor }}>
-          {rowForPosition(props.position) + columnForPosition(props.position)}
+          {rowForPosition(props.position, PLATE_FLOW) +
+            columnForPosition(props.position, PLATE_FLOW)}
         </small>
       )}
     </span>
@@ -139,5 +178,9 @@ function Well(props: { position: number; wellData?: PlateWell }) {
 }
 
 function RowLabel(props: { position: number }) {
-  return <span style={LINE_STYLE}>{rowForPosition(props.position)}</span>;
+  return (
+    <span style={LINE_STYLE}>
+      <strong>{rowForPosition(props.position, PLATE_FLOW)}</strong>
+    </span>
+  );
 }
