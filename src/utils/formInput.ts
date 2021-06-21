@@ -19,4 +19,3 @@ export function objectToFormInputOptions<
 export function toFormInputOption<T>(value: T): FormInputOption<T, T> {
   return { label: value, value };
 }
-

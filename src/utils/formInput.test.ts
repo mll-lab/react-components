@@ -1,7 +1,4 @@
-import {
-  objectToFormInputOptions,
-  toFormInputOption,
-} from './formInput';
+import { objectToFormInputOptions, toFormInputOption } from './formInput';
 
 describe('objectToFormInputOptions', () => {
   it('converts an object into from input options', () => {
