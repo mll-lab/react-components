@@ -1,3 +1,10 @@
+# [2.34.0](https://github.com/mll-lab/react-components/compare/v2.33.0...v2.34.0) (2021-06-21)
+
+
+### Features
+
+* add "formInputOption" as utility function ([78283e1](https://github.com/mll-lab/react-components/commit/78283e15a7b64e9a36190a845c7ebec562c21b89))
+
 # [2.33.0](https://github.com/mll-lab/react-components/compare/v2.32.0...v2.33.0) (2021-06-17)
 
 
