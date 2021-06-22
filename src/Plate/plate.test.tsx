@@ -1,102 +1,105 @@
-import { columnForPosition, rowForPosition } from './index';
+import {
+  columnForPosition,
+  convertPositionFromColumnToRowFlow,
+  rowForPosition,
+  convertPositionFromRowToColumnFlow,
+} from './index';
 
-const rowFlowData = [
+const data = [
   {
-    position: 1,
+    rowFlowPosition: 1,
+    columnFlowPosition: 1,
     row: 'A',
     column: 1,
   },
   {
-    position: 2,
+    rowFlowPosition: 2,
+    columnFlowPosition: 9,
     row: 'A',
     column: 2,
   },
   {
-    position: 3,
+    rowFlowPosition: 3,
+    columnFlowPosition: 17,
     row: 'A',
     column: 3,
   },
   {
-    position: 12,
+    rowFlowPosition: 12,
+    columnFlowPosition: 89,
     row: 'A',
     column: 12,
   },
   {
-    position: 13,
+    rowFlowPosition: 13,
+    columnFlowPosition: 2,
     row: 'B',
     column: 1,
   },
   {
-    position: 26,
+    rowFlowPosition: 26,
+    columnFlowPosition: 11,
     row: 'C',
     column: 2,
   },
   {
-    position: 95,
+    rowFlowPosition: 42,
+    columnFlowPosition: 44,
+    row: 'D',
+    column: 6,
+  },
+  {
+    rowFlowPosition: 95,
+    columnFlowPosition: 88,
     row: 'H',
     column: 11,
   },
   {
-    position: 96,
+    rowFlowPosition: 96,
+    columnFlowPosition: 96,
     row: 'H',
     column: 12,
   },
-];
-
-describe.each(rowFlowData)(`The position`, (dataSet) => {
-  it(` ${dataSet.position} with row flow should be converted to row ${dataSet.row}`, () => {
-    expect(rowForPosition(dataSet.position, 'row')).toBe(dataSet.row);
-  });
-
-  it(` ${dataSet.position} with row flow should be converted to column ${dataSet.column}`, () => {
-    expect(columnForPosition(dataSet.position, 'row')).toBe(dataSet.column);
-  });
-});
-
-const columnFlowData = [
   {
-    position: 1,
-    row: 'A',
-    column: 1,
-  },
-  {
-    position: 2,
-    row: 'B',
-    column: 1,
-  },
-  {
-    position: 3,
-    row: 'C',
-    column: 1,
-  },
-  {
-    position: 13,
-    row: 'E',
-    column: 2,
-  },
-  {
-    position: 26,
-    row: 'B',
-    column: 4,
-  },
-  {
-    position: 95,
+    rowFlowPosition: 84,
+    columnFlowPosition: 95,
     row: 'G',
     column: 12,
   },
-  {
-    position: 96,
-    row: 'H',
-    column: 12,
-  },
 ];
 
-describe.each(columnFlowData)(`The position`, (dataSet) => {
-  it(` ${dataSet.position} with column flow should be converted to row ${dataSet.row}`, () => {
-    expect(rowForPosition(dataSet.position, 'column')).toBe(dataSet.row);
+describe.each(data)(`rowForPosition`, (dataSet) => {
+  it(`provides the row for a position depending on the flow`, () => {
+    expect(rowForPosition(dataSet.rowFlowPosition, 'row')).toBe(dataSet.row);
+    expect(rowForPosition(dataSet.columnFlowPosition, 'column')).toBe(
+      dataSet.row,
+    );
   });
+});
 
-  it(` ${dataSet.position} with column flow should be converted to column ${dataSet.column}`, () => {
-    expect(columnForPosition(dataSet.position, 'column')).toBe(dataSet.column);
+describe.each(data)(`columnForPosition`, (dataSet) => {
+  it(`provides the column for a position depending on the flow`, () => {
+    expect(columnForPosition(dataSet.rowFlowPosition, 'row')).toBe(
+      dataSet.column,
+    );
+    expect(columnForPosition(dataSet.columnFlowPosition, 'column')).toBe(
+      dataSet.column,
+    );
+  });
+});
+
+describe.each(data)(`convertPositionFromColumnToRowFlow`, (dataSet) => {
+  it(`converts ${dataSet.columnFlowPosition} to ${dataSet.rowFlowPosition}`, () => {
+    expect(convertPositionFromColumnToRowFlow(dataSet.columnFlowPosition)).toBe(
+      dataSet.rowFlowPosition,
+    );
+  });
+});
+
+describe.each(data)(`convertPositionFromRowToColumnFlow`, (dataSet) => {
+  it(`converts ${dataSet.rowFlowPosition} to ${dataSet.columnFlowPosition}`, () => {
+    expect(convertPositionFromRowToColumnFlow(dataSet.rowFlowPosition)).toBe(
+      dataSet.columnFlowPosition,
+    );
   });
 });
