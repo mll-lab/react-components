@@ -1,3 +1,10 @@
+# [2.35.0](https://github.com/mll-lab/react-components/compare/v2.34.0...v2.35.0) (2021-06-22)
+
+
+### Features
+
+* add conversion of position between flows for Plate component ([d6aac6d](https://github.com/mll-lab/react-components/commit/d6aac6d0274b84eb7bce8bd9e1108897ebe29a11))
+
 # [2.34.0](https://github.com/mll-lab/react-components/compare/v2.33.0...v2.34.0) (2021-06-21)
 
 
