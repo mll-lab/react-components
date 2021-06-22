@@ -17,7 +17,11 @@ export const Default: Story<Partial<PlateProps>> = (args) => (
       },
       {
         coordinates: { row: 'A', column: 7 },
-        content: <i>Is also renders a ReactNode</i>,
+        content: <i>It renders any ReactNode</i>,
+      },
+      {
+        coordinates: { row: 'B', column: 3 },
+        content: 'Some text',
       },
     ]}
     {...args}

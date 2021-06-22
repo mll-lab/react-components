@@ -85,6 +85,23 @@ export function coordinatesForPosition(
   };
 }
 
+export function positionForCoordinates(
+  coordinates: Coordinates,
+  flowDirection: FlowDirection,
+): number {
+  const rowIndex = ROWS.indexOf(coordinates.row);
+  const columnIndex = COLUMNS.indexOf(coordinates.column);
+
+  switch (flowDirection) {
+    case 'row':
+      return rowIndex * COLUMNS.length + columnIndex + 1;
+    case 'column':
+      return columnIndex * ROWS.length + rowIndex + 1;
+    default:
+      throw new Error(`Unknown flow direction: ${flowDirection}`);
+  }
+}
+
 export function wellAtPosition(
   position: number,
   data: Array<PlateWell>,
@@ -95,6 +112,18 @@ export function wellAtPosition(
       well.coordinates.row === rowForPosition(position, flowDirection) &&
       well.coordinates.column === columnForPosition(position, flowDirection),
   );
+}
+
+export function convertPositionFromColumnToRowFlow(position: number): number {
+  const coordinates = coordinatesForPosition(position, 'column');
+
+  return positionForCoordinates(coordinates, 'row');
+}
+
+export function convertPositionFromRowToColumnFlow(position: number): number {
+  const coordinates = coordinatesForPosition(position, 'row');
+
+  return positionForCoordinates(coordinates, 'column');
 }
 
 const LINE_STYLE = {
