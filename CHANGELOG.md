@@ -1,3 +1,10 @@
+# [2.36.0](https://github.com/mll-lab/react-components/compare/v2.35.0...v2.36.0) (2021-06-29)
+
+
+### Features
+
+* export wells constant from Plate component ([bbf1e37](https://github.com/mll-lab/react-components/commit/bbf1e37fa2f05ae4a2b378285e3cde94b10d9998))
+
 # [2.35.0](https://github.com/mll-lab/react-components/compare/v2.34.0...v2.35.0) (2021-06-22)
 
 
