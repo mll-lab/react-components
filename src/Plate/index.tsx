@@ -19,7 +19,7 @@ export type PlateProps = {
 };
 
 const TUBE_COUNT = 96;
-const WELLS = range(1, TUBE_COUNT + 1);
+export const WELLS = range(1, TUBE_COUNT + 1);
 const COLUMNS: Array<Coordinates['column']> = [
   1,
   2,
