@@ -20,7 +20,7 @@ export type PlateProps = {
 
 const TUBE_COUNT = 96;
 export const WELLS = range(1, TUBE_COUNT + 1);
-const COLUMNS: Array<Coordinates['column']> = [
+export const COORDINATES_COLUMNS: Array<Coordinates['column']> = [
   1,
   2,
   3,
@@ -34,7 +34,7 @@ const COLUMNS: Array<Coordinates['column']> = [
   11,
   12,
 ];
-const ROWS: Array<Coordinates['row']> = [
+export const COORDINATES_ROWS: Array<Coordinates['row']> = [
   'A',
   'B',
   'C',
@@ -53,9 +53,9 @@ export function rowForPosition(
 ): Coordinates['row'] {
   switch (flowDirection) {
     case 'row':
-      return ROWS[Math.floor((position - 1) / COLUMNS.length)];
+      return COORDINATES_ROWS[Math.floor((position - 1) / COORDINATES_COLUMNS.length)];
     case 'column':
-      return ROWS[(position - 1) % ROWS.length];
+      return COORDINATES_ROWS[(position - 1) % COORDINATES_ROWS.length];
     default:
       throw new Error(`Unknown flow direction: ${flowDirection}`);
   }
@@ -67,9 +67,9 @@ export function columnForPosition(
 ): Coordinates['column'] {
   switch (flowDirection) {
     case 'row':
-      return COLUMNS[(position - 1) % COLUMNS.length];
+      return COORDINATES_COLUMNS[(position - 1) % COORDINATES_COLUMNS.length];
     case 'column':
-      return COLUMNS[Math.floor((position - 1) / ROWS.length)];
+      return COORDINATES_COLUMNS[Math.floor((position - 1) / COORDINATES_ROWS.length)];
     default:
       throw new Error(`Unknown flow direction: ${flowDirection}`);
   }
@@ -89,14 +89,14 @@ export function positionForCoordinates(
   coordinates: Coordinates,
   flowDirection: FlowDirection,
 ): number {
-  const rowIndex = ROWS.indexOf(coordinates.row);
-  const columnIndex = COLUMNS.indexOf(coordinates.column);
+  const rowIndex = COORDINATES_ROWS.indexOf(coordinates.row);
+  const columnIndex = COORDINATES_COLUMNS.indexOf(coordinates.column);
 
   switch (flowDirection) {
     case 'row':
-      return rowIndex * COLUMNS.length + columnIndex + 1;
+      return rowIndex * COORDINATES_COLUMNS.length + columnIndex + 1;
     case 'column':
-      return columnIndex * ROWS.length + rowIndex + 1;
+      return columnIndex * COORDINATES_ROWS.length + rowIndex + 1;
     default:
       throw new Error(`Unknown flow direction: ${flowDirection}`);
   }
@@ -154,13 +154,13 @@ export function Plate(props: PlateProps) {
     <div
       style={{
         display: 'grid',
-        gridTemplateColumns: `1fr ${'4fr '.repeat(COLUMNS.length)}`,
+        gridTemplateColumns: `1fr ${'4fr '.repeat(COORDINATES_COLUMNS.length)}`,
         gridGap: '3px',
       }}
     >
       <span style={LINE_STYLE} />
 
-      {COLUMNS.map((column) => (
+      {COORDINATES_COLUMNS.map((column) => (
         <span style={LINE_STYLE} key={column}>
           <strong>{column}</strong>
         </span>
