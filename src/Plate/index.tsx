@@ -8,6 +8,29 @@ export type Coordinates = {
   column: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 };
 
+export function ensureCoordinatesInRange<
+  T extends {
+    row: string;
+    column: number;
+  }
+>(coordinates: T): T & Coordinates {
+  if (!COORDINATES_ROWS.includes(coordinates.row as Coordinates['row'])) {
+    throw new Error(
+      `The given coordinates row ${coordinates.row} is not in range A-H.`,
+    );
+  }
+
+  if (
+    !COORDINATES_COLUMNS.includes(coordinates.column as Coordinates['column'])
+  ) {
+    throw new Error(
+      `The given coordinates column ${coordinates.column} is not in range 1-12.`,
+    );
+  }
+
+  return coordinates as T & Coordinates;
+}
+
 export type PlateWell = {
   coordinates: Coordinates;
   content?: ReactNode;

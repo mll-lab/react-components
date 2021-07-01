@@ -3,6 +3,8 @@ import {
   convertPositionFromColumnToRowFlow,
   rowForPosition,
   convertPositionFromRowToColumnFlow,
+  ensureCoordinatesInRange,
+  Coordinates,
 } from './index';
 
 const data = [
@@ -101,5 +103,20 @@ describe.each(data)(`convertPositionFromRowToColumnFlow`, (dataSet) => {
     expect(convertPositionFromRowToColumnFlow(dataSet.rowFlowPosition)).toBe(
       dataSet.columnFlowPosition,
     );
+  });
+});
+
+describe('ensureCoordinatesInRange', () => {
+  it('throws on invalid rows', () => {
+    expect(() => ensureCoordinatesInRange({ row: 'X', column: 2 })).toThrow();
+  });
+
+  it('throws on invalid columns', () => {
+    expect(() => ensureCoordinatesInRange({ row: 'B', column: 23 })).toThrow();
+  });
+
+  it('works with valid coordinates', () => {
+    const coordinates: Coordinates = { row: 'A', column: 3 };
+    expect(ensureCoordinatesInRange(coordinates)).toBe(coordinates);
   });
 });
