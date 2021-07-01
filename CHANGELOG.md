@@ -1,3 +1,11 @@
+# [2.37.0](https://github.com/mll-lab/react-components/compare/v2.36.0...v2.37.0) (2021-07-01)
+
+
+### Features
+
+* Add function ensureCoordinatesInRange ([ad253ae](https://github.com/mll-lab/react-components/commit/ad253aee5d80ac88bbd249cb61f618336be5cb60))
+* Export COORDINATES_COLUMNS and COORDINATES_ROWS from Plate ([7c884e4](https://github.com/mll-lab/react-components/commit/7c884e43481c66d4cb1b3bde1d742ce9a16b4988))
+
 # [2.36.0](https://github.com/mll-lab/react-components/compare/v2.35.0...v2.36.0) (2021-06-29)
 
 
