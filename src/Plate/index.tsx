@@ -8,8 +8,11 @@ export type Coordinates = {
   column: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 };
 
-export function areEqualCoordinates<A extends Coordinates, B extends Coordinates>(a: A, b: B): boolean {
-  return a.row === b.row && a.column === b.column
+export function areEqualCoordinates<
+  A extends Coordinates,
+  B extends Coordinates
+>(a: A, b: B): boolean {
+  return a.row === b.row && a.column === b.column;
 }
 
 export function ensureCoordinatesInRange<
