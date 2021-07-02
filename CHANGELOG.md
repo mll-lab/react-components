@@ -1,3 +1,10 @@
+# [2.38.0](https://github.com/mll-lab/react-components/compare/v2.37.0...v2.38.0) (2021-07-02)
+
+
+### Features
+
+* Add util areEqualCoordinates ([14b5786](https://github.com/mll-lab/react-components/commit/14b578627aef4d6bd3e3480181b6cbd1c81164f8))
+
 # [2.37.0](https://github.com/mll-lab/react-components/compare/v2.36.0...v2.37.0) (2021-07-01)
 
 
