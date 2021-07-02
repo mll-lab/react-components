@@ -5,6 +5,7 @@ import {
   convertPositionFromRowToColumnFlow,
   ensureCoordinatesInRange,
   Coordinates,
+  areEqualCoordinates,
 } from './index';
 
 const data = [
@@ -118,5 +119,20 @@ describe('ensureCoordinatesInRange', () => {
   it('works with valid coordinates', () => {
     const coordinates: Coordinates = { row: 'A', column: 3 };
     expect(ensureCoordinatesInRange(coordinates)).toBe(coordinates);
+  });
+});
+
+describe('areEqualCoordinates', () => {
+  it('match', () => {
+    const a: Coordinates = { row: 'A', column: 2 };
+    expect(areEqualCoordinates(a, a)).toBe(true);
+    expect(areEqualCoordinates(a, { ...a, foo: 'bar' })).toBe(true);
+  });
+
+  it('no match', () => {
+    const a: Coordinates = { row: 'A', column: 2 };
+    const b: Coordinates = { row: 'B', column: 3 };
+    expect(areEqualCoordinates(a, b)).toBe(false);
+    expect(areEqualCoordinates(a, { ...b, foo: 'bar' })).toBe(false);
   });
 });
