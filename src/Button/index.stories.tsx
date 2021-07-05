@@ -20,6 +20,7 @@ export default {
   component: Button,
   argTypes: {
     color: { control: 'color' },
+    loading: { control: 'boolean' },
     onClick: { action: 'clicked' },
     size: {
       control: {
@@ -34,7 +35,7 @@ export const Default: Story<ButtonProps> = (args) => (
   <Button {...args}>Default</Button>
 );
 export const Create: Story<ButtonProps> = (args) => <CreateButton {...args} />;
-export const Save: Story<ButtonProps> = (args) => <SaveButton {...args} />;
+export const Save: Story<ButtonProps & {loading?: boolean;}> = (args) => <SaveButton {...args} />;
 export const SaveWithHotkey: Story<SaveButtonByNumpadEnterProps> = (args) => (
   <div>
     <div style={{ marginBottom: '1em' }}>
