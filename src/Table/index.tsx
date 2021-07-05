@@ -1,5 +1,6 @@
 import { Table as AntdTable, TableProps as AntdTableProps } from 'antd';
 import { FilterDropdownProps } from 'antd/es/table/interface';
+import styled from 'styled-components'
 import React from 'react';
 
 import { PREFIX_CLS } from '../Provider';
@@ -27,7 +28,21 @@ export function Table<
     };
   });
 
-  return <AntdTable {...props} columns={columns} />;
+  return <TableWithPointer {...props} columns={columns} />;
 }
+
+export const TableWithPointer = styled(AntdTable)`
+  ${props => {
+  const onRowImplementation = props.onRow && props.onRow({})
+  if (onRowImplementation?.onClick) {
+    return `
+        tbody tr:hover {
+          cursor: pointer;
+        }
+        `
+  }
+  return ''
+}}
+`
 
 export type TableProps<T> = AntdTableProps<T>;
