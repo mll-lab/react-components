@@ -1,3 +1,10 @@
+# [2.39.0](https://github.com/mll-lab/react-components/compare/v2.38.0...v2.39.0) (2021-07-06)
+
+
+### Features
+
+* add array utils ([ac03d95](https://github.com/mll-lab/react-components/commit/ac03d9508b1e118c0b50fcc26a1106a064b07562))
+
 # [2.38.0](https://github.com/mll-lab/react-components/compare/v2.37.0...v2.38.0) (2021-07-02)
 
 
