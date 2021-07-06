@@ -1,3 +1,10 @@
+## [2.39.1](https://github.com/mll-lab/react-components/compare/v2.39.0...v2.39.1) (2021-07-06)
+
+
+### Bug Fixes
+
+* Add export of array utils ([f423834](https://github.com/mll-lab/react-components/commit/f423834d64eb6f53027e78ff7ca8ce8cb2b5da9e))
+
 # [2.39.0](https://github.com/mll-lab/react-components/compare/v2.38.0...v2.39.0) (2021-07-06)
 
 
