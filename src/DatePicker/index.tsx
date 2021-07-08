@@ -1,3 +1,9 @@
+import {
+  GERMAN_DATE_FORMAT,
+  GERMAN_DATE_TIME_FORMAT,
+  parseGermanDateFlexible,
+  MINIMAL_VALID_DATE,
+} from '@mll-lab/js-utils';
 import { addYears } from 'date-fns';
 import localeDe from 'date-fns/locale/de';
 import React from 'react';
@@ -6,13 +12,6 @@ import {
   registerLocale,
   setDefaultLocale,
 } from 'react-datepicker';
-
-import {
-  GERMAN_DATE_FORMAT,
-  GERMAN_DATE_TIME_FORMAT,
-  parseGermanDateFlexible,
-  MINIMAL_VALID_DATE,
-} from '../utils/date';
 
 import { StyledDatePicker } from './StyledDatePicker';
 

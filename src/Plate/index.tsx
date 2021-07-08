@@ -1,5 +1,5 @@
 import { range, uniq } from 'lodash';
-import React, { ReactNode } from 'react';
+import React, { Fragment, ReactNode } from 'react';
 
 import { MLL_THEME } from '../theme';
 
@@ -201,17 +201,16 @@ export function Plate(props: PlateProps) {
       ))}
 
       {WELLS.map((position) => (
-        <>
+        <Fragment key={position}>
           {columnForPosition(position, PLATE_FLOW) === 1 && (
             <RowLabel position={position} />
           )}
 
           <Well
-            key={position}
             position={position}
             well={wellAtPosition(position, props.data, PLATE_FLOW)}
           />
-        </>
+        </Fragment>
       ))}
     </div>
   );
