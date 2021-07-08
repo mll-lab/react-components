@@ -44,4 +44,3 @@ export * from './Upload';
 
 // Utility functions
 export * from './utils/formInput';
-export * from './utils/array';

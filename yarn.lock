@@ -1919,6 +1919,14 @@
     eslint-plugin-unused-imports "^1.1.0"
     typescript "^4.2.3"
 
+"@mll-lab/js-utils@^1.3.2":
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/@mll-lab/js-utils/-/js-utils-1.3.2.tgz#1482d4bd2e99bdfd81d5d78aa53f5550768d2201"
+  integrity sha512-PkguL08icI/N2ZSMtwV8cdwXrBvux1dnkIGIwpsJ3gzyJbtactlGdCXzh6nrUOaXAZtKApsq2A316I5Qkm59uA==
+  dependencies:
+    date-fns "2.0.0-alpha.26"
+    lodash "4.17.15"
+
 "@mll-lab/prettier-config@^1.0.0":
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@mll-lab/prettier-config/-/prettier-config-1.0.0.tgz#e46490204f9ca1a2131d1790e246e7ca74d23c7d"
@@ -6090,6 +6098,11 @@ data-urls@^2.0.0:
     whatwg-mimetype "^2.3.0"
     whatwg-url "^8.0.0"
 
+date-fns@2.0.0-alpha.26:
+  version "2.0.0-alpha.26"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.0.0-alpha.26.tgz#e46afd73a2b50e0359446309ee7cb631d7467227"
+  integrity sha512-UAptCZ53MVimUFR8MXTyHED51AVGIqFlBfWgiS/KIoSYiJGrWScx4PYQVNSWfK2Js+43OlokCW1ttnexBTJ5Bg==
+
 date-fns@^2.0.1:
   version "2.22.1"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.22.1.tgz#1e5af959831ebb1d82992bf67b765052d8f0efc4"
@@ -10119,6 +10132,11 @@ lodash.uniqby@^4.7.0:
   version "4.7.0"
   resolved "https://registry.yarnpkg.com/lodash.uniqby/-/lodash.uniqby-4.7.0.tgz#d99c07a669e9e6d24e1362dfe266c67616af1302"
   integrity sha1-2ZwHpmnp5tJOE2Lf4mbGdhavEwI=
+
+lodash@4.17.15:
+  version "4.17.15"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.15.tgz#b447f6670a0455bbfeedd11392eff330ea097548"
+  integrity sha512-8xOcRHvCjnocdS5cpwXQXVzmmh5e5+saE2QGoeQmbKmRS6J3VQppPOIt0MnmE+4xlZoumy0GPG0D0MVIQbNA1A==
 
 lodash@4.x, lodash@^4.17.11, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.17.4, lodash@^4.7.0:
   version "4.17.21"
