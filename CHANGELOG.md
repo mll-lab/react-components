@@ -1,3 +1,10 @@
+# [2.40.0](https://github.com/mll-lab/react-components/compare/v2.39.1...v2.40.0) (2021-07-08)
+
+
+### Features
+
+* Add Badge component ([7f43943](https://github.com/mll-lab/react-components/commit/7f43943bbdf76f354022911159e1c98253c75ad0))
+
 ## [2.39.1](https://github.com/mll-lab/react-components/compare/v2.39.0...v2.39.1) (2021-07-06)
 
 
