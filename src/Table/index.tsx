@@ -5,8 +5,8 @@ import React from 'react';
 import { PREFIX_CLS } from '../Provider';
 
 export function Table<
-  T extends Record<string, unknown> = Record<string, unknown>
->(props: TableProps<T>) {
+  RecordType extends Record<string, unknown> = Record<string, unknown>
+>(props: TableProps<RecordType>) {
   const columns = props.columns?.map((column) => {
     if (!column.filterDropdown) {
       return column;
@@ -30,4 +30,4 @@ export function Table<
   return <AntdTable {...props} columns={columns} />;
 }
 
-export type TableProps<T> = AntdTableProps<T>;
+export type TableProps<RecordType> = AntdTableProps<RecordType>;
