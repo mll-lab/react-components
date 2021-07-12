@@ -41,6 +41,3 @@ export * from './Timeline';
 export * from './Tooltip';
 export * from './Typography';
 export * from './Upload';
-
-// Utility functions
-export * from './utils/formInput';
