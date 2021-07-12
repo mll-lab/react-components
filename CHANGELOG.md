@@ -1,3 +1,15 @@
+# [3.0.0](https://github.com/mll-lab/react-components/compare/v2.40.0...v3.0.0) (2021-07-12)
+
+
+### Code Refactoring
+
+* Extract array and date utils to @mll-lab/js-utils ([bdfb09a](https://github.com/mll-lab/react-components/commit/bdfb09a58f1fe91820f91d65cf3f325fb6be442a))
+
+
+### BREAKING CHANGES
+
+* Remove array and date utils
+
 # [2.40.0](https://github.com/mll-lab/react-components/compare/v2.39.1...v2.40.0) (2021-07-08)
 
 
