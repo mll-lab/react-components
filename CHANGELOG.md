@@ -1,3 +1,10 @@
+# [3.1.0-alpha.1](https://github.com/mll-lab/react-components/compare/v3.0.0...v3.1.0-alpha.1) (2021-07-21)
+
+
+### Features
+
+* No more prefix ([682eff4](https://github.com/mll-lab/react-components/commit/682eff43d16ffb1a13002d770481f95cc0a231f0))
+
 # [3.0.0](https://github.com/mll-lab/react-components/compare/v2.40.0...v3.0.0) (2021-07-12)
 
 
