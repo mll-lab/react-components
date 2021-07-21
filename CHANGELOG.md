@@ -1,3 +1,10 @@
+# [3.1.0-alpha.2](https://github.com/mll-lab/react-components/compare/v3.1.0-alpha.1...v3.1.0-alpha.2) (2021-07-21)
+
+
+### Features
+
+* add notification ([b66594e](https://github.com/mll-lab/react-components/commit/b66594efa4df9568ffacd407175f65d2d7dec6df))
+
 # [3.1.0-alpha.1](https://github.com/mll-lab/react-components/compare/v3.0.0...v3.1.0-alpha.1) (2021-07-21)
 
 
