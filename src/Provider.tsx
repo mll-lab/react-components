@@ -18,11 +18,7 @@ export function Provider({
 
   return (
     <ThemeProvider theme={{ ...MLL_THEME, ...theme }}>
-      <AntdConfigProvider
-        prefixCls={PREFIX_CLS}
-      >
-        {children}
-      </AntdConfigProvider>
+      <AntdConfigProvider prefixCls={PREFIX_CLS}>{children}</AntdConfigProvider>
     </ThemeProvider>
   );
 }
