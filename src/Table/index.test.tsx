@@ -31,6 +31,7 @@ describe('Table', () => {
       // click the button to render the dropdown
       userEvent.click(screen.getByRole('button'));
 
+      // eslint-disable-next-line testing-library/no-node-access
       expect(screen.getByTestId(testId).closest('div')).toHaveClass(PREFIX_CLS);
     },
   );
