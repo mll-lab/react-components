@@ -10,7 +10,6 @@ import pkg from './package.json';
 
 export default {
   input: 'src/index.ts',
-  assetFileNames: '[name]-[hash][extname]',
   output: [
     {
       file: pkg.main,
