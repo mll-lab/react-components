@@ -10,7 +10,7 @@ export type Coordinates = {
 
 export function areEqualCoordinates<
   A extends Coordinates,
-  B extends Coordinates,
+  B extends Coordinates
 >(a: A, b: B): boolean {
   return a.row === b.row && a.column === b.column;
 }
@@ -19,7 +19,7 @@ export function ensureCoordinatesInRange<
   T extends {
     row: string;
     column: number;
-  },
+  }
 >(coordinates: T): T & Coordinates {
   if (!COORDINATES_ROWS.includes(coordinates.row as Coordinates['row'])) {
     throw new Error(
@@ -51,7 +51,18 @@ export type PlateProps = {
 const TUBE_COUNT = 96;
 export const WELLS = range(1, TUBE_COUNT + 1);
 export const COORDINATES_COLUMNS: Array<Coordinates['column']> = [
-  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
 ];
 export const COORDINATES_ROWS: Array<Coordinates['row']> = [
   'A',
