@@ -8,7 +8,7 @@ export type FormInputOption<TValue, TLabel extends ReactNode> = {
 
 export function objectToFormInputOptions<
   TEnum extends Record<string, TLabel>,
-  TLabel extends ReactNode
+  TLabel extends ReactNode,
 >(labeledEnum: TEnum): Array<FormInputOption<keyof TEnum, TLabel>> {
   return Object.entries(labeledEnum).map(([key, value]) => ({
     value: key as keyof TEnum,

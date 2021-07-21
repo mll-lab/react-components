@@ -5,7 +5,7 @@ import React from 'react';
 import { PREFIX_CLS } from '../Provider';
 
 export function Table<
-  RecordType extends Record<string, unknown> = Record<string, unknown>
+  RecordType extends Record<string, unknown> = Record<string, unknown>,
 >(props: TableProps<RecordType>) {
   const columns = props.columns?.map((column) => {
     if (!column.filterDropdown) {

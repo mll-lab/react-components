@@ -3,7 +3,7 @@ module.exports = {
   addons: ['@storybook/addon-essentials'],
   reactOptions: {
     fastRefresh: true,
-    strictMode: true
+    strictMode: true,
   },
   webpackFinal: (config) => {
     config.module.rules = [
@@ -39,10 +39,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader',
-        ],
+        use: ['style-loader', 'css-loader'],
       },
     ];
 
