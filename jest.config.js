@@ -1,13 +1,9 @@
 module.exports = {
   preset: 'ts-jest/presets/js-with-babel',
-  roots: ['src', '.storybook'],
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['./jest.setup.js'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
   testPathIgnorePatterns: ['node_modules/'],
-  // transform: {
-  //   '^.+\\.tsx?$': 'ts-jest',
-  // },
   testMatch: ['**/*.test.(ts|tsx)'],
   moduleNameMapper: {
     // Mocks out all these file formats when tests are run.
