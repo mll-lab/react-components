@@ -1,6 +1,7 @@
 import { ConfigProvider as AntdConfigProvider } from 'antd';
 import React, { PropsWithChildren } from 'react';
 import { ThemeProvider } from 'styled-components';
+import deDE from 'antd/lib/locale/de_DE';
 
 import { MLL_THEME, MllTheme } from './theme';
 
@@ -18,7 +19,7 @@ export function Provider({
 
   return (
     <ThemeProvider theme={{ ...MLL_THEME, ...theme }}>
-      <AntdConfigProvider prefixCls={PREFIX_CLS}>{children}</AntdConfigProvider>
+      <AntdConfigProvider locale={deDE} prefixCls={PREFIX_CLS}>{children}</AntdConfigProvider>
     </ThemeProvider>
   );
 }
