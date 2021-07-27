@@ -1,3 +1,11 @@
+# [3.2.0](https://github.com/mll-lab/react-components/compare/v3.1.0...v3.2.0) (2021-07-27)
+
+
+### Features
+
+* add notification utils ([e03f56c](https://github.com/mll-lab/react-components/commit/e03f56caacbc955fe76847a6495367a152635f4c))
+* remove wrapping div and restore global styles ([41de689](https://github.com/mll-lab/react-components/commit/41de68968a304c64d7efa49c41cc2be952cf2219))
+
 # [3.1.0](https://github.com/mll-lab/react-components/compare/v3.0.0...v3.1.0) (2021-07-27)
 
 
