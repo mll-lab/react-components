@@ -5,7 +5,7 @@
 
 Shared React components of MLL
 
-[Try it out!](https://mll-lab.github.io/react-components)
+[Try it out](https://mll-lab.github.io/react-components)
 
 ## Install
 
