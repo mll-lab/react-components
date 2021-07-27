@@ -1,3 +1,10 @@
+# [3.1.0](https://github.com/mll-lab/react-components/compare/v3.0.0...v3.1.0) (2021-07-27)
+
+
+### Features
+
+* add NumericIDInput component ([d76df02](https://github.com/mll-lab/react-components/commit/d76df024f3dbaa3b2b83f22602e9df82805f5174))
+
 # [3.0.0](https://github.com/mll-lab/react-components/compare/v2.40.0...v3.0.0) (2021-07-12)
 
 
