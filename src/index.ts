@@ -41,3 +41,6 @@ export * from './Timeline';
 export * from './Tooltip';
 export * from './Typography';
 export * from './Upload';
+
+// Utilities
+export * from './notification';
