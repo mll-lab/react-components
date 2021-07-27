@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - master
+      - alpha
+
 jobs:
   # https://docs.github.com/en/actions/guides/publishing-nodejs-packages#publishing-packages-using-yarn
   # https://github.com/semantic-release/semantic-release/blob/master/docs/recipes/github-actions.md
@@ -17,13 +19,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-  storybook:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-      - run: yarn install
-      - run: yarn run storybook-to-ghpages --ci
-        env:
-          GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
