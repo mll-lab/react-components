@@ -33,6 +33,7 @@ export * from './Skeleton';
 export * from './Slider';
 export * from './Space';
 export * from './Spinner';
+export * from './Statistic';
 export * from './Steps';
 export * from './Table';
 export * from './Tabs';
