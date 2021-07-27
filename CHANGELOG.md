@@ -1,24 +1,3 @@
-# [3.1.0-alpha.3](https://github.com/mll-lab/react-components/compare/v3.1.0-alpha.2...v3.1.0-alpha.3) (2021-07-22)
-
-
-### Features
-
-* link https://github.com/ant-design/ant-design/pull/31479 ([265f338](https://github.com/mll-lab/react-components/commit/265f338e2909bf30a4276a661bb2d87a598ed1bc))
-
-# [3.1.0-alpha.2](https://github.com/mll-lab/react-components/compare/v3.1.0-alpha.1...v3.1.0-alpha.2) (2021-07-21)
-
-
-### Features
-
-* add notification ([b66594e](https://github.com/mll-lab/react-components/commit/b66594efa4df9568ffacd407175f65d2d7dec6df))
-
-# [3.1.0-alpha.1](https://github.com/mll-lab/react-components/compare/v3.0.0...v3.1.0-alpha.1) (2021-07-21)
-
-
-### Features
-
-* No more prefix ([682eff4](https://github.com/mll-lab/react-components/commit/682eff43d16ffb1a13002d770481f95cc0a231f0))
-
 # [3.0.0](https://github.com/mll-lab/react-components/compare/v2.40.0...v3.0.0) (2021-07-12)
 
 

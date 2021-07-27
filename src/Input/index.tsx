@@ -8,3 +8,5 @@ export type InputProps = AntdInputProps;
 
 export const InputNumber: typeof AntdInputNumber = AntdInputNumber;
 export type InputNumberProps = AntdInputNumberProps;
+
+export * from './NumericIDInput';
