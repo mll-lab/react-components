@@ -1,3 +1,10 @@
+# [3.5.0](https://github.com/mll-lab/react-components/compare/v3.4.0...v3.5.0) (2021-07-30)
+
+
+### Features
+
+* add Result component ([2acdcea](https://github.com/mll-lab/react-components/commit/2acdcea432abbc5be6546a57b822c7c1eb02f858))
+
 # [3.4.0](https://github.com/mll-lab/react-components/compare/v3.3.0...v3.4.0) (2021-07-30)
 
 
