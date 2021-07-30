@@ -28,6 +28,7 @@ export * from './Plate';
 export * from './Popconfirm';
 export * from './Progress';
 export * from './Radio';
+export * from './Result';
 export * from './Select';
 export * from './Skeleton';
 export * from './Slider';
