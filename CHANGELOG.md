@@ -1,3 +1,10 @@
+# [3.4.0](https://github.com/mll-lab/react-components/compare/v3.3.0...v3.4.0) (2021-07-30)
+
+
+### Features
+
+* add cursor:pointer to table if on row.onClick() implementation exists ([2c1bc99](https://github.com/mll-lab/react-components/commit/2c1bc99418ca52857085bbdb02bf06d6f2a5e80d))
+
 # [3.3.0](https://github.com/mll-lab/react-components/compare/v3.2.0...v3.3.0) (2021-07-27)
 
 
