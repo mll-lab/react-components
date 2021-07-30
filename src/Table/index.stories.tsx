@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions';
 import { Story } from '@storybook/react';
 import { ColumnProps } from 'antd/es/table';
 import React from 'react';
@@ -57,6 +58,18 @@ const columns: Array<ColumnProps<Person>> = [
   },
 ];
 
-export const Default: Story<TableProps<Person>> = (args) => (
-  <Table dataSource={data} columns={columns} rowKey="id" {...args} />
-);
+const Template: Story<TableProps<Person>> = (args) => <Table {...args} />;
+
+export const Default = Template.bind({});
+Default.args = {
+  dataSource: data,
+  columns,
+};
+
+export const TableWithOnRow = Template.bind({});
+TableWithOnRow.args = {
+  ...Default.args,
+  onRow: () => ({
+    onClick: action('clicked'),
+  }),
+};
