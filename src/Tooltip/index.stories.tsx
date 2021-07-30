@@ -10,7 +10,7 @@ export default {
 
 export const Default: Story<TooltipProps> = (args) => (
   <Tooltip title={<div>foo</div>} {...args}>
-    <p>Text</p>
+    <span>Text</span>
   </Tooltip>
 );
 
