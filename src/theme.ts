@@ -29,6 +29,6 @@ export const MLL_THEME = {
 
 export type MllTheme = typeof MLL_THEME;
 
-export function useTheme(): MllTheme {
+export function useMllTheme(): MllTheme {
   return useContext(ThemeContext) ?? MLL_THEME;
 }
