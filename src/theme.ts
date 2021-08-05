@@ -1,5 +1,8 @@
 /* eslint-disable @mll-lab/no-color-literals */
 
+import { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
+
 /**
  * We omit special purpose colors:
  * - 'white': Brightest possible
@@ -25,3 +28,7 @@ export const MLL_THEME = {
 };
 
 export type MllTheme = typeof MLL_THEME;
+
+export function useTheme(): MllTheme {
+  return useContext(ThemeContext) ?? MLL_THEME;
+}
