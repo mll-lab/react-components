@@ -1,3 +1,10 @@
+## [3.5.1](https://github.com/mll-lab/react-components/compare/v3.5.0...v3.5.1) (2021-08-05)
+
+
+### Bug Fixes
+
+* fall back to default theme if context is not available ([592229a](https://github.com/mll-lab/react-components/commit/592229a5294500fbadf998d34fb298f789c4940b))
+
 # [3.5.0](https://github.com/mll-lab/react-components/compare/v3.4.0...v3.5.0) (2021-07-30)
 
 
