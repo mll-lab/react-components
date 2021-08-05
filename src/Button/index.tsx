@@ -8,10 +8,9 @@ import {
   WarningOutlined,
 } from '@ant-design/icons';
 import * as React from 'react';
-import { Ref, useContext } from 'react';
-import { ThemeContext } from 'styled-components';
+import { Ref } from 'react';
 
-import { MllTheme } from '../theme';
+import { MllTheme, useTheme } from '../theme';
 
 import {
   ColoredButtonProps,
@@ -64,8 +63,8 @@ function makeSpecializedButton({
     { children, ...rest }: ButtonProps,
     ref: Ref<ColoredButtonType>,
   ) => {
-    const themeContext = useContext<MllTheme>(ThemeContext);
-    const color = colorFromTheme ? { color: colorFromTheme(themeContext) } : {};
+    const theme = useTheme();
+    const color = colorFromTheme ? { color: colorFromTheme(theme) } : {};
 
     return (
       <Button ref={ref} {...defaults} {...color} {...rest}>
