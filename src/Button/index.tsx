@@ -10,7 +10,7 @@ import {
 import * as React from 'react';
 import { Ref } from 'react';
 
-import { MllTheme, useTheme } from '../theme';
+import { MllTheme, useMllTheme } from '../theme';
 
 import {
   ColoredButtonProps,
@@ -63,7 +63,7 @@ function makeSpecializedButton({
     { children, ...rest }: ButtonProps,
     ref: Ref<ColoredButtonType>,
   ) => {
-    const theme = useTheme();
+    const theme = useMllTheme();
     const color = colorFromTheme ? { color: colorFromTheme(theme) } : {};
 
     return (
