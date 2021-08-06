@@ -46,3 +46,4 @@ export * from './Upload';
 
 // Utilities
 export * from './notification';
+export { FullScreenModal } from './Modal/FullScreenModal';
