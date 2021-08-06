@@ -1,8 +1,12 @@
-import { useState } from '@storybook/addons';
 import { Story } from '@storybook/react';
 import React from 'react';
 
-import { FullScreenModal, Modal, ModalProps } from './index';
+import { Button } from '../Button';
+
+import { FullScreenModal } from './FullScreenModal';
+import { WithModal } from './WithModal';
+
+import { ModalProps } from './index';
 
 export default {
   title: 'Modal',
@@ -11,67 +15,33 @@ export default {
   },
 };
 
-export const OpenByButton: Story<ModalProps> = (args) => {
-  const [isModalVisible, setIsModalVisible] = useState(false);
+export const OpenByButton: Story<ModalProps> = (args) => (
+  <WithModal
+    Component={Button}
+    componentProps={{
+      children: 'Click me to open modal',
+    }}
+    title="Basic Modal"
+    {...args}
+  >
+    <p>Some contents...</p>
+    <p>Some contents...</p>
+    <p>Some contents...</p>
+  </WithModal>
+);
 
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
-
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
-  return (
-    <>
-      <button onClick={showModal}>Click me to open modal</button>
-
-      <Modal
-        title="Basic Modal"
-        visible={isModalVisible}
-        onOk={handleOk}
-        onCancel={handleCancel}
-        {...args}
-      >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-      </Modal>
-    </>
-  );
-};
-
-export const OpenFullScreenByButton: Story<ModalProps> = (args) => {
-  const [isModalVisible, setIsModalVisible] = useState(false);
-
-  const showModal = () => {
-    setIsModalVisible(true);
-  };
-
-  const handleOk = () => {
-    setIsModalVisible(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalVisible(false);
-  };
-  return (
-    <>
-      <button onClick={showModal}>Click me to open modal</button>
-
-      <FullScreenModal
-        visible={isModalVisible}
-        onOk={handleOk}
-        onCancel={handleCancel}
-        {...args}
-      >
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-        <p>Some contents...</p>
-      </FullScreenModal>
-    </>
-  );
-};
+export const OpenFullScreenByButton: Story<ModalProps> = (args) => (
+  <WithModal
+    Component={Button}
+    componentProps={{
+      children: 'Click me to open full screen modal',
+    }}
+    ModalComponent={FullScreenModal}
+    title="Full Screen Modal"
+    {...args}
+  >
+    <p>Some contents...</p>
+    <p>Some contents...</p>
+    <p>Some contents...</p>
+  </WithModal>
+);
