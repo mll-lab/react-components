@@ -1,3 +1,10 @@
+# [3.6.0](https://github.com/mll-lab/react-components/compare/v3.5.1...v3.6.0) (2021-08-09)
+
+
+### Features
+
+* add WithModal component ([6f8e403](https://github.com/mll-lab/react-components/commit/6f8e403bb40c94e976e0c9f528d7c2b96d12f449))
+
 ## [3.5.1](https://github.com/mll-lab/react-components/compare/v3.5.0...v3.5.1) (2021-08-05)
 
 
