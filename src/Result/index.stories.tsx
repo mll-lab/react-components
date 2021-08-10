@@ -3,7 +3,7 @@ import React from 'react';
 
 import { Button } from '../Button';
 
-import { Result, ResultProps } from './index';
+import { EntityNotFound, Result, ResultProps } from './index';
 
 export default {
   title: 'Result',
@@ -17,3 +17,7 @@ Default.args = {
   title: 'Your operation has been executed',
   extra: <Button>OK</Button>,
 };
+
+export const EntityNotFoundExample: Story = () => (
+  <EntityNotFound entity={'Kontrolle'} id={'4'} />
+);
