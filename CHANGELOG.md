@@ -1,3 +1,10 @@
+# [3.7.0](https://github.com/mll-lab/react-components/compare/v3.6.0...v3.7.0) (2021-08-10)
+
+
+### Features
+
+* add EntityNotFound component ([52245bf](https://github.com/mll-lab/react-components/commit/52245bfd1f11bfa737e186829a5f252b9f901e82))
+
 # [3.6.0](https://github.com/mll-lab/react-components/compare/v3.5.1...v3.6.0) (2021-08-09)
 
 
