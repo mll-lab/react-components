@@ -1,3 +1,15 @@
+# [4.0.0](https://github.com/mll-lab/react-components/compare/v3.7.0...v4.0.0) (2021-08-11)
+
+
+### Features
+
+* use render prop opener for WithModal component ([7636586](https://github.com/mll-lab/react-components/commit/7636586bb4b1d46a0b8e7ef73127cef2d61e02a1))
+
+
+### BREAKING CHANGES
+
+* remove props Component and componentProps from WithModal component
+
 # [3.7.0](https://github.com/mll-lab/react-components/compare/v3.6.0...v3.7.0) (2021-08-10)
 
 
