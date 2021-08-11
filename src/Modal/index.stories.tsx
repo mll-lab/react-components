@@ -17,10 +17,7 @@ export default {
 
 export const OpenByButton: Story<ModalProps> = (args) => (
   <WithModal
-    Component={Button}
-    componentProps={{
-      children: 'Click me to open modal',
-    }}
+    opener={(showModal) => <Button onClick={showModal}>Click to open</Button>}
     title="Basic Modal"
     {...args}
   >
@@ -32,10 +29,7 @@ export const OpenByButton: Story<ModalProps> = (args) => (
 
 export const OpenFullScreenByButton: Story<ModalProps> = (args) => (
   <WithModal
-    Component={Button}
-    componentProps={{
-      children: 'Click me to open full screen modal',
-    }}
+    opener={(showModal) => <Button onClick={showModal}>Click to open</Button>}
     ModalComponent={FullScreenModal}
     title="Full Screen Modal"
     {...args}

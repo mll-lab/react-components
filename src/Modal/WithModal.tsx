@@ -1,32 +1,27 @@
 import React, {
   ComponentType,
   MouseEventHandler,
+  ReactElement,
   ReactNode,
   useState,
 } from 'react';
 
 import { Modal, ModalProps } from './index';
 
-type WithOnClick = {
-  onClick?: MouseEventHandler<HTMLElement>;
-};
-
-export type WithModalProps<P extends WithOnClick> = {
+export type WithModalProps = {
   children: ReactNode;
-  Component: ComponentType<P>;
-  componentProps?: P;
+  opener: (showModal: () => void) => ReactElement;
   ModalComponent?: ComponentType<ModalProps>;
 } & ModalProps;
 
-export function WithModal<P extends WithOnClick>({
-  Component,
-  componentProps,
+export function WithModal({
+  opener,
   ModalComponent = Modal,
   onOk,
   onCancel,
   children,
   ...modalProps
-}: WithModalProps<P>) {
+}: WithModalProps) {
   const [isVisible, setIsVisible] = useState(false);
 
   const showModal = () => {
@@ -49,8 +44,7 @@ export function WithModal<P extends WithOnClick>({
 
   return (
     <>
-      {/* @ts-ignore how to enforce no unsuited subtype of onClick is used? */}
-      <Component onClick={showModal} {...componentProps} />
+      {opener(showModal)}
       <ModalComponent
         visible={isVisible}
         onOk={handleOk}

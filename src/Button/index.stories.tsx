@@ -13,6 +13,7 @@ import {
   WarningButton,
   SaveButtonByNumpadEnter,
   SaveButtonByNumpadEnterProps,
+  SendButton,
 } from '..';
 
 export default {
@@ -55,3 +56,4 @@ export const Warning: Story<ButtonProps> = (args) => (
 );
 export const Reset: Story<ButtonProps> = (args) => <ResetButton {...args} />;
 export const Delete: Story<ButtonProps> = (args) => <DeleteButton {...args} />;
+export const Send: Story<ButtonProps> = (args) => <SendButton {...args} />;
