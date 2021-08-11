@@ -1,3 +1,10 @@
+# [4.1.0](https://github.com/mll-lab/react-components/compare/v4.0.0...v4.1.0) (2021-08-11)
+
+
+### Features
+
+* add CancelButton component ([7fd145d](https://github.com/mll-lab/react-components/commit/7fd145d6ab8b7bf5b190ee7d6eb7b47f5135c8d3))
+
 # [4.0.0](https://github.com/mll-lab/react-components/compare/v3.7.0...v4.0.0) (2021-08-11)
 
 
