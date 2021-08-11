@@ -4,6 +4,7 @@ import {
   EditOutlined,
   ExportOutlined,
   PlusOutlined,
+  RollbackOutlined,
   SaveOutlined,
   WarningOutlined,
 } from '@ant-design/icons';
@@ -103,9 +104,15 @@ export const WarningButton = makeSpecializedButton({
   icon: <WarningOutlined />,
 });
 
-export const ResetButton = makeSpecializedButton({
+export const CancelButton = makeSpecializedButton({
   colorFromTheme: (theme) => theme.errorColor,
   icon: <CloseOutlined />,
+  children: 'Abbrechen',
+});
+
+export const ResetButton = makeSpecializedButton({
+  colorFromTheme: (theme) => theme.errorColor,
+  icon: <RollbackOutlined />,
   children: 'Zurücksetzen',
 });
 
