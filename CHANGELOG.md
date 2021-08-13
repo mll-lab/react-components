@@ -1,3 +1,10 @@
+# [4.2.0](https://github.com/mll-lab/react-components/compare/v4.1.0...v4.2.0) (2021-08-13)
+
+
+### Features
+
+* export FormItemProps type ([f097335](https://github.com/mll-lab/react-components/commit/f0973352a81dedf0d783efaa1767e4411bfd7d63))
+
 # [4.1.0](https://github.com/mll-lab/react-components/compare/v4.0.0...v4.1.0) (2021-08-11)
 
 
