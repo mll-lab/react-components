@@ -8,7 +8,7 @@ export default {
 };
 
 export const Default: Story<CollapseProps> = (args) => (
-   <Collapse defaultActiveKey={['1']} {...args}>
+  <Collapse defaultActiveKey={['1']} {...args}>
     <Collapse.Panel header="This is panel header 1" key="1">
       <p>test1</p>
     </Collapse.Panel>
