@@ -1,3 +1,10 @@
+# [4.4.0](https://github.com/mll-lab/react-components/compare/v4.3.0...v4.4.0) (2021-08-16)
+
+
+### Features
+
+* add Collapse component ([675f490](https://github.com/mll-lab/react-components/commit/675f490902508ea060af53fdbf0a9a264f371d5a))
+
 # [4.3.0](https://github.com/mll-lab/react-components/compare/v4.2.0...v4.3.0) (2021-08-13)
 
 
