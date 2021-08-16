@@ -13,7 +13,9 @@ export type TimelineItemProps = AntdTimelineItemProps;
 
 export function CollapsibleTimelineItem(props: {
   timelineItemProps?: TimelineItemProps;
-  collapseProps?: Omit<CollapseProps, 'defaultActiveKey'> & { defaultActive: boolean };
+  collapseProps?: Omit<CollapseProps, 'defaultActiveKey'> & {
+    defaultActive: boolean;
+  };
   collapsePanelProps: Omit<CollapsePanelProps, 'key'>;
   children: ReactNode;
 }) {
