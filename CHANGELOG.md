@@ -1,3 +1,10 @@
+# [4.5.0](https://github.com/mll-lab/react-components/compare/v4.4.0...v4.5.0) (2021-08-17)
+
+
+### Features
+
+* add CollapsibleTimelineItem component ([bc770ee](https://github.com/mll-lab/react-components/commit/bc770ee7e1108d683da6a1bc21b53389f575f914))
+
 # [4.4.0](https://github.com/mll-lab/react-components/compare/v4.3.0...v4.4.0) (2021-08-16)
 
 
