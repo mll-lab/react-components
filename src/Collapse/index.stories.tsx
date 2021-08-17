@@ -1,7 +1,7 @@
 import { Story } from '@storybook/react';
 import React from 'react';
 
-import { Collapse, CollapseProps } from './index';
+import { Collapse, CollapseProps, SingleCollapse } from './index';
 
 export default {
   title: 'Collapse',
@@ -19,4 +19,10 @@ export const Default: Story<CollapseProps> = (args) => (
       <p>test3</p>
     </Collapse.Panel>
   </Collapse>
+);
+
+export const Single: Story = () => (
+  <SingleCollapse panelProps={{ header: 'This is panel header 1' }}>
+    <p>test3</p>
+  </SingleCollapse>
 );
