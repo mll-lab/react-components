@@ -1,3 +1,15 @@
+# [5.0.0](https://github.com/mll-lab/react-components/compare/v4.5.0...v5.0.0) (2021-08-17)
+
+
+### Features
+
+* add SingleCollapse component ([425787c](https://github.com/mll-lab/react-components/commit/425787c46c12108b10548e2663ea86078ffd8291))
+
+
+### BREAKING CHANGES
+
+* remove component CollapsibleTimelineItem (compose TimelineItem with SingleCollapse instead)
+
 # [4.5.0](https://github.com/mll-lab/react-components/compare/v4.4.0...v4.5.0) (2021-08-17)
 
 
