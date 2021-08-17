@@ -1,9 +1,8 @@
-name: "Validate"
+name: Validate
 on:
-  pull_request:
-  push:
-    branches:
-      - master
+  workflow_run:
+    workflows: [Format]
+    types: [completed]
 
 jobs:
   typecheck:
