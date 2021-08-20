@@ -13,6 +13,7 @@ export * from './Breadcrumb';
 export * from './Button';
 export * from './Card';
 export * from './Checkbox';
+export * from './Collapse';
 export * from './Comment';
 export * from './DatePicker';
 export * from './Descriptions';

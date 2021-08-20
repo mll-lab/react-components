@@ -1,3 +1,45 @@
+# [5.0.0](https://github.com/mll-lab/react-components/compare/v4.5.0...v5.0.0) (2021-08-17)
+
+
+### Features
+
+* add SingleCollapse component ([425787c](https://github.com/mll-lab/react-components/commit/425787c46c12108b10548e2663ea86078ffd8291))
+
+
+### BREAKING CHANGES
+
+* remove component CollapsibleTimelineItem (compose TimelineItem with SingleCollapse instead)
+
+# [4.5.0](https://github.com/mll-lab/react-components/compare/v4.4.0...v4.5.0) (2021-08-17)
+
+
+### Features
+
+* add CollapsibleTimelineItem component ([bc770ee](https://github.com/mll-lab/react-components/commit/bc770ee7e1108d683da6a1bc21b53389f575f914))
+
+# [4.4.0](https://github.com/mll-lab/react-components/compare/v4.3.0...v4.4.0) (2021-08-16)
+
+
+### Features
+
+* add Collapse component ([675f490](https://github.com/mll-lab/react-components/commit/675f490902508ea060af53fdbf0a9a264f371d5a))
+
+# [4.3.0](https://github.com/mll-lab/react-components/compare/v4.2.0...v4.3.0) (2021-08-13)
+
+
+### Features
+
+* add Checkbox props and Checkbox story ([2ec63d8](https://github.com/mll-lab/react-components/commit/2ec63d86105e3db553b9b949cbb38454bed4126c))
+* export checkbox and radio component props ([1ef94f0](https://github.com/mll-lab/react-components/commit/1ef94f002c23169a9a08e4a929d24c03ddd4bccb))
+* improve readability of disabled elements ([3a8a423](https://github.com/mll-lab/react-components/commit/3a8a4231bf2337c4ef868684d340b3ed8910c8ad))
+
+# [4.2.0](https://github.com/mll-lab/react-components/compare/v4.1.0...v4.2.0) (2021-08-13)
+
+
+### Features
+
+* export FormItemProps type ([f097335](https://github.com/mll-lab/react-components/commit/f0973352a81dedf0d783efaa1767e4411bfd7d63))
+
 # [4.1.0](https://github.com/mll-lab/react-components/compare/v4.0.0...v4.1.0) (2021-08-11)
 
 
