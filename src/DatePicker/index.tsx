@@ -63,7 +63,6 @@ export function DatePicker(props: DatePickerProps) {
           // Do nothing, this case is handled by onChangeRaw
         }
       }}
-      customInput={<input data-testid="date-picker" type="text" />}
     />
   );
 }
