@@ -4,11 +4,13 @@ import React from 'react';
 
 import { DatePicker } from './index';
 
+const ID = 'date-picker';
+
 describe('<DatePicker />', () => {
   it('should open the popup', async () => {
-    render(<DatePicker onChange={() => {}} />);
+    render(<DatePicker id={ID} onChange={() => {}} />);
 
-    const datePicker = screen.getByTestId('date-picker');
+    const datePicker = screen.getByTestId(ID);
     expect(screen.queryByText('Previous Month')).toBe(null);
 
     await userEvent.click(datePicker);
@@ -20,9 +22,9 @@ describe('<DatePicker />', () => {
   it('calls onChange with non-date', async () => {
     const onChange = jest.fn();
 
-    render(<DatePicker onChange={(date) => onChange(date)} />);
+    render(<DatePicker id={ID} onChange={(date) => onChange(date)} />);
 
-    const datePicker = screen.getByTestId('date-picker');
+    const datePicker = screen.getByTestId(ID);
 
     await userEvent.type(datePicker, 'foo');
     expect(onChange).not.toHaveBeenCalled();

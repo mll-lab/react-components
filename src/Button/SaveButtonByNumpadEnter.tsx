@@ -48,7 +48,6 @@ export class SaveButtonByNumpadEnter extends Component<SaveButtonByNumpadEnterPr
           ref={(element) => {
             this.buttonRef = element ?? undefined;
           }}
-          data-testid="save-button"
         />
       </GlobalHotKeys>
     );
