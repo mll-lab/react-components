@@ -1,3 +1,10 @@
+## [5.0.1](https://github.com/mll-lab/react-components/compare/v5.0.0...v5.0.1) (2021-08-23)
+
+
+### Bug Fixes
+
+* DatePicker input styles ([d5922e1](https://github.com/mll-lab/react-components/commit/d5922e1debf29d11ef0e528e3384f1ea1013713e))
+
 # [5.0.0](https://github.com/mll-lab/react-components/compare/v4.5.0...v5.0.0) (2021-08-17)
 
 
