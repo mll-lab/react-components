@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 // eslint-disable-next-line @mll-lab/no-global-styles
 import 'react-datepicker/dist/react-datepicker.css';
+import { PREFIX_CLS } from '../Provider';
 import { MLL_THEME } from '../theme';
 
 const StyledDatePickerContainer = styled.div`
@@ -50,7 +51,7 @@ export function StyledDatePicker(props: ReactDatePickerProps) {
     <StyledDatePickerContainer>
       <DatePicker
         calendarClassName="gray-stripes"
-        className="ant-input"
+        className={`${PREFIX_CLS}-input`}
         autoComplete="off"
         {...props}
       />
