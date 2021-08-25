@@ -1,3 +1,10 @@
+# [5.1.0](https://github.com/mll-lab/react-components/compare/v5.0.1...v5.1.0) (2021-08-25)
+
+
+### Features
+
+* export ColumnsType and ColumnProps ([f503dc8](https://github.com/mll-lab/react-components/commit/f503dc8df9fb2c97dd30e83968c533e116b1e060))
+
 ## [5.0.1](https://github.com/mll-lab/react-components/compare/v5.0.0...v5.0.1) (2021-08-23)
 
 
