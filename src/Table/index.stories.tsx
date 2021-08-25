@@ -1,9 +1,8 @@
 import { action } from '@storybook/addon-actions';
 import { Story } from '@storybook/react';
-import { ColumnProps } from 'antd/es/table';
 import React from 'react';
 
-import { Table, TableProps } from './index';
+import { ColumnProps, ColumnsType, Table, TableProps } from './index';
 
 export default {
   title: 'Table',
@@ -46,7 +45,7 @@ const FilterDropdown: ColumnProps<Person>['filterDropdown'] = () => (
   <div>test</div>
 );
 
-const columns: Array<ColumnProps<Person>> = [
+const columns: ColumnsType<Person> = [
   {
     title: 'Name',
     dataIndex: 'name',
