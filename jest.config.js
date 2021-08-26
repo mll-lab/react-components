@@ -1,4 +1,9 @@
-const esModules = ['@mll-lab', '@babel', 'antd/es'].join('|');
+const esModules = [
+  '@mll-lab',
+  '@babel',
+  'antd/es',
+  'antd/node_modules/@babel',
+].join('|');
 
 module.exports = {
   transform: {
