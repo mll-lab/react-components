@@ -1,8 +1,4 @@
-const esModules = [
-  '.*/es/',
-  '.*@babel',
-  '@mll-lab',
-].join('|');
+const esModules = ['.*/es/', '.*@babel', '@mll-lab'].join('|');
 
 module.exports = {
   transform: {
