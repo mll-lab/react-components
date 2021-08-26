@@ -11,7 +11,7 @@ jobs:
           ref: ${{ github.head_ref }}
       - uses: actions/setup-node@v2
       - run: yarn install
-      - run: yarn run format
+      - run: yarn run fix
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "refactor: Apply eslint fix"
