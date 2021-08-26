@@ -7,6 +7,7 @@ export * from './Provider';
 
 // Individual components
 export * from './Alert';
+export * from './AntdDatePicker';
 export * from './Avatar';
 export * from './Badge';
 export * from './Breadcrumb';
