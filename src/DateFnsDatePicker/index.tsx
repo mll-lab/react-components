@@ -81,5 +81,5 @@ export function DateFnsDatePicker(props: DateFnsDatePickerProps) {
     }
   }
 
-  return <BaseDatePicker format={format} {...props} />;
+  return <BaseDatePicker format={format} size={'small'} {...props} />;
 }
