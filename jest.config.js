@@ -1,13 +1,33 @@
+const esModules = [
+  '@ant-design/icons/es',
+  '@ant-design/icons/node_modules/@babel',
+  '@ant-design/icons-svg/es',
+  '@babel',
+  '@mll-lab',
+  'antd/es',
+  'antd/node_modules/@babel',
+  'antd/node_modules/rc-util',
+  'rc-notification/es',
+  'rc-notification/node_modules/@babel',
+  'rc-pagination/es',
+  'rc-pagination/node_modules/@babel',
+  'rc-picker/es',
+  'rc-picker/node_modules/@babel',
+  'rc-util/es',
+  'rc-util/node_modules/@babel',
+].join('|');
+
 module.exports = {
-  preset: 'ts-jest/presets/js-with-babel',
+  transform: {
+    '^.+\\.tsx?$': 'ts-jest',
+    [`(${esModules}).+\\.js$`]: 'babel-jest',
+  },
+  transformIgnorePatterns: [`/node_modules/(?!${esModules})`],
   roots: ['src'],
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['./jest.setup.ts'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
   testPathIgnorePatterns: ['node_modules/'],
-  transform: {
-    '^.+\\.tsx?$': 'ts-jest',
-  },
   testMatch: ['**/*.test.(ts|tsx)'],
   moduleNameMapper: {
     // Mocks out all these file formats when tests are run.
