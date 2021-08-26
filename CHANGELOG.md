@@ -1,3 +1,10 @@
+# [5.2.0-alpha.1](https://github.com/mll-lab/react-components/compare/v5.1.0...v5.2.0-alpha.1) (2021-08-26)
+
+
+### Features
+
+* add AntdDatePicker component ([27391c8](https://github.com/mll-lab/react-components/commit/27391c8ffbb756bb79c45c2d7c5698791735bb01))
+
 # [5.1.0](https://github.com/mll-lab/react-components/compare/v5.0.1...v5.1.0) (2021-08-25)
 
 
