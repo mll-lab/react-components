@@ -7,6 +7,8 @@ const esModules = [
   'antd/es',
   'antd/node_modules/@babel',
   'antd/node_modules/rc-util',
+  'antd/node_modules/@ant-design/icons/es',
+  'antd/node_modules/@ant-design/icons/node_modules/@babel',
   'rc-notification/es',
   'rc-notification/node_modules/@babel',
   'rc-pagination/es',
