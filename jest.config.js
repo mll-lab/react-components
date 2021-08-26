@@ -1,9 +1,20 @@
 const esModules = [
-  '@mll-lab',
+  '@ant-design/icons/es',
+  '@ant-design/icons/node_modules/@babel',
+  '@ant-design/icons-svg/es',
   '@babel',
+  '@mll-lab',
   'antd/es',
   'antd/node_modules/@babel',
   'antd/node_modules/rc-util',
+  'rc-notification/es',
+  'rc-notification/node_modules/@babel',
+  'rc-pagination/es',
+  'rc-pagination/node_modules/@babel',
+  'rc-picker/es',
+  'rc-picker/node_modules/@babel',
+  'rc-util/es',
+  'rc-util/node_modules/@babel',
 ].join('|');
 
 module.exports = {
