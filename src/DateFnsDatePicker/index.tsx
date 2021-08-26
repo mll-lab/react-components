@@ -16,13 +16,14 @@ import dateFnsGenerateConfig from 'rc-picker/lib/generate/dateFns';
 export type DateFnsDatePickerProps = PickerProps<Date> &
   Omit<PickerDateProps<Date>, 'picker'>;
 
-const localeParse = (format: string) =>
-  format
-    .replace(/Y/g, 'y')
-    .replace(/D/g, 'd')
-    .replace(/gggg/, 'yyyy')
-    .replace(/g/g, 'G')
-    .replace(/([Ww])o/g, 'wo');
+function localeParse(format: string) {
+  return format
+      .replace(/Y/g, 'y')
+      .replace(/D/g, 'd')
+      .replace(/gggg/, 'yyyy')
+      .replace(/g/g, 'G')
+      .replace(/([Ww])o/g, 'wo');
+}
 
 // TODO fix https://github.com/react-component/picker/issues/147
 export const DateFnsDatePicker = generatePicker<Date>({
