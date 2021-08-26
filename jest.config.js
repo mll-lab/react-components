@@ -3,7 +3,7 @@ const esModules = [
   '@babel',
   'antd/es',
   'antd/node_modules/@babel',
-  'antd/node_modules/rc-utils',
+  'antd/node_modules/rc-util',
 ].join('|');
 
 module.exports = {
