@@ -1,3 +1,10 @@
+# [5.2.0-alpha.2](https://github.com/mll-lab/react-components/compare/v5.2.0-alpha.1...v5.2.0-alpha.2) (2021-08-26)
+
+
+### Features
+
+* add DateFnsDatePicker component ([e436ec5](https://github.com/mll-lab/react-components/commit/e436ec54fa5aab780aa50cc4e15f24c22d42a522))
+
 # [5.2.0-alpha.1](https://github.com/mll-lab/react-components/compare/v5.1.0...v5.2.0-alpha.1) (2021-08-26)
 
 
