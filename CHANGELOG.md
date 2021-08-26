@@ -1,3 +1,11 @@
+# [5.2.0-alpha.4](https://github.com/mll-lab/react-components/compare/v5.2.0-alpha.3...v5.2.0-alpha.4) (2021-08-26)
+
+
+### Bug Fixes
+
+* format ([2918fa0](https://github.com/mll-lab/react-components/commit/2918fa0623e166053a5b524cdf634626a5cbc8d9))
+* size ([31cb8c8](https://github.com/mll-lab/react-components/commit/31cb8c82375a1c95557399eb9654c9cd8a4a4a88))
+
 # [5.2.0-alpha.3](https://github.com/mll-lab/react-components/compare/v5.2.0-alpha.2...v5.2.0-alpha.3) (2021-08-26)
 
 
