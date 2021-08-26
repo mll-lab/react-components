@@ -26,7 +26,7 @@ const localeParse = (format: string) =>
     .replace(/g/g, 'G')
     .replace(/([Ww])o/g, 'wo');
 
-// TODO fix https://github.com/react-component/picker/issues/147
+// TODO remove when https://github.com/react-component/picker/pull/289 fixes https://github.com/react-component/picker/issues/147
 export const BaseDatePicker = generatePicker<Date>({
   ...dateFnsGenerateConfig,
   locale: {
