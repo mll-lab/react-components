@@ -18,11 +18,11 @@ export type DateFnsDatePickerProps = PickerProps<Date> &
 
 function localeParse(format: string) {
   return format
-      .replace(/Y/g, 'y')
-      .replace(/D/g, 'd')
-      .replace(/gggg/, 'yyyy')
-      .replace(/g/g, 'G')
-      .replace(/([Ww])o/g, 'wo');
+    .replace(/Y/g, 'y')
+    .replace(/D/g, 'd')
+    .replace(/gggg/, 'yyyy')
+    .replace(/g/g, 'G')
+    .replace(/([Ww])o/g, 'wo');
 }
 
 // TODO fix https://github.com/react-component/picker/issues/147
