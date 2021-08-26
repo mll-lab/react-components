@@ -1,3 +1,12 @@
+# [5.2.0-alpha.3](https://github.com/mll-lab/react-components/compare/v5.2.0-alpha.2...v5.2.0-alpha.3) (2021-08-26)
+
+
+### Bug Fixes
+
+* locale ([5d699e6](https://github.com/mll-lab/react-components/commit/5d699e6e8cd7a79b5503d5fa4ee0e39c146221b8))
+* locale ([3d2b024](https://github.com/mll-lab/react-components/commit/3d2b024b335d1b41726eb961518764fd86507d14))
+* locale ([d0667e7](https://github.com/mll-lab/react-components/commit/d0667e7b7c7043ad33438075bd893a30be92beca))
+
 # [5.2.0-alpha.2](https://github.com/mll-lab/react-components/compare/v5.2.0-alpha.1...v5.2.0-alpha.2) (2021-08-26)
 
 
