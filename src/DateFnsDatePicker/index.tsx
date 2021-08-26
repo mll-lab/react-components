@@ -1,3 +1,4 @@
+import { GERMAN_DATE_FORMAT } from '@mll-lab/js-utils';
 import generatePicker, {
   PickerDateProps,
   PickerProps,
@@ -12,6 +13,7 @@ import {
 } from 'date-fns';
 import { de } from 'date-fns/locale';
 import dateFnsGenerateConfig from 'rc-picker/lib/generate/dateFns';
+import React from 'react';
 
 export type DateFnsDatePickerProps = PickerProps<Date> &
   Omit<PickerDateProps<Date>, 'picker'>;
@@ -25,7 +27,7 @@ const localeParse = (format: string) =>
     .replace(/([Ww])o/g, 'wo');
 
 // TODO fix https://github.com/react-component/picker/issues/147
-export const DateFnsDatePicker = generatePicker<Date>({
+export const BaseDatePicker = generatePicker<Date>({
   ...dateFnsGenerateConfig,
   locale: {
     getWeekFirstDay: () => de.options!.weekStartsOn!,
@@ -63,3 +65,21 @@ export const DateFnsDatePicker = generatePicker<Date>({
     },
   },
 });
+
+export function DateFnsDatePicker(props: DateFnsDatePickerProps) {
+  let format = GERMAN_DATE_FORMAT;
+  const { showTime } = props;
+  if (typeof showTime === 'object') {
+    if (showTime.showHour) {
+      format += ' HH';
+    }
+    if (showTime.showMinute) {
+      format += ':mm';
+    }
+    if (showTime.showSecond) {
+      format += ':ss';
+    }
+  }
+
+  return <BaseDatePicker format={format} {...props} />;
+}
