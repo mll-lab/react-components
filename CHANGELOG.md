@@ -1,3 +1,10 @@
+# [5.2.0-alpha.5](https://github.com/mll-lab/react-components/compare/v5.2.0-alpha.4...v5.2.0-alpha.5) (2021-08-27)
+
+
+### Bug Fixes
+
+* dotless ([9af4e78](https://github.com/mll-lab/react-components/commit/9af4e784628707c203053abb865fb428da9cfb57))
+
 # [5.2.0-alpha.4](https://github.com/mll-lab/react-components/compare/v5.2.0-alpha.3...v5.2.0-alpha.4) (2021-08-26)
 
 
