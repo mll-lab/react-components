@@ -12,12 +12,12 @@ export default {
 };
 
 export const Default: Story<DateFnsDatePickerProps> = (args) => (
-    <DateFnsDatePicker {...args} />
+  <DateFnsDatePicker {...args} />
 );
 
 export const WithTime: Story<DateFnsDatePickerProps> = (args) => (
-    <DateFnsDatePicker
-        showTime={{ showHour: true, showMinute: true, showSecond: true }}
-        {...args}
-    />
+  <DateFnsDatePicker
+    showTime={{ showHour: true, showMinute: true, showSecond: true }}
+    {...args}
+  />
 );
