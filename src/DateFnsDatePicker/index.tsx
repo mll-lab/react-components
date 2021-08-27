@@ -80,6 +80,7 @@ export function DateFnsDatePicker(props: DateFnsDatePickerProps) {
       format += ':ss';
     }
   }
+  const numbersOnlyFormat = format.replace(/[. :]/, '')
 
-  return <BaseDatePicker format={format} size={'small'} {...props} />;
+  return <BaseDatePicker format={[format, numbersOnlyFormat]} size={'small'} {...props} />;
 }
