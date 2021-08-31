@@ -1,3 +1,10 @@
+## [5.2.1](https://github.com/mll-lab/react-components/compare/v5.2.0...v5.2.1) (2021-08-31)
+
+
+### Bug Fixes
+
+* redeclare DatePicker types to avoid unnameable type ([#92](https://github.com/mll-lab/react-components/issues/92)) ([0586c96](https://github.com/mll-lab/react-components/commit/0586c96dbba8b3fa38add2f53dfae696435257ec))
+
 # [5.2.0](https://github.com/mll-lab/react-components/compare/v5.1.0...v5.2.0) (2021-08-27)
 
 
