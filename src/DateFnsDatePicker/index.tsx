@@ -1,7 +1,9 @@
 import { GERMAN_DATE_FORMAT } from '@mll-lab/js-utils';
 import generatePicker, {
-  PickerDateProps,
-  PickerProps,
+  PickerProps as AntdPickerProps,
+  PickerDateProps as AntdPickerDateProps,
+  PickerTimeProps as AntdPickerTimeProps,
+  RangePickerProps as AntdRangePickerProps,
 } from 'antd/es/date-picker/generatePicker';
 import 'antd/es/date-picker/style/index';
 import {
@@ -13,7 +15,12 @@ import {
 } from 'date-fns';
 import { de } from 'date-fns/locale';
 import dateFnsGenerateConfig from 'rc-picker/lib/generate/dateFns';
-import React from 'react';
+import React, { ComponentClass } from 'react';
+
+type PickerProps<T> = AntdPickerProps<T>;
+type PickerDateProps<T> = AntdPickerDateProps<T>;
+type PickerTimeProps<T> = AntdPickerTimeProps<T>;
+type RangePickerProps<T> = AntdRangePickerProps<T>;
 
 export type DateFnsDatePickerProps = PickerProps<Date> &
   Omit<PickerDateProps<Date>, 'picker'>;
@@ -26,9 +33,16 @@ const localeParse = (format: string) =>
     .replace(/g/g, 'G')
     .replace(/([Ww])o/g, 'wo');
 
-// TODO remove when https://github.com/react-component/picker/pull/289 fixes https://github.com/react-component/picker/issues/147
-export const BaseDatePicker = generatePicker<Date>({
+export const BaseDatePicker: ComponentClass<PickerProps<Date>, any> & {
+  WeekPicker: ComponentClass<Omit<PickerDateProps<Date>, 'picker'>, any>;
+  MonthPicker: ComponentClass<Omit<PickerDateProps<Date>, 'picker'>, any>;
+  YearPicker: ComponentClass<Omit<PickerDateProps<Date>, 'picker'>, any>;
+  RangePicker: ComponentClass<RangePickerProps<Date>, any>;
+  TimePicker: ComponentClass<Omit<PickerTimeProps<Date>, 'picker'>, any>;
+  QuarterPicker: ComponentClass<Omit<PickerTimeProps<Date>, 'picker'>, any>;
+} = generatePicker<Date>({
   ...dateFnsGenerateConfig,
+  // TODO remove when https://github.com/react-component/picker/pull/289 fixes https://github.com/react-component/picker/issues/147
   locale: {
     getWeekFirstDay: () => de.options!.weekStartsOn!,
     getWeekFirstDate: (_, date) => startOfWeek(date, { locale: de }),
