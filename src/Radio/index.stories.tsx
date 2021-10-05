@@ -1,11 +1,11 @@
 import { Story } from '@storybook/react';
 import React from 'react';
 
-import { Radio, RadioProps } from './index';
+import { Radio, RadioGroupProps } from './index';
 
 export default {
   title: 'Radio',
-  component: Radio,
+  component: Radio.Group,
   argTypes: {
     onChange: { action: 'onChange' },
     optionType: {
@@ -18,7 +18,7 @@ export default {
   },
 };
 
-export const Default: Story<RadioProps> = (args) => (
+export const Default: Story<RadioGroupProps> = (args) => (
   <Radio.Group
     options={[
       { label: 'Apple', value: 'Apple' },
