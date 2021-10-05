@@ -38,6 +38,7 @@ export * from './Space';
 export * from './Spinner';
 export * from './Statistic';
 export * from './Steps';
+export * from './Switch';
 export * from './Table';
 export * from './Tabs';
 export * from './Tag';
