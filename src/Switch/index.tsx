@@ -1,5 +1,8 @@
-import { Switch as AntdSwitch } from 'antd';
+import { Switch as AntdSwitch, SwitchProps as AntdSwitchProps } from 'antd';
+import * as React from 'react';
 
-export { SwitchProps } from 'antd';
+export type SwitchProps = AntdSwitchProps;
 
-export const Switch: typeof AntdSwitch = AntdSwitch;
+export const Switch: React.ForwardRefExoticComponent<
+  SwitchProps & React.RefAttributes<HTMLElement>
+> = AntdSwitch;
