@@ -12,6 +12,7 @@
   ],
   "scripts": {
     "build": "rollup --config && tsc --emitDeclarationOnly",
+    "validate": "yarn run lint && yarn run typecheck && yarn run test",
     "test": "jest",
     "test:watch": "jest --watch",
     "storybook": "start-storybook --port=6006",
