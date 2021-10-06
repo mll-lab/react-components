@@ -1,3 +1,11 @@
+# [5.3.0](https://github.com/mll-lab/react-components/compare/v5.2.1...v5.3.0) (2021-10-06)
+
+
+### Features
+
+* add Switch component ([ca3459f](https://github.com/mll-lab/react-components/commit/ca3459fdc64aa9e9f38a3aea99d4d754a1616c41))
+* export RadioGroupProps ([9b186a7](https://github.com/mll-lab/react-components/commit/9b186a76b41298a18ee98ee91377181f6be0fc6e))
+
 ## [5.2.1](https://github.com/mll-lab/react-components/compare/v5.2.0...v5.2.1) (2021-08-31)
 
 
