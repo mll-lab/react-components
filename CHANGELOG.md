@@ -1,3 +1,10 @@
+# [5.4.0](https://github.com/mll-lab/react-components/compare/v5.3.0...v5.4.0) (2021-10-06)
+
+
+### Features
+
+* export UploadFile type ([4f25754](https://github.com/mll-lab/react-components/commit/4f2575488043ed06b36a0785c15f6ecdd756ed74))
+
 # [5.3.0](https://github.com/mll-lab/react-components/compare/v5.2.1...v5.3.0) (2021-10-06)
 
 
