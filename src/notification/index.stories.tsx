@@ -22,5 +22,9 @@ export const Default: Story<NotificationArgs & { level: string }> = (args) => {
     });
   }
 
-  return <p onClick={showNotification}>Click Me!</p>;
+  return (
+    <button type="button" onClick={showNotification}>
+      Click Me!
+    </button>
+  );
 };

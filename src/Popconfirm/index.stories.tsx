@@ -14,6 +14,6 @@ export const Default: Story<PopconfirmProps> = (args) => (
     cancelText="No"
     {...args}
   >
-    <a href="#">Delete</a>
+    <button type="button">Delete</button>
   </Popconfirm>
 );

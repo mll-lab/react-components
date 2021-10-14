@@ -17,7 +17,7 @@ export const HexColored: Story<TagProps> = (args) => (
 );
 
 export const PresetColored: Story<TagProps> = (args) => (
-  <Tag color={'red'} {...args}>
+  <Tag color="red" {...args}>
     Test
   </Tag>
 );
