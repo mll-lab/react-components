@@ -99,7 +99,7 @@ export function DateFnsDatePicker(props: DateFnsDatePickerProps) {
   return (
     <BaseDatePicker
       format={[format, numbersOnlyFormat]}
-      size={'small'}
+      size="small"
       {...props}
     />
   );

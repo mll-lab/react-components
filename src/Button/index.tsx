@@ -29,29 +29,27 @@ export type ButtonProps = {
 
 function ButtonVariousTypes(
   { filled, dashed, ...rest }: ButtonProps,
-  ref: Ref<ColoredButtonType>,
+  ref: Ref<ColoredButtonType & HTMLElement>,
 ) {
   // We are forced to add ts-ignore because styled-components does reportedly not
   // expose the "ref" prop on wrapped components - it actually forwards it though.
   // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/28884
 
   if (dashed) {
-    // @ts-ignore
     return <GhostButton type="dashed" ref={ref} {...rest} />;
   }
 
   if (filled) {
-    // @ts-ignore
     return <FilledButton ref={ref} {...rest} />;
   }
 
-  // @ts-ignore
   return <GhostButton ref={ref} {...rest} />;
 }
 
-export const Button = React.forwardRef<ColoredButtonType, ButtonProps>(
-  ButtonVariousTypes,
-);
+export const Button = React.forwardRef<
+  ColoredButtonType & HTMLElement,
+  ButtonProps
+>(ButtonVariousTypes);
 
 function makeSpecializedButton({
   children: defaultChildren,
@@ -62,7 +60,7 @@ function makeSpecializedButton({
 }) {
   const ButtonWithRef = (
     { children, ...rest }: ButtonProps,
-    ref: Ref<ColoredButtonType>,
+    ref: Ref<ColoredButtonType & HTMLElement>,
   ) => {
     const theme = useMllTheme();
     const color = colorFromTheme ? { color: colorFromTheme(theme) } : {};
@@ -74,7 +72,9 @@ function makeSpecializedButton({
     );
   };
 
-  return React.forwardRef<ColoredButtonType, ButtonProps>(ButtonWithRef);
+  return React.forwardRef<ColoredButtonType & HTMLElement, ButtonProps>(
+    ButtonWithRef,
+  );
 }
 
 export const CreateButton = makeSpecializedButton({

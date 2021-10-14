@@ -8,7 +8,7 @@ export type ResultProps = AntdResultProps;
 export function EntityNotFound(props: { entity: string; id: string }) {
   return (
     <Result
-      status={'404'}
+      status="404"
       title={
         <>
           {props.entity} {props.id} nicht gefunden.

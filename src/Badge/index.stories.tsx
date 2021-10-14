@@ -10,7 +10,7 @@ export default {
 
 export const Default: Story<BadgeProps> = (args) => (
   <div>
-    <Badge size={'small'} count={5} offset={[5, 0]} {...args}>
+    <Badge size="small" count={5} offset={[5, 0]} {...args}>
       <BellOutlined style={{ fontSize: '130%' }} />
     </Badge>
   </div>

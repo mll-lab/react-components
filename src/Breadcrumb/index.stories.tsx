@@ -14,10 +14,10 @@ export const Default: Story<BreadcrumbProps> = (args) => (
       <HomeOutlined />
     </Breadcrumb.Item>
     <Breadcrumb.Item>
-      <a href="">Application Center</a>
+      <span>Application Center</span>
     </Breadcrumb.Item>
     <Breadcrumb.Item>
-      <a href="">Application List</a>
+      <span>Application List</span>
     </Breadcrumb.Item>
     <Breadcrumb.Item>An Application</Breadcrumb.Item>
   </Breadcrumb>

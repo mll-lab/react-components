@@ -9,9 +9,8 @@ export default {
   title: 'Dropdown',
 };
 
-export const Default: Story<DropdownProps> = (args) => (
+export const Default: Story<Omit<DropdownProps, 'overlay'>> = (args) => (
   <Dropdown
-    // @ts-ignore-next-line: ignore warning about 'overlay' will be overwritten by ...args because it is a required prop
     overlay={
       <Menu style={{ width: 150 }} mode="vertical">
         <Menu.Item key="1">Option 1</Menu.Item>
