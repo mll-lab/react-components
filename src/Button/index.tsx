@@ -31,10 +31,6 @@ function ButtonVariousTypes(
   { filled, dashed, ...rest }: ButtonProps,
   ref: Ref<ColoredButtonType & HTMLElement>,
 ) {
-  // We are forced to add ts-ignore because styled-components does reportedly not
-  // expose the "ref" prop on wrapped components - it actually forwards it though.
-  // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/28884
-
   if (dashed) {
     return <GhostButton type="dashed" ref={ref} {...rest} />;
   }
