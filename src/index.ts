@@ -15,7 +15,6 @@ export * from './Card';
 export * from './Checkbox';
 export * from './Collapse';
 export * from './Comment';
-export * from './DateFnsDatePicker';
 export * from './DatePicker';
 export * from './Descriptions';
 export * from './Divider';

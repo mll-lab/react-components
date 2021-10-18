@@ -1,68 +1,106 @@
+import { GERMAN_DATE_FORMAT } from '@mll-lab/js-utils';
+import generatePicker, {
+  PickerProps as AntdPickerProps,
+  PickerDateProps as AntdPickerDateProps,
+  PickerTimeProps as AntdPickerTimeProps,
+  RangePickerProps as AntdRangePickerProps,
+} from 'antd/es/date-picker/generatePicker';
+import 'antd/es/date-picker/style/index';
 import {
-  GERMAN_DATE_FORMAT,
-  GERMAN_DATE_TIME_FORMAT,
-  parseGermanDateFlexible,
-  MINIMAL_VALID_DATE,
-} from '@mll-lab/js-utils';
-import { addYears } from 'date-fns';
-import localeDe from 'date-fns/locale/de';
-import React from 'react';
-import {
-  ReactDatePickerProps,
-  registerLocale,
-  setDefaultLocale,
-} from 'react-datepicker';
+  format as formatDate,
+  parse as parseDate,
+  getWeek,
+  isValid,
+  startOfWeek,
+} from 'date-fns';
+import { de } from 'date-fns/locale';
+import dateFnsGenerateConfig from 'rc-picker/lib/generate/dateFns';
+import React, { ComponentClass } from 'react';
 
-import { StyledDatePicker } from './StyledDatePicker';
+type PickerProps<T> = AntdPickerProps<T>;
+type PickerDateProps<T> = AntdPickerDateProps<T>;
+type PickerTimeProps<T> = AntdPickerTimeProps<T>;
+type RangePickerProps<T> = AntdRangePickerProps<T>;
 
-registerLocale('de', localeDe);
-setDefaultLocale('de');
+export type DatePickerProps = PickerProps<Date> &
+  Omit<PickerDateProps<Date>, 'picker'>;
 
-export type DatePickerProps = Omit<ReactDatePickerProps, 'onChangeRaw'>;
+const localeParse = (format: string) =>
+  format
+    .replace(/Y/g, 'y')
+    .replace(/D/g, 'd')
+    .replace(/gggg/, 'yyyy')
+    .replace(/g/g, 'G')
+    .replace(/([Ww])o/g, 'wo');
+
+export const BaseDatePicker: ComponentClass<PickerProps<Date>, any> & {
+  WeekPicker: ComponentClass<Omit<PickerDateProps<Date>, 'picker'>, any>;
+  MonthPicker: ComponentClass<Omit<PickerDateProps<Date>, 'picker'>, any>;
+  YearPicker: ComponentClass<Omit<PickerDateProps<Date>, 'picker'>, any>;
+  RangePicker: ComponentClass<RangePickerProps<Date>, any>;
+  TimePicker: ComponentClass<Omit<PickerTimeProps<Date>, 'picker'>, any>;
+  QuarterPicker: ComponentClass<Omit<PickerTimeProps<Date>, 'picker'>, any>;
+} = generatePicker<Date>({
+  ...dateFnsGenerateConfig,
+  // TODO remove when https://github.com/react-component/picker/pull/289 fixes https://github.com/react-component/picker/issues/147
+  locale: {
+    getWeekFirstDay: () => de.options!.weekStartsOn!,
+    getWeekFirstDate: (_, date) => startOfWeek(date, { locale: de }),
+    getWeek: (_, date) => getWeek(date, { locale: de }),
+    getShortWeekDays: () =>
+      Array.from({ length: 7 }).map((_, i) =>
+        de.localize!.day(i, { width: 'short' }),
+      ),
+    getShortMonths: () =>
+      Array.from({ length: 12 }).map((_, i) =>
+        de.localize!.month(i, { width: 'abbreviated' }),
+      ),
+    format: (_, date, format) => {
+      if (!isValid(date)) {
+        return '';
+      }
+
+      return formatDate(date, localeParse(format), {
+        locale: de,
+      });
+    },
+    parse: (_, text, formats) => {
+      for (let i = 0; i < formats.length; i += 1) {
+        const format = localeParse(formats[i]);
+        const date = parseDate(text, format, new Date(), {
+          locale: de,
+        });
+
+        if (isValid(date)) {
+          return date;
+        }
+      }
+      return null;
+    },
+  },
+});
 
 export function DatePicker(props: DatePickerProps) {
+  let format = GERMAN_DATE_FORMAT;
+  const { showTime } = props;
+  if (typeof showTime === 'object') {
+    if (showTime.showHour) {
+      format += ' HH';
+    }
+    if (showTime.showMinute) {
+      format += ':mm';
+    }
+    if (showTime.showSecond) {
+      format += ':ss';
+    }
+  }
+  const numbersOnlyFormat = format.replace(/[. :]/g, '');
+
   return (
-    <StyledDatePicker
+    <BaseDatePicker
+      format={[format, numbersOnlyFormat]}
+      size="small"
       {...props}
-      showYearDropdown
-      showMonthDropdown
-      scrollableYearDropdown
-      minDate={MINIMAL_VALID_DATE}
-      maxDate={addYears(new Date(), 1)}
-      yearDropdownItemNumber={50}
-      timeCaption="Zeit"
-      dateFormat={
-        props.showTimeSelect ? GERMAN_DATE_TIME_FORMAT : GERMAN_DATE_FORMAT
-      }
-      // We can only control how the DatePicker formats dates, but not how it parses
-      // keyboard input. We can listen to the raw change events and attempt to parse
-      // a date out of the input ourselves
-      onChangeRaw={(event) => {
-        const rawInput = event.target.value;
-
-        // Allow clearing the date
-        if (rawInput === '') {
-          props.onChange(null, event);
-
-          return;
-        }
-
-        // Only propagate the change if the user actually entered a valid date
-        const inputDate = parseGermanDateFlexible(rawInput);
-        if (inputDate) {
-          props.onChange(inputDate, event);
-        }
-      }}
-      onChange={(date, event) => {
-        // The user actually used the date picker to select a date.
-        if (event?.type === 'click') {
-          // In this case, we know the input is a valid, unambiguous date instance,
-          // so we just pass it as is.
-          props.onChange(date, event);
-        } else {
-          // Do nothing, this case is handled by onChangeRaw
-        }
-      }}
     />
   );
 }
