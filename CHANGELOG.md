@@ -1,3 +1,15 @@
+# [6.0.0](https://github.com/mll-lab/react-components/compare/v5.4.0...v6.0.0) (2021-10-18)
+
+
+### Features
+
+* make DateFnsDatePicker the new default ([1b04d94](https://github.com/mll-lab/react-components/commit/1b04d9453281fc2890adabd3bca4f8d6d384ed4c))
+
+
+### BREAKING CHANGES
+
+* rename DateFnsDatePicker to DatePicker, remove old DatePicker
+
 # [5.4.0](https://github.com/mll-lab/react-components/compare/v5.3.0...v5.4.0) (2021-10-06)
 
 
