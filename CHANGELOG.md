@@ -1,3 +1,10 @@
+## [6.0.1](https://github.com/mll-lab/react-components/compare/v6.0.0...v6.0.1) (2021-10-19)
+
+
+### Bug Fixes
+
+* default Table.rowKey to "id" ([401d229](https://github.com/mll-lab/react-components/commit/401d229e07dd5ab6ae95bc057afb5a275c870dc6))
+
 # [6.0.0](https://github.com/mll-lab/react-components/compare/v5.4.0...v6.0.0) (2021-10-18)
 
 
