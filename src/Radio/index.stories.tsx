@@ -15,6 +15,13 @@ export default {
         default: 'button',
       },
     },
+    buttonStyle: {
+      control: {
+        type: 'inline-radio',
+        options: ['solid', 'outline'],
+        default: 'outline',
+      },
+    },
   },
 };
 
