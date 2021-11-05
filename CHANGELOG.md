@@ -1,3 +1,10 @@
+# [6.1.0](https://github.com/mll-lab/react-components/compare/v6.0.1...v6.1.0) (2021-11-05)
+
+
+### Features
+
+* shrink Table ([#99](https://github.com/mll-lab/react-components/issues/99)) ([4cdf8fd](https://github.com/mll-lab/react-components/commit/4cdf8fdb97f01bbf42c88e480e4e8a8299214f96))
+
 ## [6.0.1](https://github.com/mll-lab/react-components/compare/v6.0.0...v6.0.1) (2021-10-19)
 
 
