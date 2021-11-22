@@ -1,15 +1,13 @@
 import { uniq } from 'lodash';
 
-import { stringToHslaColor } from './utils';
-
-const randomString = Math.random().toString(36).substring(2, 5);
+import { randomString, stringToHslaColor } from './utils';
 
 describe('stringToHslaColor', () => {
   it.each(['test', 'test'])(
     'is a pure function returning the same hsla for the same string',
     (testString) => {
       expect(stringToHslaColor(testString)).toStrictEqual(
-        'hsla(58, 78%, 68%, 0.9)',
+        'hsla(58, 98%, 48%, 1)',
       );
     },
   );
@@ -22,7 +20,7 @@ describe('stringToHslaColor', () => {
   });
 
   it('returns a valid color for a random string', () => {
-    expect(isValidColor(stringToHslaColor(randomString))).toBe(true);
+    expect(isValidColor(stringToHslaColor(randomString()))).toBe(true);
   });
 });
 
