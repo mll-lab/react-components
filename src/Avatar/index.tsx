@@ -8,13 +8,18 @@ import { stringToHslaColor } from './utils';
 export const Avatar: typeof AntdAvatar = AntdAvatar;
 export type AvatarProps = AntdAvatarProps;
 
-export function UserAvatar(props: AvatarProps & { username: string }) {
-  const color = stringToHslaColor(props.username);
+export type UserAvatarProps = AvatarProps & { username: string };
+
+export function UserAvatar(props: UserAvatarProps) {
+  const { username, ...rest } = props;
+  const color = stringToHslaColor(username);
+
   return (
     <Avatar
       style={{ backgroundColor: color, color: MLL_THEME.backgroundColor }}
+      {...rest}
     >
-      {props.username}
+      {username}
     </Avatar>
   );
 }
