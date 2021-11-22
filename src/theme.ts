@@ -24,7 +24,6 @@ export const MLL_THEME = {
   warningColor: '#faad14',
   errorColor: '#f5222d',
   infoColor: '#d9d9d9',
-  white: '#ffffff',
 };
 
 export type MllTheme = typeof MLL_THEME;
