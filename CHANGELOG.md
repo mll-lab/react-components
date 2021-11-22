@@ -1,3 +1,21 @@
+# [7.0.0](https://github.com/mll-lab/react-components/compare/v6.1.0...v7.0.0) (2021-11-22)
+
+
+### Bug Fixes
+
+* pass rest props to Avatar through UserAvatar ([594922a](https://github.com/mll-lab/react-components/commit/594922a4ec2413faa07b1cf264c28cdf48dd84bb))
+
+
+### Features
+
+* increase contrast for UserAvatar ([d35b09f](https://github.com/mll-lab/react-components/commit/d35b09fa5ec77713afa0f63662a768dcf1ac5f78))
+
+
+### BREAKING CHANGES
+
+* remove special purpose color white from theme
+* make colors in UserAvatar darker and more saturated
+
 # [6.1.0](https://github.com/mll-lab/react-components/compare/v6.0.1...v6.1.0) (2021-11-05)
 
 
