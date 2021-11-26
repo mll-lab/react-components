@@ -12,11 +12,11 @@ export default {
 };
 
 export const Default: Story<NotificationArgs & { level: string }> = (args) => {
-  const { level, ...rest } = args;
+  const { message, level, ...rest } = args;
 
   function showNotification() {
     notification.error({
-      message: 'notification Title',
+      message: message || 'notification Title',
       description: 'This is the content of the notification.',
       ...rest,
     });

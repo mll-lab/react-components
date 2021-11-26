@@ -3,7 +3,7 @@ import '@testing-library/jest-dom/extend-expect';
 
 import { configure as configureTestingLibrary } from '@testing-library/react';
 // required for running storybook/storyshots smoke tests through jest
-// @ts-ignore
+// @ts-expect-error because it is a plain JS module without any types
 import registerRequireContextHook from 'babel-plugin-require-context-hook/register';
 import { configure as configureEnzyme } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';

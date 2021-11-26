@@ -7,7 +7,7 @@ export default {
   title: 'Comment',
 };
 
-export const Default: Story<CommentProps> = (args) => (
+export const Default: Story<Omit<CommentProps, 'content'>> = (args) => (
   <Comment
     author={<span>Han Solo</span>}
     content={

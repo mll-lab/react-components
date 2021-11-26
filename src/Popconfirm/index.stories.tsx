@@ -7,7 +7,7 @@ export default {
   title: 'Popconfirm',
 };
 
-export const Default: Story<PopconfirmProps> = (args) => (
+export const Default: Story<Omit<PopconfirmProps, 'title'>> = (args) => (
   <Popconfirm
     title="Are you sure to delete this task?"
     okText="Yes"
