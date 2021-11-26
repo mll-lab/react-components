@@ -1,3 +1,10 @@
+# [7.1.0](https://github.com/mll-lab/react-components/compare/v7.0.0...v7.1.0) (2021-11-26)
+
+
+### Features
+
+* add Image component ([31a67f1](https://github.com/mll-lab/react-components/commit/31a67f1abab5b2a652d8aa7471f5ea5174076401))
+
 # [7.0.0](https://github.com/mll-lab/react-components/compare/v6.1.0...v7.0.0) (2021-11-22)
 
 
