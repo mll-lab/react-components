@@ -21,6 +21,7 @@ export * from './Divider';
 export * from './Dropdown';
 export * from './Empty';
 export * from './Form';
+export * from './Image';
 export * from './Input';
 export * from './List';
 export * from './Menu';
