@@ -1,12 +1,12 @@
-import '@testing-library/jest-dom';
-import '@testing-library/jest-dom/extend-expect';
+require('@testing-library/jest-dom');
+require('@testing-library/jest-dom/extend-expect');
 
-import { configure as configureTestingLibrary } from '@testing-library/react';
+const configureTestingLibrary = require('@testing-library/react').configure;
 // required for running storybook/storyshots smoke tests through jest
 // @ts-expect-error because it is a plain JS module without any types
-import registerRequireContextHook from 'babel-plugin-require-context-hook/register';
-import { configure as configureEnzyme } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+const registerRequireContextHook = require('babel-plugin-require-context-hook/register');
+const configureEnzyme = require('enzyme').configure;
+const Adapter = require('enzyme-adapter-react-16');
 
 configureTestingLibrary({ testIdAttribute: 'id' });
 

@@ -1,6 +1,7 @@
 const esModules = ['.*/es/', '.*@babel', '@mll-lab'].join('|');
 
-module.exports = {
+/** @type {import('@jest/types').Config.InitialOptions} */
+const config = {
   transform: {
     '^.+\\.tsx?$': 'ts-jest',
     [`(${esModules}).+\\.js$`]: 'babel-jest',
@@ -8,7 +9,7 @@ module.exports = {
   transformIgnorePatterns: [`/node_modules/(?!${esModules})`],
   roots: ['src'],
   testEnvironment: 'jsdom',
-  setupFilesAfterEnv: ['./jest.setup.ts'],
+  setupFilesAfterEnv: ['./jest.setup.js'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
   testPathIgnorePatterns: ['node_modules/'],
   testMatch: ['**/*.test.(ts|tsx)'],
@@ -19,3 +20,4 @@ module.exports = {
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
   },
 };
+module.exports = config;
