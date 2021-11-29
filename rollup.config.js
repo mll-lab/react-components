@@ -38,7 +38,7 @@ export default {
     resolve(),
     commonjs(),
     typescript({
-      exclude: '**/*.test.(ts|tsx)',
+      exclude: '**/*.(test|stories).(ts|tsx)',
     }),
     styles({
       less: {
