@@ -23,23 +23,38 @@ import {
 export * from './SaveButtonByNumpadEnter';
 
 export type ButtonProps = {
-  filled?: boolean;
   dashed?: boolean;
+  filled?: boolean;
+  iconOnly?: boolean;
 } & Omit<ColoredButtonProps, 'type'>;
 
 function ButtonVariousTypes(
-  { filled, dashed, ...rest }: ButtonProps,
+  { children, dashed, filled, iconOnly, ...rest }: ButtonProps,
   ref: Ref<ColoredButtonType & HTMLElement>,
 ) {
+  const childrenToRender = iconOnly === true ? null : children;
+
   if (dashed) {
-    return <GhostButton type="dashed" ref={ref} {...rest} />;
+    return (
+      <GhostButton type="dashed" ref={ref} {...rest}>
+        {childrenToRender}
+      </GhostButton>
+    );
   }
 
   if (filled) {
-    return <FilledButton ref={ref} {...rest} />;
+    return (
+      <FilledButton ref={ref} {...rest}>
+        {childrenToRender}
+      </FilledButton>
+    );
   }
 
-  return <GhostButton ref={ref} {...rest} />;
+  return (
+    <GhostButton ref={ref} {...rest}>
+      {childrenToRender}
+    </GhostButton>
+  );
 }
 
 export const Button = React.forwardRef<
