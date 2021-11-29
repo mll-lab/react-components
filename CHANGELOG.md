@@ -1,3 +1,10 @@
+# [7.2.0](https://github.com/mll-lab/react-components/compare/v7.1.0...v7.2.0) (2021-11-29)
+
+
+### Features
+
+* highlight button on focus like on hover ([629ebe5](https://github.com/mll-lab/react-components/commit/629ebe540641e49b471b1ea9d36ef36180e7d057))
+
 # [7.1.0](https://github.com/mll-lab/react-components/compare/v7.0.0...v7.1.0) (2021-11-26)
 
 
