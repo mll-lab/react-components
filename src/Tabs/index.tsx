@@ -1,5 +1,5 @@
 import { TabPanel } from './TabPanel';
 import { Tabs } from './Tabs';
-import { TabPanelProps } from './types';
+import { TabPanelProps, TabsProps } from './types';
 
-export { Tabs, TabPanel, TabPanelProps };
+export { Tabs, TabsProps, TabPanel, TabPanelProps };

@@ -1,8 +1,7 @@
 import { Story } from '@storybook/react';
-import { TabsProps } from 'antd';
 import React, { ComponentType, ReactElement } from 'react';
 
-import { TabPanelProps } from './types';
+import { TabPanelProps, TabsProps } from './types';
 
 import { Tabs, TabPanel } from './index';
 
