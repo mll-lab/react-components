@@ -1,3 +1,15 @@
+# [7.3.0](https://github.com/mll-lab/react-components/compare/v7.2.0...v7.3.0) (2021-11-30)
+
+
+### Bug Fixes
+
+* export TabsProps and fix Tabs story types ([26d17ca](https://github.com/mll-lab/react-components/commit/26d17ca8fabbdc077122503e92b6ffe90e288134))
+
+
+### Features
+
+* hide default children of specialized buttons with prop `iconOnly` ([6d58369](https://github.com/mll-lab/react-components/commit/6d583697d6158b446201662b9472fca8cd174f79))
+
 # [7.2.0](https://github.com/mll-lab/react-components/compare/v7.1.0...v7.2.0) (2021-11-29)
 
 
