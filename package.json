@@ -45,6 +45,7 @@
     "react-dom": ">=16.8.0"
   },
   "dependencies": {
+    "@ant-design/colors": "^6.0.0",
     "@ant-design/icons": "^4.6.2",
     "@mll-lab/js-utils": "^2.0.0",
     "antd": "^4.16.12",
