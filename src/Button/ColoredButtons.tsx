@@ -3,7 +3,7 @@ import ButtonGroup from 'antd/es/button/button-group';
 import * as React from 'react';
 import styled, { ThemedStyledProps } from 'styled-components';
 
-import { MllTheme } from '../theme';
+import { Theme } from '../theme';
 
 export type ColoredButtonType = {
   Group: typeof ButtonGroup;
@@ -17,7 +17,7 @@ export type ColoredButtonProps = {
 } & AntdButtonProps;
 
 function colorFromPropsOrTheme(
-  props: ThemedStyledProps<ColoredButtonProps, MllTheme>,
+  props: ThemedStyledProps<ColoredButtonProps, Theme>,
 ) {
   return props.color || props.theme.borderColor;
 }

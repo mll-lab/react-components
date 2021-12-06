@@ -62,13 +62,17 @@ export const THEME = {
   infoColor: PALETTE.grey4,
 };
 
-/**
- * @deprecated
- */
-export const MLL_THEME = THEME;
+export type Theme = typeof THEME;
 
-export type MllTheme = typeof THEME;
-
-export function useMllTheme(): MllTheme {
+export function useTheme(): Theme {
   return useContext(ThemeContext) ?? THEME;
 }
+
+/** @deprecated use THEME */
+export const MLL_THEME = THEME;
+
+/** @deprecated use Theme */
+export type MllTheme = Theme;
+
+/** @deprecated use useTheme */
+export const useMllTheme = useTheme;
