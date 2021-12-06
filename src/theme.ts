@@ -18,7 +18,7 @@ import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 
 export const PALETTE = {
-  red: '#ff0000',
+  red: '#ff0000', // matches the MLL corporate identity
   volcano: volcano[5],
   orange: orange[5],
   gold: gold[5],
@@ -26,17 +26,17 @@ export const PALETTE = {
   lime: lime[5],
   green: green[5],
   cyan: cyan[5],
-  grey: grey[5],
   blue: blue[5],
   magenta: magenta[5],
   geekblue: geekblue[5],
   purple: purple[5],
-
   lightBlue: '#d4edfc',
   shakespeareBlue: '#50a0d0',
-  white: '#ffffff',
-  black: '#000000',
 
+  white: '#ffffff', // brightest possible
+  black: '#000000', // darkest possible
+
+  grey: grey[5],
   grey1: '#fafafa',
   grey2: '#f0f2f5',
   grey3: '#eaeaea',
