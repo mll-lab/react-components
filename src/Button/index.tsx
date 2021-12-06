@@ -11,7 +11,7 @@ import {
 import * as React from 'react';
 import { Ref } from 'react';
 
-import { MllTheme, useMllTheme } from '../theme';
+import { Theme, useTheme } from '../theme';
 
 import {
   ColoredButtonProps,
@@ -67,13 +67,13 @@ function makeSpecializedButton({
   colorFromTheme,
   ...defaults
 }: Partial<ButtonProps> & {
-  colorFromTheme: (theme: MllTheme) => string;
+  colorFromTheme: (theme: Theme) => string;
 }) {
   const ButtonWithRef = (
     { children, ...rest }: ButtonProps,
     ref: Ref<ColoredButtonType & HTMLElement>,
   ) => {
-    const theme = useMllTheme();
+    const theme = useTheme();
     const color = colorFromTheme ? { color: colorFromTheme(theme) } : {};
 
     return (
