@@ -2,7 +2,7 @@ import { Story } from '@storybook/react';
 import { range } from 'lodash';
 import React from 'react';
 
-import { THEME } from '../theme';
+import {PALETTE} from '../theme';
 
 import { randomString } from './utils';
 
@@ -15,8 +15,8 @@ export default {
 export const Default: Story<AvatarProps> = (args) => (
   <Avatar
     style={{
-      backgroundColor: THEME.warningColor,
-      color: THEME.backgroundColor,
+      backgroundColor: PALETTE.gold,
+      color: PALETTE.white,
     }}
     {...args}
   >
