@@ -2,7 +2,7 @@ import { Story } from '@storybook/react';
 import { range } from 'lodash';
 import React from 'react';
 
-import {PALETTE} from '../theme';
+import { PALETTE } from '../theme';
 
 import { randomString } from './utils';
 
