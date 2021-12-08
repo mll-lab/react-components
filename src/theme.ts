@@ -1,37 +1,14 @@
-/* eslint-disable @mll-lab/no-color-literals */
-
-import {
-  volcano,
-  orange,
-  gold,
-  yellow,
-  lime,
-  green,
-  cyan,
-  blue,
-  geekblue,
-  purple,
-  magenta,
-  grey,
-} from '@ant-design/colors';
+import { gold, green, grey } from '@ant-design/colors';
 import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 
+/* eslint-disable @mll-lab/no-color-literals */
 export const PALETTE = {
   red: '#ff0000', // matches the MLL corporate identity
-  volcano: volcano[5],
-  orange: orange[5],
   gold: gold[5],
-  yellow: yellow[5],
-  lime: lime[5],
   green: green[5],
-  cyan: cyan[5],
-  blue: blue[5],
-  magenta: magenta[5],
-  geekblue: geekblue[5],
-  purple: purple[5],
   lightBlue: '#d4edfc',
-  shakespeareBlue: '#50a0d0',
+  blue: '#50a0d0',
 
   white: '#ffffff', // brightest possible
   black: '#000000', // darkest possible
@@ -44,18 +21,22 @@ export const PALETTE = {
   grey5: '#d3d3d3',
   grey6: '#c0c0c0',
 };
+/* eslint-enable @mll-lab/no-color-literals */
 
 export const THEME = {
-  borderColor: PALETTE.shakespeareBlue,
-  dividerColor: PALETTE.grey4,
-  tableBorderColor: PALETTE.grey3,
-  containerBorderColor: PALETTE.grey5,
+  // Components
   backgroundColor: PALETTE.grey2,
-  panelBackgroundColor: PALETTE.grey3,
+  borderColor: PALETTE.blue,
   collapseBackgroundColor: PALETTE.lightBlue,
+  containerBorderColor: PALETTE.grey5,
+  dividerColor: PALETTE.grey4,
   focusedRowColor: PALETTE.lightBlue,
-  titleColor: PALETTE.grey6,
   menuGroupBackgroundColor: PALETTE.grey1,
+  panelBackgroundColor: PALETTE.grey3,
+  tableBorderColor: PALETTE.grey3,
+  titleColor: PALETTE.grey6,
+
+  // UI states
   successColor: PALETTE.green,
   warningColor: PALETTE.gold,
   errorColor: PALETTE.red,
