@@ -1,7 +1,7 @@
 import { range, uniq } from 'lodash';
 import React, { Fragment, ReactNode } from 'react';
 
-import {PALETTE} from '../theme';
+import { PALETTE } from '../theme';
 
 export type Coordinates = {
   row: 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H';
@@ -212,9 +212,9 @@ function Well(props: { position: number; well?: PlateWell }) {
         backgroundColor: props.well?.selected
           ? PALETTE.lightBlue
           : PALETTE.gray3,
-        border: '1px solid ' +  PALETTE.gray4,
+        border: `1px solid ${PALETTE.gray4}`,
         borderRadius: 2,
-        boxShadow: '0 0.5px 1.5px ' +  PALETTE.gray4,
+        boxShadow: `0 0.5px 1.5px ${PALETTE.gray4}`,
         ...LINE_STYLE,
       }}
     >
