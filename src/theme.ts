@@ -7,8 +7,8 @@ import { ThemeContext } from 'styled-components';
  */
 export const PALETTE = {
   red: '#ff0000', // matches the MLL corporate identity
-  gold: '#ffc53d',
-  green: '#bae637',
+  gold: '#faad14',
+  green: '#52c41a',
   blue: '#50a0d0',
   lightBlue: '#d4edfc',
   blueTintedGray: '#f0f2f5',
