@@ -1,3 +1,11 @@
+# [7.4.0](https://github.com/mll-lab/react-components/compare/v7.3.0...v7.4.0) (2021-12-08)
+
+
+### Features
+
+* add MLL_PALETTE constant with 12 primary colors plus black and white as special color ([b7ca652](https://github.com/mll-lab/react-components/commit/b7ca6524102a40901ba409786e14be3b55acf970))
+* deprecate MLL prefix for themes ([fc33830](https://github.com/mll-lab/react-components/commit/fc3383056baed500d2867f52d79aae123929197a))
+
 # [7.3.0](https://github.com/mll-lab/react-components/compare/v7.2.0...v7.3.0) (2021-11-30)
 
 
