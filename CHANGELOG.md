@@ -1,3 +1,10 @@
+## [7.4.1](https://github.com/mll-lab/react-components/compare/v7.4.0...v7.4.1) (2021-12-09)
+
+
+### Bug Fixes
+
+* correct assignment of success and warning color in theme ([4473c53](https://github.com/mll-lab/react-components/commit/4473c53eb996f3c270758b0bea4b8d684ab217d0))
+
 # [7.4.0](https://github.com/mll-lab/react-components/compare/v7.3.0...v7.4.0) (2021-12-08)
 
 
