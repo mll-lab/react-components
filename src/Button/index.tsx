@@ -11,10 +11,11 @@ import {
 import * as React from 'react';
 import { Ref } from 'react';
 
+import { useLayoutContext } from '../LayoutProvider';
 import { Theme, useTheme } from '../theme';
 
 import {
-  ColoredButtonProps,
+  CustomizableButtonProps,
   ColoredButtonType,
   FilledButton,
   GhostButton,
@@ -26,17 +27,29 @@ export type ButtonProps = {
   dashed?: boolean;
   filled?: boolean;
   iconOnly?: boolean;
-} & Omit<ColoredButtonProps, 'type'>;
+} & Omit<CustomizableButtonProps, 'type'>;
 
 function ButtonVariousTypes(
-  { children, dashed, filled, iconOnly, ...rest }: ButtonProps,
+  { children, dashed, filled, iconOnly, size: propSize, ...rest }: ButtonProps,
   ref: Ref<ColoredButtonType & HTMLElement>,
 ) {
+  const context = useLayoutContext();
+
+  const { layout } = context;
+
+  const size = propSize || layout.size;
+
   const childrenToRender = iconOnly === true ? null : children;
 
   if (dashed) {
     return (
-      <GhostButton type="dashed" ref={ref} {...rest}>
+      <GhostButton
+        type="dashed"
+        ref={ref}
+        size={size}
+        fontSize={layout.fontSize}
+        {...rest}
+      >
         {childrenToRender}
       </GhostButton>
     );
@@ -44,14 +57,14 @@ function ButtonVariousTypes(
 
   if (filled) {
     return (
-      <FilledButton ref={ref} {...rest}>
+      <FilledButton ref={ref} size={size} fontSize={layout.fontSize} {...rest}>
         {childrenToRender}
       </FilledButton>
     );
   }
 
   return (
-    <GhostButton ref={ref} {...rest}>
+    <GhostButton ref={ref} size={size} fontSize={layout.fontSize} {...rest}>
       {childrenToRender}
     </GhostButton>
   );

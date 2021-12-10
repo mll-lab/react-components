@@ -9,23 +9,31 @@ export type ColoredButtonType = {
   Group: typeof ButtonGroup;
   __ANT_BUTTON: boolean;
 } & React.ForwardRefExoticComponent<
-  ColoredButtonProps & React.RefAttributes<HTMLElement>
+  CustomizableButtonProps & React.RefAttributes<HTMLElement>
 >;
 
-export type ColoredButtonProps = {
+export type CustomizableButtonProps = {
   color?: string;
+  fontSize?: string;
 } & AntdButtonProps;
 
 function colorFromPropsOrTheme(
-  props: ThemedStyledProps<ColoredButtonProps, Theme>,
+  props: ThemedStyledProps<CustomizableButtonProps, Theme>,
 ) {
   return props.color || props.theme.borderColor;
+}
+
+function fontSizeFromProps(
+  props: ThemedStyledProps<CustomizableButtonProps, Theme>,
+) {
+  return props.fontSize;
 }
 
 export const FilledButton = styled(AntdButton as ColoredButtonType)`
   background: ${colorFromPropsOrTheme} !important;
   border-color: ${colorFromPropsOrTheme} !important;
   color: white !important;
+  font-size: ${fontSizeFromProps};
 
   &:hover,
   &:focus {
@@ -38,6 +46,7 @@ export const GhostButton = styled(AntdButton as ColoredButtonType)`
   background: transparent !important;
   border-color: ${colorFromPropsOrTheme} !important;
   color: ${colorFromPropsOrTheme} !important;
+  font-size: ${fontSizeFromProps};
 
   &:hover,
   &:focus {
