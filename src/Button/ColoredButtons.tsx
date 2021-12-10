@@ -23,25 +23,25 @@ function colorFromPropsOrTheme(
 }
 
 export const FilledButton = styled(AntdButton as ColoredButtonType)`
-  background: ${colorFromPropsOrTheme} !important;
-  border-color: ${colorFromPropsOrTheme} !important;
-  color: white !important;
+  background: ${colorFromPropsOrTheme};
+  border-color: ${colorFromPropsOrTheme};
+  color: white;
 
   &:hover,
   &:focus {
-    background: transparent !important;
-    color: ${colorFromPropsOrTheme} !important;
+    background: transparent;
+    color: ${colorFromPropsOrTheme};
   }
 `;
 
 export const GhostButton = styled(AntdButton as ColoredButtonType)`
-  background: transparent !important;
-  border-color: ${colorFromPropsOrTheme} !important;
-  color: ${colorFromPropsOrTheme} !important;
+  background: transparent;
+  border-color: ${colorFromPropsOrTheme};
+  color: ${colorFromPropsOrTheme};
 
   &:hover,
   &:focus {
-    background: ${colorFromPropsOrTheme} !important;
-    color: white !important;
+    background: ${colorFromPropsOrTheme};
+    color: white;
   }
 `;
