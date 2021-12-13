@@ -60,12 +60,12 @@ export type Layout = {
   size?: SizeType;
 };
 
-export const LAYOUTS: { [key in 'default' | 'mobile']: Layout } = {
+export const LAYOUTS: { [key in 'default' | 'large']: Layout } = {
   default: {
     size: 'middle',
     fontSize: '12px',
   },
-  mobile: {
+  large: {
     size: 'large',
     fontSize: '14px',
   },

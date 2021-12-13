@@ -13,13 +13,13 @@ export default {
     size: {
       control: {
         type: 'select',
-        options: ['small', 'medium', 'large'],
-        defaultValue: 'medium',
+        options: ['small', 'middle', 'large'],
+        defaultValue: 'small',
       },
     },
     fontSize: {
       control: { type: 'text' },
-      defaultValue: '12px',
+      defaultValue: '11px',
     },
   },
 };
