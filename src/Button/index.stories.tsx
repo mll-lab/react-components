@@ -34,6 +34,11 @@ export default {
         type: 'boolean',
       },
     },
+    disabled: {
+      control: {
+        type: 'boolean',
+      },
+    },
   },
 };
 
