@@ -41,11 +41,11 @@ export const StyledTable = styled(AntdTable)<{
 export function Table<
   RecordType extends Record<string, unknown> = Record<string, unknown>,
 >(props: TableProps<RecordType>) {
-  const { layout } = useLayoutContext();
+  const layout = useLayoutContext();
 
   return (
     <StyledTable
-      size={layout.size ?? 'middle'}
+      size={props.size ?? layout.size ?? 'middle'}
       $fontSize={layout.fontSize}
       rowKey="id"
       {...props}

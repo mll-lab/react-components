@@ -33,9 +33,7 @@ function ButtonVariousTypes(
   { children, dashed, filled, iconOnly, size: propSize, ...rest }: ButtonProps,
   ref: Ref<ColoredButtonType & HTMLElement>,
 ) {
-  const context = useLayoutContext();
-
-  const { layout } = context;
+  const layout = useLayoutContext();
 
   const size = propSize || layout.size;
 

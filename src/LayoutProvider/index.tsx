@@ -7,12 +7,10 @@ export { ColumnsType, ColumnProps } from 'antd/es/table';
 
 export type TableProps<RecordType> = AntdTableProps<RecordType>;
 
-export type LayoutContextValues = {
-  layout: Layout;
-};
+export type LayoutContextValues = Layout;
 
 export const LayoutContext = createContext<LayoutContextValues>({
-  layout: LAYOUTS.default,
+  ...LAYOUTS.default,
 });
 
 export const LayoutProvider = LayoutContext.Provider;

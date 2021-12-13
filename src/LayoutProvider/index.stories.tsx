@@ -21,25 +21,16 @@ export default {
       control: { type: 'text' },
       defaultValue: '12px',
     },
-    // layout: {
-    //   control: {
-    //     type: 'select',
-    //     options: ['default', 'mobile', undefined],
-    //     defaultValue: undefined,
-    //   },
-    // },
   },
 };
 
-export const Default: Story<
-  Parameters<typeof LayoutProvider>[0]['value']['layout']
-> = (args) => (
+export const Default: Story<Parameters<typeof LayoutProvider>[0]['value']> = (
+  args,
+) => (
   <LayoutProvider
     value={{
-      layout: {
-        size: args.size,
-        fontSize: args.fontSize,
-      },
+      size: args.size,
+      fontSize: args.fontSize,
     }}
   >
     <Space direction="vertical" size="middle">
