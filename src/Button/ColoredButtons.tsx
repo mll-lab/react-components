@@ -3,7 +3,7 @@ import ButtonGroup from 'antd/es/button/button-group';
 import * as React from 'react';
 import styled, { ThemedStyledProps } from 'styled-components';
 
-import { Theme } from '../theme';
+import { PALETTE, Theme } from '../theme';
 
 export type ColoredButtonType = {
   Group: typeof ButtonGroup;
@@ -25,11 +25,12 @@ function colorFromPropsOrTheme(
 export const FilledButton = styled(AntdButton as ColoredButtonType)`
   background: ${colorFromPropsOrTheme};
   border-color: ${colorFromPropsOrTheme};
-  color: white;
+  color: ${PALETTE.white};
 
   &:hover,
   &:focus {
     background: transparent;
+    border-color: ${colorFromPropsOrTheme};
     color: ${colorFromPropsOrTheme};
   }
 `;
@@ -42,6 +43,7 @@ export const GhostButton = styled(AntdButton as ColoredButtonType)`
   &:hover,
   &:focus {
     background: ${colorFromPropsOrTheme};
-    color: white;
+    border-color: ${colorFromPropsOrTheme};
+    color: ${PALETTE.white};
   }
 `;
