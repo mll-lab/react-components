@@ -51,7 +51,7 @@ export const THEME = {
   successColor: PALETTE.green,
   warningColor: PALETTE.gold,
   errorColor: PALETTE.red,
-  infoColor: PALETTE.gray4,
+  infoColor: PALETTE.gray7,
 };
 
 export type Theme = typeof THEME;

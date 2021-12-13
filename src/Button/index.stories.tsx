@@ -55,7 +55,9 @@ export const SaveWithHotkey: Story<SaveButtonByNumpadEnterProps> = (args) => (
     <SaveButtonByNumpadEnter {...args} />
   </div>
 );
-export const Info: Story<ButtonProps> = (args) => <InfoButton {...args} />;
+export const Info: Story<ButtonProps> = (args) => (
+  <InfoButton {...args}>Info</InfoButton>
+);
 export const Edit: Story<ButtonProps> = (args) => <EditButton {...args} />;
 export const Warning: Story<ButtonProps> = (args) => (
   <WarningButton {...args}>Do something slightly dangerous</WarningButton>
