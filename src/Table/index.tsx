@@ -54,7 +54,7 @@ export function Table<
 }
 
 function mapSize(size: Layout['size']): SizeType {
-  // large is not designed by antd right now (though SizeType would suggest that)
+  // large is not designed by antd right now (though SizeType contains 'large')
   if (size === 'large') {
     return 'middle';
   }
