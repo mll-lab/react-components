@@ -9,7 +9,7 @@ export default {
 
 export const Default: Story<CommentProps> = (args) => (
   <Comment
-    author={<a>Han Solo</a>}
+    author={<span>Han Solo</span>}
     content={
       <p>
         We supply a series of design principles, practical patterns and high

@@ -10,11 +10,10 @@ function hashCode(string: string): number {
 
 function getHslColor(hash: number): string {
   const h = range(hash, 0, 360);
-  const s = range(hash, 75, 80);
-  const l = range(hash, 40, 70);
-  const opacity = '0.9';
+  const s = range(hash, 50, 100);
+  const l = range(hash, 20, 50);
 
-  return `hsla(${h}, ${s}%, ${l}%, ${opacity})`;
+  return `hsla(${h}, ${s}%, ${l}%, 1)`;
 }
 
 function range(hash: number, min: number, max: number): number {
@@ -25,4 +24,17 @@ function range(hash: number, min: number, max: number): number {
 
 export function stringToHslaColor(string: string): string {
   return getHslColor(hashCode(string));
+}
+
+/**
+ * Generates a random string with a length of 1-11 chars.
+ */
+export function randomString(): string {
+  // Cut off the constant 0. from the beginning
+  const fractionStart = 2;
+
+  // Unequal distribution at the edges, but sufficiently random for the purposes of this function
+  const randomLengthEnd = Math.round(Math.random() * 11) + 3;
+
+  return Math.random().toString(36).substring(fractionStart, randomLengthEnd);
 }

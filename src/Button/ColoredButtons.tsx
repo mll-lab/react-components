@@ -3,7 +3,7 @@ import ButtonGroup from 'antd/es/button/button-group';
 import * as React from 'react';
 import styled, { ThemedStyledProps } from 'styled-components';
 
-import { MllTheme } from '../theme';
+import { PALETTE, Theme } from '../theme';
 
 export type ColoredButtonType = {
   Group: typeof ButtonGroup;
@@ -17,29 +17,33 @@ export type ColoredButtonProps = {
 } & AntdButtonProps;
 
 function colorFromPropsOrTheme(
-  props: ThemedStyledProps<ColoredButtonProps, MllTheme>,
+  props: ThemedStyledProps<ColoredButtonProps, Theme>,
 ) {
   return props.color || props.theme.borderColor;
 }
 
 export const FilledButton = styled(AntdButton as ColoredButtonType)`
-  background: ${colorFromPropsOrTheme} !important;
-  border-color: ${colorFromPropsOrTheme} !important;
-  color: white !important;
+  background: ${colorFromPropsOrTheme};
+  border-color: ${colorFromPropsOrTheme};
+  color: ${PALETTE.white};
 
-  &:hover {
-    background: transparent !important;
-    color: ${colorFromPropsOrTheme} !important;
+  &:hover,
+  &:focus {
+    background: transparent;
+    border-color: ${colorFromPropsOrTheme};
+    color: ${colorFromPropsOrTheme};
   }
 `;
 
 export const GhostButton = styled(AntdButton as ColoredButtonType)`
-  background: transparent !important;
-  border-color: ${colorFromPropsOrTheme} !important;
-  color: ${colorFromPropsOrTheme} !important;
+  background: transparent;
+  border-color: ${colorFromPropsOrTheme};
+  color: ${colorFromPropsOrTheme};
 
-  &:hover {
-    background: ${colorFromPropsOrTheme} !important;
-    color: white !important;
+  &:hover,
+  &:focus {
+    background: ${colorFromPropsOrTheme};
+    border-color: ${colorFromPropsOrTheme};
+    color: ${PALETTE.white};
   }
 `;

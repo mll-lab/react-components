@@ -1,7 +1,7 @@
 import { range, uniq } from 'lodash';
 import React, { Fragment, ReactNode } from 'react';
 
-import { MLL_THEME } from '../theme';
+import { PALETTE } from '../theme';
 
 export type Coordinates = {
   row: 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H';
@@ -210,16 +210,16 @@ function Well(props: { position: number; well?: PlateWell }) {
     <span
       style={{
         backgroundColor: props.well?.selected
-          ? MLL_THEME.warningColor
-          : MLL_THEME.tableBorderColor,
-        border: '1px solid lightgrey',
+          ? PALETTE.lightBlue
+          : PALETTE.gray3,
+        border: `1px solid ${PALETTE.gray4}`,
         borderRadius: 2,
-        boxShadow: '0 0.5px 1.5px lightgrey',
+        boxShadow: `0 0.5px 1.5px ${PALETTE.gray4}`,
         ...LINE_STYLE,
       }}
     >
       {props.well?.content ?? (
-        <small style={{ color: MLL_THEME.menuGroupBackgroundColor }}>
+        <small style={{ color: PALETTE.gray1 }}>
           {rowForPosition(props.position, PLATE_FLOW) +
             columnForPosition(props.position, PLATE_FLOW)}
         </small>

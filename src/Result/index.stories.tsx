@@ -19,5 +19,5 @@ Default.args = {
 };
 
 export const EntityNotFoundExample: Story = () => (
-  <EntityNotFound entity={'Kontrolle'} id={'4'} />
+  <EntityNotFound entity="Kontrolle" id="4" />
 );

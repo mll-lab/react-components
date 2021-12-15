@@ -11,7 +11,7 @@ import {
 import * as React from 'react';
 import { Ref } from 'react';
 
-import { MllTheme, useMllTheme } from '../theme';
+import { Theme, useTheme } from '../theme';
 
 import {
   ColoredButtonProps,
@@ -23,48 +23,57 @@ import {
 export * from './SaveButtonByNumpadEnter';
 
 export type ButtonProps = {
-  filled?: boolean;
   dashed?: boolean;
+  filled?: boolean;
+  iconOnly?: boolean;
 } & Omit<ColoredButtonProps, 'type'>;
 
 function ButtonVariousTypes(
-  { filled, dashed, ...rest }: ButtonProps,
-  ref: Ref<ColoredButtonType>,
+  { children, dashed, filled, iconOnly, ...rest }: ButtonProps,
+  ref: Ref<ColoredButtonType & HTMLElement>,
 ) {
-  // We are forced to add ts-ignore because styled-components does reportedly not
-  // expose the "ref" prop on wrapped components - it actually forwards it though.
-  // https://github.com/DefinitelyTyped/DefinitelyTyped/issues/28884
+  const childrenToRender = iconOnly === true ? null : children;
 
   if (dashed) {
-    // @ts-ignore
-    return <GhostButton type="dashed" ref={ref} {...rest} />;
+    return (
+      <GhostButton type="dashed" ref={ref} {...rest}>
+        {childrenToRender}
+      </GhostButton>
+    );
   }
 
   if (filled) {
-    // @ts-ignore
-    return <FilledButton ref={ref} {...rest} />;
+    return (
+      <FilledButton ref={ref} {...rest}>
+        {childrenToRender}
+      </FilledButton>
+    );
   }
 
-  // @ts-ignore
-  return <GhostButton ref={ref} {...rest} />;
+  return (
+    <GhostButton ref={ref} {...rest}>
+      {childrenToRender}
+    </GhostButton>
+  );
 }
 
-export const Button = React.forwardRef<ColoredButtonType, ButtonProps>(
-  ButtonVariousTypes,
-);
+export const Button = React.forwardRef<
+  ColoredButtonType & HTMLElement,
+  ButtonProps
+>(ButtonVariousTypes);
 
 function makeSpecializedButton({
   children: defaultChildren,
   colorFromTheme,
   ...defaults
 }: Partial<ButtonProps> & {
-  colorFromTheme: (theme: MllTheme) => string;
+  colorFromTheme: (theme: Theme) => string;
 }) {
   const ButtonWithRef = (
     { children, ...rest }: ButtonProps,
-    ref: Ref<ColoredButtonType>,
+    ref: Ref<ColoredButtonType & HTMLElement>,
   ) => {
-    const theme = useMllTheme();
+    const theme = useTheme();
     const color = colorFromTheme ? { color: colorFromTheme(theme) } : {};
 
     return (
@@ -74,7 +83,9 @@ function makeSpecializedButton({
     );
   };
 
-  return React.forwardRef<ColoredButtonType, ButtonProps>(ButtonWithRef);
+  return React.forwardRef<ColoredButtonType & HTMLElement, ButtonProps>(
+    ButtonWithRef,
+  );
 }
 
 export const CreateButton = makeSpecializedButton({

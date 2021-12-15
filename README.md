@@ -13,9 +13,9 @@ Shared React components of MLL
 
 ## Usage
 
-To set up proper styles, wrap your entire app (or a section of it) in the `Provider`:
+To set up proper styles, wrap your application in `<Provider>`:
 
-```typescript jsx
+```tsx
 import { Provider } from '@mll-lab/react-components';
 import * as React from 'react';
 import { render } from 'react-dom';
@@ -30,6 +30,6 @@ render(
 
 Optionally, you may pass a theme:
 
-```typescript jsx
+```tsx
 <Provider theme={{ backgroundColor: 'purple' }}>
 ```

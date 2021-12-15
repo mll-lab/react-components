@@ -1,9 +1,109 @@
-## [5.2.1-alpha.1](https://github.com/mll-lab/react-components/compare/v5.2.0...v5.2.1-alpha.1) (2021-08-30)
+## [7.4.1](https://github.com/mll-lab/react-components/compare/v7.4.0...v7.4.1) (2021-12-09)
 
 
 ### Bug Fixes
 
-* redeclare DatePicker types to avoid unnameable type ([0c9199b](https://github.com/mll-lab/react-components/commit/0c9199b3a51317a715198f6f7746f2abfdfd2a90))
+* correct assignment of success and warning color in theme ([4473c53](https://github.com/mll-lab/react-components/commit/4473c53eb996f3c270758b0bea4b8d684ab217d0))
+
+# [7.4.0](https://github.com/mll-lab/react-components/compare/v7.3.0...v7.4.0) (2021-12-08)
+
+
+### Features
+
+* add MLL_PALETTE constant with 12 primary colors plus black and white as special color ([b7ca652](https://github.com/mll-lab/react-components/commit/b7ca6524102a40901ba409786e14be3b55acf970))
+* deprecate MLL prefix for themes ([fc33830](https://github.com/mll-lab/react-components/commit/fc3383056baed500d2867f52d79aae123929197a))
+
+# [7.3.0](https://github.com/mll-lab/react-components/compare/v7.2.0...v7.3.0) (2021-11-30)
+
+
+### Bug Fixes
+
+* export TabsProps and fix Tabs story types ([26d17ca](https://github.com/mll-lab/react-components/commit/26d17ca8fabbdc077122503e92b6ffe90e288134))
+
+
+### Features
+
+* hide default children of specialized buttons with prop `iconOnly` ([6d58369](https://github.com/mll-lab/react-components/commit/6d583697d6158b446201662b9472fca8cd174f79))
+
+# [7.2.0](https://github.com/mll-lab/react-components/compare/v7.1.0...v7.2.0) (2021-11-29)
+
+
+### Features
+
+* highlight button on focus like on hover ([629ebe5](https://github.com/mll-lab/react-components/commit/629ebe540641e49b471b1ea9d36ef36180e7d057))
+
+# [7.1.0](https://github.com/mll-lab/react-components/compare/v7.0.0...v7.1.0) (2021-11-26)
+
+
+### Features
+
+* add Image component ([31a67f1](https://github.com/mll-lab/react-components/commit/31a67f1abab5b2a652d8aa7471f5ea5174076401))
+
+# [7.0.0](https://github.com/mll-lab/react-components/compare/v6.1.0...v7.0.0) (2021-11-22)
+
+
+### Bug Fixes
+
+* pass rest props to Avatar through UserAvatar ([594922a](https://github.com/mll-lab/react-components/commit/594922a4ec2413faa07b1cf264c28cdf48dd84bb))
+
+
+### Features
+
+* increase contrast for UserAvatar ([d35b09f](https://github.com/mll-lab/react-components/commit/d35b09fa5ec77713afa0f63662a768dcf1ac5f78))
+
+
+### BREAKING CHANGES
+
+* remove special purpose color white from theme
+* make colors in UserAvatar darker and more saturated
+
+# [6.1.0](https://github.com/mll-lab/react-components/compare/v6.0.1...v6.1.0) (2021-11-05)
+
+
+### Features
+
+* shrink Table ([#99](https://github.com/mll-lab/react-components/issues/99)) ([4cdf8fd](https://github.com/mll-lab/react-components/commit/4cdf8fdb97f01bbf42c88e480e4e8a8299214f96))
+
+## [6.0.1](https://github.com/mll-lab/react-components/compare/v6.0.0...v6.0.1) (2021-10-19)
+
+
+### Bug Fixes
+
+* default Table.rowKey to "id" ([401d229](https://github.com/mll-lab/react-components/commit/401d229e07dd5ab6ae95bc057afb5a275c870dc6))
+
+# [6.0.0](https://github.com/mll-lab/react-components/compare/v5.4.0...v6.0.0) (2021-10-18)
+
+
+### Features
+
+* make DateFnsDatePicker the new default ([1b04d94](https://github.com/mll-lab/react-components/commit/1b04d9453281fc2890adabd3bca4f8d6d384ed4c))
+
+
+### BREAKING CHANGES
+
+* rename DateFnsDatePicker to DatePicker, remove old DatePicker
+
+# [5.4.0](https://github.com/mll-lab/react-components/compare/v5.3.0...v5.4.0) (2021-10-06)
+
+
+### Features
+
+* export UploadFile type ([4f25754](https://github.com/mll-lab/react-components/commit/4f2575488043ed06b36a0785c15f6ecdd756ed74))
+
+# [5.3.0](https://github.com/mll-lab/react-components/compare/v5.2.1...v5.3.0) (2021-10-06)
+
+
+### Features
+
+* add Switch component ([ca3459f](https://github.com/mll-lab/react-components/commit/ca3459fdc64aa9e9f38a3aea99d4d754a1616c41))
+* export RadioGroupProps ([9b186a7](https://github.com/mll-lab/react-components/commit/9b186a76b41298a18ee98ee91377181f6be0fc6e))
+
+## [5.2.1](https://github.com/mll-lab/react-components/compare/v5.2.0...v5.2.1) (2021-08-31)
+
+
+### Bug Fixes
+
+* redeclare DatePicker types to avoid unnameable type ([#92](https://github.com/mll-lab/react-components/issues/92)) ([0586c96](https://github.com/mll-lab/react-components/commit/0586c96dbba8b3fa38add2f53dfae696435257ec))
 
 # [5.2.0](https://github.com/mll-lab/react-components/compare/v5.1.0...v5.2.0) (2021-08-27)
 

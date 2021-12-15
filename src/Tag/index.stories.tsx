@@ -1,7 +1,7 @@
 import { Story } from '@storybook/react';
 import React from 'react';
 
-import { MLL_THEME } from '../theme';
+import { PALETTE } from '../theme';
 
 import { Tag, TagProps } from './index';
 
@@ -11,13 +11,13 @@ export default {
 };
 
 export const HexColored: Story<TagProps> = (args) => (
-  <Tag color={MLL_THEME.warningColor} {...args}>
+  <Tag color={PALETTE.gold} {...args}>
     Test
   </Tag>
 );
 
 export const PresetColored: Story<TagProps> = (args) => (
-  <Tag color={'red'} {...args}>
+  <Tag color="red" {...args}>
     Test
   </Tag>
 );
