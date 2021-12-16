@@ -1,11 +1,11 @@
 import { Story } from '@storybook/react';
-import { Space } from 'antd';
+import { Space, Typography } from 'antd';
 import React from 'react';
 
 import { Button } from '../Button';
 import { Table } from '../Table';
 
-import { LayoutProvider } from './index';
+import { LayoutContextValues, LayoutProvider } from './index';
 
 export default {
   title: 'LayoutProvider',
@@ -13,7 +13,7 @@ export default {
     size: {
       control: {
         type: 'select',
-        options: ['small', 'middle', 'large'],
+        options: ['small', 'middle', 'large', undefined],
         defaultValue: 'small',
       },
     },
@@ -33,8 +33,51 @@ export const Default: Story<Parameters<typeof LayoutProvider>[0]['value']> = (
       fontSize: args.fontSize,
     }}
   >
+    <Components />
+  </LayoutProvider>
+);
+
+export const NestedOverwrite: Story<
+  Parameters<typeof LayoutProvider>[0]['value']
+> = (args) => (
+  <LayoutProvider
+    value={{
+      size: 'large',
+      fontSize: '30px',
+    }}
+  >
+    <LayoutProvider
+      value={{
+        size: args.size,
+        fontSize: args.fontSize,
+      }}
+    >
+      <Button>Button (takes values from closest LayoutProvider)</Button>
+    </LayoutProvider>
+  </LayoutProvider>
+);
+
+export const PropsHavePriority: Story<
+  Parameters<typeof LayoutProvider>[0]['value']
+> = (args) => (
+  <LayoutProvider
+    value={{
+      size: args.size,
+      fontSize: args.fontSize,
+    }}
+  >
+    <Typography.Paragraph>
+      In this story, props get passed directly to the components and have
+      priority over the values of LayoutProvider.
+    </Typography.Paragraph>
+    <Components fontSize="14px" size="large" />
+  </LayoutProvider>
+);
+
+function Components(layoutAsProps?: LayoutContextValues) {
+  return (
     <Space direction="vertical" size="middle">
-      <Button>Button</Button>
+      <Button {...layoutAsProps}>Button</Button>
       <Table
         columns={[
           {
@@ -58,27 +101,8 @@ export const Default: Story<Parameters<typeof LayoutProvider>[0]['value']> = (
             age: 42,
           },
         ]}
+        {...layoutAsProps}
       />
     </Space>
-  </LayoutProvider>
-);
-
-export const NestedOverwrite: Story<
-  Parameters<typeof LayoutProvider>[0]['value']
-> = (args) => (
-  <LayoutProvider
-    value={{
-      size: 'large',
-      fontSize: '30px',
-    }}
-  >
-    <LayoutProvider
-      value={{
-        size: args.size,
-        fontSize: args.fontSize,
-      }}
-    >
-      <Button>Button (takes values from closest LayoutProvider)</Button>
-    </LayoutProvider>
-  </LayoutProvider>
-);
+  );
+}
