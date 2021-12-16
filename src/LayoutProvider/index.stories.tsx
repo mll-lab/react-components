@@ -46,13 +46,17 @@ export const NestedOverwrite: Story<
       fontSize: '30px',
     }}
   >
+    <Typography.Paragraph>
+      When multiple LayoutProviders are nested, components get values from the
+      closest LayoutProvider.
+    </Typography.Paragraph>
     <LayoutProvider
       value={{
         size: args.size,
         fontSize: args.fontSize,
       }}
     >
-      <Button>Button (takes values from closest LayoutProvider)</Button>
+      <Button>Button</Button>
     </LayoutProvider>
   </LayoutProvider>
 );
@@ -67,8 +71,8 @@ export const PropsHavePriority: Story<
     }}
   >
     <Typography.Paragraph>
-      In this story, props get passed directly to the components and have
-      priority over the values of LayoutProvider.
+      Props get passed directly to the components and have priority over the
+      values of LayoutProvider which are passed.
     </Typography.Paragraph>
     <Components fontSize="14px" size="large" />
   </LayoutProvider>
