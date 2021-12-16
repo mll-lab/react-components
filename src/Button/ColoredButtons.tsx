@@ -9,22 +9,22 @@ export type ColoredButtonType = {
   Group: typeof ButtonGroup;
   __ANT_BUTTON: boolean;
 } & React.ForwardRefExoticComponent<
-  CustomizableButtonProps & React.RefAttributes<HTMLElement>
+  ColoredButtonProps & React.RefAttributes<HTMLElement>
 >;
 
-export type CustomizableButtonProps = {
+export type ColoredButtonProps = {
   color?: string;
   fontSize?: string;
 } & AntdButtonProps;
 
 function colorFromPropsOrTheme(
-  props: ThemedStyledProps<CustomizableButtonProps, Theme>,
+  props: ThemedStyledProps<ColoredButtonProps, Theme>,
 ) {
   return props.color || props.theme.borderColor;
 }
 
 function fontSizeFromProps(
-  props: ThemedStyledProps<CustomizableButtonProps, Theme>,
+  props: ThemedStyledProps<ColoredButtonProps, Theme>,
 ) {
   return props.fontSize;
 }

@@ -15,7 +15,7 @@ import { useLayoutContext } from '../LayoutProvider';
 import { Theme, useTheme } from '../theme';
 
 import {
-  CustomizableButtonProps,
+  ColoredButtonProps,
   ColoredButtonType,
   FilledButton,
   GhostButton,
@@ -27,7 +27,7 @@ export type ButtonProps = {
   dashed?: boolean;
   filled?: boolean;
   iconOnly?: boolean;
-} & Omit<CustomizableButtonProps, 'type'>;
+} & Omit<ColoredButtonProps, 'type'>;
 
 function ButtonVariousTypes(
   { children, dashed, filled, iconOnly, size: propSize, ...rest }: ButtonProps,
