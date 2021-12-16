@@ -62,3 +62,23 @@ export const Default: Story<Parameters<typeof LayoutProvider>[0]['value']> = (
     </Space>
   </LayoutProvider>
 );
+
+export const NestedOverwrite: Story<
+  Parameters<typeof LayoutProvider>[0]['value']
+> = (args) => (
+  <LayoutProvider
+    value={{
+      size: 'large',
+      fontSize: '30px',
+    }}
+  >
+    <LayoutProvider
+      value={{
+        size: args.size,
+        fontSize: args.fontSize,
+      }}
+    >
+      <Button>Button with layout from closest LayoutProvider</Button>
+    </LayoutProvider>
+  </LayoutProvider>
+);
