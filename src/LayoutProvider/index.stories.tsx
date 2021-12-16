@@ -78,7 +78,7 @@ export const NestedOverwrite: Story<
         fontSize: args.fontSize,
       }}
     >
-      <Button>Button with layout from closest LayoutProvider</Button>
+      <Button>Button (takes values from closest LayoutProvider)</Button>
     </LayoutProvider>
   </LayoutProvider>
 );
