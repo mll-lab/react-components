@@ -1,3 +1,14 @@
+# [7.5.0-alpha.2](https://github.com/mll-lab/react-components/compare/v7.5.0-alpha.1...v7.5.0-alpha.2) (2021-12-16)
+
+
+### Features
+
+* accept fontSize as prop ([0496573](https://github.com/mll-lab/react-components/commit/0496573772686e0615add0a4c5aabc016e527491))
+* add default themes ([7655e5a](https://github.com/mll-lab/react-components/commit/7655e5ae21355b63c50b5bec03395be0efa7d602))
+* add LayoutProvider for flexible size and fontSize adjustments ([7144a1c](https://github.com/mll-lab/react-components/commit/7144a1c5e96b91be3c65d970f48f78c9a0dc57cf))
+* support layout context in button ([abb946f](https://github.com/mll-lab/react-components/commit/abb946f500afbcd77bfaff07dc035a3b91814a56))
+* support layout context in table ([e95b3b4](https://github.com/mll-lab/react-components/commit/e95b3b4496b5b1c785b579ffb058f2f4fde18038))
+
 # [7.5.0-alpha.1](https://github.com/mll-lab/react-components/compare/v7.4.1...v7.5.0-alpha.1) (2021-12-16)
 
 
