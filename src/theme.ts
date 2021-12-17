@@ -1,3 +1,4 @@
+import { SizeType } from 'antd/es/config-provider/SizeContext';
 import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 
@@ -52,6 +53,10 @@ export const THEME = {
   warningColor: PALETTE.gold,
   errorColor: PALETTE.red,
   infoColor: PALETTE.gray4,
+
+  // Sizes
+  fontSize: '14px', // antd default
+  size: 'middle' as SizeType,
 };
 
 export type Theme = typeof THEME;
