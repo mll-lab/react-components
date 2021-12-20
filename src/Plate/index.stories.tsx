@@ -5,6 +5,9 @@ import { Plate, PlateProps } from './index';
 
 export default {
   title: 'Plate',
+  argTypes: {
+    loading: { control: 'boolean' },
+  },
 };
 
 export const Default: Story<Partial<PlateProps>> = (args) => (
