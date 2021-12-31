@@ -33,11 +33,10 @@ function ButtonVariousTypes(
   ref: Ref<ColoredButtonType & HTMLElement>,
 ) {
   const childrenToRender = iconOnly === true ? null : children;
-  const { size } = useTheme();
 
   if (dashed) {
     return (
-      <GhostButton type="dashed" ref={ref} size={size} {...rest}>
+      <GhostButton type="dashed" ref={ref} {...rest}>
         {childrenToRender}
       </GhostButton>
     );
@@ -45,14 +44,14 @@ function ButtonVariousTypes(
 
   if (filled) {
     return (
-      <FilledButton ref={ref} size={size} {...rest}>
+      <FilledButton ref={ref} {...rest}>
         {childrenToRender}
       </FilledButton>
     );
   }
 
   return (
-    <GhostButton ref={ref} size={size} {...rest}>
+    <GhostButton ref={ref} {...rest}>
       {childrenToRender}
     </GhostButton>
   );

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ComponentType } from 'react';
 
-import { Provider } from '../src';
+import { Provider } from '../src/Provider';
 
 export const decorators = [
   (Story: ComponentType) => (

@@ -1,13 +1,11 @@
 import { Story } from '@storybook/react';
 import { Space, Typography } from 'antd';
-import { SizeType } from 'antd/es/config-provider/SizeContext';
-import React, { CSSProperties } from 'react';
+import React from 'react';
 
-import { Button, CreateButton } from '../Button';
+import { CreateButton } from '../Button';
+import { Provider } from '../Provider';
 import { Table } from '../Table';
-import { Theme, THEME } from '../theme';
-
-import { ThemeProvider } from '.';
+import { Theme } from '../theme';
 
 export default {
   title: 'ThemeProvider',
@@ -27,18 +25,18 @@ export default {
 };
 
 export const Default: Story<Theme> = (args) => (
-  <ThemeProvider
+  <Provider
     theme={{
       size: args.size,
       fontSize: args.fontSize,
     }}
   >
     <Components />
-  </ThemeProvider>
+  </Provider>
 );
 
 export const NestedOverwrite: Story = (args) => (
-  <ThemeProvider
+  <Provider
     theme={{
       size: 'large',
       fontSize: '30px',
@@ -48,64 +46,63 @@ export const NestedOverwrite: Story = (args) => (
       When multiple ThemeProviders are nested, components get values from the
       closest ThemeProvider.
     </Typography.Paragraph>
-    <ThemeProvider
+    <Provider
       theme={{
         size: args.size,
         fontSize: args.fontSize,
       }}
     >
-      <Button>Button</Button>
-    </ThemeProvider>
-  </ThemeProvider>
+      <Components />
+    </Provider>
+  </Provider>
 );
 
 export const PropsHavePriority: Story = (args) => (
-  <ThemeProvider
+  <Provider
     theme={{
       size: args.size,
       fontSize: args.fontSize,
     }}
   >
-    <Typography.Paragraph>
-      Props get passed directly to the components and have priority over the
-      values of ThemeProvider which are passed.
-    </Typography.Paragraph>
-    <Components size="large" style={{ fontSize: '16px' }} />
-  </ThemeProvider>
-);
-
-export const NestedThemeProvider: Story = () => (
-  <ThemeProvider
-    theme={
-      {
-        ...THEME,
-        size: 'small',
-        fontSize: '9px',
-        successColor: 'red',
-      } as typeof THEME
-    }
-  >
-    <ThemeProvider
-      theme={{
-        size: 'small',
-        fontSize: '14px',
-      }}
-    >
-      <Typography.Paragraph>
-        Props get passed directly to the components and have priority over the
-        values of ThemeProvider which are passed.
-      </Typography.Paragraph>
-      <Components />
-    </ThemeProvider>
-  </ThemeProvider>
-);
-
-function Components(theme?: { size?: SizeType; style?: CSSProperties }) {
-  return (
     <Space direction="vertical" size="middle">
-      <CreateButton {...theme}>Button</CreateButton>
+      <Typography.Paragraph>
+        Props get passed directly to the components and have priority.
+      </Typography.Paragraph>
+      <CreateButton size="large" style={{ fontSize: '16px' }} />
       <Table
-        {...theme}
+        size="large"
+        columns={[
+          {
+            title: 'Name',
+            dataIndex: 'name',
+          },
+          {
+            title: 'Age',
+            dataIndex: 'age',
+          },
+        ]}
+        dataSource={[
+          {
+            id: 1,
+            name: 'John Brown',
+            age: 32,
+          },
+          {
+            id: 2,
+            name: 'Jim Green',
+            age: 42,
+          },
+        ]}
+      />
+    </Space>
+  </Provider>
+);
+
+function Components() {
+  return (
+    <Space direction="vertical">
+      <CreateButton />
+      <Table
         columns={[
           {
             title: 'Name',
