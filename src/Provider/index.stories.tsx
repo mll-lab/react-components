@@ -8,7 +8,7 @@ import { Table } from '../Table';
 import { Theme } from '../theme';
 
 export default {
-  title: 'ThemeProvider',
+  title: 'Provider',
   argTypes: {
     size: {
       control: {
@@ -43,12 +43,34 @@ export const NestedOverwrite: Story = (args) => (
     }}
   >
     <Typography.Paragraph>
-      When multiple ThemeProviders are nested, components get values from the
-      closest ThemeProvider.
+      When multiple Providers are nested, components get values from the closest
+      Provider.
     </Typography.Paragraph>
     <Provider
       theme={{
         size: args.size,
+        fontSize: args.fontSize,
+      }}
+    >
+      <Components />
+    </Provider>
+  </Provider>
+);
+
+export const NestedOverwriteOnlyFontSize: Story = (args) => (
+  <Provider
+    theme={{
+      size: 'small',
+      fontSize: '30px',
+    }}
+  >
+    <Typography.Paragraph>
+      {/* eslint-disable-next-line react/no-unescaped-entities */}
+      When a nested provider overwrites only some values, the parent provider's
+      other values still apply.
+    </Typography.Paragraph>
+    <Provider
+      theme={{
         fontSize: args.fontSize,
       }}
     >
