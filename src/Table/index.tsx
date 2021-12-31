@@ -1,5 +1,4 @@
 import { Table as AntdTable, TableProps as AntdTableProps } from 'antd';
-import { SizeType } from 'antd/es/config-provider/SizeContext';
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 
@@ -34,13 +33,5 @@ export function Table<
 >(props: TableProps<RecordType>) {
   const { size } = useTheme();
 
-  return <StyledTable rowKey="id" size={mapSize(size)} {...props} />;
-}
-
-function mapSize(size: SizeType): SizeType {
-  // large is not designed by antd right now (though SizeType contains 'large')
-  if (size === 'large') {
-    return 'default';
-  }
-  return size;
+  return <StyledTable rowKey="id" size={size} {...props} />;
 }
