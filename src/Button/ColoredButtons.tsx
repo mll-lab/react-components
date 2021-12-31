@@ -14,7 +14,6 @@ export type ColoredButtonType = {
 
 export type ColoredButtonProps = {
   color?: string;
-  fontSize?: string;
 } & AntdButtonProps;
 
 function colorFromPropsOrTheme(
@@ -23,17 +22,11 @@ function colorFromPropsOrTheme(
   return props.color || props.theme.borderColor;
 }
 
-function fontSizeFromProps(
-  props: ThemedStyledProps<ColoredButtonProps, Theme>,
-) {
-  return props.fontSize;
-}
-
 export const FilledButton = styled(AntdButton as ColoredButtonType)`
   background: ${colorFromPropsOrTheme};
   border-color: ${colorFromPropsOrTheme};
-  color: ${PALETTE.white};
-  font-size: ${fontSizeFromProps};
+  color: white;
+  font-size: ${(props) => props.theme.fontSize};
 
   &:hover,
   &:focus {
@@ -47,7 +40,7 @@ export const GhostButton = styled(AntdButton as ColoredButtonType)`
   background: transparent;
   border-color: ${colorFromPropsOrTheme};
   color: ${colorFromPropsOrTheme};
-  font-size: ${fontSizeFromProps};
+  font-size: ${(props) => props.theme.fontSize};
 
   &:hover,
   &:focus {

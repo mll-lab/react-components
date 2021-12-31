@@ -53,22 +53,10 @@ export const THEME = {
   warningColor: PALETTE.gold,
   errorColor: PALETTE.red,
   infoColor: PALETTE.gray7,
-};
 
-export type Layout = {
-  fontSize?: string;
-  size?: SizeType;
-};
-
-export const LAYOUTS: { [key in 'default' | 'large']: Layout } = {
-  default: {
-    size: 'middle',
-    fontSize: '12px',
-  },
-  large: {
-    size: 'large',
-    fontSize: '14px',
-  },
+  // Sizes
+  fontSize: '14px', // antd default
+  size: 'middle' as SizeType,
 };
 
 export type Theme = typeof THEME;
