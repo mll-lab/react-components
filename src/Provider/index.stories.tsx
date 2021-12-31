@@ -31,7 +31,7 @@ export const Default: Story<Theme> = (args) => (
       fontSize: args.fontSize,
     }}
   >
-    <Components />
+    <SupportedComponents />
   </Provider>
 );
 
@@ -52,7 +52,7 @@ export const NestedOverwrite: Story = (args) => (
         fontSize: args.fontSize,
       }}
     >
-      <Components />
+      <SupportedComponents />
     </Provider>
   </Provider>
 );
@@ -74,7 +74,7 @@ export const NestedOverwriteOnlyFontSize: Story = (args) => (
         fontSize: args.fontSize,
       }}
     >
-      <Components />
+      <SupportedComponents />
     </Provider>
   </Provider>
 );
@@ -91,63 +91,40 @@ export const PropsHavePriority: Story = (args) => (
         Props get passed directly to the components and have priority.
       </Typography.Paragraph>
       <CreateButton size="large" style={{ fontSize: '16px' }} />
-      <Table
-        size="large"
-        columns={[
-          {
-            title: 'Name',
-            dataIndex: 'name',
-          },
-          {
-            title: 'Age',
-            dataIndex: 'age',
-          },
-        ]}
-        dataSource={[
-          {
-            id: 1,
-            name: 'John Brown',
-            age: 32,
-          },
-          {
-            id: 2,
-            name: 'Jim Green',
-            age: 42,
-          },
-        ]}
-      />
+      <Table size="large" columns={TABLE_COLUMNS} dataSource={TABLE_DATA} />
     </Space>
   </Provider>
 );
 
-function Components() {
+function SupportedComponents() {
   return (
     <Space direction="vertical">
       <CreateButton />
-      <Table
-        columns={[
-          {
-            title: 'Name',
-            dataIndex: 'name',
-          },
-          {
-            title: 'Age',
-            dataIndex: 'age',
-          },
-        ]}
-        dataSource={[
-          {
-            id: 1,
-            name: 'John Brown',
-            age: 32,
-          },
-          {
-            id: 2,
-            name: 'Jim Green',
-            age: 42,
-          },
-        ]}
-      />
+      <Table columns={TABLE_COLUMNS} dataSource={TABLE_DATA} />
     </Space>
   );
 }
+
+const TABLE_COLUMNS = [
+  {
+    title: 'Name',
+    dataIndex: 'name',
+  },
+  {
+    title: 'Age',
+    dataIndex: 'age',
+  },
+];
+
+const TABLE_DATA = [
+  {
+    id: 1,
+    name: 'John Brown',
+    age: 32,
+  },
+  {
+    id: 2,
+    name: 'Jim Green',
+    age: 42,
+  },
+];
