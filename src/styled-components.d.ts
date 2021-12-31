@@ -1,4 +1,3 @@
-import {} from 'styled-components/cssprop';
 import 'styled-components';
 
 import { Theme } from './theme';
