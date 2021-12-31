@@ -1,3 +1,20 @@
+# [7.5.0-alpha.3](https://github.com/mll-lab/react-components/compare/v7.5.0-alpha.2...v7.5.0-alpha.3) (2021-12-31)
+
+
+### Bug Fixes
+
+* cleanup alpha branch ([ce580fd](https://github.com/mll-lab/react-components/commit/ce580fd352bc7a65daf9dc276ea219a11dcc66a7))
+* styled-components types ([5005dc6](https://github.com/mll-lab/react-components/commit/5005dc6ca7e77588dba458bdd34545a8c497b1f1))
+
+
+### Features
+
+* adapt button size and fontsize to theme ([cfffb38](https://github.com/mll-lab/react-components/commit/cfffb38131fb866d3abb06cf99f162201f905298))
+* adapt table size and fontsize to theme ([874b3b6](https://github.com/mll-lab/react-components/commit/874b3b6d84999ab62c72d5777fa40f5e02920b1d))
+* add ThemeProvider ([74489c1](https://github.com/mll-lab/react-components/commit/74489c18e3a39ca273b7cf7dc5580158d854bff0))
+* align table size usage with SizeType ([0895afe](https://github.com/mll-lab/react-components/commit/0895afe40a6cdf02c327c4a2293313edccd916c1))
+* use antd ConfigProvider componentSize ([3651355](https://github.com/mll-lab/react-components/commit/3651355d45a7f0be5e0774d3abc0bdb35518814c))
+
 # [7.5.0-alpha.2](https://github.com/mll-lab/react-components/compare/v7.5.0-alpha.1...v7.5.0-alpha.2) (2021-12-16)
 
 
