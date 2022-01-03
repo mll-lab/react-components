@@ -14,6 +14,9 @@ export default {
         options: ['small', 'medium', 'large'],
       },
     },
+    loading: {
+      control: 'boolean',
+    },
   },
 };
 
