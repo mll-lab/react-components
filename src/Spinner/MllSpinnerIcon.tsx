@@ -25,11 +25,11 @@ export const MllSpinnerSvg = (
   </SpinningSvg>
 );
 
-const MllSpinnerSvgComponent: IconComponentProps['component'] = () =>
+const MllSpinnerIconComponent: IconComponentProps['component'] = () =>
   MllSpinnerSvg;
 
 export function MllSpinnerIcon(
   props: IconBaseProps & React.RefAttributes<HTMLSpanElement>,
 ) {
-  return <Icon component={MllSpinnerSvgComponent} {...props} />;
+  return <Icon component={MllSpinnerIconComponent} {...props} />;
 }
