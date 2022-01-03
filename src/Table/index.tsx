@@ -27,3 +27,8 @@ export function Table<
 >(props: TableProps<RecordType>) {
   return <StyledTable rowKey="id" {...props} />;
 }
+
+// Re-define JSX API components, see https://github.com/ant-design/ant-design/blob/master/components/table/Table.tsx#L548
+Table.Column = AntdTable.Column;
+Table.ColumnGroup = AntdTable.ColumnGroup;
+Table.Summary = AntdTable.Summary;
