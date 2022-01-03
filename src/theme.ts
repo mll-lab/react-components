@@ -35,9 +35,9 @@ const DEPRECATED_PALETTE = {
 };
 /* eslint-enable @mll-lab/no-color-literals */
 
-const size: SizeType = 'middle';
-
-export const THEME = {
+export const THEME: Record<string, unknown> & {
+  size: SizeType;
+} = {
   // Components
   backgroundColor: PALETTE.blueTintedGray,
   borderColor: PALETTE.blue,
@@ -58,7 +58,7 @@ export const THEME = {
 
   // Sizes
   fontSize: '14px', // antd default
-  size,
+  size: 'middle',
 };
 
 export type Theme = typeof THEME;
