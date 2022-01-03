@@ -36,7 +36,7 @@ export const FilledButton = styled(AntdButton as ColoredButtonType)`
   }
 
   &[disabled] {
-    color: ${(props) => props.theme.disabledColors.lowContrast};
+    color: ${(props) => props.theme.disabledColors?.lowContrast};
   }
 `;
 
@@ -54,6 +54,6 @@ export const GhostButton = styled(AntdButton as ColoredButtonType)`
   }
 
   &[disabled] {
-    color: ${(props) => props.theme.disabledColors.lowContrast};
+    color: ${(props) => props.theme.disabledColors?.lowContrast};
   }
 `;

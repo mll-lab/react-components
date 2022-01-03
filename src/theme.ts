@@ -46,6 +46,9 @@ export type Theme = {
   panelBackgroundColor: string;
   tableBorderColor: string;
   titleColor: string;
+  disabledColors?: {
+    lowContrast: string;
+  };
 
   successColor: string;
   warningColor: string;
