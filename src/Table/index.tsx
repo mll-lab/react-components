@@ -7,6 +7,10 @@ export { ColumnsType, ColumnProps } from 'antd/es/table';
 export type TableProps<RecordType> = AntdTableProps<RecordType>;
 
 export const StyledTable = styled(AntdTable)`
+  .mll-ant-table {
+    font-size: ${(props) => props.theme.fontSize ?? undefined};
+  }
+
   ${(props) => {
     if (props.onRow?.({})?.onClick) {
       return `

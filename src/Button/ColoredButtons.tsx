@@ -26,6 +26,7 @@ export const FilledButton = styled(AntdButton as ColoredButtonType)`
   background: ${colorFromPropsOrTheme} !important;
   border-color: ${colorFromPropsOrTheme} !important;
   color: white !important;
+  font-size: ${(props) => props.theme.fontSize};
 
   &:hover,
   &:focus {
@@ -38,6 +39,7 @@ export const GhostButton = styled(AntdButton as ColoredButtonType)`
   background: transparent !important;
   border-color: ${colorFromPropsOrTheme} !important;
   color: ${colorFromPropsOrTheme} !important;
+  font-size: ${(props) => props.theme.fontSize};
 
   &:hover,
   &:focus {
