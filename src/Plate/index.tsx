@@ -1,6 +1,8 @@
+import { Spin } from 'antd';
 import { range, uniq } from 'lodash';
 import React, { Fragment, ReactNode } from 'react';
 
+import { MllSpinnerIcon } from '../Spinner';
 import { PALETTE } from '../theme';
 
 export type Coordinates = {
@@ -46,6 +48,7 @@ export type PlateWell = {
 
 export type PlateProps = {
   data: Array<PlateWell>;
+  loading?: boolean;
 };
 
 const TUBE_COUNT = 96;
@@ -174,34 +177,47 @@ export function Plate(props: PlateProps) {
   assertUniquePositions(props.data);
 
   return (
-    <div
-      style={{
-        display: 'grid',
-        gridTemplateColumns: `1fr ${'4fr '.repeat(COORDINATES_COLUMNS.length)}`,
-        gridGap: '3px',
-      }}
+    <Spin
+      spinning={props.loading ?? false}
+      indicator={
+        <MllSpinnerIcon
+          style={{
+            width: '2em',
+          }}
+        />
+      }
     >
-      <span style={LINE_STYLE} />
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: `1fr ${'4fr '.repeat(
+            COORDINATES_COLUMNS.length,
+          )}`,
+          gridGap: '3px',
+        }}
+      >
+        <span style={LINE_STYLE} />
 
-      {COORDINATES_COLUMNS.map((column) => (
-        <span style={LINE_STYLE} key={column}>
-          <strong>{column}</strong>
-        </span>
-      ))}
+        {COORDINATES_COLUMNS.map((column) => (
+          <span style={LINE_STYLE} key={column}>
+            <strong>{column}</strong>
+          </span>
+        ))}
 
-      {WELLS.map((position) => (
-        <Fragment key={position}>
-          {columnForPosition(position, PLATE_FLOW) === 1 && (
-            <RowLabel position={position} />
-          )}
+        {WELLS.map((position) => (
+          <Fragment key={position}>
+            {columnForPosition(position, PLATE_FLOW) === 1 && (
+              <RowLabel position={position} />
+            )}
 
-          <Well
-            position={position}
-            well={wellAtPosition(position, props.data, PLATE_FLOW)}
-          />
-        </Fragment>
-      ))}
-    </div>
+            <Well
+              position={position}
+              well={wellAtPosition(position, props.data, PLATE_FLOW)}
+            />
+          </Fragment>
+        ))}
+      </div>
+    </Spin>
   );
 }
 

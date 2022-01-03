@@ -1,3 +1,4 @@
+import { SizeType } from 'antd/es/config-provider/SizeContext';
 import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 
@@ -34,7 +35,28 @@ const DEPRECATED_PALETTE = {
 };
 /* eslint-enable @mll-lab/no-color-literals */
 
-export const THEME = {
+export type Theme = {
+  backgroundColor: string;
+  borderColor: string;
+  collapseBackgroundColor: string;
+  containerBorderColor: string;
+  dividerColor: string;
+  focusedRowColor: string;
+  menuGroupBackgroundColor: string;
+  panelBackgroundColor: string;
+  tableBorderColor: string;
+  titleColor: string;
+
+  successColor: string;
+  warningColor: string;
+  errorColor: string;
+  infoColor: string;
+
+  fontSize?: string;
+  size?: SizeType;
+};
+
+export const THEME: Theme = {
   // Components
   backgroundColor: PALETTE.blueTintedGray,
   borderColor: PALETTE.blue,
@@ -55,9 +77,10 @@ export const THEME = {
   warningColor: PALETTE.gold,
   errorColor: PALETTE.red,
   infoColor: PALETTE.gray7,
-};
 
-export type Theme = typeof THEME;
+  // Sizes
+  fontSize: '14px', // antd default
+};
 
 export function useTheme(): Theme {
   return useContext(ThemeContext) ?? THEME;

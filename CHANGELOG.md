@@ -1,3 +1,10 @@
+# [7.5.0](https://github.com/mll-lab/react-components/compare/v7.4.1...v7.5.0) (2021-12-20)
+
+
+### Features
+
+* add loading spinner to plate component ([#114](https://github.com/mll-lab/react-components/issues/114)) ([c18cac7](https://github.com/mll-lab/react-components/commit/c18cac72f392c56c698471d94dcfb35f6cd62046))
+
 ## [7.4.1](https://github.com/mll-lab/react-components/compare/v7.4.0...v7.4.1) (2021-12-09)
 
 
