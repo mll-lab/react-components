@@ -46,6 +46,9 @@ export const THEME = {
   panelBackgroundColor: DEPRECATED_PALETTE.gray1,
   tableBorderColor: PALETTE.gray3,
   titleColor: PALETTE.gray5,
+  disabledColors: {
+    lowContrast: PALETTE.gray5,
+  },
 
   // UI states
   successColor: PALETTE.green,
