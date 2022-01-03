@@ -25,7 +25,7 @@ export const StyledTable = styled(AntdTable)`
 ) => ReactElement;
 
 function loadingProps<T>({ loading }: TableProps<T>): TableProps<T>['loading'] {
-  if (loading && typeof loading === 'object') {
+  if (typeof loading === 'object') {
     return {
       spinning: loading.spinning,
       indicator: loading.indicator ?? MllSpinnerSvg,
