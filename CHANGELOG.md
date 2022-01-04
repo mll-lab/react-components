@@ -1,3 +1,10 @@
+# [7.6.0](https://github.com/mll-lab/react-components/compare/v7.5.0...v7.6.0) (2022-01-03)
+
+
+### Features
+
+* provide component size and font-size ([#113](https://github.com/mll-lab/react-components/issues/113)) ([64705c6](https://github.com/mll-lab/react-components/commit/64705c69804c4e06ae010d8d4433d3d292c23f8e))
+
 # [7.5.0](https://github.com/mll-lab/react-components/compare/v7.4.1...v7.5.0) (2021-12-20)
 
 
