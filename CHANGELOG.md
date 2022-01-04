@@ -1,3 +1,10 @@
+# [7.9.0](https://github.com/mll-lab/react-components/compare/v7.8.0...v7.9.0) (2022-01-04)
+
+
+### Features
+
+* export table sub-components for JSX API usage ([#115](https://github.com/mll-lab/react-components/issues/115)) ([ec7e5ac](https://github.com/mll-lab/react-components/commit/ec7e5acce3a2551ff2dfebc4a38a7b2e485b6df4))
+
 # [7.8.0](https://github.com/mll-lab/react-components/compare/v7.7.0...v7.8.0) (2022-01-04)
 
 
