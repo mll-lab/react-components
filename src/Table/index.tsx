@@ -52,3 +52,8 @@ export function Table<
     />
   );
 }
+
+// Re-define JSX API components, see https://github.com/ant-design/ant-design/blob/a4d139687a6ca5a0abad09ac5cdadce617ccf9ca/components/table/Table.tsx#L548-L550
+Table.Column = AntdTable.Column;
+Table.ColumnGroup = AntdTable.ColumnGroup;
+Table.Summary = AntdTable.Summary;
