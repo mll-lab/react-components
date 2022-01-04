@@ -1,3 +1,24 @@
+# [7.9.0](https://github.com/mll-lab/react-components/compare/v7.8.0...v7.9.0) (2022-01-04)
+
+
+### Features
+
+* export table sub-components for JSX API usage ([#115](https://github.com/mll-lab/react-components/issues/115)) ([ec7e5ac](https://github.com/mll-lab/react-components/commit/ec7e5acce3a2551ff2dfebc4a38a7b2e485b6df4))
+
+# [7.8.0](https://github.com/mll-lab/react-components/compare/v7.7.0...v7.8.0) (2022-01-04)
+
+
+### Features
+
+* mll logo as default table loading indicator ([#116](https://github.com/mll-lab/react-components/issues/116)) ([c5d4cba](https://github.com/mll-lab/react-components/commit/c5d4cba101c78f62026d085226c192fd5d7b0fae))
+
+# [7.7.0](https://github.com/mll-lab/react-components/compare/v7.6.0...v7.7.0) (2022-01-04)
+
+
+### Features
+
+* distinct disabled button style ([#111](https://github.com/mll-lab/react-components/issues/111)) ([0e7e495](https://github.com/mll-lab/react-components/commit/0e7e495792e61ababa1a708972b25628fd3cb944))
+
 # [7.6.0](https://github.com/mll-lab/react-components/compare/v7.5.0...v7.6.0) (2022-01-03)
 
 

@@ -3,7 +3,7 @@ import ButtonGroup from 'antd/es/button/button-group';
 import * as React from 'react';
 import styled, { ThemedStyledProps } from 'styled-components';
 
-import { Theme } from '../theme';
+import { PALETTE, Theme } from '../theme';
 
 export type ColoredButtonType = {
   Group: typeof ButtonGroup;
@@ -23,27 +23,37 @@ function colorFromPropsOrTheme(
 }
 
 export const FilledButton = styled(AntdButton as ColoredButtonType)`
-  background: ${colorFromPropsOrTheme} !important;
-  border-color: ${colorFromPropsOrTheme} !important;
-  color: white !important;
+  background: ${colorFromPropsOrTheme};
+  border-color: ${colorFromPropsOrTheme};
+  color: ${PALETTE.white};
   font-size: ${(props) => props.theme.fontSize};
 
   &:hover,
   &:focus {
-    background: transparent !important;
-    color: ${colorFromPropsOrTheme} !important;
+    background: transparent;
+    border-color: ${colorFromPropsOrTheme};
+    color: ${colorFromPropsOrTheme};
+  }
+
+  &[disabled] {
+    color: ${(props) => props.theme.disabledColors?.lowContrast};
   }
 `;
 
 export const GhostButton = styled(AntdButton as ColoredButtonType)`
-  background: transparent !important;
-  border-color: ${colorFromPropsOrTheme} !important;
-  color: ${colorFromPropsOrTheme} !important;
+  background: transparent;
+  border-color: ${colorFromPropsOrTheme};
+  color: ${colorFromPropsOrTheme};
   font-size: ${(props) => props.theme.fontSize};
 
   &:hover,
   &:focus {
-    background: ${colorFromPropsOrTheme} !important;
-    color: white !important;
+    background: ${colorFromPropsOrTheme};
+    border-color: ${colorFromPropsOrTheme};
+    color: ${PALETTE.white};
+  }
+
+  &[disabled] {
+    color: ${(props) => props.theme.disabledColors?.lowContrast};
   }
 `;
