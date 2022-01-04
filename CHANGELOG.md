@@ -1,3 +1,10 @@
+# [7.7.0](https://github.com/mll-lab/react-components/compare/v7.6.0...v7.7.0) (2022-01-04)
+
+
+### Features
+
+* distinct disabled button style ([#111](https://github.com/mll-lab/react-components/issues/111)) ([0e7e495](https://github.com/mll-lab/react-components/commit/0e7e495792e61ababa1a708972b25628fd3cb944))
+
 # [7.6.0](https://github.com/mll-lab/react-components/compare/v7.5.0...v7.6.0) (2022-01-03)
 
 
