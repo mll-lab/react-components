@@ -1,3 +1,10 @@
+# [7.8.0](https://github.com/mll-lab/react-components/compare/v7.7.0...v7.8.0) (2022-01-04)
+
+
+### Features
+
+* mll logo as default table loading indicator ([#116](https://github.com/mll-lab/react-components/issues/116)) ([c5d4cba](https://github.com/mll-lab/react-components/commit/c5d4cba101c78f62026d085226c192fd5d7b0fae))
+
 # [7.7.0](https://github.com/mll-lab/react-components/compare/v7.6.0...v7.7.0) (2022-01-04)
 
 
