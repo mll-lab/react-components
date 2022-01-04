@@ -2,6 +2,8 @@ import { Table as AntdTable, TableProps as AntdTableProps } from 'antd';
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 
+import { MllSpinnerSvg } from '../Spinner';
+
 export { ColumnsType, ColumnProps } from 'antd/es/table';
 
 export type TableProps<RecordType> = AntdTableProps<RecordType>;
@@ -29,5 +31,24 @@ export const StyledTable = styled(AntdTable)`
 export function Table<
   RecordType extends Record<string, unknown> = Record<string, unknown>,
 >(props: TableProps<RecordType>) {
-  return <StyledTable rowKey="id" {...props} />;
+  const { loading, ...rest } = props;
+  return (
+    <StyledTable
+      rowKey="id"
+      {...rest}
+      loading={
+        typeof loading === 'object'
+          ? {
+              spinning: loading.spinning,
+              indicator: loading.indicator ?? MllSpinnerSvg,
+              size: loading.size ?? 'large',
+            }
+          : {
+              spinning: loading,
+              indicator: MllSpinnerSvg,
+              size: 'large',
+            }
+      }
+    />
+  );
 }
