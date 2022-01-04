@@ -35,7 +35,31 @@ const DEPRECATED_PALETTE = {
 };
 /* eslint-enable @mll-lab/no-color-literals */
 
-export const THEME = {
+export type Theme = {
+  backgroundColor: string;
+  borderColor: string;
+  collapseBackgroundColor: string;
+  containerBorderColor: string;
+  dividerColor: string;
+  focusedRowColor: string;
+  menuGroupBackgroundColor: string;
+  panelBackgroundColor: string;
+  tableBorderColor: string;
+  titleColor: string;
+  disabledColors?: {
+    lowContrast: string;
+  };
+
+  successColor: string;
+  warningColor: string;
+  errorColor: string;
+  infoColor: string;
+
+  fontSize?: string;
+  size?: SizeType;
+};
+
+export const THEME: Theme = {
   // Components
   backgroundColor: PALETTE.blueTintedGray,
   borderColor: PALETTE.blue,
@@ -47,6 +71,9 @@ export const THEME = {
   panelBackgroundColor: DEPRECATED_PALETTE.gray1,
   tableBorderColor: PALETTE.gray3,
   titleColor: PALETTE.gray5,
+  disabledColors: {
+    lowContrast: PALETTE.gray5,
+  },
 
   // UI states
   successColor: PALETTE.green,
@@ -56,10 +83,7 @@ export const THEME = {
 
   // Sizes
   fontSize: '14px', // antd default
-  size: 'middle' as SizeType,
 };
-
-export type Theme = typeof THEME;
 
 export function useTheme(): Theme {
   return useContext(ThemeContext) ?? THEME;
