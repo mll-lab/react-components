@@ -24,23 +24,27 @@ export const StyledTable = styled(AntdTable)`
   props: TableProps<RecordType>,
 ) => ReactElement;
 
-function loadingProps<T>({ loading }: TableProps<T>): TableProps<T>['loading'] {
-  if (typeof loading === 'object') {
-    return {
-      spinning: loading.spinning,
-      indicator: loading.indicator ?? MllSpinnerSvg,
-      size: loading.size ?? 'large',
-    };
-  }
-  return {
-    spinning: loading,
-    indicator: MllSpinnerSvg,
-    size: 'large',
-  };
-}
-
 export function Table<
   RecordType extends Record<string, unknown> = Record<string, unknown>,
 >(props: TableProps<RecordType>) {
-  return <StyledTable rowKey="id" {...props} loading={loadingProps(props)} />;
+  const { loading, ...rest } = props;
+  return (
+    <StyledTable
+      rowKey="id"
+      {...rest}
+      loading={
+        typeof loading === 'object'
+          ? {
+              spinning: loading.spinning,
+              indicator: loading.indicator ?? MllSpinnerSvg,
+              size: loading.size ?? 'large',
+            }
+          : {
+              spinning: loading,
+              indicator: MllSpinnerSvg,
+              size: 'large',
+            }
+      }
+    />
+  );
 }

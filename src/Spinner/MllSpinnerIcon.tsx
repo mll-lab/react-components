@@ -1,8 +1,5 @@
 import Icon from '@ant-design/icons';
-import {
-  IconBaseProps,
-  IconComponentProps,
-} from '@ant-design/icons/es/components/Icon';
+import { IconBaseProps } from '@ant-design/icons/es/components/Icon';
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
@@ -25,11 +22,8 @@ export const MllSpinnerSvg = (
   </SpinningSvg>
 );
 
-const MllSpinnerIconComponent: IconComponentProps['component'] = () =>
-  MllSpinnerSvg;
-
 export function MllSpinnerIcon(
   props: IconBaseProps & React.RefAttributes<HTMLSpanElement>,
 ) {
-  return <Icon component={MllSpinnerIconComponent} {...props} />;
+  return <Icon component={() => MllSpinnerSvg} {...props} />;
 }
