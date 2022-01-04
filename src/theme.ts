@@ -46,6 +46,9 @@ export type Theme = {
   panelBackgroundColor: string;
   tableBorderColor: string;
   titleColor: string;
+  disabledColors?: {
+    lowContrast: string;
+  };
 
   successColor: string;
   warningColor: string;
@@ -68,12 +71,15 @@ export const THEME: Theme = {
   panelBackgroundColor: DEPRECATED_PALETTE.gray1,
   tableBorderColor: PALETTE.gray3,
   titleColor: PALETTE.gray5,
+  disabledColors: {
+    lowContrast: PALETTE.gray5,
+  },
 
   // UI states
   successColor: PALETTE.green,
   warningColor: PALETTE.gold,
   errorColor: PALETTE.red,
-  infoColor: PALETTE.gray4,
+  infoColor: PALETTE.gray7,
 
   // Sizes
   fontSize: '14px', // antd default
