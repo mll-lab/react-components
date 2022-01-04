@@ -1,3 +1,31 @@
+# [7.10.0-alpha.1](https://github.com/mll-lab/react-components/compare/v7.9.0...v7.10.0-alpha.1) (2022-01-04)
+
+
+### Bug Fixes
+
+* cleanup alpha branch ([ce580fd](https://github.com/mll-lab/react-components/commit/ce580fd352bc7a65daf9dc276ea219a11dcc66a7))
+* info button ([75fb22a](https://github.com/mll-lab/react-components/commit/75fb22aa147d9da2e010fa6d8eb34556ea29f816))
+* redeclare DatePicker types to avoid unnameable type ([0c9199b](https://github.com/mll-lab/react-components/commit/0c9199b3a51317a715198f6f7746f2abfdfd2a90))
+* style of disabled buttons in hover and focus states ([d90f023](https://github.com/mll-lab/react-components/commit/d90f023db10e5b6b0ee0f19cc6b14786aed85843))
+* styled-components types ([5005dc6](https://github.com/mll-lab/react-components/commit/5005dc6ca7e77588dba458bdd34545a8c497b1f1))
+
+
+### Features
+
+* accept fontSize as prop ([0496573](https://github.com/mll-lab/react-components/commit/0496573772686e0615add0a4c5aabc016e527491))
+* adapt button size and fontsize to theme ([cfffb38](https://github.com/mll-lab/react-components/commit/cfffb38131fb866d3abb06cf99f162201f905298))
+* adapt table size and fontsize to theme ([874b3b6](https://github.com/mll-lab/react-components/commit/874b3b6d84999ab62c72d5777fa40f5e02920b1d))
+* add default themes ([7655e5a](https://github.com/mll-lab/react-components/commit/7655e5ae21355b63c50b5bec03395be0efa7d602))
+* add disabled control to button stories ([6e49dad](https://github.com/mll-lab/react-components/commit/6e49dadbc195741163c60f3e8889e1814357254d))
+* add LayoutProvider for flexible size and fontSize adjustments ([7144a1c](https://github.com/mll-lab/react-components/commit/7144a1c5e96b91be3c65d970f48f78c9a0dc57cf))
+* add ThemeProvider ([74489c1](https://github.com/mll-lab/react-components/commit/74489c18e3a39ca273b7cf7dc5580158d854bff0))
+* align table size usage with SizeType ([0895afe](https://github.com/mll-lab/react-components/commit/0895afe40a6cdf02c327c4a2293313edccd916c1))
+* remove overwrite of status-dependent button colors ([647c3ec](https://github.com/mll-lab/react-components/commit/647c3ecdb1ec00c4e01c5ead8143da7f26109f47))
+* support layout context in button ([abb946f](https://github.com/mll-lab/react-components/commit/abb946f500afbcd77bfaff07dc035a3b91814a56))
+* support layout context in table ([e95b3b4](https://github.com/mll-lab/react-components/commit/e95b3b4496b5b1c785b579ffb058f2f4fde18038))
+* update antd to 4.18.2 ([32359a1](https://github.com/mll-lab/react-components/commit/32359a18680a3c113184cf615d831b8a84288411))
+* use antd ConfigProvider componentSize ([3651355](https://github.com/mll-lab/react-components/commit/3651355d45a7f0be5e0774d3abc0bdb35518814c))
+
 # [7.9.0](https://github.com/mll-lab/react-components/compare/v7.8.0...v7.9.0) (2022-01-04)
 
 
