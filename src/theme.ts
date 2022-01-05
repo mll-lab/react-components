@@ -50,10 +50,11 @@ export type Theme = {
     lowContrast: string;
   };
 
-  successColor: string;
-  warningColor: string;
+  dangerColor: string;
   errorColor: string;
   infoColor: string;
+  successColor: string;
+  warningColor: string;
 
   fontSize?: string;
   size?: SizeType;
@@ -76,10 +77,11 @@ export const THEME: Theme = {
   },
 
   // UI states
-  successColor: PALETTE.green,
-  warningColor: PALETTE.gold,
+  dangerColor: PALETTE.red,
   errorColor: PALETTE.red,
   infoColor: PALETTE.gray7,
+  successColor: PALETTE.green,
+  warningColor: PALETTE.gold,
 
   // Sizes
   fontSize: '14px', // antd default
