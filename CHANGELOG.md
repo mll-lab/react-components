@@ -1,3 +1,10 @@
+# [7.10.0](https://github.com/mll-lab/react-components/compare/v7.9.0...v7.10.0) (2022-01-05)
+
+
+### Features
+
+* add dangerColor to Theme ([95bbd15](https://github.com/mll-lab/react-components/commit/95bbd15f7404d7cd3614c3e6715fedea9ae13d66))
+
 # [7.9.0](https://github.com/mll-lab/react-components/compare/v7.8.0...v7.9.0) (2022-01-04)
 
 
