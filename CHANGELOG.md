@@ -1,3 +1,10 @@
+## [7.10.1](https://github.com/mll-lab/react-components/compare/v7.10.0...v7.10.1) (2022-01-10)
+
+
+### Bug Fixes
+
+* don't spin when loading prop is undefined ([d48b8ce](https://github.com/mll-lab/react-components/commit/d48b8ce37af2691021b9324a78201368874da772))
+
 # [7.10.0](https://github.com/mll-lab/react-components/compare/v7.9.0...v7.10.0) (2022-01-05)
 
 
