@@ -84,7 +84,7 @@ export const THEME: Theme = {
   warningColor: PALETTE.gold,
 
   // Sizes
-  fontSize: '14px', // antd default
+  fontSize: '12px', // antd default for compact theme (compact.less)
 };
 
 export function useTheme(): Theme {
