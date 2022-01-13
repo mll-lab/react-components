@@ -1,3 +1,10 @@
+# [7.11.0](https://github.com/mll-lab/react-components/compare/v7.10.1...v7.11.0) (2022-01-13)
+
+
+### Features
+
+* darken green for improved contrast ([174bfde](https://github.com/mll-lab/react-components/commit/174bfde78b2b47edbf9ce106af0837fd4a96e819))
+
 ## [7.10.1](https://github.com/mll-lab/react-components/compare/v7.10.0...v7.10.1) (2022-01-10)
 
 
