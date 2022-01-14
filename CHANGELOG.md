@@ -1,3 +1,10 @@
+## [7.11.1](https://github.com/mll-lab/react-components/compare/v7.11.0...v7.11.1) (2022-01-14)
+
+
+### Bug Fixes
+
+* adapt to compact theme font size ([1687c29](https://github.com/mll-lab/react-components/commit/1687c29ced9f07beba611f7cf4a29e2a147e4cdd))
+
 # [7.11.0](https://github.com/mll-lab/react-components/compare/v7.10.1...v7.11.0) (2022-01-13)
 
 
