@@ -1,3 +1,15 @@
+# [8.0.0](https://github.com/mll-lab/react-components/compare/v7.11.1...v8.0.0) (2022-01-17)
+
+
+### Features
+
+* make plate data nullable ([ad6cae4](https://github.com/mll-lab/react-components/commit/ad6cae49d7d279768caa1082f695b419b38f48e2))
+
+
+### BREAKING CHANGES
+
+* use color attribute for well instead of deprecated selected
+
 ## [7.11.1](https://github.com/mll-lab/react-components/compare/v7.11.0...v7.11.1) (2022-01-14)
 
 
