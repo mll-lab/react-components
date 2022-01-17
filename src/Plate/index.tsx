@@ -43,11 +43,11 @@ export function ensureCoordinatesInRange<
 export type PlateWell = {
   coordinates: Coordinates;
   content?: ReactNode;
-  selected?: boolean;
+  color?: string;
 };
 
 export type PlateProps = {
-  data: Array<PlateWell>;
+  data: Array<PlateWell> | null;
   loading?: boolean;
 };
 
@@ -174,7 +174,9 @@ function assertUniquePositions(data: Array<PlateWell>): void {
 const PLATE_FLOW: FlowDirection = 'row';
 
 export function Plate(props: PlateProps) {
-  assertUniquePositions(props.data);
+  if (props.data) {
+    assertUniquePositions(props.data);
+  }
 
   return (
     <Spin
@@ -212,7 +214,11 @@ export function Plate(props: PlateProps) {
 
             <Well
               position={position}
-              well={wellAtPosition(position, props.data, PLATE_FLOW)}
+              well={
+                props.data
+                  ? wellAtPosition(position, props.data, PLATE_FLOW)
+                  : undefined
+              }
             />
           </Fragment>
         ))}
@@ -225,9 +231,7 @@ function Well(props: { position: number; well?: PlateWell }) {
   return (
     <span
       style={{
-        backgroundColor: props.well?.selected
-          ? PALETTE.lightBlue
-          : PALETTE.gray3,
+        backgroundColor: props.well?.color ?? PALETTE.gray3,
         border: `1px solid ${PALETTE.gray4}`,
         borderRadius: 2,
         boxShadow: `0 0.5px 1.5px ${PALETTE.gray4}`,
