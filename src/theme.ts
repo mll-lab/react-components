@@ -57,8 +57,15 @@ export type Theme = {
   warningColor: string;
 
   fontSize?: string;
+  typography?: {
+    [key in HeaderSize]?: { fontSize: string; lineHeight: string };
+  };
   size?: SizeType;
 };
+
+export type HeaderSize = 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
+
+export const HEADER_SIZES: Array<HeaderSize> = ['h1', 'h2', 'h3', 'h4', 'h5'];
 
 export const THEME: Theme = {
   // Components
@@ -85,6 +92,28 @@ export const THEME: Theme = {
 
   // Sizes
   fontSize: '12px', // antd default for compact theme (compact.less)
+  typography: {
+    h1: {
+      fontSize: '22px',
+      lineHeight: '1.2em',
+    },
+    h2: {
+      fontSize: '20px',
+      lineHeight: '1.3em',
+    },
+    h3: {
+      fontSize: '18px',
+      lineHeight: '1.4em',
+    },
+    h4: {
+      fontSize: '16px',
+      lineHeight: '1.5em',
+    },
+    h5: {
+      fontSize: '14px',
+      lineHeight: '1.6em',
+    },
+  },
 };
 
 export function useTheme(): Theme {
