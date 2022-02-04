@@ -39,12 +39,12 @@ export function Table<
       loading={
         typeof loading === 'object'
           ? {
-              spinning: loading.spinning,
+              spinning: Boolean(loading.spinning),
               indicator: loading.indicator ?? MllSpinnerSvg,
               size: loading.size ?? 'large',
             }
           : {
-              spinning: loading,
+              spinning: Boolean(loading),
               indicator: MllSpinnerSvg,
               size: 'large',
             }

@@ -1,6 +1,8 @@
 import { Story } from '@storybook/react';
 import React from 'react';
 
+import { PALETTE } from '../theme';
+
 import { Plate, PlateProps } from './index';
 
 export default {
@@ -20,7 +22,7 @@ export const Default: Story<Partial<PlateProps>> = (args) => (
       {
         coordinates: { row: 'A', column: 8 },
         content: 'Test',
-        selected: true,
+        color: PALETTE.red,
       },
       {
         coordinates: { row: 'B', column: 3 },

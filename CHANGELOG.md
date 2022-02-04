@@ -1,3 +1,50 @@
+# [8.0.0](https://github.com/mll-lab/react-components/compare/v7.11.1...v8.0.0) (2022-01-17)
+
+
+### Features
+
+* make plate data nullable ([ad6cae4](https://github.com/mll-lab/react-components/commit/ad6cae49d7d279768caa1082f695b419b38f48e2))
+
+
+### BREAKING CHANGES
+
+* use color attribute for well instead of deprecated selected
+
+## [7.11.1](https://github.com/mll-lab/react-components/compare/v7.11.0...v7.11.1) (2022-01-14)
+
+
+### Bug Fixes
+
+* adapt to compact theme font size ([1687c29](https://github.com/mll-lab/react-components/commit/1687c29ced9f07beba611f7cf4a29e2a147e4cdd))
+
+# [7.11.0](https://github.com/mll-lab/react-components/compare/v7.10.1...v7.11.0) (2022-01-13)
+
+
+### Features
+
+* darken green for improved contrast ([174bfde](https://github.com/mll-lab/react-components/commit/174bfde78b2b47edbf9ce106af0837fd4a96e819))
+
+## [7.10.1](https://github.com/mll-lab/react-components/compare/v7.10.0...v7.10.1) (2022-01-10)
+
+
+### Bug Fixes
+
+* don't spin when loading prop is undefined ([d48b8ce](https://github.com/mll-lab/react-components/commit/d48b8ce37af2691021b9324a78201368874da772))
+
+# [7.10.0](https://github.com/mll-lab/react-components/compare/v7.9.0...v7.10.0) (2022-01-05)
+
+
+### Features
+
+* add dangerColor to Theme ([95bbd15](https://github.com/mll-lab/react-components/commit/95bbd15f7404d7cd3614c3e6715fedea9ae13d66))
+
+# [7.9.0](https://github.com/mll-lab/react-components/compare/v7.8.0...v7.9.0) (2022-01-04)
+
+
+### Features
+
+* export table sub-components for JSX API usage ([#115](https://github.com/mll-lab/react-components/issues/115)) ([ec7e5ac](https://github.com/mll-lab/react-components/commit/ec7e5acce3a2551ff2dfebc4a38a7b2e485b6df4))
+
 # [7.8.0](https://github.com/mll-lab/react-components/compare/v7.7.0...v7.8.0) (2022-01-04)
 
 

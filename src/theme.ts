@@ -9,7 +9,7 @@ import { ThemeContext } from 'styled-components';
 export const PALETTE = {
   red: '#ff0000', // matches the MLL corporate identity
   gold: '#faad14',
-  green: '#52c41a',
+  green: '#07a31e',
   blue: '#50a0d0',
   lightBlue: '#d4edfc',
   blueTintedGray: '#f0f2f5',
@@ -50,10 +50,11 @@ export type Theme = {
     lowContrast: string;
   };
 
-  successColor: string;
-  warningColor: string;
+  dangerColor: string;
   errorColor: string;
   infoColor: string;
+  successColor: string;
+  warningColor: string;
 
   fontSize?: string;
   size?: SizeType;
@@ -76,13 +77,14 @@ export const THEME: Theme = {
   },
 
   // UI states
-  successColor: PALETTE.green,
-  warningColor: PALETTE.gold,
+  dangerColor: PALETTE.red,
   errorColor: PALETTE.red,
   infoColor: PALETTE.gray7,
+  successColor: PALETTE.green,
+  warningColor: PALETTE.gold,
 
   // Sizes
-  fontSize: '14px', // antd default
+  fontSize: '12px', // antd default for compact theme (compact.less)
 };
 
 export function useTheme(): Theme {
