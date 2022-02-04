@@ -3,6 +3,7 @@ import React from 'react';
 
 import { Provider } from '../Provider';
 import { THEME } from '../theme';
+
 import { Typography, TypographyProps } from './index';
 
 export default {
