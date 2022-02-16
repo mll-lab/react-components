@@ -2,6 +2,8 @@ import { action } from '@storybook/addon-actions';
 import { Story } from '@storybook/react';
 import React from 'react';
 
+import { THEME } from '../theme';
+
 import { ColumnProps, ColumnsType, Table, TableProps } from './index';
 
 export default {
@@ -11,8 +13,12 @@ export default {
     size: {
       control: {
         type: 'select',
-        options: ['small', 'medium', 'large'],
+        options: ['small', 'middle', 'large'],
       },
+    },
+    loading: {
+      defaultValue: false,
+      control: 'boolean',
     },
   },
 };
@@ -57,7 +63,9 @@ const columns: ColumnsType<Person> = [
   },
 ];
 
-const Template: Story<TableProps<Person>> = (args) => <Table {...args} />;
+const Template: Story<TableProps<Person>> = (args) => (
+  <Table<Person> {...args} />
+);
 
 export const Default = Template.bind({});
 Default.args = {
@@ -72,3 +80,32 @@ TableWithOnRow.args = {
     onClick: action('clicked'),
   }),
 };
+
+export const TableWithJsxApi = () => (
+  <Table<Person>
+    dataSource={data}
+    bordered
+    summary={(persons) => (
+      <>
+        <Table.Summary.Row
+          style={{ background: THEME.menuGroupBackgroundColor }}
+        >
+          <Table.Summary.Cell index={0}>Average age</Table.Summary.Cell>
+          <Table.Summary.Cell index={1}>
+            {Math.round(
+              persons.reduce((sum, person) => sum + person.age, 0) /
+                persons.length,
+            )}
+          </Table.Summary.Cell>
+        </Table.Summary.Row>
+      </>
+    )}
+  >
+    <Table.Column<Person>
+      title="Name"
+      key="name"
+      render={(_, record) => record.name}
+    />
+    <Table.Column title="Age" dataIndex="age" key="age" />
+  </Table>
+);

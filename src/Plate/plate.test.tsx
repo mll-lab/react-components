@@ -1,3 +1,6 @@
+import { render } from '@testing-library/react';
+import React from 'react';
+
 import {
   columnForPosition,
   convertPositionFromColumnToRowFlow,
@@ -6,6 +9,7 @@ import {
   ensureCoordinatesInRange,
   Coordinates,
   areEqualCoordinates,
+  Plate,
 } from './index';
 
 const data = [
@@ -134,5 +138,11 @@ describe('areEqualCoordinates', () => {
     const b: Coordinates = { row: 'B', column: 3 };
     expect(areEqualCoordinates(a, b)).toBe(false);
     expect(areEqualCoordinates(a, { ...b, foo: 'bar' })).toBe(false);
+  });
+});
+
+describe('Plate', () => {
+  it('renders without data', () => {
+    render(<Plate data={null} />);
   });
 });

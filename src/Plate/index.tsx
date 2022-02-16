@@ -1,7 +1,9 @@
+import { Spin } from 'antd';
 import { range, uniq } from 'lodash';
 import React, { Fragment, ReactNode } from 'react';
 
-import { MLL_THEME } from '../theme';
+import { MllSpinnerIcon } from '../Spinner';
+import { PALETTE } from '../theme';
 
 export type Coordinates = {
   row: 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H';
@@ -41,11 +43,12 @@ export function ensureCoordinatesInRange<
 export type PlateWell = {
   coordinates: Coordinates;
   content?: ReactNode;
-  selected?: boolean;
+  color?: string;
 };
 
 export type PlateProps = {
-  data: Array<PlateWell>;
+  data: Array<PlateWell> | null;
+  loading?: boolean;
 };
 
 const TUBE_COUNT = 96;
@@ -171,37 +174,56 @@ function assertUniquePositions(data: Array<PlateWell>): void {
 const PLATE_FLOW: FlowDirection = 'row';
 
 export function Plate(props: PlateProps) {
-  assertUniquePositions(props.data);
+  if (props.data) {
+    assertUniquePositions(props.data);
+  }
 
   return (
-    <div
-      style={{
-        display: 'grid',
-        gridTemplateColumns: `1fr ${'4fr '.repeat(COORDINATES_COLUMNS.length)}`,
-        gridGap: '3px',
-      }}
+    <Spin
+      spinning={props.loading ?? false}
+      indicator={
+        <MllSpinnerIcon
+          style={{
+            width: '2em',
+          }}
+        />
+      }
     >
-      <span style={LINE_STYLE} />
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: `1fr ${'4fr '.repeat(
+            COORDINATES_COLUMNS.length,
+          )}`,
+          gridGap: '3px',
+        }}
+      >
+        <span style={LINE_STYLE} />
 
-      {COORDINATES_COLUMNS.map((column) => (
-        <span style={LINE_STYLE} key={column}>
-          <strong>{column}</strong>
-        </span>
-      ))}
+        {COORDINATES_COLUMNS.map((column) => (
+          <span style={LINE_STYLE} key={column}>
+            <strong>{column}</strong>
+          </span>
+        ))}
 
-      {WELLS.map((position) => (
-        <Fragment key={position}>
-          {columnForPosition(position, PLATE_FLOW) === 1 && (
-            <RowLabel position={position} />
-          )}
+        {WELLS.map((position) => (
+          <Fragment key={position}>
+            {columnForPosition(position, PLATE_FLOW) === 1 && (
+              <RowLabel position={position} />
+            )}
 
-          <Well
-            position={position}
-            well={wellAtPosition(position, props.data, PLATE_FLOW)}
-          />
-        </Fragment>
-      ))}
-    </div>
+            <Well
+              position={position}
+              well={
+                props.data
+                  ? wellAtPosition(position, props.data, PLATE_FLOW)
+                  : undefined
+              }
+            />
+          </Fragment>
+        ))}
+      </div>
+    </Spin>
   );
 }
 
@@ -209,17 +231,15 @@ function Well(props: { position: number; well?: PlateWell }) {
   return (
     <span
       style={{
-        backgroundColor: props.well?.selected
-          ? MLL_THEME.warningColor
-          : MLL_THEME.tableBorderColor,
-        border: '1px solid lightgrey',
+        backgroundColor: props.well?.color ?? PALETTE.gray3,
+        border: `1px solid ${PALETTE.gray4}`,
         borderRadius: 2,
-        boxShadow: '0 0.5px 1.5px lightgrey',
+        boxShadow: `0 0.5px 1.5px ${PALETTE.gray4}`,
         ...LINE_STYLE,
       }}
     >
       {props.well?.content ?? (
-        <small style={{ color: MLL_THEME.menuGroupBackgroundColor }}>
+        <small style={{ color: PALETTE.gray1 }}>
           {rowForPosition(props.position, PLATE_FLOW) +
             columnForPosition(props.position, PLATE_FLOW)}
         </small>

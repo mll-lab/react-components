@@ -3,9 +3,9 @@ import deDE from 'antd/lib/locale/de_DE';
 import React, { PropsWithChildren } from 'react';
 import { ThemeProvider } from 'styled-components';
 
-import { MLL_THEME, MllTheme } from './theme';
+import { THEME, Theme } from '../theme';
 
-type ProviderProps = { theme?: Partial<MllTheme> };
+type ProviderProps = { theme?: Partial<Theme> };
 
 export const PREFIX_CLS = 'mll-ant';
 
@@ -18,8 +18,12 @@ export function Provider({
   });
 
   return (
-    <ThemeProvider theme={{ ...MLL_THEME, ...theme }}>
-      <AntdConfigProvider locale={deDE} prefixCls={PREFIX_CLS}>
+    <ThemeProvider theme={{ ...THEME, ...theme }}>
+      <AntdConfigProvider
+        locale={deDE}
+        prefixCls={PREFIX_CLS}
+        componentSize={theme?.size}
+      >
         {children}
       </AntdConfigProvider>
     </ThemeProvider>

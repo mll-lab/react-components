@@ -1,3 +1,119 @@
+# [8.0.0](https://github.com/mll-lab/react-components/compare/v7.11.1...v8.0.0) (2022-01-17)
+
+
+### Features
+
+* make plate data nullable ([ad6cae4](https://github.com/mll-lab/react-components/commit/ad6cae49d7d279768caa1082f695b419b38f48e2))
+
+
+### BREAKING CHANGES
+
+* use color attribute for well instead of deprecated selected
+
+## [7.11.1](https://github.com/mll-lab/react-components/compare/v7.11.0...v7.11.1) (2022-01-14)
+
+
+### Bug Fixes
+
+* adapt to compact theme font size ([1687c29](https://github.com/mll-lab/react-components/commit/1687c29ced9f07beba611f7cf4a29e2a147e4cdd))
+
+# [7.11.0](https://github.com/mll-lab/react-components/compare/v7.10.1...v7.11.0) (2022-01-13)
+
+
+### Features
+
+* darken green for improved contrast ([174bfde](https://github.com/mll-lab/react-components/commit/174bfde78b2b47edbf9ce106af0837fd4a96e819))
+
+## [7.10.1](https://github.com/mll-lab/react-components/compare/v7.10.0...v7.10.1) (2022-01-10)
+
+
+### Bug Fixes
+
+* don't spin when loading prop is undefined ([d48b8ce](https://github.com/mll-lab/react-components/commit/d48b8ce37af2691021b9324a78201368874da772))
+
+# [7.10.0](https://github.com/mll-lab/react-components/compare/v7.9.0...v7.10.0) (2022-01-05)
+
+
+### Features
+
+* add dangerColor to Theme ([95bbd15](https://github.com/mll-lab/react-components/commit/95bbd15f7404d7cd3614c3e6715fedea9ae13d66))
+
+# [7.9.0](https://github.com/mll-lab/react-components/compare/v7.8.0...v7.9.0) (2022-01-04)
+
+
+### Features
+
+* export table sub-components for JSX API usage ([#115](https://github.com/mll-lab/react-components/issues/115)) ([ec7e5ac](https://github.com/mll-lab/react-components/commit/ec7e5acce3a2551ff2dfebc4a38a7b2e485b6df4))
+
+# [7.8.0](https://github.com/mll-lab/react-components/compare/v7.7.0...v7.8.0) (2022-01-04)
+
+
+### Features
+
+* mll logo as default table loading indicator ([#116](https://github.com/mll-lab/react-components/issues/116)) ([c5d4cba](https://github.com/mll-lab/react-components/commit/c5d4cba101c78f62026d085226c192fd5d7b0fae))
+
+# [7.7.0](https://github.com/mll-lab/react-components/compare/v7.6.0...v7.7.0) (2022-01-04)
+
+
+### Features
+
+* distinct disabled button style ([#111](https://github.com/mll-lab/react-components/issues/111)) ([0e7e495](https://github.com/mll-lab/react-components/commit/0e7e495792e61ababa1a708972b25628fd3cb944))
+
+# [7.6.0](https://github.com/mll-lab/react-components/compare/v7.5.0...v7.6.0) (2022-01-03)
+
+
+### Features
+
+* provide component size and font-size ([#113](https://github.com/mll-lab/react-components/issues/113)) ([64705c6](https://github.com/mll-lab/react-components/commit/64705c69804c4e06ae010d8d4433d3d292c23f8e))
+
+# [7.5.0](https://github.com/mll-lab/react-components/compare/v7.4.1...v7.5.0) (2021-12-20)
+
+
+### Features
+
+* add loading spinner to plate component ([#114](https://github.com/mll-lab/react-components/issues/114)) ([c18cac7](https://github.com/mll-lab/react-components/commit/c18cac72f392c56c698471d94dcfb35f6cd62046))
+
+## [7.4.1](https://github.com/mll-lab/react-components/compare/v7.4.0...v7.4.1) (2021-12-09)
+
+
+### Bug Fixes
+
+* correct assignment of success and warning color in theme ([4473c53](https://github.com/mll-lab/react-components/commit/4473c53eb996f3c270758b0bea4b8d684ab217d0))
+
+# [7.4.0](https://github.com/mll-lab/react-components/compare/v7.3.0...v7.4.0) (2021-12-08)
+
+
+### Features
+
+* add MLL_PALETTE constant with 12 primary colors plus black and white as special color ([b7ca652](https://github.com/mll-lab/react-components/commit/b7ca6524102a40901ba409786e14be3b55acf970))
+* deprecate MLL prefix for themes ([fc33830](https://github.com/mll-lab/react-components/commit/fc3383056baed500d2867f52d79aae123929197a))
+
+# [7.3.0](https://github.com/mll-lab/react-components/compare/v7.2.0...v7.3.0) (2021-11-30)
+
+
+### Bug Fixes
+
+* export TabsProps and fix Tabs story types ([26d17ca](https://github.com/mll-lab/react-components/commit/26d17ca8fabbdc077122503e92b6ffe90e288134))
+
+
+### Features
+
+* hide default children of specialized buttons with prop `iconOnly` ([6d58369](https://github.com/mll-lab/react-components/commit/6d583697d6158b446201662b9472fca8cd174f79))
+
+# [7.2.0](https://github.com/mll-lab/react-components/compare/v7.1.0...v7.2.0) (2021-11-29)
+
+
+### Features
+
+* highlight button on focus like on hover ([629ebe5](https://github.com/mll-lab/react-components/commit/629ebe540641e49b471b1ea9d36ef36180e7d057))
+
+# [7.1.0](https://github.com/mll-lab/react-components/compare/v7.0.0...v7.1.0) (2021-11-26)
+
+
+### Features
+
+* add Image component ([31a67f1](https://github.com/mll-lab/react-components/commit/31a67f1abab5b2a652d8aa7471f5ea5174076401))
+
 # [7.0.0](https://github.com/mll-lab/react-components/compare/v6.1.0...v7.0.0) (2021-11-22)
 
 

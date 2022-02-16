@@ -1,16 +1,8 @@
-import React, { ReactNode, useReducer } from 'react';
+import React, { useReducer } from 'react';
 
 import { TabsContext } from './TabsContext';
 import { TabsHeader } from './TabsHeader';
-import { TabPanelProps } from './types';
-
-type TabsProps = {
-  children?: ReactNode;
-
-  // Set either both or none of those props
-  activeTabId?: number | string;
-  onSelected?: (tabId: number | string) => void;
-};
+import { TabPanelProps, TabsProps } from './types';
 
 type State = {
   tabs: Array<TabPanelProps>;

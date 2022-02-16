@@ -1,7 +1,7 @@
 {
   "name": "@mll-lab/react-components",
   "description": "Shared React components of MLL",
-  "version": "7.0.0",
+  "version": "8.0.0",
   "main": "cjs/index.js",
   "module": "esm/index.js",
   "types": "types/index.d.ts",
@@ -45,10 +45,10 @@
     "react-dom": ">=16.8.0"
   },
   "dependencies": {
-    "@ant-design/icons": "^4.7.0",
-    "@mll-lab/js-utils": "^2.2.0",
-    "antd": "^4.17.1",
-    "date-fns": "^2.26.0",
+    "@ant-design/icons": "^4.6.2",
+    "@mll-lab/js-utils": "^2.0.0",
+    "antd": "^4.18.7",
+    "date-fns": "^2.22.1",
     "lodash": "^4.17.21",
     "styled-components": "^5.3.3"
   },
@@ -69,10 +69,10 @@
     "@rollup/plugin-typescript": "^8.2.3",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/git": "^9.0.0",
-    "@storybook/addon-essentials": "^6.3.4",
-    "@storybook/addon-storyshots": "^6.3.4",
-    "@storybook/addons": "^6.3.4",
-    "@storybook/react": "^6.3.4",
+    "@storybook/addon-essentials": "^6.4.8",
+    "@storybook/addon-storyshots": "^6.4.8",
+    "@storybook/addons": "^6.4.8",
+    "@storybook/react": "^6.4.8",
     "@storybook/storybook-deployer": "^2.8.10",
     "@testing-library/dom": "^8.1.0",
     "@testing-library/jest-dom": "^5.15.1",
