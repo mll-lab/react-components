@@ -29,7 +29,7 @@ export class SaveButtonByNumpadEnter extends Component<SaveButtonByNumpadEnterPr
     }
 
     if (this.buttonRef) {
-      // @ts-ignore buttonNode is a private property
+      // @ts-expect-error buttonNode is a private property
       this.buttonRef.buttonNode.click();
       event.preventDefault();
     }

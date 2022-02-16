@@ -4,7 +4,7 @@ import React from 'react';
 import { Button } from '../Button';
 
 import { FullScreenModal } from './FullScreenModal';
-import { WithModal } from './WithModal';
+import { WithModal, WithModalProps } from './WithModal';
 
 import { ModalProps } from './index';
 
@@ -15,12 +15,12 @@ export default {
   },
 };
 
+const renderShowModal: WithModalProps['opener'] = (showModal) => (
+  <Button onClick={showModal}>Click to open</Button>
+);
+
 export const OpenByButton: Story<ModalProps> = (args) => (
-  <WithModal
-    opener={(showModal) => <Button onClick={showModal}>Click to open</Button>}
-    title="Basic Modal"
-    {...args}
-  >
+  <WithModal opener={renderShowModal} title="Basic Modal" {...args}>
     <p>Some contents...</p>
     <p>Some contents...</p>
     <p>Some contents...</p>
@@ -29,7 +29,7 @@ export const OpenByButton: Story<ModalProps> = (args) => (
 
 export const OpenFullScreenByButton: Story<ModalProps> = (args) => (
   <WithModal
-    opener={(showModal) => <Button onClick={showModal}>Click to open</Button>}
+    opener={renderShowModal}
     ModalComponent={FullScreenModal}
     title="Full Screen Modal"
     {...args}

@@ -81,31 +81,26 @@ TableWithOnRow.args = {
   }),
 };
 
-export const TableWithJsxApi = () => (
-  <Table<Person>
-    dataSource={data}
-    bordered
-    summary={(persons) => (
-      <>
-        <Table.Summary.Row
-          style={{ background: THEME.menuGroupBackgroundColor }}
-        >
-          <Table.Summary.Cell index={0}>Average age</Table.Summary.Cell>
-          <Table.Summary.Cell index={1}>
-            {Math.round(
-              persons.reduce((sum, person) => sum + person.age, 0) /
-                persons.length,
-            )}
-          </Table.Summary.Cell>
-        </Table.Summary.Row>
-      </>
-    )}
-  >
-    <Table.Column<Person>
-      title="Name"
-      key="name"
-      render={(_, record) => record.name}
-    />
-    <Table.Column title="Age" dataIndex="age" key="age" />
-  </Table>
+const renderSummary: TableProps<Person>['summary'] = (persons) => (
+  <Table.Summary.Row style={{ background: THEME.menuGroupBackgroundColor }}>
+    <Table.Summary.Cell index={0}>Average age</Table.Summary.Cell>
+    <Table.Summary.Cell index={1}>
+      {Math.round(
+        persons.reduce((sum, person) => sum + person.age, 0) / persons.length,
+      )}
+    </Table.Summary.Cell>
+  </Table.Summary.Row>
 );
+
+export function TableWithJsxApi() {
+  return (
+    <Table<Person> dataSource={data} bordered summary={renderSummary}>
+      <Table.Column<Person>
+        title="Name"
+        key="name"
+        render={(_, record) => record.name}
+      />
+      <Table.Column title="Age" dataIndex="age" key="age" />
+    </Table>
+  );
+}
