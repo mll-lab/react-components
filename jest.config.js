@@ -8,7 +8,7 @@ module.exports = {
   transformIgnorePatterns: [`/node_modules/(?!${esModules})`],
   roots: ['src'],
   testEnvironment: 'jsdom',
-  setupFilesAfterEnv: ['./jest.setup.ts'],
+  setupFilesAfterEnv: ['./jest.setup.js'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
   testPathIgnorePatterns: ['node_modules/'],
   testMatch: ['**/*.test.(ts|tsx)'],
