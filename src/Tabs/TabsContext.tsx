@@ -2,7 +2,7 @@ import React from 'react';
 
 import { TabPanelProps } from './types';
 
-type ContextProps = {
+export type TabsContextProps = {
   tabs: Array<TabPanelProps>;
   registerTab: (tab: TabPanelProps) => void;
   unregisterTab: (tabId: number | string) => void;
@@ -10,7 +10,7 @@ type ContextProps = {
   activeTabId?: number | string;
 };
 
-export const TabsContext = React.createContext<ContextProps>({
+export const TabsContext = React.createContext<TabsContextProps>({
   tabs: [],
   registerTab: () => {},
   unregisterTab: () => {},
