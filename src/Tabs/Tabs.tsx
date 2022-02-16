@@ -78,7 +78,7 @@ export function Tabs(props: TabsProps) {
         }),
       activeTabId: props.activeTabId ?? state.activeTabId,
     }),
-    [state, props],
+    [state.tabs, state.activeTabId, props.onSelected, props.activeTabId],
   );
 
   return (
