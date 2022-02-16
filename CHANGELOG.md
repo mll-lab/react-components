@@ -1,3 +1,10 @@
+## [8.0.1-alpha.2](https://github.com/mll-lab/react-components/compare/v8.0.1-alpha.1...v8.0.1-alpha.2) (2022-02-16)
+
+
+### Bug Fixes
+
+* minimize tabs context props deps ([151431e](https://github.com/mll-lab/react-components/commit/151431ecf6f02ff20459e86b7d39df45dacd49b6))
+
 ## [8.0.1-alpha.1](https://github.com/mll-lab/react-components/compare/v8.0.0...v8.0.1-alpha.1) (2022-02-16)
 
 
