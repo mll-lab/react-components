@@ -1,3 +1,11 @@
+## [8.0.1-alpha.1](https://github.com/mll-lab/react-components/compare/v8.0.0...v8.0.1-alpha.1) (2022-02-16)
+
+
+### Bug Fixes
+
+* adapt to latest jest ([9d63c07](https://github.com/mll-lab/react-components/commit/9d63c0731c3c9d109ee76a3eaf0223cd25f0f070))
+* memoize tabs context ([c236a6d](https://github.com/mll-lab/react-components/commit/c236a6d721321269092691c6849f4a2cea75d89c))
+
 # [8.0.0](https://github.com/mll-lab/react-components/compare/v7.11.1...v8.0.0) (2022-01-17)
 
 
