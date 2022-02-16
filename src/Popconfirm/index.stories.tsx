@@ -5,15 +5,16 @@ import { Popconfirm, PopconfirmProps } from './index';
 
 export default {
   title: 'Popconfirm',
+  argTypes: {
+    title: {
+      control: 'string',
+      defaultValue: 'Are you sure to delete this task?',
+    },
+  },
 };
 
 export const Default: Story<PopconfirmProps> = (args) => (
-  <Popconfirm
-    title="Are you sure to delete this task?"
-    okText="Yes"
-    cancelText="No"
-    {...args}
-  >
+  <Popconfirm okText="Yes" cancelText="No" {...args}>
     <button type="button">Delete</button>
   </Popconfirm>
 );

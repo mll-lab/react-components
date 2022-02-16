@@ -40,6 +40,9 @@ module.exports = {
     'jsx-a11y/mouse-events-have-key-events': 'error',
     'jsx-a11y/role-has-required-aria-props': 'error',
     'jsx-a11y/role-supports-aria-props': 'error',
+
+    // Incompatible with stories
+    'react/function-component-definition': 'off',
   },
   settings: {
     'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],

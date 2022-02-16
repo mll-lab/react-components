@@ -3,7 +3,7 @@ import React, { ComponentType, ReactElement } from 'react';
 
 import { TabPanelProps, TabsProps } from './types';
 
-import { Tabs, TabPanel } from './index';
+import { TabPanel, Tabs } from './index';
 
 function dummyHOC<P extends TabPanelProps>(WrappedComponent: ComponentType<P>) {
   const SomeWrappedComponent = (props: P) => (
@@ -13,25 +13,29 @@ function dummyHOC<P extends TabPanelProps>(WrappedComponent: ComponentType<P>) {
   return SomeWrappedComponent;
 }
 
-const DummyRenderPropComponent = ({
+function DummyRenderPropComponent({
   render,
   id,
   title,
 }: {
   render: (props: TabPanelProps) => ReactElement;
-} & TabPanelProps) => render({ id, title });
+} & TabPanelProps) {
+  return render({ id, title });
+}
+
+function SingleTab({ id, title }: TabPanelProps) {
+  return (
+    <TabPanel id={id} title={title}>
+      <div>tab 1</div>
+    </TabPanel>
+  );
+}
 
 export default {
   title: 'Tabs',
 };
 
 export const Controlled: Story<TabsProps> = (args) => {
-  const SingleTab = ({ id, title }: TabPanelProps) => (
-    <TabPanel id={id} title={title}>
-      <div>tab 1</div>
-    </TabPanel>
-  );
-
   const WrappedTab = dummyHOC(SingleTab);
 
   return (
