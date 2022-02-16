@@ -1,6 +1,6 @@
-import React, { useReducer } from 'react';
+import React, { useMemo, useReducer } from 'react';
 
-import { TabsContext } from './TabsContext';
+import { TabsContext, TabsContextProps } from './TabsContext';
 import { TabsHeader } from './TabsHeader';
 import { TabPanelProps, TabsProps } from './types';
 
@@ -62,24 +62,27 @@ function reducer(state: State, action: Action): State {
 export function Tabs(props: TabsProps) {
   const [state, dispatch] = useReducer(reducer, { tabs: [] });
 
+  const tabsContextProps = useMemo(
+    (): TabsContextProps => ({
+      tabs: state.tabs,
+      registerTab: (newTab) => {
+        dispatch({ type: 'registerTab', newTab });
+      },
+      unregisterTab: (tabId) => {
+        dispatch({ type: 'unregisterTab', tabId });
+      },
+      onSelected:
+        props.onSelected ??
+        ((tabId) => {
+          dispatch({ type: 'onSelected', tabId });
+        }),
+      activeTabId: props.activeTabId ?? state.activeTabId,
+    }),
+    [state, props],
+  );
+
   return (
-    <TabsContext.Provider
-      value={{
-        tabs: state.tabs,
-        registerTab: (newTab) => {
-          dispatch({ type: 'registerTab', newTab });
-        },
-        unregisterTab: (tabId) => {
-          dispatch({ type: 'unregisterTab', tabId });
-        },
-        onSelected:
-          props.onSelected ??
-          ((tabId) => {
-            dispatch({ type: 'onSelected', tabId });
-          }),
-        activeTabId: props.activeTabId ?? state.activeTabId,
-      }}
-    >
+    <TabsContext.Provider value={tabsContextProps}>
       <TabsHeader />
       {props.children}
     </TabsContext.Provider>
