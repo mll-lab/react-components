@@ -1,3 +1,12 @@
+## [8.0.1](https://github.com/mll-lab/react-components/compare/v8.0.0...v8.0.1) (2022-02-17)
+
+
+### Bug Fixes
+
+* adapt to latest jest ([c9475a6](https://github.com/mll-lab/react-components/commit/c9475a6727f41ade92d329838fe1381ffd986b45))
+* memoize tabs context ([691fa89](https://github.com/mll-lab/react-components/commit/691fa89aae37714dce4359f96d5070a74ba9051a))
+* minimize tabs context props deps ([fa71be6](https://github.com/mll-lab/react-components/commit/fa71be61c5777ced57e4e861fcdab97a7ddbc0c9))
+
 # [8.0.0](https://github.com/mll-lab/react-components/compare/v7.11.1...v8.0.0) (2022-01-17)
 
 
