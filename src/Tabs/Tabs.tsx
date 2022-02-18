@@ -40,13 +40,16 @@ function reducer(state: State, action: Action): State {
       };
     }
     case 'unregisterTab': {
-      const tabs = state.tabs.filter((tab) => tab.id !== action.tabId);
+      const tabsWithoutUnregistered = state.tabs.filter(
+        (tab) => tab.id !== action.tabId,
+      );
+      const firstTab = tabsWithoutUnregistered[0];
 
       return {
-        tabs,
+        tabs: tabsWithoutUnregistered,
         activeTabId:
-          state.activeTabId === action.tabId && tabs.length > 1
-            ? tabs[0].id
+          state.activeTabId === action.tabId && firstTab
+            ? firstTab.id
             : undefined,
       };
     }

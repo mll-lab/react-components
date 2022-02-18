@@ -77,9 +77,9 @@ export function rowForPosition(
     case 'row':
       return COORDINATES_ROWS[
         Math.floor((position - 1) / COORDINATES_COLUMNS.length)
-      ];
+      ]!;
     case 'column':
-      return COORDINATES_ROWS[(position - 1) % COORDINATES_ROWS.length];
+      return COORDINATES_ROWS[(position - 1) % COORDINATES_ROWS.length]!;
     default:
       throw new Error(`Unknown flow direction: ${flowDirection}`);
   }
@@ -91,11 +91,11 @@ export function columnForPosition(
 ): Coordinates['column'] {
   switch (flowDirection) {
     case 'row':
-      return COORDINATES_COLUMNS[(position - 1) % COORDINATES_COLUMNS.length];
+      return COORDINATES_COLUMNS[(position - 1) % COORDINATES_COLUMNS.length]!;
     case 'column':
       return COORDINATES_COLUMNS[
         Math.floor((position - 1) / COORDINATES_ROWS.length)
-      ];
+      ]!;
     default:
       throw new Error(`Unknown flow direction: ${flowDirection}`);
   }
