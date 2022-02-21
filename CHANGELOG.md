@@ -1,3 +1,10 @@
+# [8.1.0-alpha.1](https://github.com/mll-lab/react-components/compare/v8.0.1...v8.1.0-alpha.1) (2022-02-21)
+
+
+### Features
+
+* move styled-components to external peer dependency ([cbb6b66](https://github.com/mll-lab/react-components/commit/cbb6b667b486981511077ba10c334eaddf618d1b))
+
 ## [8.0.1](https://github.com/mll-lab/react-components/compare/v8.0.0...v8.0.1) (2022-02-17)
 
 
