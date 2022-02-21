@@ -1,3 +1,10 @@
+# [8.1.0-alpha.2](https://github.com/mll-lab/react-components/compare/v8.1.0-alpha.1...v8.1.0-alpha.2) (2022-02-21)
+
+
+### Features
+
+* bump ([5c2a98e](https://github.com/mll-lab/react-components/commit/5c2a98e474e128e0662c89961439bf2f5e0f5130))
+
 # [8.1.0-alpha.1](https://github.com/mll-lab/react-components/compare/v8.0.1...v8.1.0-alpha.1) (2022-02-21)
 
 
