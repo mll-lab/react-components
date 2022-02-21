@@ -42,7 +42,7 @@ export const BaseDatePicker: ComponentClass<PickerProps<Date>, any> & {
   QuarterPicker: ComponentClass<Omit<PickerTimeProps<Date>, 'picker'>, any>;
 } = generatePicker<Date>({
   ...dateFnsGenerateConfig,
-  // TODO remove when https://github.com/react-component/picker/pull/289 fixes https://github.com/react-component/picker/issues/147
+  // TODO remove when https://github.com/react-component/picker/pull/289 fixes https://github.com/react-component/picker/issues/147 bla
   locale: {
     getWeekFirstDay: () => de.options!.weekStartsOn!,
     getWeekFirstDate: (_, date) => startOfWeek(date, { locale: de }),
