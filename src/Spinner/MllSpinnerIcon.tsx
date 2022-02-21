@@ -1,7 +1,11 @@
 import Icon from '@ant-design/icons';
 import { IconBaseProps } from '@ant-design/icons/es/components/Icon';
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
+
+// TODO remove this once https://github.com/styled-components/babel-plugin-styled-components/issues/216#issuecomment-516941240 is resolved
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const { keyframes } = require('styled-components');
 
 const rotate = keyframes`
   from {
