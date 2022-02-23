@@ -1,3 +1,10 @@
+## [8.1.1](https://github.com/mll-lab/react-components/compare/v8.1.0...v8.1.1) (2022-02-23)
+
+
+### Bug Fixes
+
+* workaround styled-components + jest issue ([3ba7518](https://github.com/mll-lab/react-components/commit/3ba7518357d8438acd282d0202f4243f01567c20)), closes [/github.com/styled-components/babel-plugin-styled-components/issues/216#issuecomment-516941240](https://github.com//github.com/styled-components/babel-plugin-styled-components/issues/216/issues/issuecomment-516941240)
+
 # [8.1.0](https://github.com/mll-lab/react-components/compare/v8.0.1...v8.1.0) (2022-02-21)
 
 
