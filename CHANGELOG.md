@@ -1,3 +1,10 @@
+# [8.2.0](https://github.com/mll-lab/react-components/compare/v8.1.1...v8.2.0) (2022-02-24)
+
+
+### Features
+
+* add PageHeader component ([8594786](https://github.com/mll-lab/react-components/commit/8594786e39db6a5ab1b25332009f9504f9eb3c00))
+
 ## [8.1.1](https://github.com/mll-lab/react-components/compare/v8.1.0...v8.1.1) (2022-02-23)
 
 
