@@ -1,3 +1,10 @@
+## [8.2.1](https://github.com/mll-lab/react-components/compare/v8.2.0...v8.2.1) (2022-02-28)
+
+
+### Bug Fixes
+
+* inline styled-components keyframes to css keyframes ([14d291a](https://github.com/mll-lab/react-components/commit/14d291a86c44f0c018d48903f2fa1e983c4c09d4))
+
 # [8.2.0](https://github.com/mll-lab/react-components/compare/v8.1.1...v8.2.0) (2022-02-24)
 
 
