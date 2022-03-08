@@ -152,10 +152,6 @@ export function convertPositionFromRowToColumnFlow(position: number): number {
   return positionForCoordinates(coordinates, 'column');
 }
 
-const LINE_STYLE = {
-  padding: 4,
-};
-
 function assertUniquePositions(data: Array<PlateWell>): void {
   const positions = data.map(
     (well) => `${well.coordinates.row}${well.coordinates.column}`,
@@ -195,10 +191,17 @@ export function Plate(props: PlateProps) {
           gridGap: '3px',
         }}
       >
-        <span style={LINE_STYLE} />
+        <span />
 
         {COORDINATES_COLUMNS.map((column) => (
-          <span style={LINE_STYLE} key={column}>
+          <span
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              padding: 4,
+            }}
+            key={column}
+          >
             <strong>{column}</strong>
           </span>
         ))}
@@ -230,7 +233,7 @@ function Well(props: { position: number; well?: PlateWell }) {
     border: `1px solid ${PALETTE.gray4}`,
     borderRadius: 2,
     boxShadow: `0 0.5px 1.5px ${PALETTE.gray4}`,
-    ...LINE_STYLE,
+    padding: 4,
   };
 
   if (props.well?.content) {
@@ -262,7 +265,13 @@ function Well(props: { position: number; well?: PlateWell }) {
 
 function RowLabel(props: { position: number }) {
   return (
-    <span style={LINE_STYLE}>
+    <span
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
       <strong>{rowForPosition(props.position, PLATE_FLOW)}</strong>
     </span>
   );
