@@ -1,3 +1,10 @@
+## [8.2.2](https://github.com/mll-lab/react-components/compare/v8.2.1...v8.2.2) (2022-03-08)
+
+
+### Bug Fixes
+
+* display plate component in storybook ([#137](https://github.com/mll-lab/react-components/issues/137)) ([018b1a4](https://github.com/mll-lab/react-components/commit/018b1a426c5777f61e5278bb5b6c5501acd0eee9))
+
 ## [8.2.1](https://github.com/mll-lab/react-components/compare/v8.2.0...v8.2.1) (2022-02-28)
 
 
