@@ -1,3 +1,10 @@
+## [8.2.4](https://github.com/mll-lab/react-components/compare/v8.2.3...v8.2.4) (2022-03-08)
+
+
+### Bug Fixes
+
+* center row and column labels in Plate component ([7c54cc1](https://github.com/mll-lab/react-components/commit/7c54cc193a1de0afb50db629ff7f5708741a4a0a))
+
 ## [8.2.3](https://github.com/mll-lab/react-components/compare/v8.2.2...v8.2.3) (2022-03-08)
 
 
