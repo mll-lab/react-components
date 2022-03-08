@@ -32,6 +32,17 @@ const data: Array<PlateWell> = [
     coordinates: { row: COORDINATES_ROWS[1], column: COORDINATES_COLUMNS[2] },
     content: 'Some text',
   },
+  {
+    coordinates: { row: COORDINATES_ROWS[2], column: COORDINATES_COLUMNS[2] },
+    content: (
+      <>
+        <p>Kontrolle</p>
+        <br />
+        Test Test Test Test Test Test
+        <p>Kontrolle</p>
+      </>
+    ),
+  },
 ];
 
 const Template: Story<Partial<PlateProps>> = (args) => (

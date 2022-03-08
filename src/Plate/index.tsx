@@ -154,9 +154,6 @@ export function convertPositionFromRowToColumnFlow(position: number): number {
 
 const LINE_STYLE = {
   padding: 4,
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
 };
 
 function assertUniquePositions(data: Array<PlateWell>): void {
@@ -228,23 +225,38 @@ export function Plate(props: PlateProps) {
 }
 
 function Well(props: { position: number; well?: PlateWell }) {
+  const generalWellStyle = {
+    backgroundColor: props.well?.color ?? PALETTE.gray3,
+    border: `1px solid ${PALETTE.gray4}`,
+    borderRadius: 2,
+    boxShadow: `0 0.5px 1.5px ${PALETTE.gray4}`,
+    ...LINE_STYLE,
+  };
+
+  if (props.well?.content) {
+    return (
+      <span
+        style={{
+          ...generalWellStyle,
+        }}
+      >
+        {props.well?.content}
+      </span>
+    );
+  }
   return (
-    <span
+    <small
       style={{
-        backgroundColor: props.well?.color ?? PALETTE.gray3,
-        border: `1px solid ${PALETTE.gray4}`,
-        borderRadius: 2,
-        boxShadow: `0 0.5px 1.5px ${PALETTE.gray4}`,
-        ...LINE_STYLE,
+        color: PALETTE.gray1,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        ...generalWellStyle,
       }}
     >
-      {props.well?.content ?? (
-        <small style={{ color: PALETTE.gray1 }}>
-          {rowForPosition(props.position, PLATE_FLOW) +
-            columnForPosition(props.position, PLATE_FLOW)}
-        </small>
-      )}
-    </span>
+      {rowForPosition(props.position, PLATE_FLOW) +
+        columnForPosition(props.position, PLATE_FLOW)}
+    </small>
   );
 }
 
