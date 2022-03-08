@@ -1,3 +1,10 @@
+## [8.2.3](https://github.com/mll-lab/react-components/compare/v8.2.2...v8.2.3) (2022-03-08)
+
+
+### Bug Fixes
+
+* set flex only on default content but not on content set by an user ([214785a](https://github.com/mll-lab/react-components/commit/214785a19f175a8f5ab94fd88f2622756e8e5bb7))
+
 ## [8.2.2](https://github.com/mll-lab/react-components/compare/v8.2.1...v8.2.2) (2022-03-08)
 
 
