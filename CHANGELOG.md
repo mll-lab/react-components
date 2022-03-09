@@ -1,3 +1,10 @@
+# [8.3.0](https://github.com/mll-lab/react-components/compare/v8.2.4...v8.3.0) (2022-03-09)
+
+
+### Features
+
+* adding tree component ([#141](https://github.com/mll-lab/react-components/issues/141)) ([97bafa6](https://github.com/mll-lab/react-components/commit/97bafa6644f9c79dc510e59bbafac912075caa2e))
+
 ## [8.2.4](https://github.com/mll-lab/react-components/compare/v8.2.3...v8.2.4) (2022-03-08)
 
 
