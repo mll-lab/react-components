@@ -1,23 +1,60 @@
 import { Story } from '@storybook/react';
 import React from 'react';
 
-import { PALETTE } from '../theme';
-
-import { Tag, TagProps } from './index';
+import { Tree, TreeProps } from './index';
 
 export default {
-  title: 'Tag',
-  component: Tag,
+  title: 'Tree',
+  component: Tree,
 };
 
-export const HexColored: Story<TagProps> = (args) => (
-  <Tag color={PALETTE.gold} {...args}>
-    Test
-  </Tag>
-);
+type TreeData = TreeProps['treeData'];
 
-export const PresetColored: Story<TagProps> = (args) => (
-  <Tag color="red" {...args}>
-    Test
-  </Tag>
+const treeData: TreeData = [
+  {
+    title: '1',
+    key: '1',
+    children: [
+      {
+        title: '1.1',
+        key: '1.1',
+      },
+      {
+        title: '1.2',
+        key: '1.2',
+        children: [
+          {
+            title: '1.2.1',
+            key: '1.2.1',
+          },
+          {
+            title: '1.2.2',
+            key: '1.2.2',
+          },
+        ],
+      },
+      {
+        title: '1.3',
+        key: '1.3',
+      },
+    ],
+  },
+  {
+    title: '2',
+    key: '2',
+    children: [
+      {
+        title: '2.1',
+        key: '2.1',
+      },
+      {
+        title: '2.2',
+        key: '2.2',
+      },
+    ],
+  },
+];
+
+export const SimpleTree: Story<TreeProps> = (args) => (
+  <Tree {...args} treeData={treeData} />
 );
