@@ -12,9 +12,7 @@ export type RadioGroupProps = AntdRadioGroupProps;
 export type RadioButtonProps = AntdRadioButtonProps;
 
 export const StyledRadio: typeof AntdRadio = styled(AntdRadio)<RadioProps>`
-  & {
-    font-size: ${(props) => props.theme.fontSize};
-  }
+  font-size: ${(props) => props.theme.fontSize};
 `;
 
 export const StyledRadioGroup: React.ForwardRefExoticComponent<
@@ -27,9 +25,7 @@ export const StyledRadioGroup: React.ForwardRefExoticComponent<
 `;
 
 export const StyledRadioButton = styled(StyledRadio.Button)<RadioButtonProps>`
-  &.mll-ant-radio-button-wrapper {
-    font-size: ${(props) => props.theme.fontSize};
-  }
+  font-size: ${(props) => props.theme.fontSize};
 `;
 
 export const Radio: typeof AntdRadio = StyledRadio as typeof AntdRadio;
