@@ -1,3 +1,11 @@
+# [8.5.0](https://github.com/mll-lab/react-components/compare/v8.4.0...v8.5.0) (2022-03-16)
+
+
+### Features
+
+* adapt form item font size to theme ([f395f9b](https://github.com/mll-lab/react-components/commit/f395f9b5ac5663edce6a5801e9b9b96460dd884c))
+* add form item to provider story ([4a963d0](https://github.com/mll-lab/react-components/commit/4a963d003a7a1ec81af1ff66c47c6196b8ac2a20))
+
 # [8.4.0](https://github.com/mll-lab/react-components/compare/v8.3.0...v8.4.0) (2022-03-16)
 
 
