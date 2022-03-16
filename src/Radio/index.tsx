@@ -7,12 +7,14 @@ import { RadioButtonProps as AntdRadioButtonProps } from 'antd/es/radio/radioBut
 import React from 'react';
 import styled from 'styled-components';
 
+import { fontSizeFromTheme } from '../styled-utils';
+
 export type RadioProps = AntdRadioProps;
 export type RadioGroupProps = AntdRadioGroupProps;
 export type RadioButtonProps = AntdRadioButtonProps;
 
 const StyledRadio: typeof AntdRadio = styled(AntdRadio)<RadioProps>`
-  font-size: ${(props) => props.theme.fontSize};
+  font-size: ${fontSizeFromTheme};
 `;
 
 const StyledRadioGroup: React.ForwardRefExoticComponent<
@@ -20,12 +22,12 @@ const StyledRadioGroup: React.ForwardRefExoticComponent<
 > = styled(StyledRadio.Group)<RadioGroupProps>`
   .mll-ant-radio-wrapper,
   .mll-ant-radio-button-wrapper {
-    font-size: ${(props) => props.theme.fontSize};
+    font-size: ${fontSizeFromTheme};
   }
 `;
 
 const StyledRadioButton = styled(StyledRadio.Button)<RadioButtonProps>`
-  font-size: ${(props) => props.theme.fontSize};
+  font-size: ${fontSizeFromTheme};
 `;
 
 export const Radio: typeof AntdRadio = StyledRadio as typeof AntdRadio;

@@ -3,6 +3,7 @@ import { Story } from '@storybook/react';
 import React from 'react';
 
 import { CreateButton } from '../Button';
+import { Form } from '../Form';
 import { Provider } from '../Provider';
 import { Radio } from '../Radio';
 import { Space } from '../Space';
@@ -120,6 +121,9 @@ function SupportedComponents() {
         ]}
       />
       <Radio.Button value="a">Radio-Button outside of group</Radio.Button>
+      <Form>
+        <Form.Item label="Form Item">Form item content</Form.Item>
+      </Form>
       <Tag icon={<ClockCircleOutlined />} color="default">
         Tag
       </Tag>
