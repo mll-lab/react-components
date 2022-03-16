@@ -1,3 +1,10 @@
+# [8.4.0](https://github.com/mll-lab/react-components/compare/v8.3.0...v8.4.0) (2022-03-16)
+
+
+### Features
+
+* adapt font size in radio components ([#142](https://github.com/mll-lab/react-components/issues/142)) ([96c1c5d](https://github.com/mll-lab/react-components/commit/96c1c5d43a531a72bcfbca2f1228fd27a8a8f1d9))
+
 # [8.3.0](https://github.com/mll-lab/react-components/compare/v8.2.4...v8.3.0) (2022-03-09)
 
 
