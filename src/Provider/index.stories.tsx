@@ -1,12 +1,15 @@
+import { ClockCircleOutlined } from '@ant-design/icons';
 import { Story } from '@storybook/react';
-import { Space, Typography } from 'antd';
 import React from 'react';
 
 import { CreateButton } from '../Button';
 import { Form } from '../Form';
 import { Provider } from '../Provider';
 import { Radio } from '../Radio';
+import { Space } from '../Space';
 import { Table } from '../Table';
+import { Tag } from '../Tag';
+import { Typography } from '../Typography';
 import { Theme } from '../theme';
 
 export default {
@@ -121,6 +124,10 @@ function SupportedComponents() {
       <Form>
         <Form.Item label="Form Item">Form item content</Form.Item>
       </Form>
+      <Tag icon={<ClockCircleOutlined />} color="default">
+        Tag
+      </Tag>
+      <Tag.CheckableTag checked>Checkable Tag</Tag.CheckableTag>
     </Space>
   );
 }
