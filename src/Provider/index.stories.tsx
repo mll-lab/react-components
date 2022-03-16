@@ -4,6 +4,7 @@ import React from 'react';
 
 import { CreateButton } from '../Button';
 import { Provider } from '../Provider';
+import { Radio } from '../Radio';
 import { Table } from '../Table';
 import { Theme } from '../theme';
 
@@ -101,6 +102,21 @@ function SupportedComponents() {
     <Space direction="vertical">
       <CreateButton />
       <Table columns={TABLE_COLUMNS} dataSource={TABLE_DATA} />
+      <Radio.Group
+        options={[
+          { label: 'Apple', value: 'Apple' },
+          { label: 'Pear', value: 'Pear' },
+        ]}
+      />
+      <Radio value="a">Radio outside of group</Radio>
+      <Radio.Group
+        optionType="button"
+        options={[
+          { label: 'Apple', value: 'Apple' },
+          { label: 'Pear', value: 'Pear' },
+        ]}
+      />
+      <Radio.Button value="a">Radio-Button outside of group</Radio.Button>
     </Space>
   );
 }
