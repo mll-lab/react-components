@@ -1,3 +1,10 @@
+# [8.6.0](https://github.com/mll-lab/react-components/compare/v8.5.0...v8.6.0) (2022-03-16)
+
+
+### Features
+
+* adapt tag font size to theme ([#143](https://github.com/mll-lab/react-components/issues/143)) ([60aac67](https://github.com/mll-lab/react-components/commit/60aac67f3c53eb79ae00f8f2dddcd951a335c2db))
+
 # [8.5.0](https://github.com/mll-lab/react-components/compare/v8.4.0...v8.5.0) (2022-03-16)
 
 
