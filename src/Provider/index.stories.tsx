@@ -3,6 +3,7 @@ import { Space, Typography } from 'antd';
 import React from 'react';
 
 import { CreateButton } from '../Button';
+import { Form } from '../Form';
 import { Provider } from '../Provider';
 import { Radio } from '../Radio';
 import { Table } from '../Table';
@@ -117,6 +118,9 @@ function SupportedComponents() {
         ]}
       />
       <Radio.Button value="a">Radio-Button outside of group</Radio.Button>
+      <Form>
+        <Form.Item label="Form Item">Form item content</Form.Item>
+      </Form>
     </Space>
   );
 }
