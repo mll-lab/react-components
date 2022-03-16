@@ -12,9 +12,6 @@ export type CheckableTagProps = AntdCheckableTagProps;
 
 const StyledTag: typeof AntdTag = styled(AntdTag)<TagProps>`
   font-size: ${(props) => props.theme.fontSize};
-  .mll-ant-tag {
-    font-size: ${(props) => props.theme.fontSize};
-  }
 `;
 
 const StyledCheckableTag = styled(StyledTag.CheckableTag)<CheckableTagProps>`
