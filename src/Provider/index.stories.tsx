@@ -1,10 +1,13 @@
+import { ClockCircleOutlined } from '@ant-design/icons';
 import { Story } from '@storybook/react';
-import { Space, Typography } from 'antd';
 import React from 'react';
 
 import { CreateButton } from '../Button';
 import { Provider } from '../Provider';
+import { Space } from '../Space';
 import { Table } from '../Table';
+import { Tag } from '../Tag';
+import { Typography } from '../Typography';
 import { Theme } from '../theme';
 
 export default {
@@ -101,6 +104,10 @@ function SupportedComponents() {
     <Space direction="vertical">
       <CreateButton />
       <Table columns={TABLE_COLUMNS} dataSource={TABLE_DATA} />
+      <Tag icon={<ClockCircleOutlined />} color="default">
+        Tag
+      </Tag>
+      <Tag.CheckableTag checked>Checkable Tag</Tag.CheckableTag>
     </Space>
   );
 }
