@@ -3,6 +3,7 @@ import ButtonGroup from 'antd/es/button/button-group';
 import * as React from 'react';
 import styled, { ThemedStyledProps } from 'styled-components';
 
+import { fontSizeFromTheme } from '../styled-utils';
 import { PALETTE, Theme } from '../theme';
 
 export type ColoredButtonType = {
@@ -26,7 +27,7 @@ export const FilledButton = styled(AntdButton as ColoredButtonType)`
   background: ${colorFromPropsOrTheme};
   border-color: ${colorFromPropsOrTheme};
   color: ${PALETTE.white};
-  font-size: ${(props) => props.theme.fontSize};
+  font-size: ${fontSizeFromTheme};
 
   &:hover,
   &:focus {
@@ -44,7 +45,7 @@ export const GhostButton = styled(AntdButton as ColoredButtonType)`
   background: transparent;
   border-color: ${colorFromPropsOrTheme};
   color: ${colorFromPropsOrTheme};
-  font-size: ${(props) => props.theme.fontSize};
+  font-size: ${fontSizeFromTheme};
 
   &:hover,
   &:focus {
