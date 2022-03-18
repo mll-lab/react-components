@@ -1,3 +1,10 @@
+# [8.8.0](https://github.com/mll-lab/react-components/compare/v8.7.1...v8.8.0) (2022-03-18)
+
+
+### Features
+
+* adapt font size in input ([#148](https://github.com/mll-lab/react-components/issues/148)) ([a82df55](https://github.com/mll-lab/react-components/commit/a82df55bbf8c950b706bd13024815302519770ac))
+
 ## [8.7.1](https://github.com/mll-lab/react-components/compare/v8.7.0...v8.7.1) (2022-03-18)
 
 
