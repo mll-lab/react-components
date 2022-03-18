@@ -1,3 +1,5 @@
+/* eslint-disable import/extensions */
+
 import { ClockCircleOutlined } from '@ant-design/icons';
 import { Story } from '@storybook/react';
 import React from 'react';
@@ -6,14 +8,12 @@ import { CreateButton } from '../Button';
 import {
   Default as DefaultCollapseStory,
   Single as SingleCollapseStory,
-  // eslint-disable-next-line import/extensions
 } from '../Collapse/index.stories';
 import { Form } from '../Form';
 import {
   Number as NumberInputStory,
   NumericID as NumericIDStory,
   Text as TextInputStory,
-  // eslint-disable-next-line import/extensions
 } from '../Input/index.stories';
 import { Provider } from '../Provider';
 import { Radio } from '../Radio';
