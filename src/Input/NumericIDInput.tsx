@@ -1,7 +1,7 @@
 import { isOnlyDigits } from '@mll-lab/js-utils';
 import React, { useState } from 'react';
 
-import { Input, InputProps } from './index';
+import { Input, InputProps } from './common';
 
 export type NumericIDInputProps = InputProps;
 

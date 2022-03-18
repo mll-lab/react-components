@@ -21,3 +21,7 @@ export const PresetColored: Story<TagProps> = (args) => (
     Test
   </Tag>
 );
+
+export const Checkable: Story<TagProps> = () => (
+  <Tag.CheckableTag checked>Checkable Tag</Tag.CheckableTag>
+);

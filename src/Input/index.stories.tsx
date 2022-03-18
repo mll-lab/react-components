@@ -2,8 +2,9 @@ import { Story } from '@storybook/react';
 import React from 'react';
 
 import { NumericIDInput, NumericIDInputProps } from './NumericIDInput';
+import { InputNumberProps, InputProps } from './common';
 
-import { Input, InputNumber, InputNumberProps, InputProps } from './index';
+import { Input, InputNumber } from './index';
 
 export default {
   title: 'Input',

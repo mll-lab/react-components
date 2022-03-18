@@ -1,9 +1,66 @@
-## [8.2.1-alpha.1](https://github.com/mll-lab/react-components/compare/v8.2.0...v8.2.1-alpha.1) (2022-02-28)
+# [8.7.0](https://github.com/mll-lab/react-components/compare/v8.6.0...v8.7.0) (2022-03-18)
+
+
+### Features
+
+* adapt collapse to font size from theme ([008095c](https://github.com/mll-lab/react-components/commit/008095c6a6385ec9300c2c6186070a3e2684320d))
+
+# [8.6.0](https://github.com/mll-lab/react-components/compare/v8.5.0...v8.6.0) (2022-03-16)
+
+
+### Features
+
+* adapt tag font size to theme ([#143](https://github.com/mll-lab/react-components/issues/143)) ([60aac67](https://github.com/mll-lab/react-components/commit/60aac67f3c53eb79ae00f8f2dddcd951a335c2db))
+
+# [8.5.0](https://github.com/mll-lab/react-components/compare/v8.4.0...v8.5.0) (2022-03-16)
+
+
+### Features
+
+* adapt form item font size to theme ([f395f9b](https://github.com/mll-lab/react-components/commit/f395f9b5ac5663edce6a5801e9b9b96460dd884c))
+* add form item to provider story ([4a963d0](https://github.com/mll-lab/react-components/commit/4a963d003a7a1ec81af1ff66c47c6196b8ac2a20))
+
+# [8.4.0](https://github.com/mll-lab/react-components/compare/v8.3.0...v8.4.0) (2022-03-16)
+
+
+### Features
+
+* adapt font size in radio components ([#142](https://github.com/mll-lab/react-components/issues/142)) ([96c1c5d](https://github.com/mll-lab/react-components/commit/96c1c5d43a531a72bcfbca2f1228fd27a8a8f1d9))
+
+# [8.3.0](https://github.com/mll-lab/react-components/compare/v8.2.4...v8.3.0) (2022-03-09)
+
+
+### Features
+
+* adding tree component ([#141](https://github.com/mll-lab/react-components/issues/141)) ([97bafa6](https://github.com/mll-lab/react-components/commit/97bafa6644f9c79dc510e59bbafac912075caa2e))
+
+## [8.2.4](https://github.com/mll-lab/react-components/compare/v8.2.3...v8.2.4) (2022-03-08)
 
 
 ### Bug Fixes
 
-* inline styled-components keyframes to css keyframes ([29298eb](https://github.com/mll-lab/react-components/commit/29298eb973ad06ae850230a2ec9552f296136299))
+* center row and column labels in Plate component ([7c54cc1](https://github.com/mll-lab/react-components/commit/7c54cc193a1de0afb50db629ff7f5708741a4a0a))
+
+## [8.2.3](https://github.com/mll-lab/react-components/compare/v8.2.2...v8.2.3) (2022-03-08)
+
+
+### Bug Fixes
+
+* set flex only on default content but not on content set by an user ([214785a](https://github.com/mll-lab/react-components/commit/214785a19f175a8f5ab94fd88f2622756e8e5bb7))
+
+## [8.2.2](https://github.com/mll-lab/react-components/compare/v8.2.1...v8.2.2) (2022-03-08)
+
+
+### Bug Fixes
+
+* display plate component in storybook ([#137](https://github.com/mll-lab/react-components/issues/137)) ([018b1a4](https://github.com/mll-lab/react-components/commit/018b1a426c5777f61e5278bb5b6c5501acd0eee9))
+
+## [8.2.1](https://github.com/mll-lab/react-components/compare/v8.2.0...v8.2.1) (2022-02-28)
+
+
+### Bug Fixes
+
+* inline styled-components keyframes to css keyframes ([14d291a](https://github.com/mll-lab/react-components/commit/14d291a86c44f0c018d48903f2fa1e983c4c09d4))
 
 # [8.2.0](https://github.com/mll-lab/react-components/compare/v8.1.1...v8.2.0) (2022-02-24)
 

@@ -46,6 +46,7 @@ export * from './Tabs';
 export * from './Tag';
 export * from './Timeline';
 export * from './Tooltip';
+export * from './Tree';
 export * from './Typography';
 export * from './Upload';
 

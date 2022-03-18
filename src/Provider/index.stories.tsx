@@ -1,10 +1,25 @@
+import { ClockCircleOutlined } from '@ant-design/icons';
 import { Story } from '@storybook/react';
-import { Space, Typography } from 'antd';
 import React from 'react';
 
 import { CreateButton } from '../Button';
+import {
+  Default as DefaultCollapseStory,
+  Single as SingleCollapseStory,
+  // eslint-disable-next-line import/extensions
+} from '../Collapse/index.stories';
+import { Form } from '../Form';
+import {
+  Number as NumberInputStory,
+  NumericID as NumericIDStory,
+  Text as TextInputStory,
+} from '../Input/index.stories';
 import { Provider } from '../Provider';
+import { Radio } from '../Radio';
+import { Space } from '../Space';
 import { Table } from '../Table';
+import { Tag } from '../Tag';
+import { Typography } from '../Typography';
 import { Theme } from '../theme';
 
 export default {
@@ -101,6 +116,33 @@ function SupportedComponents() {
     <Space direction="vertical">
       <CreateButton />
       <Table columns={TABLE_COLUMNS} dataSource={TABLE_DATA} />
+      <Radio.Group
+        options={[
+          { label: 'Apple', value: 'Apple' },
+          { label: 'Pear', value: 'Pear' },
+        ]}
+      />
+      <Radio value="a">Radio outside of group</Radio>
+      <Radio.Group
+        optionType="button"
+        options={[
+          { label: 'Apple', value: 'Apple' },
+          { label: 'Pear', value: 'Pear' },
+        ]}
+      />
+      <Radio.Button value="a">Radio-Button outside of group</Radio.Button>
+      <Form>
+        <Form.Item label="Form Item">Form item content</Form.Item>
+      </Form>
+      <Tag icon={<ClockCircleOutlined />} color="default">
+        Tag
+      </Tag>
+      <Tag.CheckableTag checked>Checkable Tag</Tag.CheckableTag>
+      <DefaultCollapseStory />
+      <SingleCollapseStory />
+      <TextInputStory />
+      <NumberInputStory />
+      <NumericIDStory />
     </Space>
   );
 }

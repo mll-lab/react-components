@@ -3,6 +3,7 @@ import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 
 import { MllSpinnerSvg } from '../Spinner';
+import { fontSizeFromTheme } from '../styled-utils';
 
 export { ColumnsType, ColumnProps } from 'antd/es/table';
 
@@ -10,7 +11,7 @@ export type TableProps<RecordType> = AntdTableProps<RecordType>;
 
 export const StyledTable = styled(AntdTable)`
   .mll-ant-table {
-    font-size: ${(props) => props.theme.fontSize ?? undefined};
+    font-size: ${fontSizeFromTheme};
   }
 
   ${(props) => {
