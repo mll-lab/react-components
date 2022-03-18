@@ -1,2 +1,2 @@
-export * from './StyledInput';
+export * from './common';
 export * from './NumericIDInput';
