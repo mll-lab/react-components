@@ -13,6 +13,7 @@ import {
   Number as NumberInputStory,
   NumericID as NumericIDStory,
   Text as TextInputStory,
+  // eslint-disable-next-line import/extensions
 } from '../Input/index.stories';
 import { Provider } from '../Provider';
 import { Radio } from '../Radio';
