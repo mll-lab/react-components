@@ -21,9 +21,9 @@ export const Multiple: Story<SelectProps<string>> = (args) => (
   <Default mode="multiple" {...args} />
 );
 
-export const CustomDropdown: Story<SelectProps<string>> = (args) => {
-  return <Multiple dropdownRender={CustomDropdownComponent} {...args} />;
-};
+export const CustomDropdown: Story<SelectProps<string>> = (args) => (
+  <Multiple dropdownRender={CustomDropdownComponent} {...args} />
+);
 
 function CustomDropdownComponent(menu: ReactElement) {
   return (
