@@ -1,3 +1,4 @@
+import { EMPTY_ARRAY } from '@mll-lab/js-utils';
 import {
   Collapse as AntdCollapse,
   CollapseProps as AntdCollapseProps,
@@ -42,19 +43,45 @@ export function SingleCollapse({
   children,
 }: SingleCollapseProps) {
   const { open, onToggle, defaultActive, ...restCollapseProps } = collapseProps;
+
+  if (!onToggle || open === undefined) {
+    return (
+      <Collapse
+        defaultActiveKey={defaultActive ? KEY : undefined}
+        {...restCollapseProps}
+      >
+        <SingleCollapsePanel panelProps={panelProps}>
+          {children}
+        </SingleCollapsePanel>
+      </Collapse>
+    );
+  }
+
   return (
     <Collapse
-      defaultActiveKey={defaultActive ? KEY : undefined}
-      activeKey={open ? KEY : undefined}
+      activeKey={open ? [KEY] : EMPTY_ARRAY}
       onChange={(keys) => {
-        const key = first(keys); // only one key exists
-        onToggle?.(key === KEY);
+        if (onToggle && keys?.length > 0) {
+          const key = first(keys); // only one key exists
+          onToggle(key === KEY);
+        }
       }}
       {...restCollapseProps}
     >
-      <Collapse.Panel key={KEY} {...panelProps}>
+      <SingleCollapsePanel panelProps={panelProps}>
         {children}
-      </Collapse.Panel>
+      </SingleCollapsePanel>
     </Collapse>
+  );
+}
+
+function SingleCollapsePanel({
+  children,
+  panelProps,
+}: Pick<SingleCollapseProps, 'panelProps' | 'children'>) {
+  return (
+    <Collapse.Panel key={KEY} {...panelProps}>
+      {children}
+    </Collapse.Panel>
   );
 }
