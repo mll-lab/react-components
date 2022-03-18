@@ -6,6 +6,11 @@ import { CreateButton } from '../Button';
 import { Form } from '../Form';
 import { Provider } from '../Provider';
 import { Radio } from '../Radio';
+import {
+  Default as SelectStory,
+  Multiple as SelectMultipleStory,
+  // eslint-disable-next-line import/extensions
+} from '../Select/index.stories';
 import { Space } from '../Space';
 import { Table } from '../Table';
 import { Tag } from '../Tag';
@@ -128,6 +133,8 @@ function SupportedComponents() {
         Tag
       </Tag>
       <Tag.CheckableTag checked>Checkable Tag</Tag.CheckableTag>
+      <SelectStory />
+      <SelectMultipleStory />
     </Space>
   );
 }
