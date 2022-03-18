@@ -1,3 +1,10 @@
+# [8.9.0](https://github.com/mll-lab/react-components/compare/v8.8.0...v8.9.0) (2022-03-18)
+
+
+### Features
+
+* adapt font size in select ([#146](https://github.com/mll-lab/react-components/issues/146)) ([ec8fcdf](https://github.com/mll-lab/react-components/commit/ec8fcdf6d8503a73f20cd94b576a1e62b18601e6))
+
 # [8.8.0](https://github.com/mll-lab/react-components/compare/v8.7.1...v8.8.0) (2022-03-18)
 
 
