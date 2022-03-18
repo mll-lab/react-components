@@ -45,4 +45,5 @@ export function Select<T>({
   );
 }
 
-Select.Option = StyledSelect.Option;
+Select.Option = AntdSelect.Option;
+Select.OptGroup = AntdSelect.OptGroup;
