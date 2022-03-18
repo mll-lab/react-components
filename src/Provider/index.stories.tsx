@@ -18,6 +18,11 @@ import {
 } from '../Input/index.stories';
 import { Provider } from '../Provider';
 import { Radio } from '../Radio';
+import {
+  Default as SelectStory,
+  Multiple as SelectMultipleStory,
+  CustomDropdown as SelectCustomDropdownStory,
+} from '../Select/index.stories';
 import { Space } from '../Space';
 import { Table } from '../Table';
 import { Tag } from '../Tag';
@@ -145,6 +150,9 @@ function SupportedComponents() {
       <TextInputStory />
       <NumberInputStory />
       <NumericIDStory />
+      <SelectStory />
+      <SelectMultipleStory />
+      <SelectCustomDropdownStory />
     </Space>
   );
 }
