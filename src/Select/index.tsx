@@ -29,7 +29,7 @@ export function Select<T>({
   dropdownRender,
   ...props
 }: SelectProps<T>) {
-  const Dropdown = useCallback(
+  const dropdownRender = useCallback(
     (menu: ReactElement) => (
       <StyledDropdown>
         {dropdownRender ? dropdownRender(menu) : menu}
