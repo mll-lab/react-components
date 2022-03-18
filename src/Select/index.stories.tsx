@@ -8,7 +8,7 @@ export default {
 };
 
 export const Default: Story<SelectProps<string>> = (args) => (
-  <Select defaultValue="lucy" style={{ width: 120 }} {...args}>
+  <Select<string> defaultValue="lucy" style={{ width: 120 }} {...args}>
     <Select.Option value="jack">Jack</Select.Option>
     <Select.Option value="lucy">Lucy</Select.Option>
     <Select.Option value="henry" disabled>
@@ -18,7 +18,12 @@ export const Default: Story<SelectProps<string>> = (args) => (
 );
 
 export const Multiple: Story<SelectProps<string>> = (args) => (
-  <Select mode="multiple" defaultValue="lucy" style={{ width: 120 }} {...args}>
+  <Select<string>
+    mode="multiple"
+    defaultValue="lucy"
+    style={{ width: 120 }}
+    {...args}
+  >
     <Select.Option value="jack">Jack</Select.Option>
     <Select.Option value="lucy">Lucy</Select.Option>
     <Select.Option value="henry" disabled>
