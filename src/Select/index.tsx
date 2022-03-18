@@ -1,5 +1,5 @@
 import { Select as AntdSelect, SelectProps as AntdSelectProps } from 'antd';
-import React from 'react';
+import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 
 import { fontSizeFromTheme } from '../styled-utils';
@@ -30,18 +30,33 @@ const StyledDropdown = styled.div`
   }
 `;
 
-export function Select<T>({ children, ...props }: SelectProps<T>) {
+export function Select<T>({
+  children,
+  dropdownRender,
+  ...props
+}: SelectProps<T>) {
   return (
     <StyledSelect<T>
       {...props}
       dropdownRender={(menu) => (
-        <StyledDropdown>
-          {props.dropdownRender ? props.dropdownRender(menu) : menu}
-        </StyledDropdown>
+        <StyledSelectDropdown menu={menu} dropdownRender={dropdownRender} />
       )}
     >
       {children}
     </StyledSelect>
+  );
+}
+
+type StyledDropdownRender = {
+  menu: ReactElement;
+  dropdownRender?: (menu: React.ReactElement) => React.ReactElement;
+};
+
+function StyledSelectDropdown({ menu, dropdownRender }: StyledDropdownRender) {
+  return (
+    <StyledDropdown>
+      {dropdownRender ? dropdownRender(menu) : menu}
+    </StyledDropdown>
   );
 }
 
