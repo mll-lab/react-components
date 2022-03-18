@@ -1,3 +1,10 @@
+# [8.8.0-alpha.2](https://github.com/mll-lab/react-components/compare/v8.8.0-alpha.1...v8.8.0-alpha.2) (2022-03-18)
+
+
+### Bug Fixes
+
+* import lint error ([4c58166](https://github.com/mll-lab/react-components/commit/4c58166b1e6f74f025f8664d6e8ec36fdcefd883))
+
 # [8.8.0-alpha.1](https://github.com/mll-lab/react-components/compare/v8.7.0...v8.8.0-alpha.1) (2022-03-18)
 
 
