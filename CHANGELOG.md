@@ -1,3 +1,10 @@
+# [8.7.0](https://github.com/mll-lab/react-components/compare/v8.6.0...v8.7.0) (2022-03-18)
+
+
+### Features
+
+* adapt collapse to font size from theme ([008095c](https://github.com/mll-lab/react-components/commit/008095c6a6385ec9300c2c6186070a3e2684320d))
+
 # [8.6.0](https://github.com/mll-lab/react-components/compare/v8.5.0...v8.6.0) (2022-03-16)
 
 
