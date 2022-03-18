@@ -1,5 +1,5 @@
 import { Select as AntdSelect, SelectProps as AntdSelectProps } from 'antd';
-import React, { ReactElement } from 'react';
+import React, { ReactElement, useCallback } from 'react';
 import styled from 'styled-components';
 
 import { fontSizeFromTheme } from '../styled-utils';
@@ -18,8 +18,9 @@ const StyledSelect = styled(AntdSelect)`
 ` as typeof AntdSelect;
 
 const StyledDropdown = styled.div`
+  font-size: ${fontSizeFromTheme};
   .mll-ant-select-item {
-    font-size: ${fontSizeFromTheme};
+    font-size: 1em;
   }
 `;
 
@@ -28,28 +29,19 @@ export function Select<T>({
   dropdownRender,
   ...props
 }: SelectProps<T>) {
+  const Dropdown = useCallback(
+    (menu: ReactElement) => (
+      <StyledDropdown>
+        {dropdownRender ? dropdownRender(menu) : menu}
+      </StyledDropdown>
+    ),
+    [dropdownRender],
+  );
+
   return (
-    <StyledSelect<T>
-      {...props}
-      dropdownRender={(menu) => (
-        <StyledSelectDropdown menu={menu} dropdownRender={dropdownRender} />
-      )}
-    >
+    <StyledSelect<T> {...props} dropdownRender={Dropdown}>
       {children}
     </StyledSelect>
-  );
-}
-
-type StyledDropdownRender = {
-  menu: ReactElement;
-  dropdownRender?: (menu: React.ReactElement) => React.ReactElement;
-};
-
-function StyledSelectDropdown({ menu, dropdownRender }: StyledDropdownRender) {
-  return (
-    <StyledDropdown>
-      {dropdownRender ? dropdownRender(menu) : menu}
-    </StyledDropdown>
   );
 }
 
