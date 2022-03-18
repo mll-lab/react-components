@@ -1,3 +1,4 @@
+// false-positive when importing .stories
 /* eslint-disable import/extensions */
 
 import { ClockCircleOutlined } from '@ant-design/icons';
