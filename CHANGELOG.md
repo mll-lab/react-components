@@ -1,3 +1,15 @@
+# [8.8.0-alpha.1](https://github.com/mll-lab/react-components/compare/v8.7.0...v8.8.0-alpha.1) (2022-03-18)
+
+
+### Bug Fixes
+
+* inline styled-components keyframes to css keyframes ([29298eb](https://github.com/mll-lab/react-components/commit/29298eb973ad06ae850230a2ec9552f296136299))
+
+
+### Features
+
+* adapt input component to font size from theme ([ea3e412](https://github.com/mll-lab/react-components/commit/ea3e4125105f9db9a936b02114e0e810182a6b97))
+
 # [8.7.0](https://github.com/mll-lab/react-components/compare/v8.6.0...v8.7.0) (2022-03-18)
 
 
