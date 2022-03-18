@@ -9,6 +9,11 @@ import {
   // eslint-disable-next-line import/extensions
 } from '../Collapse/index.stories';
 import { Form } from '../Form';
+import {
+  Number as NumberInputStory,
+  NumericID as NumericIDStory,
+  Text as TextInputStory,
+} from '../Input/index.stories';
 import { Provider } from '../Provider';
 import { Radio } from '../Radio';
 import { Space } from '../Space';
@@ -135,6 +140,9 @@ function SupportedComponents() {
       <Tag.CheckableTag checked>Checkable Tag</Tag.CheckableTag>
       <DefaultCollapseStory />
       <SingleCollapseStory />
+      <TextInputStory />
+      <NumberInputStory />
+      <NumericIDStory />
     </Space>
   );
 }
