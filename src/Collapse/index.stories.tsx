@@ -1,5 +1,5 @@
 import { Story } from '@storybook/react';
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Collapse, CollapseProps, SingleCollapse } from './index';
 
@@ -26,3 +26,19 @@ export const Single: Story = () => (
     <p>test3</p>
   </SingleCollapse>
 );
+
+export const SingleControlled: Story = () => {
+  const [open, setOpen] = useState(true);
+
+  return (
+    <SingleCollapse
+      collapseProps={{
+        open,
+        onToggle: setOpen,
+      }}
+      panelProps={{ header: 'This is panel header 1' }}
+    >
+      <p>test3</p>
+    </SingleCollapse>
+  );
+};
