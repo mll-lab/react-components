@@ -33,6 +33,7 @@ export function Table<
   RecordType extends Record<string, unknown> = Record<string, unknown>,
 >(props: TableProps<RecordType>) {
   const { loading, ...rest } = props;
+
   return (
     <StyledTable
       rowKey="id"
