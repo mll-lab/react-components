@@ -17,12 +17,6 @@ const StyledSelect = styled(AntdSelect)`
   }
 ` as typeof AntdSelect;
 
-const StyledOption = styled(StyledSelect.Option)`
-  .mll-ant-select-item {
-    font-size: ${fontSizeFromTheme};
-  }
-` as typeof StyledSelect.Option;
-
 const StyledDropdown = styled.div`
   .mll-ant-select-item {
     font-size: ${fontSizeFromTheme};
@@ -59,4 +53,4 @@ function StyledSelectDropdown({ menu, dropdownRender }: StyledDropdownRender) {
   );
 }
 
-Select.Option = StyledOption;
+Select.Option = StyledSelect.Option;
