@@ -1,5 +1,5 @@
 import { Story } from '@storybook/react';
-import React, { ReactElement, useCallback } from 'react';
+import React, { ReactElement } from 'react';
 
 import { Select, SelectProps } from './index';
 
@@ -22,15 +22,14 @@ export const Multiple: Story<SelectProps<string>> = (args) => (
 );
 
 export const CustomDropdown: Story<SelectProps<string>> = (args) => {
-  const Dropdown = useCallback(
-    (menu: ReactElement) => (
-      <>
-        <span>Custom Dropdown</span>
-        {menu}
-      </>
-    ),
-    [],
-  );
-
-  return <Multiple dropdownRender={Dropdown} {...args} />;
+  return <Multiple dropdownRender={CustomDropdownComponent} {...args} />;
 };
+
+function CustomDropdownComponent(menu: ReactElement) {
+  return (
+    <>
+      <span>Custom Dropdown</span>
+      {menu}
+    </>
+  );
+}
