@@ -4,10 +4,24 @@ import {
   CollapsePanelProps as AntdCollapsePanelProps,
 } from 'antd';
 import React, { ReactNode } from 'react';
+import styled from 'styled-components';
 
-export const Collapse: typeof AntdCollapse = AntdCollapse;
+import { fontSizeFromTheme } from '../styled-utils';
+
 export type CollapseProps = AntdCollapseProps;
 export type CollapsePanelProps = AntdCollapsePanelProps;
+
+const StyledCollapse: typeof AntdCollapse = styled(
+  AntdCollapse,
+)<AntdCollapseProps>`
+  font-size: ${fontSizeFromTheme};
+  .mll-ant-collapse-item > .mll-ant-collapse-header .mll-ant-collapse-arrow {
+    font-size: ${fontSizeFromTheme};
+  }
+`;
+
+export const Collapse: typeof AntdCollapse = StyledCollapse;
+Collapse.Panel = AntdCollapse.Panel;
 
 const KEY = 'default';
 
