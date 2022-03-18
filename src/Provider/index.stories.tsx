@@ -14,6 +14,7 @@ import { Radio } from '../Radio';
 import {
   Default as SelectStory,
   Multiple as SelectMultipleStory,
+  CustomDropdown as SelectCustomDropdownStory,
   // eslint-disable-next-line import/extensions
 } from '../Select/index.stories';
 import { Space } from '../Space';
@@ -142,6 +143,7 @@ function SupportedComponents() {
       <SingleCollapseStory />
       <SelectStory />
       <SelectMultipleStory />
+      <SelectCustomDropdownStory />
     </Space>
   );
 }

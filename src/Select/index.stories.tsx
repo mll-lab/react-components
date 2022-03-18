@@ -18,16 +18,17 @@ export const Default: Story<SelectProps<string>> = (args) => (
 );
 
 export const Multiple: Story<SelectProps<string>> = (args) => (
-  <Select<string>
-    mode="multiple"
-    defaultValue="lucy"
-    style={{ width: 120 }}
+  <Default mode="multiple" {...args} />
+);
+
+export const CustomDropdown: Story<SelectProps<string>> = (args) => (
+  <Multiple
+    dropdownRender={(menu) => (
+      <>
+        <span>Custom Dropdown</span>
+        {menu}
+      </>
+    )}
     {...args}
-  >
-    <Select.Option value="jack">Jack</Select.Option>
-    <Select.Option value="lucy">Lucy</Select.Option>
-    <Select.Option value="henry" disabled>
-      Henry
-    </Select.Option>
-  </Select>
+  />
 );
