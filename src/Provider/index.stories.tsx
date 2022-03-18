@@ -1,3 +1,6 @@
+// false-positive when importing .stories
+/* eslint-disable import/extensions */
+
 import { ClockCircleOutlined } from '@ant-design/icons';
 import { Story } from '@storybook/react';
 import React from 'react';
@@ -6,16 +9,19 @@ import { CreateButton } from '../Button';
 import {
   Default as DefaultCollapseStory,
   Single as SingleCollapseStory,
-  // eslint-disable-next-line import/extensions
 } from '../Collapse/index.stories';
 import { Form } from '../Form';
+import {
+  Number as NumberInputStory,
+  NumericID as NumericIDStory,
+  Text as TextInputStory,
+} from '../Input/index.stories';
 import { Provider } from '../Provider';
 import { Radio } from '../Radio';
 import {
   Default as SelectStory,
   Multiple as SelectMultipleStory,
   CustomDropdown as SelectCustomDropdownStory,
-  // eslint-disable-next-line import/extensions
 } from '../Select/index.stories';
 import { Space } from '../Space';
 import { Table } from '../Table';
@@ -141,6 +147,9 @@ function SupportedComponents() {
       <Tag.CheckableTag checked>Checkable Tag</Tag.CheckableTag>
       <DefaultCollapseStory />
       <SingleCollapseStory />
+      <TextInputStory />
+      <NumberInputStory />
+      <NumericIDStory />
       <SelectStory />
       <SelectMultipleStory />
       <SelectCustomDropdownStory />

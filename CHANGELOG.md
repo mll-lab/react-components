@@ -1,3 +1,15 @@
+## [8.7.1](https://github.com/mll-lab/react-components/compare/v8.7.0...v8.7.1) (2022-03-18)
+
+
+### Bug Fixes
+
+* generic type definitions of forms and form items ([ca16637](https://github.com/mll-lab/react-components/commit/ca16637d0e52f2260bb4b5b4be758d2db20f1dc9))
+
+
+### Reverts
+
+* Revert "fix: generic type definitions of forms and form items" ([7c333df](https://github.com/mll-lab/react-components/commit/7c333df859391828dbb2451988ea3372ac24bf6e))
+
 # [8.7.0](https://github.com/mll-lab/react-components/compare/v8.6.0...v8.7.0) (2022-03-18)
 
 
