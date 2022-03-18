@@ -9,8 +9,7 @@ export * from './formInput';
 
 const StyledSelect = styled(AntdSelect)`
   &,
-  .mll-ant-select-arrow,
-  .mll-ant-select-item {
+  .mll-ant-select-arrow {
     font-size: ${fontSizeFromTheme};
   }
   .mll-ant-select-selection-item-remove {
