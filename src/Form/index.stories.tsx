@@ -22,7 +22,12 @@ type FormValues = {
 };
 
 export const Default: Story<FormProps<FormValues>> = (args) => (
-  <Form<FormValues> name="basic" {...args}>
+  <Form<FormValues>
+    name="basic"
+    {...args}
+    labelCol={{ span: 3 }}
+    wrapperCol={{ span: 21 }}
+  >
     <Form.Item<FormValues>
       label="Username"
       name="username"
@@ -39,7 +44,7 @@ export const Default: Story<FormProps<FormValues>> = (args) => (
       <Input.Password />
     </Form.Item>
 
-    <Form.Item<FormValues>>
+    <Form.Item<FormValues> wrapperCol={{ span: 21, offset: 3 }}>
       <Button htmlType="submit">Submit</Button>
     </Form.Item>
   </Form>
