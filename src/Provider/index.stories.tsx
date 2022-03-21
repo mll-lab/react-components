@@ -7,6 +7,13 @@ import React from 'react';
 
 import { CreateButton } from '../Button';
 import {
+  CardMeta as CardMetaStory,
+  CardsGrid as CardsGridStory,
+  Default as CardStory,
+  InnerCard as InnerCardStory,
+  TabsCard as TabsCardStory,
+} from '../Card/index.stories';
+import {
   Default as DefaultCollapseStory,
   Single as SingleCollapseStory,
 } from '../Collapse/index.stories';
@@ -153,6 +160,11 @@ function SupportedComponents() {
       <SelectStory />
       <SelectMultipleStory />
       <SelectCustomDropdownStory />
+      <CardStory />
+      <InnerCardStory />
+      <TabsCardStory />
+      <CardsGridStory />
+      <CardMetaStory />
     </Space>
   );
 }
