@@ -1,3 +1,10 @@
+# [8.10.0](https://github.com/mll-lab/react-components/compare/v8.9.0...v8.10.0) (2022-03-21)
+
+
+### Features
+
+* adapt font size in card ([9f76d48](https://github.com/mll-lab/react-components/commit/9f76d4864113db9b5385689dd39940250adfae91))
+
 # [8.9.0](https://github.com/mll-lab/react-components/compare/v8.8.0...v8.9.0) (2022-03-18)
 
 
