@@ -1,3 +1,10 @@
+## [8.10.1](https://github.com/mll-lab/react-components/compare/v8.10.0...v8.10.1) (2022-03-22)
+
+
+### Bug Fixes
+
+* update antd to include col-x style fix ([#150](https://github.com/mll-lab/react-components/issues/150)) ([21d7a86](https://github.com/mll-lab/react-components/commit/21d7a866513c8250236fe1117a46fd3cb5cd7d5a))
+
 # [8.10.0](https://github.com/mll-lab/react-components/compare/v8.9.0...v8.10.0) (2022-03-21)
 
 
