@@ -1,3 +1,10 @@
+# [8.12.0](https://github.com/mll-lab/react-components/compare/v8.11.1...v8.12.0) (2022-03-22)
+
+
+### Features
+
+* decrease line-height-base ([3924897](https://github.com/mll-lab/react-components/commit/39248979053d9e6df9e3d4be7a1e14e112482d0b))
+
 ## [8.11.1](https://github.com/mll-lab/react-components/compare/v8.11.0...v8.11.1) (2022-03-22)
 
 
