@@ -1,3 +1,10 @@
+# [8.11.0](https://github.com/mll-lab/react-components/compare/v8.10.1...v8.11.0) (2022-03-22)
+
+
+### Features
+
+* shrink Table even more ([2c2845e](https://github.com/mll-lab/react-components/commit/2c2845ea7a07405b1130a68de8f88b638cef9874))
+
 ## [8.10.1](https://github.com/mll-lab/react-components/compare/v8.10.0...v8.10.1) (2022-03-22)
 
 
