@@ -1,3 +1,10 @@
+## [8.11.1](https://github.com/mll-lab/react-components/compare/v8.11.0...v8.11.1) (2022-03-22)
+
+
+### Bug Fixes
+
+* restore Select.OptGroup ([3d6288c](https://github.com/mll-lab/react-components/commit/3d6288c7e35304e39c02c4605e96501a8dc289cf))
+
 # [8.11.0](https://github.com/mll-lab/react-components/compare/v8.10.1...v8.11.0) (2022-03-22)
 
 
