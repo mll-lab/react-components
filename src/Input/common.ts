@@ -11,7 +11,7 @@ import { fontSizeFromTheme } from '../styled-utils';
 export type InputProps = AntdInputProps;
 export type InputNumberProps = AntdInputNumberProps;
 
-export const Input = styled(AntdInput)`
+export const Input: typeof AntdInput = styled(AntdInput)`
   font-size: ${fontSizeFromTheme};
 `;
 

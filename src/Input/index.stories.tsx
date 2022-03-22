@@ -8,7 +8,6 @@ import { Input, InputNumber } from './index';
 
 export default {
   title: 'Input',
-  component: Input,
   onChange: { action: 'clicked' },
 };
 
