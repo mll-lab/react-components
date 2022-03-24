@@ -5,7 +5,13 @@ import styled from 'styled-components';
 import { MllSpinnerSvg } from '../Spinner';
 import { fontSizeFromTheme } from '../styled-utils';
 
-export { ColumnsType, ColumnProps } from 'antd/es/table';
+export {
+  ColumnsType,
+  ColumnType,
+  ColumnGroupType,
+  ColumnProps,
+  TablePaginationConfig,
+} from 'antd/es/table';
 
 export type TableProps<RecordType> = AntdTableProps<RecordType>;
 
