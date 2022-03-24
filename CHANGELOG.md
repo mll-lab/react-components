@@ -1,3 +1,10 @@
+## [8.12.2](https://github.com/mll-lab/react-components/compare/v8.12.1...v8.12.2) (2022-03-24)
+
+
+### Bug Fixes
+
+* export additional Table types ([0e13cc6](https://github.com/mll-lab/react-components/commit/0e13cc6f1c2d00ac56739bf39b43c1b78a41b6c1))
+
 ## [8.12.1](https://github.com/mll-lab/react-components/compare/v8.12.0...v8.12.1) (2022-03-24)
 
 
