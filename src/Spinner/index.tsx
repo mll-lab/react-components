@@ -14,8 +14,8 @@ export type SpinnerProps = Omit<SpinProps, 'size' | 'tip'> & {
 
 export function Spinner({ message, size = '2em', ...spinProps }: SpinnerProps) {
   return (
-    <div style={{ textAlign: 'center' }}>
-      {message && <h2>{message}</h2>}
+    <div>
+      {message && <h2 style={{ textAlign: 'center' }}>{message}</h2>}
       <Spin
         indicator={
           <MllSpinnerIcon
