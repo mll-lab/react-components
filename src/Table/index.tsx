@@ -59,3 +59,5 @@ export function Table<
 Table.Column = AntdTable.Column;
 Table.ColumnGroup = AntdTable.ColumnGroup;
 Table.Summary = AntdTable.Summary;
+
+export { labeledEnumToColumnFilterItem } from './utils';
