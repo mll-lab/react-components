@@ -1,3 +1,11 @@
+## [8.12.1](https://github.com/mll-lab/react-components/compare/v8.12.0...v8.12.1) (2022-03-24)
+
+
+### Bug Fixes
+
+* export labeledEnumToColumnFilterItem ([73be225](https://github.com/mll-lab/react-components/commit/73be22554aa63b676a987ec56603059d76546d33))
+* shrink style scope ([2b17376](https://github.com/mll-lab/react-components/commit/2b17376840caa52f4c1652fc77ab24675a44f24e))
+
 # [8.12.0](https://github.com/mll-lab/react-components/compare/v8.11.1...v8.12.0) (2022-03-22)
 
 
