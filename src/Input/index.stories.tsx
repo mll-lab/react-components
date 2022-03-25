@@ -1,5 +1,5 @@
 import { Story } from '@storybook/react';
-import React from 'react';
+import React, { useState } from 'react';
 
 import { NumericIDInput, NumericIDInputProps } from './NumericIDInput';
 import { InputNumberProps, InputProps } from './common';
@@ -13,9 +13,20 @@ export default {
 
 export const Text: Story<InputProps> = (args) => <Input {...args} />;
 
-export const Number: Story<InputNumberProps> = (args) => (
-  <InputNumber min={1} max={10} defaultValue={3} {...args} />
-);
+export const Number: Story<InputNumberProps> = (args) => {
+  const [num, setNum] = useState<number>(0);
+  return (
+    <InputNumber
+      min={1}
+      max={10}
+      value={num}
+      onChange={(val) =>
+        setNum(typeof val !== 'number' ? parseInt(val, 10) : val)
+      }
+      {...args}
+    />
+  );
+};
 
 export const NumericID: Story<NumericIDInputProps> = (args) => (
   <NumericIDInput {...args} />

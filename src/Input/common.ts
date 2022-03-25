@@ -15,6 +15,6 @@ export const Input: typeof AntdInput = styled(AntdInput)`
   font-size: ${fontSizeFromTheme};
 `;
 
-export const InputNumber = styled(AntdInputNumber)`
+export const InputNumber: typeof AntdInputNumber = styled(AntdInputNumber)`
   font-size: ${fontSizeFromTheme};
 `;
