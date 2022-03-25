@@ -1,3 +1,10 @@
+## [8.12.3](https://github.com/mll-lab/react-components/compare/v8.12.2...v8.12.3) (2022-03-25)
+
+
+### Bug Fixes
+
+* add explicit type to input number component ([b6368bc](https://github.com/mll-lab/react-components/commit/b6368bc8eb84e552769e8525ae026b76fd98874f))
+
 ## [8.12.2](https://github.com/mll-lab/react-components/compare/v8.12.1...v8.12.2) (2022-03-24)
 
 
