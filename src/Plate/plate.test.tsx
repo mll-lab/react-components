@@ -1,16 +1,17 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 
+import { Coordinates } from './types';
 import {
+  areEqualCoordinates,
   columnForPosition,
   convertPositionFromColumnToRowFlow,
-  rowForPosition,
   convertPositionFromRowToColumnFlow,
   ensureCoordinatesInRange,
-  Coordinates,
-  areEqualCoordinates,
-  Plate,
-} from './index';
+  rowForPosition,
+} from './utils';
+
+import { Plate } from './index';
 
 const data = [
   {
