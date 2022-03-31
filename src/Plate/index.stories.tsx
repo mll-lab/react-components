@@ -3,12 +3,12 @@ import React from 'react';
 
 import { PALETTE } from '../theme';
 
+import { CoordinateSystem12Well } from './coordinateSystem12Well';
 import { CoordinateSystem96Well } from './coordinateSystem96Well';
 import { PlateProps, PlateWell } from './types';
 import { coordinatesForPosition } from './utils';
 
 import { Plate } from './index';
-import {CoordinateSystem12Well} from "./coordinateSystem12Well";
 
 export default {
   title: 'Plate',
@@ -82,7 +82,11 @@ const Template: Story<Partial<PlateProps>> = (args) => (
 );
 
 const Template12Well: Story<Partial<PlateProps>> = (args) => (
-  <Plate coordinateSystem={new CoordinateSystem12Well()} data={null} {...args} />
+  <Plate
+    coordinateSystem={new CoordinateSystem12Well()}
+    data={null}
+    {...args}
+  />
 );
 
 export const Default = Template.bind({});
