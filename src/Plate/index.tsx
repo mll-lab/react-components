@@ -1,38 +1,15 @@
 import { Spin } from 'antd';
-import { range } from 'lodash';
 import React, { Fragment } from 'react';
 
 import { MllSpinnerIcon } from '../Spinner';
 import { PALETTE } from '../theme';
 
-import { Coordinates, FlowDirection, PlateProps, PlateWell } from './types';
-import {
-  assertUniquePositions,
-  columnForPosition,
-  rowForPosition,
-  wellAtPosition,
-} from './utils';
+import { CoordinateSystem } from './coordinateSystem';
+import { PlateProps, PlateWell } from './types';
+import { assertUniquePositions } from './utils';
 
 export * from './types';
 export * from './utils';
-
-const TUBE_COUNT = 96;
-export const WELLS = range(1, TUBE_COUNT + 1);
-export const COORDINATES_COLUMNS: Array<Coordinates['column']> = [
-  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,
-];
-export const COORDINATES_ROWS: Array<Coordinates['row']> = [
-  'A',
-  'B',
-  'C',
-  'D',
-  'E',
-  'F',
-  'G',
-  'H',
-];
-
-const PLATE_FLOW: FlowDirection = 'row';
 
 export function Plate(props: PlateProps) {
   if (props.data) {
@@ -54,14 +31,14 @@ export function Plate(props: PlateProps) {
         style={{
           display: 'grid',
           gridTemplateColumns: `1fr ${'4fr '.repeat(
-            COORDINATES_COLUMNS.length,
+            props.coordinateSystem.columnsCount(),
           )}`,
           gridGap: '3px',
         }}
       >
         <span />
 
-        {COORDINATES_COLUMNS.map((column) => (
+        {props.coordinateSystem.columns().map((column) => (
           <span
             style={{
               display: 'flex',
@@ -74,17 +51,21 @@ export function Plate(props: PlateProps) {
           </span>
         ))}
 
-        {WELLS.map((position) => (
+        {props.coordinateSystem.all().map((position) => (
           <Fragment key={position}>
-            {columnForPosition(position, PLATE_FLOW) === 1 && (
-              <RowLabel position={position} />
+            {props.coordinateSystem.columnForRowFlowPosition(position) ===
+              1 && (
+              <RowLabel
+                row={props.coordinateSystem.rowForRowFlowPosition(position)}
+              />
             )}
 
             <Well
+              coordinateSystem={props.coordinateSystem}
               position={position}
               well={
                 props.data
-                  ? wellAtPosition(position, props.data, PLATE_FLOW)
+                  ? props.coordinateSystem.wellAtPosition(position, props.data)
                   : undefined
               }
             />
@@ -95,7 +76,11 @@ export function Plate(props: PlateProps) {
   );
 }
 
-function Well(props: { position: number; well?: PlateWell }) {
+function Well(props: {
+  coordinateSystem: CoordinateSystem;
+  position: number;
+  well?: PlateWell;
+}) {
   const generalWellStyle = {
     backgroundColor: props.well?.color ?? PALETTE.gray3,
     border: `1px solid ${PALETTE.gray4}`,
@@ -125,13 +110,13 @@ function Well(props: { position: number; well?: PlateWell }) {
         ...generalWellStyle,
       }}
     >
-      {rowForPosition(props.position, PLATE_FLOW) +
-        columnForPosition(props.position, PLATE_FLOW)}
+      {props.coordinateSystem.rowForRowFlowPosition(props.position) +
+        props.coordinateSystem.columnForRowFlowPosition(props.position)}
     </small>
   );
 }
 
-function RowLabel(props: { position: number }) {
+function RowLabel(props: { row: string }) {
   return (
     <span
       style={{
@@ -140,7 +125,7 @@ function RowLabel(props: { position: number }) {
         alignItems: 'center',
       }}
     >
-      <strong>{rowForPosition(props.position, PLATE_FLOW)}</strong>
+      <strong>{props.row}</strong>
     </span>
   );
 }

@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 
+import { CoordinateSystem96Well } from './coordinateSystem96Well';
 import { Coordinates } from './types';
 import {
   areEqualCoordinates,
@@ -144,6 +145,8 @@ describe('areEqualCoordinates', () => {
 
 describe('Plate', () => {
   it('renders without data', () => {
-    render(<Plate data={null} />);
+    render(
+      <Plate coordinateSystem={new CoordinateSystem96Well()} data={null} />,
+    );
   });
 });
