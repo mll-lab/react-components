@@ -1,3 +1,10 @@
+# [8.13.0](https://github.com/mll-lab/react-components/compare/v8.12.3...v8.13.0) (2022-04-04)
+
+
+### Features
+
+* export ButtonRef type ([#158](https://github.com/mll-lab/react-components/issues/158)) ([2e51891](https://github.com/mll-lab/react-components/commit/2e5189120b4425907877df9f548cb0976cfc02d9))
+
 ## [8.12.3](https://github.com/mll-lab/react-components/compare/v8.12.2...v8.12.3) (2022-03-25)
 
 
