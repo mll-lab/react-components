@@ -28,9 +28,11 @@ export type ButtonProps = {
   iconOnly?: boolean;
 } & Omit<ColoredButtonProps, 'type'>;
 
+export type ButtonRef = ColoredButtonType & HTMLElement;
+
 function ButtonVariousTypes(
   { children, dashed, filled, iconOnly, ...rest }: ButtonProps,
-  ref: Ref<ColoredButtonType & HTMLElement>,
+  ref: Ref<ButtonRef>,
 ) {
   const childrenToRender = iconOnly === true ? null : children;
 
@@ -58,7 +60,7 @@ function ButtonVariousTypes(
 }
 
 export const Button = React.forwardRef<
-  ColoredButtonType & HTMLElement,
+  ButtonRef,
   ButtonProps
 >(ButtonVariousTypes);
 
@@ -71,7 +73,7 @@ function makeSpecializedButton({
 }) {
   const ButtonWithRef = (
     { children, ...rest }: ButtonProps,
-    ref: Ref<ColoredButtonType & HTMLElement>,
+    ref: Ref<ButtonRef>,
   ) => {
     const theme = useTheme();
     const color = colorFromTheme ? { color: colorFromTheme(theme) } : {};
@@ -83,7 +85,7 @@ function makeSpecializedButton({
     );
   };
 
-  return React.forwardRef<ColoredButtonType & HTMLElement, ButtonProps>(
+  return React.forwardRef<ButtonRef, ButtonProps>(
     ButtonWithRef,
   );
 }
