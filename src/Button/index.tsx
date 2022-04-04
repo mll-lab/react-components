@@ -59,10 +59,9 @@ function ButtonVariousTypes(
   );
 }
 
-export const Button = React.forwardRef<
-  ButtonRef,
-  ButtonProps
->(ButtonVariousTypes);
+export const Button = React.forwardRef<ButtonRef, ButtonProps>(
+  ButtonVariousTypes,
+);
 
 function makeSpecializedButton({
   children: defaultChildren,
@@ -85,9 +84,7 @@ function makeSpecializedButton({
     );
   };
 
-  return React.forwardRef<ButtonRef, ButtonProps>(
-    ButtonWithRef,
-  );
+  return React.forwardRef<ButtonRef, ButtonProps>(ButtonWithRef);
 }
 
 export const CreateButton = makeSpecializedButton({
