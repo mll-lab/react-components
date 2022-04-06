@@ -1,3 +1,10 @@
+# [8.14.0](https://github.com/mll-lab/react-components/compare/v8.13.0...v8.14.0) (2022-04-06)
+
+
+### Features
+
+* export InputRef type ([#159](https://github.com/mll-lab/react-components/issues/159)) ([86c0e58](https://github.com/mll-lab/react-components/commit/86c0e5845ca7c0dd541e698e4ba71f80bfdbee5a))
+
 # [8.13.0](https://github.com/mll-lab/react-components/compare/v8.12.3...v8.13.0) (2022-04-04)
 
 
