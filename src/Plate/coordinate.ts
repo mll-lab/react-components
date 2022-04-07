@@ -52,13 +52,13 @@ export class Coordinate {
     );
 
     if (matches === null || matches?.length === 0) {
-      const firstValidExample = rows[0].toString() + columns[0].toString();
-      const lastValidExample =
-        rows[rows.length - 1].toString() +
-        columns[columns.length - 1].toString();
       const coordinateSystemClass = coordinateSystem.constructor.name;
       throw new Error(
-        `Expected a coordinate between ${firstValidExample} and ${lastValidExample} for ${coordinateSystemClass}, got: ${coordinateString}.`,
+        `Expected a coordinate  with rows ${JSON.stringify(
+          rows,
+        )} and columns ${JSON.stringify(
+          columns,
+        )}  for ${coordinateSystemClass}, got: ${coordinateString}.`,
       );
     }
 
