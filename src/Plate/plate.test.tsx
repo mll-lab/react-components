@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 
+import { Coordinate } from './coordinate';
 import { CoordinateSystem96Well } from './coordinateSystem96Well';
 import { Coordinates } from './types';
 import {
@@ -13,7 +14,6 @@ import {
 } from './utils';
 
 import { Plate } from './index';
-import {Coordinate} from "./coordinate";
 
 const data = [
   {
@@ -154,12 +154,20 @@ describe('Plate', () => {
 
 describe('Coordinate', () => {
   it('can be constructed from a string', () => {
-    const baseExceptionMessage = 'Expected a coordinate with rows ["A","B","C","D","E","F","G","H"] and columns [1,2,3,4,5,6,7,8,9,10,11,12,"01","02","03","04","05","06","07","08","09","10","11","12"]  for CoordinateSystem96Well, got:';
-    expect(() => Coordinate.fromString('', new CoordinateSystem96Well)).toThrow(baseExceptionMessage + ' .');
-    expect(() => Coordinate.fromString('A', new CoordinateSystem96Well)).toThrow( baseExceptionMessage + ' A.');
-    expect(() => Coordinate.fromString('1', new CoordinateSystem96Well)).toThrow(baseExceptionMessage + ' 1.');
+    const baseExceptionMessage =
+      'Expected a coordinate with rows ["A","B","C","D","E","F","G","H"] and columns [1,2,3,4,5,6,7,8,9,10,11,12,"01","02","03","04","05","06","07","08","09","10","11","12"]  for CoordinateSystem96Well, got:';
+    expect(() =>
+      Coordinate.fromString('', new CoordinateSystem96Well()),
+    ).toThrow(`${baseExceptionMessage} .`);
+    expect(() =>
+      Coordinate.fromString('A', new CoordinateSystem96Well()),
+    ).toThrow(`${baseExceptionMessage} A.`);
+    expect(() =>
+      Coordinate.fromString('1', new CoordinateSystem96Well()),
+    ).toThrow(`${baseExceptionMessage} 1.`);
 
-    expect(Coordinate.fromString('A1', new CoordinateSystem96Well).toString()).toBe('A1');
+    expect(
+      Coordinate.fromString('A1', new CoordinateSystem96Well()).toString(),
+    ).toBe('A1');
   });
 });
-
