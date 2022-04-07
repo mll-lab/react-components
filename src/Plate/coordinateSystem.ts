@@ -1,25 +1,31 @@
 import { range } from 'lodash';
 
-import { Column, Columns, PlateWell, Row, Rows } from './types';
+import {
+  CoordinateColumn,
+  CoordinateColumns,
+  PlateWell,
+  CoordinateRow,
+  CoordinateRows,
+} from './types';
 
 export abstract class CoordinateSystem {
-  abstract rows(): Rows;
+  abstract rows(): CoordinateRows;
 
-  abstract columns(): Columns;
+  abstract columns(): CoordinateColumns;
 
-  rowForRowFlowPosition(position: number): Row {
+  rowForRowFlowPosition(position: number): CoordinateRow {
     return this.rows()[Math.floor((position - 1) / this.columnsCount())];
   }
 
-  rowForColumnFlowPosition(position: number): Row {
+  rowForColumnFlowPosition(position: number): CoordinateRow {
     return this.rows()[(position - 1) % this.rowsCount()];
   }
 
-  columnForRowFlowPosition(position: number): Column {
+  columnForRowFlowPosition(position: number): CoordinateColumn {
     return this.columns()[(position - 1) % this.columnsCount()];
   }
 
-  columnForColumnFlowPosition(position: number): Column {
+  columnForColumnFlowPosition(position: number): CoordinateColumn {
     return this.columns()[Math.floor((position - 1) / this.rowsCount())];
   }
 

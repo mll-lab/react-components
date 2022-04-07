@@ -54,7 +54,7 @@ export class Coordinate {
     if (matches === null || matches?.length === 0) {
       const coordinateSystemClass = coordinateSystem.constructor.name;
       throw new Error(
-        `Expected a coordinate  with rows ${JSON.stringify(
+        `Expected a coordinate with rows ${JSON.stringify(
           rows,
         )} and columns ${JSON.stringify(
           columns,

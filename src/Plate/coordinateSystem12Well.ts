@@ -1,12 +1,12 @@
 import { CoordinateSystem } from './coordinateSystem';
-import { Columns, Rows } from './types';
+import { CoordinateColumns, CoordinateRows } from './types';
 
 export class CoordinateSystem12Well extends CoordinateSystem {
-  rows(): Rows {
+  rows(): CoordinateRows {
     return ['A', 'B', 'C'];
   }
 
-  columns(): Columns {
+  columns(): CoordinateColumns {
     return [1, 2, 3, 4];
   }
 }
