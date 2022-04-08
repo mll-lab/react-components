@@ -6,10 +6,7 @@ import { Collapse, CollapsePanelProps, CollapseProps } from './index';
 const KEY = 'default';
 
 type SingleCollapseProps = {
-  collapse?: Omit<
-    CollapseProps,
-    'activeKey' | 'defaultActiveKey' | 'onChange'
-  > & {
+  collapse?: Omit<CollapseProps, 'activeKey' | 'defaultActiveKey'> & {
     onToggle?: (open: boolean) => void;
     open?: boolean;
   };
@@ -26,12 +23,13 @@ export function SingleCollapse({
   if (isControlled) {
     return (
       <Collapse
+        {...collapse}
         activeKey={collapse.open ? KEY : undefined}
         onChange={(keys) => {
           const key = typeof keys === 'string' ? keys : first(keys);
           collapse?.onToggle?.(key === KEY);
+          return collapse?.onChange?.(keys);
         }}
-        {...collapse}
       >
         <Collapse.Panel {...panel} key={KEY}>
           {children}
