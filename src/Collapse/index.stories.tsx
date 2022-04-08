@@ -22,8 +22,8 @@ export const Default: Story<CollapseProps> = (args) => (
 );
 
 export const Single: Story = () => (
-  <SingleCollapse panelProps={{ header: 'This is panel header 1' }}>
-    <p>test3</p>
+  <SingleCollapse panel={{ header: 'This is panel header 1' }}>
+    <p>Uncontrolled</p>
   </SingleCollapse>
 );
 
@@ -32,13 +32,13 @@ export const SingleControlled: Story = () => {
 
   return (
     <SingleCollapse
-      collapseProps={{
+      collapse={{
         open,
         onToggle: setOpen,
       }}
-      panelProps={{ header: 'This is panel header 1' }}
+      panel={{ header: 'This is panel header 1' }}
     >
-      <p>test3</p>
+      <p>Controlled</p>
     </SingleCollapse>
   );
 };

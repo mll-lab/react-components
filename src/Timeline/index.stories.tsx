@@ -12,12 +12,12 @@ export default {
 export const Default: Story<TimelineProps> = (args) => (
   <Timeline {...args}>
     <Timeline.Item>
-      <SingleCollapse panelProps={{ header: 'Header' }}>Content</SingleCollapse>
+      <SingleCollapse panel={{ header: 'Header' }}>Content</SingleCollapse>
     </Timeline.Item>
     <Timeline.Item>
       <SingleCollapse
-        collapseProps={{ defaultActive: true }}
-        panelProps={{ header: 'Header' }}
+        collapse={{ defaultActive: true }}
+        panel={{ header: 'Header' }}
       >
         Content
       </SingleCollapse>
