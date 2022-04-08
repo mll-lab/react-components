@@ -9,6 +9,7 @@ type SingleCollapseProps = {
   collapse?: Omit<CollapseProps, 'activeKey' | 'defaultActiveKey'> & {
     onToggle?: (open: boolean) => void;
     open?: boolean;
+    defaultActive?: boolean;
   };
   panel: Omit<CollapsePanelProps, 'key'>;
   children: ReactNode;
@@ -38,7 +39,10 @@ export function SingleCollapse({
     );
   }
   return (
-    <Collapse defaultActiveKey={KEY} {...collapse}>
+    <Collapse
+      {...collapse}
+      defaultActiveKey={collapse?.defaultActive ? KEY : undefined}
+    >
       <Collapse.Panel {...panel} key={KEY}>
         {children}
       </Collapse.Panel>

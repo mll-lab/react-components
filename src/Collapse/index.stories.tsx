@@ -22,8 +22,19 @@ export const Default: Story<CollapseProps> = (args) => (
 );
 
 export const Single: Story = () => (
-  <SingleCollapse panel={{ header: 'This is panel header 1' }}>
-    <p>Uncontrolled</p>
+  <SingleCollapse
+    panel={{ header: 'Uncontrolled collapse, closed by default' }}
+  >
+    <p>Collapse content</p>
+  </SingleCollapse>
+);
+
+export const SingleWithOpenDefault: Story = () => (
+  <SingleCollapse
+    panel={{ header: 'Uncontrolled collapse, open by default' }}
+    collapse={{ defaultActive: true }}
+  >
+    <p>Collapse content</p>
   </SingleCollapse>
 );
 
@@ -36,9 +47,9 @@ export const SingleControlled: Story = () => {
         open,
         onToggle: setOpen,
       }}
-      panel={{ header: 'This is panel header 1' }}
+      panel={{ header: 'Controlled collapse, open by default' }}
     >
-      <p>Controlled</p>
+      <p>Collapse content</p>
     </SingleCollapse>
   );
 };
