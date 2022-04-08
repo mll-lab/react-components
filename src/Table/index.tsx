@@ -5,7 +5,13 @@ import styled from 'styled-components';
 import { MllSpinnerSvg } from '../Spinner';
 import { fontSizeFromTheme } from '../styled-utils';
 
-export { ColumnsType, ColumnProps } from 'antd/es/table';
+export {
+  ColumnsType,
+  ColumnType,
+  ColumnGroupType,
+  ColumnProps,
+  TablePaginationConfig,
+} from 'antd/es/table';
 
 export type TableProps<RecordType> = AntdTableProps<RecordType>;
 
@@ -33,6 +39,7 @@ export function Table<
   RecordType extends Record<string, unknown> = Record<string, unknown>,
 >(props: TableProps<RecordType>) {
   const { loading, ...rest } = props;
+
   return (
     <StyledTable
       rowKey="id"
@@ -58,3 +65,5 @@ export function Table<
 Table.Column = AntdTable.Column;
 Table.ColumnGroup = AntdTable.ColumnGroup;
 Table.Summary = AntdTable.Summary;
+
+export { labeledEnumToColumnFilterItem } from './utils';

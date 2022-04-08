@@ -1,3 +1,107 @@
+# [8.14.0](https://github.com/mll-lab/react-components/compare/v8.13.0...v8.14.0) (2022-04-06)
+
+
+### Features
+
+* export InputRef type ([#159](https://github.com/mll-lab/react-components/issues/159)) ([86c0e58](https://github.com/mll-lab/react-components/commit/86c0e5845ca7c0dd541e698e4ba71f80bfdbee5a))
+
+# [8.13.0](https://github.com/mll-lab/react-components/compare/v8.12.3...v8.13.0) (2022-04-04)
+
+
+### Features
+
+* export ButtonRef type ([#158](https://github.com/mll-lab/react-components/issues/158)) ([2e51891](https://github.com/mll-lab/react-components/commit/2e5189120b4425907877df9f548cb0976cfc02d9))
+
+## [8.12.3](https://github.com/mll-lab/react-components/compare/v8.12.2...v8.12.3) (2022-03-25)
+
+
+### Bug Fixes
+
+* add explicit type to input number component ([b6368bc](https://github.com/mll-lab/react-components/commit/b6368bc8eb84e552769e8525ae026b76fd98874f))
+
+## [8.12.2](https://github.com/mll-lab/react-components/compare/v8.12.1...v8.12.2) (2022-03-24)
+
+
+### Bug Fixes
+
+* export additional Table types ([0e13cc6](https://github.com/mll-lab/react-components/commit/0e13cc6f1c2d00ac56739bf39b43c1b78a41b6c1))
+
+## [8.12.1](https://github.com/mll-lab/react-components/compare/v8.12.0...v8.12.1) (2022-03-24)
+
+
+### Bug Fixes
+
+* export labeledEnumToColumnFilterItem ([73be225](https://github.com/mll-lab/react-components/commit/73be22554aa63b676a987ec56603059d76546d33))
+* shrink style scope ([2b17376](https://github.com/mll-lab/react-components/commit/2b17376840caa52f4c1652fc77ab24675a44f24e))
+
+# [8.12.0](https://github.com/mll-lab/react-components/compare/v8.11.1...v8.12.0) (2022-03-22)
+
+
+### Features
+
+* decrease line-height-base ([3924897](https://github.com/mll-lab/react-components/commit/39248979053d9e6df9e3d4be7a1e14e112482d0b))
+
+## [8.11.1](https://github.com/mll-lab/react-components/compare/v8.11.0...v8.11.1) (2022-03-22)
+
+
+### Bug Fixes
+
+* restore Select.OptGroup ([3d6288c](https://github.com/mll-lab/react-components/commit/3d6288c7e35304e39c02c4605e96501a8dc289cf))
+
+# [8.11.0](https://github.com/mll-lab/react-components/compare/v8.10.1...v8.11.0) (2022-03-22)
+
+
+### Features
+
+* shrink Table even more ([2c2845e](https://github.com/mll-lab/react-components/commit/2c2845ea7a07405b1130a68de8f88b638cef9874))
+
+## [8.10.1](https://github.com/mll-lab/react-components/compare/v8.10.0...v8.10.1) (2022-03-22)
+
+
+### Bug Fixes
+
+* update antd to include col-x style fix ([#150](https://github.com/mll-lab/react-components/issues/150)) ([21d7a86](https://github.com/mll-lab/react-components/commit/21d7a866513c8250236fe1117a46fd3cb5cd7d5a))
+
+# [8.10.0](https://github.com/mll-lab/react-components/compare/v8.9.0...v8.10.0) (2022-03-21)
+
+
+### Features
+
+* adapt font size in card ([9f76d48](https://github.com/mll-lab/react-components/commit/9f76d4864113db9b5385689dd39940250adfae91))
+
+# [8.9.0](https://github.com/mll-lab/react-components/compare/v8.8.0...v8.9.0) (2022-03-18)
+
+
+### Features
+
+* adapt font size in select ([#146](https://github.com/mll-lab/react-components/issues/146)) ([ec8fcdf](https://github.com/mll-lab/react-components/commit/ec8fcdf6d8503a73f20cd94b576a1e62b18601e6))
+
+# [8.8.0](https://github.com/mll-lab/react-components/compare/v8.7.1...v8.8.0) (2022-03-18)
+
+
+### Features
+
+* adapt font size in input ([#148](https://github.com/mll-lab/react-components/issues/148)) ([a82df55](https://github.com/mll-lab/react-components/commit/a82df55bbf8c950b706bd13024815302519770ac))
+
+## [8.7.1](https://github.com/mll-lab/react-components/compare/v8.7.0...v8.7.1) (2022-03-18)
+
+
+### Bug Fixes
+
+* generic type definitions of forms and form items ([ca16637](https://github.com/mll-lab/react-components/commit/ca16637d0e52f2260bb4b5b4be758d2db20f1dc9))
+
+
+### Reverts
+
+* Revert "fix: generic type definitions of forms and form items" ([7c333df](https://github.com/mll-lab/react-components/commit/7c333df859391828dbb2451988ea3372ac24bf6e))
+
+# [8.7.0](https://github.com/mll-lab/react-components/compare/v8.6.0...v8.7.0) (2022-03-18)
+
+
+### Features
+
+* adapt collapse to font size from theme ([008095c](https://github.com/mll-lab/react-components/commit/008095c6a6385ec9300c2c6186070a3e2684320d))
+
 # [8.6.0](https://github.com/mll-lab/react-components/compare/v8.5.0...v8.6.0) (2022-03-16)
 
 

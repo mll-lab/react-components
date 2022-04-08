@@ -9,3 +9,9 @@ export default {
 };
 
 export const Default: Story<SpinnerProps> = (args) => <Spinner {...args} />;
+
+export const WithChildren: Story<SpinnerProps> = (args) => (
+  <Spinner {...args}>
+    <div>Children</div>
+  </Spinner>
+);

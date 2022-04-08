@@ -1,16 +1,35 @@
+// false-positive when importing .stories
+/* eslint-disable import/extensions */
+
 import { ClockCircleOutlined } from '@ant-design/icons';
 import { Story } from '@storybook/react';
 import React from 'react';
 
 import { CreateButton } from '../Button';
 import {
+  CardMeta as CardMetaStory,
+  CardsGrid as CardsGridStory,
+  Default as CardStory,
+  InnerCard as InnerCardStory,
+  TabsCard as TabsCardStory,
+} from '../Card/index.stories';
+import {
   Default as DefaultCollapseStory,
   Single as SingleCollapseStory,
-  // eslint-disable-next-line import/extensions
 } from '../Collapse/index.stories';
 import { Form } from '../Form';
+import {
+  Number as NumberInputStory,
+  NumericID as NumericIDStory,
+  Text as TextInputStory,
+} from '../Input/index.stories';
 import { Provider } from '../Provider';
 import { Radio } from '../Radio';
+import {
+  Default as SelectStory,
+  Multiple as SelectMultipleStory,
+  CustomDropdown as SelectCustomDropdownStory,
+} from '../Select/index.stories';
 import { Space } from '../Space';
 import { Table } from '../Table';
 import { Tag } from '../Tag';
@@ -135,6 +154,17 @@ function SupportedComponents() {
       <Tag.CheckableTag checked>Checkable Tag</Tag.CheckableTag>
       <DefaultCollapseStory />
       <SingleCollapseStory />
+      <TextInputStory />
+      <NumberInputStory />
+      <NumericIDStory />
+      <SelectStory />
+      <SelectMultipleStory />
+      <SelectCustomDropdownStory />
+      <CardStory />
+      <InnerCardStory />
+      <TabsCardStory />
+      <CardsGridStory />
+      <CardMetaStory />
     </Space>
   );
 }

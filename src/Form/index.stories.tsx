@@ -15,9 +15,20 @@ export default {
     onFinishFailed: { action: 'clicked' },
   },
 };
-export const Default: Story<FormProps<string>> = (args) => (
-  <Form name="basic" {...args}>
-    <Form.Item
+
+type FormValues = {
+  username: string;
+  password: string;
+};
+
+export const Default: Story<FormProps<FormValues>> = (args) => (
+  <Form<FormValues>
+    name="basic"
+    {...args}
+    labelCol={{ span: 3 }}
+    wrapperCol={{ span: 21 }}
+  >
+    <Form.Item<FormValues>
       label="Username"
       name="username"
       rules={[{ required: true, message: 'Please input your username.' }]}
@@ -25,7 +36,7 @@ export const Default: Story<FormProps<string>> = (args) => (
       <Input />
     </Form.Item>
 
-    <Form.Item
+    <Form.Item<FormValues>
       label="Password"
       name="password"
       rules={[{ required: true, message: 'Please input your password.' }]}
@@ -33,7 +44,7 @@ export const Default: Story<FormProps<string>> = (args) => (
       <Input.Password />
     </Form.Item>
 
-    <Form.Item>
+    <Form.Item<FormValues> wrapperCol={{ span: 21, offset: 3 }}>
       <Button htmlType="submit">Submit</Button>
     </Form.Item>
   </Form>
