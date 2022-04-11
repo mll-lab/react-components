@@ -1,3 +1,19 @@
+# [9.0.0](https://github.com/mll-lab/react-components/compare/v8.14.0...v9.0.0) (2022-04-11)
+
+
+### Features
+
+* controlled single collapse ([#160](https://github.com/mll-lab/react-components/issues/160)) ([0ab78bc](https://github.com/mll-lab/react-components/commit/0ab78bcab391342c4c3d4609a7835e7134a0e5f1))
+
+
+### BREAKING CHANGES
+
+* rename and change SingleCollapse props
+
+* fix: give back flexibility with onChange prop
+
+* fix: allow changing default opened value of uncontrolled variant
+
 # [8.14.0](https://github.com/mll-lab/react-components/compare/v8.13.0...v8.14.0) (2022-04-06)
 
 
