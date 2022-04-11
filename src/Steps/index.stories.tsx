@@ -29,7 +29,7 @@ export const Simple: Story<StepsProps> = (args) => (
     />
     <Step
       title={
-        <SingleCollapse panelProps={{ header: 'Header' }}>
+        <SingleCollapse panel={{ header: 'Header' }}>
           Content
           <br />
           Content
