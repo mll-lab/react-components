@@ -1,5 +1,5 @@
 import { Story } from '@storybook/react';
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Collapse, CollapseProps, SingleCollapse } from './index';
 
@@ -22,7 +22,34 @@ export const Default: Story<CollapseProps> = (args) => (
 );
 
 export const Single: Story = () => (
-  <SingleCollapse panelProps={{ header: 'This is panel header 1' }}>
-    <p>test3</p>
+  <SingleCollapse
+    panel={{ header: 'Uncontrolled collapse, closed by default' }}
+  >
+    <p>Collapse content</p>
   </SingleCollapse>
 );
+
+export const SingleWithOpenDefault: Story = () => (
+  <SingleCollapse
+    panel={{ header: 'Uncontrolled collapse, open by default' }}
+    collapse={{ defaultActive: true }}
+  >
+    <p>Collapse content</p>
+  </SingleCollapse>
+);
+
+export const SingleControlled: Story = () => {
+  const [open, setOpen] = useState(true);
+
+  return (
+    <SingleCollapse
+      collapse={{
+        open,
+        onToggle: setOpen,
+      }}
+      panel={{ header: 'Controlled collapse, open by default' }}
+    >
+      <p>Collapse content</p>
+    </SingleCollapse>
+  );
+};
