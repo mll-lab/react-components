@@ -20,3 +20,9 @@ export const Input: typeof AntdInput = styled(AntdInput)`
 export const InputNumber: typeof AntdInputNumber = styled(AntdInputNumber)`
   font-size: ${fontSizeFromTheme};
 `;
+
+export const TextArea: typeof Input.TextArea = styled(Input.TextArea)`
+  font-size: ${fontSizeFromTheme};
+`;
+
+Input.TextArea = TextArea;
