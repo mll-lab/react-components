@@ -1,3 +1,10 @@
+# [9.2.0](https://github.com/mll-lab/react-components/compare/v9.1.0...v9.2.0) (2022-04-13)
+
+
+### Features
+
+* vertically center arrow panel with component as header ([1a785a7](https://github.com/mll-lab/react-components/commit/1a785a7a4d106ba64b0c5e2546ab8d2788f71b55))
+
 # [9.1.0](https://github.com/mll-lab/react-components/compare/v9.0.0...v9.1.0) (2022-04-13)
 
 
