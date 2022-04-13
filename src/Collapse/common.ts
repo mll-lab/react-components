@@ -15,6 +15,9 @@ const StyledCollapse: typeof AntdCollapse = styled(
   .mll-ant-collapse-item > .mll-ant-collapse-header .mll-ant-collapse-arrow {
     font-size: ${fontSizeFromTheme};
   }
+  .mll-ant-collapse-item > .mll-ant-collapse-header {
+    align-items: center;
+  }
 `;
 
 export const Collapse: typeof AntdCollapse = StyledCollapse;
