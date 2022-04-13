@@ -5,11 +5,13 @@ import {
   InputProps as AntdInputProps,
   InputRef as AntdInputRef,
 } from 'antd';
+import { TextAreaProps as AntdTextAreaProps } from 'antd/es/input';
 import styled from 'styled-components';
 
 import { fontSizeFromTheme } from '../styled-utils';
 
 export type InputProps = AntdInputProps;
+export type TextAreaProps = AntdTextAreaProps;
 export type InputRef = AntdInputRef;
 export type InputNumberProps = AntdInputNumberProps;
 
@@ -20,3 +22,9 @@ export const Input: typeof AntdInput = styled(AntdInput)`
 export const InputNumber: typeof AntdInputNumber = styled(AntdInputNumber)`
   font-size: ${fontSizeFromTheme};
 `;
+
+export const TextArea: typeof Input.TextArea = styled(Input.TextArea)`
+  font-size: ${fontSizeFromTheme};
+`;
+
+Input.TextArea = TextArea;
