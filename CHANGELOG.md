@@ -1,3 +1,10 @@
+# [9.1.0](https://github.com/mll-lab/react-components/compare/v9.0.0...v9.1.0) (2022-04-13)
+
+
+### Features
+
+* adapt TextArea to font size and export TextAreaProps ([#162](https://github.com/mll-lab/react-components/issues/162)) ([a74affa](https://github.com/mll-lab/react-components/commit/a74affa88da51e78cc1e42c61e9385dfc98a7830))
+
 # [9.0.0](https://github.com/mll-lab/react-components/compare/v8.14.0...v9.0.0) (2022-04-11)
 
 
