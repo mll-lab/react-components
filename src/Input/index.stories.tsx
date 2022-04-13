@@ -2,7 +2,7 @@ import { Story } from '@storybook/react';
 import React, { useState } from 'react';
 
 import { NumericIDInput, NumericIDInputProps } from './NumericIDInput';
-import { InputNumberProps, InputProps } from './common';
+import { InputNumberProps, InputProps, TextAreaProps } from './common';
 
 import { Input, InputNumber } from './index';
 
@@ -12,6 +12,10 @@ export default {
 };
 
 export const Text: Story<InputProps> = (args) => <Input {...args} />;
+
+export const TextArea: Story<TextAreaProps> = (args) => (
+  <Input.TextArea {...args} />
+);
 
 export const Number: Story<InputNumberProps> = (args) => {
   const [num, setNum] = useState<number>(0);

@@ -19,6 +19,7 @@ import {
 } from '../Collapse/index.stories';
 import { Form } from '../Form';
 import {
+  TextArea as TextAreaStory,
   Number as NumberInputStory,
   NumericID as NumericIDStory,
   Text as TextInputStory,
@@ -157,6 +158,7 @@ function SupportedComponents() {
       <TextInputStory />
       <NumberInputStory />
       <NumericIDStory />
+      <TextAreaStory />
       <SelectStory />
       <SelectMultipleStory />
       <SelectCustomDropdownStory />
