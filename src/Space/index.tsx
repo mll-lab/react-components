@@ -13,7 +13,7 @@ export type SpaceProps = AntdSpaceProps & {
 
 const BLOCK_CLASS = `${PREFIX_CLS}-space-block`;
 
-export const StyledSpace = styled(AntdSpace)<SpaceProps>`
+const StyledSpace = styled(AntdSpace)<SpaceProps>`
   &.${BLOCK_CLASS} {
     display: flex;
   }
