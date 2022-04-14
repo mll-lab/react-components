@@ -7,9 +7,10 @@ export type SpaceProps = AntdSpaceProps & {
   block?: boolean;
 };
 
+const TRANSIENT_PROPS: Array<keyof SpaceProps> = ['block'];
+
 function shouldForwardProp(prop: keyof SpaceProps) {
-  const transientProps: Array<keyof SpaceProps> = ['block'];
-  return !transientProps.includes(prop);
+  return !TRANSIENT_PROPS.includes(prop);
 }
 
 export const Space = styled(AntdSpace).withConfig<SpaceProps>({
