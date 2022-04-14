@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { PREFIX_CLS } from '../Provider';
 import { classNames } from '../classNames';
 
-export { SpaceSize } from 'antd/es/space';
+export { SpaceSize } from 'antd/lib/space';
 
 export type SpaceProps = AntdSpaceProps & {
   block?: boolean;
