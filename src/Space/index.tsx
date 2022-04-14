@@ -11,12 +11,14 @@ export type SpaceProps = AntdSpaceProps & {
   block?: boolean;
 };
 
-const BLOCK_CLASS = `${PREFIX_CLS}-space-block`;
+function shouldForwardProp(prop: keyof SpaceProps) {
+  return !['block'].includes(prop);
+}
 
-const StyledSpace = styled(AntdSpace)<SpaceProps>`
-  &.${BLOCK_CLASS} {
-    display: flex;
-  }
+export const Space = styled(Space).withConfig<SpaceProps>({
+  shouldForwardProp,
+})`
+  ${(props) => (props.block ? 'display: flex;' : '')}
 `;
 
 export function Space({ block, children, ...props }: SpaceProps) {
