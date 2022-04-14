@@ -23,7 +23,7 @@ export function Space({ block, children, ...props }: SpaceProps) {
   return (
     <StyledSpace
       {...props}
-      className={classNames([props.className, block ? BLOCK_CLASS : undefined])}
+      className={classNames([props.className, block && BLOCK_CLASS])}
     >
       {children}
     </StyledSpace>
