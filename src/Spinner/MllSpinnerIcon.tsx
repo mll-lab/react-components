@@ -22,8 +22,12 @@ export const MllSpinnerSvg = (
   </SpinningSvg>
 );
 
+function MllSpinnerSvgComponent() {
+    return MllSpinnerSvg
+}
+
 export function MllSpinnerIcon(
   props: IconBaseProps & React.RefAttributes<HTMLSpanElement>,
 ) {
-  return <Icon component={() => MllSpinnerSvg} {...props} />;
+  return <Icon component={MllSpinnerSvgComponent} {...props} />;
 }
