@@ -23,7 +23,7 @@ export const MllSpinnerSvg = (
 );
 
 function MllSpinnerSvgComponent() {
-    return MllSpinnerSvg
+  return MllSpinnerSvg;
 }
 
 export function MllSpinnerIcon(
