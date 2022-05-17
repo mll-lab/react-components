@@ -6,7 +6,10 @@ import { PALETTE } from '../theme';
 
 import { CoordinateSystem } from './coordinateSystem';
 import { PlateProps, PlateWell } from './types';
-import { assertUniquePositions } from './utils';
+import {
+  assertDataCoordinatesAreInCoordinateSystem,
+  assertUniquePositions,
+} from './utils';
 
 export * from './types';
 export * from './utils';
@@ -14,6 +17,7 @@ export * from './utils';
 export function Plate(props: PlateProps) {
   if (props.data) {
     assertUniquePositions(props.data);
+    assertDataCoordinatesAreInCoordinateSystem(props);
   }
 
   return (

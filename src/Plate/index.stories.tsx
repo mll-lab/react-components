@@ -3,10 +3,10 @@ import React from 'react';
 
 import { PALETTE } from '../theme';
 
+import { Coordinate } from './coordinate';
 import { CoordinateSystem12Well } from './coordinateSystem12Well';
 import { CoordinateSystem96Well } from './coordinateSystem96Well';
 import { PlateProps, PlateWell } from './types';
-import { coordinatesForPosition } from './utils';
 
 import { Plate } from './index';
 
@@ -19,32 +19,20 @@ export default {
 
 const data: Array<PlateWell> = [
   {
-    coordinates: {
-      row: new CoordinateSystem96Well().rows()[0],
-      column: new CoordinateSystem96Well().columns()[6],
-    },
+    coordinate: new Coordinate('A', 6, new CoordinateSystem96Well()),
     content: <i>It renders any ReactNode</i>,
   },
   {
-    coordinates: {
-      row: new CoordinateSystem96Well().rows()[0],
-      column: new CoordinateSystem96Well().columns()[7],
-    },
+    coordinate: new Coordinate('A', 7, new CoordinateSystem96Well()),
     content: 'Test',
     color: PALETTE.red,
   },
   {
-    coordinates: {
-      row: new CoordinateSystem96Well().rows()[1],
-      column: new CoordinateSystem96Well().columns()[2],
-    },
+    coordinate: new Coordinate('B', 2, new CoordinateSystem96Well()),
     content: 'Some text',
   },
   {
-    coordinates: {
-      row: new CoordinateSystem96Well().rows()[2],
-      column: new CoordinateSystem96Well().columns()[2],
-    },
+    coordinate: new Coordinate('C', 2, new CoordinateSystem96Well()),
     content: (
       <>
         <p>Kontrolle</p>
@@ -59,17 +47,22 @@ const data: Array<PlateWell> = [
 const rowFlowData: Array<PlateWell> = new CoordinateSystem12Well()
   .all()
   .map((well) => ({
-    coordinates: {
-      row: new CoordinateSystem12Well().rowForRowFlowPosition(well),
-      column: new CoordinateSystem12Well().columnForRowFlowPosition(well),
-    },
+    coordinate: Coordinate.fromPosition(
+      well,
+      'row',
+      new CoordinateSystem96Well(),
+    ),
     content: well,
   }));
 
 const columnFlowData: Array<PlateWell> = new CoordinateSystem96Well()
   .all()
   .map((well) => ({
-    coordinates: coordinatesForPosition(well, 'column'),
+    coordinate: Coordinate.fromPosition(
+      well,
+      'column',
+      new CoordinateSystem96Well(),
+    ),
     content: well,
   }));
 

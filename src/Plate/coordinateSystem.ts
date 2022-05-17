@@ -51,8 +51,8 @@ export abstract class CoordinateSystem {
   ): PlateWell | undefined {
     return data.find(
       (well) =>
-        well.coordinates.row === this.rowForRowFlowPosition(position) &&
-        well.coordinates.column === this.columnForRowFlowPosition(position),
+        well.coordinate.row === this.rowForRowFlowPosition(position) &&
+        well.coordinate.column === this.columnForRowFlowPosition(position),
     );
   }
 

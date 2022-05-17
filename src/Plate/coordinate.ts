@@ -1,16 +1,16 @@
 import { CoordinateSystem } from './coordinateSystem';
-import { Coordinates, FlowDirection } from './types';
+import { CoordinatesXXXX, FlowDirection } from './types';
 
 export class Coordinate {
-  public row: Coordinates['row'];
+  public row: CoordinatesXXXX['row'];
 
-  public column: Coordinates['column'];
+  public column: CoordinatesXXXX['column'];
 
   public coordinateSystem: CoordinateSystem;
 
   constructor(
-    row: Coordinates['row'],
-    column: Coordinates['column'],
+    row: CoordinatesXXXX['row'],
+    column: CoordinatesXXXX['column'],
     coordinateSystem: CoordinateSystem,
   ) {
     if (!coordinateSystem.rows().includes(row)) {
@@ -63,8 +63,8 @@ export class Coordinate {
     }
 
     return new this(
-      matches[1] as Coordinates['row'],
-      Number(matches[2]) as Coordinates['column'],
+      matches[1] as CoordinatesXXXX['row'],
+      Number(matches[2]) as CoordinatesXXXX['column'],
       coordinateSystem,
     );
   }

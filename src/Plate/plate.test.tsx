@@ -2,16 +2,10 @@ import { render } from '@testing-library/react';
 import React from 'react';
 
 import { Coordinate } from './coordinate';
+import { CoordinateSystem12Well } from './coordinateSystem12Well';
 import { CoordinateSystem96Well } from './coordinateSystem96Well';
-import { Coordinates } from './types';
-import {
-  areEqualCoordinates,
-  columnForPosition,
-  convertPositionFromColumnToRowFlow,
-  convertPositionFromRowToColumnFlow,
-  ensureCoordinatesInRange,
-  rowForPosition,
-} from './utils';
+import { CoordinatesXXXX } from './types';
+import { areEqualCoordinates, ensureCoordinatesInRange } from './utils';
 
 import { Plate } from './index';
 
@@ -78,39 +72,23 @@ const data = [
   },
 ];
 
-describe.each(data)(`rowForPosition`, (dataSet) => {
-  it(`provides the row for a position depending on the flow`, () => {
-    expect(rowForPosition(dataSet.rowFlowPosition, 'row')).toBe(dataSet.row);
-    expect(rowForPosition(dataSet.columnFlowPosition, 'column')).toBe(
-      dataSet.row,
-    );
-  });
-});
+describe.each(data)(`coordinateForPosition`, (dataSet) => {
+  it(`provides the Coordinate for a position depending on the flow`, () => {
+    expect(
+      Coordinate.fromPosition(
+        dataSet.rowFlowPosition,
+        'row',
+        new CoordinateSystem96Well(),
+      ).toString(),
+    ).toBe(dataSet.row + dataSet.column);
 
-describe.each(data)(`columnForPosition`, (dataSet) => {
-  it(`provides the column for a position depending on the flow`, () => {
-    expect(columnForPosition(dataSet.rowFlowPosition, 'row')).toBe(
-      dataSet.column,
-    );
-    expect(columnForPosition(dataSet.columnFlowPosition, 'column')).toBe(
-      dataSet.column,
-    );
-  });
-});
-
-describe.each(data)(`convertPositionFromColumnToRowFlow`, (dataSet) => {
-  it(`converts ${dataSet.columnFlowPosition} to ${dataSet.rowFlowPosition}`, () => {
-    expect(convertPositionFromColumnToRowFlow(dataSet.columnFlowPosition)).toBe(
-      dataSet.rowFlowPosition,
-    );
-  });
-});
-
-describe.each(data)(`convertPositionFromRowToColumnFlow`, (dataSet) => {
-  it(`converts ${dataSet.rowFlowPosition} to ${dataSet.columnFlowPosition}`, () => {
-    expect(convertPositionFromRowToColumnFlow(dataSet.rowFlowPosition)).toBe(
-      dataSet.columnFlowPosition,
-    );
+    expect(
+      Coordinate.fromPosition(
+        dataSet.columnFlowPosition,
+        'column',
+        new CoordinateSystem96Well(),
+      ).toString(),
+    ).toBe(dataSet.row + dataSet.column);
   });
 });
 
@@ -124,21 +102,21 @@ describe('ensureCoordinatesInRange', () => {
   });
 
   it('works with valid coordinates', () => {
-    const coordinates: Coordinates = { row: 'A', column: 3 };
+    const coordinates: CoordinatesXXXX = { row: 'A', column: 3 };
     expect(ensureCoordinatesInRange(coordinates)).toBe(coordinates);
   });
 });
 
 describe('areEqualCoordinates', () => {
   it('match', () => {
-    const a: Coordinates = { row: 'A', column: 2 };
+    const a: CoordinatesXXXX = { row: 'A', column: 2 };
     expect(areEqualCoordinates(a, a)).toBe(true);
     expect(areEqualCoordinates(a, { ...a, foo: 'bar' })).toBe(true);
   });
 
   it('no match', () => {
-    const a: Coordinates = { row: 'A', column: 2 };
-    const b: Coordinates = { row: 'B', column: 3 };
+    const a: CoordinatesXXXX = { row: 'A', column: 2 };
+    const b: CoordinatesXXXX = { row: 'B', column: 3 };
     expect(areEqualCoordinates(a, b)).toBe(false);
     expect(areEqualCoordinates(a, { ...b, foo: 'bar' })).toBe(false);
   });
@@ -169,5 +147,28 @@ describe('Coordinate', () => {
     expect(
       Coordinate.fromString('A1', new CoordinateSystem96Well()).toString(),
     ).toBe('A1');
+  });
+});
+
+describe('Coordinate', () => {
+  it('can can not be used in Plate with different CoordinateSystem', () => {
+    expect(() =>
+      render(
+        <Plate
+          coordinateSystem={new CoordinateSystem12Well()}
+          data={[
+            {
+              coordinate: Coordinate.fromString(
+                'A1',
+                new CoordinateSystem96Well(),
+              ),
+              content: 'test',
+            },
+          ]}
+        />,
+      ),
+    ).toThrow(
+      'Property "data" contains records that are not of type "CoordinateSystem12Well": "CoordinateSystem96Well"',
+    );
   });
 });

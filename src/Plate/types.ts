@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 
+import { Coordinate } from './coordinate';
 import { CoordinateSystem } from './coordinateSystem';
 
 export type CoordinateRow = 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H';
@@ -7,7 +8,7 @@ export type CoordinateRows = [CoordinateRow, ...Array<CoordinateRow>];
 export type CoordinateColumn = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 export type CoordinateColumns = [CoordinateColumn, ...Array<CoordinateColumn>];
 
-export type Coordinates = {
+export type CoordinatesXXXX = {
   row: CoordinateRow;
   column: CoordinateColumn;
 };
@@ -15,7 +16,7 @@ export type Coordinates = {
 export type FlowDirection = 'row' | 'column';
 
 export type PlateWell = {
-  coordinates: Coordinates;
+  coordinate: Coordinate;
   content?: ReactNode;
   color?: string;
 };
