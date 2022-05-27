@@ -47,6 +47,7 @@ export * from './Tag';
 export * from './Timeline';
 export * from './Tooltip';
 export * from './Tree';
+export * from './TreeSelect';
 export * from './Typography';
 export * from './Upload';
 
