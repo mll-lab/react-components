@@ -1,8 +1,8 @@
 import { uniq } from 'lodash';
 
+import { Coordinate } from './coordinate';
+import { CoordinateSystem96Well } from './coordinateSystem96Well';
 import { Coordinates, FlowDirection, PlateWell } from './types';
-
-import { COORDINATES_COLUMNS, COORDINATES_ROWS } from './index';
 
 export function rowForPosition(
   position: number,
@@ -10,11 +10,9 @@ export function rowForPosition(
 ): Coordinates['row'] {
   switch (flowDirection) {
     case 'row':
-      return COORDINATES_ROWS[
-        Math.floor((position - 1) / COORDINATES_COLUMNS.length)
-      ];
+      return new CoordinateSystem96Well().rowForRowFlowPosition(position);
     case 'column':
-      return COORDINATES_ROWS[(position - 1) % COORDINATES_ROWS.length];
+      return new CoordinateSystem96Well().rowForColumnFlowPosition(position);
     default:
       throw new Error(`Unknown flow direction: ${flowDirection}`);
   }
@@ -26,11 +24,9 @@ export function columnForPosition(
 ): Coordinates['column'] {
   switch (flowDirection) {
     case 'row':
-      return COORDINATES_COLUMNS[(position - 1) % COORDINATES_COLUMNS.length];
+      return new CoordinateSystem96Well().columnForRowFlowPosition(position);
     case 'column':
-      return COORDINATES_COLUMNS[
-        Math.floor((position - 1) / COORDINATES_ROWS.length)
-      ];
+      return new CoordinateSystem96Well().columnForColumnFlowPosition(position);
     default:
       throw new Error(`Unknown flow direction: ${flowDirection}`);
   }
@@ -50,41 +46,26 @@ export function positionForCoordinates(
   coordinates: Coordinates,
   flowDirection: FlowDirection,
 ): number {
-  const rowIndex = COORDINATES_ROWS.indexOf(coordinates.row);
-  const columnIndex = COORDINATES_COLUMNS.indexOf(coordinates.column);
-
-  switch (flowDirection) {
-    case 'row':
-      return rowIndex * COORDINATES_COLUMNS.length + columnIndex + 1;
-    case 'column':
-      return columnIndex * COORDINATES_ROWS.length + rowIndex + 1;
-    default:
-      throw new Error(`Unknown flow direction: ${flowDirection}`);
-  }
-}
-
-export function wellAtPosition(
-  position: number,
-  data: Array<PlateWell>,
-  flowDirection: FlowDirection,
-): PlateWell | undefined {
-  return data.find(
-    (well) =>
-      well.coordinates.row === rowForPosition(position, flowDirection) &&
-      well.coordinates.column === columnForPosition(position, flowDirection),
-  );
+  return Coordinate.fromString(
+    coordinates.row + coordinates.column,
+    new CoordinateSystem96Well(),
+  ).position(flowDirection);
 }
 
 export function convertPositionFromColumnToRowFlow(position: number): number {
-  const coordinates = coordinatesForPosition(position, 'column');
-
-  return positionForCoordinates(coordinates, 'row');
+  return Coordinate.fromPosition(
+    position,
+    'column',
+    new CoordinateSystem96Well(),
+  ).position('row');
 }
 
 export function convertPositionFromRowToColumnFlow(position: number): number {
-  const coordinates = coordinatesForPosition(position, 'row');
-
-  return positionForCoordinates(coordinates, 'column');
+  return Coordinate.fromPosition(
+    position,
+    'row',
+    new CoordinateSystem96Well(),
+  ).position('column');
 }
 
 export function areEqualCoordinates<
@@ -100,14 +81,20 @@ export function ensureCoordinatesInRange<
     column: number;
   },
 >(coordinates: T): T & Coordinates {
-  if (!COORDINATES_ROWS.includes(coordinates.row as Coordinates['row'])) {
+  if (
+    !new CoordinateSystem96Well()
+      .rows()
+      .includes(coordinates.row as Coordinates['row'])
+  ) {
     throw new Error(
       `The given coordinates row ${coordinates.row} is not in range A-H.`,
     );
   }
 
   if (
-    !COORDINATES_COLUMNS.includes(coordinates.column as Coordinates['column'])
+    !new CoordinateSystem96Well()
+      .columns()
+      .includes(coordinates.column as Coordinates['column'])
   ) {
     throw new Error(
       `The given coordinates column ${coordinates.column} is not in range 1-12.`,
