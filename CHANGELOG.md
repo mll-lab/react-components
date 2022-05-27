@@ -1,3 +1,10 @@
+# [9.3.0](https://github.com/mll-lab/react-components/compare/v9.2.0...v9.3.0) (2022-05-27)
+
+
+### Features
+
+* add TreeSelect ([#167](https://github.com/mll-lab/react-components/issues/167)) ([d72849a](https://github.com/mll-lab/react-components/commit/d72849a016949c87307eb882a693697a9d1654b2))
+
 # [9.2.0](https://github.com/mll-lab/react-components/compare/v9.1.0...v9.2.0) (2022-04-13)
 
 
