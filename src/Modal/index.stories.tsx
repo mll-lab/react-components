@@ -20,10 +20,8 @@ const renderShowModal: WithModalProps['opener'] = (showModal) => (
 );
 
 export const OpenByButton: Story<ModalProps> = (args) => (
-  <WithModal opener={renderShowModal} title="Basic Modal" {...args}>
-    <p>Some contents...</p>
-    <p>Some contents...</p>
-    <p>Some contents...</p>
+  <WithModal opener={renderShowModal} title="Launch Sequence" okText="Launch the nukes" cancelText="Avoid mass destruction" {...args} >
+      Atomic weapons are dangerous.
   </WithModal>
 );
 
