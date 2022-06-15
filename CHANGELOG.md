@@ -1,3 +1,15 @@
+# [10.0.0](https://github.com/mll-lab/react-components/compare/v9.3.0...v10.0.0) (2022-06-15)
+
+
+### Features
+
+* add TextWithTooltipIfTrimmed component ([9a81829](https://github.com/mll-lab/react-components/commit/9a81829b2608990c383d3b329b4f1bec97496ded))
+
+
+### BREAKING CHANGES
+
+* rename DateWithToolTip to DateWithTooltip
+
 # [9.3.0](https://github.com/mll-lab/react-components/compare/v9.2.0...v9.3.0) (2022-05-27)
 
 
