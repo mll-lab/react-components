@@ -26,7 +26,7 @@ export const TooltipForDate: Story<DateWithTooltipProps> = (args) => (
 );
 
 TooltipForDate.argTypes = {
-  date: { control: { type: 'date' }, defaultValue: new Date },
+  date: { control: { type: 'date' }, defaultValue: new Date() },
 };
 
 export const TooltipForTrimmedText: Story<TextWithTooltipIfTrimmedProps> = (
