@@ -1668,10 +1668,10 @@
   resolved "https://registry.yarnpkg.com/@mdx-js/util/-/util-1.6.22.tgz#219dfd89ae5b97a8801f015323ffa4b62f45718b"
   integrity sha512-H1rQc1ZOHANWBvPcW+JpGwr+juXSxM8Q8YCkm3GhZd8REu1fHR3z99CErO1p9pkcfcxZnMdIZdIsXkOHY0NilA==
 
-"@mll-lab/eslint-config@^1.9.0":
-  version "1.10.0"
-  resolved "https://registry.yarnpkg.com/@mll-lab/eslint-config/-/eslint-config-1.10.0.tgz#8af50873b83fa715803a582572d2c444935660ae"
-  integrity sha512-dua3y539E6Sim5hq4gwNIyD4oIgwD95qkEOyAZMMFz1PRM2QQ4KDrcw3NfR8wYTlYcyhZKzy+SIL7sLicE+J5w==
+"@mll-lab/eslint-config@^1.11.0":
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/@mll-lab/eslint-config/-/eslint-config-1.11.0.tgz#c254a9f473fb0d61f9de504d741b3d2e0b30283a"
+  integrity sha512-uohuj7Vug4qYHBz2Ig7Jb13hpW1imXrD1KG4eBa6mxUxDff60BanK5EDjaXIwXkdlm6u+ih5FWspg1iMCobZtA==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^5.10.2"
     "@typescript-eslint/parser" "^5.10.2"
