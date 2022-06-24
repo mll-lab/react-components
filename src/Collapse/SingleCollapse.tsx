@@ -29,6 +29,7 @@ export function SingleCollapse({
         onChange={(keys) => {
           const key = typeof keys === 'string' ? keys : first(keys);
           collapse?.onToggle?.(key === KEY);
+
           return collapse?.onChange?.(keys);
         }}
       >
@@ -38,6 +39,7 @@ export function SingleCollapse({
       </Collapse>
     );
   }
+
   return (
     <Collapse
       {...collapse}

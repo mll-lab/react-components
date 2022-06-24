@@ -19,6 +19,7 @@ export const TextArea: Story<TextAreaProps> = (args) => (
 
 export const Number: Story<InputNumberProps> = (args) => {
   const [num, setNum] = useState<number>(0);
+
   return (
     <InputNumber
       min={1}

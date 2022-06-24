@@ -5,6 +5,7 @@ function hashCode(string: string): number {
     // eslint-disable-next-line no-bitwise
     hash = string.charCodeAt(i) + ((hash << 5) - hash);
   }
+
   return hash;
 }
 
@@ -19,6 +20,7 @@ function getHslColor(hash: number): string {
 function range(hash: number, min: number, max: number): number {
   const diff = max - min;
   const x = ((hash % diff) + diff) % diff;
+
   return x + min;
 }
 

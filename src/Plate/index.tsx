@@ -115,6 +115,7 @@ function Well(props: { position: number; well?: PlateWell }) {
       </span>
     );
   }
+
   return (
     <small
       style={{

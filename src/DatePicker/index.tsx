@@ -75,6 +75,7 @@ export const BaseDatePicker: ComponentClass<PickerProps<Date>, any> & {
           return date;
         }
       }
+
       return null;
     },
   },
