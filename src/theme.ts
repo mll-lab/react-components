@@ -27,12 +27,6 @@ export const PALETTE = {
   gray9: '#262626',
   black: '#000000', // darkest possible
 };
-
-/** @deprecated */
-const DEPRECATED_PALETTE = {
-  gray1: '#eaeaea',
-  gray2: '#d3d3d3',
-};
 /* eslint-enable @mll-lab/no-color-literals */
 
 export type Theme = {
@@ -65,12 +59,12 @@ export const THEME: Theme = {
   backgroundColor: PALETTE.blueTintedGray,
   borderColor: PALETTE.blue,
   collapseBackgroundColor: PALETTE.lightBlue,
-  containerBorderColor: DEPRECATED_PALETTE.gray2,
+  containerBorderColor: PALETTE.gray4,
   dividerColor: PALETTE.gray4,
   focusedRowColor: PALETTE.lightBlue,
   menuGroupBackgroundColor: PALETTE.gray1,
-  panelBackgroundColor: DEPRECATED_PALETTE.gray1,
-  tableBorderColor: PALETTE.gray3,
+  panelBackgroundColor: PALETTE.gray3,
+  tableBorderColor: PALETTE.gray4,
   titleColor: PALETTE.gray5,
   disabledColors: {
     lowContrast: PALETTE.gray5,
