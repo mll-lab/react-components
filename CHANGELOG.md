@@ -1,3 +1,10 @@
+# [10.2.0](https://github.com/mll-lab/react-components/compare/v10.1.0...v10.2.0) (2022-06-28)
+
+
+### Features
+
+* export type RadioChangeEvent ([#170](https://github.com/mll-lab/react-components/issues/170)) ([f7a020b](https://github.com/mll-lab/react-components/commit/f7a020bd49f67622cacace23ad5c952fbc949418))
+
 # [10.1.0](https://github.com/mll-lab/react-components/compare/v10.0.0...v10.1.0) (2022-06-28)
 
 
