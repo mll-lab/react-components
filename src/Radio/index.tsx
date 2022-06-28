@@ -13,7 +13,7 @@ import { fontSizeFromTheme } from '../styled-utils';
 export type RadioProps = AntdRadioProps;
 export type RadioGroupProps = AntdRadioGroupProps;
 export type RadioButtonProps = AntdRadioButtonProps;
-export type RadioChangeEvent = AntdRadioChangeEvent
+export type RadioChangeEvent = AntdRadioChangeEvent;
 
 const StyledRadio: typeof AntdRadio = styled(AntdRadio)<RadioProps>`
   font-size: ${fontSizeFromTheme};
