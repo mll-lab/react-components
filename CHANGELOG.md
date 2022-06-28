@@ -1,3 +1,10 @@
+# [10.1.0](https://github.com/mll-lab/react-components/compare/v10.0.0...v10.1.0) (2022-06-28)
+
+
+### Features
+
+* use only shades from PALETTE in THEME ([#169](https://github.com/mll-lab/react-components/issues/169)) ([ce3547b](https://github.com/mll-lab/react-components/commit/ce3547b3d3d1f0c0714be5844d7256502fc97da7))
+
 # [10.0.0](https://github.com/mll-lab/react-components/compare/v9.3.0...v10.0.0) (2022-06-15)
 
 
