@@ -14,6 +14,10 @@ import {
   TabsCard as TabsCardStory,
 } from '../Card/index.stories';
 import {
+  Default as CheckboxStory,
+  DisabledCheckbox as DisabledCheckboxStory,
+} from '../Checkbox/index.stories';
+import {
   Default as DefaultCollapseStory,
   Single as SingleCollapseStory,
 } from '../Collapse/index.stories';
@@ -159,6 +163,8 @@ function SupportedComponents() {
       <NumberInputStory />
       <NumericIDStory />
       <TextAreaStory />
+      <CheckboxStory />
+      <DisabledCheckboxStory />
       <SelectStory />
       <SelectMultipleStory />
       <SelectCustomDropdownStory />
