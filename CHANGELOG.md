@@ -1,3 +1,10 @@
+## [10.2.1](https://github.com/mll-lab/react-components/compare/v10.2.0...v10.2.1) (2022-07-06)
+
+
+### Bug Fixes
+
+* adapt Checkbox font-size from theme ([#173](https://github.com/mll-lab/react-components/issues/173)) ([9dd1bf1](https://github.com/mll-lab/react-components/commit/9dd1bf1505d94965fcf8314078753c5eb5cf39a5))
+
 # [10.2.0](https://github.com/mll-lab/react-components/compare/v10.1.0...v10.2.0) (2022-06-28)
 
 
