@@ -5,6 +5,9 @@ module.exports = {
     fastRefresh: true,
     strictMode: true,
   },
+  core: {
+    builder: 'webpack5',
+  },
   webpackFinal: (config) => {
     config.module.rules = [
       {
