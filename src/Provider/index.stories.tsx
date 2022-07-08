@@ -16,7 +16,8 @@ import {
 import {
   Default as CheckboxStory,
   DisabledCheckbox as DisabledCheckboxStory,
-} from '../Checkbox/index.stories';
+  WithoutLabel as CheckboxWithoutLabelStory,
+} from "../Checkbox/index.stories";
 import {
   Default as DefaultCollapseStory,
   Single as SingleCollapseStory,
@@ -66,6 +67,23 @@ export const Default: Story<Theme> = (args) => (
     }}
   >
     <SupportedComponents />
+  </Provider>
+);
+
+// AntD applies styles on all labels within its form.
+// This story is useful to take care of this behavior.
+export const DefaultWithinForm: Story<Theme> = (args) => (
+  <Provider
+    theme={{
+      size: args.size,
+      fontSize: args.fontSize,
+    }}
+  >
+    <Form>
+      <Form.Item>
+        <SupportedComponents />
+      </Form.Item>
+    </Form>
   </Provider>
 );
 
@@ -152,6 +170,9 @@ function SupportedComponents() {
       <Radio.Button value="a">Radio-Button outside of group</Radio.Button>
       <Form>
         <Form.Item label="Form Item">Form item content</Form.Item>
+        <div>
+          <Form.Item label="Nested Form Item">Nested form item content</Form.Item>
+        </div>
       </Form>
       <Tag icon={<ClockCircleOutlined />} color="default">
         Tag
@@ -165,6 +186,7 @@ function SupportedComponents() {
       <TextAreaStory />
       <CheckboxStory />
       <DisabledCheckboxStory />
+      <CheckboxWithoutLabelStory />
       <SelectStory />
       <SelectMultipleStory />
       <SelectCustomDropdownStory />
