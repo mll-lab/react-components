@@ -153,6 +153,9 @@ function SupportedComponents() {
       <Form>
         <Form.Item label="Form Item">Form item content</Form.Item>
       </Form>
+      <Form>
+        <label>Some other label that will be styled by antd because inside the form</label>
+      </Form>
       <Tag icon={<ClockCircleOutlined />} color="default">
         Tag
       </Tag>

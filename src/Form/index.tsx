@@ -16,6 +16,9 @@ const StyledFormItem = styled(StyledForm.Item)<FormItemProps<unknown>>`
   .mll-ant-form-item-label > label {
     font-size: 1em;
   }
+  .mll-ant-form-item > label { // TODO: or mll-ant-form > label?
+    font-size: ${fontSizeFromTheme};
+  }
 `;
 
 export const Form: typeof AntdForm = StyledForm;
