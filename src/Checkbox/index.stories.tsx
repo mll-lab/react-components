@@ -18,3 +18,8 @@ export const DisabledCheckbox: Story<CheckboxProps> = (args) => (
     Checkbox
   </Checkbox>
 );
+
+export const WithoutLabel: Story<CheckboxProps> = (args) => (
+  <Checkbox defaultChecked {...args} />
+);
+
