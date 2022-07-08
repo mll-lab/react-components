@@ -17,7 +17,7 @@ import {
   Default as CheckboxStory,
   DisabledCheckbox as DisabledCheckboxStory,
   WithoutLabel as CheckboxWithoutLabelStory,
-} from "../Checkbox/index.stories";
+} from '../Checkbox/index.stories';
 import {
   Default as DefaultCollapseStory,
   Single as SingleCollapseStory,
@@ -171,7 +171,9 @@ function SupportedComponents() {
       <Form>
         <Form.Item label="Form Item">Form item content</Form.Item>
         <div>
-          <Form.Item label="Nested Form Item">Nested form item content</Form.Item>
+          <Form.Item label="Nested Form Item">
+            Nested form item content
+          </Form.Item>
         </div>
       </Form>
       <Tag icon={<ClockCircleOutlined />} color="default">
