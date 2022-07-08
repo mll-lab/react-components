@@ -7,4 +7,9 @@ export { CheckboxProps } from 'antd';
 
 export const Checkbox: typeof AntdCheckbox = styled(AntdCheckbox)`
   font-size: ${fontSizeFromTheme};
+  align-items: center;
+  .mll-ant-checkbox {
+    font-size: inherit;
+    top: 0;
+  }
 `;
