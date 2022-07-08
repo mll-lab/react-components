@@ -1,3 +1,11 @@
+# [10.3.0](https://github.com/mll-lab/react-components/compare/v10.2.1...v10.3.0) (2022-07-08)
+
+
+### Features
+
+* adapt all form item labels to theme ([f83ea6c](https://github.com/mll-lab/react-components/commit/f83ea6c2959820ce75e1d32b0a47f1b0b2715f0a))
+* align checkbox text and icon when using different font size ([dea3ed8](https://github.com/mll-lab/react-components/commit/dea3ed8a3fbe0ee4cfcb21cc88f85cc8e15934c8))
+
 ## [10.2.1](https://github.com/mll-lab/react-components/compare/v10.2.0...v10.2.1) (2022-07-06)
 
 
