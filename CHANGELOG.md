@@ -1,3 +1,10 @@
+# [10.4.0-alpha.6](https://github.com/mll-lab/react-components/compare/v10.4.0-alpha.5...v10.4.0-alpha.6) (2022-07-22)
+
+
+### Bug Fixes
+
+* eslint config of mll-lab have priority ([168bb1b](https://github.com/mll-lab/react-components/commit/168bb1b2befd0046bb82333b98facda62e27e467))
+
 # [10.4.0-alpha.5](https://github.com/mll-lab/react-components/compare/v10.4.0-alpha.4...v10.4.0-alpha.5) (2022-07-22)
 
 
