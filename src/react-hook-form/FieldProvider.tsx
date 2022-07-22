@@ -27,7 +27,7 @@ export function FieldProvider({ children, disabled, formItemProps }: FieldProvid
       disabled,
       formItemProps: formItemProps ?? formItemFieldProps,
     }),
-    [disabled],
+    [disabled, formItemProps],
   );
 
   return (
