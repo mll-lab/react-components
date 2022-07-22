@@ -53,3 +53,6 @@ export * from './Upload';
 
 // Utilities
 export * from './notification';
+
+// Integration with react-hook-form
+export * from './Fields';
