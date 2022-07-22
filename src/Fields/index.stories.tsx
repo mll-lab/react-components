@@ -98,9 +98,9 @@ export const NestedProviders: Story<
         invalid: hasError,
         error: hasError
           ? {
-            type: 'validate',
-            message: 'some error',
-          }
+              type: 'validate',
+              message: 'some error',
+            }
           : undefined,
 
         isTouched: true,
@@ -110,11 +110,17 @@ export const NestedProviders: Story<
   );
 
   return (
-    <FieldProvider disabled={!props.disabled} formItemProps={parentFormItemProps}>
+    <FieldProvider
+      disabled={!props.disabled}
+      formItemProps={parentFormItemProps}
+    >
       {/* overwrite upper provider values */}
-      <FieldProvider disabled={!props.disabled} formItemProps={childFormItemProps}>
+      <FieldProvider
+        disabled={!props.disabled}
+        formItemProps={childFormItemProps}
+      >
         <FormProvider {...formMethods}>
-            <AllFields />
+          <AllFields />
         </FormProvider>
       </FieldProvider>
     </FieldProvider>
@@ -186,5 +192,5 @@ function AllFields() {
         }}
       />
     </Form>
-  )
+  );
 }
