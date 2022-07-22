@@ -1,4 +1,3 @@
-import { TextAreaProps } from 'antd/lib/input/TextArea';
 import React from 'react';
 import {
   useController,
@@ -7,7 +6,7 @@ import {
   FieldPath,
 } from 'react-hook-form';
 
-import { Input } from '../Input';
+import { Input, TextAreaProps } from '../Input';
 
 import { useFieldContext } from './FieldProvider';
 import { FieldWrapper, FieldWrapperProps } from './FieldWrapper';
