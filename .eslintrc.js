@@ -43,6 +43,9 @@ module.exports = {
 
     // Incompatible with stories
     'react/function-component-definition': 'off',
+
+    // Not needed with typescript
+    'react/prop-types': 'off',
   },
   settings: {
     'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
