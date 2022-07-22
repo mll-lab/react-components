@@ -1,3 +1,10 @@
+# [10.4.0-alpha.3](https://github.com/mll-lab/react-components/compare/v10.4.0-alpha.2...v10.4.0-alpha.3) (2022-07-22)
+
+
+### Bug Fixes
+
+* split compilation ([50e3c34](https://github.com/mll-lab/react-components/commit/50e3c345750780ab5cc5885e1a99f472e72ee7ac))
+
 # [10.4.0-alpha.2](https://github.com/mll-lab/react-components/compare/v10.4.0-alpha.1...v10.4.0-alpha.2) (2022-07-22)
 
 
