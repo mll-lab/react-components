@@ -1,3 +1,4 @@
+// Not exported from src/index.ts in order to keep react-hook-form optional
 export * from './CheckboxField';
 export * from './FieldProvider';
 export * from './InputField';
