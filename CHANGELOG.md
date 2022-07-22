@@ -1,3 +1,10 @@
+# [10.4.0-alpha.7](https://github.com/mll-lab/react-components/compare/v10.4.0-alpha.6...v10.4.0-alpha.7) (2022-07-22)
+
+
+### Features
+
+* export FieldWrapper ([d2ffe78](https://github.com/mll-lab/react-components/commit/d2ffe78e58ff833647282466e1befceb0d67e46a))
+
 # [10.4.0-alpha.6](https://github.com/mll-lab/react-components/compare/v10.4.0-alpha.5...v10.4.0-alpha.6) (2022-07-22)
 
 
