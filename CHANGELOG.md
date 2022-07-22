@@ -1,3 +1,11 @@
+# [10.4.0-alpha.2](https://github.com/mll-lab/react-components/compare/v10.4.0-alpha.1...v10.4.0-alpha.2) (2022-07-22)
+
+
+### Bug Fixes
+
+* keep react-hook-form optional ([012929a](https://github.com/mll-lab/react-components/commit/012929afd5e7e84737ac893566df2b717f436ed8))
+* keep react-hook-form optional ([01bf76f](https://github.com/mll-lab/react-components/commit/01bf76fe7e778f629c7398c74d38f6b7402b1356))
+
 # [10.4.0-alpha.1](https://github.com/mll-lab/react-components/compare/v10.3.0...v10.4.0-alpha.1) (2022-07-22)
 
 
