@@ -1,3 +1,15 @@
+# [11.0.0](https://github.com/mll-lab/react-components/compare/v10.3.0...v11.0.0) (2022-07-22)
+
+
+### Features
+
+* add integration with `react-hook-form` ([#176](https://github.com/mll-lab/react-components/issues/176)) ([dbcbf93](https://github.com/mll-lab/react-components/commit/dbcbf9323ee78e0880917205df2d7e480dd1d5d3))
+
+
+### BREAKING CHANGES
+
+* add dependency `react-hook-form`
+
 # [10.3.0](https://github.com/mll-lab/react-components/compare/v10.2.1...v10.3.0) (2022-07-08)
 
 
