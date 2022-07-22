@@ -116,7 +116,7 @@ export const NestedProviders: Story<
     >
       {/* overwrite upper provider values */}
       <FieldProvider
-        disabled={!props.disabled}
+        disabled={props.disabled}
         formItemProps={childFormItemProps}
       >
         <FormProvider {...formMethods}>
