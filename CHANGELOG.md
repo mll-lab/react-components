@@ -1,3 +1,10 @@
+# [10.4.0-alpha.1](https://github.com/mll-lab/react-components/compare/v10.3.0...v10.4.0-alpha.1) (2022-07-22)
+
+
+### Features
+
+* add integration with react-hook-form ([c123a0c](https://github.com/mll-lab/react-components/commit/c123a0c58ab57994e6dcd48c43e5d5f426e76732))
+
 # [10.3.0](https://github.com/mll-lab/react-components/compare/v10.2.1...v10.3.0) (2022-07-08)
 
 
