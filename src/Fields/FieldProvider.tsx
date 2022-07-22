@@ -42,10 +42,9 @@ export function FieldProvider({
 
   const value = useMemo(
     () => ({
-      disabled: (disabled || parentFieldContext.disabled) ?? false,
+      disabled: disabled ?? parentFieldContext.disabled ?? false,
       formItemProps:
-        (formItemProps || parentFieldContext.formItemProps) ??
-        formItemFieldProps,
+        formItemProps ?? parentFieldContext.formItemProps ?? formItemFieldProps,
     }),
     [
       disabled,
