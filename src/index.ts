@@ -20,6 +20,7 @@ export * from './Descriptions';
 export * from './Divider';
 export * from './Dropdown';
 export * from './Empty';
+export * from './Fields'; // Might extract to separate package later due to dependency on react-hook-form
 export * from './Form';
 export * from './Grid';
 export * from './Image';
