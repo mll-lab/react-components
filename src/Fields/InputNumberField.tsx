@@ -8,8 +8,8 @@ import {
 } from 'react-hook-form';
 
 import { InputNumber, InputNumberProps } from '../Input';
-import { useFieldContext } from './FieldProvider';
 
+import { useFieldContext } from './FieldProvider';
 import { FieldWrapper, FieldWrapperProps } from './FieldWrapper';
 
 type InputNumberFieldProps<

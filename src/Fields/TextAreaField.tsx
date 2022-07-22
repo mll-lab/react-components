@@ -15,7 +15,7 @@ import { FieldWrapper, FieldWrapperProps } from './FieldWrapper';
 
 type TextAreaFieldProps<
   TFieldValues extends FieldValues,
-  TName extends FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues>,
 > = UseControllerProps<TFieldValues, TName> &
   Pick<FieldWrapperProps<TFieldValues, TName>, 'formItem'> & {
     component?: TextAreaProps;
@@ -23,7 +23,7 @@ type TextAreaFieldProps<
 
 export function TextAreaField<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>
+  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 >({
   formItem,
   component,
