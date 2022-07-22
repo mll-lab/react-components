@@ -11,6 +11,7 @@ import { InputField } from './InputField';
 import { InputNumberField } from './InputNumberField';
 import { RadioGroupField } from './RadioGroupField';
 import { SelectField } from './SelectField';
+import { TextAreaField } from './TextAreaField';
 
 export default {
   title: 'Fields',
@@ -30,6 +31,7 @@ type FormType = {
   input_number: number;
   radio_group: 1 | 2;
   select: 'a' | 'b';
+  text_area: string;
 };
 
 export const Default: Story<FieldProviderProps> = (props) => {
@@ -88,6 +90,15 @@ export const Default: Story<FieldProviderProps> = (props) => {
             }}
             component={{
               options: ['a', 'b'].map(toFormInputOption),
+            }}
+          />
+          <TextAreaField
+            name="text_area"
+            control={formMethods.control}
+            formItem={{
+              label: 'TextArea Label',
+              labelCol: { span: 10 },
+              wrapperCol: { span: 14 },
             }}
           />
         </Form>
