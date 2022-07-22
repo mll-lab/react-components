@@ -41,9 +41,10 @@ type FormType = {
   text_area: string;
 };
 
-export const Default: Story<FieldProviderProps & { hasError: boolean }> = (
-  props,
-) => {
+export const Default: Story<{
+  hasError: boolean;
+  disabled: boolean;
+}> = (props) => {
   const formMethods = useForm<FormType>();
 
   const { hasError, ...propsRest } = props;
@@ -81,16 +82,13 @@ export const NestedProviders: Story<
 
   const { hasError } = props;
 
-  const parentFormItemProps = useCallback(
-    () =>
-      formItemFieldProps({
-        invalid: false,
-        error: undefined,
-        isTouched: false,
-        isDirty: false,
-      }),
-    [hasError],
-  );
+  const parentFormItemProps = () =>
+    formItemFieldProps({
+      invalid: false,
+      error: undefined,
+      isTouched: false,
+      isDirty: false,
+    });
 
   const childFormItemProps = useCallback(
     () =>
