@@ -5,5 +5,6 @@ export function formItemFieldProps(fieldState: ControllerFieldState): Partial<Fo
   return {
     hasFeedback: fieldState.invalid,
     help: fieldState.error?.message,
+    validateStatus: fieldState.invalid ? 'error' : undefined
   };
 }
