@@ -47,7 +47,12 @@ export function FieldProvider({
         (formItemProps || parentFieldContext.formItemProps) ??
         formItemFieldProps,
     }),
-    [disabled, formItemProps, parentFieldContext.disabled, parentFieldContext.formItemProps],
+    [
+      disabled,
+      formItemProps,
+      parentFieldContext.disabled,
+      parentFieldContext.formItemProps,
+    ],
   );
 
   return (
