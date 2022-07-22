@@ -1,10 +1,13 @@
-import { ControllerFieldState } from "react-hook-form";
-import { FormItemProps } from "../Form";
+import { ControllerFieldState } from 'react-hook-form';
 
-export function formItemFieldProps(fieldState: ControllerFieldState): Partial<FormItemProps<unknown>> {
+import { FormItemProps } from '../Form';
+
+export function formItemFieldProps(
+  fieldState: ControllerFieldState,
+): Partial<FormItemProps<unknown>> {
   return {
     hasFeedback: fieldState.invalid,
     help: fieldState.error?.message,
-    validateStatus: fieldState.invalid ? 'error' : undefined
+    validateStatus: fieldState.invalid ? 'error' : undefined,
   };
 }

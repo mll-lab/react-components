@@ -9,7 +9,7 @@ import {
 } from 'react-hook-form';
 
 import { Form, FormItemProps } from '../Form';
-import { useFieldContext } from "./FieldProvider";
+import { useFieldContext } from './FieldProvider';
 
 export type FieldWrapperProps<
   TFieldValues extends FieldValues,
@@ -31,10 +31,7 @@ export function FieldWrapper<
   const { formItemProps } = useFieldContext();
 
   return (
-    <Form.Item
-      {...formItemProps(fieldState)}
-      {...props.formItem}
-    >
+    <Form.Item {...formItemProps(fieldState)} {...props.formItem}>
       {props.children}
     </Form.Item>
   );
