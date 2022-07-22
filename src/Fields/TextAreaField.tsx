@@ -1,4 +1,3 @@
-import { Input } from '@mll-lab/react-components';
 import { TextAreaProps } from 'antd/lib/input/TextArea';
 import React from 'react';
 import {
@@ -7,10 +6,10 @@ import {
   UseControllerProps,
   FieldPath,
 } from 'react-hook-form';
-import { useSelector } from 'react-redux';
 
-import { selectIsAllowedToEdit } from '../../base/EditMode/selectors';
+import { Input } from '../Input';
 
+import { useFieldContext } from './FieldProvider';
 import { FieldWrapper, FieldWrapperProps } from './FieldWrapper';
 
 type TextAreaFieldProps<
@@ -31,14 +30,14 @@ export function TextAreaField<
 }: TextAreaFieldProps<TFieldValues, TName>) {
   const { field } = useController<TFieldValues, TName>(controller);
 
-  const editable = useSelector(selectIsAllowedToEdit);
+  const { disabled } = useFieldContext();
 
   return (
     <FieldWrapper controller={controller} formItem={formItem}>
       <Input.TextArea
         {...field}
         value={field.value ?? undefined}
-        disabled={!editable}
+        disabled={disabled}
         {...component}
       />
     </FieldWrapper>
