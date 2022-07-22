@@ -1,3 +1,22 @@
+# [10.4.0-alpha.4](https://github.com/mll-lab/react-components/compare/v10.4.0-alpha.3...v10.4.0-alpha.4) (2022-07-22)
+
+
+### Bug Fixes
+
+* update provider when formItemProps changes ([af04e71](https://github.com/mll-lab/react-components/commit/af04e715e5ad5c08a418a63d7263aa8a4a61599a))
+
+
+### Features
+
+* add formItemFieldProps util ([c4dc110](https://github.com/mll-lab/react-components/commit/c4dc110905cb9bb8e35de3fc84f025e1a7357217))
+* add formItemProps to FieldProvider context ([ab52809](https://github.com/mll-lab/react-components/commit/ab5280973c2f6671b64ba846bb1adfe888a29090))
+* restore unified ([b0dbd47](https://github.com/mll-lab/react-components/commit/b0dbd4723b29893c8d317965ff1414c002e81141))
+
+
+### Reverts
+
+* Revert "fix: split compilation" ([4cd8281](https://github.com/mll-lab/react-components/commit/4cd8281a73df309a4624ce2e9313cf894b089475))
+
 # [10.4.0-alpha.3](https://github.com/mll-lab/react-components/compare/v10.4.0-alpha.2...v10.4.0-alpha.3) (2022-07-22)
 
 
