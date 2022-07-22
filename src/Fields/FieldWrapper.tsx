@@ -9,6 +9,7 @@ import {
 } from 'react-hook-form';
 
 import { Form, FormItemProps } from '../Form';
+import { useFieldContext } from "./FieldProvider";
 
 export type FieldWrapperProps<
   TFieldValues extends FieldValues,
@@ -27,11 +28,11 @@ export function FieldWrapper<
 >(props: FieldWrapperProps<TFieldValues, TName>) {
   const { fieldState } = useController<TFieldValues, TName>(props.controller);
 
+  const { formItemProps } = useFieldContext();
+
   return (
     <Form.Item
-      // hasFeedback={fieldState.invalid} TODO uncomment when antd3 has been removed from limes-frontend
-      validateStatus={fieldState.invalid ? 'error' : undefined}
-      help={fieldState.error?.message}
+      {...formItemProps(fieldState)}
       {...props.formItem}
     >
       {props.children}

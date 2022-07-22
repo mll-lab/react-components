@@ -8,7 +8,22 @@ import styles from 'rollup-plugin-styles';
 // eslint-disable-next-line import/extensions
 import pkg from './package.json';
 
-const COMMON_SETTINGS = {
+export default {
+  input: 'src/index.ts',
+
+  output: [
+    {
+      file: pkg.main,
+      format: 'cjs',
+      sourcemap: true,
+    },
+    {
+      file: pkg.module,
+      format: 'esm',
+      sourcemap: true,
+    },
+  ],
+
   // this resolves to window in the browser, thus enabling caching in the antd code below
   // (!) `this` has been rewritten to `undefined`
   // https://rollupjs.org/guide/en/#error-this-is-undefined
@@ -17,6 +32,7 @@ const COMMON_SETTINGS = {
   // 8:
   // 9: var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
   context: 'this',
+
   plugins: [
     peerDepsExternal(),
     resolve(),
@@ -34,38 +50,3 @@ const COMMON_SETTINGS = {
     }),
   ],
 };
-
-export default [
-  {
-    input: 'src/index.ts',
-    output: [
-      {
-        file: pkg.main,
-        format: 'cjs',
-        sourcemap: true,
-      },
-      {
-        file: pkg.module,
-        format: 'esm',
-        sourcemap: true,
-      },
-    ],
-    ...COMMON_SETTINGS,
-  },
-  {
-    input: 'src/react-hook-form/index.ts',
-    output: [
-      {
-        file: 'cjs/react-hook-form/index.js',
-        format: 'cjs',
-        sourcemap: true,
-      },
-      {
-        file: 'esm/react-hook-form/index.js',
-        format: 'esm',
-        sourcemap: true,
-      },
-    ],
-    ...COMMON_SETTINGS,
-  },
-];
