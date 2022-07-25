@@ -42,7 +42,7 @@ export function CheckboxField<
         checked={field.value}
         disabled={disabled}
         {...component}
-      />
+      >{component?.children}</Checkbox>
     </FieldWrapper>
   );
 }
