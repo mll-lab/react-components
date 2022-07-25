@@ -1,3 +1,10 @@
+# [11.1.0](https://github.com/mll-lab/react-components/compare/v11.0.0...v11.1.0) (2022-07-25)
+
+
+### Features
+
+* Add BackTop component ([#177](https://github.com/mll-lab/react-components/issues/177)) ([6e21eb5](https://github.com/mll-lab/react-components/commit/6e21eb56bca87ad9ad1bbbd189aad6d0f7a07cb1))
+
 # [11.0.0](https://github.com/mll-lab/react-components/compare/v10.3.0...v11.0.0) (2022-07-22)
 
 
