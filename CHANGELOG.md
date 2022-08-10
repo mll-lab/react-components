@@ -1,3 +1,10 @@
+# [11.3.0](https://github.com/mll-lab/react-components/compare/v11.2.0...v11.3.0) (2022-08-10)
+
+
+### Features
+
+* align checkbox with form label ([#179](https://github.com/mll-lab/react-components/issues/179)) ([602b165](https://github.com/mll-lab/react-components/commit/602b165bf1b11705827a2c54f1b594123cdd2733))
+
 # [11.2.0](https://github.com/mll-lab/react-components/compare/v11.1.0...v11.2.0) (2022-08-10)
 
 
