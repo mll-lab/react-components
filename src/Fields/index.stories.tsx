@@ -128,23 +128,21 @@ export const NestedProviders: Story<
 function AllFields() {
   const formMethods = useFormContext<FormType>();
   return (
-    <Form>
+    <Form labelCol={{ span: 10 }} wrapperCol={{ span: 14 }}>
       <CheckboxField
         name="checkbox"
         control={formMethods.control}
         formItem={{
           label: 'Checkbox Label',
-          labelCol: { span: 10 },
-          wrapperCol: { span: 14 },
         }}
-      />
+      >
+        Checkbox children
+      </CheckboxField>
       <InputField
         name="input"
         control={formMethods.control}
         formItem={{
           label: 'Input Label',
-          labelCol: { span: 10 },
-          wrapperCol: { span: 14 },
         }}
       />
       <InputNumberField
@@ -152,8 +150,6 @@ function AllFields() {
         control={formMethods.control}
         formItem={{
           label: 'InputNumber Label',
-          labelCol: { span: 10 },
-          wrapperCol: { span: 14 },
         }}
       />
       <RadioGroupField
@@ -161,8 +157,6 @@ function AllFields() {
         control={formMethods.control}
         formItem={{
           label: 'InputNumber Label',
-          labelCol: { span: 10 },
-          wrapperCol: { span: 14 },
         }}
         component={{
           options: [1, 2],
@@ -173,8 +167,6 @@ function AllFields() {
         control={formMethods.control}
         formItem={{
           label: 'Select Label',
-          labelCol: { span: 10 },
-          wrapperCol: { span: 14 },
         }}
         component={{
           options: ['a', 'b'].map(toFormInputOption),
@@ -185,8 +177,6 @@ function AllFields() {
         control={formMethods.control}
         formItem={{
           label: 'TextArea Label',
-          labelCol: { span: 10 },
-          wrapperCol: { span: 14 },
         }}
       />
     </Form>
