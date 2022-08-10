@@ -20,6 +20,7 @@ type InputNumberFieldProps<
     component?: InputNumberProps;
     minimumFractionDigits?: number;
     maximumFractionDigits?: number;
+    defaultFieldValue?: string | number;
   };
 
 export function InputNumberField<
@@ -30,6 +31,7 @@ export function InputNumberField<
   component,
   minimumFractionDigits = 0,
   maximumFractionDigits = 6,
+  defaultFieldValue = '',
   ...controller
 }: InputNumberFieldProps<TFieldValues, TName>) {
   const { field } = useController<TFieldValues, TName>(controller);
@@ -49,7 +51,7 @@ export function InputNumberField<
             maximumFractionDigits,
           })
         }
-        parser={(value) => parseGermanNumber(value) ?? 0}
+        parser={(value) => parseGermanNumber(value) ?? defaultFieldValue}
         style={{ width: '100%' }}
         {...component}
       />
