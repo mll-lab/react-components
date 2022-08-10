@@ -1,5 +1,5 @@
 import { omit } from 'lodash';
-import React, { PropsWithChildren } from "react";
+import React, { PropsWithChildren } from 'react';
 import {
   useController,
   FieldValues,
@@ -16,7 +16,8 @@ type CheckboxFieldProps<
   TFieldValues extends FieldValues,
   TName extends FieldPath<TFieldValues>,
 > = UseControllerProps<TFieldValues, TName> &
-  Pick<FieldWrapperProps<TFieldValues, TName>, 'formItem'> & PropsWithChildren<{
+  Pick<FieldWrapperProps<TFieldValues, TName>, 'formItem'> &
+  PropsWithChildren<{
     component?: CheckboxProps;
   }>;
 
@@ -43,7 +44,9 @@ export function CheckboxField<
         checked={field.value}
         disabled={disabled}
         {...component}
-      >{children}</Checkbox>
+      >
+        {children}
+      </Checkbox>
     </FieldWrapper>
   );
 }
