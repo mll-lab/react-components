@@ -1,3 +1,10 @@
+# [11.2.0](https://github.com/mll-lab/react-components/compare/v11.1.0...v11.2.0) (2022-08-10)
+
+
+### Features
+
+* add prop defaultFieldValue to InputNumberField ([#178](https://github.com/mll-lab/react-components/issues/178)) ([cdcee96](https://github.com/mll-lab/react-components/commit/cdcee962af5820cbde2e1b86974ddeae51ade73c))
+
 # [11.1.0](https://github.com/mll-lab/react-components/compare/v11.0.0...v11.1.0) (2022-07-25)
 
 
