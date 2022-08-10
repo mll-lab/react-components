@@ -1,3 +1,10 @@
+# [11.4.0](https://github.com/mll-lab/react-components/compare/v11.3.0...v11.4.0) (2022-08-10)
+
+
+### Features
+
+* accept children for checkbox ([#180](https://github.com/mll-lab/react-components/issues/180)) ([5ed905f](https://github.com/mll-lab/react-components/commit/5ed905f21a2c7502b57c51795cc95a4c5f54623b))
+
 # [11.3.0](https://github.com/mll-lab/react-components/compare/v11.2.0...v11.3.0) (2022-08-10)
 
 
