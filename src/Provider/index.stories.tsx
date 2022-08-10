@@ -17,6 +17,7 @@ import {
   Default as CheckboxStory,
   DisabledCheckbox as DisabledCheckboxStory,
   WithoutLabel as CheckboxWithoutLabelStory,
+  WithFormLabel as CheckboxWithFormLabelStory,
 } from '../Checkbox/index.stories';
 import {
   Default as DefaultCollapseStory,
@@ -189,6 +190,7 @@ function SupportedComponents() {
       <CheckboxStory />
       <DisabledCheckboxStory />
       <CheckboxWithoutLabelStory />
+      <CheckboxWithFormLabelStory />
       <SelectStory />
       <SelectMultipleStory />
       <SelectCustomDropdownStory />
