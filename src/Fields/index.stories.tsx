@@ -128,14 +128,16 @@ export const NestedProviders: Story<
 function AllFields() {
   const formMethods = useFormContext<FormType>();
   return (
-    <Form labelCol={{span: 10}} wrapperCol={{span: 14}}>
+    <Form labelCol={{ span: 10 }} wrapperCol={{ span: 14 }}>
       <CheckboxField
         name="checkbox"
         control={formMethods.control}
         formItem={{
           label: 'Checkbox Label',
         }}
-      >Checkbox children</CheckboxField>
+      >
+        Checkbox children
+      </CheckboxField>
       <InputField
         name="input"
         control={formMethods.control}
