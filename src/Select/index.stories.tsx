@@ -7,8 +7,8 @@ export default {
   title: 'Select',
 };
 
-export const Default: Story<SelectProps<string>> = (args) => (
-  <Select<string> defaultValue="lucy" style={{ width: 120 }} {...args}>
+export const Default: Story<SelectProps> = (args) => (
+  <Select defaultValue="lucy" style={{ width: 120 }} {...args}>
     <Select.Option value="jack">Jack</Select.Option>
     <Select.Option value="lucy">Lucy</Select.Option>
     <Select.Option value="henry" disabled>
@@ -17,12 +17,12 @@ export const Default: Story<SelectProps<string>> = (args) => (
   </Select>
 );
 
-export const Multiple: Story<SelectProps<string>> = (args) => (
+export const Multiple: Story<SelectProps> = (args) => (
   <Default mode="multiple" {...args} />
 );
 
-export const Group: Story<SelectProps<string>> = (args) => (
-  <Select<string> defaultValue="lucy" style={{ width: 120 }} {...args}>
+export const Group: Story<SelectProps> = (args) => (
+  <Select defaultValue="lucy" style={{ width: 120 }} {...args}>
     <Select.OptGroup label="Guys">
       <Select.Option value="jack">Jack</Select.Option>
       <Select.Option value="henry" disabled>
@@ -35,7 +35,7 @@ export const Group: Story<SelectProps<string>> = (args) => (
   </Select>
 );
 
-export const CustomDropdown: Story<SelectProps<string>> = (args) => (
+export const CustomDropdown: Story<SelectProps> = (args) => (
   <Multiple dropdownRender={renderDropdown} {...args} />
 );
 

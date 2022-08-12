@@ -6,8 +6,8 @@ import styled from 'styled-components';
 import { fontSizeFromTheme } from '../styled-utils';
 
 export type SelectProps<
-  ValueType,
-  OptionType extends BaseOptionType | DefaultOptionType,
+  ValueType = unknown,
+  OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > = AntdSelectProps<ValueType, OptionType>;
 export * from './formInput';
 
@@ -29,8 +29,8 @@ const StyledDropdown = styled.div`
 `;
 
 export function Select<
-  ValueType,
-  OptionType extends BaseOptionType | DefaultOptionType,
+  ValueType = unknown,
+  OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 >({ children, dropdownRender, ...props }: SelectProps<ValueType, OptionType>) {
   const styledDropdownRender = useCallback(
     (menu: ReactElement) => (
