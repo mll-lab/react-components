@@ -1,3 +1,4 @@
+import { BaseOptionType, DefaultOptionType } from 'antd/lib/select';
 import React from 'react';
 import {
   useController,
@@ -16,21 +17,24 @@ import { FieldWrapper, FieldWrapperProps } from './FieldWrapper';
 type SelectFieldProps<
   TFieldValues extends FieldValues,
   TName extends FieldPath<TFieldValues>,
+  TOption extends BaseOptionType | DefaultOptionType,
 > = UseControllerProps<TFieldValues, TName> &
   Pick<FieldWrapperProps<TFieldValues, TName>, 'formItem'> & {
     component?: SelectProps<
-      UnpackNestedValue<FieldPathValue<TFieldValues, TName>>
+      UnpackNestedValue<FieldPathValue<TFieldValues, TName>>,
+      TOption
     >;
   };
 
 export function SelectField<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TOption extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 >({
   formItem,
   component,
   ...controller
-}: SelectFieldProps<TFieldValues, TName>) {
+}: SelectFieldProps<TFieldValues, TName, TOption>) {
   const {
     field: { ref, onChange, ...fieldProps },
   } = useController<TFieldValues, TName>(controller);
