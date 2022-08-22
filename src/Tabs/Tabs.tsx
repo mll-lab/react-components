@@ -59,6 +59,10 @@ function reducer(state: State, action: Action): State {
   }
 }
 
+/**
+ * In contrast to the antd Tabs component, this implementation does
+ * not require tab panels to be direct children of tabs.
+ */
 export function Tabs(props: TabsProps) {
   const [state, dispatch] = useReducer(reducer, { tabs: [] });
 
