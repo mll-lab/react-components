@@ -1,3 +1,10 @@
+# [11.5.0](https://github.com/mll-lab/react-components/compare/v11.4.0...v11.5.0) (2022-08-23)
+
+
+### Features
+
+* add generic type for options in Select, SelectProps and SelectField ([#181](https://github.com/mll-lab/react-components/issues/181)) ([1aa7934](https://github.com/mll-lab/react-components/commit/1aa79345dbaae753f19151e06dd44ba4a47773d5))
+
 # [11.4.0](https://github.com/mll-lab/react-components/compare/v11.3.0...v11.4.0) (2022-08-10)
 
 
