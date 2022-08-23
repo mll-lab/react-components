@@ -1,10 +1,14 @@
 import { Select as AntdSelect, SelectProps as AntdSelectProps } from 'antd';
+import { BaseOptionType, DefaultOptionType } from 'antd/lib/select';
 import React, { ReactElement, useCallback } from 'react';
 import styled from 'styled-components';
 
 import { fontSizeFromTheme } from '../styled-utils';
 
-export type SelectProps<T> = AntdSelectProps<T>;
+export type SelectProps<
+  ValueType = unknown,
+  OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
+> = AntdSelectProps<ValueType, OptionType>;
 export * from './formInput';
 
 const StyledSelect = styled(AntdSelect)`
@@ -24,11 +28,10 @@ const StyledDropdown = styled.div`
   }
 `;
 
-export function Select<T>({
-  children,
-  dropdownRender,
-  ...props
-}: SelectProps<T>) {
+export function Select<
+  ValueType = unknown,
+  OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
+>({ children, dropdownRender, ...props }: SelectProps<ValueType, OptionType>) {
   const styledDropdownRender = useCallback(
     (menu: ReactElement) => (
       <StyledDropdown>
@@ -39,7 +42,10 @@ export function Select<T>({
   );
 
   return (
-    <StyledSelect<T> {...props} dropdownRender={styledDropdownRender}>
+    <StyledSelect<ValueType, OptionType>
+      {...props}
+      dropdownRender={styledDropdownRender}
+    >
       {children}
     </StyledSelect>
   );
