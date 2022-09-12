@@ -1,3 +1,10 @@
+## [11.5.1](https://github.com/mll-lab/react-components/compare/v11.5.0...v11.5.1) (2022-09-12)
+
+
+### Bug Fixes
+
+* adapt steps to font size and center icon vertically ([d1ce7d9](https://github.com/mll-lab/react-components/commit/d1ce7d959b572008e3a0f22e270bb5baab339f2e))
+
 # [11.5.0](https://github.com/mll-lab/react-components/compare/v11.4.0...v11.5.0) (2022-08-23)
 
 
