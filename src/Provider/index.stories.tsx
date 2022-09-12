@@ -38,6 +38,7 @@ import {
   CustomDropdown as SelectCustomDropdownStory,
 } from '../Select/index.stories';
 import { Space } from '../Space';
+import { Simple as SimpleStepsStory } from '../Steps/index.stories';
 import { Table } from '../Table';
 import { Tag } from '../Tag';
 import { Typography } from '../Typography';
@@ -199,6 +200,7 @@ function SupportedComponents() {
       <TabsCardStory />
       <CardsGridStory />
       <CardMetaStory />
+      <SimpleStepsStory />
     </Space>
   );
 }
