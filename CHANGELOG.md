@@ -1,3 +1,10 @@
+## [11.5.2](https://github.com/mll-lab/react-components/compare/v11.5.1...v11.5.2) (2022-09-13)
+
+
+### Bug Fixes
+
+* use DatePicker option `showTime` ([dc35419](https://github.com/mll-lab/react-components/commit/dc35419c1b905bdff200c64c1c6b871dc3e46de0))
+
 ## [11.5.1](https://github.com/mll-lab/react-components/compare/v11.5.0...v11.5.1) (2022-09-12)
 
 
