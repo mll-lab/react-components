@@ -55,14 +55,25 @@ export const BaseDatePicker: ComponentClass<PickerProps<Date>, any> & {
       Array.from({ length: 12 }).map((_, i) =>
         de.localize!.month(i, { width: 'abbreviated' }),
       ),
-    format: (_, date, format) => {
+    format: (_, date, formatOrFormats) => {
       if (!isValid(date)) {
         return '';
       }
 
-      return formatDate(date, localeParse(format), {
-        locale: de,
-      });
+      return formatDate(
+        date,
+        localeParse(
+          // When showTime is used, this function is unexpectedly called with an array of formats.
+          // Multiple formats are only useful for flexible parsing, so we just use the first given format.
+          // @ts-expect-error formatOrFormats is not necessarily a string
+          formatOrFormats instanceof Array
+            ? formatOrFormats[0]
+            : formatOrFormats,
+        ),
+        {
+          locale: de,
+        },
+      );
     },
     parse: (_, text, formats) => {
       for (let i = 0; i < formats.length; i += 1) {
@@ -95,6 +106,8 @@ export function DatePicker(props: DatePickerProps) {
       format += ':ss';
     }
   }
+
+  // Allows faster data entry, omitting special characters
   const numbersOnlyFormat = format.replace(/[. :]/g, '');
 
   return (
