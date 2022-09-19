@@ -21,7 +21,7 @@ const StyledSelect = styled(AntdSelect)`
   }
   &.mll-ant-select-sm.mll-ant-select-multiple .mll-ant-select-selection-item {
     height: 16px;
-    line-height: 14px;
+    line-height: 12px;
     margin-top: 0px;
     margin-bottom: 0px;
   }
