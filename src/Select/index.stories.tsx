@@ -5,10 +5,18 @@ import { Select, SelectProps } from './index';
 
 export default {
   title: 'Select',
+  argTypes: {
+    size: {
+      control: {
+        type: 'select',
+        options: ['small', 'medium', 'large'],
+      },
+    },
+  },
 };
 
 export const Default: Story<SelectProps> = (args) => (
-  <Select defaultValue="lucy" style={{ width: 120 }} {...args}>
+  <Select defaultValue="lucy" style={{ width: 120 }} size="small" {...args}>
     <Select.Option value="jack">Jack</Select.Option>
     <Select.Option value="lucy">Lucy</Select.Option>
     <Select.Option value="henry" disabled>
