@@ -19,6 +19,12 @@ const StyledSelect = styled(AntdSelect)`
   .mll-ant-select-selection-item-remove {
     font-size: 0.85em;
   }
+  &.mll-ant-select-sm.mll-ant-select-multiple .mll-ant-select-selection-item {
+    height: 16px;
+    line-height: 12px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
 ` as typeof AntdSelect;
 
 const StyledDropdown = styled.div`
