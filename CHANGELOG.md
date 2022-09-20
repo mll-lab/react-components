@@ -1,3 +1,10 @@
+# [11.6.0](https://github.com/mll-lab/react-components/compare/v11.5.2...v11.6.0) (2022-09-20)
+
+
+### Features
+
+* improve design of small select ([#184](https://github.com/mll-lab/react-components/issues/184)) ([e17e626](https://github.com/mll-lab/react-components/commit/e17e626d66524ae1369f4bce093e748e79b1814b))
+
 ## [11.5.2](https://github.com/mll-lab/react-components/compare/v11.5.1...v11.5.2) (2022-09-13)
 
 
