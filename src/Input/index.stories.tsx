@@ -9,6 +9,18 @@ import { Input, InputNumber } from './index';
 export default {
   title: 'Input',
   onChange: { action: 'clicked' },
+  argTypes: {
+    allowClear: {
+      control: {
+        type: 'boolean',
+        checked: false,
+      },
+    },
+    addonAfter: {
+      control: { type: 'text' },
+      defaultValue: 'ml',
+    },
+  },
 };
 
 export const Text: Story<InputProps> = (args) => <Input {...args} />;
