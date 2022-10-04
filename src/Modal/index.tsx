@@ -3,10 +3,6 @@ import { ModalProps as AntdModalProps } from 'antd/es/modal';
 import styled from 'styled-components';
 
 export type ModalProps = AntdModalProps;
-
-export * from './FullScreenModal';
-export * from './WithModal';
-
 export const Modal: typeof AntdModal = styled(AntdModal)`
   // Fixes antd bug where prefixes do not apply correctly on all classes.
   // Styles are copied from antd.
@@ -17,3 +13,6 @@ export const Modal: typeof AntdModal = styled(AntdModal)`
     margin-left: 8px;
   }
 `;
+
+export * from './FullScreenModal';
+export * from './WithModal';
