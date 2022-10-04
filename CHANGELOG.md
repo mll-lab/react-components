@@ -1,3 +1,10 @@
+# [11.7.0](https://github.com/mll-lab/react-components/compare/v11.6.0...v11.7.0) (2022-10-04)
+
+
+### Features
+
+* edit partial numbers ([#187](https://github.com/mll-lab/react-components/issues/187)) ([1e49300](https://github.com/mll-lab/react-components/commit/1e4930065f37b4933e4fac0f3b3ad2c76bffe092))
+
 # [11.6.0](https://github.com/mll-lab/react-components/compare/v11.5.2...v11.6.0) (2022-09-20)
 
 
