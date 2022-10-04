@@ -1,3 +1,15 @@
+# [11.8.0](https://github.com/mll-lab/react-components/compare/v11.7.0...v11.8.0) (2022-10-04)
+
+
+### Bug Fixes
+
+* format ([feae083](https://github.com/mll-lab/react-components/commit/feae083982150431932ca8eefd8bf27fbd019475))
+
+
+### Features
+
+* export CheckboxChangeEvent ([67eda8a](https://github.com/mll-lab/react-components/commit/67eda8a1277831e4bf084f379e3856eb17015050))
+
 # [11.7.0](https://github.com/mll-lab/react-components/compare/v11.6.0...v11.7.0) (2022-10-04)
 
 
