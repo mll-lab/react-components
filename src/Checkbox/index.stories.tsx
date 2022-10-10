@@ -9,26 +9,36 @@ export default {
   title: 'Checkbox',
 };
 
-export const Default: Story<CheckboxProps> = (args) => (
-  <Checkbox defaultChecked {...args}>
-    Checkbox
-  </Checkbox>
-);
+export const Default: Story<CheckboxProps> = function Default(args) {
+  return (
+    <Checkbox defaultChecked {...args}>
+      Checkbox
+    </Checkbox>
+  );
+};
 
-export const DisabledCheckbox: Story<CheckboxProps> = (args) => (
-  <Checkbox defaultChecked disabled {...args}>
-    Checkbox
-  </Checkbox>
-);
+export const DisabledCheckbox: Story<CheckboxProps> = function DisabledCheckbox(
+  args,
+) {
+  return (
+    <Checkbox defaultChecked disabled {...args}>
+      Checkbox
+    </Checkbox>
+  );
+};
 
-export const WithoutLabel: Story<CheckboxProps> = (args) => (
-  <Checkbox defaultChecked {...args} />
-);
+export const WithoutLabel: Story<CheckboxProps> = function WithoutLabel(args) {
+  return <Checkbox defaultChecked {...args} />;
+};
 
-export const WithFormLabel: Story<CheckboxProps> = (args) => (
-  <Form>
-    <Form.Item label="Checkbox">
-      <Checkbox defaultChecked {...args} />
-    </Form.Item>
-  </Form>
-);
+export const WithFormLabel: Story<CheckboxProps> = function WithFormLabel(
+  args,
+) {
+  return (
+    <Form>
+      <Form.Item label="Checkbox">
+        <Checkbox defaultChecked {...args} />
+      </Form.Item>
+    </Form>
+  );
+};

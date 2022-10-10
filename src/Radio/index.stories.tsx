@@ -25,13 +25,15 @@ export default {
   },
 };
 
-export const Default: Story<RadioGroupProps> = (args) => (
-  <Radio.Group
-    options={[
-      { label: 'Apple', value: 'Apple' },
-      { label: 'Pear', value: 'Pear' },
-      { label: 'Orange', value: 'Orange' },
-    ]}
-    {...args}
-  />
-);
+export const Default: Story<RadioGroupProps> = function Default(args) {
+  return (
+    <Radio.Group
+      options={[
+        { label: 'Apple', value: 'Apple' },
+        { label: 'Pear', value: 'Pear' },
+        { label: 'Orange', value: 'Orange' },
+      ]}
+      {...args}
+    />
+  );
+};

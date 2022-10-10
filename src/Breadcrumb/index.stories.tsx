@@ -8,17 +8,19 @@ export default {
   title: 'Breadcrumb',
 };
 
-export const Default: Story<BreadcrumbProps> = (args) => (
-  <Breadcrumb {...args}>
-    <Breadcrumb.Item>
-      <HomeOutlined />
-    </Breadcrumb.Item>
-    <Breadcrumb.Item>
-      <span>Application Center</span>
-    </Breadcrumb.Item>
-    <Breadcrumb.Item>
-      <span>Application List</span>
-    </Breadcrumb.Item>
-    <Breadcrumb.Item>An Application</Breadcrumb.Item>
-  </Breadcrumb>
-);
+export const Default: Story<BreadcrumbProps> = function Default(args) {
+  return (
+    <Breadcrumb {...args}>
+      <Breadcrumb.Item>
+        <HomeOutlined />
+      </Breadcrumb.Item>
+      <Breadcrumb.Item>
+        <span>Application Center</span>
+      </Breadcrumb.Item>
+      <Breadcrumb.Item>
+        <span>Application List</span>
+      </Breadcrumb.Item>
+      <Breadcrumb.Item>An Application</Breadcrumb.Item>
+    </Breadcrumb>
+  );
+};

@@ -9,22 +9,24 @@ export default {
   title: 'Timeline',
 };
 
-export const Default: Story<TimelineProps> = (args) => (
-  <Timeline {...args}>
-    <Timeline.Item>
-      <SingleCollapse panel={{ header: 'Header' }}>Content</SingleCollapse>
-    </Timeline.Item>
-    <Timeline.Item>
-      <SingleCollapse
-        collapse={{ defaultActive: true }}
-        panel={{ header: 'Header' }}
-      >
-        Content
-      </SingleCollapse>
-    </Timeline.Item>
-    <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
-    <Timeline.Item>Solve initial network problems 2015-09-01</Timeline.Item>
-    <Timeline.Item>Technical testing 2015-09-01</Timeline.Item>
-    <Timeline.Item>Network problems being solved 2015-09-01</Timeline.Item>
-  </Timeline>
-);
+export const Default: Story<TimelineProps> = function Default(args) {
+  return (
+    <Timeline {...args}>
+      <Timeline.Item>
+        <SingleCollapse panel={{ header: 'Header' }}>Content</SingleCollapse>
+      </Timeline.Item>
+      <Timeline.Item>
+        <SingleCollapse
+          collapse={{ defaultActive: true }}
+          panel={{ header: 'Header' }}
+        >
+          Content
+        </SingleCollapse>
+      </Timeline.Item>
+      <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
+      <Timeline.Item>Solve initial network problems 2015-09-01</Timeline.Item>
+      <Timeline.Item>Technical testing 2015-09-01</Timeline.Item>
+      <Timeline.Item>Network problems being solved 2015-09-01</Timeline.Item>
+    </Timeline>
+  );
+};

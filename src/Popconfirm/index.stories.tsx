@@ -13,8 +13,10 @@ export default {
   },
 };
 
-export const Default: Story<PopconfirmProps> = (args) => (
-  <Popconfirm okText="Yes" cancelText="No" {...args}>
-    <button type="button">Delete</button>
-  </Popconfirm>
-);
+export const Default: Story<PopconfirmProps> = function Default(args) {
+  return (
+    <Popconfirm okText="Yes" cancelText="No" {...args}>
+      <button type="button">Delete</button>
+    </Popconfirm>
+  );
+};

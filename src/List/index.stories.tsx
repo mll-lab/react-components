@@ -12,10 +12,12 @@ export default {
   },
 };
 
-export const Strings: Story<ListProps<string>> = (args) => (
-  <List
-    dataSource={['foo', 'bar', 'baz']}
-    renderItem={(item) => <List.Item>{item}</List.Item>}
-    {...args}
-  />
-);
+export const Strings: Story<ListProps<string>> = function Strings(args) {
+  return (
+    <List
+      dataSource={['foo', 'bar', 'baz']}
+      renderItem={(item) => <List.Item>{item}</List.Item>}
+      {...args}
+    />
+  );
+};
