@@ -61,7 +61,7 @@ describe('<DatePicker />', () => {
     );
 
     const clear = screen.getByLabelText('close-circle');
-    userEvent.click(clear);
+    await userEvent.click(clear);
     expect(onChange).toHaveBeenLastCalledWith(null);
   });
 
