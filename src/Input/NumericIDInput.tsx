@@ -14,7 +14,7 @@ export function NumericIDInput(props: InputProps) {
       onChange={(e) => {
         const newValue = e.target.value;
         if (isOnlyDigits(newValue)) {
-          props?.onChange?.(e);
+          props.onChange?.(e);
           if (!isControlled) {
             setValueState(newValue);
           }
