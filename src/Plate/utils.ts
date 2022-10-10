@@ -1,8 +1,7 @@
 import { uniq } from 'lodash';
 
+import { COORDINATES_COLUMNS, COORDINATES_ROWS } from './constants';
 import { Coordinates, FlowDirection, PlateWell } from './types';
-
-import { COORDINATES_COLUMNS, COORDINATES_ROWS } from './index';
 
 export function rowForPosition(
   position: number,
