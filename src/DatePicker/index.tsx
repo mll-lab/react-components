@@ -25,6 +25,8 @@ type RangePickerProps<T> = AntdRangePickerProps<T>;
 export type DatePickerProps = PickerProps<Date> &
   Omit<PickerDateProps<Date>, 'picker'>;
 
+// TODO remove when https://github.com/react-component/picker/pull/289 fixes https://github.com/react-component/picker/issues/147
+// eslint-disable-next-line @getify/proper-arrows/where
 const localeParse = (format: string) =>
   format
     .replace(/Y/g, 'y')
@@ -33,13 +35,13 @@ const localeParse = (format: string) =>
     .replace(/g/g, 'G')
     .replace(/([Ww])o/g, 'wo');
 
-export const BaseDatePicker: ComponentClass<PickerProps<Date>, any> & {
-  WeekPicker: ComponentClass<Omit<PickerDateProps<Date>, 'picker'>, any>;
-  MonthPicker: ComponentClass<Omit<PickerDateProps<Date>, 'picker'>, any>;
-  YearPicker: ComponentClass<Omit<PickerDateProps<Date>, 'picker'>, any>;
-  RangePicker: ComponentClass<RangePickerProps<Date>, any>;
-  TimePicker: ComponentClass<Omit<PickerTimeProps<Date>, 'picker'>, any>;
-  QuarterPicker: ComponentClass<Omit<PickerTimeProps<Date>, 'picker'>, any>;
+export const BaseDatePicker: ComponentClass<PickerProps<Date>, unknown> & {
+  WeekPicker: ComponentClass<Omit<PickerDateProps<Date>, 'picker'>, unknown>;
+  MonthPicker: ComponentClass<Omit<PickerDateProps<Date>, 'picker'>, unknown>;
+  YearPicker: ComponentClass<Omit<PickerDateProps<Date>, 'picker'>, unknown>;
+  RangePicker: ComponentClass<RangePickerProps<Date>, unknown>;
+  TimePicker: ComponentClass<Omit<PickerTimeProps<Date>, 'picker'>, unknown>;
+  QuarterPicker: ComponentClass<Omit<PickerTimeProps<Date>, 'picker'>, unknown>;
 } = generatePicker<Date>({
   ...dateFnsGenerateConfig,
   // TODO remove when https://github.com/react-component/picker/pull/289 fixes https://github.com/react-component/picker/issues/147
