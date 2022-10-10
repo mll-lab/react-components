@@ -7,6 +7,6 @@ export default {
   title: 'PageHeader',
 };
 
-export const Default: Story<PageHeaderProps> = (args) => (
-  <PageHeader title="Title" subTitle="This is a subtitle" {...args} />
-);
+export const Default: Story<PageHeaderProps> = function Default(args) {
+  return <PageHeader title="Title" subTitle="This is a subtitle" {...args} />;
+};

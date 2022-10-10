@@ -3,10 +3,11 @@ import React from 'react';
 
 import { PALETTE } from '../theme';
 
+import { COORDINATES_COLUMNS, COORDINATES_ROWS, WELLS } from './constants';
 import { PlateProps, PlateWell } from './types';
 import { coordinatesForPosition } from './utils';
 
-import { COORDINATES_COLUMNS, COORDINATES_ROWS, Plate, WELLS } from './index';
+import { Plate } from './index';
 
 export default {
   title: 'Plate',
@@ -52,9 +53,9 @@ const columnFlowData: Array<PlateWell> = WELLS.map((well) => ({
   content: well,
 }));
 
-const Template: Story<Partial<PlateProps>> = (args) => (
-  <Plate data={null} {...args} />
-);
+const Template: Story<Partial<PlateProps>> = function Template(args) {
+  return <Plate data={null} {...args} />;
+};
 
 export const Default = Template.bind({});
 Default.args = {

@@ -11,4 +11,6 @@ export default {
   },
 };
 
-export const Default: Story<ProgressProps> = (args) => <Progress {...args} />;
+export const Default: Story<ProgressProps> = function Default(args) {
+  return <Progress {...args} />;
+};
