@@ -1,5 +1,5 @@
 import { Modal as AntdModal, ModalProps as AntdModalProps } from 'antd';
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export type ModalProps = AntdModalProps;
 export const Modal: typeof AntdModal = styled(AntdModal)`
