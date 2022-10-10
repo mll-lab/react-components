@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react';
 
-import { Modal, ModalProps } from './index';
+import { Modal, ModalProps } from './Modal';
 
 type FullScreenModalProps = PropsWithChildren<ModalProps>;
 

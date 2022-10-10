@@ -1,7 +1,7 @@
 import { first } from 'lodash';
 import React, { ReactNode } from 'react';
 
-import { Collapse, CollapsePanelProps, CollapseProps } from './index';
+import { Collapse, CollapsePanelProps, CollapseProps } from './Collapse';
 
 const KEY = 'default';
 
@@ -28,9 +28,9 @@ export function SingleCollapse({
         activeKey={collapse.open ? KEY : undefined}
         onChange={(keys) => {
           const key = typeof keys === 'string' ? keys : first(keys);
-          collapse?.onToggle?.(key === KEY);
+          collapse.onToggle?.(key === KEY);
 
-          return collapse?.onChange?.(keys);
+          return collapse.onChange?.(keys);
         }}
       >
         <Collapse.Panel {...panel} key={KEY}>
