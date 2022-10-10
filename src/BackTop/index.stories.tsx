@@ -8,15 +8,17 @@ export default {
   title: 'BackTop',
 };
 
-export const Default: Story<BackTopProps> = (args) => (
-  <div>
-    <div style={{ height: '1600px' }}>
-      Content height = 1600px
-      <br />
-      <br />
-      Scroll down to see{' '}
-      <VerticalAlignTopOutlined style={{ fontSize: '24px' }} /> bottom right.
+export const Default: Story<BackTopProps> = function Default(args) {
+  return (
+    <div>
+      <div style={{ height: '1600px' }}>
+        Content height = 1600px
+        <br />
+        <br />
+        Scroll down to see{' '}
+        <VerticalAlignTopOutlined style={{ fontSize: '24px' }} /> bottom right.
+      </div>
+      <BackTop {...args} />
     </div>
-    <BackTop {...args} />
-  </div>
-);
+  );
+};

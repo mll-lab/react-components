@@ -44,7 +44,7 @@ type FormType = {
 export const Default: Story<{
   hasError: boolean;
   disabled: boolean;
-}> = (props) => {
+}> = function Default(props) {
   const formMethods = useForm<FormType>();
 
   const { hasError, ...propsRest } = props;
@@ -77,7 +77,7 @@ export const Default: Story<{
 
 export const NestedProviders: Story<
   FieldProviderProps & { hasError: boolean }
-> = (props) => {
+> = function NestedProviders(props) {
   const formMethods = useForm<FormType>();
 
   const { hasError } = props;

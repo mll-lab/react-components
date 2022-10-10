@@ -11,13 +11,15 @@ export default {
   onChange: { action: 'clicked' },
 };
 
-export const Text: Story<InputProps> = (args) => <Input {...args} />;
+export const Text: Story<InputProps> = function Text(args) {
+  return <Input {...args} />;
+};
 
-export const TextArea: Story<TextAreaProps> = (args) => (
-  <Input.TextArea {...args} />
-);
+export const TextArea: Story<TextAreaProps> = function TextArea(args) {
+  return <Input.TextArea {...args} />;
+};
 
-export const Number: Story<InputNumberProps> = (args) => {
+export const Number: Story<InputNumberProps> = function Number(args) {
   const [num, setNum] = useState<number>(0);
 
   return (
@@ -33,6 +35,6 @@ export const Number: Story<InputNumberProps> = (args) => {
   );
 };
 
-export const NumericID: Story<NumericIDInputProps> = (args) => (
-  <NumericIDInput {...args} />
-);
+export const NumericID: Story<NumericIDInputProps> = function NumericID(args) {
+  return <NumericIDInput {...args} />;
+};

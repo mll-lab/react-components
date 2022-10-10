@@ -9,9 +9,11 @@ export default {
   argTypes: { width: { control: { type: 'number' }, defaultValue: 200 } },
 };
 
-export const Default: Story<ImageProps> = (args) => (
-  <Image
-    src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-    {...args}
-  />
-);
+export const Default: Story<ImageProps> = function Default(args) {
+  return (
+    <Image
+      src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+      {...args}
+    />
+  );
+};
