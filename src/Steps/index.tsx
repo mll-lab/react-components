@@ -14,6 +14,16 @@ export const Steps: typeof AntdSteps = styled(AntdSteps)`
   font-size: ${fontSizeFromTheme};
 
   .mll-ant-steps-icon {
-    top: -5%;
+    top: -7%;
+    font-size: 0.95em;
+  }
+  .mll-ant-steps-item-title {
+    font-size: 1em;
+    .mll-ant-steps-item-subtitle {
+      font-size: 0.92em;
+    }
+  }
+  .mll-ant-steps-item-description {
+    font-size: 0.95em;
   }
 `;
