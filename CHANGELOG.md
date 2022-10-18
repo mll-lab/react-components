@@ -1,3 +1,15 @@
+# [11.9.0](https://github.com/mll-lab/react-components/compare/v11.8.0...v11.9.0) (2022-10-18)
+
+
+### Bug Fixes
+
+* adapt step font sizes to theme correctly ([#190](https://github.com/mll-lab/react-components/issues/190)) ([b89b863](https://github.com/mll-lab/react-components/commit/b89b863438ca208de99d58fd2bbfb48cd5d38f5b))
+
+
+### Features
+
+* add space between modal buttons ([#186](https://github.com/mll-lab/react-components/issues/186)) ([11c06cc](https://github.com/mll-lab/react-components/commit/11c06cc9ea442200f9a152af2b893accfeb43e39)), closes [#187](https://github.com/mll-lab/react-components/issues/187) [#187](https://github.com/mll-lab/react-components/issues/187)
+
 # [11.8.0](https://github.com/mll-lab/react-components/compare/v11.7.0...v11.8.0) (2022-10-04)
 
 
