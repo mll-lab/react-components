@@ -55,6 +55,6 @@ const treeData: TreeData = [
   },
 ];
 
-export const SimpleTree: Story<TreeProps> = (args) => (
-  <Tree {...args} treeData={treeData} />
-);
+export const Default: Story<TreeProps> = function Default(args) {
+  return <Tree {...args} treeData={treeData} />;
+};

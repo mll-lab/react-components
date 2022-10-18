@@ -35,7 +35,7 @@ export default {
   title: 'Tabs',
 };
 
-export const Controlled: Story<TabsProps> = (args) => {
+export const Controlled: Story<TabsProps> = function Controlled(args) {
   const WrappedTab = dummyHOC(SingleTab);
 
   return (
@@ -76,13 +76,15 @@ Controlled.argTypes = {
   },
 };
 
-export const Uncontrolled: Story = () => (
-  <Tabs>
-    <TabPanel id={1} title="first">
-      first
-    </TabPanel>
-    <TabPanel id={2} title="second">
-      second
-    </TabPanel>
-  </Tabs>
-);
+export const Uncontrolled: Story = function Uncontrolled() {
+  return (
+    <Tabs>
+      <TabPanel id={1} title="first">
+        first
+      </TabPanel>
+      <TabPanel id={2} title="second">
+        second
+      </TabPanel>
+    </Tabs>
+  );
+};

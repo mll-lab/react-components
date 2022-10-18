@@ -9,12 +9,15 @@ export type FormItemProps<T> = AntdFormItemProps<T>;
 
 const StyledForm = styled(AntdForm)<FormProps<unknown>>`
   font-size: ${fontSizeFromTheme};
+  & label {
+    font-size: revert;
+  }
 `;
 
 const StyledFormItem = styled(StyledForm.Item)<FormItemProps<unknown>>`
   font-size: ${fontSizeFromTheme};
-  .mll-ant-form-item-label > label {
-    font-size: 1em;
+  & > label {
+    font-size: revert;
   }
   .mll-ant-form-item > label { // TODO: or mll-ant-form > label?
     font-size: ${fontSizeFromTheme};

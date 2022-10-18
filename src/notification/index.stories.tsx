@@ -20,7 +20,7 @@ export default {
 
 export const Default: Story<
   NotificationArgs & { level: 'info' | 'success' | 'warning' | 'error' }
-> = (args) => {
+> = function Default(args) {
   const { level, ...rest } = args;
 
   return (

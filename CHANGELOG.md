@@ -1,3 +1,98 @@
+# [11.8.0](https://github.com/mll-lab/react-components/compare/v11.7.0...v11.8.0) (2022-10-04)
+
+
+### Bug Fixes
+
+* format ([feae083](https://github.com/mll-lab/react-components/commit/feae083982150431932ca8eefd8bf27fbd019475))
+
+
+### Features
+
+* export CheckboxChangeEvent ([67eda8a](https://github.com/mll-lab/react-components/commit/67eda8a1277831e4bf084f379e3856eb17015050))
+
+# [11.7.0](https://github.com/mll-lab/react-components/compare/v11.6.0...v11.7.0) (2022-10-04)
+
+
+### Features
+
+* edit partial numbers ([#187](https://github.com/mll-lab/react-components/issues/187)) ([1e49300](https://github.com/mll-lab/react-components/commit/1e4930065f37b4933e4fac0f3b3ad2c76bffe092))
+
+# [11.6.0](https://github.com/mll-lab/react-components/compare/v11.5.2...v11.6.0) (2022-09-20)
+
+
+### Features
+
+* improve design of small select ([#184](https://github.com/mll-lab/react-components/issues/184)) ([e17e626](https://github.com/mll-lab/react-components/commit/e17e626d66524ae1369f4bce093e748e79b1814b))
+
+## [11.5.2](https://github.com/mll-lab/react-components/compare/v11.5.1...v11.5.2) (2022-09-13)
+
+
+### Bug Fixes
+
+* use DatePicker option `showTime` ([dc35419](https://github.com/mll-lab/react-components/commit/dc35419c1b905bdff200c64c1c6b871dc3e46de0))
+
+## [11.5.1](https://github.com/mll-lab/react-components/compare/v11.5.0...v11.5.1) (2022-09-12)
+
+
+### Bug Fixes
+
+* adapt steps to font size and center icon vertically ([d1ce7d9](https://github.com/mll-lab/react-components/commit/d1ce7d959b572008e3a0f22e270bb5baab339f2e))
+
+# [11.5.0](https://github.com/mll-lab/react-components/compare/v11.4.0...v11.5.0) (2022-08-23)
+
+
+### Features
+
+* add generic type for options in Select, SelectProps and SelectField ([#181](https://github.com/mll-lab/react-components/issues/181)) ([1aa7934](https://github.com/mll-lab/react-components/commit/1aa79345dbaae753f19151e06dd44ba4a47773d5))
+
+# [11.4.0](https://github.com/mll-lab/react-components/compare/v11.3.0...v11.4.0) (2022-08-10)
+
+
+### Features
+
+* accept children for checkbox ([#180](https://github.com/mll-lab/react-components/issues/180)) ([5ed905f](https://github.com/mll-lab/react-components/commit/5ed905f21a2c7502b57c51795cc95a4c5f54623b))
+
+# [11.3.0](https://github.com/mll-lab/react-components/compare/v11.2.0...v11.3.0) (2022-08-10)
+
+
+### Features
+
+* align checkbox with form label ([#179](https://github.com/mll-lab/react-components/issues/179)) ([602b165](https://github.com/mll-lab/react-components/commit/602b165bf1b11705827a2c54f1b594123cdd2733))
+
+# [11.2.0](https://github.com/mll-lab/react-components/compare/v11.1.0...v11.2.0) (2022-08-10)
+
+
+### Features
+
+* add prop defaultFieldValue to InputNumberField ([#178](https://github.com/mll-lab/react-components/issues/178)) ([cdcee96](https://github.com/mll-lab/react-components/commit/cdcee962af5820cbde2e1b86974ddeae51ade73c))
+
+# [11.1.0](https://github.com/mll-lab/react-components/compare/v11.0.0...v11.1.0) (2022-07-25)
+
+
+### Features
+
+* Add BackTop component ([#177](https://github.com/mll-lab/react-components/issues/177)) ([6e21eb5](https://github.com/mll-lab/react-components/commit/6e21eb56bca87ad9ad1bbbd189aad6d0f7a07cb1))
+
+# [11.0.0](https://github.com/mll-lab/react-components/compare/v10.3.0...v11.0.0) (2022-07-22)
+
+
+### Features
+
+* add integration with `react-hook-form` ([#176](https://github.com/mll-lab/react-components/issues/176)) ([dbcbf93](https://github.com/mll-lab/react-components/commit/dbcbf9323ee78e0880917205df2d7e480dd1d5d3))
+
+
+### BREAKING CHANGES
+
+* add dependency `react-hook-form`
+
+# [10.3.0](https://github.com/mll-lab/react-components/compare/v10.2.1...v10.3.0) (2022-07-08)
+
+
+### Features
+
+* adapt all form item labels to theme ([f83ea6c](https://github.com/mll-lab/react-components/commit/f83ea6c2959820ce75e1d32b0a47f1b0b2715f0a))
+* align checkbox text and icon when using different font size ([dea3ed8](https://github.com/mll-lab/react-components/commit/dea3ed8a3fbe0ee4cfcb21cc88f85cc8e15934c8))
+
 ## [10.2.1](https://github.com/mll-lab/react-components/compare/v10.2.0...v10.2.1) (2022-07-06)
 
 
