@@ -1,3 +1,10 @@
+## [11.9.1](https://github.com/mll-lab/react-components/compare/v11.9.0...v11.9.1) (2022-10-19)
+
+
+### Bug Fixes
+
+* button gaps for Modal.confirm ([#191](https://github.com/mll-lab/react-components/issues/191)) ([31919a4](https://github.com/mll-lab/react-components/commit/31919a4a5c12289af1228c65b05b3be268e9cb82))
+
 # [11.9.0](https://github.com/mll-lab/react-components/compare/v11.8.0...v11.9.0) (2022-10-18)
 
 
