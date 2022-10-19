@@ -50,16 +50,14 @@ export const OpenFullScreenByButton: Story<ModalProps> =
     );
   };
 
-export const ModalConfirm: Story<ModalProps> =
-  function ModalConfirm(args) {
-    const openModal = () => Modal.confirm({
-      title: "Programmatically opened confirm modal",
-      content: "Some content",
+export const ModalConfirm: Story<ModalProps> = function ModalConfirm(args) {
+  const openModal = () =>
+    Modal.confirm({
+      title: 'Programmatically opened confirm modal',
+      content: 'Some content',
       okText: 'Yes',
       cancelText: 'No',
       width: args.width,
-    })
-    return (
-      <Button onClick={openModal}>Open Modal</Button>
-    );
-  };
+    });
+  return <Button onClick={openModal}>Open Modal</Button>;
+};

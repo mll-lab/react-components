@@ -1,10 +1,10 @@
-import { ConfigProvider as AntdConfigProvider } from "antd";
+import { ConfigProvider as AntdConfigProvider } from 'antd';
 import deDE from 'antd/lib/locale/de_DE';
 import React, { PropsWithChildren } from 'react';
-import { ThemeProvider } from "styled-components";
+import { ThemeProvider } from 'styled-components';
 
+import { ModalConfirmStyles } from '../Modal';
 import { THEME, Theme } from '../theme';
-import { ModalConfirmStyles } from "../Modal";
 
 type ProviderProps = { theme?: Partial<Theme> };
 
