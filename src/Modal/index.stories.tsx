@@ -4,7 +4,7 @@ import React from 'react';
 import { Button } from '../Button/Button';
 
 import { FullScreenModal } from './FullScreenModal';
-import { ModalProps } from './Modal';
+import { Modal, ModalProps } from './Modal';
 import { WithModal, WithModalProps } from './WithModal';
 
 export default {
@@ -49,3 +49,15 @@ export const OpenFullScreenByButton: Story<ModalProps> =
       </WithModal>
     );
   };
+
+export const ModalConfirm: Story<ModalProps> = function ModalConfirm(args) {
+  const openModal = () =>
+    Modal.confirm({
+      title: 'Programmatically opened confirm modal',
+      content: 'Some content',
+      okText: 'Yes',
+      cancelText: 'No',
+      width: args.width,
+    });
+  return <Button onClick={openModal}>Open Modal</Button>;
+};
