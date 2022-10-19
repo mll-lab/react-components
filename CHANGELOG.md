@@ -1,3 +1,10 @@
+## [11.9.2](https://github.com/mll-lab/react-components/compare/v11.9.1...v11.9.2) (2022-10-19)
+
+
+### Bug Fixes
+
+* import of createGlobalStyle ([#192](https://github.com/mll-lab/react-components/issues/192)) ([d968522](https://github.com/mll-lab/react-components/commit/d968522711dc2683e7645bce003cb1385e3d704f))
+
 ## [11.9.1](https://github.com/mll-lab/react-components/compare/v11.9.0...v11.9.1) (2022-10-19)
 
 
