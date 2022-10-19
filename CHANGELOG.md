@@ -1,3 +1,11 @@
+# [11.10.0-alpha.2](https://github.com/mll-lab/react-components/compare/v11.10.0-alpha.1...v11.10.0-alpha.2) (2022-10-19)
+
+
+### Bug Fixes
+
+* import module ([d131b30](https://github.com/mll-lab/react-components/commit/d131b30cd41ef28e320ef9ab49691ba616be428f))
+* trigger release ([156f817](https://github.com/mll-lab/react-components/commit/156f8175f9e4554393862ed5e9dc092d8a15d8da))
+
 # [11.10.0-alpha.1](https://github.com/mll-lab/react-components/compare/v11.9.1...v11.10.0-alpha.1) (2022-10-19)
 
 
