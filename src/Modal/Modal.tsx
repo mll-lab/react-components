@@ -1,5 +1,11 @@
 import { Modal as AntdModal, ModalProps as AntdModalProps } from 'antd';
-import styled, { createGlobalStyle } from 'styled-components';
+import * as styledModule from 'styled-components';
+
+// Tests fail in some clients with "'"import styled, { createGlobalStyle } from 'styled-components';"
+// with the error message: (...).createGlobalStyle.withConfig is not a function
+// https://github.com/styled-components/babel-plugin-styled-components/issues/315#issuecomment-784297947
+const styled = styledModule.default;
+const { createGlobalStyle } = styledModule;
 
 export type ModalProps = AntdModalProps;
 export const Modal: typeof AntdModal = styled(AntdModal)`
