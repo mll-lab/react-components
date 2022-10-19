@@ -2,8 +2,8 @@ import { Modal as AntdModal, ModalProps as AntdModalProps } from 'antd';
 import * as styledModule from 'styled-components';
 
 // There are import issues when https://github.com/styled-components/babel-plugin-styled-components/issues/315#issuecomment-784297947
-const styled = styledModule.default;
 const { createGlobalStyle } = styledModule;
+const styled = styledModule.default;
 
 export type ModalProps = AntdModalProps;
 export const Modal: typeof AntdModal = styled(AntdModal)`
