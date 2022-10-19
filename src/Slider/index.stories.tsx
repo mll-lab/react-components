@@ -7,6 +7,6 @@ export default {
   title: 'Slider',
 };
 
-export const Default: Story<SliderSingleProps> = (args) => (
-  <Slider defaultValue={30} {...args} />
-);
+export const Default: Story<SliderSingleProps> = function Default(args) {
+  return <Slider defaultValue={30} {...args} />;
+};

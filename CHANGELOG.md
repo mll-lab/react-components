@@ -1,60 +1,108 @@
-# [10.4.0-alpha.5](https://github.com/mll-lab/react-components/compare/v10.4.0-alpha.4...v10.4.0-alpha.5) (2022-07-22)
+## [11.9.1](https://github.com/mll-lab/react-components/compare/v11.9.0...v11.9.1) (2022-10-19)
 
 
 ### Bug Fixes
 
-* add parent field context values to deps ([75ab694](https://github.com/mll-lab/react-components/commit/75ab694b302596019d2870486680f9f77bb4b248))
-* child field provider takes disabled prop as it is ([3eb0a84](https://github.com/mll-lab/react-components/commit/3eb0a8405e3b9ac23c7becc1a469364eb1718d47))
-* formatting ([90d4209](https://github.com/mll-lab/react-components/commit/90d4209651cac33f233363ba04f3531c70a37fd4))
-* formatting ([5032945](https://github.com/mll-lab/react-components/commit/5032945ba44a95744100e80e21ad28f2144f3669))
-* nullish coalescing ([5d13f08](https://github.com/mll-lab/react-components/commit/5d13f085a4e20f74ea23983571ecef7d10fda0ca))
-* react/prop-types rule not required with typescript ([86b1ff2](https://github.com/mll-lab/react-components/commit/86b1ff2d189aff831ea1f0a63b213047180fe1ec))
+* button gaps for Modal.confirm ([#191](https://github.com/mll-lab/react-components/issues/191)) ([31919a4](https://github.com/mll-lab/react-components/commit/31919a4a5c12289af1228c65b05b3be268e9cb82))
+
+# [11.9.0](https://github.com/mll-lab/react-components/compare/v11.8.0...v11.9.0) (2022-10-18)
+
+
+### Bug Fixes
+
+* adapt step font sizes to theme correctly ([#190](https://github.com/mll-lab/react-components/issues/190)) ([b89b863](https://github.com/mll-lab/react-components/commit/b89b863438ca208de99d58fd2bbfb48cd5d38f5b))
 
 
 ### Features
 
-* allow nest of providers ([24de66d](https://github.com/mll-lab/react-components/commit/24de66deb1036177081f3ef712d7c62854dc82e1))
+* add space between modal buttons ([#186](https://github.com/mll-lab/react-components/issues/186)) ([11c06cc](https://github.com/mll-lab/react-components/commit/11c06cc9ea442200f9a152af2b893accfeb43e39)), closes [#187](https://github.com/mll-lab/react-components/issues/187) [#187](https://github.com/mll-lab/react-components/issues/187)
 
-# [10.4.0-alpha.4](https://github.com/mll-lab/react-components/compare/v10.4.0-alpha.3...v10.4.0-alpha.4) (2022-07-22)
+# [11.8.0](https://github.com/mll-lab/react-components/compare/v11.7.0...v11.8.0) (2022-10-04)
 
 
 ### Bug Fixes
 
-* update provider when formItemProps changes ([af04e71](https://github.com/mll-lab/react-components/commit/af04e715e5ad5c08a418a63d7263aa8a4a61599a))
+* format ([feae083](https://github.com/mll-lab/react-components/commit/feae083982150431932ca8eefd8bf27fbd019475))
 
 
 ### Features
 
-* add formItemFieldProps util ([c4dc110](https://github.com/mll-lab/react-components/commit/c4dc110905cb9bb8e35de3fc84f025e1a7357217))
-* add formItemProps to FieldProvider context ([ab52809](https://github.com/mll-lab/react-components/commit/ab5280973c2f6671b64ba846bb1adfe888a29090))
-* restore unified ([b0dbd47](https://github.com/mll-lab/react-components/commit/b0dbd4723b29893c8d317965ff1414c002e81141))
+* export CheckboxChangeEvent ([67eda8a](https://github.com/mll-lab/react-components/commit/67eda8a1277831e4bf084f379e3856eb17015050))
 
-
-### Reverts
-
-* Revert "fix: split compilation" ([4cd8281](https://github.com/mll-lab/react-components/commit/4cd8281a73df309a4624ce2e9313cf894b089475))
-
-# [10.4.0-alpha.3](https://github.com/mll-lab/react-components/compare/v10.4.0-alpha.2...v10.4.0-alpha.3) (2022-07-22)
-
-
-### Bug Fixes
-
-* split compilation ([50e3c34](https://github.com/mll-lab/react-components/commit/50e3c345750780ab5cc5885e1a99f472e72ee7ac))
-
-# [10.4.0-alpha.2](https://github.com/mll-lab/react-components/compare/v10.4.0-alpha.1...v10.4.0-alpha.2) (2022-07-22)
-
-
-### Bug Fixes
-
-* keep react-hook-form optional ([012929a](https://github.com/mll-lab/react-components/commit/012929afd5e7e84737ac893566df2b717f436ed8))
-* keep react-hook-form optional ([01bf76f](https://github.com/mll-lab/react-components/commit/01bf76fe7e778f629c7398c74d38f6b7402b1356))
-
-# [10.4.0-alpha.1](https://github.com/mll-lab/react-components/compare/v10.3.0...v10.4.0-alpha.1) (2022-07-22)
+# [11.7.0](https://github.com/mll-lab/react-components/compare/v11.6.0...v11.7.0) (2022-10-04)
 
 
 ### Features
 
-* add integration with react-hook-form ([c123a0c](https://github.com/mll-lab/react-components/commit/c123a0c58ab57994e6dcd48c43e5d5f426e76732))
+* edit partial numbers ([#187](https://github.com/mll-lab/react-components/issues/187)) ([1e49300](https://github.com/mll-lab/react-components/commit/1e4930065f37b4933e4fac0f3b3ad2c76bffe092))
+
+# [11.6.0](https://github.com/mll-lab/react-components/compare/v11.5.2...v11.6.0) (2022-09-20)
+
+
+### Features
+
+* improve design of small select ([#184](https://github.com/mll-lab/react-components/issues/184)) ([e17e626](https://github.com/mll-lab/react-components/commit/e17e626d66524ae1369f4bce093e748e79b1814b))
+
+## [11.5.2](https://github.com/mll-lab/react-components/compare/v11.5.1...v11.5.2) (2022-09-13)
+
+
+### Bug Fixes
+
+* use DatePicker option `showTime` ([dc35419](https://github.com/mll-lab/react-components/commit/dc35419c1b905bdff200c64c1c6b871dc3e46de0))
+
+## [11.5.1](https://github.com/mll-lab/react-components/compare/v11.5.0...v11.5.1) (2022-09-12)
+
+
+### Bug Fixes
+
+* adapt steps to font size and center icon vertically ([d1ce7d9](https://github.com/mll-lab/react-components/commit/d1ce7d959b572008e3a0f22e270bb5baab339f2e))
+
+# [11.5.0](https://github.com/mll-lab/react-components/compare/v11.4.0...v11.5.0) (2022-08-23)
+
+
+### Features
+
+* add generic type for options in Select, SelectProps and SelectField ([#181](https://github.com/mll-lab/react-components/issues/181)) ([1aa7934](https://github.com/mll-lab/react-components/commit/1aa79345dbaae753f19151e06dd44ba4a47773d5))
+
+# [11.4.0](https://github.com/mll-lab/react-components/compare/v11.3.0...v11.4.0) (2022-08-10)
+
+
+### Features
+
+* accept children for checkbox ([#180](https://github.com/mll-lab/react-components/issues/180)) ([5ed905f](https://github.com/mll-lab/react-components/commit/5ed905f21a2c7502b57c51795cc95a4c5f54623b))
+
+# [11.3.0](https://github.com/mll-lab/react-components/compare/v11.2.0...v11.3.0) (2022-08-10)
+
+
+### Features
+
+* align checkbox with form label ([#179](https://github.com/mll-lab/react-components/issues/179)) ([602b165](https://github.com/mll-lab/react-components/commit/602b165bf1b11705827a2c54f1b594123cdd2733))
+
+# [11.2.0](https://github.com/mll-lab/react-components/compare/v11.1.0...v11.2.0) (2022-08-10)
+
+
+### Features
+
+* add prop defaultFieldValue to InputNumberField ([#178](https://github.com/mll-lab/react-components/issues/178)) ([cdcee96](https://github.com/mll-lab/react-components/commit/cdcee962af5820cbde2e1b86974ddeae51ade73c))
+
+# [11.1.0](https://github.com/mll-lab/react-components/compare/v11.0.0...v11.1.0) (2022-07-25)
+
+
+### Features
+
+* Add BackTop component ([#177](https://github.com/mll-lab/react-components/issues/177)) ([6e21eb5](https://github.com/mll-lab/react-components/commit/6e21eb56bca87ad9ad1bbbd189aad6d0f7a07cb1))
+
+# [11.0.0](https://github.com/mll-lab/react-components/compare/v10.3.0...v11.0.0) (2022-07-22)
+
+
+### Features
+
+* add integration with `react-hook-form` ([#176](https://github.com/mll-lab/react-components/issues/176)) ([dbcbf93](https://github.com/mll-lab/react-components/commit/dbcbf9323ee78e0880917205df2d7e480dd1d5d3))
+
+
+### BREAKING CHANGES
+
+* add dependency `react-hook-form`
 
 # [10.3.0](https://github.com/mll-lab/react-components/compare/v10.2.1...v10.3.0) (2022-07-08)
 

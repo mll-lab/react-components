@@ -6,7 +6,7 @@ import React, {
   useState,
 } from 'react';
 
-import { Modal, ModalProps } from './index';
+import { Modal, ModalProps } from './Modal';
 
 export type WithModalProps = {
   children: ReactNode;

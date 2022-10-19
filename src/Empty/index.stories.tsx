@@ -8,4 +8,6 @@ export default {
   component: Empty,
 };
 
-export const Default: Story = (args) => <Empty {...args} />;
+export const Default: Story = function Default(args) {
+  return <Empty {...args} />;
+};

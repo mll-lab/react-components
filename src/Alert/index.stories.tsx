@@ -29,6 +29,8 @@ export default {
   },
 };
 
-export const Default: Story<AlertProps> = (args) => (
-  <Alert message="Warning Text" type="warning" closable showIcon {...args} />
-);
+export const Default: Story<AlertProps> = function Default(args) {
+  return (
+    <Alert message="Warning Text" type="warning" closable showIcon {...args} />
+  );
+};

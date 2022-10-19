@@ -1,4 +1,8 @@
-import { formatGermanNumber, parseGermanNumber } from '@mll-lab/js-utils';
+import {
+  formatGermanNumber,
+  parseGermanNumber,
+  GERMAN_DECIMAL_SEPARATOR,
+} from '@mll-lab/js-utils';
 import React from 'react';
 import {
   useController,
@@ -20,6 +24,7 @@ type InputNumberFieldProps<
     component?: InputNumberProps;
     minimumFractionDigits?: number;
     maximumFractionDigits?: number;
+    defaultFieldValue?: string | number;
   };
 
 export function InputNumberField<
@@ -30,6 +35,7 @@ export function InputNumberField<
   component,
   minimumFractionDigits = 0,
   maximumFractionDigits = 6,
+  defaultFieldValue = '',
   ...controller
 }: InputNumberFieldProps<TFieldValues, TName>) {
   const { field } = useController<TFieldValues, TName>(controller);
@@ -43,13 +49,17 @@ export function InputNumberField<
         value={field.value ?? undefined}
         disabled={disabled}
         controls={false}
-        formatter={(value) =>
-          formatGermanNumber(value, {
+        formatter={(value, { userTyping, input }) => {
+          if (userTyping && input.endsWith(GERMAN_DECIMAL_SEPARATOR)) {
+            return input;
+          }
+
+          return formatGermanNumber(value, {
             minimumFractionDigits,
             maximumFractionDigits,
-          })
-        }
-        parser={(value) => parseGermanNumber(value) ?? 0}
+          });
+        }}
+        parser={(value) => parseGermanNumber(value) ?? defaultFieldValue}
         style={{ width: '100%' }}
         {...component}
       />

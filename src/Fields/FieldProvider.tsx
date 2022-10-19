@@ -22,7 +22,9 @@ export const FieldContext = createContext<FieldContextValues>({
   formItemProps: formItemFieldProps,
 });
 
-export const useFieldContext = () => useContext(FieldContext);
+export function useFieldContext(): FieldContextValues {
+  return useContext(FieldContext);
+}
 
 export type FieldProviderProps = PropsWithChildren<{
   disabled?: boolean;
@@ -38,13 +40,12 @@ export function FieldProvider({
 }: FieldProviderProps) {
   // When current provider does not specify optional props, the parent field
   // provider's values will be used
-  const parentFieldContext = useFieldContext();
+  const parentFieldContext: FieldContextValues = useFieldContext();
 
   const value = useMemo(
     () => ({
-      disabled: disabled ?? parentFieldContext.disabled ?? false,
-      formItemProps:
-        formItemProps ?? parentFieldContext.formItemProps ?? formItemFieldProps,
+      disabled: disabled ?? parentFieldContext.disabled,
+      formItemProps: formItemProps ?? parentFieldContext.formItemProps,
     }),
     [
       disabled,

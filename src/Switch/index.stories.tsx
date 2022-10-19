@@ -11,4 +11,6 @@ export default {
   },
 };
 
-export const Default: Story<SwitchProps> = (args) => <Switch {...args} />;
+export const Default: Story<SwitchProps> = function Default(args) {
+  return <Switch {...args} />;
+};

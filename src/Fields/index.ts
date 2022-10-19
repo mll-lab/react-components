@@ -1,5 +1,6 @@
 export * from './CheckboxField';
 export * from './FieldProvider';
+export * from './FieldWrapper';
 export * from './formItemFieldProps';
 export * from './InputField';
 export * from './InputNumberField';
