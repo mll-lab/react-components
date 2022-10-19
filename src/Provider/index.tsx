@@ -1,9 +1,10 @@
-import { ConfigProvider as AntdConfigProvider } from 'antd';
+import { ConfigProvider as AntdConfigProvider } from "antd";
 import deDE from 'antd/lib/locale/de_DE';
 import React, { PropsWithChildren } from 'react';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from "styled-components";
 
 import { THEME, Theme } from '../theme';
+import { ModalConfirmStyles } from "../Modal";
 
 type ProviderProps = { theme?: Partial<Theme> };
 
@@ -24,6 +25,7 @@ export function Provider({
         prefixCls={PREFIX_CLS}
         componentSize={theme?.size}
       >
+        <ModalConfirmStyles />
         {children}
       </AntdConfigProvider>
     </ThemeProvider>
