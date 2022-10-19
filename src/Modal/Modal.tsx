@@ -1,5 +1,10 @@
 import { Modal as AntdModal, ModalProps as AntdModalProps } from 'antd';
-import styled from 'styled-components';
+import * as styledModule from 'styled-components';
+
+// There are import issues when https://github.com/styled-components/babel-plugin-styled-components/issues/315#issuecomment-784297947
+const styled = styledModule.default;
+const createGlobalStyle = styledModule.createGlobalStyle;
+
 
 export type ModalProps = AntdModalProps;
 export const Modal: typeof AntdModal = styled(AntdModal)`
@@ -13,7 +18,7 @@ export const Modal: typeof AntdModal = styled(AntdModal)`
   }
 `;
 
-export const ModalConfirmStyles = styled.prototype.createGlobalStyle`
+export const ModalConfirmStyles = createGlobalStyle`
   // Fixes antd bug where prefixes do not apply correctly on all classes.
   // Styles are copied from antd.
   .mll-ant-modal-confirm .mll-ant-modal-confirm-btns .mll-ant-btn + .mll-ant-btn {
