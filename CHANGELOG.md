@@ -1,3 +1,10 @@
+# [11.10.0](https://github.com/mll-lab/react-components/compare/v11.9.2...v11.10.0) (2022-11-03)
+
+
+### Features
+
+* export textarea ref ([#193](https://github.com/mll-lab/react-components/issues/193)) ([8d7fe5e](https://github.com/mll-lab/react-components/commit/8d7fe5ef94a28432ba1b3c4da5982509ec41c450))
+
 ## [11.9.2](https://github.com/mll-lab/react-components/compare/v11.9.1...v11.9.2) (2022-10-19)
 
 
