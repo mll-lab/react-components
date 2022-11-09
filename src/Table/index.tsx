@@ -12,10 +12,11 @@ export {
   ColumnProps,
   TablePaginationConfig,
 } from 'antd/es/table';
+export { SortOrder } from 'antd/es/table/interface';
 
 export type TableProps<RecordType> = AntdTableProps<RecordType>;
 
-export const StyledTable = styled(AntdTable)`
+const StyledTable = styled(AntdTable)`
   .mll-ant-table {
     font-size: ${fontSizeFromTheme};
   }
