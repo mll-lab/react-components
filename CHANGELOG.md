@@ -1,3 +1,10 @@
+# [11.11.0](https://github.com/mll-lab/react-components/compare/v11.10.0...v11.11.0) (2022-11-10)
+
+
+### Features
+
+* export type `SortOrder` for `Table` ([#194](https://github.com/mll-lab/react-components/issues/194)) ([1e7bfc0](https://github.com/mll-lab/react-components/commit/1e7bfc0dc478ec76f6724cbed913e5075758aa87))
+
 # [11.10.0](https://github.com/mll-lab/react-components/compare/v11.9.2...v11.10.0) (2022-11-03)
 
 
