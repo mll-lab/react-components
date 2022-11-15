@@ -50,14 +50,14 @@ describe('Tabs', () => {
     expect(tabContent2).toBeVisible();
   });
 
-  it('set active tab to last tabId', () => {
+  it('set active tab to last tabID', () => {
     const title1 = 'My tab title1';
     const content1 = 'My tab content1';
     const title2 = 'My tab title2';
     const content2 = 'My tab content2';
 
     render(
-      <Tabs activeTabId={2} onSelected={(tabId) => tabId}>
+      <Tabs activeTabID={2} onSelected={(tabID) => tabID}>
         <TabPanel id={1} title={title1}>
           {content1}
         </TabPanel>
