@@ -24,37 +24,45 @@ function colorFromPropsOrTheme(
 }
 
 export const FilledButton = styled(AntdButton as ColoredButtonType)`
+  font-size: ${fontSizeFromTheme};
+
   background: ${colorFromPropsOrTheme};
   border-color: ${colorFromPropsOrTheme};
   color: ${PALETTE.white};
-  font-size: ${fontSizeFromTheme};
 
-  &:hover,
-  &:focus {
-    background: transparent;
+  &:hover:not([disabled]),
+  &:focus:not([disabled]) {
+    background: ${colorFromPropsOrTheme};
     border-color: ${colorFromPropsOrTheme};
-    color: ${colorFromPropsOrTheme};
+    color: ${PALETTE.white};
+    filter: brightness(90%);
   }
 
-  &[disabled] {
+  &[disabled],
+  &:hover[disabled],
+  &:focus[disabled] {
     color: ${(props) => props.theme.disabledColors?.lowContrast};
   }
 `;
 
 export const GhostButton = styled(AntdButton as ColoredButtonType)`
-  background: transparent;
-  border-color: ${colorFromPropsOrTheme};
-  color: ${colorFromPropsOrTheme};
   font-size: ${fontSizeFromTheme};
 
-  &:hover,
-  &:focus {
-    background: ${colorFromPropsOrTheme};
+  background: ${PALETTE.white};
+  border-color: ${colorFromPropsOrTheme};
+  color: ${colorFromPropsOrTheme};
+
+  &:hover:not([disabled]),
+  &:focus:not([disabled]) {
+    background: ${PALETTE.white};
     border-color: ${colorFromPropsOrTheme};
-    color: ${PALETTE.white};
+    color: ${colorFromPropsOrTheme};
+    filter: brightness(90%);
   }
 
-  &[disabled] {
+  &[disabled],
+  &:hover[disabled],
+  &:focus[disabled] {
     color: ${(props) => props.theme.disabledColors?.lowContrast};
   }
 `;
