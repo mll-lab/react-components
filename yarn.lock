@@ -1749,10 +1749,10 @@
   resolved "https://registry.yarnpkg.com/@mdx-js/util/-/util-1.6.22.tgz#219dfd89ae5b97a8801f015323ffa4b62f45718b"
   integrity sha512-H1rQc1ZOHANWBvPcW+JpGwr+juXSxM8Q8YCkm3GhZd8REu1fHR3z99CErO1p9pkcfcxZnMdIZdIsXkOHY0NilA==
 
-"@mll-lab/eslint-config@^1.19.0":
-  version "1.19.0"
-  resolved "https://registry.yarnpkg.com/@mll-lab/eslint-config/-/eslint-config-1.19.0.tgz#ec548315f5954ef2e37aacc89f473bf6e6e3cc86"
-  integrity sha512-4Jp7YRxE1cvO9D8gACKQAI7hN6vEQxeHKOKSibswpoUXW+Y5h3+B391k9n/5yTftywBUb5QJBIkbcEoXHAMJNg==
+"@mll-lab/eslint-config@^1.20.1":
+  version "1.20.1"
+  resolved "https://registry.yarnpkg.com/@mll-lab/eslint-config/-/eslint-config-1.20.1.tgz#68b8e903ee2d845aa1ecaf3b45138a8252731c78"
+  integrity sha512-ZoabwFS9/Lu1h8O5ALzSOFE0obfP18uYAw4bfG9vFCw/uN6wblIYCCRDEIr+BpvMzJ13+EjBlVJP7/CiPFehug==
   dependencies:
     "@getify/eslint-plugin-proper-arrows" "^11.0.3"
     "@typescript-eslint/eslint-plugin" "^5.10.2"
