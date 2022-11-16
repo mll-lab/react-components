@@ -1,3 +1,10 @@
+# [11.12.0](https://github.com/mll-lab/react-components/compare/v11.11.0...v11.12.0) (2022-11-16)
+
+
+### Features
+
+* add generic type TTabID to tabs ([#196](https://github.com/mll-lab/react-components/issues/196)) ([c6a4f53](https://github.com/mll-lab/react-components/commit/c6a4f5349b2feb44fd19e2444b914b74fbff4514))
+
 # [11.11.0](https://github.com/mll-lab/react-components/compare/v11.10.0...v11.11.0) (2022-11-10)
 
 
