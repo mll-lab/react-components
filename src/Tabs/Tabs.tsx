@@ -94,8 +94,9 @@ export function Tabs<TTabID = number | string>(props: TabsProps<TTabID>) {
   );
 
   return (
-    // TODO how to fix this generics issue?
-    // https://hipsterbrown.com/musings/musing/react-context-with-generics/
+    // @ts-expect-error TabsContext can not be used generically, as it is a const.
+    // Workarounds exist, but they involve more complicated and inefficient code:
+    // https://hipsterbrown.com/musings/musing/react-context-with-generics
     // https://ordina-jworks.github.io/architecture/2021/02/12/react-generic-context.html
     <TabsContext.Provider value={tabsContextProps}>
       <TabsHeader />
