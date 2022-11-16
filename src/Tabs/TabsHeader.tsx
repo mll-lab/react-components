@@ -44,7 +44,7 @@ export function TabsHeader() {
   return (
     <TitleList>
       {context.tabs.map((tab: TabPanelProps) => {
-        const isActiveTab = context.activeTabId === tab.id;
+        const isActiveTab = context.activeTabID === tab.id;
 
         return (
           <TabTitle

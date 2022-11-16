@@ -1,15 +1,15 @@
 import { ReactNode } from 'react';
 
-export type TabsProps = {
+export type TabsProps<TTabID = number | string> = {
   children?: ReactNode;
 
   // Set either both or none of those props
-  activeTabId?: number | string;
-  onSelected?: (tabId: number | string) => void;
+  activeTabID?: TTabID;
+  onSelected?: (tabID: TTabID) => void;
 };
 
-export type TabPanelProps = {
-  id: number | string;
+export type TabPanelProps<TTabID = number | string> = {
+  id: TTabID;
   title: ReactNode;
   children?: ReactNode;
 };

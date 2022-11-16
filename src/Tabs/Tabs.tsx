@@ -1,29 +1,32 @@
-import React, { useMemo, useReducer } from 'react';
+import React, { Reducer, useMemo, useReducer } from 'react';
 
 import { TabsContext, TabsContextProps } from './TabsContext';
 import { TabsHeader } from './TabsHeader';
 import { TabPanelProps, TabsProps } from './types';
 
-type State = {
-  tabs: Array<TabPanelProps>;
-  activeTabId?: number | string;
+type State<TTabID = number | string> = {
+  tabs: Array<TabPanelProps<TTabID>>;
+  activeTabID?: TTabID;
 };
 
-type Action =
+type Action<TTabID = number | string> =
   | {
       type: 'registerTab';
-      newTab: TabPanelProps;
+      newTab: TabPanelProps<TTabID>;
     }
   | {
       type: 'unregisterTab';
-      tabId: number | string;
+      tabID: TTabID;
     }
   | {
       type: 'onSelected';
-      tabId: number | string;
+      tabID: TTabID;
     };
 
-function reducer(state: State, action: Action): State {
+function reducer<TTabID = number | string>(
+  state: State<TTabID>,
+  action: Action<TTabID>,
+): State<TTabID> {
   switch (action.type) {
     case 'registerTab': {
       const tabWasAlreadyRegistered = state.tabs.some(
@@ -35,17 +38,17 @@ function reducer(state: State, action: Action): State {
 
       return {
         tabs: state.tabs.concat(action.newTab),
-        activeTabId:
-          state.tabs.length === 0 ? action.newTab.id : state.activeTabId,
+        activeTabID:
+          state.tabs.length === 0 ? action.newTab.id : state.activeTabID,
       };
     }
     case 'unregisterTab': {
-      const tabs = state.tabs.filter((tab) => tab.id !== action.tabId);
+      const tabs = state.tabs.filter((tab) => tab.id !== action.tabID);
 
       return {
         tabs,
-        activeTabId:
-          state.activeTabId === action.tabId && tabs.length > 1
+        activeTabID:
+          state.activeTabID === action.tabID && tabs.length > 1
             ? tabs[0].id
             : undefined,
       };
@@ -53,7 +56,7 @@ function reducer(state: State, action: Action): State {
     case 'onSelected': {
       return {
         ...state,
-        activeTabId: action.tabId,
+        activeTabID: action.tabID,
       };
     }
   }
@@ -63,29 +66,38 @@ function reducer(state: State, action: Action): State {
  * In contrast to the antd Tabs component, this implementation does
  * not require tab panels to be direct children of tabs.
  */
-export function Tabs(props: TabsProps) {
-  const [state, dispatch] = useReducer(reducer, { tabs: [] });
+export function Tabs<TTabID = number | string>(props: TabsProps<TTabID>) {
+  const [state, dispatch] = useReducer<Reducer<State<TTabID>, Action<TTabID>>>(
+    reducer,
+    {
+      tabs: [],
+    },
+  );
 
   const tabsContextProps = useMemo(
-    (): TabsContextProps => ({
+    (): TabsContextProps<TTabID> => ({
       tabs: state.tabs,
       registerTab: (newTab) => {
         dispatch({ type: 'registerTab', newTab });
       },
-      unregisterTab: (tabId) => {
-        dispatch({ type: 'unregisterTab', tabId });
+      unregisterTab: (tabID) => {
+        dispatch({ type: 'unregisterTab', tabID });
       },
       onSelected:
         props.onSelected ??
-        ((tabId) => {
-          dispatch({ type: 'onSelected', tabId });
+        ((tabID) => {
+          dispatch({ type: 'onSelected', tabID });
         }),
-      activeTabId: props.activeTabId ?? state.activeTabId,
+      activeTabID: props.activeTabID ?? state.activeTabID,
     }),
-    [state.tabs, state.activeTabId, props.onSelected, props.activeTabId],
+    [state.tabs, state.activeTabID, props.onSelected, props.activeTabID],
   );
 
   return (
+    // @ts-expect-error TabsContext can not be used generically, as it is a const.
+    // Workarounds exist, but they involve more complicated and inefficient code:
+    // https://hipsterbrown.com/musings/musing/react-context-with-generics
+    // https://ordina-jworks.github.io/architecture/2021/02/12/react-generic-context.html
     <TabsContext.Provider value={tabsContextProps}>
       <TabsHeader />
       {props.children}

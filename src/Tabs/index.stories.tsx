@@ -67,7 +67,7 @@ export const Controlled: Story<TabsProps> = function Controlled(args) {
 };
 
 Controlled.argTypes = {
-  activeTabId: {
+  activeTabID: {
     control: {
       type: 'inline-radio',
       options: [1, 2, 3, 4],
