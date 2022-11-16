@@ -1,3 +1,10 @@
+# [11.13.0](https://github.com/mll-lab/react-components/compare/v11.12.0...v11.13.0) (2022-11-16)
+
+
+### Features
+
+* improve Button contrast on dark backgrounds ([#197](https://github.com/mll-lab/react-components/issues/197)) ([6926b11](https://github.com/mll-lab/react-components/commit/6926b113f7fb90e3a2f1aed4402fbeaaff1f1f65))
+
 # [11.12.0](https://github.com/mll-lab/react-components/compare/v11.11.0...v11.12.0) (2022-11-16)
 
 
