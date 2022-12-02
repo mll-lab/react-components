@@ -1,7 +1,6 @@
 import { BaseOptionType, DefaultOptionType } from 'antd/lib/select';
 import React from 'react';
 import {
-  useController,
   FieldPath,
   FieldPathValue,
   FieldValues,
@@ -13,6 +12,7 @@ import { Select, SelectProps } from '../Select';
 
 import { useFieldContext } from './FieldProvider';
 import { FieldWrapper, FieldWrapperProps } from './FieldWrapper';
+import { useCustomController } from './useCustomController';
 
 type SelectFieldProps<
   TFieldValues extends FieldValues,
@@ -37,7 +37,7 @@ export function SelectField<
 }: SelectFieldProps<TFieldValues, TName, TOption>) {
   const {
     field: { ref, onChange, ...fieldProps },
-  } = useController<TFieldValues, TName>(controller);
+  } = useCustomController<TFieldValues, TName>(controller);
 
   const { disabled } = useFieldContext();
 

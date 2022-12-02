@@ -4,17 +4,13 @@ import {
   GERMAN_DECIMAL_SEPARATOR,
 } from '@mll-lab/js-utils';
 import React from 'react';
-import {
-  useController,
-  FieldValues,
-  UseControllerProps,
-  FieldPath,
-} from 'react-hook-form';
+import { FieldValues, UseControllerProps, FieldPath } from 'react-hook-form';
 
 import { InputNumber, InputNumberProps } from '../Input';
 
 import { useFieldContext } from './FieldProvider';
 import { FieldWrapper, FieldWrapperProps } from './FieldWrapper';
+import { useCustomController } from './useCustomController';
 
 type InputNumberFieldProps<
   TFieldValues extends FieldValues,
@@ -38,7 +34,7 @@ export function InputNumberField<
   defaultFieldValue = '',
   ...controller
 }: InputNumberFieldProps<TFieldValues, TName>) {
-  const { field } = useController<TFieldValues, TName>(controller);
+  const { field } = useCustomController<TFieldValues, TName>(controller);
 
   const { disabled } = useFieldContext();
 

@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react';
 import {
-  useController,
   FieldValues,
   UseControllerProps,
   FieldPathValue,
@@ -11,6 +10,7 @@ import {
 import { Form, FormItemProps } from '../Form';
 
 import { useFieldContext } from './FieldProvider';
+import { useCustomController } from './useCustomController';
 
 export type FieldWrapperProps<
   TFieldValues extends FieldValues,
@@ -27,7 +27,9 @@ export function FieldWrapper<
   TFieldValues extends FieldValues,
   TName extends FieldPath<TFieldValues>,
 >(props: FieldWrapperProps<TFieldValues, TName>) {
-  const { fieldState } = useController<TFieldValues, TName>(props.controller);
+  const { fieldState } = useCustomController<TFieldValues, TName>(
+    props.controller,
+  );
 
   const { formItemProps } = useFieldContext();
 

@@ -1,15 +1,11 @@
 import React from 'react';
-import {
-  useController,
-  FieldValues,
-  UseControllerProps,
-  FieldPath,
-} from 'react-hook-form';
+import { FieldValues, UseControllerProps, FieldPath } from 'react-hook-form';
 
 import { Input, InputProps } from '../Input';
 
 import { useFieldContext } from './FieldProvider';
 import { FieldWrapper, FieldWrapperProps } from './FieldWrapper';
+import { useCustomController } from './useCustomController';
 
 type InputFieldProps<
   TFieldValues extends FieldValues,
@@ -27,7 +23,7 @@ export function InputField<
   component,
   ...controller
 }: InputFieldProps<TFieldValues, TName>) {
-  const { field } = useController<TFieldValues, TName>(controller);
+  const { field } = useCustomController<TFieldValues, TName>(controller);
 
   const { disabled } = useFieldContext();
 
