@@ -1,3 +1,10 @@
+# [11.14.0](https://github.com/mll-lab/react-components/compare/v11.13.0...v11.14.0) (2023-01-05)
+
+
+### Features
+
+* make card border visible on default background color ([#199](https://github.com/mll-lab/react-components/issues/199)) ([3753878](https://github.com/mll-lab/react-components/commit/3753878e3140c8e2731ffe6f03df6208996ae09b))
+
 # [11.13.0](https://github.com/mll-lab/react-components/compare/v11.12.0...v11.13.0) (2022-11-16)
 
 
