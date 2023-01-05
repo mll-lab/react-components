@@ -14,6 +14,9 @@ const StyledCard = styled(AntdCard)`
   .mll-ant-card-extra {
     font-size: ${fontSizeFromTheme};
   }
+  &.mll-ant-card-bordered {
+    border: 1px solid ${(props) => props.theme.containerBorderColor};
+  }
 `;
 
 export const Card: typeof AntdCard = StyledCard;
