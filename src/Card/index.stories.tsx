@@ -1,6 +1,8 @@
 import { Story } from '@storybook/react';
 import React from 'react';
 
+import { THEME } from '../theme';
+
 import { Card, CardProps } from './index';
 
 export default {
@@ -68,3 +70,18 @@ export const CardMeta: Story<CardProps> = function CardMeta(args) {
     </Card>
   );
 };
+
+export const CardOnColoredBackground: Story<CardProps> =
+  function CardOnColoredBackground(args) {
+    return (
+      <div style={{ background: THEME.backgroundColor, padding: 20 }}>
+        <Card
+          style={{ width: 240 }}
+          title="Card on background with default color"
+          {...args}
+        >
+          <p>Border is visible even when there is a background color</p>
+        </Card>
+      </div>
+    );
+  };
