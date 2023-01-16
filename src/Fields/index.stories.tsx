@@ -1,5 +1,5 @@
 import { Story } from '@storybook/react';
-import React, { useCallback } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { FormProvider, useForm, useFormContext } from 'react-hook-form';
 
 import { Form } from '../Form';
@@ -127,6 +127,7 @@ export const NestedProviders: Story<
 
 function AllFields() {
   const formMethods = useFormContext<FormType>();
+  const textAreaRef = useRef<HTMLInputElement>(null);
   return (
     <Form labelCol={{ span: 10 }} wrapperCol={{ span: 14 }}>
       <CheckboxField
@@ -177,6 +178,10 @@ function AllFields() {
         control={formMethods.control}
         formItem={{
           label: 'TextArea Label',
+        }}
+        component={{
+          ref: textAreaRef,
+          minLength: 3,
         }}
       />
     </Form>
