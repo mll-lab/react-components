@@ -1,3 +1,10 @@
+## [11.14.1](https://github.com/mll-lab/react-components/compare/v11.14.0...v11.14.1) (2023-01-20)
+
+
+### Bug Fixes
+
+* actually expose Space.Compact ([491fddf](https://github.com/mll-lab/react-components/commit/491fddf76c26de56a5105e64347589423a08102a))
+
 # [11.14.0](https://github.com/mll-lab/react-components/compare/v11.13.0...v11.14.0) (2023-01-05)
 
 
