@@ -20,7 +20,7 @@ export const TextArea: Story<TextAreaProps> = function TextArea(args) {
 };
 
 export const Number: Story<InputNumberProps> = function Number(args) {
-  const [num, setNum] = useState<number>(0);
+  const [num, setNum] = useState<number | null>(0);
 
   return (
     <InputNumber
@@ -28,7 +28,7 @@ export const Number: Story<InputNumberProps> = function Number(args) {
       max={10}
       value={num}
       onChange={(val) =>
-        setNum(typeof val !== 'number' ? parseInt(val, 10) : val)
+        setNum(typeof val === 'string' ? parseInt(val, 10) : val)
       }
       {...args}
     />
