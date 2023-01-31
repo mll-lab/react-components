@@ -11,6 +11,7 @@ import { InputField } from './InputField';
 import { InputNumberField } from './InputNumberField';
 import { RadioGroupField } from './RadioGroupField';
 import { SelectField } from './SelectField';
+import { SwitchField } from './SwitchField';
 import { TextAreaField } from './TextAreaField';
 import { formItemFieldProps } from './formItemFieldProps';
 
@@ -38,6 +39,7 @@ type FormType = {
   input_number: number;
   radio_group: 1 | 2;
   select: 'a' | 'b';
+  switch: boolean;
   text_area: string;
 };
 
@@ -170,6 +172,13 @@ function AllFields() {
         }}
         component={{
           options: ['a', 'b'].map(toFormInputOption),
+        }}
+      />
+      <SwitchField
+        name="switch"
+        control={formMethods.control}
+        formItem={{
+          label: 'Switch Label',
         }}
       />
       <TextAreaField

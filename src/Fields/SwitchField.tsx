@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import React from 'react';
 import {
   useController,
   FieldValues,
@@ -6,29 +6,27 @@ import {
   FieldPath,
 } from 'react-hook-form';
 
-import { Checkbox, CheckboxProps } from '../Checkbox';
+import { Switch, SwitchProps } from '../Switch';
 
 import { useFieldContext } from './FieldProvider';
 import { FieldWrapper, FieldWrapperProps } from './FieldWrapper';
 
-type CheckboxFieldProps<
+type SwitchFieldProps<
   TFieldValues extends FieldValues,
   TName extends FieldPath<TFieldValues>,
 > = UseControllerProps<TFieldValues, TName> &
-  Pick<FieldWrapperProps<TFieldValues, TName>, 'formItem'> &
-  PropsWithChildren<{
-    component?: CheckboxProps;
-  }>;
+  Pick<FieldWrapperProps<TFieldValues, TName>, 'formItem'> & {
+    component?: SwitchProps;
+  };
 
-export function CheckboxField<
+export function SwitchField<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 >({
   formItem,
   component,
-  children,
   ...controller
-}: CheckboxFieldProps<TFieldValues, TName>) {
+}: SwitchFieldProps<TFieldValues, TName>) {
   const {
     field: { value, onChange, ...field },
   } = useController<TFieldValues, TName>(controller);
@@ -37,17 +35,15 @@ export function CheckboxField<
 
   return (
     <FieldWrapper controller={controller} formItem={formItem}>
-      <Checkbox
+      <Switch
         {...field}
-        onChange={(event) => {
-          onChange(event.target.checked);
+        onChange={(checked) => {
+          onChange(checked);
         }}
         checked={value}
         disabled={disabled}
         {...component}
-      >
-        {children}
-      </Checkbox>
+      />
     </FieldWrapper>
   );
 }
