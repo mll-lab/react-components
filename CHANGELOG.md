@@ -1,3 +1,10 @@
+# [11.15.0](https://github.com/mll-lab/react-components/compare/v11.14.1...v11.15.0) (2023-01-31)
+
+
+### Features
+
+* add SwitchField component ([add735d](https://github.com/mll-lab/react-components/commit/add735d924f9f6317b1f9cfd68879cc145ce5831))
+
 ## [11.14.1](https://github.com/mll-lab/react-components/compare/v11.14.0...v11.14.1) (2023-01-20)
 
 
