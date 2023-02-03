@@ -1,10 +1,10 @@
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 
-import { MasterMix } from './index';
+import { MasterMix, MasterMixIngredients } from './index';
 
 describe('MasterMix component', () => {
-  const ingredients = [
+  const ingredients: MasterMixIngredients = [
     { key: 1, title: 'Water', volume: 79.5 },
     { key: 2, title: 'Primer F', volume: 9.2 },
     { key: 3, title: 'Primer R', volume: 9 },
@@ -14,22 +14,18 @@ describe('MasterMix component', () => {
   const count = 7;
 
   it('renders with the given name and count', () => {
-    const { getByText } = render(
-      <MasterMix name={name} count={count} ingredients={ingredients} />,
-    );
+    render(<MasterMix name={name} count={count} ingredients={ingredients} />);
 
-    expect(getByText(`${name} MasterMix`)).toBeInTheDocument();
-    expect(getByText(`${count}x Ansätze + 2x (PV)`)).toBeInTheDocument();
+    expect(screen.getByText(`${name} MasterMix`)).toBeInTheDocument();
+    expect(screen.getByText(`${count}x Ansätze + 2x (PV)`)).toBeInTheDocument();
   });
 
   it('renders the ingredients with the correct volume and sum', () => {
-    const { getByText } = render(
-      <MasterMix name="Test" count={count} ingredients={ingredients} />,
-    );
+    render(<MasterMix name="Test" count={count} ingredients={ingredients} />);
 
     ingredients.forEach((ingredient) => {
       expect(
-        getByText(`${ingredient.volume.toFixed(1)} µl`),
+        screen.getByText(`${ingredient.volume.toFixed(1)} µl`),
       ).toBeInTheDocument();
     });
 
@@ -38,28 +34,30 @@ describe('MasterMix component', () => {
       (count + 2)
     ).toFixed(1);
     expect(totalVolume === '901.8').toBeTruthy();
-    expect(getByText(`${totalVolume} µl`)).toBeInTheDocument();
+    expect(screen.getByText(`${totalVolume} µl`)).toBeInTheDocument();
   });
 
   it('highlights the clicked ingredient but not the sum', () => {
-    const { getByText, container } = render(
-      <MasterMix name="Test" count={1} ingredients={ingredients} />,
-    );
+    render(<MasterMix name="Test" count={1} ingredients={ingredients} />);
 
-    expect(
-      container.getElementsByClassName('mll-ant-table-row-selected').length,
-    ).toBe(0);
+    const numberOfSelectedTableRows = () =>
+      screen
+        .getAllByRole('row')
+        .filter((row) => row.classList.contains('mll-ant-table-row-selected'))
+        .length;
 
-    fireEvent.click(getByText('Gesamtvolumen'));
+    expect(numberOfSelectedTableRows()).toBe(0);
 
-    expect(
-      container.getElementsByClassName('mll-ant-table-row-selected').length,
-    ).toBe(0);
+    fireEvent.click(screen.getByText('Gesamtvolumen'));
+    expect(numberOfSelectedTableRows()).toBe(0);
 
-    fireEvent.click(getByText('Water'));
+    fireEvent.click(screen.getByText('Water'));
+    expect(numberOfSelectedTableRows()).toBe(1);
 
-    expect(
-      container.getElementsByClassName('mll-ant-table-row-selected').length,
-    ).toBe(1);
+    fireEvent.click(screen.getByText('Probe'));
+    expect(numberOfSelectedTableRows()).toBe(2);
+
+    fireEvent.click(screen.getByText('Probe'));
+    expect(numberOfSelectedTableRows()).toBe(1);
   });
 });
