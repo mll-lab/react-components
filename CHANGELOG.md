@@ -1,3 +1,10 @@
+## [11.16.1](https://github.com/mll-lab/react-components/compare/v11.16.0...v11.16.1) (2023-02-03)
+
+
+### Bug Fixes
+
+* upgrade babel dependencies ([#207](https://github.com/mll-lab/react-components/issues/207)) ([f2e0b5e](https://github.com/mll-lab/react-components/commit/f2e0b5edb739c436e4e734ba909a72fb40d728a5))
+
 # [11.16.0](https://github.com/mll-lab/react-components/compare/v11.15.1...v11.16.0) (2023-02-03)
 
 
