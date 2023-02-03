@@ -1,13 +1,13 @@
 import { Story } from '@storybook/react';
 import React from 'react';
 
-import { MasterMix, MasterMixParams } from './index';
+import { MasterMix, MasterMixIngredients, MasterMixParams } from './index';
 
 export default {
   title: 'MasterMix',
 };
 
-const ingredients = [
+const ingredients: MasterMixIngredients = [
   { key: 1, title: 'Water', volume: 79.5 },
   { key: 2, title: 'Primer Fordward', volume: 9.2 },
   { key: 3, title: 'Primer Reverse', volume: 9 },
