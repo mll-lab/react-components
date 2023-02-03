@@ -23,8 +23,6 @@ export type MasterMixProps = {
 
 /**
  * The reactants can be clicked and marked as pipetted.
- *
- * Do not use the 'key' 99999. This key is reserved for as SUM_ROW_KEY
  */
 export function MasterMix(props: MasterMixProps) {
   const [highlightedEntries, setHighlightedEntries] = useState<Array<string>>(
@@ -34,7 +32,7 @@ export function MasterMix(props: MasterMixProps) {
   const ingredientsWithSumRow = [
     ...props.ingredients,
     {
-      key: SUM_ROW_KEY,
+      key: 'Total Volume (non-numeric string, guaranteed to be unique since ingredients keys must be of type number)',
       title: <h4>Gesamtvolumen</h4>,
       volume: props.ingredients.reduce(
         (volumeAccumulator, ingredient) =>
