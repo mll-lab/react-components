@@ -3,7 +3,7 @@ import React from 'react';
 
 import { MasterMix, MasterMixIngredients } from './index';
 
-describe('MasterMix component', () => {
+describe('MasterMix', () => {
   const ingredients: MasterMixIngredients = [
     { key: 1, title: 'Water', volume: 79.5 },
     { key: 2, title: 'Primer F', volume: 9.2 },
