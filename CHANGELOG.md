@@ -1,3 +1,10 @@
+# [11.16.0](https://github.com/mll-lab/react-components/compare/v11.15.1...v11.16.0) (2023-02-03)
+
+
+### Features
+
+* Add MasterMix component ([a1988cc](https://github.com/mll-lab/react-components/commit/a1988cce9a5e8ef10a2bd1e7ddb447ff995c30dd))
+
 ## [11.15.1](https://github.com/mll-lab/react-components/compare/v11.15.0...v11.15.1) (2023-02-03)
 
 
