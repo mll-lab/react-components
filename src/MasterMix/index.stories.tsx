@@ -1,7 +1,7 @@
 import { Story } from '@storybook/react';
 import React from 'react';
 
-import { MasterMix, MasterMixIngredients, MasterMixParams } from './index';
+import { MasterMix, MasterMixIngredients, MasterMixProps } from './index';
 
 export default {
   title: 'MasterMix',
@@ -16,6 +16,6 @@ const ingredients: MasterMixIngredients = [
 const name = 'Example';
 const count = 7;
 
-export const Default: Story<MasterMixParams> = function Default() {
+export const Default: Story<MasterMixProps> = function Default() {
   return <MasterMix name={name} count={count} ingredients={ingredients} />;
 };
