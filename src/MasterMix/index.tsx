@@ -15,7 +15,7 @@ export type MasterMixIngredients = Array<{
   volume: number;
 }>;
 
-export type MasterMixParams = {
+export type MasterMixProps = {
   name: string;
   count: number;
   ingredients: MasterMixIngredients;
@@ -26,7 +26,7 @@ export type MasterMixParams = {
  *
  * Do not use the 'key' 99999. This key is reserved for as SUM_ROW_KEY
  */
-export function MasterMix(props: MasterMixParams) {
+export function MasterMix(props: MasterMixProps) {
   const [highlightedEntries, setHighlightedEntries] = useState<Array<string>>(
     [],
   );
