@@ -7,7 +7,6 @@ import { Tooltip } from '../Tooltip';
 import { Typography } from '../Typography';
 
 const PIPETTING_LOSS_FACTOR = 2;
-const SUM_ROW_KEY = 'SUM_ROW_KEY';
 
 export type MasterMixIngredients = Array<{
   key: number;
