@@ -30,7 +30,7 @@ describe('MasterMix component', () => {
     });
 
     const totalVolume = (
-      ingredients.reduce((a, b) => a + b.volume, 0) *
+      ingredients.reduce((sum, ingredient) => sum + ingredient.volume, 0) *
       (count + 2)
     ).toFixed(1);
     expect(totalVolume === '901.8').toBeTruthy();
