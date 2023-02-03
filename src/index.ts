@@ -26,6 +26,7 @@ export * from './Grid';
 export * from './Image';
 export * from './Input';
 export * from './List';
+export * from './MasterMix';
 export * from './Menu';
 export * from './Modal';
 export * from './PageHeader';
