@@ -1,3 +1,10 @@
+## [11.15.1](https://github.com/mll-lab/react-components/compare/v11.15.0...v11.15.1) (2023-02-03)
+
+
+### Bug Fixes
+
+* upgrade @babel/runtime ([#205](https://github.com/mll-lab/react-components/issues/205)) ([a71138c](https://github.com/mll-lab/react-components/commit/a71138cb17e04492baab5070a88939eca105fec5))
+
 # [11.15.0](https://github.com/mll-lab/react-components/compare/v11.14.1...v11.15.0) (2023-01-31)
 
 
