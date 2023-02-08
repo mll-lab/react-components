@@ -1,3 +1,10 @@
+## [11.16.2](https://github.com/mll-lab/react-components/compare/v11.16.1...v11.16.2) (2023-02-08)
+
+
+### Bug Fixes
+
+* update babel and jest ([#208](https://github.com/mll-lab/react-components/issues/208)) ([6cdd805](https://github.com/mll-lab/react-components/commit/6cdd80503500e17df1f42a50f43a66117b0786e8))
+
 ## [11.16.1](https://github.com/mll-lab/react-components/compare/v11.16.0...v11.16.1) (2023-02-03)
 
 
