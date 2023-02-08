@@ -1,3 +1,11 @@
+## [11.16.4](https://github.com/mll-lab/react-components/compare/v11.16.3...v11.16.4) (2023-02-08)
+
+
+### Bug Fixes
+
+* downgrade antd to 4.20.5 ([5ae7f1e](https://github.com/mll-lab/react-components/commit/5ae7f1e26ee0fed2e603c9dcb37f902c6865a57d))
+* fix dependencies ([#209](https://github.com/mll-lab/react-components/issues/209)) ([bc81864](https://github.com/mll-lab/react-components/commit/bc81864852dba017a610e9dfb3dd58c01b7512f5))
+
 ## [11.16.3](https://github.com/mll-lab/react-components/compare/v11.16.2...v11.16.3) (2023-02-08)
 
 
