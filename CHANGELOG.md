@@ -1,3 +1,10 @@
+## [11.16.3](https://github.com/mll-lab/react-components/compare/v11.16.2...v11.16.3) (2023-02-08)
+
+
+### Bug Fixes
+
+* downgrade @babel/runtime to 7.17.9 ([f2c1f54](https://github.com/mll-lab/react-components/commit/f2c1f54b388e08fccfdc1a75709a5096a9d8b2d4))
+
 ## [11.16.2](https://github.com/mll-lab/react-components/compare/v11.16.1...v11.16.2) (2023-02-08)
 
 
