@@ -1,3 +1,10 @@
+# [11.17.0](https://github.com/mll-lab/react-components/compare/v11.16.4...v11.17.0) (2023-02-08)
+
+
+### Features
+
+* update @ant-design/icons ([#210](https://github.com/mll-lab/react-components/issues/210)) ([3cbc87d](https://github.com/mll-lab/react-components/commit/3cbc87d5ad10e78370bf08b5b363bc6cce350899))
+
 ## [11.16.4](https://github.com/mll-lab/react-components/compare/v11.16.3...v11.16.4) (2023-02-08)
 
 
