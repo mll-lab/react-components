@@ -40,14 +40,14 @@
   },
   "homepage": "https://github.com/mll-lab/react-components",
   "peerDependencies": {
-    "@babel/runtime": "^7.17.9",
+    "@babel/runtime": "^7.20.13",
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0",
     "react-hook-form": "^7.26.1",
     "styled-components": "^5.3.3"
   },
   "dependencies": {
-    "@ant-design/icons": "4.8.0",
+    "@ant-design/icons": "5.0.1",
     "@mll-lab/js-utils": "2.15.3",
     "antd": "4.20.5",
     "date-fns": "2.29.3",
