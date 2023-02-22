@@ -1,3 +1,15 @@
+# [12.0.0](https://github.com/mll-lab/react-components/compare/v11.17.0...v12.0.0) (2023-02-22)
+
+
+### Features
+
+* Add dynamic pipetting loss to MasterMix ([#211](https://github.com/mll-lab/react-components/issues/211)) ([422c71b](https://github.com/mll-lab/react-components/commit/422c71b15856a7925c8798dbd9b9f2bc16c6b160))
+
+
+### BREAKING CHANGES
+
+* MasterMix-Component requires pipettingLoss-property
+
 # [11.17.0](https://github.com/mll-lab/react-components/compare/v11.16.4...v11.17.0) (2023-02-08)
 
 
