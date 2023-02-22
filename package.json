@@ -48,7 +48,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "5.0.1",
-    "@mll-lab/js-utils": "2.15.3",
+    "@mll-lab/js-utils": "2.16.0",
     "antd": "4.20.5",
     "date-fns": "2.29.3",
     "lodash": "4.17.21"
