@@ -1,12 +1,12 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 
-import { Ingredient } from './types';
+import { MasterMixIngredient } from './types';
 
 import { MasterMix } from './index';
 
 describe('MasterMix', () => {
-  const ingredients: Array<Ingredient> = [
+  const ingredients: Array<MasterMixIngredient> = [
     { key: 1, title: 'Water', volume: 79.5 },
     { key: 2, title: 'Primer F', volume: 9.2 },
     { key: 3, title: 'Primer R', volume: 9 },

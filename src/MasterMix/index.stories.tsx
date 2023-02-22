@@ -1,7 +1,7 @@
 import { Story } from '@storybook/react';
 import React from 'react';
 
-import { Ingredient, MasterMixProps } from './types';
+import { MasterMixIngredient, MasterMixProps } from './types';
 
 import { MasterMix } from './index';
 
@@ -9,7 +9,7 @@ export default {
   title: 'MasterMix',
 };
 
-const ingredients: Array<Ingredient> = [
+const ingredients: Array<MasterMixIngredient> = [
   { key: 1, title: 'Water', volume: 79.5 },
   { key: 2, title: 'Primer Fordward', volume: 9.2 },
   { key: 3, title: 'Primer Reverse', volume: 9 },

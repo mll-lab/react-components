@@ -2,7 +2,7 @@ import { Modify } from '@mll-lab/js-utils';
 import { ColumnType } from 'antd/es/table';
 import { ReactNode } from 'react';
 
-export type Ingredient = {
+export type MasterMixIngredient = {
   key: number;
   title: string | NonNullable<ReactNode>;
   volume: number;
@@ -10,7 +10,7 @@ export type Ingredient = {
 export type MasterMixProps = {
   name: string;
   count: number;
-  ingredients: Array<Ingredient>;
+  ingredients: Array<MasterMixIngredient>;
   pipettingLoss: PipettingLoss;
 };
 export type PipettingLossByFactor = { type: 'factor'; factor: number };
@@ -18,7 +18,7 @@ export type PipettingLossAbsolute = { type: 'absolute'; count: number };
 export type PipettingLoss = PipettingLossByFactor | PipettingLossAbsolute;
 
 export type IngredientWithStringOrNumberKey = Modify<
-  Ingredient,
+  MasterMixIngredient,
   {
     key: string | number;
   }

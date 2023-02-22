@@ -8,6 +8,14 @@ import { Typography } from '../Typography';
 import { pipettingLossTableColumn } from './pipettingLossTableColumn';
 import { MasterMixProps } from './types';
 
+export {
+  MasterMixProps,
+  MasterMixIngredient,
+  PipettingLoss,
+  PipettingLossAbsolute,
+  PipettingLossByFactor,
+} from './types';
+
 /**
  * The reactants can be clicked and marked as pipetted.
  */
