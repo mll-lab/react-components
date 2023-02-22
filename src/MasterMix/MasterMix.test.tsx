@@ -1,10 +1,12 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 
-import { MasterMix, MasterMixIngredients } from './index';
+import { Ingredient } from './types';
+
+import { MasterMix } from './index';
 
 describe('MasterMix', () => {
-  const ingredients: MasterMixIngredients = [
+  const ingredients: Array<Ingredient> = [
     { key: 1, title: 'Water', volume: 79.5 },
     { key: 2, title: 'Primer F', volume: 9.2 },
     { key: 3, title: 'Primer R', volume: 9 },
@@ -14,14 +16,28 @@ describe('MasterMix', () => {
   const count = 7;
 
   it('renders with the given name and count', () => {
-    render(<MasterMix name={name} count={count} ingredients={ingredients} />);
+    render(
+      <MasterMix
+        name={name}
+        count={count}
+        ingredients={ingredients}
+        pipettingLoss={{ type: 'absolute', count: 2 }}
+      />,
+    );
 
     expect(screen.getByText(`${name} MasterMix`)).toBeInTheDocument();
     expect(screen.getByText(`${count}x Ansätze + 2x (PV)`)).toBeInTheDocument();
   });
 
   it('renders the ingredients with the correct volume and sum', () => {
-    render(<MasterMix name="Test" count={count} ingredients={ingredients} />);
+    render(
+      <MasterMix
+        name="Test"
+        count={count}
+        ingredients={ingredients}
+        pipettingLoss={{ type: 'absolute', count: 2 }}
+      />,
+    );
 
     ingredients.forEach((ingredient) => {
       expect(
@@ -38,7 +54,14 @@ describe('MasterMix', () => {
   });
 
   it('highlights the clicked ingredient but not the sum', () => {
-    render(<MasterMix name="Test" count={1} ingredients={ingredients} />);
+    render(
+      <MasterMix
+        name="Test"
+        count={1}
+        ingredients={ingredients}
+        pipettingLoss={{ type: 'absolute', count: 2 }}
+      />,
+    );
 
     const numberOfSelectedTableRows = () =>
       screen

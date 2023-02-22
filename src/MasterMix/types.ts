@@ -1,0 +1,40 @@
+import { Modify } from '@mll-lab/js-utils';
+import { ColumnType } from 'antd/es/table';
+import { ReactNode } from 'react';
+
+export type Ingredient = {
+  key: number;
+  title: string | NonNullable<ReactNode>;
+  volume: number;
+};
+export type MasterMixProps = {
+  name: string;
+  count: number;
+  ingredients: Array<Ingredient>;
+  pipettingLoss: PipettingLoss;
+};
+export type PipettingLossByFactor = { type: 'factor'; factor: number };
+export type PipettingLossAbsolute = { type: 'absolute'; count: number };
+export type PipettingLoss = PipettingLossByFactor | PipettingLossAbsolute;
+
+export type IngredientWithStringOrNumberKey = Modify<
+  Ingredient,
+  {
+    key: string | number;
+  }
+>;
+
+export type PipettingLossTableColumn = Modify<
+  ColumnType<IngredientWithStringOrNumberKey>,
+  {
+    render: (
+      value: unknown,
+      record: IngredientWithStringOrNumberKey,
+      index: number,
+    ) => React.ReactNode;
+  }
+>;
+export type PipettingLossTableColumnArgs = {
+  count: number;
+  pipettingLoss: PipettingLossByFactor | PipettingLossAbsolute;
+};

@@ -1,24 +1,12 @@
 import { toggleElement } from '@mll-lab/js-utils';
-import React, { ReactNode, useState } from 'react';
+import React, { useState } from 'react';
 
 import { Card } from '../Card';
 import { Table } from '../Table';
-import { Tooltip } from '../Tooltip';
 import { Typography } from '../Typography';
 
-const PIPETTING_LOSS_FACTOR = 2;
-
-export type MasterMixIngredients = Array<{
-  key: number;
-  title: string | NonNullable<ReactNode>;
-  volume: number;
-}>;
-
-export type MasterMixProps = {
-  name: string;
-  count: number;
-  ingredients: MasterMixIngredients;
-};
+import { pipettingLossTableColumn } from './pipettingLossTableColumn';
+import { MasterMixProps } from './types';
 
 /**
  * The reactants can be clicked and marked as pipetted.
@@ -77,24 +65,7 @@ export function MasterMix(props: MasterMixProps) {
             title: '1x',
             render: (_, record) => <>{record.volume.toFixed(1)} µl</>,
           },
-          {
-            title: (
-              <Tooltip title="Pipettierverlust">
-                <span>
-                  {props.count}x Ansätze + {PIPETTING_LOSS_FACTOR}x (PV)
-                </span>
-              </Tooltip>
-            ),
-            render: (_, record) => (
-              <>
-                {(
-                  record.volume *
-                  (props.count + PIPETTING_LOSS_FACTOR)
-                ).toFixed(1)}{' '}
-                µl
-              </>
-            ),
-          },
+          pipettingLossTableColumn(props),
         ]}
       />
     </Card>
