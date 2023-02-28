@@ -5,9 +5,8 @@ import { Plate } from '../Plate';
 import { TecanLayout } from '../index';
 
 import { HiddenArea } from './HiddenArea';
-import { PopOverArea } from './PopOverArea';
-
-import { ImageMap, ImageMapProps } from './index';
+import { ImageMap, ImageMapProps } from './ImageMap';
+import { PopoverArea } from './PopoverArea';
 
 export default {
   title: 'ImageMap',
@@ -44,7 +43,7 @@ export const Default: Story<ImageMapProps> = function Default(args) {
             y: 192,
           }}
         />
-        <PopOverArea
+        <PopoverArea
           key={1}
           title="Labware Detailansicht"
           position={{
