@@ -13,9 +13,8 @@ export type ImageMapProps = PropsWithChildren<{
 export function ImageMap(props: ImageMapProps) {
   const [dimensions, { loading, error }] = useImageSize(props.src);
 
-  const { onError } = props;
-  if (error && onError) {
-    onError(error);
+  if (error) {
+    props.onError?.(error);
   }
 
   if (dimensions === null) {

@@ -117,83 +117,81 @@ export function TecanLayout(props: {
   const labwaresWithPosition: Array<LabwareWithPositon> = [
     {
       key: 0,
-      content: props.labwares.mmPlate?.content ?? null,
+      content: props.labwares.mmPlate?.content,
       position: MM_LABWARE_POSITION,
     },
     {
       key: 1,
-      content: props.labwares.destPcr?.content ?? null,
+      content: props.labwares.destPcr?.content,
       position: DEST_PCR_LABWARE_POSITION,
     },
     {
       key: 2,
-      content: props.labwares.aPlate?.content ?? null,
+      content: props.labwares.aPlate?.content,
       position: A_PLATE_LABWARE_POSITION,
     },
     {
       key: 3,
-      content: props.labwares.bPlate?.content ?? null,
+      content: props.labwares.bPlate?.content,
       position: B_PLATE_LABWARE_POSITION,
     },
     {
       key: 4,
-      content: props.labwares.nemoWater?.content ?? null,
+      content: props.labwares.nemoWater?.content,
       position: NEMO_WATER_LABWARE_POSITION,
     },
     {
       key: 5,
-      content: props.labwares.nemoDilution?.content ?? null,
+      content: props.labwares.nemoDilution?.content,
       position: NEMO_DILUTION_LABWARE_POSITION,
     },
     {
       key: 6,
-      content: props.labwares.nemoDestPcr2?.content ?? null,
+      content: props.labwares.nemoDestPcr2?.content,
       position: NEMO_DEST_PCR_2_LABWARE_POSITION,
     },
     {
       key: 7,
-      content: props.labwares.nemoDestTaqMan?.content ?? null,
+      content: props.labwares.nemoDestTaqMan?.content,
       position: NEMO_DEST_TAQ_MAN_LABWARE_POSITION,
     },
     {
       key: 8,
-      content: props.labwares.destLc?.content ?? null,
+      content: props.labwares.destLc?.content,
       position: DEST_LC_LABWARE_POSITION,
     },
     {
       key: 9,
-      content: props.labwares.fluidX?.content ?? null,
+      content: props.labwares.fluidX?.content,
       position: FLUID_XLABWARE_POSITION,
     },
     {
       key: 10,
-      content: props.labwares.destPcr1?.content ?? null,
+      content: props.labwares.destPcr1?.content,
       position: DEST_PCR_1_LABWARE_POSITION,
     },
     {
       key: 11,
-      content: props.labwares.destPcr2?.content ?? null,
+      content: props.labwares.destPcr2?.content,
       position: DEST_PCR_2_LABWARE_POSITION,
     },
   ];
 
   return (
     <ImageMap src={props.src}>
-      <>
-        {labwaresWithPosition.map((item) => {
-          if (item.content) {
-            return (
-              <PopoverArea
-                key={item.key}
-                title="Labware Detailansicht"
-                position={item.position}
-                content={item.content}
-              />
-            );
-          }
-          return <HiddenArea position={item.position} key={item.key} />;
-        })}
-      </>
+      {labwaresWithPosition.map((item) => {
+        if (item.content) {
+          return (
+            <PopoverArea
+              key={item.key}
+              title="Labware Detailansicht"
+              position={item.position}
+              content={item.content}
+            />
+          );
+        }
+        return <HiddenArea position={item.position} key={item.key} />;
+      })}
     </ImageMap>
   );
 }
