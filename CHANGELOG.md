@@ -1,3 +1,10 @@
+# [12.1.0](https://github.com/mll-lab/react-components/compare/v12.0.0...v12.1.0) (2023-02-28)
+
+
+### Features
+
+* Add ImageMap and TecanLayout component ([#212](https://github.com/mll-lab/react-components/issues/212)) ([6a6d4ea](https://github.com/mll-lab/react-components/commit/6a6d4ea4660409c32a24e995e6fc0d4e210edb5a))
+
 # [12.0.0](https://github.com/mll-lab/react-components/compare/v11.17.0...v12.0.0) (2023-02-22)
 
 
