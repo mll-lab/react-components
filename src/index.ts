@@ -24,6 +24,8 @@ export * from './Fields'; // Might extract to separate package later due to depe
 export * from './Form';
 export * from './Grid';
 export * from './Image';
+export * from './ImageMap';
+export * from './ImageMap/TecanLayout';
 export * from './Input';
 export * from './List';
 export * from './MasterMix';
