@@ -1,3 +1,10 @@
+# [12.2.0](https://github.com/mll-lab/react-components/compare/v12.1.0...v12.2.0) (2023-03-07)
+
+
+### Features
+
+* add function indeterminate ([f4c9b59](https://github.com/mll-lab/react-components/commit/f4c9b598351caf60aa8591c0fddf086d2cd4c452))
+
 # [12.1.0](https://github.com/mll-lab/react-components/compare/v12.0.0...v12.1.0) (2023-02-28)
 
 
