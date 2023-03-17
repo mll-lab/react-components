@@ -10,6 +10,7 @@ export {
   ColumnType,
   ColumnGroupType,
   ColumnProps,
+  FilterDropdownProps,
   TablePaginationConfig,
 } from 'antd/es/table';
 export { SortOrder } from 'antd/es/table/interface';
