@@ -1,3 +1,10 @@
+# [12.3.0](https://github.com/mll-lab/react-components/compare/v12.2.0...v12.3.0) (2023-03-17)
+
+
+### Features
+
+* export type FilterDropdownProps ([#215](https://github.com/mll-lab/react-components/issues/215)) ([c7f5140](https://github.com/mll-lab/react-components/commit/c7f5140c688ed627268542e9e406b0e2a7b43813))
+
 # [12.2.0](https://github.com/mll-lab/react-components/compare/v12.1.0...v12.2.0) (2023-03-07)
 
 
