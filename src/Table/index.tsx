@@ -10,10 +10,9 @@ export {
   ColumnType,
   ColumnGroupType,
   ColumnProps,
-  FilterDropdownProps,
   TablePaginationConfig,
 } from 'antd/es/table';
-export { SortOrder } from 'antd/es/table/interface';
+export { FilterDropdownProps, SortOrder } from 'antd/es/table/interface';
 
 export type TableProps<RecordType> = AntdTableProps<RecordType>;
 
