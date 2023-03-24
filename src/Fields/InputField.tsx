@@ -38,6 +38,9 @@ export function InputField<
         value={field.value ?? undefined}
         disabled={disabled}
         {...component}
+        // Avoid losing focus when triggering/resolving a validation error
+        // https://4x.ant.design/components/input/#Why-Input-lose-focus-when-change-prefix/suffix/showCount
+        suffix={component?.suffix || <span />}
       />
     </FieldWrapper>
   );
