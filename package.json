@@ -13,7 +13,9 @@
   "sideEffects": false,
   "scripts": {
     "prebuild": "rm -rf cjs esm types",
-    "build": "rollup --config && tsc --declaration --declarationDir types --emitDeclarationOnly",
+    "build:es": "rollup --config",
+    "build:ts": "tsc --declaration --declarationDir types --emitDeclarationOnly",
+    "build": "yarn run build:es && yarn run build:ts",
     "validate": "yarn run lint && yarn run typecheck && yarn run test",
     "test": "jest",
     "test:watch": "jest --watch",
