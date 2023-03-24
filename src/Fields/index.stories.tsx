@@ -17,20 +17,6 @@ import { formItemFieldProps } from './formItemFieldProps';
 
 export default {
   title: 'Fields',
-  argTypes: {
-    disabled: {
-      control: {
-        type: 'boolean',
-        checked: false,
-      },
-    },
-    hasError: {
-      control: {
-        type: 'boolean',
-        checked: false,
-      },
-    },
-  },
 };
 
 type FormType = {
@@ -44,10 +30,24 @@ type FormType = {
 };
 
 export const Default: Story<{
-  hasError: boolean;
   disabled: boolean;
 }> = function Default(props) {
-  const formMethods = useForm<FormType>();
+  const formMethods = useForm<FormType>({ mode: 'all' });
+
+  return (
+    <FieldProvider {...props}>
+      <FormProvider {...formMethods}>
+        <AllFields />
+      </FormProvider>
+    </FieldProvider>
+  );
+};
+
+export const ControlledError: Story<{
+  hasError: boolean;
+  disabled: boolean;
+}> = function ControlledError(props) {
+  const formMethods = useForm<FormType>({ mode: 'all' });
 
   const { hasError, ...propsRest } = props;
 
@@ -76,55 +76,45 @@ export const Default: Story<{
     </FieldProvider>
   );
 };
+ControlledError.argTypes = {
+  disabled: {
+    control: {
+      type: 'boolean',
+      checked: false,
+    },
+  },
+  hasError: {
+    control: {
+      type: 'boolean',
+      checked: false,
+    },
+  },
+};
 
-export const NestedProviders: Story<
-  FieldProviderProps & { hasError: boolean }
-> = function NestedProviders(props) {
-  const formMethods = useForm<FormType>();
-
-  const { hasError } = props;
-
-  const parentFormItemProps = () =>
-    formItemFieldProps({
-      invalid: false,
-      error: undefined,
-      isTouched: false,
-      isDirty: false,
+export const NestedProviders: Story<FieldProviderProps> =
+  function NestedProviders(props) {
+    const formMethods = useForm<FormType>({
+      mode: 'all',
     });
 
-  const childFormItemProps = useCallback(
-    () =>
-      formItemFieldProps({
-        invalid: hasError,
-        error: hasError
-          ? {
-              type: 'validate',
-              message: 'some error',
-            }
-          : undefined,
-
-        isTouched: true,
-        isDirty: true,
-      }),
-    [hasError],
-  );
-
-  return (
-    <FieldProvider
-      disabled={!props.disabled}
-      formItemProps={parentFormItemProps}
-    >
-      {/* overwrite upper provider values */}
-      <FieldProvider
-        disabled={props.disabled}
-        formItemProps={childFormItemProps}
-      >
-        <FormProvider {...formMethods}>
-          <AllFields />
-        </FormProvider>
+    return (
+      <FieldProvider disabled={!props.disabled}>
+        {/* overwrite upper provider values */}
+        <FieldProvider disabled={props.disabled}>
+          <FormProvider {...formMethods}>
+            <AllFields />
+          </FormProvider>
+        </FieldProvider>
       </FieldProvider>
-    </FieldProvider>
-  );
+    );
+  };
+NestedProviders.argTypes = {
+  disabled: {
+    control: {
+      type: 'boolean',
+      checked: false,
+    },
+  },
 };
 
 function AllFields() {
@@ -142,6 +132,7 @@ function AllFields() {
       </CheckboxField>
       <InputField
         name="input"
+        rules={{ required: 'You really need this', maxLength: 3 }}
         control={formMethods.control}
         formItem={{
           label: 'Input Label',
@@ -149,6 +140,7 @@ function AllFields() {
       />
       <InputNumberField
         name="input_number"
+        rules={{ required: 'Absolutely necessary' }}
         control={formMethods.control}
         formItem={{
           label: 'InputNumber Label',
@@ -183,6 +175,7 @@ function AllFields() {
       />
       <TextAreaField
         name="text_area"
+        rules={{ required: 'Very necessary' }}
         control={formMethods.control}
         formItem={{
           label: 'TextArea Label',
