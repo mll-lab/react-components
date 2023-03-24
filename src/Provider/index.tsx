@@ -3,6 +3,7 @@ import deDE from 'antd/lib/locale/de_DE';
 import React, { PropsWithChildren } from 'react';
 import { ThemeProvider } from 'styled-components';
 
+import { ModalConfirmStyles } from '../Modal';
 import { THEME, Theme } from '../theme';
 
 type ProviderProps = { theme?: Partial<Theme> };
@@ -24,6 +25,7 @@ export function Provider({
         prefixCls={PREFIX_CLS}
         componentSize={theme?.size}
       >
+        <ModalConfirmStyles />
         {children}
       </AntdConfigProvider>
     </ThemeProvider>

@@ -1,11 +1,11 @@
 module.exports = {
   extends: [
-    '@mll-lab/eslint-config/react',
-    '@mll-lab/eslint-config',
-    'plugin:@mll-lab/recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:testing-library/react',
+    '@mll-lab/eslint-config/react',
+    '@mll-lab/eslint-config',
+    'plugin:@mll-lab/recommended',
   ],
   plugins: ['jsx-a11y', 'testing-library'],
   ignorePatterns: ['dist', '!.storybook'],
@@ -45,7 +45,6 @@ module.exports = {
     'react/function-component-definition': 'off',
   },
   settings: {
-    'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
     react: {
       version: '16.13',
     },

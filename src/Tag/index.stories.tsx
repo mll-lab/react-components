@@ -10,14 +10,22 @@ export default {
   component: Tag,
 };
 
-export const HexColored: Story<TagProps> = (args) => (
-  <Tag color={PALETTE.gold} {...args}>
-    Test
-  </Tag>
-);
+export const HexColored: Story<TagProps> = function HexColored(args) {
+  return (
+    <Tag color={PALETTE.gold} {...args}>
+      Test
+    </Tag>
+  );
+};
 
-export const PresetColored: Story<TagProps> = (args) => (
-  <Tag color="red" {...args}>
-    Test
-  </Tag>
-);
+export const PresetColored: Story<TagProps> = function PresetColored(args) {
+  return (
+    <Tag color="red" {...args}>
+      Test
+    </Tag>
+  );
+};
+
+export const Checkable: Story<TagProps> = function Checkable() {
+  return <Tag.CheckableTag checked>Checkable Tag</Tag.CheckableTag>;
+};

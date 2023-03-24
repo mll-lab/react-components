@@ -1,16 +1,17 @@
 import { render } from '@testing-library/react';
 import React from 'react';
 
+import { Coordinates } from './types';
 import {
+  areEqualCoordinates,
   columnForPosition,
   convertPositionFromColumnToRowFlow,
-  rowForPosition,
   convertPositionFromRowToColumnFlow,
   ensureCoordinatesInRange,
-  Coordinates,
-  areEqualCoordinates,
-  Plate,
-} from './index';
+  rowForPosition,
+} from './utils';
+
+import { Plate } from './index';
 
 const data = [
   {
@@ -75,8 +76,8 @@ const data = [
   },
 ];
 
-describe.each(data)(`rowForPosition`, (dataSet) => {
-  it(`provides the row for a position depending on the flow`, () => {
+describe.each(data)('rowForPosition', (dataSet) => {
+  it('provides the row for a position depending on the flow', () => {
     expect(rowForPosition(dataSet.rowFlowPosition, 'row')).toBe(dataSet.row);
     expect(rowForPosition(dataSet.columnFlowPosition, 'column')).toBe(
       dataSet.row,
@@ -84,8 +85,8 @@ describe.each(data)(`rowForPosition`, (dataSet) => {
   });
 });
 
-describe.each(data)(`columnForPosition`, (dataSet) => {
-  it(`provides the column for a position depending on the flow`, () => {
+describe.each(data)('columnForPosition', (dataSet) => {
+  it('provides the column for a position depending on the flow', () => {
     expect(columnForPosition(dataSet.rowFlowPosition, 'row')).toBe(
       dataSet.column,
     );
@@ -95,7 +96,7 @@ describe.each(data)(`columnForPosition`, (dataSet) => {
   });
 });
 
-describe.each(data)(`convertPositionFromColumnToRowFlow`, (dataSet) => {
+describe.each(data)('convertPositionFromColumnToRowFlow', (dataSet) => {
   it(`converts ${dataSet.columnFlowPosition} to ${dataSet.rowFlowPosition}`, () => {
     expect(convertPositionFromColumnToRowFlow(dataSet.columnFlowPosition)).toBe(
       dataSet.rowFlowPosition,
@@ -103,7 +104,7 @@ describe.each(data)(`convertPositionFromColumnToRowFlow`, (dataSet) => {
   });
 });
 
-describe.each(data)(`convertPositionFromRowToColumnFlow`, (dataSet) => {
+describe.each(data)('convertPositionFromRowToColumnFlow', (dataSet) => {
   it(`converts ${dataSet.rowFlowPosition} to ${dataSet.columnFlowPosition}`, () => {
     expect(convertPositionFromRowToColumnFlow(dataSet.rowFlowPosition)).toBe(
       dataSet.columnFlowPosition,

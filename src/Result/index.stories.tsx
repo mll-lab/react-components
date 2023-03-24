@@ -1,7 +1,7 @@
 import { Story } from '@storybook/react';
 import React from 'react';
 
-import { Button } from '../Button';
+import { Button } from '../Button/Button';
 
 import { EntityNotFound, Result, ResultProps } from './index';
 
@@ -10,7 +10,9 @@ export default {
   component: Result,
 };
 
-const Template: Story<ResultProps> = (args) => <Result {...args} />;
+const Template: Story<ResultProps> = function Template(args) {
+  return <Result {...args} />;
+};
 
 export const Default = Template.bind({});
 Default.args = {
@@ -18,6 +20,6 @@ Default.args = {
   extra: <Button>OK</Button>,
 };
 
-export const EntityNotFoundExample: Story = () => (
-  <EntityNotFound entity="Kontrolle" id="4" />
-);
+export const EntityNotFoundExample: Story = function EntityNotFoundExample() {
+  return <EntityNotFound entity="Kontrolle" id="4" />;
+};

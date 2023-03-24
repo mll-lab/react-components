@@ -3,7 +3,11 @@ import React from 'react';
 
 import { PALETTE } from '../theme';
 
-import { Plate, PlateProps } from './index';
+import { COORDINATES_COLUMNS, COORDINATES_ROWS, WELLS } from './constants';
+import { PlateProps, PlateWell } from './types';
+import { coordinatesForPosition } from './utils';
+
+import { Plate } from './index';
 
 export default {
   title: 'Plate',
@@ -12,23 +16,81 @@ export default {
   },
 };
 
-export const Default: Story<Partial<PlateProps>> = (args) => (
-  <Plate
-    data={[
-      {
-        coordinates: { row: 'A', column: 7 },
-        content: <i>It renders any ReactNode</i>,
-      },
-      {
-        coordinates: { row: 'A', column: 8 },
-        content: 'Test',
-        color: PALETTE.red,
-      },
-      {
-        coordinates: { row: 'B', column: 3 },
-        content: 'Some text',
-      },
-    ]}
-    {...args}
-  />
-);
+const data: Array<PlateWell> = [
+  {
+    coordinates: { row: COORDINATES_ROWS[0], column: COORDINATES_COLUMNS[6] },
+    content: <i>It renders any ReactNode</i>,
+  },
+  {
+    coordinates: { row: COORDINATES_ROWS[0], column: COORDINATES_COLUMNS[7] },
+    content: 'Test',
+    color: PALETTE.red,
+  },
+  {
+    coordinates: { row: COORDINATES_ROWS[1], column: COORDINATES_COLUMNS[2] },
+    content: 'Some text',
+  },
+  {
+    coordinates: { row: COORDINATES_ROWS[2], column: COORDINATES_COLUMNS[2] },
+    content: (
+      <>
+        <p>Kontrolle</p>
+        <br />
+        Test Test Test Test Test Test
+        <p>Kontrolle</p>
+      </>
+    ),
+  },
+];
+
+const rowFlowData: Array<PlateWell> = WELLS.map((well) => ({
+  coordinates: coordinatesForPosition(well, 'row'),
+  content: well,
+}));
+
+const columnFlowData: Array<PlateWell> = WELLS.map((well) => ({
+  coordinates: coordinatesForPosition(well, 'column'),
+  content: well,
+}));
+
+const Template: Story<Partial<PlateProps>> = function Template(args) {
+  return <Plate data={null} {...args} />;
+};
+
+export const Default = Template.bind({});
+Default.args = {
+  data,
+};
+
+export const RowFlow = Template.bind({});
+RowFlow.args = {
+  data: rowFlowData,
+};
+
+export const ColumnFlow = Template.bind({});
+ColumnFlow.args = {
+  data: columnFlowData,
+};
+
+/* TODO: delete after https://github.com/storybookjs/storybook/issues/11554 is resolved */
+RowFlow.parameters = {
+  docs: {
+    source: {
+      code: 'Disabled for this story, see https://github.com/storybookjs/storybook/issues/11554',
+    },
+  },
+};
+Default.parameters = {
+  docs: {
+    source: {
+      code: 'Disabled for this story, see https://github.com/storybookjs/storybook/issues/11554',
+    },
+  },
+};
+ColumnFlow.parameters = {
+  docs: {
+    source: {
+      code: 'Disabled for this story, see https://github.com/storybookjs/storybook/issues/11554',
+    },
+  },
+};

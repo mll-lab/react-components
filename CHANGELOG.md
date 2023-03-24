@@ -1,3 +1,508 @@
+# [12.3.0](https://github.com/mll-lab/react-components/compare/v12.2.0...v12.3.0) (2023-03-17)
+
+
+### Features
+
+* export type FilterDropdownProps ([#215](https://github.com/mll-lab/react-components/issues/215)) ([c7f5140](https://github.com/mll-lab/react-components/commit/c7f5140c688ed627268542e9e406b0e2a7b43813))
+
+# [12.2.0](https://github.com/mll-lab/react-components/compare/v12.1.0...v12.2.0) (2023-03-07)
+
+
+### Features
+
+* add function indeterminate ([f4c9b59](https://github.com/mll-lab/react-components/commit/f4c9b598351caf60aa8591c0fddf086d2cd4c452))
+
+# [12.1.0](https://github.com/mll-lab/react-components/compare/v12.0.0...v12.1.0) (2023-02-28)
+
+
+### Features
+
+* Add ImageMap and TecanLayout component ([#212](https://github.com/mll-lab/react-components/issues/212)) ([6a6d4ea](https://github.com/mll-lab/react-components/commit/6a6d4ea4660409c32a24e995e6fc0d4e210edb5a))
+
+# [12.0.0](https://github.com/mll-lab/react-components/compare/v11.17.0...v12.0.0) (2023-02-22)
+
+
+### Features
+
+* Add dynamic pipetting loss to MasterMix ([#211](https://github.com/mll-lab/react-components/issues/211)) ([422c71b](https://github.com/mll-lab/react-components/commit/422c71b15856a7925c8798dbd9b9f2bc16c6b160))
+
+
+### BREAKING CHANGES
+
+* MasterMix-Component requires pipettingLoss-property
+
+# [11.17.0](https://github.com/mll-lab/react-components/compare/v11.16.4...v11.17.0) (2023-02-08)
+
+
+### Features
+
+* update @ant-design/icons ([#210](https://github.com/mll-lab/react-components/issues/210)) ([3cbc87d](https://github.com/mll-lab/react-components/commit/3cbc87d5ad10e78370bf08b5b363bc6cce350899))
+
+## [11.16.4](https://github.com/mll-lab/react-components/compare/v11.16.3...v11.16.4) (2023-02-08)
+
+
+### Bug Fixes
+
+* downgrade antd to 4.20.5 ([5ae7f1e](https://github.com/mll-lab/react-components/commit/5ae7f1e26ee0fed2e603c9dcb37f902c6865a57d))
+* fix dependencies ([#209](https://github.com/mll-lab/react-components/issues/209)) ([bc81864](https://github.com/mll-lab/react-components/commit/bc81864852dba017a610e9dfb3dd58c01b7512f5))
+
+## [11.16.3](https://github.com/mll-lab/react-components/compare/v11.16.2...v11.16.3) (2023-02-08)
+
+
+### Bug Fixes
+
+* downgrade @babel/runtime to 7.17.9 ([f2c1f54](https://github.com/mll-lab/react-components/commit/f2c1f54b388e08fccfdc1a75709a5096a9d8b2d4))
+
+## [11.16.2](https://github.com/mll-lab/react-components/compare/v11.16.1...v11.16.2) (2023-02-08)
+
+
+### Bug Fixes
+
+* update babel and jest ([#208](https://github.com/mll-lab/react-components/issues/208)) ([6cdd805](https://github.com/mll-lab/react-components/commit/6cdd80503500e17df1f42a50f43a66117b0786e8))
+
+## [11.16.1](https://github.com/mll-lab/react-components/compare/v11.16.0...v11.16.1) (2023-02-03)
+
+
+### Bug Fixes
+
+* upgrade babel dependencies ([#207](https://github.com/mll-lab/react-components/issues/207)) ([f2e0b5e](https://github.com/mll-lab/react-components/commit/f2e0b5edb739c436e4e734ba909a72fb40d728a5))
+
+# [11.16.0](https://github.com/mll-lab/react-components/compare/v11.15.1...v11.16.0) (2023-02-03)
+
+
+### Features
+
+* Add MasterMix component ([a1988cc](https://github.com/mll-lab/react-components/commit/a1988cce9a5e8ef10a2bd1e7ddb447ff995c30dd))
+
+## [11.15.1](https://github.com/mll-lab/react-components/compare/v11.15.0...v11.15.1) (2023-02-03)
+
+
+### Bug Fixes
+
+* upgrade @babel/runtime ([#205](https://github.com/mll-lab/react-components/issues/205)) ([a71138c](https://github.com/mll-lab/react-components/commit/a71138cb17e04492baab5070a88939eca105fec5))
+
+# [11.15.0](https://github.com/mll-lab/react-components/compare/v11.14.1...v11.15.0) (2023-01-31)
+
+
+### Features
+
+* add SwitchField component ([add735d](https://github.com/mll-lab/react-components/commit/add735d924f9f6317b1f9cfd68879cc145ce5831))
+
+## [11.14.1](https://github.com/mll-lab/react-components/compare/v11.14.0...v11.14.1) (2023-01-20)
+
+
+### Bug Fixes
+
+* actually expose Space.Compact ([491fddf](https://github.com/mll-lab/react-components/commit/491fddf76c26de56a5105e64347589423a08102a))
+
+# [11.14.0](https://github.com/mll-lab/react-components/compare/v11.13.0...v11.14.0) (2023-01-05)
+
+
+### Features
+
+* make card border visible on default background color ([#199](https://github.com/mll-lab/react-components/issues/199)) ([3753878](https://github.com/mll-lab/react-components/commit/3753878e3140c8e2731ffe6f03df6208996ae09b))
+
+# [11.13.0](https://github.com/mll-lab/react-components/compare/v11.12.0...v11.13.0) (2022-11-16)
+
+
+### Features
+
+* improve Button contrast on dark backgrounds ([#197](https://github.com/mll-lab/react-components/issues/197)) ([6926b11](https://github.com/mll-lab/react-components/commit/6926b113f7fb90e3a2f1aed4402fbeaaff1f1f65))
+
+# [11.12.0](https://github.com/mll-lab/react-components/compare/v11.11.0...v11.12.0) (2022-11-16)
+
+
+### Features
+
+* add generic type TTabID to tabs ([#196](https://github.com/mll-lab/react-components/issues/196)) ([c6a4f53](https://github.com/mll-lab/react-components/commit/c6a4f5349b2feb44fd19e2444b914b74fbff4514))
+
+# [11.11.0](https://github.com/mll-lab/react-components/compare/v11.10.0...v11.11.0) (2022-11-10)
+
+
+### Features
+
+* export type `SortOrder` for `Table` ([#194](https://github.com/mll-lab/react-components/issues/194)) ([1e7bfc0](https://github.com/mll-lab/react-components/commit/1e7bfc0dc478ec76f6724cbed913e5075758aa87))
+
+# [11.10.0](https://github.com/mll-lab/react-components/compare/v11.9.2...v11.10.0) (2022-11-03)
+
+
+### Features
+
+* export textarea ref ([#193](https://github.com/mll-lab/react-components/issues/193)) ([8d7fe5e](https://github.com/mll-lab/react-components/commit/8d7fe5ef94a28432ba1b3c4da5982509ec41c450))
+
+## [11.9.2](https://github.com/mll-lab/react-components/compare/v11.9.1...v11.9.2) (2022-10-19)
+
+
+### Bug Fixes
+
+* import of createGlobalStyle ([#192](https://github.com/mll-lab/react-components/issues/192)) ([d968522](https://github.com/mll-lab/react-components/commit/d968522711dc2683e7645bce003cb1385e3d704f))
+
+## [11.9.1](https://github.com/mll-lab/react-components/compare/v11.9.0...v11.9.1) (2022-10-19)
+
+
+### Bug Fixes
+
+* button gaps for Modal.confirm ([#191](https://github.com/mll-lab/react-components/issues/191)) ([31919a4](https://github.com/mll-lab/react-components/commit/31919a4a5c12289af1228c65b05b3be268e9cb82))
+
+# [11.9.0](https://github.com/mll-lab/react-components/compare/v11.8.0...v11.9.0) (2022-10-18)
+
+
+### Bug Fixes
+
+* adapt step font sizes to theme correctly ([#190](https://github.com/mll-lab/react-components/issues/190)) ([b89b863](https://github.com/mll-lab/react-components/commit/b89b863438ca208de99d58fd2bbfb48cd5d38f5b))
+
+
+### Features
+
+* add space between modal buttons ([#186](https://github.com/mll-lab/react-components/issues/186)) ([11c06cc](https://github.com/mll-lab/react-components/commit/11c06cc9ea442200f9a152af2b893accfeb43e39)), closes [#187](https://github.com/mll-lab/react-components/issues/187) [#187](https://github.com/mll-lab/react-components/issues/187)
+
+# [11.8.0](https://github.com/mll-lab/react-components/compare/v11.7.0...v11.8.0) (2022-10-04)
+
+
+### Bug Fixes
+
+* format ([feae083](https://github.com/mll-lab/react-components/commit/feae083982150431932ca8eefd8bf27fbd019475))
+
+
+### Features
+
+* export CheckboxChangeEvent ([67eda8a](https://github.com/mll-lab/react-components/commit/67eda8a1277831e4bf084f379e3856eb17015050))
+
+# [11.7.0](https://github.com/mll-lab/react-components/compare/v11.6.0...v11.7.0) (2022-10-04)
+
+
+### Features
+
+* edit partial numbers ([#187](https://github.com/mll-lab/react-components/issues/187)) ([1e49300](https://github.com/mll-lab/react-components/commit/1e4930065f37b4933e4fac0f3b3ad2c76bffe092))
+
+# [11.6.0](https://github.com/mll-lab/react-components/compare/v11.5.2...v11.6.0) (2022-09-20)
+
+
+### Features
+
+* improve design of small select ([#184](https://github.com/mll-lab/react-components/issues/184)) ([e17e626](https://github.com/mll-lab/react-components/commit/e17e626d66524ae1369f4bce093e748e79b1814b))
+
+## [11.5.2](https://github.com/mll-lab/react-components/compare/v11.5.1...v11.5.2) (2022-09-13)
+
+
+### Bug Fixes
+
+* use DatePicker option `showTime` ([dc35419](https://github.com/mll-lab/react-components/commit/dc35419c1b905bdff200c64c1c6b871dc3e46de0))
+
+## [11.5.1](https://github.com/mll-lab/react-components/compare/v11.5.0...v11.5.1) (2022-09-12)
+
+
+### Bug Fixes
+
+* adapt steps to font size and center icon vertically ([d1ce7d9](https://github.com/mll-lab/react-components/commit/d1ce7d959b572008e3a0f22e270bb5baab339f2e))
+
+# [11.5.0](https://github.com/mll-lab/react-components/compare/v11.4.0...v11.5.0) (2022-08-23)
+
+
+### Features
+
+* add generic type for options in Select, SelectProps and SelectField ([#181](https://github.com/mll-lab/react-components/issues/181)) ([1aa7934](https://github.com/mll-lab/react-components/commit/1aa79345dbaae753f19151e06dd44ba4a47773d5))
+
+# [11.4.0](https://github.com/mll-lab/react-components/compare/v11.3.0...v11.4.0) (2022-08-10)
+
+
+### Features
+
+* accept children for checkbox ([#180](https://github.com/mll-lab/react-components/issues/180)) ([5ed905f](https://github.com/mll-lab/react-components/commit/5ed905f21a2c7502b57c51795cc95a4c5f54623b))
+
+# [11.3.0](https://github.com/mll-lab/react-components/compare/v11.2.0...v11.3.0) (2022-08-10)
+
+
+### Features
+
+* align checkbox with form label ([#179](https://github.com/mll-lab/react-components/issues/179)) ([602b165](https://github.com/mll-lab/react-components/commit/602b165bf1b11705827a2c54f1b594123cdd2733))
+
+# [11.2.0](https://github.com/mll-lab/react-components/compare/v11.1.0...v11.2.0) (2022-08-10)
+
+
+### Features
+
+* add prop defaultFieldValue to InputNumberField ([#178](https://github.com/mll-lab/react-components/issues/178)) ([cdcee96](https://github.com/mll-lab/react-components/commit/cdcee962af5820cbde2e1b86974ddeae51ade73c))
+
+# [11.1.0](https://github.com/mll-lab/react-components/compare/v11.0.0...v11.1.0) (2022-07-25)
+
+
+### Features
+
+* Add BackTop component ([#177](https://github.com/mll-lab/react-components/issues/177)) ([6e21eb5](https://github.com/mll-lab/react-components/commit/6e21eb56bca87ad9ad1bbbd189aad6d0f7a07cb1))
+
+# [11.0.0](https://github.com/mll-lab/react-components/compare/v10.3.0...v11.0.0) (2022-07-22)
+
+
+### Features
+
+* add integration with `react-hook-form` ([#176](https://github.com/mll-lab/react-components/issues/176)) ([dbcbf93](https://github.com/mll-lab/react-components/commit/dbcbf9323ee78e0880917205df2d7e480dd1d5d3))
+
+
+### BREAKING CHANGES
+
+* add dependency `react-hook-form`
+
+# [10.3.0](https://github.com/mll-lab/react-components/compare/v10.2.1...v10.3.0) (2022-07-08)
+
+
+### Features
+
+* adapt all form item labels to theme ([f83ea6c](https://github.com/mll-lab/react-components/commit/f83ea6c2959820ce75e1d32b0a47f1b0b2715f0a))
+* align checkbox text and icon when using different font size ([dea3ed8](https://github.com/mll-lab/react-components/commit/dea3ed8a3fbe0ee4cfcb21cc88f85cc8e15934c8))
+
+## [10.2.1](https://github.com/mll-lab/react-components/compare/v10.2.0...v10.2.1) (2022-07-06)
+
+
+### Bug Fixes
+
+* adapt Checkbox font-size from theme ([#173](https://github.com/mll-lab/react-components/issues/173)) ([9dd1bf1](https://github.com/mll-lab/react-components/commit/9dd1bf1505d94965fcf8314078753c5eb5cf39a5))
+
+# [10.2.0](https://github.com/mll-lab/react-components/compare/v10.1.0...v10.2.0) (2022-06-28)
+
+
+### Features
+
+* export type RadioChangeEvent ([#170](https://github.com/mll-lab/react-components/issues/170)) ([f7a020b](https://github.com/mll-lab/react-components/commit/f7a020bd49f67622cacace23ad5c952fbc949418))
+
+# [10.1.0](https://github.com/mll-lab/react-components/compare/v10.0.0...v10.1.0) (2022-06-28)
+
+
+### Features
+
+* use only shades from PALETTE in THEME ([#169](https://github.com/mll-lab/react-components/issues/169)) ([ce3547b](https://github.com/mll-lab/react-components/commit/ce3547b3d3d1f0c0714be5844d7256502fc97da7))
+
+# [10.0.0](https://github.com/mll-lab/react-components/compare/v9.3.0...v10.0.0) (2022-06-15)
+
+
+### Features
+
+* add TextWithTooltipIfTrimmed component ([9a81829](https://github.com/mll-lab/react-components/commit/9a81829b2608990c383d3b329b4f1bec97496ded))
+
+
+### BREAKING CHANGES
+
+* rename DateWithToolTip to DateWithTooltip
+
+# [9.3.0](https://github.com/mll-lab/react-components/compare/v9.2.0...v9.3.0) (2022-05-27)
+
+
+### Features
+
+* add TreeSelect ([#167](https://github.com/mll-lab/react-components/issues/167)) ([d72849a](https://github.com/mll-lab/react-components/commit/d72849a016949c87307eb882a693697a9d1654b2))
+
+# [9.2.0](https://github.com/mll-lab/react-components/compare/v9.1.0...v9.2.0) (2022-04-13)
+
+
+### Features
+
+* vertically center arrow panel with component as header ([1a785a7](https://github.com/mll-lab/react-components/commit/1a785a7a4d106ba64b0c5e2546ab8d2788f71b55))
+
+# [9.1.0](https://github.com/mll-lab/react-components/compare/v9.0.0...v9.1.0) (2022-04-13)
+
+
+### Features
+
+* adapt TextArea to font size and export TextAreaProps ([#162](https://github.com/mll-lab/react-components/issues/162)) ([a74affa](https://github.com/mll-lab/react-components/commit/a74affa88da51e78cc1e42c61e9385dfc98a7830))
+
+# [9.0.0](https://github.com/mll-lab/react-components/compare/v8.14.0...v9.0.0) (2022-04-11)
+
+
+### Features
+
+* controlled single collapse ([#160](https://github.com/mll-lab/react-components/issues/160)) ([0ab78bc](https://github.com/mll-lab/react-components/commit/0ab78bcab391342c4c3d4609a7835e7134a0e5f1))
+
+
+### BREAKING CHANGES
+
+* rename and change SingleCollapse props
+
+* fix: give back flexibility with onChange prop
+
+* fix: allow changing default opened value of uncontrolled variant
+
+# [8.14.0](https://github.com/mll-lab/react-components/compare/v8.13.0...v8.14.0) (2022-04-06)
+
+
+### Features
+
+* export InputRef type ([#159](https://github.com/mll-lab/react-components/issues/159)) ([86c0e58](https://github.com/mll-lab/react-components/commit/86c0e5845ca7c0dd541e698e4ba71f80bfdbee5a))
+
+# [8.13.0](https://github.com/mll-lab/react-components/compare/v8.12.3...v8.13.0) (2022-04-04)
+
+
+### Features
+
+* export ButtonRef type ([#158](https://github.com/mll-lab/react-components/issues/158)) ([2e51891](https://github.com/mll-lab/react-components/commit/2e5189120b4425907877df9f548cb0976cfc02d9))
+
+## [8.12.3](https://github.com/mll-lab/react-components/compare/v8.12.2...v8.12.3) (2022-03-25)
+
+
+### Bug Fixes
+
+* add explicit type to input number component ([b6368bc](https://github.com/mll-lab/react-components/commit/b6368bc8eb84e552769e8525ae026b76fd98874f))
+
+## [8.12.2](https://github.com/mll-lab/react-components/compare/v8.12.1...v8.12.2) (2022-03-24)
+
+
+### Bug Fixes
+
+* export additional Table types ([0e13cc6](https://github.com/mll-lab/react-components/commit/0e13cc6f1c2d00ac56739bf39b43c1b78a41b6c1))
+
+## [8.12.1](https://github.com/mll-lab/react-components/compare/v8.12.0...v8.12.1) (2022-03-24)
+
+
+### Bug Fixes
+
+* export labeledEnumToColumnFilterItem ([73be225](https://github.com/mll-lab/react-components/commit/73be22554aa63b676a987ec56603059d76546d33))
+* shrink style scope ([2b17376](https://github.com/mll-lab/react-components/commit/2b17376840caa52f4c1652fc77ab24675a44f24e))
+
+# [8.12.0](https://github.com/mll-lab/react-components/compare/v8.11.1...v8.12.0) (2022-03-22)
+
+
+### Features
+
+* decrease line-height-base ([3924897](https://github.com/mll-lab/react-components/commit/39248979053d9e6df9e3d4be7a1e14e112482d0b))
+
+## [8.11.1](https://github.com/mll-lab/react-components/compare/v8.11.0...v8.11.1) (2022-03-22)
+
+
+### Bug Fixes
+
+* restore Select.OptGroup ([3d6288c](https://github.com/mll-lab/react-components/commit/3d6288c7e35304e39c02c4605e96501a8dc289cf))
+
+# [8.11.0](https://github.com/mll-lab/react-components/compare/v8.10.1...v8.11.0) (2022-03-22)
+
+
+### Features
+
+* shrink Table even more ([2c2845e](https://github.com/mll-lab/react-components/commit/2c2845ea7a07405b1130a68de8f88b638cef9874))
+
+## [8.10.1](https://github.com/mll-lab/react-components/compare/v8.10.0...v8.10.1) (2022-03-22)
+
+
+### Bug Fixes
+
+* update antd to include col-x style fix ([#150](https://github.com/mll-lab/react-components/issues/150)) ([21d7a86](https://github.com/mll-lab/react-components/commit/21d7a866513c8250236fe1117a46fd3cb5cd7d5a))
+
+# [8.10.0](https://github.com/mll-lab/react-components/compare/v8.9.0...v8.10.0) (2022-03-21)
+
+
+### Features
+
+* adapt font size in card ([9f76d48](https://github.com/mll-lab/react-components/commit/9f76d4864113db9b5385689dd39940250adfae91))
+
+# [8.9.0](https://github.com/mll-lab/react-components/compare/v8.8.0...v8.9.0) (2022-03-18)
+
+
+### Features
+
+* adapt font size in select ([#146](https://github.com/mll-lab/react-components/issues/146)) ([ec8fcdf](https://github.com/mll-lab/react-components/commit/ec8fcdf6d8503a73f20cd94b576a1e62b18601e6))
+
+# [8.8.0](https://github.com/mll-lab/react-components/compare/v8.7.1...v8.8.0) (2022-03-18)
+
+
+### Features
+
+* adapt font size in input ([#148](https://github.com/mll-lab/react-components/issues/148)) ([a82df55](https://github.com/mll-lab/react-components/commit/a82df55bbf8c950b706bd13024815302519770ac))
+
+## [8.7.1](https://github.com/mll-lab/react-components/compare/v8.7.0...v8.7.1) (2022-03-18)
+
+
+### Bug Fixes
+
+* generic type definitions of forms and form items ([ca16637](https://github.com/mll-lab/react-components/commit/ca16637d0e52f2260bb4b5b4be758d2db20f1dc9))
+
+
+### Reverts
+
+* Revert "fix: generic type definitions of forms and form items" ([7c333df](https://github.com/mll-lab/react-components/commit/7c333df859391828dbb2451988ea3372ac24bf6e))
+
+# [8.7.0](https://github.com/mll-lab/react-components/compare/v8.6.0...v8.7.0) (2022-03-18)
+
+
+### Features
+
+* adapt collapse to font size from theme ([008095c](https://github.com/mll-lab/react-components/commit/008095c6a6385ec9300c2c6186070a3e2684320d))
+
+# [8.6.0](https://github.com/mll-lab/react-components/compare/v8.5.0...v8.6.0) (2022-03-16)
+
+
+### Features
+
+* adapt tag font size to theme ([#143](https://github.com/mll-lab/react-components/issues/143)) ([60aac67](https://github.com/mll-lab/react-components/commit/60aac67f3c53eb79ae00f8f2dddcd951a335c2db))
+
+# [8.5.0](https://github.com/mll-lab/react-components/compare/v8.4.0...v8.5.0) (2022-03-16)
+
+
+### Features
+
+* adapt form item font size to theme ([f395f9b](https://github.com/mll-lab/react-components/commit/f395f9b5ac5663edce6a5801e9b9b96460dd884c))
+* add form item to provider story ([4a963d0](https://github.com/mll-lab/react-components/commit/4a963d003a7a1ec81af1ff66c47c6196b8ac2a20))
+
+# [8.4.0](https://github.com/mll-lab/react-components/compare/v8.3.0...v8.4.0) (2022-03-16)
+
+
+### Features
+
+* adapt font size in radio components ([#142](https://github.com/mll-lab/react-components/issues/142)) ([96c1c5d](https://github.com/mll-lab/react-components/commit/96c1c5d43a531a72bcfbca2f1228fd27a8a8f1d9))
+
+# [8.3.0](https://github.com/mll-lab/react-components/compare/v8.2.4...v8.3.0) (2022-03-09)
+
+
+### Features
+
+* adding tree component ([#141](https://github.com/mll-lab/react-components/issues/141)) ([97bafa6](https://github.com/mll-lab/react-components/commit/97bafa6644f9c79dc510e59bbafac912075caa2e))
+
+## [8.2.4](https://github.com/mll-lab/react-components/compare/v8.2.3...v8.2.4) (2022-03-08)
+
+
+### Bug Fixes
+
+* center row and column labels in Plate component ([7c54cc1](https://github.com/mll-lab/react-components/commit/7c54cc193a1de0afb50db629ff7f5708741a4a0a))
+
+## [8.2.3](https://github.com/mll-lab/react-components/compare/v8.2.2...v8.2.3) (2022-03-08)
+
+
+### Bug Fixes
+
+* set flex only on default content but not on content set by an user ([214785a](https://github.com/mll-lab/react-components/commit/214785a19f175a8f5ab94fd88f2622756e8e5bb7))
+
+## [8.2.2](https://github.com/mll-lab/react-components/compare/v8.2.1...v8.2.2) (2022-03-08)
+
+
+### Bug Fixes
+
+* display plate component in storybook ([#137](https://github.com/mll-lab/react-components/issues/137)) ([018b1a4](https://github.com/mll-lab/react-components/commit/018b1a426c5777f61e5278bb5b6c5501acd0eee9))
+
+## [8.2.1](https://github.com/mll-lab/react-components/compare/v8.2.0...v8.2.1) (2022-02-28)
+
+
+### Bug Fixes
+
+* inline styled-components keyframes to css keyframes ([14d291a](https://github.com/mll-lab/react-components/commit/14d291a86c44f0c018d48903f2fa1e983c4c09d4))
+
+# [8.2.0](https://github.com/mll-lab/react-components/compare/v8.1.1...v8.2.0) (2022-02-24)
+
+
+### Features
+
+* add PageHeader component ([8594786](https://github.com/mll-lab/react-components/commit/8594786e39db6a5ab1b25332009f9504f9eb3c00))
+
+## [8.1.1](https://github.com/mll-lab/react-components/compare/v8.1.0...v8.1.1) (2022-02-23)
+
+
+### Bug Fixes
+
+* workaround styled-components + jest issue ([3ba7518](https://github.com/mll-lab/react-components/commit/3ba7518357d8438acd282d0202f4243f01567c20)), closes [/github.com/styled-components/babel-plugin-styled-components/issues/216#issuecomment-516941240](https://github.com//github.com/styled-components/babel-plugin-styled-components/issues/216/issues/issuecomment-516941240)
+
+# [8.1.0](https://github.com/mll-lab/react-components/compare/v8.0.1...v8.1.0) (2022-02-21)
+
+
+### Features
+
+* move styled-components to external peer dependency ([bffb27b](https://github.com/mll-lab/react-components/commit/bffb27b256c3f0b06bd5c7d41f0c01c94ad7a0cb))
+
 ## [8.0.1](https://github.com/mll-lab/react-components/compare/v8.0.0...v8.0.1) (2022-02-17)
 
 

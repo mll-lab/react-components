@@ -20,13 +20,17 @@ export * from './Descriptions';
 export * from './Divider';
 export * from './Dropdown';
 export * from './Empty';
+export * from './Fields'; // Might extract to separate package later due to dependency on react-hook-form
 export * from './Form';
 export * from './Grid';
 export * from './Image';
+export * from './ImageMap';
 export * from './Input';
 export * from './List';
+export * from './MasterMix';
 export * from './Menu';
 export * from './Modal';
+export * from './PageHeader';
 export * from './Plate';
 export * from './Popconfirm';
 export * from './Progress';
@@ -45,6 +49,8 @@ export * from './Tabs';
 export * from './Tag';
 export * from './Timeline';
 export * from './Tooltip';
+export * from './Tree';
+export * from './TreeSelect';
 export * from './Typography';
 export * from './Upload';
 

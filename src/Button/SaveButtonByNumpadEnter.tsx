@@ -2,9 +2,8 @@ import * as React from 'react';
 import { Component } from 'react';
 import { GlobalHotKeys, configure } from 'react-hotkeys';
 
+import { SaveButton } from './Button';
 import { ColoredButtonType } from './ColoredButtons';
-
-import { SaveButton } from './index';
 
 export type SaveButtonByNumpadEnterProps = {
   onClick: React.MouseEventHandler;
