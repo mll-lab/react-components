@@ -17,4 +17,4 @@ export const COORDINATES_ROWS: ReadonlyArray<Coordinates['row']> = [
   'G',
   'H',
 ] as const;
-export const PLATE_FLOW: FlowDirection = 'row';
+export const PLATE_FLOW: FlowDirection = 'row' as const;
