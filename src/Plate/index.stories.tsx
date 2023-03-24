@@ -18,20 +18,20 @@ export default {
 
 const data: Array<PlateWell> = [
   {
-    coordinates: { row: COORDINATES_ROWS[0], column: COORDINATES_COLUMNS[6] },
+    coordinates: { row: COORDINATES_ROWS[0]!, column: COORDINATES_COLUMNS[6]! },
     content: <i>It renders any ReactNode</i>,
   },
   {
-    coordinates: { row: COORDINATES_ROWS[0], column: COORDINATES_COLUMNS[7] },
+    coordinates: { row: COORDINATES_ROWS[0]!, column: COORDINATES_COLUMNS[7]! },
     content: 'Test',
     color: PALETTE.red,
   },
   {
-    coordinates: { row: COORDINATES_ROWS[1], column: COORDINATES_COLUMNS[2] },
+    coordinates: { row: COORDINATES_ROWS[1]!, column: COORDINATES_COLUMNS[2]! },
     content: 'Some text',
   },
   {
-    coordinates: { row: COORDINATES_ROWS[2], column: COORDINATES_COLUMNS[2] },
+    coordinates: { row: COORDINATES_ROWS[2]!, column: COORDINATES_COLUMNS[2]! },
     content: (
       <>
         <p>Kontrolle</p>
