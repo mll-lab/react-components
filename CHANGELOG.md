@@ -1,3 +1,10 @@
+## [12.3.1](https://github.com/mll-lab/react-components/compare/v12.3.0...v12.3.1) (2023-03-24)
+
+
+### Bug Fixes
+
+* avoid losing focus in form elements with validation ([ea05ded](https://github.com/mll-lab/react-components/commit/ea05ded965610c8f9f1ad64f3da6fc2ba74832a6))
+
 # [12.3.0](https://github.com/mll-lab/react-components/compare/v12.2.0...v12.3.0) (2023-03-17)
 
 
