@@ -31,6 +31,7 @@ export * from './Modal';
 export * from './PageHeader';
 export * from './Plate';
 export * from './Popconfirm';
+export * from './Popover';
 export * from './Progress';
 export * from './Radio';
 export * from './Result';
