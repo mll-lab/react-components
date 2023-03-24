@@ -1,3 +1,10 @@
+# [12.4.0](https://github.com/mll-lab/react-components/compare/v12.3.1...v12.4.0) (2023-03-24)
+
+
+### Features
+
+* add Popover ([4f1e388](https://github.com/mll-lab/react-components/commit/4f1e388576183eaa6e6c8db4a5aa6ee974626ae6))
+
 ## [12.3.1](https://github.com/mll-lab/react-components/compare/v12.3.0...v12.3.1) (2023-03-24)
 
 
