@@ -33,8 +33,8 @@ export type TextAreaRef = AntdTextAreaRef;
 
 const AntdSearch = Input.Search;
 const Search: typeof AntdSearch = styled(AntdSearch)`
-  // Present in the original style, see https://4x.ant.design/components/input/#components-input-demo-search-input
-  // Probably gets lost due to wrong handling of the mll-ant prefix?
+  /* Present in the original styles, see https://4x.ant.design/components/input/#components-input-demo-search-input */
+  /* Probably gets lost due to wrong handling of the mll-ant prefix? */
   .mll-ant-input-group-addon:last-child {
     left: -1px;
     padding: 0;
