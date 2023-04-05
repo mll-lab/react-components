@@ -55,6 +55,7 @@ export function UserDetails({ loading, user, ...props }: UserDetailsProps) {
           </div>
         </Col>
       </Row>
+
       <Divider style={{ marginTop: 4, marginBottom: 4 }} />
 
       <UserDetailRow label={<MailOutlined />}>
@@ -70,8 +71,8 @@ function UserDetailRow({
 }: PropsWithChildren<{ label: ReactNode }>) {
   return (
     <Row gutter={GUTTER} align="middle">
-      <Col span={4}>{label}</Col>
-      <Col span={20}>{children}</Col>
+      <Col flex="20px">{label}</Col>
+      <Col flex="auto">{children}</Col>
     </Row>
   );
 }
