@@ -54,6 +54,7 @@ export * from './Tree';
 export * from './TreeSelect';
 export * from './Typography';
 export * from './Upload';
+export * from './UserPopover';
 
 // Utilities
 export * from './notification';
