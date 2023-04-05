@@ -2,7 +2,12 @@ import { Story } from '@storybook/react';
 import React, { useState } from 'react';
 
 import { NumericIDInput, NumericIDInputProps } from './NumericIDInput';
-import { InputNumberProps, InputProps, TextAreaProps } from './common';
+import {
+  InputNumberProps,
+  InputProps,
+  SearchProps,
+  TextAreaProps,
+} from './common';
 
 import { Input, InputNumber } from './index';
 
@@ -17,6 +22,10 @@ export const Text: Story<InputProps> = function Text(args) {
 
 export const TextArea: Story<TextAreaProps> = function TextArea(args) {
   return <Input.TextArea {...args} />;
+};
+
+export const Search: Story<SearchProps> = function Search(args) {
+  return <Input.Search {...args} />;
 };
 
 export const Number: Story<InputNumberProps> = function Number(args) {
