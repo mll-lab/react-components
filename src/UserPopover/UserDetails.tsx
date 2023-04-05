@@ -18,54 +18,47 @@ type User = {
   userName: string;
 };
 
-export type UserDetailsProps = {
-  loading?: boolean;
-  formatMailToLink?: (user: User) => string;
+export type UserDetailsProps = PropsWithChildren<{
   user: User;
-};
+}>;
 
 const GUTTER = 8;
 const SPACE = 4;
 
-export function UserDetails({ loading, user, ...props }: UserDetailsProps) {
-  const emailLink = useMemo(
-    () =>
-      props.formatMailToLink
-        ? props.formatMailToLink(user)
-        : mailToLink(user.email),
-    [props, user],
-  );
+export function UserDetails({
+  children,
+  user: { acronym, email, firstName, lastName, inactive, userName },
+}: UserDetailsProps) {
+  const emailLink = useMemo(() => mailToLink(email), [email]);
 
   return (
     <Space direction="vertical" size={SPACE}>
       <Row gutter={GUTTER} align="middle">
         <Col flex="0 1 min-content">
-          <UserAvatar username={user.acronym} />
+          <UserAvatar username={acronym} />
         </Col>
         <Col flex="auto">
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             <Typography.Text strong>
-              {user.inactive
-                ? user.userName
-                : [user.firstName, user.lastName].join(' ')}
+              {inactive ? userName : [firstName, lastName].join(' ')}
             </Typography.Text>
-            {!user.inactive && (
-              <Typography.Text>{user.userName}</Typography.Text>
-            )}
+            {!inactive && <Typography.Text>{userName}</Typography.Text>}
           </div>
         </Col>
       </Row>
 
       <Divider style={{ marginTop: 4, marginBottom: 4 }} />
 
-      <UserDetailRow label={<MailOutlined />}>
-        <a href={emailLink}>{user.email}</a>
-      </UserDetailRow>
+      <RowWithLabel label={<MailOutlined />}>
+        <a href={emailLink}>{email}</a>
+      </RowWithLabel>
+
+      {children}
     </Space>
   );
 }
 
-function UserDetailRow({
+function RowWithLabel({
   children,
   label,
 }: PropsWithChildren<{ label: ReactNode }>) {

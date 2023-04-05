@@ -25,12 +25,6 @@ export default {
       },
       defaultValue: false,
     },
-    open: {
-      control: {
-        type: 'boolean',
-      },
-      defaultValue: undefined,
-    },
   },
 };
 
@@ -39,7 +33,6 @@ export const Basic: Story = function Link(args) {
     <div style={{ display: 'flex', justifyContent: 'center' }}>
       <UserPopover
         loading={args.loading}
-        open={args.open}
         user={{
           acronym: args.acronym,
           email: args.email,

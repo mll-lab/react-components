@@ -1,6 +1,6 @@
 import { Modify } from '@mll-lab/js-utils';
 import { Popover } from 'antd';
-import React, { PropsWithChildren, useEffect } from 'react';
+import React, { PropsWithChildren } from 'react';
 
 import { Spinner } from '../Spinner';
 
@@ -13,45 +13,22 @@ export type UserPopoverProps = Modify<
   }
 > &
   PropsWithChildren<{
-    onOpen?: () => void;
-    open?: boolean;
+    loading: boolean;
   }>;
 
-export function UserPopover({
-  children,
-  formatMailToLink,
-  loading,
-  onOpen,
-  open,
-  user,
-}: UserPopoverProps) {
+export function UserPopover({ children, loading, user }: UserPopoverProps) {
   return (
     <Popover
       destroyTooltipOnHide
-      content={
-        <UserPopoverContent
-          formatMailToLink={formatMailToLink}
-          loading={loading}
-          onOpen={onOpen}
-          user={user}
-        />
-      }
-      visible={open}
+      content={<UserPopoverContent loading={loading} user={user} />}
     >
       {children}
     </Popover>
   );
 }
 
-function UserPopoverContent({ user, loading, onOpen }: UserPopoverProps) {
-  useEffect(() => {
-    onOpen?.();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
+function UserPopoverContent({ user, loading }: UserPopoverProps) {
   return (
-    <Spinner spinning={loading}>
-      {user && <UserDetails loading={loading} user={user} />}
-    </Spinner>
+    <Spinner spinning={loading}>{user && <UserDetails user={user} />}</Spinner>
   );
 }
