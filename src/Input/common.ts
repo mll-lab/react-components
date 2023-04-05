@@ -23,11 +23,23 @@ export const InputNumber: typeof AntdInputNumber = styled(AntdInputNumber)`
 `;
 export type InputNumberProps = AntdInputNumberProps;
 
-export const TextArea: typeof Input.TextArea = styled(Input.TextArea)`
+const AntdTextArea = Input.TextArea;
+export const TextArea: typeof AntdTextArea = styled(AntdTextArea)`
   font-size: ${fontSizeFromTheme};
 `;
 Input.TextArea = TextArea;
 export type TextAreaProps = AntdTextAreaProps;
 export type TextAreaRef = AntdTextAreaRef;
 
+const AntdSearch = Input.Search;
+const Search: typeof AntdSearch = styled(AntdSearch)`
+  // Present in the original style, see https://4x.ant.design/components/input/#components-input-demo-search-input
+  // Probably gets lost due to wrong handling of the mll-ant prefix?
+  .mll-ant-input-group-addon:last-child {
+    left: -1px;
+    padding: 0;
+    border: 0;
+  }
+`;
+Input.Search = Search;
 export type SearchProps = AntdSearchProps;
