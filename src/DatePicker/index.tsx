@@ -79,7 +79,7 @@ export const BaseDatePicker: ComponentClass<PickerProps<Date>, unknown> & {
     },
     parse: (_, text, formats) => {
       for (let i = 0; i < formats.length; i += 1) {
-        const format = localeParse(formats[i]);
+        const format = localeParse(formats[i]!);
         const date = parseDate(text, format, new Date(), {
           locale: de,
         });

@@ -43,13 +43,16 @@ function reducer<TTabID = number | string>(
       };
     }
     case 'unregisterTab': {
-      const tabs = state.tabs.filter((tab) => tab.id !== action.tabID);
+      const tabsWithoutUnregistered = state.tabs.filter(
+        (tab) => tab.id !== action.tabID,
+      );
+      const firstTab = tabsWithoutUnregistered[0];
 
       return {
-        tabs,
+        tabs: tabsWithoutUnregistered,
         activeTabID:
-          state.activeTabID === action.tabID && tabs.length > 1
-            ? tabs[0].id
+          state.activeTabID === action.tabID && firstTab
+            ? firstTab.id
             : undefined,
       };
     }
