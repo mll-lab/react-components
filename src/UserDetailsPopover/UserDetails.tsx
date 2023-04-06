@@ -1,15 +1,14 @@
-import { MailOutlined } from '@ant-design/icons';
 import { joinNonEmpty } from '@mll-lab/js-utils';
-import React, { PropsWithChildren, ReactNode, useMemo } from 'react';
+import React, { useMemo } from 'react';
 
 import { UserAvatar } from '../Avatar';
 import { Divider } from '../Divider';
 import { Col, Row } from '../Grid';
-import { Link } from '../Link';
 import { Space } from '../Space';
 import { Typography } from '../Typography';
 
-import { mailToLink } from './email';
+import { EmailRow } from './EmailRow';
+import { GUTTER, SPACE } from './constants';
 
 type User = {
   acronym?: string | null;
@@ -24,11 +23,13 @@ export type UserDetailsProps = {
   user: User;
 };
 
-const GUTTER = 8;
-const SPACE = 4;
-
 export function UserDetails({ user }: UserDetailsProps) {
   const { acronym, email, firstName, lastName, inactive, userName } = user;
+  const fullName = useMemo(
+    () => joinNonEmpty([firstName, lastName], ' '),
+    [firstName, lastName],
+  );
+  const showFullName = !inactive && fullName;
   return (
     <Space direction="vertical" size={SPACE}>
       <Row gutter={GUTTER} align="middle">
@@ -36,42 +37,22 @@ export function UserDetails({ user }: UserDetailsProps) {
           <UserAvatar username={acronym} />
         </Col>
         <Col flex="auto">
-          <Space direction="vertical" size={0}>
-            <Typography.Text strong>
-              {inactive ? userName : joinNonEmpty([firstName, lastName], ' ')}
-            </Typography.Text>
-            {!inactive && <Typography.Text>{userName}</Typography.Text>}
-          </Space>
+          {showFullName ? (
+            <Space direction="vertical" size={0}>
+              <Typography.Text strong>{fullName}</Typography.Text>
+              <Typography.Text>{userName}</Typography.Text>
+            </Space>
+          ) : (
+            <Typography.Text strong>{userName}</Typography.Text>
+          )}
         </Col>
       </Row>
 
       <Divider style={{ marginTop: SPACE, marginBottom: SPACE }} />
 
-      {inactive ? 'The user was deactivated' : <EmailRow email={email} />}
+      {inactive
+        ? 'The user was deactivated'
+        : email && <EmailRow email={email} />}
     </Space>
-  );
-}
-
-function EmailRow({ email }: Pick<User, 'email'>) {
-  const emailLink = useMemo(() => (email ? mailToLink(email) : null), [email]);
-  if (!email || !emailLink) {
-    return null;
-  }
-  return (
-    <RowWithLabel label={<MailOutlined />}>
-      <Link href={emailLink}>{email}</Link>
-    </RowWithLabel>
-  );
-}
-
-function RowWithLabel({
-  children,
-  label,
-}: PropsWithChildren<{ label: ReactNode }>) {
-  return (
-    <Row gutter={GUTTER} align="middle">
-      <Col flex="20px">{label}</Col>
-      <Col flex="auto">{children}</Col>
-    </Row>
   );
 }
