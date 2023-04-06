@@ -40,7 +40,11 @@ export const Default: Story = function Link(args) {
         marginLeft: 100,
       }}
     >
+      <Form.Item label="onOpen-Callback was called">
+        {calledOnOpen ? 'Yes' : 'No'}
+      </Form.Item>
       <UserAvatarWithDetailsPopover
+        acronym={args.acronym}
         loading={args.loading}
         onOpen={handleOnOpen}
         user={{
@@ -52,9 +56,6 @@ export const Default: Story = function Link(args) {
           inactive: args.inactive,
         }}
       />
-      <Form.Item label="onOpen-Callback was called">
-        {calledOnOpen ? 'Yes' : 'No'}
-      </Form.Item>
     </Space>
   );
 };
