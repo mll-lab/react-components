@@ -27,6 +27,7 @@ export function UserDetailsPopover({
   return (
     <Popover
       destroyTooltipOnHide
+      mouseEnterDelay={1}
       content={
         <UserDetailsPopoverContent
           loading={loading}
