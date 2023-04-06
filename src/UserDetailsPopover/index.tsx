@@ -41,11 +41,13 @@ export function UserDetailsPopover({
 }
 
 export function UserAvatarWithDetailsPopover(
-  props: Omit<UserDetailsPopoverProps, 'children'>,
+  props: Omit<UserDetailsPopoverProps, 'children'> & {
+    acronym: string | null | undefined;
+  },
 ) {
   return (
     <UserDetailsPopover {...props}>
-      <UserAvatar username={props.user?.acronym} />
+      <UserAvatar username={props.acronym ?? '?'} />
     </UserDetailsPopover>
   );
 }
