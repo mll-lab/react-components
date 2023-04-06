@@ -1,8 +1,7 @@
-import { UserOutlined } from '@ant-design/icons';
 import { Story } from '@storybook/react';
 import React, { useState } from 'react';
 
-import { Avatar, UserAvatar } from '../Avatar';
+import { UserAvatar } from '../Avatar';
 import { Form } from '../Form';
 import { Space } from '../Space';
 
@@ -23,6 +22,12 @@ export default {
       defaultValue: false,
     },
     inactive: {
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: false,
+    },
+    displayUserAsText: {
       control: {
         type: 'boolean',
       },
@@ -53,10 +58,10 @@ export const Basic: Story = function Link(args) {
         }}
         onOpen={() => setCalledOnOpen(true)}
       >
-        {args.acronym ? (
-          <UserAvatar username={args.acronym} />
+        {args.displayUserAsText ? (
+          args.userName
         ) : (
-          <Avatar icon={<UserOutlined />} />
+          <UserAvatar username={args.acronym} />
         )}
       </UserDetailsPopover>
       <Form.Item label="onOpen-Callback was called">
