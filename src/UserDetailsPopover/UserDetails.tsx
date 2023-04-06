@@ -36,12 +36,19 @@ export function UserDetails({ user }: UserDetailsProps) {
         <Col flex="0 1 min-content">
           <UserAvatar username={acronym} />
         </Col>
-        <Col flex="auto">
+        <Col
+          flex="auto"
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'flex-start',
+          }}
+        >
           {showFullName ? (
-            <Space direction="vertical" size={0}>
+            <>
               <Typography.Text strong>{fullName}</Typography.Text>
               <Typography.Text>{userName}</Typography.Text>
-            </Space>
+            </>
           ) : (
             <Typography.Text strong>{userName}</Typography.Text>
           )}
