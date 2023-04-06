@@ -1,3 +1,29 @@
+# [12.5.0](https://github.com/mll-lab/react-components/compare/v12.4.0...v12.5.0) (2023-04-06)
+
+
+### Bug Fixes
+
+* properly display search icon in Input.Search ([3a9ea9d](https://github.com/mll-lab/react-components/commit/3a9ea9d5245e94ef2a8d64004385b289166393f1))
+
+
+### Features
+
+* add SearchProps ([2146c4f](https://github.com/mll-lab/react-components/commit/2146c4f868778f8a54beea6686575396737d6785))
+
+# [12.4.0](https://github.com/mll-lab/react-components/compare/v12.3.1...v12.4.0) (2023-03-24)
+
+
+### Features
+
+* add Popover ([4f1e388](https://github.com/mll-lab/react-components/commit/4f1e388576183eaa6e6c8db4a5aa6ee974626ae6))
+
+## [12.3.1](https://github.com/mll-lab/react-components/compare/v12.3.0...v12.3.1) (2023-03-24)
+
+
+### Bug Fixes
+
+* avoid losing focus in form elements with validation ([ea05ded](https://github.com/mll-lab/react-components/commit/ea05ded965610c8f9f1ad64f3da6fc2ba74832a6))
+
 # [12.3.0](https://github.com/mll-lab/react-components/compare/v12.2.0...v12.3.0) (2023-03-17)
 
 
