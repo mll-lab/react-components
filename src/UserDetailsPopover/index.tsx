@@ -6,7 +6,7 @@ import { Spinner } from '../Spinner';
 
 import { UserDetails, UserDetailsProps } from './UserDetails';
 
-export type UserWithDetailsPopoverProps = Modify<
+export type UserDetailsPopoverProps = Modify<
   UserDetailsProps,
   {
     user?: UserDetailsProps['user'];
@@ -22,7 +22,7 @@ export function UserDetailsPopover({
   loading,
   onOpen,
   user,
-}: UserWithDetailsPopoverProps) {
+}: UserDetailsPopoverProps) {
   return (
     <Popover
       destroyTooltipOnHide
@@ -43,8 +43,9 @@ function UserDetailsPopoverContent({
   loading,
   onOpen,
   user,
-}: Omit<UserWithDetailsPopoverProps, 'children'>) {
+}: Omit<UserDetailsPopoverProps, 'children'>) {
   useEffect(() => {
+    // call once when popover opens to enable lazy loading of data
     onOpen?.();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
