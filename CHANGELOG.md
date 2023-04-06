@@ -1,3 +1,10 @@
+# [12.6.0](https://github.com/mll-lab/react-components/compare/v12.5.0...v12.6.0) (2023-04-06)
+
+
+### Features
+
+* optimize bundle ([#131](https://github.com/mll-lab/react-components/issues/131)) ([8932910](https://github.com/mll-lab/react-components/commit/8932910afa1eeab546c6ec907d31dd0b614a8976))
+
 # [12.5.0](https://github.com/mll-lab/react-components/compare/v12.4.0...v12.5.0) (2023-04-06)
 
 
