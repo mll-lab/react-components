@@ -1,3 +1,15 @@
+# [12.5.0](https://github.com/mll-lab/react-components/compare/v12.4.0...v12.5.0) (2023-04-06)
+
+
+### Bug Fixes
+
+* properly display search icon in Input.Search ([3a9ea9d](https://github.com/mll-lab/react-components/commit/3a9ea9d5245e94ef2a8d64004385b289166393f1))
+
+
+### Features
+
+* add SearchProps ([2146c4f](https://github.com/mll-lab/react-components/commit/2146c4f868778f8a54beea6686575396737d6785))
+
 # [12.4.0](https://github.com/mll-lab/react-components/compare/v12.3.1...v12.4.0) (2023-03-24)
 
 
