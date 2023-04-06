@@ -1,9 +1,12 @@
+import { UserOutlined } from '@ant-design/icons';
 import { Story } from '@storybook/react';
-import React from 'react';
+import React, { useState } from 'react';
 
-import { UserAvatar } from '../Avatar';
+import { Avatar, UserAvatar } from '../Avatar';
+import { Form } from '../Form';
+import { Space } from '../Space';
 
-import { UserPopover } from './index';
+import { UserDetailsPopover } from './index';
 
 export default {
   title: 'UserPopover',
@@ -29,9 +32,16 @@ export default {
 };
 
 export const Basic: Story = function Link(args) {
+  const [calledOnOpen, setCalledOnOpen] = useState(false);
   return (
-    <div style={{ display: 'flex', justifyContent: 'center' }}>
-      <UserPopover
+    <Space
+      direction="vertical"
+      align="center"
+      style={{
+        marginLeft: 100,
+      }}
+    >
+      <UserDetailsPopover
         loading={args.loading}
         user={{
           acronym: args.acronym,
@@ -41,9 +51,17 @@ export const Basic: Story = function Link(args) {
           userName: args.userName,
           inactive: args.inactive,
         }}
+        onOpen={() => setCalledOnOpen(true)}
       >
-        <UserAvatar username={args.acronym} />
-      </UserPopover>
-    </div>
+        {args.acronym ? (
+          <UserAvatar username={args.acronym} />
+        ) : (
+          <Avatar icon={<UserOutlined />} />
+        )}
+      </UserDetailsPopover>
+      <Form.Item label="onOpen-Callback was called">
+        {calledOnOpen ? 'Yes' : 'No'}
+      </Form.Item>
+    </Space>
   );
 };
