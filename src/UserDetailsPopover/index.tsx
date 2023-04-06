@@ -1,6 +1,7 @@
 import { Modify } from '@mll-lab/js-utils';
 import React, { PropsWithChildren, useEffect } from 'react';
 
+import { UserAvatar } from '../Avatar';
 import { Popover } from '../Popover';
 import { Spinner } from '../Spinner';
 
@@ -9,7 +10,7 @@ import { UserDetails, UserDetailsProps } from './UserDetails';
 export type UserDetailsPopoverProps = Modify<
   UserDetailsProps,
   {
-    user?: UserDetailsProps['user'];
+    user: UserDetailsProps['user'] | undefined | null; // can be empty while loading
   }
 > &
   PropsWithChildren<{
@@ -36,6 +37,16 @@ export function UserDetailsPopover({
     >
       {children}
     </Popover>
+  );
+}
+
+export function UserAvatarWithDetailsPopover(
+  props: Omit<UserDetailsPopoverProps, 'children'>,
+) {
+  return (
+    <UserDetailsPopover {...props}>
+      <UserAvatar username={props.user?.acronym} />
+    </UserDetailsPopover>
   );
 }
 

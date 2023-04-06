@@ -1,11 +1,10 @@
 import { Story } from '@storybook/react';
-import React, { useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 
-import { UserAvatar } from '../Avatar';
 import { Form } from '../Form';
 import { Space } from '../Space';
 
-import { UserDetailsPopover } from './index';
+import { UserAvatarWithDetailsPopover, UserDetailsPopover } from './index';
 
 export default {
   title: 'UserPopover',
@@ -27,17 +26,12 @@ export default {
       },
       defaultValue: false,
     },
-    displayUserAsText: {
-      control: {
-        type: 'boolean',
-      },
-      defaultValue: false,
-    },
   },
 };
 
-export const Basic: Story = function Link(args) {
+export const Default: Story = function Link(args) {
   const [calledOnOpen, setCalledOnOpen] = useState(false);
+  const handleOnOpen = useCallback(() => setCalledOnOpen(true), []);
   return (
     <Space
       direction="vertical"
@@ -46,8 +40,9 @@ export const Basic: Story = function Link(args) {
         marginLeft: 100,
       }}
     >
-      <UserDetailsPopover
+      <UserAvatarWithDetailsPopover
         loading={args.loading}
+        onOpen={handleOnOpen}
         user={{
           acronym: args.acronym,
           email: args.email,
@@ -56,17 +51,38 @@ export const Basic: Story = function Link(args) {
           userName: args.userName,
           inactive: args.inactive,
         }}
-        onOpen={() => setCalledOnOpen(true)}
-      >
-        {args.displayUserAsText ? (
-          args.userName
-        ) : (
-          <UserAvatar username={args.acronym} />
-        )}
-      </UserDetailsPopover>
+      />
       <Form.Item label="onOpen-Callback was called">
         {calledOnOpen ? 'Yes' : 'No'}
       </Form.Item>
+    </Space>
+  );
+};
+
+export const WithCustomChildren: Story = function Link(args) {
+  const userProps = useMemo(
+    () => ({
+      acronym: args.acronym,
+      email: args.email,
+      firstName: args.firstName,
+      lastName: args.lastName,
+      userName: args.userName,
+      inactive: args.inactive,
+    }),
+    [args],
+  );
+
+  return (
+    <Space
+      direction="vertical"
+      align="center"
+      style={{
+        marginLeft: 100,
+      }}
+    >
+      <UserDetailsPopover loading={args.loading} user={userProps}>
+        {args.userName}
+      </UserDetailsPopover>
     </Space>
   );
 };
