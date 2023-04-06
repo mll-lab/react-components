@@ -1,8 +1,8 @@
-import { MailOutlined, UserOutlined } from '@ant-design/icons';
+import { MailOutlined } from '@ant-design/icons';
 import { joinNonEmpty } from '@mll-lab/js-utils';
 import React, { PropsWithChildren, ReactNode, useMemo } from 'react';
 
-import { Avatar, UserAvatar } from '../Avatar';
+import { UserAvatar } from '../Avatar';
 import { Divider } from '../Divider';
 import { Col, Row } from '../Grid';
 import { Link } from '../Link';
@@ -33,11 +33,7 @@ export function UserDetails({ user }: UserDetailsProps) {
     <Space direction="vertical" size={SPACE}>
       <Row gutter={GUTTER} align="middle">
         <Col flex="0 1 min-content">
-          {acronym ? (
-            <UserAvatar username={acronym} />
-          ) : (
-            <Avatar icon={<UserOutlined />} />
-          )}
+          <UserAvatar username={acronym} />
         </Col>
         <Col flex="auto">
           <Space direction="vertical" size={0}>
