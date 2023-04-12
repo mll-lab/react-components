@@ -50,7 +50,7 @@ export function UserAvatarWithDetailsPopover(
 ) {
   return (
     <UserDetailsPopover {...props}>
-      <UserAvatar username={props.acronym ?? '?'} />
+      <UserAvatar username={props.acronym} />
     </UserDetailsPopover>
   );
 }
