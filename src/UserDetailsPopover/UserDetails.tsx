@@ -1,5 +1,5 @@
 import { joinNonEmpty } from '@mll-lab/js-utils';
-import React, { useMemo } from 'react';
+import React from 'react';
 
 import { UserAvatar } from '../Avatar';
 import { Divider } from '../Divider';
