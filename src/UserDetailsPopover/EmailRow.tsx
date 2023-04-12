@@ -1,5 +1,5 @@
 import { MailOutlined } from '@ant-design/icons';
-import React, { useMemo } from 'react';
+import React from 'react';
 
 import { Anchor } from '../Anchor';
 
@@ -11,10 +11,9 @@ type EmailRowProps = {
 };
 
 export function EmailRow({ email }: EmailRowProps) {
-  const emailLink = useMemo(() => mailToLink(email), [email]);
   return (
     <RowWithLabel label={<MailOutlined />}>
-      <Anchor href={emailLink}>{email}</Anchor>
+      <Anchor href={mailToLink(email)}>{email}</Anchor>
     </RowWithLabel>
   );
 }

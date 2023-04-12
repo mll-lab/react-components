@@ -25,10 +25,7 @@ export type UserDetailsProps = {
 
 export function UserDetails({ user }: UserDetailsProps) {
   const { acronym, email, firstname, lastname, inactive, username } = user;
-  const fullName = useMemo(
-    () => joinNonEmpty([firstname, lastname], ' '),
-    [firstname, lastname],
-  );
+  const fullName = joinNonEmpty([firstname, lastname], ' ');
   const showFullName = !inactive && fullName;
   return (
     <Space direction="vertical" size={SPACE}>
