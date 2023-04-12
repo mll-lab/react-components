@@ -6,7 +6,7 @@ import {
   FieldPath,
 } from 'react-hook-form';
 
-import { Input, TextAreaProps } from '../Input';
+import { Input, TextAreaProps, TextAreaRef } from '../Input';
 
 import { useFieldContext } from './FieldProvider';
 import { FieldWrapper, FieldWrapperProps } from './FieldWrapper';
@@ -16,7 +16,9 @@ type TextAreaFieldProps<
   TName extends FieldPath<TFieldValues>,
 > = UseControllerProps<TFieldValues, TName> &
   Pick<FieldWrapperProps<TFieldValues, TName>, 'formItem'> & {
-    component?: TextAreaProps;
+    component?: TextAreaProps & {
+      ref?: React.Ref<TextAreaRef>;
+    };
   };
 
 export function TextAreaField<

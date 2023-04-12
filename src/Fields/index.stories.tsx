@@ -1,9 +1,12 @@
 import { Story } from '@storybook/react';
-import React, { useCallback } from 'react';
+import React, { useCallback, useRef } from 'react';
 import { FormProvider, useForm, useFormContext } from 'react-hook-form';
 
+import { Button } from '../Button';
 import { Form } from '../Form';
+import { TextAreaRef } from '../Input';
 import { toFormInputOption } from '../Select';
+import { Space } from '../Space';
 
 import { CheckboxField } from './CheckboxField';
 import { FieldProvider, FieldProviderProps } from './FieldProvider';
@@ -120,7 +123,7 @@ NestedProviders.argTypes = {
 function AllFields() {
   const formMethods = useFormContext<FormType>();
   return (
-    <Form labelCol={{ span: 10 }} wrapperCol={{ span: 14 }}>
+    <Form>
       <CheckboxField
         name="checkbox"
         control={formMethods.control}
@@ -173,14 +176,46 @@ function AllFields() {
           label: 'Switch Label',
         }}
       />
+      <TextAreaStory />
+    </Form>
+  );
+}
+
+function TextAreaStory() {
+  const { control } = useFormContext<FormType>();
+  const textArea1Ref = useRef<TextAreaRef>(null);
+  const textArea2Ref = useRef<TextAreaRef>(null);
+  return (
+    <Space direction="horizontal">
       <TextAreaField
         name="text_area"
-        rules={{ required: 'Very necessary' }}
-        control={formMethods.control}
+        control={control}
         formItem={{
-          label: 'TextArea Label',
+          label: 'TextArea 1',
+        }}
+        component={{
+          ref: textArea1Ref,
+          minLength: 3,
+        }}
+        rules={{ required: 'Very necessary' }}
+      />
+      <TextAreaField
+        name="text_area"
+        control={control}
+        formItem={{
+          label: 'TextArea 2',
+        }}
+        component={{
+          ref: textArea2Ref,
+          minLength: 3,
         }}
       />
-    </Form>
+      <Button onClick={() => textArea1Ref.current?.focus()}>
+        Focus TextArea 1
+      </Button>
+      <Button onClick={() => textArea2Ref.current?.focus()}>
+        Focus TextArea 2
+      </Button>
+    </Space>
   );
 }
