@@ -1,3 +1,10 @@
+# [12.8.0](https://github.com/mll-lab/react-components/compare/v12.7.1...v12.8.0) (2023-04-12)
+
+
+### Features
+
+* add popover for user details ([#221](https://github.com/mll-lab/react-components/issues/221)) ([067a8c0](https://github.com/mll-lab/react-components/commit/067a8c015b0f3f6b0c6fda15bb692bfc7d74d597))
+
 ## [12.7.1](https://github.com/mll-lab/react-components/compare/v12.7.0...v12.7.1) (2023-04-12)
 
 
