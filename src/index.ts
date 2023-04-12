@@ -24,13 +24,16 @@ export * from './Fields'; // Might extract to separate package later due to depe
 export * from './Form';
 export * from './Grid';
 export * from './Image';
+export * from './ImageMap';
 export * from './Input';
 export * from './List';
+export * from './MasterMix';
 export * from './Menu';
 export * from './Modal';
 export * from './PageHeader';
 export * from './Plate';
 export * from './Popconfirm';
+export * from './Popover';
 export * from './Progress';
 export * from './Radio';
 export * from './Result';

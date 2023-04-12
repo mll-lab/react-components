@@ -6,41 +6,43 @@ import {
   FieldPath,
 } from 'react-hook-form';
 
-import { Input, InputProps } from '../Input';
+import { Switch, SwitchProps } from '../Switch';
 
 import { useFieldContext } from './FieldProvider';
 import { FieldWrapper, FieldWrapperProps } from './FieldWrapper';
 
-type InputFieldProps<
+type SwitchFieldProps<
   TFieldValues extends FieldValues,
   TName extends FieldPath<TFieldValues>,
 > = UseControllerProps<TFieldValues, TName> &
   Pick<FieldWrapperProps<TFieldValues, TName>, 'formItem'> & {
-    component?: InputProps;
+    component?: SwitchProps;
   };
 
-export function InputField<
+export function SwitchField<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
 >({
   formItem,
   component,
   ...controller
-}: InputFieldProps<TFieldValues, TName>) {
-  const { field } = useController<TFieldValues, TName>(controller);
+}: SwitchFieldProps<TFieldValues, TName>) {
+  const {
+    field: { value, onChange, ...field },
+  } = useController<TFieldValues, TName>(controller);
 
   const { disabled } = useFieldContext();
 
   return (
     <FieldWrapper controller={controller} formItem={formItem}>
-      <Input
+      <Switch
         {...field}
-        value={field.value ?? undefined}
+        onChange={(checked) => {
+          onChange(checked);
+        }}
+        checked={value}
         disabled={disabled}
         {...component}
-        // Avoid losing focus when triggering/resolving a validation error
-        // https://4x.ant.design/components/input/#Why-Input-lose-focus-when-change-prefix/suffix/showCount
-        suffix={component?.suffix || <span />}
       />
     </FieldWrapper>
   );

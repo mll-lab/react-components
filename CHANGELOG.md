@@ -1,3 +1,133 @@
+# [12.6.0](https://github.com/mll-lab/react-components/compare/v12.5.0...v12.6.0) (2023-04-06)
+
+
+### Features
+
+* optimize bundle ([#131](https://github.com/mll-lab/react-components/issues/131)) ([8932910](https://github.com/mll-lab/react-components/commit/8932910afa1eeab546c6ec907d31dd0b614a8976))
+
+# [12.5.0](https://github.com/mll-lab/react-components/compare/v12.4.0...v12.5.0) (2023-04-06)
+
+
+### Bug Fixes
+
+* properly display search icon in Input.Search ([3a9ea9d](https://github.com/mll-lab/react-components/commit/3a9ea9d5245e94ef2a8d64004385b289166393f1))
+
+
+### Features
+
+* add SearchProps ([2146c4f](https://github.com/mll-lab/react-components/commit/2146c4f868778f8a54beea6686575396737d6785))
+
+# [12.4.0](https://github.com/mll-lab/react-components/compare/v12.3.1...v12.4.0) (2023-03-24)
+
+
+### Features
+
+* add Popover ([4f1e388](https://github.com/mll-lab/react-components/commit/4f1e388576183eaa6e6c8db4a5aa6ee974626ae6))
+
+## [12.3.1](https://github.com/mll-lab/react-components/compare/v12.3.0...v12.3.1) (2023-03-24)
+
+
+### Bug Fixes
+
+* avoid losing focus in form elements with validation ([ea05ded](https://github.com/mll-lab/react-components/commit/ea05ded965610c8f9f1ad64f3da6fc2ba74832a6))
+
+# [12.3.0](https://github.com/mll-lab/react-components/compare/v12.2.0...v12.3.0) (2023-03-17)
+
+
+### Features
+
+* export type FilterDropdownProps ([#215](https://github.com/mll-lab/react-components/issues/215)) ([c7f5140](https://github.com/mll-lab/react-components/commit/c7f5140c688ed627268542e9e406b0e2a7b43813))
+
+# [12.2.0](https://github.com/mll-lab/react-components/compare/v12.1.0...v12.2.0) (2023-03-07)
+
+
+### Features
+
+* add function indeterminate ([f4c9b59](https://github.com/mll-lab/react-components/commit/f4c9b598351caf60aa8591c0fddf086d2cd4c452))
+
+# [12.1.0](https://github.com/mll-lab/react-components/compare/v12.0.0...v12.1.0) (2023-02-28)
+
+
+### Features
+
+* Add ImageMap and TecanLayout component ([#212](https://github.com/mll-lab/react-components/issues/212)) ([6a6d4ea](https://github.com/mll-lab/react-components/commit/6a6d4ea4660409c32a24e995e6fc0d4e210edb5a))
+
+# [12.0.0](https://github.com/mll-lab/react-components/compare/v11.17.0...v12.0.0) (2023-02-22)
+
+
+### Features
+
+* Add dynamic pipetting loss to MasterMix ([#211](https://github.com/mll-lab/react-components/issues/211)) ([422c71b](https://github.com/mll-lab/react-components/commit/422c71b15856a7925c8798dbd9b9f2bc16c6b160))
+
+
+### BREAKING CHANGES
+
+* MasterMix-Component requires pipettingLoss-property
+
+# [11.17.0](https://github.com/mll-lab/react-components/compare/v11.16.4...v11.17.0) (2023-02-08)
+
+
+### Features
+
+* update @ant-design/icons ([#210](https://github.com/mll-lab/react-components/issues/210)) ([3cbc87d](https://github.com/mll-lab/react-components/commit/3cbc87d5ad10e78370bf08b5b363bc6cce350899))
+
+## [11.16.4](https://github.com/mll-lab/react-components/compare/v11.16.3...v11.16.4) (2023-02-08)
+
+
+### Bug Fixes
+
+* downgrade antd to 4.20.5 ([5ae7f1e](https://github.com/mll-lab/react-components/commit/5ae7f1e26ee0fed2e603c9dcb37f902c6865a57d))
+* fix dependencies ([#209](https://github.com/mll-lab/react-components/issues/209)) ([bc81864](https://github.com/mll-lab/react-components/commit/bc81864852dba017a610e9dfb3dd58c01b7512f5))
+
+## [11.16.3](https://github.com/mll-lab/react-components/compare/v11.16.2...v11.16.3) (2023-02-08)
+
+
+### Bug Fixes
+
+* downgrade @babel/runtime to 7.17.9 ([f2c1f54](https://github.com/mll-lab/react-components/commit/f2c1f54b388e08fccfdc1a75709a5096a9d8b2d4))
+
+## [11.16.2](https://github.com/mll-lab/react-components/compare/v11.16.1...v11.16.2) (2023-02-08)
+
+
+### Bug Fixes
+
+* update babel and jest ([#208](https://github.com/mll-lab/react-components/issues/208)) ([6cdd805](https://github.com/mll-lab/react-components/commit/6cdd80503500e17df1f42a50f43a66117b0786e8))
+
+## [11.16.1](https://github.com/mll-lab/react-components/compare/v11.16.0...v11.16.1) (2023-02-03)
+
+
+### Bug Fixes
+
+* upgrade babel dependencies ([#207](https://github.com/mll-lab/react-components/issues/207)) ([f2e0b5e](https://github.com/mll-lab/react-components/commit/f2e0b5edb739c436e4e734ba909a72fb40d728a5))
+
+# [11.16.0](https://github.com/mll-lab/react-components/compare/v11.15.1...v11.16.0) (2023-02-03)
+
+
+### Features
+
+* Add MasterMix component ([a1988cc](https://github.com/mll-lab/react-components/commit/a1988cce9a5e8ef10a2bd1e7ddb447ff995c30dd))
+
+## [11.15.1](https://github.com/mll-lab/react-components/compare/v11.15.0...v11.15.1) (2023-02-03)
+
+
+### Bug Fixes
+
+* upgrade @babel/runtime ([#205](https://github.com/mll-lab/react-components/issues/205)) ([a71138c](https://github.com/mll-lab/react-components/commit/a71138cb17e04492baab5070a88939eca105fec5))
+
+# [11.15.0](https://github.com/mll-lab/react-components/compare/v11.14.1...v11.15.0) (2023-01-31)
+
+
+### Features
+
+* add SwitchField component ([add735d](https://github.com/mll-lab/react-components/commit/add735d924f9f6317b1f9cfd68879cc145ce5831))
+
+## [11.14.1](https://github.com/mll-lab/react-components/compare/v11.14.0...v11.14.1) (2023-01-20)
+
+
+### Bug Fixes
+
+* actually expose Space.Compact ([491fddf](https://github.com/mll-lab/react-components/commit/491fddf76c26de56a5105e64347589423a08102a))
+
 # [11.14.0](https://github.com/mll-lab/react-components/compare/v11.13.0...v11.14.0) (2023-01-05)
 
 

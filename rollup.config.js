@@ -1,3 +1,5 @@
+import * as path from 'path';
+
 import babel from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
@@ -8,21 +10,27 @@ import styles from 'rollup-plugin-styles';
 // eslint-disable-next-line import/extensions
 import pkg from './package.json';
 
+function dirname(filename) {
+  return path.basename(path.dirname(filename));
+}
+
 export default {
   input: 'src/index.ts',
 
   output: [
     {
-      file: pkg.main,
+      dir: dirname(pkg.main),
       format: 'cjs',
       sourcemap: true,
     },
     {
-      file: pkg.module,
+      dir: dirname(pkg.module),
       format: 'esm',
       sourcemap: true,
     },
   ],
+
+  preserveModules: true,
 
   // this resolves to window in the browser, thus enabling caching in the antd code below
   // (!) `this` has been rewritten to `undefined`

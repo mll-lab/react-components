@@ -1,4 +1,3 @@
-import { omit } from 'lodash';
 import React, { PropsWithChildren } from 'react';
 import {
   useController,
@@ -30,18 +29,20 @@ export function CheckboxField<
   children,
   ...controller
 }: CheckboxFieldProps<TFieldValues, TName>) {
-  const { field } = useController<TFieldValues, TName>(controller);
+  const {
+    field: { value, onChange, ...field },
+  } = useController<TFieldValues, TName>(controller);
 
   const { disabled } = useFieldContext();
 
   return (
     <FieldWrapper controller={controller} formItem={formItem}>
       <Checkbox
-        {...omit(field, ['value', 'onChange'])}
+        {...field}
         onChange={(event) => {
-          field.onChange(event.target.checked);
+          onChange(event.target.checked);
         }}
-        checked={field.value}
+        checked={value}
         disabled={disabled}
         {...component}
       >
