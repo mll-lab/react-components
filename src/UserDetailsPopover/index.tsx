@@ -10,11 +10,13 @@ import { UserDetails, UserDetailsProps } from './UserDetails';
 export type UserDetailsPopoverProps = Modify<
   UserDetailsProps,
   {
-    user: UserDetailsProps['user'] | undefined | null; // can be empty while loading
+    /** Can be empty while loading. */
+    user: UserDetailsProps['user'] | undefined | null;
   }
 > &
   PropsWithChildren<{
     loading: boolean;
+    /** Called once when popover opens to enable lazy loading of data. */
     onOpen?: () => void;
   }>;
 
