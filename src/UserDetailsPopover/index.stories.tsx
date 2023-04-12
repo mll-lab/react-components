@@ -11,9 +11,9 @@ export default {
   argTypes: {
     acronym: { control: { type: 'text' }, defaultValue: 'JD' },
     email: { control: { type: 'text' }, defaultValue: 'john.doe@mll.com' },
-    firstName: { control: { type: 'text' }, defaultValue: 'John' },
-    lastName: { control: { type: 'text' }, defaultValue: 'Doe' },
-    userName: { control: { type: 'text' }, defaultValue: 'jdoe' },
+    firstname: { control: { type: 'text' }, defaultValue: 'John' },
+    lastname: { control: { type: 'text' }, defaultValue: 'Doe' },
+    username: { control: { type: 'text' }, defaultValue: 'jdoe' },
     loading: {
       control: {
         type: 'boolean',
@@ -50,9 +50,9 @@ export const Default: Story = function Link(args) {
         user={{
           acronym: args.acronym,
           email: args.email,
-          firstName: args.firstName,
-          lastName: args.lastName,
-          userName: args.userName,
+          firstname: args.firstname,
+          lastname: args.lastname,
+          username: args.username,
           inactive: args.inactive,
         }}
       />
@@ -65,9 +65,9 @@ export const WithCustomChildren: Story = function Link(args) {
     () => ({
       acronym: args.acronym,
       email: args.email,
-      firstName: args.firstName,
-      lastName: args.lastName,
-      userName: args.userName,
+      firstname: args.firstname,
+      lastname: args.lastname,
+      username: args.username,
       inactive: args.inactive,
     }),
     [args],
@@ -82,7 +82,7 @@ export const WithCustomChildren: Story = function Link(args) {
       }}
     >
       <UserDetailsPopover loading={args.loading} user={userProps}>
-        {args.userName}
+        {args.username}
       </UserDetailsPopover>
     </Space>
   );

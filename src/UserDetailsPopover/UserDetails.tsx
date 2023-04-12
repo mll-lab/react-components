@@ -13,10 +13,10 @@ import { GUTTER, SPACE } from './constants';
 type User = {
   acronym?: string | null;
   email?: string | null;
-  firstName?: string | null;
+  firstname?: string | null;
   inactive?: boolean;
-  lastName?: string | null;
-  userName: string;
+  lastname?: string | null;
+  username: string;
 };
 
 export type UserDetailsProps = {
@@ -24,10 +24,10 @@ export type UserDetailsProps = {
 };
 
 export function UserDetails({ user }: UserDetailsProps) {
-  const { acronym, email, firstName, lastName, inactive, userName } = user;
+  const { acronym, email, firstname, lastname, inactive, username } = user;
   const fullName = useMemo(
-    () => joinNonEmpty([firstName, lastName], ' '),
-    [firstName, lastName],
+    () => joinNonEmpty([firstname, lastname], ' '),
+    [firstname, lastname],
   );
   const showFullName = !inactive && fullName;
   return (
@@ -47,10 +47,10 @@ export function UserDetails({ user }: UserDetailsProps) {
           {showFullName ? (
             <>
               <Typography.Text strong>{fullName}</Typography.Text>
-              <Typography.Text>{userName}</Typography.Text>
+              <Typography.Text>{username}</Typography.Text>
             </>
           ) : (
-            <Typography.Text strong>{userName}</Typography.Text>
+            <Typography.Text strong>{username}</Typography.Text>
           )}
         </Col>
       </Row>

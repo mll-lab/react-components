@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const StyledAnchor = styled.a`
-  color: ${(props) => props.theme.borderColor};
+  color: ${(props) => props.theme.anchorColor};
 `;
 
 export function Anchor({
