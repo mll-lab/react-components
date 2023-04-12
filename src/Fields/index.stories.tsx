@@ -1,8 +1,10 @@
+/* eslint-disable import/order */
 import { Story } from '@storybook/react';
 import React, { useCallback, useRef } from 'react';
 import { FormProvider, useForm, useFormContext } from 'react-hook-form';
 
 import { Form } from '../Form';
+import { TextAreaRef } from '../Input';
 import { toFormInputOption } from '../Select';
 
 import { CheckboxField } from './CheckboxField';
@@ -13,6 +15,9 @@ import { RadioGroupField } from './RadioGroupField';
 import { SelectField } from './SelectField';
 import { TextAreaField } from './TextAreaField';
 import { formItemFieldProps } from './formItemFieldProps';
+
+import { Button } from '../Button';
+import { Space } from '../Space';
 
 export default {
   title: 'Fields',
@@ -127,9 +132,8 @@ export const NestedProviders: Story<
 
 function AllFields() {
   const formMethods = useFormContext<FormType>();
-  const textAreaRef = useRef<HTMLInputElement>(null);
   return (
-    <Form labelCol={{ span: 10 }} wrapperCol={{ span: 14 }}>
+    <Form>
       <CheckboxField
         name="checkbox"
         control={formMethods.control}
@@ -173,17 +177,45 @@ function AllFields() {
           options: ['a', 'b'].map(toFormInputOption),
         }}
       />
+      <TextAreaStory />
+    </Form>
+  );
+}
+
+function TextAreaStory() {
+  const { control } = useFormContext<FormType>();
+  const textArea1Ref = useRef<TextAreaRef>(null);
+  const textArea2Ref = useRef<TextAreaRef>(null);
+  return (
+    <Space direction="horizontal">
       <TextAreaField
         name="text_area"
-        control={formMethods.control}
+        control={control}
         formItem={{
-          label: 'TextArea Label',
+          label: 'TextArea 1',
         }}
         component={{
-          ref: textAreaRef,
+          ref: textArea1Ref,
           minLength: 3,
         }}
       />
-    </Form>
+      <TextAreaField
+        name="text_area"
+        control={control}
+        formItem={{
+          label: 'TextArea 2',
+        }}
+        component={{
+          ref: textArea2Ref,
+          minLength: 3,
+        }}
+      />
+      <Button onClick={() => textArea1Ref.current?.focus()}>
+        Focus TextArea 1
+      </Button>
+      <Button onClick={() => textArea2Ref.current?.focus()}>
+        Focus TextArea 2
+      </Button>
+    </Space>
   );
 }
