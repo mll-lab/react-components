@@ -10,7 +10,6 @@
     "esm",
     "types"
   ],
-  "sideEffects": false,
   "scripts": {
     "prebuild": "rm -rf cjs esm types",
     "build:es": "rollup --config",
