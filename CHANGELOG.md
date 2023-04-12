@@ -1,3 +1,10 @@
+# [12.7.0](https://github.com/mll-lab/react-components/compare/v12.6.0...v12.7.0) (2023-04-12)
+
+
+### Features
+
+* accept ref in textarea field ([#222](https://github.com/mll-lab/react-components/issues/222)) ([0c225dd](https://github.com/mll-lab/react-components/commit/0c225dd9ef3658501186c005e54276135cfe2676))
+
 # [12.6.0](https://github.com/mll-lab/react-components/compare/v12.5.0...v12.6.0) (2023-04-06)
 
 
