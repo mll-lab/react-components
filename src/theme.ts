@@ -30,6 +30,7 @@ export const PALETTE = {
 /* eslint-enable @mll-lab/no-color-literals */
 
 export type Theme = {
+  anchorColor: string;
   backgroundColor: string;
   borderColor: string;
   collapseBackgroundColor: string;
@@ -56,6 +57,7 @@ export type Theme = {
 
 export const THEME: Theme = {
   // Components
+  anchorColor: PALETTE.blue,
   backgroundColor: PALETTE.blueTintedGray,
   borderColor: PALETTE.blue,
   collapseBackgroundColor: PALETTE.lightBlue,

@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const StyledLink = styled.a`
+const StyledAnchor = styled.a`
   color: ${(props) => props.theme.borderColor};
 `;
 
-export function Link({
+export function Anchor({
   children,
   ...props
 }: React.AnchorHTMLAttributes<HTMLAnchorElement>) {
-  return <StyledLink {...props}>{children}</StyledLink>;
+  return <StyledAnchor {...props}>{children}</StyledAnchor>;
 }
