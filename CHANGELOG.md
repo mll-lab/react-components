@@ -1,3 +1,10 @@
+## [12.7.1](https://github.com/mll-lab/react-components/compare/v12.7.0...v12.7.1) (2023-04-12)
+
+
+### Bug Fixes
+
+* revert bundle changes ([3f04666](https://github.com/mll-lab/react-components/commit/3f046660b646f7349d4628ae74c462c3c22a5ca7))
+
 # [12.7.0](https://github.com/mll-lab/react-components/compare/v12.6.0...v12.7.0) (2023-04-12)
 
 
