@@ -14,12 +14,6 @@ export default {
     firstname: { control: { type: 'text' }, defaultValue: 'John' },
     lastname: { control: { type: 'text' }, defaultValue: 'Doe' },
     username: { control: { type: 'text' }, defaultValue: 'jdoe' },
-    loading: {
-      control: {
-        type: 'boolean',
-      },
-      defaultValue: false,
-    },
     inactive: {
       control: {
         type: 'boolean',
@@ -45,7 +39,6 @@ export const Default: Story = function Link(args) {
       </Form.Item>
       <UserAvatarWithDetailsPopover
         acronym={args.acronym}
-        loading={args.loading}
         onOpen={handleOnOpen}
         user={{
           acronym: args.acronym,
