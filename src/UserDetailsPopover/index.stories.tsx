@@ -20,6 +20,12 @@ export default {
       },
       defaultValue: false,
     },
+    userUndefined: {
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: false,
+    },
   },
 };
 
@@ -40,14 +46,18 @@ export const Default: Story = function Link(args) {
       <UserAvatarWithDetailsPopover
         acronym={args.acronym}
         onOpen={handleOnOpen}
-        user={{
-          acronym: args.acronym,
-          email: args.email,
-          firstname: args.firstname,
-          lastname: args.lastname,
-          username: args.username,
-          inactive: args.inactive,
-        }}
+        user={
+          args.userUndefined
+            ? undefined
+            : {
+                acronym: args.acronym,
+                email: args.email,
+                firstname: args.firstname,
+                lastname: args.lastname,
+                username: args.username,
+                inactive: args.inactive,
+              }
+        }
       />
     </Space>
   );
@@ -74,7 +84,9 @@ export const WithCustomChildren: Story = function Link(args) {
         marginLeft: 100,
       }}
     >
-      <UserDetailsPopover user={userProps}>{args.username}</UserDetailsPopover>
+      <UserDetailsPopover user={args.userUndefined ? undefined : userProps}>
+        {args.username}
+      </UserDetailsPopover>
     </Space>
   );
 };
