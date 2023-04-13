@@ -3,7 +3,6 @@ import React, { PropsWithChildren, useEffect } from 'react';
 
 import { UserAvatar } from '../Avatar';
 import { Popover } from '../Popover';
-import { Spinner } from '../Spinner';
 
 import { UserDetails, UserDetailsProps } from './UserDetails';
 
@@ -15,14 +14,12 @@ export type UserDetailsPopoverProps = Modify<
   }
 > &
   PropsWithChildren<{
-    loading: boolean;
     /** Called once when popover opens to enable lazy loading of data. */
     onOpen?: () => void;
   }>;
 
 export function UserDetailsPopover({
   children,
-  loading,
   onOpen,
   user,
 }: UserDetailsPopoverProps) {
@@ -30,13 +27,7 @@ export function UserDetailsPopover({
     <Popover
       destroyTooltipOnHide
       mouseEnterDelay={1}
-      content={
-        <UserDetailsPopoverContent
-          loading={loading}
-          onOpen={onOpen}
-          user={user}
-        />
-      }
+      content={<UserDetailsPopoverContent onOpen={onOpen} user={user} />}
     >
       {children}
     </Popover>
@@ -56,7 +47,6 @@ export function UserAvatarWithDetailsPopover(
 }
 
 function UserDetailsPopoverContent({
-  loading,
   onOpen,
   user,
 }: Omit<UserDetailsPopoverProps, 'children'>) {
@@ -65,7 +55,8 @@ function UserDetailsPopoverContent({
     onOpen?.();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  return (
-    <Spinner spinning={loading}>{user && <UserDetails user={user} />}</Spinner>
-  );
+  if (!user) {
+    return null;
+  }
+  return <UserDetails user={user} />;
 }

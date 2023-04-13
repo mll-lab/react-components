@@ -81,9 +81,7 @@ export const WithCustomChildren: Story = function Link(args) {
         marginLeft: 100,
       }}
     >
-      <UserDetailsPopover loading={args.loading} user={userProps}>
-        {args.username}
-      </UserDetailsPopover>
+      <UserDetailsPopover user={userProps}>{args.username}</UserDetailsPopover>
     </Space>
   );
 };
