@@ -1,3 +1,10 @@
+## [12.8.1](https://github.com/mll-lab/react-components/compare/v12.8.0...v12.8.1) (2023-04-13)
+
+
+### Bug Fixes
+
+* jump of user popover ([#224](https://github.com/mll-lab/react-components/issues/224)) ([ab046bb](https://github.com/mll-lab/react-components/commit/ab046bb0eb82722365ff26a0bd23fce5cbca83c2))
+
 # [12.8.0](https://github.com/mll-lab/react-components/compare/v12.7.1...v12.8.0) (2023-04-12)
 
 
