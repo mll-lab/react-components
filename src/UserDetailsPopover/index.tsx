@@ -28,8 +28,8 @@ export function UserDetailsPopover({
       destroyTooltipOnHide
       mouseEnterDelay={1}
       content={<UserDetailsPopoverContent onOpen={onOpen} user={user} />}
-      // hide popover while user is loading
-      visible={!user ? false : undefined}
+      // hide popover while user is loading to avoid janky UI
+      visible={user ? undefined : false}
     >
       {children}
     </Popover>
