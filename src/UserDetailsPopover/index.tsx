@@ -1,8 +1,8 @@
 import { Modify } from '@mll-lab/js-utils';
-import React, { PropsWithChildren, useEffect } from 'react';
+import React, { PropsWithChildren } from 'react';
 
 import { UserAvatar } from '../Avatar';
-import { Popover } from '../Popover';
+import { Popover, PopoverProps } from '../Popover';
 
 import { UserDetails, UserDetailsProps } from './UserDetails';
 
@@ -14,22 +14,29 @@ export type UserDetailsPopoverProps = Modify<
   }
 > &
   PropsWithChildren<{
-    /** Called once when popover opens to enable lazy loading of data. */
-    onOpen?: () => void;
+    popover: Modify<
+      Omit<PopoverProps, 'content'>,
+      { onVisibleChange: PopoverProps['onVisibleChange'] }
+    >;
   }>;
 
 export function UserDetailsPopover({
   children,
-  onOpen,
+  popover,
   user,
 }: UserDetailsPopoverProps) {
   return (
     <Popover
+      mouseEnterDelay={0.8}
+      mouseLeaveDelay={0}
       destroyTooltipOnHide
-      mouseEnterDelay={1}
-      content={<UserDetailsPopoverContent onOpen={onOpen} user={user} />}
-      // hide popover while user is loading to avoid janky UI
-      visible={user ? undefined : false}
+      {...popover}
+      content={<UserDetailsPopoverContent user={user} />}
+      overlayStyle={{
+        // hide overlay while user is loading to avoid janky UI
+        display: !user ? 'none' : undefined,
+        ...popover.overlayStyle,
+      }}
     >
       {children}
     </Popover>
@@ -49,14 +56,8 @@ export function UserAvatarWithDetailsPopover(
 }
 
 function UserDetailsPopoverContent({
-  onOpen,
   user,
-}: Omit<UserDetailsPopoverProps, 'children'>) {
-  useEffect(() => {
-    // call once when popover opens to enable lazy loading of data
-    onOpen?.();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+}: Pick<UserDetailsPopoverProps, 'user'>) {
   if (!user) {
     return null;
   }
