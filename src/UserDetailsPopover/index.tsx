@@ -34,7 +34,7 @@ export function UserDetailsPopover({
       content={<UserDetailsPopoverContent user={user} />}
       overlayStyle={{
         // hide overlay while user is loading to avoid janky UI
-        display: !user ? 'none' : undefined,
+        display: user ? undefined : 'none',
         ...popover.overlayStyle,
       }}
     >
