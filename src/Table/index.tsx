@@ -14,6 +14,8 @@ export {
 } from 'antd/es/table';
 export { FilterDropdownProps, SortOrder } from 'antd/es/table/interface';
 
+export * from './utils';
+
 export type TableProps<RecordType> = AntdTableProps<RecordType>;
 
 const StyledTable = styled(AntdTable)`
@@ -66,5 +68,3 @@ export function Table<
 Table.Column = AntdTable.Column;
 Table.ColumnGroup = AntdTable.ColumnGroup;
 Table.Summary = AntdTable.Summary;
-
-export { labeledEnumToColumnFilterItem } from './utils';
