@@ -1,4 +1,8 @@
-import { objectToFormInputOptions, toFormInputOption } from './formInput';
+import {
+  mapToFormInputOptions,
+  objectToFormInputOptions,
+  toFormInputOption,
+} from './formInput';
 
 describe('objectToFormInputOptions', () => {
   it('converts an object with string keys', () => {
@@ -23,6 +27,33 @@ describe('objectToFormInputOptions', () => {
       {
         value: '1',
         label: 'A descriptive label',
+      },
+    ]);
+  });
+});
+
+describe('mapToFormInputOptions', () => {
+  it('converts a map with boolean keys', () => {
+    expect(
+      mapToFormInputOptions(
+        new Map([
+          [true, 'Yes'],
+          [false, 'No'],
+          [null, 'Maybe'],
+        ]),
+      ),
+    ).toEqual([
+      {
+        value: true,
+        label: 'Yes',
+      },
+      {
+        value: false,
+        label: 'No',
+      },
+      {
+        value: null,
+        label: 'Maybe',
       },
     ]);
   });
