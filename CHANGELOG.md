@@ -1,3 +1,10 @@
+## [12.10.2](https://github.com/mll-lab/react-components/compare/v12.10.1...v12.10.2) (2023-04-14)
+
+
+### Bug Fixes
+
+* facilitate moving mouse into popover ([#228](https://github.com/mll-lab/react-components/issues/228)) ([a4b4fed](https://github.com/mll-lab/react-components/commit/a4b4fed8c1b632e088016b5b720c50902fc54a2a))
+
 ## [12.10.1](https://github.com/mll-lab/react-components/compare/v12.10.0...v12.10.1) (2023-04-14)
 
 
