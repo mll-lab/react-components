@@ -5,11 +5,12 @@ import styled from 'styled-components';
 
 import { fontSizeFromTheme } from '../styled-utils';
 
+export * from './formInput';
+
 export type SelectProps<
   ValueType = unknown,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > = AntdSelectProps<ValueType, OptionType>;
-export * from './formInput';
 
 const StyledSelect = styled(AntdSelect)`
   &,
@@ -56,6 +57,5 @@ export function Select<
     </StyledSelect>
   );
 }
-
 Select.Option = AntdSelect.Option;
 Select.OptGroup = AntdSelect.OptGroup;
