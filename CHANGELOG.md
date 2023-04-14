@@ -1,3 +1,15 @@
+# [13.0.0](https://github.com/mll-lab/react-components/compare/v12.10.2...v13.0.0) (2023-04-14)
+
+
+### Features
+
+* introduce *ToColumnFilterItem utils ([460b0ea](https://github.com/mll-lab/react-components/commit/460b0ea3160fa2c0e5cf1aa6022f7f81b79b47a0))
+
+
+### BREAKING CHANGES
+
+* rename labeledEnumToColumnFilterItem to objectToColumnFilterItem
+
 ## [12.10.2](https://github.com/mll-lab/react-components/compare/v12.10.1...v12.10.2) (2023-04-14)
 
 
