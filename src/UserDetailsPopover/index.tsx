@@ -29,7 +29,6 @@ export function UserDetailsPopover({
     <Popover
       destroyTooltipOnHide
       mouseEnterDelay={0.8}
-      mouseLeaveDelay={0.1}
       {...popover}
       content={<UserDetailsPopoverContent user={user} />}
       overlayStyle={{
