@@ -1,3 +1,10 @@
+# [12.9.0](https://github.com/mll-lab/react-components/compare/v12.8.1...v12.9.0) (2023-04-14)
+
+
+### Features
+
+* export anchor component ([#225](https://github.com/mll-lab/react-components/issues/225)) ([841a6c6](https://github.com/mll-lab/react-components/commit/841a6c61909a72e11685c61bad94d983d232c2e8))
+
 ## [12.8.1](https://github.com/mll-lab/react-components/compare/v12.8.0...v12.8.1) (2023-04-13)
 
 
