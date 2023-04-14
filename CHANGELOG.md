@@ -1,3 +1,15 @@
+# [13.1.0](https://github.com/mll-lab/react-components/compare/v13.0.0...v13.1.0) (2023-04-14)
+
+
+### Bug Fixes
+
+* use plural for ColumnFilterItem utils ([3bd4243](https://github.com/mll-lab/react-components/commit/3bd42432e262a991f8d602a9a72bb805a0b0dab7))
+
+
+### Features
+
+* export ColumnFilterItem ([b27f887](https://github.com/mll-lab/react-components/commit/b27f887aa0f7f8b0135473d7320433ea666fab29))
+
 # [13.0.0](https://github.com/mll-lab/react-components/compare/v12.10.2...v13.0.0) (2023-04-14)
 
 
