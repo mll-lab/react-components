@@ -12,7 +12,11 @@ export {
   ColumnProps,
   TablePaginationConfig,
 } from 'antd/es/table';
-export { FilterDropdownProps, SortOrder } from 'antd/es/table/interface';
+export {
+  ColumnFilterItem,
+  FilterDropdownProps,
+  SortOrder,
+} from 'antd/es/table/interface';
 
 export * from './utils';
 
