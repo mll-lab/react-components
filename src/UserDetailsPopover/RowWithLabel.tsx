@@ -9,7 +9,7 @@ export function RowWithLabel({
   label,
 }: PropsWithChildren<{ label: ReactNode }>) {
   return (
-    <Row gutter={GUTTER} align="middle">
+    <Row gutter={GUTTER} align="middle" wrap={false}>
       <Col flex="20px">{label}</Col>
       <Col flex="auto">{children}</Col>
     </Row>

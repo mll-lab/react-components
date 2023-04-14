@@ -1,5 +1,5 @@
 import { Story } from '@storybook/react';
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 
 import { Form } from '../Form';
 import { Space } from '../Space';
@@ -30,8 +30,7 @@ export default {
 };
 
 export const Default: Story = function Link(args) {
-  const [calledOnOpen, setCalledOnOpen] = useState(false);
-  const handleOnOpen = useCallback(() => setCalledOnOpen(true), []);
+  const [visible, setVisible] = useState(false);
   return (
     <Space
       direction="vertical"
@@ -40,12 +39,14 @@ export const Default: Story = function Link(args) {
         marginLeft: 100,
       }}
     >
-      <Form.Item label="onOpen-Callback was called">
-        {calledOnOpen ? 'Yes' : 'No'}
+      <Form.Item label="onVisibleChange was called">
+        {visible ? 'Yes' : 'No'}
       </Form.Item>
       <UserAvatarWithDetailsPopover
         acronym={args.acronym}
-        onOpen={handleOnOpen}
+        popover={{
+          onVisibleChange: setVisible,
+        }}
         user={
           args.userUndefined
             ? undefined
@@ -64,6 +65,7 @@ export const Default: Story = function Link(args) {
 };
 
 export const WithCustomChildren: Story = function Link(args) {
+  const [visible, setVisible] = useState(false);
   const userProps = useMemo(
     () => ({
       acronym: args.acronym,
@@ -84,7 +86,15 @@ export const WithCustomChildren: Story = function Link(args) {
         marginLeft: 100,
       }}
     >
-      <UserDetailsPopover user={args.userUndefined ? undefined : userProps}>
+      <Form.Item label="onVisibleChange was called">
+        {visible ? 'Yes' : 'No'}
+      </Form.Item>
+      <UserDetailsPopover
+        popover={{
+          onVisibleChange: setVisible,
+        }}
+        user={args.userUndefined ? undefined : userProps}
+      >
         {args.username}
       </UserDetailsPopover>
     </Space>
