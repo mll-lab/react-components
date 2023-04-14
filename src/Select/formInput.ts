@@ -17,13 +17,13 @@ export function objectToFormInputOptions<
 }
 
 export function mapToFormInputOptions<
-  TMap extends Map<TValue, TLabel>,
+  TLabels extends Map<TValue, TLabel>,
   TValue,
   TLabel extends ReactNode,
->(map: TMap): Array<FormInputOption<TValue, TLabel>> {
-  return Array.from(map).map(([value, label]) => ({
-    value,
-    label,
+>(labels: TLabels): Array<FormInputOption<TValue, TLabel>> {
+  return Array.from(labels).map(([key, value]) => ({
+    value: key,
+    label: value,
   }));
 }
 
