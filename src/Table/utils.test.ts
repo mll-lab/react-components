@@ -1,4 +1,4 @@
-import { mapToColumnFilterItem, objectToColumnFilterItem } from './utils';
+import { mapToColumnFilterItems, objectToColumnFilterItems } from './utils';
 
 enum Foo {
   BAR = 'baz',
@@ -8,9 +8,9 @@ const FOO_LABELS = {
   [Foo.BAR]: 'foobar',
 };
 
-describe('objectToColumnFilterItem', () => {
+describe('objectToColumnFilterItems', () => {
   it('converts a labeled enum', () => {
-    expect(objectToColumnFilterItem(FOO_LABELS)).toEqual([
+    expect(objectToColumnFilterItems(FOO_LABELS)).toEqual([
       {
         text: 'foobar',
         value: 'baz',
@@ -22,7 +22,7 @@ describe('objectToColumnFilterItem', () => {
 describe('mapToColumnFilterItem', () => {
   it('converts a map with boolean keys', () => {
     expect(
-      mapToColumnFilterItem(
+      mapToColumnFilterItems(
         new Map([
           [true, 'Yes'],
           [false, 'No'],
