@@ -1,3 +1,10 @@
+## [12.10.1](https://github.com/mll-lab/react-components/compare/v12.10.0...v12.10.1) (2023-04-14)
+
+
+### Bug Fixes
+
+* call callback while popover content is invisible ([#226](https://github.com/mll-lab/react-components/issues/226)) ([95e0eee](https://github.com/mll-lab/react-components/commit/95e0eeeed7b1a70ca74126f7d3deed5db905b121))
+
 # [12.10.0](https://github.com/mll-lab/react-components/compare/v12.9.0...v12.10.0) (2023-04-14)
 
 
