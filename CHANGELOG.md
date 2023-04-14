@@ -1,3 +1,10 @@
+# [12.10.0](https://github.com/mll-lab/react-components/compare/v12.9.0...v12.10.0) (2023-04-14)
+
+
+### Features
+
+* add function mapToFormInputOptions ([#227](https://github.com/mll-lab/react-components/issues/227)) ([d37faad](https://github.com/mll-lab/react-components/commit/d37faad09e29dbe794f4afd7bd762a82e51d4aa2))
+
 # [12.9.0](https://github.com/mll-lab/react-components/compare/v12.8.1...v12.9.0) (2023-04-14)
 
 
