@@ -5,17 +5,17 @@ import {
   UseControllerProps,
   FieldPath,
 } from 'react-hook-form';
+import styled from 'styled-components';
 
 import { Input, TextAreaProps, TextAreaRef } from '../Input';
 
 import { useFieldContext } from './FieldProvider';
 import { FieldWrapper, FieldWrapperProps } from './FieldWrapper';
-import styled from 'styled-components';
 
 type StyledTextAreaProps = Omit<TextAreaProps, 'style'> & {
   inputStyle: TextAreaProps['style'];
   wrapperStyle: TextAreaProps['style'];
-}
+};
 
 type TextAreaFieldProps<
   TFieldValues extends FieldValues,

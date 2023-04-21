@@ -5,19 +5,19 @@ import {
   UseControllerProps,
   FieldPath,
 } from 'react-hook-form';
+import styled from 'styled-components';
 
 import { Input, InputProps } from '../Input';
 
 import { useFieldContext } from './FieldProvider';
 import { FieldWrapper, FieldWrapperProps } from './FieldWrapper';
-import styled from 'styled-components';
 
 type StyledInputProps = Omit<InputProps, 'style'> & {
   // TODO handle console warning:
   // React does not recognize the `inputStyle` prop on a DOM element.
   inputStyle: InputProps['style'];
   wrapperStyle: InputProps['style'];
-}
+};
 
 type InputFieldProps<
   TFieldValues extends FieldValues,
