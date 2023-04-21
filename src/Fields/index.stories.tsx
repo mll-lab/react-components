@@ -141,6 +141,17 @@ function AllFields() {
           label: 'Input Label',
         }}
       />
+      <InputField
+        name="input"
+        control={formMethods.control}
+        formItem={{
+          label: 'Input Bold',
+        }}
+        component={{
+          style: { fontWeight: 'bold' },
+        }}
+        defaultValue={'some bold text'}
+      />
       <InputNumberField
         name="input_number"
         rules={{ required: 'Absolutely necessary' }}
@@ -184,7 +195,7 @@ function AllFields() {
 function TextAreaStory() {
   const { control } = useFormContext<FormType>();
   const textArea1Ref = useRef<TextAreaRef>(null);
-  const textArea2Ref = useRef<TextAreaRef>(null);
+  const textAreaRedRef = useRef<TextAreaRef>(null);
   return (
     <Space direction="horizontal">
       <TextAreaField
@@ -203,18 +214,22 @@ function TextAreaStory() {
         name="text_area"
         control={control}
         formItem={{
-          label: 'TextArea 2',
+          label: 'TextArea red',
         }}
         component={{
-          ref: textArea2Ref,
+          ref: textAreaRedRef,
           minLength: 3,
+          style: {
+            borderColor: 'red',
+            backgroundColor: 'pink',
+          },
         }}
       />
       <Button onClick={() => textArea1Ref.current?.focus()}>
         Focus TextArea 1
       </Button>
-      <Button onClick={() => textArea2Ref.current?.focus()}>
-        Focus TextArea 2
+      <Button onClick={() => textAreaRedRef.current?.focus()}>
+        Focus TextArea red
       </Button>
     </Space>
   );
