@@ -10,13 +10,19 @@ import { Input, TextAreaProps, TextAreaRef } from '../Input';
 
 import { useFieldContext } from './FieldProvider';
 import { FieldWrapper, FieldWrapperProps } from './FieldWrapper';
+import styled from 'styled-components';
+
+type StyledTextAreaProps = Omit<TextAreaProps, 'style'> & {
+  inputStyle: TextAreaProps['style'];
+  wrapperStyle: TextAreaProps['style'];
+}
 
 type TextAreaFieldProps<
   TFieldValues extends FieldValues,
   TName extends FieldPath<TFieldValues>,
 > = UseControllerProps<TFieldValues, TName> &
   Pick<FieldWrapperProps<TFieldValues, TName>, 'formItem'> & {
-    component?: TextAreaProps & {
+    component?: StyledTextAreaProps & {
       ref?: React.Ref<TextAreaRef>;
     };
   };
@@ -35,7 +41,7 @@ export function TextAreaField<
 
   return (
     <FieldWrapper controller={controller} formItem={formItem}>
-      <Input.TextArea
+      <StyledTextArea
         {...field}
         value={field.value ?? undefined}
         disabled={disabled}
@@ -47,3 +53,9 @@ export function TextAreaField<
     </FieldWrapper>
   );
 }
+
+const StyledTextArea = styled(Input.TextArea)`
+  .mll-ant-input {
+    ${(props) => props.inputStyle}
+  }
+`;

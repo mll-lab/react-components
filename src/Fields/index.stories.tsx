@@ -148,7 +148,7 @@ function AllFields() {
           label: 'Input Bold',
         }}
         component={{
-          style: { fontWeight: 'bold' },
+          inputStyle: { fontWeight: 'bold' },
         }}
         defaultValue="some bold text"
       />
@@ -219,7 +219,7 @@ function TextAreaStory() {
         component={{
           ref: textAreaRedRef,
           minLength: 3,
-          style: {
+          inputStyle: {
             borderColor: 'red',
             backgroundColor: 'pink',
           },
