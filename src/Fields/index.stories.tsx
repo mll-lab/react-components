@@ -150,7 +150,7 @@ function AllFields() {
         component={{
           style: { fontWeight: 'bold' },
         }}
-        defaultValue={'some bold text'}
+        defaultValue="some bold text"
       />
       <InputNumberField
         name="input_number"
