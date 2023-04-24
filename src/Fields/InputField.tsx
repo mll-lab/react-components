@@ -5,26 +5,18 @@ import {
   UseControllerProps,
   FieldPath,
 } from 'react-hook-form';
-import styled from 'styled-components';
 
 import { Input, InputProps } from '../Input';
 
 import { useFieldContext } from './FieldProvider';
 import { FieldWrapper, FieldWrapperProps } from './FieldWrapper';
 
-type StyledInputProps = Omit<InputProps, 'style'> & {
-  // TODO handle console warning:
-  // React does not recognize the `inputStyle` prop on a DOM element.
-  inputStyle: InputProps['style'];
-  wrapperStyle: InputProps['style'];
-};
-
 type InputFieldProps<
   TFieldValues extends FieldValues,
   TName extends FieldPath<TFieldValues>,
 > = UseControllerProps<TFieldValues, TName> &
   Pick<FieldWrapperProps<TFieldValues, TName>, 'formItem'> & {
-    component?: StyledInputProps;
+    component?: InputProps;
   };
 
 export function InputField<
@@ -41,12 +33,11 @@ export function InputField<
 
   return (
     <FieldWrapper controller={controller} formItem={formItem}>
-      <StyledInput
+      <Input
         {...field}
         value={field.value ?? undefined}
         disabled={disabled}
         {...component}
-        style={component?.wrapperStyle}
         // Avoid losing focus when triggering/resolving a validation error
         // https://4x.ant.design/components/input/#Why-Input-lose-focus-when-change-prefix/suffix/showCount
         suffix={component?.suffix || <span />}
@@ -54,9 +45,3 @@ export function InputField<
     </FieldWrapper>
   );
 }
-
-const StyledInput = styled(Input)`
-  .mll-ant-input {
-    ${(props) => props.inputStyle}
-  }
-`;

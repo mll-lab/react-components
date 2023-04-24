@@ -5,24 +5,18 @@ import {
   UseControllerProps,
   FieldPath,
 } from 'react-hook-form';
-import styled from 'styled-components';
 
-import { Input, TextAreaProps, TextAreaRef } from '../Input';
+import { TextArea, TextAreaProps, TextAreaRef } from '../Input';
 
 import { useFieldContext } from './FieldProvider';
 import { FieldWrapper, FieldWrapperProps } from './FieldWrapper';
-
-type StyledTextAreaProps = Omit<TextAreaProps, 'style'> & {
-  inputStyle: TextAreaProps['style'];
-  wrapperStyle: TextAreaProps['style'];
-};
 
 type TextAreaFieldProps<
   TFieldValues extends FieldValues,
   TName extends FieldPath<TFieldValues>,
 > = UseControllerProps<TFieldValues, TName> &
   Pick<FieldWrapperProps<TFieldValues, TName>, 'formItem'> & {
-    component?: StyledTextAreaProps & {
+    component?: TextAreaProps & {
       ref?: React.Ref<TextAreaRef>;
     };
   };
@@ -41,7 +35,7 @@ export function TextAreaField<
 
   return (
     <FieldWrapper controller={controller} formItem={formItem}>
-      <StyledTextArea
+      <TextArea
         {...field}
         value={field.value ?? undefined}
         disabled={disabled}
@@ -53,9 +47,3 @@ export function TextAreaField<
     </FieldWrapper>
   );
 }
-
-const StyledTextArea = styled(Input.TextArea)`
-  .mll-ant-input {
-    ${(props) => props.inputStyle}
-  }
-`;

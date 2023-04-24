@@ -8,27 +8,59 @@ import {
 import { TextAreaProps as AntdTextAreaProps } from 'antd/es/input';
 import { SearchProps as AntdSearchProps } from 'antd/es/input/Search';
 import { TextAreaRef as AntdTextAreaRef } from 'antd/es/input/TextArea';
-import styled from 'styled-components';
+import styled, { CSSObject } from 'styled-components';
 
 import { fontSizeFromTheme } from '../styled-utils';
 
-export const Input: typeof AntdInput = styled(AntdInput)`
-  font-size: ${fontSizeFromTheme};
+export const Input = styled(AntdInput).attrs((props: InputProps) => ({
+  style: props.$wrapperStyle,
+}))<InputProps>`
+  /* The DOM structure changes when prefix/suffix/validation are used. */
+  .mll-ant-input,
+  &.mll-ant-input {
+    font-size: ${fontSizeFromTheme};
+    ${(props) => props.$inputStyle}
+  }
 `;
-export type InputProps = AntdInputProps;
+export type InputProps = Omit<AntdInputProps, 'style'> & {
+  $inputStyle?: CSSObject | undefined;
+  $wrapperStyle?: AntdInputProps['style'];
+};
 export type InputRef = AntdInputRef;
 
-export const InputNumber: typeof AntdInputNumber = styled(AntdInputNumber)`
-  font-size: ${fontSizeFromTheme};
+export const InputNumber = styled(AntdInputNumber).attrs(
+  (props: InputNumberProps) => ({
+    style: props.$wrapperStyle,
+  }),
+)<InputNumberProps>`
+  /* The DOM structure changes when prefix/suffix/validation are used. */
+  .mll-ant-input,
+  &.mll-ant-input {
+    font-size: ${fontSizeFromTheme};
+    ${(props) => props.$inputStyle}
+  }
 `;
-export type InputNumberProps = AntdInputNumberProps;
+export type InputNumberProps = Omit<AntdInputNumberProps, 'style'> & {
+  $inputStyle?: CSSObject | undefined;
+  $wrapperStyle?: AntdInputProps['style'];
+};
 
 const AntdTextArea = Input.TextArea;
-export const TextArea: typeof AntdTextArea = styled(AntdTextArea)`
-  font-size: ${fontSizeFromTheme};
+export const TextArea = styled(AntdTextArea).attrs((props: TextAreaProps) => ({
+  style: props.$wrapperStyle,
+}))<TextAreaProps>`
+  /* The DOM structure changes when prefix/suffix/validation are used. */
+  .mll-ant-input,
+  &.mll-ant-input {
+    font-size: ${fontSizeFromTheme};
+    ${(props) => props.$inputStyle}
+  }
 `;
 Input.TextArea = TextArea;
-export type TextAreaProps = AntdTextAreaProps;
+export type TextAreaProps = Omit<AntdTextAreaProps, 'style'> & {
+  $inputStyle?: CSSObject | undefined;
+  $wrapperStyle?: AntdTextAreaProps['style'];
+};
 export type TextAreaRef = AntdTextAreaRef;
 
 const AntdSearch = Input.Search;
