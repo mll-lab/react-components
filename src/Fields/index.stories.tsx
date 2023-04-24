@@ -188,14 +188,37 @@ function AllFields() {
           label: 'Switch',
         }}
       />
-      <TextAreaWithRef />
+      <TextAreaStory />
+    </Form>
+  );
+}
+
+function TextAreaStory() {
+  const { control } = useFormContext<FormType>();
+  const textArea1Ref = useRef<TextAreaRef>(null);
+  const textAreaRedRef = useRef<TextAreaRef>(null);
+  return (
+    <Space direction="horizontal">
       <TextAreaField
         name="text_area"
-        control={formMethods.control}
+        control={control}
+        formItem={{
+          label: 'TextArea 1',
+        }}
+        component={{
+          ref: textArea1Ref,
+          minLength: 3,
+        }}
+        rules={{ required: 'Very necessary' }}
+      />
+      <TextAreaField
+        name="text_area"
+        control={control}
         formItem={{
           label: 'TextArea red',
         }}
         component={{
+          ref: textAreaRedRef,
           minLength: 3,
           $inputStyle: {
             borderColor: 'red',
@@ -203,29 +226,11 @@ function AllFields() {
           },
         }}
       />
-    </Form>
-  );
-}
-
-function TextAreaWithRef() {
-  const { control } = useFormContext<FormType>();
-  const textAreaRef = useRef<TextAreaRef>(null);
-  return (
-    <Space>
-      <TextAreaField
-        name="text_area"
-        control={control}
-        formItem={{
-          label: 'TextArea',
-        }}
-        component={{
-          ref: textAreaRef,
-          minLength: 3,
-        }}
-        rules={{ required: 'Very necessary' }}
-      />
-      <Button onClick={() => textAreaRef.current?.focus()}>
-        Focus TextArea
+      <Button onClick={() => textArea1Ref.current?.focus()}>
+        Focus TextArea 1
+      </Button>
+      <Button onClick={() => textAreaRedRef.current?.focus()}>
+        Focus TextArea red
       </Button>
     </Space>
   );
