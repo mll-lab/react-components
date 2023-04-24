@@ -128,7 +128,7 @@ function AllFields() {
         name="checkbox"
         control={formMethods.control}
         formItem={{
-          label: 'Checkbox Label',
+          label: 'Checkbox',
         }}
       >
         Checkbox children
@@ -138,22 +138,34 @@ function AllFields() {
         rules={{ required: 'You really need this', maxLength: 3 }}
         control={formMethods.control}
         formItem={{
-          label: 'Input Label',
+          label: 'Input required',
         }}
+      />
+      <InputField
+        name="input"
+        control={formMethods.control}
+        formItem={{
+          label: 'Input styled',
+        }}
+        component={{
+          $inputStyle: { fontWeight: 'bold' },
+          $wrapperStyle: { border: '5px red solid' },
+        }}
+        defaultValue="some bold text"
       />
       <InputNumberField
         name="input_number"
         rules={{ required: 'Absolutely necessary' }}
         control={formMethods.control}
         formItem={{
-          label: 'InputNumber Label',
+          label: 'InputNumber required',
         }}
       />
       <RadioGroupField
         name="radio_group"
         control={formMethods.control}
         formItem={{
-          label: 'InputNumber Label',
+          label: 'RadioGroup',
         }}
         component={{
           options: [1, 2],
@@ -163,7 +175,7 @@ function AllFields() {
         name="select"
         control={formMethods.control}
         formItem={{
-          label: 'Select Label',
+          label: 'Select',
         }}
         component={{
           options: ['a', 'b'].map(toFormInputOption),
@@ -173,7 +185,7 @@ function AllFields() {
         name="switch"
         control={formMethods.control}
         formItem={{
-          label: 'Switch Label',
+          label: 'Switch',
         }}
       />
       <TextAreaStory />
@@ -183,18 +195,18 @@ function AllFields() {
 
 function TextAreaStory() {
   const { control } = useFormContext<FormType>();
-  const textArea1Ref = useRef<TextAreaRef>(null);
-  const textArea2Ref = useRef<TextAreaRef>(null);
+  const textAreaRequiredRef = useRef<TextAreaRef>(null);
+  const textAreaStyledRef = useRef<TextAreaRef>(null);
   return (
     <Space direction="horizontal">
       <TextAreaField
         name="text_area"
         control={control}
         formItem={{
-          label: 'TextArea 1',
+          label: 'TextArea required',
         }}
         component={{
-          ref: textArea1Ref,
+          ref: textAreaRequiredRef,
           minLength: 3,
         }}
         rules={{ required: 'Very necessary' }}
@@ -203,18 +215,22 @@ function TextAreaStory() {
         name="text_area"
         control={control}
         formItem={{
-          label: 'TextArea 2',
+          label: 'TextArea styled',
         }}
         component={{
-          ref: textArea2Ref,
+          ref: textAreaStyledRef,
           minLength: 3,
+          $inputStyle: {
+            borderColor: 'red',
+            backgroundColor: 'pink',
+          },
         }}
       />
-      <Button onClick={() => textArea1Ref.current?.focus()}>
-        Focus TextArea 1
+      <Button onClick={() => textAreaRequiredRef.current?.focus()}>
+        Focus TextArea required
       </Button>
-      <Button onClick={() => textArea2Ref.current?.focus()}>
-        Focus TextArea 2
+      <Button onClick={() => textAreaStyledRef.current?.focus()}>
+        Focus TextArea styled
       </Button>
     </Space>
   );

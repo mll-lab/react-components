@@ -6,7 +6,7 @@ import {
   FieldPath,
 } from 'react-hook-form';
 
-import { Input, TextAreaProps, TextAreaRef } from '../Input';
+import { TextArea, TextAreaProps, TextAreaRef } from '../Input';
 
 import { useFieldContext } from './FieldProvider';
 import { FieldWrapper, FieldWrapperProps } from './FieldWrapper';
@@ -35,7 +35,7 @@ export function TextAreaField<
 
   return (
     <FieldWrapper controller={controller} formItem={formItem}>
-      <Input.TextArea
+      <TextArea
         {...field}
         value={field.value ?? undefined}
         disabled={disabled}

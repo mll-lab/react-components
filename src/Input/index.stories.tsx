@@ -1,6 +1,8 @@
 import { Story } from '@storybook/react';
 import React, { useState } from 'react';
 
+import { Space } from '../Space';
+
 import { NumericIDInput, NumericIDInputProps } from './NumericIDInput';
 import {
   InputNumberProps,
@@ -17,11 +19,29 @@ export default {
 };
 
 export const Text: Story<InputProps> = function Text(args) {
-  return <Input {...args} />;
+  return (
+    <Space>
+      <Input {...args} />
+      <Input
+        $inputStyle={{ background: 'red' }}
+        $wrapperStyle={{ border: '5px green solid' }}
+        {...args}
+      />
+    </Space>
+  );
 };
 
 export const TextArea: Story<TextAreaProps> = function TextArea(args) {
-  return <Input.TextArea {...args} />;
+  return (
+    <Space>
+      <Input.TextArea {...args} />
+      <Input.TextArea
+        $inputStyle={{ background: 'red' }}
+        $wrapperStyle={{ border: '5px green solid' }}
+        {...args}
+      />
+    </Space>
+  );
 };
 
 export const Search: Story<SearchProps> = function Search(args) {
