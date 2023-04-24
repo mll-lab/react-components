@@ -1,3 +1,15 @@
+# [14.0.0](https://github.com/mll-lab/react-components/compare/v13.1.0...v14.0.0) (2023-04-24)
+
+
+### Bug Fixes
+
+* allow styling input components ([#232](https://github.com/mll-lab/react-components/issues/232)) ([666c4c5](https://github.com/mll-lab/react-components/commit/666c4c53f45d9de0c2502b1e17b80178c4b107a8))
+
+
+### BREAKING CHANGES
+
+* replace prop `style` in `Input`, `TextArea` and `InputNumber` with `$wrapperStyle`
+
 # [13.1.0](https://github.com/mll-lab/react-components/compare/v13.0.0...v13.1.0) (2023-04-14)
 
 
