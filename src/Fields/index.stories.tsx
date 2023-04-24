@@ -138,14 +138,14 @@ function AllFields() {
         rules={{ required: 'You really need this', maxLength: 3 }}
         control={formMethods.control}
         formItem={{
-          label: 'Input Required',
+          label: 'Input required',
         }}
       />
       <InputField
         name="input"
         control={formMethods.control}
         formItem={{
-          label: 'Input Bold',
+          label: 'Input styled',
         }}
         component={{
           $inputStyle: { fontWeight: 'bold' },
@@ -158,14 +158,14 @@ function AllFields() {
         rules={{ required: 'Absolutely necessary' }}
         control={formMethods.control}
         formItem={{
-          label: 'InputNumber Required',
+          label: 'InputNumber required',
         }}
       />
       <RadioGroupField
         name="radio_group"
         control={formMethods.control}
         formItem={{
-          label: 'Radio Group',
+          label: 'RadioGroup',
         }}
         component={{
           options: [1, 2],
@@ -195,18 +195,18 @@ function AllFields() {
 
 function TextAreaStory() {
   const { control } = useFormContext<FormType>();
-  const textArea1Ref = useRef<TextAreaRef>(null);
-  const textAreaRedRef = useRef<TextAreaRef>(null);
+  const textAreaRequiredRef = useRef<TextAreaRef>(null);
+  const textAreaStyledRef = useRef<TextAreaRef>(null);
   return (
     <Space direction="horizontal">
       <TextAreaField
         name="text_area"
         control={control}
         formItem={{
-          label: 'TextArea 1',
+          label: 'TextArea required',
         }}
         component={{
-          ref: textArea1Ref,
+          ref: textAreaRequiredRef,
           minLength: 3,
         }}
         rules={{ required: 'Very necessary' }}
@@ -215,10 +215,10 @@ function TextAreaStory() {
         name="text_area"
         control={control}
         formItem={{
-          label: 'TextArea red',
+          label: 'TextArea styled',
         }}
         component={{
-          ref: textAreaRedRef,
+          ref: textAreaStyledRef,
           minLength: 3,
           $inputStyle: {
             borderColor: 'red',
@@ -226,11 +226,11 @@ function TextAreaStory() {
           },
         }}
       />
-      <Button onClick={() => textArea1Ref.current?.focus()}>
-        Focus TextArea 1
+      <Button onClick={() => textAreaRequiredRef.current?.focus()}>
+        Focus TextArea required
       </Button>
-      <Button onClick={() => textAreaRedRef.current?.focus()}>
-        Focus TextArea red
+      <Button onClick={() => textAreaStyledRef.current?.focus()}>
+        Focus TextArea styled
       </Button>
     </Space>
   );
