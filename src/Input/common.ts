@@ -48,8 +48,12 @@ export const InputNumber: (<T extends InputNumberValue = InputNumberValue>(
   style: props.$wrapperStyle,
 }))<InputNumberProps>`
   /* The DOM structure changes when prefix/suffix/validation are used. */
-  .mll-ant-input,
-  &.mll-ant-input {
+  .mll-ant-input-number,
+  &.mll-ant-input-number {
+    width: 100%;
+  }
+  .mll-ant-input-number-input,
+  &.mll-ant-input-number-input {
     font-size: ${fontSizeFromTheme};
     ${(props) => props.$inputStyle}
   }
