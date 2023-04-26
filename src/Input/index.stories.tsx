@@ -48,17 +48,15 @@ export const Search: Story<SearchProps> = function Search(args) {
   return <Input.Search {...args} />;
 };
 
-export const Number: Story<InputNumberProps> = function Number(args) {
+export const Number: Story<InputNumberProps<number>> = function Number(args) {
   const [num, setNum] = useState<number | null>(0);
 
   return (
-    <InputNumber
+    <InputNumber<number>
       min={1}
       max={10}
       value={num}
-      onChange={(val) =>
-        setNum(typeof val === 'string' ? parseInt(val, 10) : val)
-      }
+      onChange={(val) => setNum(val)}
       {...args}
     />
   );

@@ -9,6 +9,7 @@ import { TextAreaProps as AntdTextAreaProps } from 'antd/es/input';
 import { SearchProps as AntdSearchProps } from 'antd/es/input/Search';
 import { TextAreaRef as AntdTextAreaRef } from 'antd/es/input/TextArea';
 import { ForwardRefExoticComponent, RefAttributes } from 'react';
+import * as React from 'react';
 import styled, { CSSObject } from 'styled-components';
 
 import { fontSizeFromTheme } from '../styled-utils';
@@ -34,11 +35,18 @@ export type InputProps = Omit<AntdInputProps, 'style'> & {
 };
 export type InputRef = AntdInputRef;
 
-export const InputNumber = styled(AntdInputNumber).attrs(
-  (props: InputNumberProps) => ({
-    style: props.$wrapperStyle,
-  }),
-)<InputNumberProps>`
+type InputNumberValue = string | number;
+export const InputNumber: (<T extends InputNumberValue = InputNumberValue>(
+  props: InputNumberProps<T> & {
+    children?: React.ReactNode;
+  } & {
+    ref?: React.Ref<HTMLInputElement> | undefined;
+  },
+) => React.ReactElement) & {
+  displayName?: string | undefined;
+} = styled(AntdInputNumber).attrs((props: InputNumberProps) => ({
+  style: props.$wrapperStyle,
+}))<InputNumberProps>`
   /* The DOM structure changes when prefix/suffix/validation are used. */
   .mll-ant-input,
   &.mll-ant-input {
@@ -46,10 +54,11 @@ export const InputNumber = styled(AntdInputNumber).attrs(
     ${(props) => props.$inputStyle}
   }
 `;
-export type InputNumberProps = Omit<AntdInputNumberProps, 'style'> & {
-  $inputStyle?: CSSObject | undefined;
-  $wrapperStyle?: AntdInputProps['style'];
-};
+export type InputNumberProps<T extends InputNumberValue = InputNumberValue> =
+  Omit<AntdInputNumberProps<T>, 'style'> & {
+    $inputStyle?: CSSObject | undefined;
+    $wrapperStyle?: AntdInputProps['style'];
+  };
 
 const AntdTextArea = AntdInput.TextArea;
 export const TextArea: ForwardRefExoticComponent<TextAreaProps> &
