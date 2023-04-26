@@ -1,3 +1,15 @@
+# [14.1.0](https://github.com/mll-lab/react-components/compare/v14.0.0...v14.1.0) (2023-04-26)
+
+
+### Bug Fixes
+
+* style InputNumber ([28d159a](https://github.com/mll-lab/react-components/commit/28d159a361a25770ba814fcbfa25e5feccd4cdd8))
+
+
+### Features
+
+* allow generic type for InputNumber ([49ff50b](https://github.com/mll-lab/react-components/commit/49ff50bea1eebcdcf13f813ab632fa5a8ff0c8b0))
+
 # [14.0.0](https://github.com/mll-lab/react-components/compare/v13.1.0...v14.0.0) (2023-04-24)
 
 
