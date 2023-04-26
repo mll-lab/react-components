@@ -161,6 +161,17 @@ function AllFields() {
           label: 'InputNumber required',
         }}
       />
+      <InputNumberField
+        name="input_number"
+        control={formMethods.control}
+        formItem={{
+          label: 'InputNumber styled',
+        }}
+        component={{
+          $inputStyle: { fontWeight: 'bold' },
+          $wrapperStyle: { border: '5px red solid' },
+        }}
+      />
       <RadioGroupField
         name="radio_group"
         control={formMethods.control}
