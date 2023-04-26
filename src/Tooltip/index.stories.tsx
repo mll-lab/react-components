@@ -15,7 +15,9 @@ export default {
   component: Tooltip,
 };
 
-export const Default: Story<TooltipProps> = function Default(args) {
+export const Default: Story<TooltipProps> = function Default(
+  args: TooltipProps,
+) {
   return (
     <Tooltip title={<div>foo</div>} {...args}>
       <span>Text</span>

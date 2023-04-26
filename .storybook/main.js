@@ -1,12 +1,12 @@
 module.exports = {
   stories: ['../src/**/*.stories.tsx'],
   addons: ['@storybook/addon-essentials'],
-  reactOptions: {
-    fastRefresh: true,
-    strictMode: true,
-  },
-  core: {
-    builder: 'webpack5',
+  framework: {
+    name: '@storybook/react-webpack5',
+    options: {
+      fastRefresh: true,
+      strictMode: true,
+    },
   },
   webpackFinal: (config) => {
     config.module.rules = [
@@ -45,7 +45,6 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
     ];
-
     return config;
   },
 };
