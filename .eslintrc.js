@@ -6,6 +6,7 @@ module.exports = {
     '@mll-lab/eslint-config/react',
     '@mll-lab/eslint-config',
     'plugin:@mll-lab/recommended',
+    'plugin:storybook/recommended',
   ],
   plugins: ['jsx-a11y', 'testing-library'],
   ignorePatterns: ['dist', '!.storybook'],
@@ -40,9 +41,7 @@ module.exports = {
     'jsx-a11y/mouse-events-have-key-events': 'error',
     'jsx-a11y/role-has-required-aria-props': 'error',
     'jsx-a11y/role-supports-aria-props': 'error',
-
-    // Incompatible with stories
-    'react/function-component-definition': 'off',
+    'react/function-component-definition': 'off', // Incompatible with stories
   },
   settings: {
     react: {

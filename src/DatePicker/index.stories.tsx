@@ -11,11 +11,15 @@ export default {
   },
 };
 
-export const Default: Story<DatePickerProps> = function Default(args) {
+export const Default: Story<DatePickerProps> = function Default(
+  args: DatePickerProps,
+) {
   return <DatePicker {...args} />;
 };
 
-export const WithTime: Story<DatePickerProps> = function WithTime(args) {
+export const WithTime: Story<DatePickerProps> = function WithTime(
+  args: DatePickerProps,
+) {
   return (
     <DatePicker
       showTime={{ showHour: true, showMinute: true, showSecond: true }}
