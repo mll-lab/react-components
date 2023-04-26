@@ -1,3 +1,10 @@
+# [14.2.0](https://github.com/mll-lab/react-components/compare/v14.1.0...v14.2.0) (2023-04-26)
+
+
+### Features
+
+* update storybook to v7 ([#235](https://github.com/mll-lab/react-components/issues/235)) ([472e5a3](https://github.com/mll-lab/react-components/commit/472e5a34de3bf774018a4e8d899e4564d332c077))
+
 # [14.1.0](https://github.com/mll-lab/react-components/compare/v14.0.0...v14.1.0) (2023-04-26)
 
 
