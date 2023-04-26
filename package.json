@@ -130,5 +130,6 @@
   },
   "resolutions": {
     "@types/react": "16.14.35"
-  }
+  },
+  "packageManager": "yarn@3.5.0"
 }
