@@ -1,3 +1,10 @@
+# [14.3.0](https://github.com/mll-lab/react-components/compare/v14.2.0...v14.3.0) (2023-05-11)
+
+
+### Features
+
+* make Plate-component draggable ([#236](https://github.com/mll-lab/react-components/issues/236)) ([b99b420](https://github.com/mll-lab/react-components/commit/b99b420e606d7e9f95da616b39e2268766026797))
+
 # [14.2.0](https://github.com/mll-lab/react-components/compare/v14.1.0...v14.2.0) (2023-04-26)
 
 
