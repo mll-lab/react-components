@@ -1,7 +1,8 @@
-import { PALETTE } from '../theme';
-import {CSSProperties} from "react";
+import { CSSProperties } from 'react';
 
-export const GENERAL_WELL_STYLE: CSSProperties  = {
+import { PALETTE } from '../theme';
+
+export const GENERAL_WELL_STYLE: CSSProperties = {
   backgroundColor: PALETTE.gray3,
   border: `1px solid ${PALETTE.gray4}`,
   borderRadius: 2,
