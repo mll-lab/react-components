@@ -88,5 +88,5 @@ ColumnFlow.args = {
 
 export const Draggable = DraggablePlateTemplate.bind({});
 Draggable.args = {
-  data
+  data,
 };
