@@ -1,12 +1,7 @@
 import { PALETTE } from '../theme';
+import {CSSProperties} from "react";
 
-export const GENERAL_WELL_STYLE: {
-  border: string;
-  boxShadow: string;
-  padding: number;
-  backgroundColor: string;
-  borderRadius: number;
-} = {
+export const GENERAL_WELL_STYLE: CSSProperties  = {
   backgroundColor: PALETTE.gray3,
   border: `1px solid ${PALETTE.gray4}`,
   borderRadius: 2,
