@@ -7,7 +7,7 @@ import { PALETTE } from '../theme';
 import { PLATE_FLOW } from './constants';
 import { PlateWell } from './types';
 import { columnForPosition, rowForPosition } from './utils';
-import { generalWellStyle } from './wellUtils';
+import { GENERAL_WELL_STYLE } from './wellUtils';
 
 export function FilledWell(props: {
   well: PlateWell;
@@ -34,7 +34,7 @@ export function FilledWell(props: {
       {...listeners}
       ref={setNodeRef}
       style={{
-        ...generalWellStyle(),
+        ...GENERAL_WELL_STYLE,
         transform: CSS.Translate.toString(transform),
         backgroundColor: props.well.color ?? PALETTE.gray3,
       }}

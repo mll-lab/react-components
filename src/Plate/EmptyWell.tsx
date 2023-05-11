@@ -5,7 +5,7 @@ import { PALETTE } from '../theme';
 
 import { PLATE_FLOW } from './constants';
 import { columnForPosition, rowForPosition } from './utils';
-import { generalWellStyle } from './wellUtils';
+import { GENERAL_WELL_STYLE } from './wellUtils';
 
 export function EmptyWell(props: { position: number }) {
   const { setNodeRef } = useDroppable({
@@ -22,7 +22,7 @@ export function EmptyWell(props: { position: number }) {
     <div
       ref={setNodeRef}
       style={{
-        ...generalWellStyle(),
+        ...GENERAL_WELL_STYLE,
         color: PALETTE.gray1,
         display: 'flex',
         justifyContent: 'center',

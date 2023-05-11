@@ -26,11 +26,7 @@ export function Plate(props: PlateProps) {
   return (
     <DndContext
       collisionDetection={rectIntersection}
-      onDragEnd={(e) => {
-        if (props.onDragEnd) {
-          props.onDragEnd(e);
-        }
-      }}
+      onDragEnd={(e) => props.onDragEnd?.(e)}
     >
       <Spin
         spinning={props.loading ?? false}
@@ -88,4 +84,4 @@ export function Plate(props: PlateProps) {
     </DndContext>
   );
 }
-export { generalWellStyle } from './wellUtils';
+export { GENERAL_WELL_STYLE } from './wellUtils';
