@@ -1,3 +1,4 @@
+import { DndContext, rectIntersection } from '@dnd-kit/core';
 import { Spin } from 'antd';
 import React, { Fragment } from 'react';
 
@@ -23,57 +24,68 @@ export function Plate(props: PlateProps) {
   }
 
   return (
-    <Spin
-      spinning={props.loading ?? false}
-      indicator={
-        <MllSpinnerIcon
-          style={{
-            width: '2em',
-          }}
-        />
-      }
+    <DndContext
+      collisionDetection={rectIntersection}
+      onDragEnd={(e) => {
+        if (props.onDragEnd) {
+          props.onDragEnd(e);
+        }
+      }}
     >
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: `1fr ${'4fr '.repeat(
-            COORDINATES_COLUMNS.length,
-          )}`,
-          gridGap: '3px',
-        }}
-      >
-        <span />
-
-        {COORDINATES_COLUMNS.map((column) => (
-          <span
+      <Spin
+        spinning={props.loading ?? false}
+        indicator={
+          <MllSpinnerIcon
             style={{
-              display: 'flex',
-              justifyContent: 'center',
-              padding: 4,
+              width: '2em',
             }}
-            key={column}
-          >
-            <strong>{column}</strong>
-          </span>
-        ))}
+          />
+        }
+      >
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: `1fr ${'4fr '.repeat(
+              COORDINATES_COLUMNS.length,
+            )}`,
+            gridGap: '3px',
+          }}
+        >
+          <span />
 
-        {WELLS.map((position) => (
-          <Fragment key={position}>
-            {columnForPosition(position, PLATE_FLOW) === 1 && (
-              <RowLabel position={position} />
-            )}
+          {COORDINATES_COLUMNS.map((column) => (
+            <span
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                padding: 4,
+              }}
+              key={column}
+            >
+              <strong>{column}</strong>
+            </span>
+          ))}
 
-            <Well
-              position={position}
-              well={
-                props.data
-                  ? wellAtPosition(position, props.data, PLATE_FLOW)
-                  : undefined
-              }
-            />
-          </Fragment>
-        ))}
-      </div>
-    </Spin>
+          {WELLS.map((position) => (
+            <Fragment key={position}>
+              {columnForPosition(position, PLATE_FLOW) === 1 && (
+                <RowLabel position={position} />
+              )}
+
+              <Well
+                position={position}
+                well={
+                  props.data
+                    ? wellAtPosition(position, props.data, PLATE_FLOW)
+                    : undefined
+                }
+                isDraggable={Boolean(props.onDragEnd)}
+              />
+            </Fragment>
+          ))}
+        </div>
+      </Spin>
+    </DndContext>
   );
 }
+export { generalWellStyle } from './wellUtils';

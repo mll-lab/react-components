@@ -1,3 +1,4 @@
+import { DragEndEvent } from '@dnd-kit/core/dist/types';
 import { ReactNode } from 'react';
 
 export type Coordinates = {
@@ -16,4 +17,5 @@ export type PlateWell = {
 export type PlateProps = {
   data: Array<PlateWell> | null;
   loading?: boolean;
+  onDragEnd?: (event: DragEndEvent) => void;
 };
