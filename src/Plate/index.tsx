@@ -1,4 +1,4 @@
-import { DndContext, rectIntersection } from '@dnd-kit/core';
+import { DndContext } from '@dnd-kit/core';
 import { Spin } from 'antd';
 import React, { Fragment } from 'react';
 
@@ -24,10 +24,7 @@ export function Plate(props: PlateProps) {
   }
 
   return (
-    <DndContext
-      collisionDetection={rectIntersection}
-      onDragEnd={(e) => props.onDragEnd?.(e)}
-    >
+    <DndContext {...props.dndContextProps}>
       <Spin
         spinning={props.loading ?? false}
         indicator={
@@ -75,7 +72,7 @@ export function Plate(props: PlateProps) {
                     ? wellAtPosition(position, props.data, PLATE_FLOW)
                     : undefined
                 }
-                isDraggable={Boolean(props.onDragEnd)}
+                isDraggable={Boolean(props.dndContextProps)}
               />
             </Fragment>
           ))}

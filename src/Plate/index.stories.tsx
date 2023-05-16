@@ -64,9 +64,9 @@ const DraggablePlateTemplate: Story<Partial<PlateProps>> =
       <Plate
         data={null}
         {...args}
-        onDragEnd={
-          action('onDragEnd') // dataLocation: `const sourceData = e.active.data.current; const targetData = e.over?.data.current;`
-        }
+        dndContextProps={{
+          onDragEnd: action('onDragEnd'), // dataLocation: `const sourceData = e.active.data.current; const targetData = e.over?.data.current;`
+        }}
       />
     );
   };

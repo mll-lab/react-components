@@ -19,7 +19,6 @@ export function FilledWell(props: {
       row: rowForPosition(props.position, PLATE_FLOW),
       column: columnForPosition(props.position, PLATE_FLOW),
     },
-    well: props.well,
   };
 
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
