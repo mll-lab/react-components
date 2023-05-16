@@ -1,3 +1,16 @@
+# [15.0.0](https://github.com/mll-lab/react-components/compare/v14.3.0...v15.0.0) (2023-05-16)
+
+
+### Features
+
+* allow passing any `DndContext` props to `Plate` ([c1e0825](https://github.com/mll-lab/react-components/commit/c1e08259909b1e4187a8e2da22c0af2f6447ef42))
+
+
+### BREAKING CHANGES
+
+* replace `PlateProps.onDragEnd` with `PlateProps.dndContextProps`
+* delete `well` data from `FilledWell`
+
 # [14.3.0](https://github.com/mll-lab/react-components/compare/v14.2.0...v14.3.0) (2023-05-11)
 
 
