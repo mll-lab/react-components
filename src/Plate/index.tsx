@@ -24,7 +24,7 @@ export function Plate(props: PlateProps) {
   }
 
   return (
-    <DndContext {...props.draggable?.dndContextProps}>
+    <DndContext {...props.dndContextProps}>
       <Spin
         spinning={props.loading ?? false}
         indicator={
@@ -72,7 +72,7 @@ export function Plate(props: PlateProps) {
                     ? wellAtPosition(position, props.data, PLATE_FLOW)
                     : undefined
                 }
-                isDraggable={Boolean(props.draggable)}
+                isDraggable={Boolean(props.dndContextProps)}
               />
             </Fragment>
           ))}

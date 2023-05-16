@@ -17,9 +17,5 @@ export type PlateWell = {
 export type PlateProps = {
   data: Array<PlateWell> | null;
   loading?: boolean;
-  draggable?: DraggableProps;
-};
-
-export type DraggableProps = {
   dndContextProps?: Props;
 };
