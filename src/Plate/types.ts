@@ -1,4 +1,4 @@
-import { DragEndEvent } from '@dnd-kit/core/dist/types';
+import { Props } from '@dnd-kit/core/dist/components/DndContext/DndContext';
 import { ReactNode } from 'react';
 
 export type Coordinates = {
@@ -17,5 +17,9 @@ export type PlateWell = {
 export type PlateProps = {
   data: Array<PlateWell> | null;
   loading?: boolean;
-  onDragEnd?: (event: DragEndEvent) => void;
+  draggable?: DraggableProps;
+};
+
+export type DraggableProps = {
+  dndContextProps?: Props;
 };
