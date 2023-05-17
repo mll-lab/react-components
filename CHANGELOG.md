@@ -1,3 +1,10 @@
+# [15.1.0](https://github.com/mll-lab/react-components/compare/v15.0.0...v15.1.0) (2023-05-17)
+
+
+### Features
+
+* preview the current droppable area for `Plate`-component ([439854a](https://github.com/mll-lab/react-components/commit/439854a4786cfe48cea4e1a6347c86cc581c05a6))
+
 # [15.0.0](https://github.com/mll-lab/react-components/compare/v14.3.0...v15.0.0) (2023-05-16)
 
 
