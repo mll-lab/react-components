@@ -23,7 +23,7 @@ export function EmptyWell(props: { position: number }) {
       ref={setNodeRef}
       style={{
         ...GENERAL_WELL_STYLE,
-        borderColor: isOver ? PALETTE.red : 'inherit',
+        borderColor: isOver ? PALETTE.red : undefined,
         color: PALETTE.gray1,
         display: 'flex',
         justifyContent: 'center',
