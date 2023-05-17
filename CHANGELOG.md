@@ -1,3 +1,10 @@
+# [15.2.0](https://github.com/mll-lab/react-components/compare/v15.1.0...v15.2.0) (2023-05-17)
+
+
+### Features
+
+* update js-utils ([4b8a5fd](https://github.com/mll-lab/react-components/commit/4b8a5fd65870bdf3098764f1ed1027979854baab))
+
 # [15.1.0](https://github.com/mll-lab/react-components/compare/v15.0.0...v15.1.0) (2023-05-17)
 
 
