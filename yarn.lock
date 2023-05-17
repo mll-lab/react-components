@@ -1698,10 +1698,10 @@
     eslint-plugin-unused-imports "^2.0.0"
     typescript "^4.5.5"
 
-"@mll-lab/js-utils@2.16.0":
-  version "2.16.0"
-  resolved "https://registry.yarnpkg.com/@mll-lab/js-utils/-/js-utils-2.16.0.tgz#04f5342c8a2f9ef4290a161e113105a721575535"
-  integrity sha512-/h4ertAXQ+sjHFSREAZz99pucUUM2+kWg2uiI5BqMvTgFAtd6EaHNIzYowt/DtLmx5iNRoQv2otyZNT8FWnCrw==
+"@mll-lab/js-utils@2.17.1":
+  version "2.17.1"
+  resolved "https://registry.yarnpkg.com/@mll-lab/js-utils/-/js-utils-2.17.1.tgz#8fc453bdd00c2b5593b3e1e2880f3a5127ddc8bc"
+  integrity sha512-gq/pXwX4K3SKczcsUdkBafwToillDm48nPuJ2t4kaqWWSdRZfx38MR7QE6DKScARD/96vasYyMvQ/ksCVCWuNQ==
   dependencies:
     date-fns "2.0.0-alpha.26"
     lodash "4.17.15"
