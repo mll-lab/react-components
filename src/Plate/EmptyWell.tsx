@@ -8,7 +8,7 @@ import { columnForPosition, rowForPosition } from './utils';
 import { GENERAL_WELL_STYLE } from './wellUtils';
 
 export function EmptyWell(props: { position: number }) {
-  const { setNodeRef } = useDroppable({
+  const { setNodeRef, isOver } = useDroppable({
     id: props.position,
     data: {
       coordinate: {
@@ -23,6 +23,7 @@ export function EmptyWell(props: { position: number }) {
       ref={setNodeRef}
       style={{
         ...GENERAL_WELL_STYLE,
+        borderColor: isOver ? PALETTE.red : undefined,
         color: PALETTE.gray1,
         display: 'flex',
         justifyContent: 'center',
