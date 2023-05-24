@@ -18,9 +18,6 @@ export * from './constants';
 export * from './types';
 export * from './utils';
 
-/**
- * @param {PlatePropsDef} props
- */
 export function Plate(props: PlateProps) {
   if (props.data) {
     assertUniquePositions(props.data);
