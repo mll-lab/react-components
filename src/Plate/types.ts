@@ -17,5 +17,8 @@ export type PlateWell = {
 export type PlateProps = {
   data: Array<PlateWell> | null;
   loading?: boolean;
+  /** Activates DragAndDrop of the wells */
+  isDraggable?: true;
+  /** Do not add props.dndContextProps conditionally, as it leads to problems. Use props.isDraggable instead. */
   dndContextProps?: Props;
 };

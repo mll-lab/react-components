@@ -72,7 +72,7 @@ export function Plate(props: PlateProps) {
                     ? wellAtPosition(position, props.data, PLATE_FLOW)
                     : undefined
                 }
-                isDraggable={Boolean(props.dndContextProps)}
+                isDraggable={props.isDraggable ?? false}
               />
             </Fragment>
           ))}
