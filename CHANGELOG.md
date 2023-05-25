@@ -1,3 +1,10 @@
+# [15.3.0](https://github.com/mll-lab/react-components/compare/v15.2.0...v15.3.0) (2023-05-25)
+
+
+### Features
+
+* add isDraggable prop to plate ([4d564df](https://github.com/mll-lab/react-components/commit/4d564df30f53388273b81bdaa5df09dc68b57d54))
+
 # [15.2.0](https://github.com/mll-lab/react-components/compare/v15.1.0...v15.2.0) (2023-05-17)
 
 
