@@ -14,6 +14,7 @@ export default {
   title: 'Plate',
   argTypes: {
     loading: { control: 'boolean' },
+    isDraggable: { control: 'boolean' },
   },
 };
 
@@ -55,22 +56,16 @@ const columnFlowData: Array<PlateWell> = WELLS.map((well) => ({
 }));
 
 const Template: Story<Partial<PlateProps>> = function Template(args) {
-  return <Plate data={null} {...args} />;
+  return (
+    <Plate
+      data={null}
+      dndContextProps={{
+        onDragEnd: action('onDragEnd'), // dataLocation: `const sourceData = e.active.data.current; const targetData = e.over?.data.current;`
+      }}
+      {...args}
+    />
+  );
 };
-
-const DraggablePlateTemplate: Story<Partial<PlateProps>> =
-  function DraggablePlateTemplate(args) {
-    return (
-      <Plate
-        data={null}
-        {...args}
-        isDraggable
-        dndContextProps={{
-          onDragEnd: action('onDragEnd'), // dataLocation: `const sourceData = e.active.data.current; const targetData = e.over?.data.current;`
-        }}
-      />
-    );
-  };
 
 export const Default = Template.bind({});
 Default.args = {
@@ -85,9 +80,4 @@ RowFlow.args = {
 export const ColumnFlow = Template.bind({});
 ColumnFlow.args = {
   data: columnFlowData,
-};
-
-export const Draggable = DraggablePlateTemplate.bind({});
-Draggable.args = {
-  data,
 };
