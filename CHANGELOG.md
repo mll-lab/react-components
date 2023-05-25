@@ -1,3 +1,10 @@
+# [15.4.0](https://github.com/mll-lab/react-components/compare/v15.3.0...v15.4.0) (2023-05-25)
+
+
+### Features
+
+* open up isDraggable type from `true` to `boolean` ([8e847db](https://github.com/mll-lab/react-components/commit/8e847db4c085bcf6fd42826b18d24a9a1b069361))
+
 # [15.3.0](https://github.com/mll-lab/react-components/compare/v15.2.0...v15.3.0) (2023-05-25)
 
 
