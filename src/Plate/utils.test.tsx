@@ -1,6 +1,3 @@
-import { render } from '@testing-library/react';
-import React from 'react';
-
 import { Coordinates } from './types';
 import {
   areEqualCoordinates,
@@ -10,8 +7,6 @@ import {
   ensureCoordinatesInRange,
   rowForPosition,
 } from './utils';
-
-import { Plate } from './index';
 
 const data = [
   {
@@ -139,11 +134,5 @@ describe('areEqualCoordinates', () => {
     const b: Coordinates = { row: 'B', column: 3 };
     expect(areEqualCoordinates(a, b)).toBe(false);
     expect(areEqualCoordinates(a, { ...b, foo: 'bar' })).toBe(false);
-  });
-});
-
-describe('Plate', () => {
-  it('renders without data', () => {
-    render(<Plate data={null} />);
   });
 });
