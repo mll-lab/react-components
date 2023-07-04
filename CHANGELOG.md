@@ -1,3 +1,10 @@
+## [15.4.1](https://github.com/mll-lab/react-components/compare/v15.4.0...v15.4.1) (2023-07-04)
+
+
+### Bug Fixes
+
+* use coordinates instead of coordinate on data of draggable well ([7c08a7e](https://github.com/mll-lab/react-components/commit/7c08a7e43b8dd0154f82991353d0c00bf2394cac))
+
 # [15.4.0](https://github.com/mll-lab/react-components/compare/v15.3.0...v15.4.0) (2023-05-25)
 
 
