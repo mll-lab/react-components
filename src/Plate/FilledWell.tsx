@@ -15,7 +15,7 @@ export function FilledWell(props: {
   isDraggable: boolean;
 }) {
   const data = {
-    coordinate: {
+    coordinates: {
       row: rowForPosition(props.position, PLATE_FLOW),
       column: columnForPosition(props.position, PLATE_FLOW),
     },
