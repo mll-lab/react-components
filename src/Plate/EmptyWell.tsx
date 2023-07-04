@@ -11,7 +11,7 @@ export function EmptyWell(props: { position: number }) {
   const { setNodeRef, isOver } = useDroppable({
     id: props.position,
     data: {
-      coordinate: {
+      coordinates: {
         row: rowForPosition(props.position, PLATE_FLOW),
         column: columnForPosition(props.position, PLATE_FLOW),
       },
