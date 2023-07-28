@@ -9,6 +9,7 @@ export * from './Provider';
 export * from './Anchor';
 export * from './Alert';
 export * from './Avatar';
+export * from './BackTop';
 export * from './Badge';
 export * from './Breadcrumb';
 export * from './Button';
