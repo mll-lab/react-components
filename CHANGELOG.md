@@ -1,3 +1,10 @@
+# [15.5.0](https://github.com/mll-lab/react-components/compare/v15.4.1...v15.5.0) (2023-07-28)
+
+
+### Features
+
+* export BackTop ([72c1fdc](https://github.com/mll-lab/react-components/commit/72c1fdc0b496468af1c459931e99c06f01bb254f))
+
 ## [15.4.1](https://github.com/mll-lab/react-components/compare/v15.4.0...v15.4.1) (2023-07-04)
 
 
