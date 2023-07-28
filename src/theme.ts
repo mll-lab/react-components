@@ -13,6 +13,8 @@ export const PALETTE = {
   blue: '#50a0d0',
   lightBlue: '#d4edfc',
   blueTintedGray: '#f0f2f5',
+  tableHeaderBackgroundColor: '#2f7eae',
+  tableRowStripeBackgroundColor: 'rgb(228,238,250,0.45)',
 
   // Shades
   white: '#ffffff', // brightest possible
@@ -51,6 +53,9 @@ export type Theme = {
   successColor: string;
   warningColor: string;
 
+  tableHeaderBackgroundColor: string;
+  tableRowStripeBackgroundColor: string;
+
   fontSize?: string;
   size?: SizeType;
 };
@@ -67,6 +72,8 @@ export const THEME: Theme = {
   menuGroupBackgroundColor: PALETTE.gray1,
   panelBackgroundColor: PALETTE.gray3,
   tableBorderColor: PALETTE.gray4,
+  tableHeaderBackgroundColor: PALETTE.tableHeaderBackgroundColor,
+  tableRowStripeBackgroundColor: PALETTE.tableRowStripeBackgroundColor,
   titleColor: PALETTE.gray5,
   disabledColors: {
     lowContrast: PALETTE.gray5,
