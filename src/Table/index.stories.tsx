@@ -1,10 +1,16 @@
 import { action } from '@storybook/addon-actions';
 import { Story } from '@storybook/react';
-import React from 'react';
+import React, { useState } from 'react';
 
 import { THEME } from '../theme';
 
-import { ColumnProps, ColumnsType, Table, TableProps } from './index';
+import {
+  ColoredTable as StyledTable,
+  ColumnProps,
+  ColumnsType,
+  Table,
+  TableProps,
+} from './index';
 
 export default {
   title: 'Table',
@@ -107,5 +113,27 @@ export function TableWithJsxApi() {
       />
       <Table.Column title="Age" dataIndex="age" key="age" />
     </Table>
+  );
+}
+
+export function ColoredTable() {
+  const [selectedID, setSelectedID] = useState<number>();
+
+  return (
+    <StyledTable<Person>
+      bordered
+      columns={columns}
+      dataSource={data}
+      pagination={false}
+      onRow={(person) => ({
+        onClick: () => setSelectedID(person.id),
+      })}
+      rowSelection={{
+        selectedRowKeys: selectedID ? [selectedID] : undefined,
+        hideSelectAll: true,
+        renderCell: () => null,
+        columnWidth: 0,
+      }}
+    />
   );
 }
