@@ -1,3 +1,10 @@
+# [15.6.0](https://github.com/mll-lab/react-components/compare/v15.5.0...v15.6.0) (2023-07-31)
+
+
+### Features
+
+* add component `ColoredTable` ([8d4646d](https://github.com/mll-lab/react-components/commit/8d4646dddd8b9d183fd9c6a480051decb602a069))
+
 # [15.5.0](https://github.com/mll-lab/react-components/compare/v15.4.1...v15.5.0) (2023-07-28)
 
 
