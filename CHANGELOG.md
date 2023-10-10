@@ -1,3 +1,10 @@
+# [15.7.0](https://github.com/mll-lab/react-components/compare/v15.6.0...v15.7.0) (2023-10-10)
+
+
+### Features
+
+* add component Input.Password ([7daed0a](https://github.com/mll-lab/react-components/commit/7daed0a7550d98796a034a950cdbb9d71d2bdd48))
+
 # [15.6.0](https://github.com/mll-lab/react-components/compare/v15.5.0...v15.6.0) (2023-07-31)
 
 
