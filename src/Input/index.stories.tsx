@@ -7,6 +7,7 @@ import { NumericIDInput, NumericIDInputProps } from './NumericIDInput';
 import {
   InputNumberProps,
   InputProps,
+  PasswordProps,
   SearchProps,
   TextAreaProps,
 } from './common';
@@ -31,6 +32,14 @@ export const Text: Story<InputProps> = function Text(args) {
   );
 };
 
+export const Password: Story<PasswordProps> = function Password(args) {
+  return <Input.Password {...args} />;
+};
+
+export const Search: Story<SearchProps> = function Search(args) {
+  return <Input.Search {...args} />;
+};
+
 export const TextArea: Story<TextAreaProps> = function TextArea(args) {
   return (
     <Space>
@@ -42,10 +51,6 @@ export const TextArea: Story<TextAreaProps> = function TextArea(args) {
       />
     </Space>
   );
-};
-
-export const Search: Story<SearchProps> = function Search(args) {
-  return <Input.Search {...args} />;
 };
 
 export const Number: Story<InputNumberProps<number>> = function Number(args) {
