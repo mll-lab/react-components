@@ -1,3 +1,10 @@
+# [15.8.0](https://github.com/mll-lab/react-components/compare/v15.7.0...v15.8.0) (2023-10-24)
+
+
+### Features
+
+* upgrade dependencies ([20b09dc](https://github.com/mll-lab/react-components/commit/20b09dc41406e6b7d8e05acc5275a8de02840a58))
+
 # [15.7.0](https://github.com/mll-lab/react-components/compare/v15.6.0...v15.7.0) (2023-10-10)
 
 
