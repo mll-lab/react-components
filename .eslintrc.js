@@ -9,7 +9,7 @@ module.exports = {
     'plugin:storybook/recommended',
   ],
   plugins: ['jsx-a11y', 'testing-library'],
-  ignorePatterns: ['dist', '!.storybook', 'yarn.lock'],
+  ignorePatterns: ['dist', '!.storybook'],
   env: {
     jest: true,
     browser: true,
