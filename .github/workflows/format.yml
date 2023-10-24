@@ -10,6 +10,7 @@ jobs:
         with:
           ref: ${{ github.head_ref }}
       - uses: actions/setup-node@v4
+      - run: corepack enable
       - run: yarn install
       - run: yarn run fix
       - uses: stefanzweifel/git-auto-commit-action@v4
