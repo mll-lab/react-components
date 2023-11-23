@@ -1,3 +1,5 @@
+// TODO remove when we can upgrade to @testing-library/user-event:14, which currently does not work in this test
+// eslint-disable @typescript-eslint/await-thenable
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
