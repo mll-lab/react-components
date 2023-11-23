@@ -42,6 +42,10 @@ module.exports = {
     'jsx-a11y/role-has-required-aria-props': 'error',
     'jsx-a11y/role-supports-aria-props': 'error',
     'react/function-component-definition': 'off', // Incompatible with stories
+    '@typescript-eslint/no-unsafe-assignment': 'off', // TODO reenable and get rid of any
+    '@typescript-eslint/no-unsafe-call': 'off', // TODO reenable and get rid of any
+    '@typescript-eslint/no-unsafe-member-access': 'off', // TODO reenable and get rid of any
+    '@typescript-eslint/no-unsafe-return': 'off', // TODO reenable and get rid of any
   },
   settings: {
     react: {

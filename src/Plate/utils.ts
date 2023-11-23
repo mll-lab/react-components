@@ -15,7 +15,7 @@ export function rowForPosition(
     case 'column':
       return COORDINATES_ROWS[(position - 1) % COORDINATES_ROWS.length]!;
     default:
-      throw new Error(`Unknown flow direction: ${flowDirection}`);
+      throw new Error(`Unknown flow direction: ${flowDirection as string}`);
   }
 }
 
@@ -31,7 +31,7 @@ export function columnForPosition(
         Math.floor((position - 1) / COORDINATES_ROWS.length)
       ]!;
     default:
-      throw new Error(`Unknown flow direction: ${flowDirection}`);
+      throw new Error(`Unknown flow direction: ${flowDirection as string}`);
   }
 }
 
@@ -58,7 +58,7 @@ export function positionForCoordinates(
     case 'column':
       return columnIndex * COORDINATES_ROWS.length + rowIndex + 1;
     default:
-      throw new Error(`Unknown flow direction: ${flowDirection}`);
+      throw new Error(`Unknown flow direction: ${flowDirection as string}`);
   }
 }
 

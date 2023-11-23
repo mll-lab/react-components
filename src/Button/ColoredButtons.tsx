@@ -1,7 +1,7 @@
 import { Button as AntdButton, ButtonProps as AntdButtonProps } from 'antd';
 import ButtonGroup from 'antd/es/button/button-group';
 import * as React from 'react';
-import styled, { ThemedStyledProps } from 'styled-components';
+import styled from 'styled-components';
 
 import { fontSizeFromTheme } from '../styled-utils';
 import { PALETTE, Theme } from '../theme';
@@ -18,8 +18,8 @@ export type ColoredButtonProps = {
 } & AntdButtonProps;
 
 function colorFromPropsOrTheme(
-  props: ThemedStyledProps<ColoredButtonProps, Theme>,
-) {
+  props: ColoredButtonProps & { theme: Theme },
+): string {
   return props.color || props.theme.borderColor;
 }
 

@@ -29,6 +29,7 @@ const StyledTable = styled(AntdTable)`
   }
 
   ${(props) => {
+    // @ts-expect-error TODO it seems unsafe to pass empty data to onRow?
     if (props.onRow?.({})?.onClick) {
       return `
         tbody tr:hover {

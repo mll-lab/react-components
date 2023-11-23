@@ -21,7 +21,7 @@ describe('<DatePicker />', () => {
 
     const datePicker = screen.getByTestId(ID);
 
-    await userEvent.type(datePicker, 'foo{enter}');
+    await userEvent.type(datePicker, 'foo{Enter}');
     expect(onChange).not.toHaveBeenCalled();
   });
 
@@ -40,7 +40,8 @@ describe('<DatePicker />', () => {
     const datePicker = screen.getByTestId(ID);
 
     const inputDate = '01.02.2003';
-    await userEvent.type(datePicker, `${inputDate}{enter}`);
+    await userEvent.type(datePicker, `${inputDate}{Enter}`);
+    screen.debug();
     expect(onChange).toHaveBeenLastCalledWith(new Date(2003, 1, 1));
     await waitFor(() =>
       expect(screen.getByTestId('date-picker')).toHaveValue(inputDate),
@@ -80,7 +81,9 @@ describe('<DatePicker />', () => {
     const datePicker = screen.getByTestId(ID);
 
     const dotlessInput = '01022003';
-    await userEvent.type(datePicker, `${dotlessInput}{enter}`);
+    await userEvent.type(datePicker, `${dotlessInput}{Enter}`);
+    await userEvent.type(datePicker, '9');
+    screen.debug();
     expect(onChange).toHaveBeenLastCalledWith(new Date(2003, 1, 1));
     await waitFor(() =>
       expect(screen.getByTestId('date-picker')).toHaveValue('01.02.2003'),

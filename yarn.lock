@@ -3283,9 +3283,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mll-lab/eslint-config@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "@mll-lab/eslint-config@npm:3.0.0"
+"@mll-lab/eslint-config@npm:^3.1.0":
+  version: 3.1.0
+  resolution: "@mll-lab/eslint-config@npm:3.1.0"
   dependencies:
     "@getify/eslint-plugin-proper-arrows": "npm:^11.0.3"
     "@typescript-eslint/eslint-plugin": "npm:^6.12.0"
@@ -3296,14 +3296,14 @@ __metadata:
     eslint-plugin-import: "npm:^2.29.0"
     eslint-plugin-prettier: "npm:^5.0.0"
     eslint-plugin-unused-imports: "npm:^3.0.0"
-    typescript: "npm:^4.9.4"
+    typescript: "npm:^4.9.4 || ^5.3.2"
   peerDependencies:
     eslint-config-airbnb: ^19.0.4
     eslint-plugin-jsx-a11y: ^6.8.0
     eslint-plugin-react: ^7.33.2
     eslint-plugin-react-hooks: ^4.6.0
     prettier: ^3.1.0
-  checksum: 8d42d7af97b9ffa590ae7af2c403997f2553789e4b3e165e95b7d03499ab87ea25e9bf0cd79dc9a3104a2627e965f8de0fca52976d5e57f4e2ae01c75f95438c
+  checksum: 5725edcfd552ecd354485ea0143fc4c46645926eadfa908706f2a84437492b7a78343205632f0b752b01213907da967b4e5f03a2fab105f240a75ef712014efa
   languageName: node
   linkType: hard
 
@@ -3349,7 +3349,7 @@ __metadata:
     "@babel/preset-react": "npm:^7.23.3"
     "@babel/runtime": "npm:^7.23.4"
     "@dnd-kit/core": "npm:^6.0.8"
-    "@mll-lab/eslint-config": "npm:^3.0.0"
+    "@mll-lab/eslint-config": "npm:^3.1.0"
     "@mll-lab/eslint-plugin": "npm:^1.3.4"
     "@mll-lab/js-utils": "npm:^2.17.1"
     "@mll-lab/prettier-config": "npm:^1.0.0"
@@ -3376,7 +3376,6 @@ __metadata:
     "@types/react": "npm:^18.2.38"
     "@types/react-datepicker": "npm:^4.19.3"
     "@types/react-dom": "npm:^18.2.17"
-    "@types/styled-components": "npm:^5.1.32"
     "@types/testing-library__jest-dom": "npm:^6.0.0"
     antd: "npm:4.20.5"
     babel-jest: "npm:^29.7.0"
@@ -3423,7 +3422,7 @@ __metadata:
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
     react-hook-form: ^7.26.1
-    styled-components: ^5.3.3
+    styled-components: ^6.1.1
   languageName: unknown
   linkType: soft
 
@@ -6276,16 +6275,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/hoist-non-react-statics@npm:*":
-  version: 3.3.4
-  resolution: "@types/hoist-non-react-statics@npm:3.3.4"
-  dependencies:
-    "@types/react": "npm:*"
-    hoist-non-react-statics: "npm:^3.3.0"
-  checksum: 677ddcacf72f2fb79f65599189d4741fa3d815aa5e50c7fd6c3c9be92298aecf05b044e7dc445cf2bb0877652293949a7f0e364e63d9266b242cd9cb9bf53fa7
-  languageName: node
-  linkType: hard
-
 "@types/html-minifier-terser@npm:^6.0.0":
   version: 6.1.0
   resolution: "@types/html-minifier-terser@npm:6.1.0"
@@ -6578,17 +6567,6 @@ __metadata:
   version: 2.0.2
   resolution: "@types/stack-utils@npm:2.0.2"
   checksum: c2bf0de59ee0a1e2b2031e8a6225f412976377868c42a66537e284a020e9eb4068ed9b9da69d14c1727ab56e605532e877777c7d1bbfd3e9a42ae17bcef7d213
-  languageName: node
-  linkType: hard
-
-"@types/styled-components@npm:^5.1.32":
-  version: 5.1.32
-  resolution: "@types/styled-components@npm:5.1.32"
-  dependencies:
-    "@types/hoist-non-react-statics": "npm:*"
-    "@types/react": "npm:*"
-    csstype: "npm:^3.0.2"
-  checksum: eae113f504a5c3803cac2be32c04c1e447603b4cd41ee013545aa4932a32b787622650a84f800dd491ecd2bc3c0289481cfa87fc379439517df48bf2b474d348
   languageName: node
   linkType: hard
 
@@ -11729,15 +11707,6 @@ __metadata:
   bin:
     he: bin/he
   checksum: a27d478befe3c8192f006cdd0639a66798979dfa6e2125c6ac582a19a5ebfec62ad83e8382e6036170d873f46e4536a7e795bf8b95bf7c247f4cc0825ccc8c17
-  languageName: node
-  linkType: hard
-
-"hoist-non-react-statics@npm:^3.3.0":
-  version: 3.3.2
-  resolution: "hoist-non-react-statics@npm:3.3.2"
-  dependencies:
-    react-is: "npm:^16.7.0"
-  checksum: fe0889169e845d738b59b64badf5e55fa3cf20454f9203d1eb088df322d49d4318df774828e789898dcb280e8a5521bb59b3203385662ca5e9218a6ca5820e74
   languageName: node
   linkType: hard
 
@@ -17403,7 +17372,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-is@npm:^16.13.1, react-is@npm:^16.7.0":
+"react-is@npm:^16.13.1":
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: 33977da7a5f1a287936a0c85639fec6ca74f4f15ef1e59a6bc20338fc73dc69555381e211f7a3529b8150a1f71e4225525b41b60b52965bda53ce7d47377ada1
@@ -19684,17 +19653,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^4.9.4":
-  version: 4.9.5
-  resolution: "typescript@npm:4.9.5"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: 5f6cad2e728a8a063521328e612d7876e12f0d8a8390d3b3aaa452a6a65e24e9ac8ea22beb72a924fd96ea0a49ea63bb4e251fb922b12eedfb7f7a26475e5c56
-  languageName: node
-  linkType: hard
-
-"typescript@npm:^5.3.2":
+"typescript@npm:^4.9.4 || ^5.3.2, typescript@npm:^5.3.2":
   version: 5.3.2
   resolution: "typescript@npm:5.3.2"
   bin:
@@ -19704,17 +19663,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^4.9.4#optional!builtin<compat/typescript>":
-  version: 4.9.5
-  resolution: "typescript@patch:typescript@npm%3A4.9.5#optional!builtin<compat/typescript>::version=4.9.5&hash=289587"
-  bin:
-    tsc: bin/tsc
-    tsserver: bin/tsserver
-  checksum: e3333f887c6829dfe0ab6c1dbe0dd1e3e2aeb56c66460cb85c5440c566f900c833d370ca34eb47558c0c69e78ced4bfe09b8f4f98b6de7afed9b84b8d1dd06a1
-  languageName: node
-  linkType: hard
-
-"typescript@patch:typescript@npm%3A^5.3.2#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A^4.9.4 || ^5.3.2#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.3.2#optional!builtin<compat/typescript>":
   version: 5.3.2
   resolution: "typescript@patch:typescript@npm%3A5.3.2#optional!builtin<compat/typescript>::version=5.3.2&hash=e012d7"
   bin:
