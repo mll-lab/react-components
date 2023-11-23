@@ -1,3 +1,5 @@
+// TODO remove when we can upgrade to @testing-library/user-event:14, which currently does not work in this test
+/* eslint-disable @typescript-eslint/await-thenable */
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import React from 'react';
@@ -21,7 +23,7 @@ describe('<DatePicker />', () => {
 
     const datePicker = screen.getByTestId(ID);
 
-    await userEvent.type(datePicker, 'foo{enter}');
+    await userEvent.type(datePicker, 'foo{Enter}');
     expect(onChange).not.toHaveBeenCalled();
   });
 
@@ -40,7 +42,7 @@ describe('<DatePicker />', () => {
     const datePicker = screen.getByTestId(ID);
 
     const inputDate = '01.02.2003';
-    await userEvent.type(datePicker, `${inputDate}{enter}`);
+    await userEvent.type(datePicker, `${inputDate}{Enter}`);
     expect(onChange).toHaveBeenLastCalledWith(new Date(2003, 1, 1));
     await waitFor(() =>
       expect(screen.getByTestId('date-picker')).toHaveValue(inputDate),
@@ -80,7 +82,7 @@ describe('<DatePicker />', () => {
     const datePicker = screen.getByTestId(ID);
 
     const dotlessInput = '01022003';
-    await userEvent.type(datePicker, `${dotlessInput}{enter}`);
+    await userEvent.type(datePicker, `${dotlessInput}{Enter}`);
     expect(onChange).toHaveBeenLastCalledWith(new Date(2003, 1, 1));
     await waitFor(() =>
       expect(screen.getByTestId('date-picker')).toHaveValue('01.02.2003'),

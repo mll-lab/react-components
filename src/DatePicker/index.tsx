@@ -68,6 +68,7 @@ export const BaseDatePicker: ComponentClass<PickerProps<Date>, unknown> & {
           // When showTime is used, this function is unexpectedly called with an array of formats.
           // Multiple formats are only useful for flexible parsing, so we just use the first given format.
           // @ts-expect-error formatOrFormats is not necessarily a string
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
           formatOrFormats instanceof Array
             ? formatOrFormats[0]
             : formatOrFormats,

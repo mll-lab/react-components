@@ -1,10 +1,9 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 require('@testing-library/jest-dom');
-require('@testing-library/jest-dom/extend-expect');
 
-const configureTestingLibrary = require('@testing-library/react').configure;
+const testingLibraryReact = require('@testing-library/react');
 
-configureTestingLibrary({ testIdAttribute: 'id' });
+testingLibraryReact.configure({ testIdAttribute: 'id' });
 
 // Used by some antd components, such as List, and not implemented in jsdom
 Object.defineProperty(window, 'matchMedia', {

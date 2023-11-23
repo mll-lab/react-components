@@ -32,6 +32,6 @@ const StyledRadioButton = styled(StyledRadio.Button)<RadioButtonProps>`
   font-size: ${fontSizeFromTheme};
 `;
 
-export const Radio: typeof AntdRadio = StyledRadio as typeof AntdRadio;
+export const Radio: typeof AntdRadio = StyledRadio;
 Radio.Group = StyledRadioGroup as typeof Radio.Group;
 Radio.Button = StyledRadioButton;
