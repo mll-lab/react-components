@@ -1,3 +1,15 @@
+# [16.0.0](https://github.com/mll-lab/react-components/compare/v15.8.0...v16.0.0) (2023-11-23)
+
+
+### Features
+
+* styled-components 6 ([4480035](https://github.com/mll-lab/react-components/commit/44800352b6047a08031c008b6f466d19227d3bb0))
+
+
+### BREAKING CHANGES
+
+* require styled components 6
+
 # [15.8.0](https://github.com/mll-lab/react-components/compare/v15.7.0...v15.8.0) (2023-10-24)
 
 
