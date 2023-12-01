@@ -1,6 +1,5 @@
-import { renderHook } from '@testing-library/react-hooks';
+import { act, renderHook } from '@testing-library/react-hooks';
 import React, { PropsWithChildren } from 'react';
-import { act } from 'react-test-renderer';
 
 import { useGlobalForms, useGlobalForm } from './GlobalFormsContext';
 import { GlobalFormsProvider } from './GlobalFormsProvider';
