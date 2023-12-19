@@ -1,3 +1,10 @@
+## [16.0.2](https://github.com/mll-lab/react-components/compare/v16.0.1...v16.0.2) (2023-12-19)
+
+
+### Bug Fixes
+
+* bump @babel/runtime ([c402a6c](https://github.com/mll-lab/react-components/commit/c402a6cf7921ae3bf295e7e3e1ada582a217c856))
+
 ## [16.0.1](https://github.com/mll-lab/react-components/compare/v16.0.0...v16.0.1) (2023-12-19)
 
 
