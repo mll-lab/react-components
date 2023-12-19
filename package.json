@@ -129,8 +129,5 @@
     "typescript": "^5.3.2",
     "webpack": "^5.89.0"
   },
-  "resolutions": {
-    "@types/react": "16.14.50"
-  },
   "packageManager": "yarn@4.0.2"
 }
