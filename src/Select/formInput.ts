@@ -27,6 +27,8 @@ export function mapToFormInputOptions<
   }));
 }
 
-export function toFormInputOption<T>(value: T): FormInputOption<T, T> {
+export function toFormInputOption<T extends ReactNode>(
+  value: T,
+): FormInputOption<T, T> {
   return { label: value, value };
 }
