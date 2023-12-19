@@ -1,3 +1,10 @@
+## [16.0.1](https://github.com/mll-lab/react-components/compare/v16.0.0...v16.0.1) (2023-12-19)
+
+
+### Bug Fixes
+
+* adapt types to React 18 ([0cb085f](https://github.com/mll-lab/react-components/commit/0cb085f3dbd7e87aa684932f135352d417436205))
+
 # [16.0.0](https://github.com/mll-lab/react-components/compare/v15.8.0...v16.0.0) (2023-11-23)
 
 
