@@ -6,8 +6,9 @@ export * from './theme';
 export * from './Provider';
 
 // Individual components
-export * from './Anchor';
 export * from './Alert';
+export * from './Anchor';
+export * from './Autocomplete';
 export * from './Avatar';
 export * from './BackTop';
 export * from './Badge';
