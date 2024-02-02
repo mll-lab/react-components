@@ -1,3 +1,10 @@
+## [16.1.1](https://github.com/mll-lab/react-components/compare/v16.1.0...v16.1.1) (2024-02-02)
+
+
+### Bug Fixes
+
+* build cjs with interop: auto ([f59d0f3](https://github.com/mll-lab/react-components/commit/f59d0f317e2156933a17ff9bd700545134fef383))
+
 # [16.1.0](https://github.com/mll-lab/react-components/compare/v16.0.2...v16.1.0) (2024-02-02)
 
 
