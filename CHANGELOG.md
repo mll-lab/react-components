@@ -1,3 +1,10 @@
+# [16.1.0](https://github.com/mll-lab/react-components/compare/v16.0.2...v16.1.0) (2024-02-02)
+
+
+### Features
+
+* Add Autocomplete component ([c7d5725](https://github.com/mll-lab/react-components/commit/c7d57255ef143a7bbbe91353a4bfb202dd6ad0c6))
+
 ## [16.0.2](https://github.com/mll-lab/react-components/compare/v16.0.1...v16.0.2) (2023-12-19)
 
 
