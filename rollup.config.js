@@ -52,6 +52,7 @@ export default {
       },
     }),
     babel({
+      // https://www.npmjs.com/package/@rollup/plugin-babel#babelhelpers
       babelHelpers: 'runtime',
     }),
   ],
