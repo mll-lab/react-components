@@ -8,6 +8,7 @@ import { TextAreaRef } from '../Input';
 import { toFormInputOption } from '../Select';
 import { Space } from '../Space';
 
+import { AutocompleteField } from './AutocompleteField';
 import { CheckboxField } from './CheckboxField';
 import { FieldProvider, FieldProviderProps } from './FieldProvider';
 import { InputField } from './InputField';
@@ -23,6 +24,7 @@ export default {
 };
 
 type FormType = {
+  autocomplete: string;
   checkbox: boolean;
   input: string;
   input_number: number;
@@ -124,6 +126,14 @@ function AllFields() {
   const formMethods = useFormContext<FormType>();
   return (
     <Form>
+      <AutocompleteField
+        name="autocomplete"
+        control={formMethods.control}
+        formItem={{ label: 'Autocomplete' }}
+        component={{
+          options: ['foo', 'bar'].map(toFormInputOption),
+        }}
+      />
       <CheckboxField
         name="checkbox"
         control={formMethods.control}
