@@ -1,3 +1,10 @@
+## [16.1.2](https://github.com/mll-lab/react-components/compare/v16.1.1...v16.1.2) (2024-02-22)
+
+
+### Bug Fixes
+
+* export already implemented component switch field ([7054726](https://github.com/mll-lab/react-components/commit/7054726e6f3a5f3b91e90b95411c26a9cd6ab595))
+
 ## [16.1.1](https://github.com/mll-lab/react-components/compare/v16.1.0...v16.1.1) (2024-02-02)
 
 
