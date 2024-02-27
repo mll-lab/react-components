@@ -1,3 +1,10 @@
+# [16.2.0](https://github.com/mll-lab/react-components/compare/v16.1.2...v16.2.0) (2024-02-27)
+
+
+### Features
+
+* add AutocompleteField ([b681531](https://github.com/mll-lab/react-components/commit/b6815314ad031b794f7ffa3f3e66cb19f5520a13))
+
 ## [16.1.2](https://github.com/mll-lab/react-components/compare/v16.1.1...v16.1.2) (2024-02-22)
 
 
