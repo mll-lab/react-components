@@ -1,3 +1,10 @@
+## [16.2.1](https://github.com/mll-lab/react-components/compare/v16.2.0...v16.2.1) (2024-02-27)
+
+
+### Bug Fixes
+
+* actually export AutocompleteField ([37a8ad5](https://github.com/mll-lab/react-components/commit/37a8ad5c84b16c462520ac29e869421efb41b037))
+
 # [16.2.0](https://github.com/mll-lab/react-components/compare/v16.1.2...v16.2.0) (2024-02-27)
 
 
