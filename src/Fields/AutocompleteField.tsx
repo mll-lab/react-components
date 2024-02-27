@@ -19,6 +19,11 @@ type AutocompleteFieldProps<
     component?: AutocompleteProps;
   };
 
+/**
+ * This component appears unstyled in Storybook because it is not properly prefixing its class names.
+ * However, if this library is used alongside globally included antd styles, it works somewhat fine.
+ * When we rip out antd 3 from our projects, we may want to remove the class prefix in this library to fix this.
+ */
 export function AutocompleteField<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
