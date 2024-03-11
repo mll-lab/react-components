@@ -1,5 +1,6 @@
 export * from './AutocompleteField';
 export * from './CheckboxField';
+export * from './CheckboxGroupField';
 export * from './FieldProvider';
 export * from './FieldWrapper';
 export * from './formItemFieldProps';
