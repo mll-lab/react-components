@@ -11,6 +11,7 @@ import { Space } from '../Space';
 import { AutocompleteField } from './AutocompleteField';
 import { CheckboxField } from './CheckboxField';
 import { CheckboxGroupField } from './CheckboxGroupField';
+import { DateRangePickerField } from './DateRangePickerField';
 import { FieldProvider, FieldProviderProps } from './FieldProvider';
 import { InputField } from './InputField';
 import { InputNumberField } from './InputNumberField';
@@ -34,6 +35,7 @@ type FormType = {
   select: 'a' | 'b';
   switch: boolean;
   text_area: string;
+  date_range: string;
 };
 
 export const Default: Story<{
@@ -216,6 +218,11 @@ function AllFields() {
         formItem={{
           label: 'Switch',
         }}
+      />
+      <DateRangePickerField
+        name="date_range"
+        control={formMethods.control}
+        formItem={{ label: 'DateRangePicker' }}
       />
       <TextAreaStory />
     </Form>
