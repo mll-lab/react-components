@@ -1,3 +1,10 @@
+# [16.4.0](https://github.com/mll-lab/react-components/compare/v16.3.0...v16.4.0) (2024-03-12)
+
+
+### Features
+
+* add DateRangePickerField ([#257](https://github.com/mll-lab/react-components/issues/257)) ([4296cac](https://github.com/mll-lab/react-components/commit/4296cacfd04fb045c273ec56fe1dad8093637d29))
+
 # [16.3.0](https://github.com/mll-lab/react-components/compare/v16.2.1...v16.3.0) (2024-03-11)
 
 
