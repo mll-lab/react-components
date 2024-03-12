@@ -11,6 +11,7 @@ import { Space } from '../Space';
 import { AutocompleteField } from './AutocompleteField';
 import { CheckboxField } from './CheckboxField';
 import { DateRangePickerField } from './DateRangePickerField';
+import { CheckboxGroupField } from './CheckboxGroupField';
 import { FieldProvider, FieldProviderProps } from './FieldProvider';
 import { InputField } from './InputField';
 import { InputNumberField } from './InputNumberField';
@@ -27,6 +28,7 @@ export default {
 type FormType = {
   autocomplete: string;
   checkbox: boolean;
+  checkboxGroup: Array<string>;
   input: string;
   input_number: number;
   radio_group: 1 | 2;
@@ -145,6 +147,12 @@ function AllFields() {
       >
         Checkbox children
       </CheckboxField>
+      <CheckboxGroupField
+        name="checkboxGroup"
+        control={formMethods.control}
+        formItem={{ label: 'CheckboxGroup' }}
+        component={{ options: ['a', 'b'].map(toFormInputOption) }}
+      />
       <InputField
         name="input"
         rules={{ required: 'You really need this', maxLength: 3 }}

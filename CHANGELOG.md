@@ -1,3 +1,10 @@
+# [16.3.0](https://github.com/mll-lab/react-components/compare/v16.2.1...v16.3.0) (2024-03-11)
+
+
+### Features
+
+* add CheckboxGroupField ([fec1e64](https://github.com/mll-lab/react-components/commit/fec1e64a6914773eb5ce89bae7985297373d7909))
+
 ## [16.2.1](https://github.com/mll-lab/react-components/compare/v16.2.0...v16.2.1) (2024-02-27)
 
 
