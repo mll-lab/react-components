@@ -10,8 +10,8 @@ import { Space } from '../Space';
 
 import { AutocompleteField } from './AutocompleteField';
 import { CheckboxField } from './CheckboxField';
-import { DateRangePickerField } from './DateRangePickerField';
 import { CheckboxGroupField } from './CheckboxGroupField';
+import { DateRangePickerField } from './DateRangePickerField';
 import { FieldProvider, FieldProviderProps } from './FieldProvider';
 import { InputField } from './InputField';
 import { InputNumberField } from './InputNumberField';
