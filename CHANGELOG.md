@@ -1,3 +1,10 @@
+# [16.5.0](https://github.com/mll-lab/react-components/compare/v16.4.0...v16.5.0) (2024-03-14)
+
+
+### Features
+
+* add standard format to DateRangePickerField ([ed0dda3](https://github.com/mll-lab/react-components/commit/ed0dda3c86e7a30c8c357588016091197bf0be5c))
+
 # [16.4.0](https://github.com/mll-lab/react-components/compare/v16.3.0...v16.4.0) (2024-03-12)
 
 
