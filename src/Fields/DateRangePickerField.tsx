@@ -33,7 +33,11 @@ export function DateRangePickerField<
   } = useController<TFieldValues, TName>(controller);
   return (
     <FieldWrapper controller={controller} formItem={formItem}>
-      <RangePicker format="DD.MM.YYYY" {...fieldProps} {...component} />
+      <RangePicker
+        format={['DD.MM.YYYY', 'DDMMYYYY']}
+        {...fieldProps}
+        {...component}
+      />
     </FieldWrapper>
   );
 }
