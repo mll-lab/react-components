@@ -9,6 +9,7 @@ import {
 } from 'react-hook-form';
 
 import { FieldWrapper, FieldWrapperProps } from './FieldWrapper';
+import { PICKER_LOCALE } from './pickerLocale';
 
 const { RangePicker } = DatePicker;
 
@@ -28,14 +29,13 @@ export function DateRangePickerField<
   component,
   ...controller
 }: DateRangePickerFieldProps<TFieldValues, TName>) {
-  const {
-    field: { ref, ...fieldProps },
-  } = useController<TFieldValues, TName>(controller);
+  const { field } = useController<TFieldValues, TName>(controller);
   return (
     <FieldWrapper controller={controller} formItem={formItem}>
       <RangePicker
         format={['DD.MM.YYYY', 'DDMMYYYY']}
-        {...fieldProps}
+        locale={PICKER_LOCALE}
+        {...field}
         {...component}
       />
     </FieldWrapper>
