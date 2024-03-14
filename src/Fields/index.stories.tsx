@@ -11,6 +11,7 @@ import { Space } from '../Space';
 import { AutocompleteField } from './AutocompleteField';
 import { CheckboxField } from './CheckboxField';
 import { CheckboxGroupField } from './CheckboxGroupField';
+import { DatePickerField } from './DatePickerField';
 import { DateRangePickerField } from './DateRangePickerField';
 import { FieldProvider, FieldProviderProps } from './FieldProvider';
 import { InputField } from './InputField';
@@ -36,6 +37,7 @@ type FormType = {
   switch: boolean;
   text_area: string;
   date_range: string;
+  date_picker: string;
 };
 
 export const Default: Story<{
@@ -218,6 +220,12 @@ function AllFields() {
         formItem={{
           label: 'Switch',
         }}
+      />
+      <DatePickerField
+        name="date_picker"
+        control={formMethods.control}
+        formItem={{ label: 'DatePicker' }}
+        component={{ placeholder: 'Datum wählen' }}
       />
       <DateRangePickerField
         name="date_range"
