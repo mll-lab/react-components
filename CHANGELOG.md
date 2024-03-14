@@ -1,3 +1,10 @@
+# [16.6.0](https://github.com/mll-lab/react-components/compare/v16.5.0...v16.6.0) (2024-03-14)
+
+
+### Features
+
+* add DatePickerField.tsx ([d8b961f](https://github.com/mll-lab/react-components/commit/d8b961fb6aabdac5b23029abf6eb1f6937b908ef))
+
 # [16.5.0](https://github.com/mll-lab/react-components/compare/v16.4.0...v16.5.0) (2024-03-14)
 
 
