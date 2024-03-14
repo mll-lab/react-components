@@ -1,7 +1,7 @@
 import { PickerLocale } from 'antd/lib/date-picker/generatePicker';
 import CalendarLocale from 'rc-picker/lib/locale/de_DE';
 
-export const CALENDAR_LOCALE: PickerLocale = {
+export const PICKER_LOCALE: PickerLocale = {
   lang: {
     placeholder: 'Datum auswählen',
     rangePlaceholder: ['Von', 'Bis'],

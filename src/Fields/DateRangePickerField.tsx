@@ -9,7 +9,7 @@ import {
 } from 'react-hook-form';
 
 import { FieldWrapper, FieldWrapperProps } from './FieldWrapper';
-import { CALENDAR_LOCALE } from './calendarLocale';
+import { PICKER_LOCALE } from './pickerLocale';
 
 const { RangePicker } = DatePicker;
 
@@ -34,7 +34,7 @@ export function DateRangePickerField<
     <FieldWrapper controller={controller} formItem={formItem}>
       <RangePicker
         format={['DD.MM.YYYY', 'DDMMYYYY']}
-        locale={CALENDAR_LOCALE}
+        locale={PICKER_LOCALE}
         {...field}
         {...component}
       />
