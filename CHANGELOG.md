@@ -1,3 +1,10 @@
+# [16.7.0](https://github.com/mll-lab/react-components/compare/v16.6.0...v16.7.0) (2024-03-14)
+
+
+### Features
+
+* add german locale to DateRangePickerField ([e95b9b1](https://github.com/mll-lab/react-components/commit/e95b9b13cf53435e96fa9fec4c8fcb28a7fc1e96))
+
 # [16.6.0](https://github.com/mll-lab/react-components/compare/v16.5.0...v16.6.0) (2024-03-14)
 
 
