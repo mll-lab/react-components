@@ -1,7 +1,7 @@
 import { Collapse as AntdCollapse } from 'antd';
 import { CollapseProps as AntdCollapseProps } from 'antd/lib/collapse/Collapse';
 import { CollapsePanelProps as AntdCollapsePanelProps } from 'antd/lib/collapse/CollapsePanel';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { fontSizeFromTheme } from '../styled-utils';
 
@@ -17,6 +17,14 @@ const StyledCollapse: typeof AntdCollapse = styled(
   }
   .mll-ant-collapse-item > .mll-ant-collapse-header {
     align-items: center;
+  }
+
+  .ant-motion-collapse {
+    ${(props) =>
+      props.theme.collapseTransition &&
+      css`
+        transition: ${props.theme.collapseTransition} !important;
+      `}
   }
 `;
 
