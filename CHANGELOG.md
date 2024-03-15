@@ -1,3 +1,10 @@
+# [16.8.0](https://github.com/mll-lab/react-components/compare/v16.7.0...v16.8.0) (2024-03-15)
+
+
+### Features
+
+* add Drawer ([6d37120](https://github.com/mll-lab/react-components/commit/6d37120c44cfad58bae201553c1306bdbe0cb20b))
+
 # [16.7.0](https://github.com/mll-lab/react-components/compare/v16.6.0...v16.7.0) (2024-03-14)
 
 
