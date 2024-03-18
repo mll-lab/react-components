@@ -1,3 +1,10 @@
+# [16.9.0](https://github.com/mll-lab/react-components/compare/v16.8.0...v16.9.0) (2024-03-18)
+
+
+### Features
+
+* customizable collapse transition ([5ddc372](https://github.com/mll-lab/react-components/commit/5ddc3725e3a38ddda20d3a5a999613b2a4b06dd3))
+
 # [16.8.0](https://github.com/mll-lab/react-components/compare/v16.7.0...v16.8.0) (2024-03-15)
 
 
