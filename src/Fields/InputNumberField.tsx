@@ -50,7 +50,7 @@ export function InputNumberField<
         disabled={disabled}
         controls={false}
         formatter={(value, { userTyping, input }) => {
-          if (userTyping && input.endsWith(GERMAN_DECIMAL_SEPARATOR)) {
+          if (userTyping) {
             return input;
           }
 
