@@ -1,8 +1,4 @@
-import {
-  formatGermanNumber,
-  parseGermanNumber,
-  GERMAN_DECIMAL_SEPARATOR,
-} from '@mll-lab/js-utils';
+import { formatGermanNumber, parseGermanNumber } from '@mll-lab/js-utils';
 import React from 'react';
 import {
   useController,
@@ -50,7 +46,7 @@ export function InputNumberField<
         disabled={disabled}
         controls={false}
         formatter={(value, { userTyping, input }) => {
-          if (userTyping && input.endsWith(GERMAN_DECIMAL_SEPARATOR)) {
+          if (userTyping) {
             return input;
           }
 
