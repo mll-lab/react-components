@@ -1,8 +1,4 @@
-import {
-  formatGermanNumber,
-  parseGermanNumber,
-  GERMAN_DECIMAL_SEPARATOR,
-} from '@mll-lab/js-utils';
+import { formatGermanNumber, parseGermanNumber } from '@mll-lab/js-utils';
 import React from 'react';
 import {
   useController,
