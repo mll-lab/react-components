@@ -1,3 +1,10 @@
+## [16.9.1](https://github.com/mll-lab/react-components/compare/v16.9.0...v16.9.1) (2024-04-12)
+
+
+### Bug Fixes
+
+* stable value during typing in InputNumberField ([faf8edf](https://github.com/mll-lab/react-components/commit/faf8edf36e64fa0952a25287b6f9e2d05ceb3cdb)), closes [#265](https://github.com/mll-lab/react-components/issues/265)
+
 # [16.9.0](https://github.com/mll-lab/react-components/compare/v16.8.0...v16.9.0) (2024-03-18)
 
 
