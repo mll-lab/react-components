@@ -1,3 +1,10 @@
+## [16.9.2](https://github.com/mll-lab/react-components/compare/v16.9.1...v16.9.2) (2024-04-15)
+
+
+### Bug Fixes
+
+* stable input during typing in InputNumberField ([#266](https://github.com/mll-lab/react-components/issues/266)) ([aa7a347](https://github.com/mll-lab/react-components/commit/aa7a3476ec9b1b42bb84debe64cb09ecf358fc25)), closes [#264](https://github.com/mll-lab/react-components/issues/264)
+
 ## [16.9.1](https://github.com/mll-lab/react-components/compare/v16.9.0...v16.9.1) (2024-04-12)
 
 
