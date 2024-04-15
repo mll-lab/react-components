@@ -46,7 +46,7 @@ export function InputNumberField<
         disabled={disabled}
         controls={false}
         formatter={(value, { userTyping, input }) => {
-          if (userTyping) {
+          if (userTyping && input !== '') {
             return input;
           }
 
