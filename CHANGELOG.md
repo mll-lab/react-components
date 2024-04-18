@@ -1,3 +1,10 @@
+# [16.10.0](https://github.com/mll-lab/react-components/compare/v16.9.2...v16.10.0) (2024-04-18)
+
+
+### Features
+
+* export CompareFn ([d9e5c23](https://github.com/mll-lab/react-components/commit/d9e5c239b96b431bb93b9012e45c69bb28147f4a))
+
 ## [16.9.2](https://github.com/mll-lab/react-components/compare/v16.9.1...v16.9.2) (2024-04-15)
 
 
