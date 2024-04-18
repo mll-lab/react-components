@@ -15,6 +15,7 @@ export {
 } from 'antd/es/table';
 export {
   ColumnFilterItem,
+  CompareFn,
   FilterDropdownProps,
   SortOrder,
 } from 'antd/es/table/interface';
