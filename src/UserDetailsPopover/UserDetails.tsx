@@ -28,7 +28,7 @@ export function UserDetails({ user }: UserDetailsProps) {
   const fullName = joinNonEmpty([firstname, lastname], ' ');
   const showFullName = !inactive && fullName;
   return (
-    <Space direction="vertical" size={SPACE}>
+    <Space vertical size={SPACE}>
       <Row gutter={GUTTER} align="middle">
         <Col flex="0 1 min-content">
           <UserAvatar username={acronym} />
