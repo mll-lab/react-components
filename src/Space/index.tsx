@@ -23,5 +23,5 @@ export const Space: React.FC<SpaceProps> = styled(AntdSpace).withConfig({
 `;
 
 export function VSpace(props: SpaceProps) {
-  return <Space direction='vertical' {...props} />;
+  return <Space direction="vertical" {...props} />;
 }
