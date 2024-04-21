@@ -1,3 +1,15 @@
+# [17.0.0](https://github.com/mll-lab/react-components/compare/v16.10.0...v17.0.0) (2024-04-21)
+
+
+### Features
+
+* replace `Space` prop `direction` with `vertical` ([a678bf8](https://github.com/mll-lab/react-components/commit/a678bf8797008a14eabf1a1d4d36952c10642e8e))
+
+
+### BREAKING CHANGES
+
+* replace `direction="vertical"` with `vertical`, omit `direction="horizontal"` from Space
+
 # [16.10.0](https://github.com/mll-lab/react-components/compare/v16.9.2...v16.10.0) (2024-04-18)
 
 
