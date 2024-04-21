@@ -33,7 +33,7 @@ export const Default: Story = function Link(args) {
   const [visible, setVisible] = useState(false);
   return (
     <Space
-      direction="vertical"
+      vertical
       align="center"
       style={{
         marginLeft: 100,
@@ -80,7 +80,7 @@ export const WithCustomChildren: Story = function Link(args) {
 
   return (
     <Space
-      direction="vertical"
+      vertical
       align="center"
       style={{
         marginLeft: 100,

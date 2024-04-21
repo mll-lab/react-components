@@ -154,7 +154,7 @@ export const PropsHavePriority: Story<Theme> = function PropsHavePriority(
         fontSize: args.fontSize,
       }}
     >
-      <Space direction="vertical" size="middle">
+      <Space vertical size="middle">
         <Typography.Paragraph>
           Props get passed directly to the components and have priority.
         </Typography.Paragraph>
@@ -167,7 +167,7 @@ export const PropsHavePriority: Story<Theme> = function PropsHavePriority(
 
 function SupportedComponents() {
   return (
-    <Space direction="vertical">
+    <Space vertical>
       <CreateButton />
       <Table columns={TABLE_COLUMNS} dataSource={TABLE_DATA} />
       <Radio.Group

@@ -242,7 +242,7 @@ function TextAreaStory() {
   const textAreaRequiredRef = useRef<TextAreaRef>(null);
   const textAreaStyledRef = useRef<TextAreaRef>(null);
   return (
-    <Space direction="horizontal">
+    <Space>
       <TextAreaField
         name="text_area"
         control={control}
