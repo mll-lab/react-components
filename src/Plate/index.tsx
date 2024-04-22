@@ -6,12 +6,10 @@ import { MllSpinnerIcon } from '../Spinner';
 
 import { RowLabel } from './RowLabel';
 import { Well } from './Well';
-import { COORDINATES_COLUMNS, PLATE_FLOW, WELLS } from './constants';
 import { PlateProps } from './types';
 import {
+  assertDataCoordinatesAreInCoordinateSystem,
   assertUniquePositions,
-  columnForPosition,
-  wellAtPosition,
 } from './utils';
 
 export * from './constants';
@@ -21,6 +19,7 @@ export * from './utils';
 export function Plate(props: PlateProps) {
   if (props.data) {
     assertUniquePositions(props.data);
+    assertDataCoordinatesAreInCoordinateSystem(props);
   }
 
   return (
@@ -39,14 +38,14 @@ export function Plate(props: PlateProps) {
           style={{
             display: 'grid',
             gridTemplateColumns: `1fr ${'4fr '.repeat(
-              COORDINATES_COLUMNS.length,
+              props.coordinateSystem.columnsCount(),
             )}`,
             gridGap: '3px',
           }}
         >
           <span />
 
-          {COORDINATES_COLUMNS.map((column) => (
+          {props.coordinateSystem.columns().map((column) => (
             <span
               style={{
                 display: 'flex',
@@ -59,17 +58,25 @@ export function Plate(props: PlateProps) {
             </span>
           ))}
 
-          {WELLS.map((position) => (
+          {props.coordinateSystem.all().map((position) => (
             <Fragment key={position}>
-              {columnForPosition(position, PLATE_FLOW) === 1 && (
-                <RowLabel position={position} />
+              {props.coordinateSystem.columnForRowFlowPosition(position) ===
+                1 && (
+                <RowLabel
+                  coordinateSystem={props.coordinateSystem}
+                  position={position}
+                />
               )}
 
               <Well
+                coordinateSystem={props.coordinateSystem}
                 position={position}
                 well={
                   props.data
-                    ? wellAtPosition(position, props.data, PLATE_FLOW)
+                    ? props.coordinateSystem.wellAtPosition(
+                        position,
+                        props.data,
+                      )
                     : undefined
                 }
                 isDraggable={props.isDraggable ?? false}

@@ -3,17 +3,19 @@ import React from 'react';
 
 import { PALETTE } from '../theme';
 
-import { PLATE_FLOW } from './constants';
-import { columnForPosition, rowForPosition } from './utils';
+import { CoordinateSystem } from './coordinateSystem';
 import { GENERAL_WELL_STYLE } from './wellUtils';
 
-export function EmptyWell(props: { position: number }) {
+export function EmptyWell(props: {
+  position: number;
+  coordinateSystem: CoordinateSystem;
+}) {
   const { setNodeRef, isOver } = useDroppable({
     id: props.position,
     data: {
       coordinates: {
-        row: rowForPosition(props.position, PLATE_FLOW),
-        column: columnForPosition(props.position, PLATE_FLOW),
+        row: props.coordinateSystem.rowForRowFlowPosition(props.position),
+        column: props.coordinateSystem.columnForRowFlowPosition(props.position),
       },
     },
   });
@@ -31,8 +33,8 @@ export function EmptyWell(props: { position: number }) {
       }}
     >
       <small>
-        {rowForPosition(props.position, PLATE_FLOW) +
-          columnForPosition(props.position, PLATE_FLOW)}
+        {props.coordinateSystem.rowForRowFlowPosition(props.position) +
+          props.coordinateSystem.columnForRowFlowPosition(props.position)}
       </small>
     </div>
   );
