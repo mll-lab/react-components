@@ -7,7 +7,10 @@ export * from './Provider';
 
 // Individual components
 export * from './Alert';
+export * from './Anchor';
+export * from './Autocomplete';
 export * from './Avatar';
+export * from './BackTop';
 export * from './Badge';
 export * from './Breadcrumb';
 export * from './Button';
@@ -18,18 +21,23 @@ export * from './Comment';
 export * from './DatePicker';
 export * from './Descriptions';
 export * from './Divider';
+export * from './Drawer';
 export * from './Dropdown';
 export * from './Empty';
+export * from './Fields'; // Might extract to separate package later due to dependency on react-hook-form
 export * from './Form';
 export * from './Grid';
 export * from './Image';
+export * from './ImageMap';
 export * from './Input';
 export * from './List';
+export * from './MasterMix';
 export * from './Menu';
 export * from './Modal';
 export * from './PageHeader';
 export * from './Plate';
 export * from './Popconfirm';
+export * from './Popover';
 export * from './Progress';
 export * from './Radio';
 export * from './Result';
@@ -47,8 +55,10 @@ export * from './Tag';
 export * from './Timeline';
 export * from './Tooltip';
 export * from './Tree';
+export * from './TreeSelect';
 export * from './Typography';
 export * from './Upload';
+export * from './UserDetailsPopover';
 
 // Utilities
 export * from './notification';

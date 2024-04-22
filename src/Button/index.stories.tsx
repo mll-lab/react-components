@@ -42,27 +42,46 @@ export default {
   },
 };
 
-export const Default: Story<ButtonProps> = (args) => (
-  <Button {...args}>Default</Button>
-);
-export const Create: Story<ButtonProps> = (args) => <CreateButton {...args} />;
-export const Save: Story<ButtonProps> = (args) => <SaveButton {...args} />;
-export const SaveWithHotkey: Story<SaveButtonByNumpadEnterProps> = (args) => (
-  <div>
-    <div style={{ marginBottom: '1em' }}>
-      Triggered also with the Numpad Enter:
-    </div>
-    <SaveButtonByNumpadEnter {...args} />
-  </div>
-);
-export const Info: Story<ButtonProps> = (args) => (
-  <InfoButton {...args}>Info</InfoButton>
-);
-export const Edit: Story<ButtonProps> = (args) => <EditButton {...args} />;
-export const Warning: Story<ButtonProps> = (args) => (
-  <WarningButton {...args}>Do something slightly dangerous</WarningButton>
-);
-export const Cancel: Story<ButtonProps> = (args) => <CancelButton {...args} />;
-export const Reset: Story<ButtonProps> = (args) => <ResetButton {...args} />;
-export const Delete: Story<ButtonProps> = (args) => <DeleteButton {...args} />;
-export const Send: Story<ButtonProps> = (args) => <SendButton {...args} />;
+export const Default: Story<ButtonProps> = function Default(args) {
+  return <Button {...args}>Default</Button>;
+};
+export const Create: Story<ButtonProps> = function Create(args) {
+  return <CreateButton {...args} />;
+};
+export const Save: Story<ButtonProps> = function Save(args) {
+  return <SaveButton {...args} />;
+};
+export const SaveWithHotkey: Story<SaveButtonByNumpadEnterProps> =
+  function SaveWithHotkey(args) {
+    return (
+      <div>
+        <div style={{ marginBottom: '1em' }}>
+          Triggered also with the Numpad Enter:
+        </div>
+        <SaveButtonByNumpadEnter {...args} />
+      </div>
+    );
+  };
+export const Info: Story<ButtonProps> = function Info(args) {
+  return <InfoButton {...args}>Info</InfoButton>;
+};
+export const Edit: Story<ButtonProps> = function Edit(args) {
+  return <EditButton {...args} />;
+};
+export const Warning: Story<ButtonProps> = function Warning(args) {
+  return (
+    <WarningButton {...args}>Do something slightly dangerous</WarningButton>
+  );
+};
+export const Cancel: Story<ButtonProps> = function Cancel(args) {
+  return <CancelButton {...args} />;
+};
+export const Reset: Story<ButtonProps> = function Reset(args) {
+  return <ResetButton {...args} />;
+};
+export const Delete: Story<ButtonProps> = function Delete(args) {
+  return <DeleteButton {...args} />;
+};
+export const Send: Story<ButtonProps> = function Send(args) {
+  return <SendButton {...args} />;
+};

@@ -1,11 +1,16 @@
 import { Select as AntdSelect, SelectProps as AntdSelectProps } from 'antd';
+import { BaseOptionType, DefaultOptionType } from 'antd/lib/select';
 import React, { ReactElement, useCallback } from 'react';
 import styled from 'styled-components';
 
 import { fontSizeFromTheme } from '../styled-utils';
 
-export type SelectProps<T> = AntdSelectProps<T>;
 export * from './formInput';
+
+export type SelectProps<
+  ValueType = unknown,
+  OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
+> = AntdSelectProps<ValueType, OptionType>;
 
 const StyledSelect = styled(AntdSelect)`
   &,
@@ -14,6 +19,12 @@ const StyledSelect = styled(AntdSelect)`
   }
   .mll-ant-select-selection-item-remove {
     font-size: 0.85em;
+  }
+  &.mll-ant-select-sm.mll-ant-select-multiple .mll-ant-select-selection-item {
+    height: 16px;
+    line-height: 12px;
+    margin-top: 0px;
+    margin-bottom: 0px;
   }
 ` as typeof AntdSelect;
 
@@ -24,11 +35,10 @@ const StyledDropdown = styled.div`
   }
 `;
 
-export function Select<T>({
-  children,
-  dropdownRender,
-  ...props
-}: SelectProps<T>) {
+export function Select<
+  ValueType = unknown,
+  OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
+>({ children, dropdownRender, ...props }: SelectProps<ValueType, OptionType>) {
   const styledDropdownRender = useCallback(
     (menu: ReactElement) => (
       <StyledDropdown>
@@ -39,11 +49,13 @@ export function Select<T>({
   );
 
   return (
-    <StyledSelect<T> {...props} dropdownRender={styledDropdownRender}>
+    <StyledSelect<ValueType, OptionType>
+      {...props}
+      dropdownRender={styledDropdownRender}
+    >
       {children}
     </StyledSelect>
   );
 }
-
 Select.Option = AntdSelect.Option;
 Select.OptGroup = AntdSelect.OptGroup;

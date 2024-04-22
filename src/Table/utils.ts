@@ -1,11 +1,20 @@
 import { ColumnFilterItem } from 'antd/es/table/interface';
+import { ReactNode } from 'react';
 
-type Enum<E> = Record<keyof E, string>;
-export function labeledEnumToColumnFilterItem<E extends Enum<E>>(
-  enumType: E,
-): Array<ColumnFilterItem> {
-  return Object.entries(enumType).map(([originalValue, label]) => ({
-    text: label as string,
-    value: originalValue,
+export function objectToColumnFilterItems<
+  TLabels extends Record<string, ReactNode>,
+>(labels: TLabels): Array<ColumnFilterItem> {
+  return Object.entries(labels).map(([key, value]) => ({
+    text: value,
+    value: key,
+  }));
+}
+
+export function mapToColumnFilterItems<
+  TLabels extends Map<string | number | boolean, ReactNode>,
+>(labels: TLabels): Array<ColumnFilterItem> {
+  return Array.from(labels).map(([key, value]) => ({
+    value: key,
+    text: value,
   }));
 }

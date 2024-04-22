@@ -7,8 +7,10 @@ export default {
   title: 'Divider',
 };
 
-export const Default: Story<DividerProps> = (args) => (
-  <Divider orientation="left" {...args}>
-    Left Text
-  </Divider>
-);
+export const Default: Story<DividerProps> = function Default(args) {
+  return (
+    <Divider orientation="left" {...args}>
+      Left Text
+    </Divider>
+  );
+};

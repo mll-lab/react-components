@@ -1,10 +1,16 @@
 import { action } from '@storybook/addon-actions';
 import { Story } from '@storybook/react';
-import React from 'react';
+import React, { useState } from 'react';
 
 import { THEME } from '../theme';
 
-import { ColumnProps, ColumnsType, Table, TableProps } from './index';
+import {
+  ColoredTable as StyledTable,
+  ColumnProps,
+  ColumnsType,
+  Table,
+  TableProps,
+} from './index';
 
 export default {
   title: 'Table',
@@ -47,9 +53,10 @@ const data: Array<Person> = [
   },
 ];
 
-const FilterDropdown: ColumnProps<Person>['filterDropdown'] = () => (
-  <div>test</div>
-);
+const FilterDropdown: ColumnProps<Person>['filterDropdown'] =
+  function FilterDropdown() {
+    return <div>test</div>;
+  };
 
 const columns: ColumnsType<Person> = [
   {
@@ -63,9 +70,9 @@ const columns: ColumnsType<Person> = [
   },
 ];
 
-const Template: Story<TableProps<Person>> = (args) => (
-  <Table<Person> {...args} />
-);
+const Template: Story<TableProps<Person>> = function Template(args) {
+  return <Table<Person> {...args} />;
+};
 
 export const Default = Template.bind({});
 Default.args = {
@@ -81,16 +88,20 @@ TableWithOnRow.args = {
   }),
 };
 
-const renderSummary: TableProps<Person>['summary'] = (persons) => (
-  <Table.Summary.Row style={{ background: THEME.menuGroupBackgroundColor }}>
-    <Table.Summary.Cell index={0}>Average age</Table.Summary.Cell>
-    <Table.Summary.Cell index={1}>
-      {Math.round(
-        persons.reduce((sum, person) => sum + person.age, 0) / persons.length,
-      )}
-    </Table.Summary.Cell>
-  </Table.Summary.Row>
-);
+const renderSummary: TableProps<Person>['summary'] = function renderSummary(
+  persons,
+) {
+  return (
+    <Table.Summary.Row style={{ background: THEME.menuGroupBackgroundColor }}>
+      <Table.Summary.Cell index={0}>Average age</Table.Summary.Cell>
+      <Table.Summary.Cell index={1}>
+        {Math.round(
+          persons.reduce((sum, person) => sum + person.age, 0) / persons.length,
+        )}
+      </Table.Summary.Cell>
+    </Table.Summary.Row>
+  );
+};
 
 export function TableWithJsxApi() {
   return (
@@ -102,5 +113,27 @@ export function TableWithJsxApi() {
       />
       <Table.Column title="Age" dataIndex="age" key="age" />
     </Table>
+  );
+}
+
+export function ColoredTable() {
+  const [selectedID, setSelectedID] = useState<number>();
+
+  return (
+    <StyledTable<Person>
+      bordered
+      columns={columns}
+      dataSource={data}
+      pagination={false}
+      onRow={(person) => ({
+        onClick: () => setSelectedID(person.id),
+      })}
+      rowSelection={{
+        selectedRowKeys: selectedID ? [selectedID] : undefined,
+        hideSelectAll: true,
+        renderCell: () => null,
+        columnWidth: 0,
+      }}
+    />
   );
 }

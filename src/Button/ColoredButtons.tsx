@@ -1,7 +1,7 @@
 import { Button as AntdButton, ButtonProps as AntdButtonProps } from 'antd';
 import ButtonGroup from 'antd/es/button/button-group';
 import * as React from 'react';
-import styled, { ThemedStyledProps } from 'styled-components';
+import styled from 'styled-components';
 
 import { fontSizeFromTheme } from '../styled-utils';
 import { PALETTE, Theme } from '../theme';
@@ -18,43 +18,51 @@ export type ColoredButtonProps = {
 } & AntdButtonProps;
 
 function colorFromPropsOrTheme(
-  props: ThemedStyledProps<ColoredButtonProps, Theme>,
-) {
+  props: ColoredButtonProps & { theme: Theme },
+): string {
   return props.color || props.theme.borderColor;
 }
 
 export const FilledButton = styled(AntdButton as ColoredButtonType)`
+  font-size: ${fontSizeFromTheme};
+
   background: ${colorFromPropsOrTheme};
   border-color: ${colorFromPropsOrTheme};
   color: ${PALETTE.white};
-  font-size: ${fontSizeFromTheme};
 
-  &:hover,
-  &:focus {
-    background: transparent;
+  &:hover:not([disabled]),
+  &:focus:not([disabled]) {
+    background: ${colorFromPropsOrTheme};
     border-color: ${colorFromPropsOrTheme};
-    color: ${colorFromPropsOrTheme};
+    color: ${PALETTE.white};
+    filter: brightness(90%);
   }
 
-  &[disabled] {
+  &[disabled],
+  &:hover[disabled],
+  &:focus[disabled] {
     color: ${(props) => props.theme.disabledColors?.lowContrast};
   }
 `;
 
 export const GhostButton = styled(AntdButton as ColoredButtonType)`
-  background: transparent;
-  border-color: ${colorFromPropsOrTheme};
-  color: ${colorFromPropsOrTheme};
   font-size: ${fontSizeFromTheme};
 
-  &:hover,
-  &:focus {
-    background: ${colorFromPropsOrTheme};
+  background: ${PALETTE.white};
+  border-color: ${colorFromPropsOrTheme};
+  color: ${colorFromPropsOrTheme};
+
+  &:hover:not([disabled]),
+  &:focus:not([disabled]) {
+    background: ${PALETTE.white};
     border-color: ${colorFromPropsOrTheme};
-    color: ${PALETTE.white};
+    color: ${colorFromPropsOrTheme};
+    filter: brightness(90%);
   }
 
-  &[disabled] {
+  &[disabled],
+  &:hover[disabled],
+  &:focus[disabled] {
     color: ${(props) => props.theme.disabledColors?.lowContrast};
   }
 `;

@@ -1,11 +1,12 @@
 module.exports = {
   extends: [
-    '@mll-lab/eslint-config/react',
-    '@mll-lab/eslint-config',
-    'plugin:@mll-lab/recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:testing-library/react',
+    '@mll-lab/eslint-config/react',
+    '@mll-lab/eslint-config',
+    'plugin:@mll-lab/recommended',
+    'plugin:storybook/recommended',
   ],
   plugins: ['jsx-a11y', 'testing-library'],
   ignorePatterns: ['dist', '!.storybook'],
@@ -40,12 +41,13 @@ module.exports = {
     'jsx-a11y/mouse-events-have-key-events': 'error',
     'jsx-a11y/role-has-required-aria-props': 'error',
     'jsx-a11y/role-supports-aria-props': 'error',
-
-    // Incompatible with stories
-    'react/function-component-definition': 'off',
+    'react/function-component-definition': 'off', // Incompatible with stories
+    '@typescript-eslint/no-unsafe-assignment': 'off', // TODO reenable and get rid of any
+    '@typescript-eslint/no-unsafe-call': 'off', // TODO reenable and get rid of any
+    '@typescript-eslint/no-unsafe-member-access': 'off', // TODO reenable and get rid of any
+    '@typescript-eslint/no-unsafe-return': 'off', // TODO reenable and get rid of any
   },
   settings: {
-    'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
     react: {
       version: '16.13',
     },

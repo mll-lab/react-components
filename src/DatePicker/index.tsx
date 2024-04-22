@@ -25,6 +25,8 @@ type RangePickerProps<T> = AntdRangePickerProps<T>;
 export type DatePickerProps = PickerProps<Date> &
   Omit<PickerDateProps<Date>, 'picker'>;
 
+// TODO remove when https://github.com/react-component/picker/pull/289 fixes https://github.com/react-component/picker/issues/147
+// eslint-disable-next-line @getify/proper-arrows/where
 const localeParse = (format: string) =>
   format
     .replace(/Y/g, 'y')
@@ -33,13 +35,13 @@ const localeParse = (format: string) =>
     .replace(/g/g, 'G')
     .replace(/([Ww])o/g, 'wo');
 
-export const BaseDatePicker: ComponentClass<PickerProps<Date>, any> & {
-  WeekPicker: ComponentClass<Omit<PickerDateProps<Date>, 'picker'>, any>;
-  MonthPicker: ComponentClass<Omit<PickerDateProps<Date>, 'picker'>, any>;
-  YearPicker: ComponentClass<Omit<PickerDateProps<Date>, 'picker'>, any>;
-  RangePicker: ComponentClass<RangePickerProps<Date>, any>;
-  TimePicker: ComponentClass<Omit<PickerTimeProps<Date>, 'picker'>, any>;
-  QuarterPicker: ComponentClass<Omit<PickerTimeProps<Date>, 'picker'>, any>;
+export const BaseDatePicker: ComponentClass<PickerProps<Date>, unknown> & {
+  WeekPicker: ComponentClass<Omit<PickerDateProps<Date>, 'picker'>, unknown>;
+  MonthPicker: ComponentClass<Omit<PickerDateProps<Date>, 'picker'>, unknown>;
+  YearPicker: ComponentClass<Omit<PickerDateProps<Date>, 'picker'>, unknown>;
+  RangePicker: ComponentClass<RangePickerProps<Date>, unknown>;
+  TimePicker: ComponentClass<Omit<PickerTimeProps<Date>, 'picker'>, unknown>;
+  QuarterPicker: ComponentClass<Omit<PickerTimeProps<Date>, 'picker'>, unknown>;
 } = generatePicker<Date>({
   ...dateFnsGenerateConfig,
   // TODO remove when https://github.com/react-component/picker/pull/289 fixes https://github.com/react-component/picker/issues/147
@@ -55,18 +57,30 @@ export const BaseDatePicker: ComponentClass<PickerProps<Date>, any> & {
       Array.from({ length: 12 }).map((_, i) =>
         de.localize!.month(i, { width: 'abbreviated' }),
       ),
-    format: (_, date, format) => {
+    format: (_, date, formatOrFormats) => {
       if (!isValid(date)) {
         return '';
       }
 
-      return formatDate(date, localeParse(format), {
-        locale: de,
-      });
+      return formatDate(
+        date,
+        localeParse(
+          // When showTime is used, this function is unexpectedly called with an array of formats.
+          // Multiple formats are only useful for flexible parsing, so we just use the first given format.
+          // @ts-expect-error formatOrFormats is not necessarily a string
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+          formatOrFormats instanceof Array
+            ? formatOrFormats[0]
+            : formatOrFormats,
+        ),
+        {
+          locale: de,
+        },
+      );
     },
     parse: (_, text, formats) => {
       for (let i = 0; i < formats.length; i += 1) {
-        const format = localeParse(formats[i]);
+        const format = localeParse(formats[i]!);
         const date = parseDate(text, format, new Date(), {
           locale: de,
         });
@@ -75,6 +89,7 @@ export const BaseDatePicker: ComponentClass<PickerProps<Date>, any> & {
           return date;
         }
       }
+
       return null;
     },
   },
@@ -94,6 +109,8 @@ export function DatePicker(props: DatePickerProps) {
       format += ':ss';
     }
   }
+
+  // Allows faster data entry, omitting special characters
   const numbersOnlyFormat = format.replace(/[. :]/g, '');
 
   return (

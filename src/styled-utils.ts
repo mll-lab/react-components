@@ -1,7 +1,5 @@
-import { ThemeProps } from 'styled-components';
-
 import { Theme } from './theme';
 
-export function fontSizeFromTheme({ theme }: ThemeProps<Theme>) {
+export function fontSizeFromTheme({ theme }: { theme: Theme }) {
   return theme.fontSize;
 }

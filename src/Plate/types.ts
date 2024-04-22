@@ -1,3 +1,4 @@
+import { Props } from '@dnd-kit/core/dist/components/DndContext/DndContext';
 import { ReactNode } from 'react';
 
 import { Coordinate } from './coordinate';
@@ -25,4 +26,8 @@ export type PlateProps = {
   coordinateSystem: CoordinateSystem;
   data: Array<PlateWell> | null;
   loading?: boolean;
+  /** Activates DragAndDrop of the wells */
+  isDraggable?: boolean;
+  /** Do not add props.dndContextProps conditionally, as it leads to problems. Use props.isDraggable instead. */
+  dndContextProps?: Props;
 };

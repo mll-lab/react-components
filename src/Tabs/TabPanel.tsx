@@ -21,7 +21,7 @@ export function TabPanel(props: TabPanelProps) {
   return (
     <div
       style={{
-        display: context.activeTabId === props.id ? 'block' : 'none',
+        display: context.activeTabID === props.id ? 'block' : 'none',
       }}
     >
       {props.children}

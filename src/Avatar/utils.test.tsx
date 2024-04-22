@@ -29,5 +29,6 @@ function isValidColor(color: string): boolean {
   const element = document.createElement('div');
   element.style.borderColor = '';
   element.style.borderColor = color;
+
   return element.style.borderColor.length !== 0;
 }

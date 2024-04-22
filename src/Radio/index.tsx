@@ -2,6 +2,7 @@ import {
   Radio as AntdRadio,
   RadioGroupProps as AntdRadioGroupProps,
   RadioProps as AntdRadioProps,
+  RadioChangeEvent as AntdRadioChangeEvent,
 } from 'antd';
 import { RadioButtonProps as AntdRadioButtonProps } from 'antd/es/radio/radioButton';
 import React from 'react';
@@ -12,6 +13,7 @@ import { fontSizeFromTheme } from '../styled-utils';
 export type RadioProps = AntdRadioProps;
 export type RadioGroupProps = AntdRadioGroupProps;
 export type RadioButtonProps = AntdRadioButtonProps;
+export type RadioChangeEvent = AntdRadioChangeEvent;
 
 const StyledRadio: typeof AntdRadio = styled(AntdRadio)<RadioProps>`
   font-size: ${fontSizeFromTheme};
@@ -30,6 +32,6 @@ const StyledRadioButton = styled(StyledRadio.Button)<RadioButtonProps>`
   font-size: ${fontSizeFromTheme};
 `;
 
-export const Radio: typeof AntdRadio = StyledRadio as typeof AntdRadio;
+export const Radio: typeof AntdRadio = StyledRadio;
 Radio.Group = StyledRadioGroup as typeof Radio.Group;
 Radio.Button = StyledRadioButton;

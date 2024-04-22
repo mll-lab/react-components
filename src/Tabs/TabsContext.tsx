@@ -2,12 +2,12 @@ import React from 'react';
 
 import { TabPanelProps } from './types';
 
-export type TabsContextProps = {
-  tabs: Array<TabPanelProps>;
-  registerTab: (tab: TabPanelProps) => void;
-  unregisterTab: (tabId: number | string) => void;
-  onSelected: (tabId: number | string) => void;
-  activeTabId?: number | string;
+export type TabsContextProps<TTabID = number | string> = {
+  tabs: Array<TabPanelProps<TTabID>>;
+  registerTab: (tab: TabPanelProps<TTabID>) => void;
+  unregisterTab: (tabID: TTabID) => void;
+  onSelected: (tabID: TTabID) => void;
+  activeTabID?: TTabID;
 };
 
 export const TabsContext = React.createContext<TabsContextProps>({

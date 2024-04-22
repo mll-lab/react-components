@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions';
 import { Story } from '@storybook/react';
 import React from 'react';
 
@@ -6,6 +7,7 @@ import { PALETTE } from '../theme';
 import { Coordinate } from './coordinate';
 import { CoordinateSystem12Well } from './coordinateSystem12Well';
 import { CoordinateSystem96Well } from './coordinateSystem96Well';
+import { COORDINATES_COLUMNS, COORDINATES_ROWS, WELLS } from './constants';
 import { PlateProps, PlateWell } from './types';
 
 import { Plate } from './index';
@@ -14,6 +16,7 @@ export default {
   title: 'Plate',
   argTypes: {
     loading: { control: 'boolean' },
+    isDraggable: { control: 'boolean' },
   },
 };
 
@@ -66,6 +69,18 @@ const columnFlowData: Array<PlateWell> = new CoordinateSystem96Well()
     content: well,
   }));
 
+const Template: Story<Partial<PlateProps>> = function Template(args) {
+  return (
+    <Plate
+      data={null}
+      dndContextProps={{
+        onDragEnd: action('onDragEnd'), // dataLocation: `const sourceData = e.active.data.current; const targetData = e.over?.data.current;`
+      }}
+      {...args}
+    />
+  );
+};
+
 const Template: Story<Partial<PlateProps>> = (args) => (
   <Plate
     coordinateSystem={new CoordinateSystem96Well()}
@@ -95,27 +110,4 @@ RowFlow.args = {
 export const ColumnFlow = Template.bind({});
 ColumnFlow.args = {
   data: columnFlowData,
-};
-
-/* TODO: delete after https://github.com/storybookjs/storybook/issues/11554 is resolved */
-RowFlow.parameters = {
-  docs: {
-    source: {
-      code: 'Disabled for this story, see https://github.com/storybookjs/storybook/issues/11554',
-    },
-  },
-};
-Default.parameters = {
-  docs: {
-    source: {
-      code: 'Disabled for this story, see https://github.com/storybookjs/storybook/issues/11554',
-    },
-  },
-};
-ColumnFlow.parameters = {
-  docs: {
-    source: {
-      code: 'Disabled for this story, see https://github.com/storybookjs/storybook/issues/11554',
-    },
-  },
 };

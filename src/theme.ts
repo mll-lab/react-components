@@ -13,6 +13,8 @@ export const PALETTE = {
   blue: '#50a0d0',
   lightBlue: '#d4edfc',
   blueTintedGray: '#f0f2f5',
+  tableHeaderBackgroundColor: '#2f7eae',
+  tableRowStripeBackgroundColor: 'rgb(228,238,250,0.45)',
 
   // Shades
   white: '#ffffff', // brightest possible
@@ -27,18 +29,14 @@ export const PALETTE = {
   gray9: '#262626',
   black: '#000000', // darkest possible
 };
-
-/** @deprecated */
-const DEPRECATED_PALETTE = {
-  gray1: '#eaeaea',
-  gray2: '#d3d3d3',
-};
 /* eslint-enable @mll-lab/no-color-literals */
 
 export type Theme = {
+  anchorColor: string;
   backgroundColor: string;
   borderColor: string;
   collapseBackgroundColor: string;
+  collapseTransition?: string;
   containerBorderColor: string;
   dividerColor: string;
   focusedRowColor: string;
@@ -56,21 +54,28 @@ export type Theme = {
   successColor: string;
   warningColor: string;
 
+  tableHeaderBackgroundColor: string;
+  tableRowStripeBackgroundColor: string;
+
   fontSize?: string;
   size?: SizeType;
 };
 
 export const THEME: Theme = {
   // Components
+  anchorColor: PALETTE.blue,
   backgroundColor: PALETTE.blueTintedGray,
   borderColor: PALETTE.blue,
   collapseBackgroundColor: PALETTE.lightBlue,
-  containerBorderColor: DEPRECATED_PALETTE.gray2,
+  collapseTransition: '0.05s',
+  containerBorderColor: PALETTE.gray4,
   dividerColor: PALETTE.gray4,
   focusedRowColor: PALETTE.lightBlue,
   menuGroupBackgroundColor: PALETTE.gray1,
-  panelBackgroundColor: DEPRECATED_PALETTE.gray1,
-  tableBorderColor: PALETTE.gray3,
+  panelBackgroundColor: PALETTE.gray3,
+  tableBorderColor: PALETTE.gray4,
+  tableHeaderBackgroundColor: PALETTE.tableHeaderBackgroundColor,
+  tableRowStripeBackgroundColor: PALETTE.tableRowStripeBackgroundColor,
   titleColor: PALETTE.gray5,
   disabledColors: {
     lowContrast: PALETTE.gray5,

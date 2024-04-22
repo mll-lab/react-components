@@ -8,9 +8,11 @@ jobs:
   storybook:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+      - run: corepack enable
+      - run: corepack enable
       - run: yarn install
-      - run: yarn run storybook-to-ghpages --ci
+      - run: yarn run storybook-to-ghpages --ci --script=storybook:build
         env:
           GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}

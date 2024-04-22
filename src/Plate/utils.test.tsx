@@ -1,13 +1,8 @@
-import { render } from '@testing-library/react';
-import React from 'react';
-
 import { Coordinate } from './coordinate';
 import { CoordinateSystem12Well } from './coordinateSystem12Well';
 import { CoordinateSystem96Well } from './coordinateSystem96Well';
 import { CoordinatesXXXX } from './types';
 import { areEqualCoordinates, ensureCoordinatesInRange } from './utils';
-
-import { Plate } from './index';
 
 const data = [
   {

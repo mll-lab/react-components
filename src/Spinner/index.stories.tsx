@@ -8,10 +8,14 @@ export default {
   component: Spinner,
 };
 
-export const Default: Story<SpinnerProps> = (args) => <Spinner {...args} />;
+export const Default: Story<SpinnerProps> = function Default(args) {
+  return <Spinner {...args} />;
+};
 
-export const WithChildren: Story<SpinnerProps> = (args) => (
-  <Spinner {...args}>
-    <div>Children</div>
-  </Spinner>
-);
+export const WithChildren: Story<SpinnerProps> = function WithChildren(args) {
+  return (
+    <Spinner {...args}>
+      <div>Children</div>
+    </Spinner>
+  );
+};
