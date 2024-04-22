@@ -1,6 +1,8 @@
 import { range } from 'lodash';
 
-import { Coordinates, FlowDirection } from './types';
+import { Coordinates } from '../../types';
+
+import { FlowDirection } from './types';
 
 const TUBE_COUNT = 96;
 export const WELLS = range(1, TUBE_COUNT + 1);

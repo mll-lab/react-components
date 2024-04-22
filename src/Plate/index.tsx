@@ -6,15 +6,10 @@ import { MllSpinnerIcon } from '../Spinner';
 
 import { RowLabel } from './RowLabel';
 import { Well } from './Well';
-import { COORDINATES_COLUMNS, PLATE_FLOW, WELLS } from './constants';
 import { PlateProps } from './types';
-import { CoordinateSystem } from './coordinateSystem';
-import { PlateProps, PlateWell } from './types';
 import {
   assertDataCoordinatesAreInCoordinateSystem,
   assertUniquePositions,
-  columnForPosition,
-  wellAtPosition,
 } from './utils';
 
 export * from './constants';
@@ -66,17 +61,22 @@ export function Plate(props: PlateProps) {
           {props.coordinateSystem.all().map((position) => (
             <Fragment key={position}>
               {props.coordinateSystem.columnForRowFlowPosition(position) ===
-              1 && (
-              <RowLabel
-                row={props.coordinateSystem.rowForRowFlowPosition(position)}
-              />
-            )}
+                1 && (
+                <RowLabel
+                  coordinateSystem={props.coordinateSystem}
+                  position={position}
+                />
+              )}
 
               <Well
+                coordinateSystem={props.coordinateSystem}
                 position={position}
                 well={
                   props.data
-                    ? props.coordinateSystem.wellAtPosition(position, props.data)
+                    ? props.coordinateSystem.wellAtPosition(
+                        position,
+                        props.data,
+                      )
                     : undefined
                 }
                 isDraggable={props.isDraggable ?? false}

@@ -7,7 +7,6 @@ import { PALETTE } from '../theme';
 import { Coordinate } from './coordinate';
 import { CoordinateSystem12Well } from './coordinateSystem12Well';
 import { CoordinateSystem96Well } from './coordinateSystem96Well';
-import { COORDINATES_COLUMNS, COORDINATES_ROWS, WELLS } from './constants';
 import { PlateProps, PlateWell } from './types';
 
 import { Plate } from './index';
@@ -72,6 +71,7 @@ const columnFlowData: Array<PlateWell> = new CoordinateSystem96Well()
 const Template: Story<Partial<PlateProps>> = function Template(args) {
   return (
     <Plate
+      coordinateSystem={new CoordinateSystem96Well()}
       data={null}
       dndContextProps={{
         onDragEnd: action('onDragEnd'), // dataLocation: `const sourceData = e.active.data.current; const targetData = e.over?.data.current;`
@@ -81,28 +81,27 @@ const Template: Story<Partial<PlateProps>> = function Template(args) {
   );
 };
 
-const Template: Story<Partial<PlateProps>> = (args) => (
-  <Plate
-    coordinateSystem={new CoordinateSystem96Well()}
-    data={null}
-    {...args}
-  />
-);
-
-const Template12Well: Story<Partial<PlateProps>> = (args) => (
-  <Plate
-    coordinateSystem={new CoordinateSystem12Well()}
-    data={null}
-    {...args}
-  />
-);
+const Template12Well: Story<Partial<PlateProps>> = function Template12Well(
+  args,
+) {
+  return (
+    <Plate
+      coordinateSystem={new CoordinateSystem12Well()}
+      data={null}
+      dndContextProps={{
+        onDragEnd: action('onDragEnd'), // dataLocation: `const sourceData = e.active.data.current; const targetData = e.over?.data.current;`
+      }}
+      {...args}
+    />
+  );
+};
 
 export const Default = Template.bind({});
 Default.args = {
   data,
 };
 
-export const RowFlow = Template12Well.bind({});
+export const RowFlow = Template.bind({});
 RowFlow.args = {
   data: rowFlowData,
 };
@@ -110,4 +109,9 @@ RowFlow.args = {
 export const ColumnFlow = Template.bind({});
 ColumnFlow.args = {
   data: columnFlowData,
+};
+
+export const TewelveWell = Template12Well.bind({});
+TewelveWell.args = {
+  data: null,
 };

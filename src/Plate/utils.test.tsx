@@ -1,8 +1,13 @@
+import { render } from '@testing-library/react';
+import React from 'react';
+
 import { Coordinate } from './coordinate';
 import { CoordinateSystem12Well } from './coordinateSystem12Well';
 import { CoordinateSystem96Well } from './coordinateSystem96Well';
 import { CoordinatesXXXX } from './types';
 import { areEqualCoordinates, ensureCoordinatesInRange } from './utils';
+
+import { Plate } from './index';
 
 const data = [
   {
@@ -67,8 +72,8 @@ const data = [
   },
 ];
 
-describe.each(data)(`coordinateForPosition`, (dataSet) => {
-  it(`provides the Coordinate for a position depending on the flow`, () => {
+describe.each(data)('coordinateForPosition', (dataSet) => {
+  it('provides the Coordinate for a position depending on the flow', () => {
     expect(
       Coordinate.fromPosition(
         dataSet.rowFlowPosition,

@@ -51,7 +51,7 @@ export class Coordinate {
       new RegExp(`^(${rowsOptions})(${columnsOptions})`),
     );
 
-    if (matches === null || matches?.length === 0) {
+    if (matches === null || matches.length === 0) {
       const coordinateSystemClass = coordinateSystem.constructor.name;
       throw new Error(
         `Expected a coordinate with rows ${JSON.stringify(
@@ -94,8 +94,6 @@ export class Coordinate {
           coordinateSystem.columnForRowFlowPosition(position),
           coordinateSystem,
         );
-      default:
-        throw new Error(`Unexpected flow direction direction ${direction}`);
     }
   }
 
@@ -111,8 +109,6 @@ export class Coordinate {
         );
       case 'column':
         return columnIndex * this.coordinateSystem.rows().length + rowIndex + 1;
-      default:
-        throw new Error(`Unexpected flow direction direction ${direction}`);
     }
   }
 

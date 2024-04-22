@@ -4,20 +4,20 @@ import React from 'react';
 
 import { PALETTE } from '../theme';
 
-import { PLATE_FLOW } from './constants';
+import { CoordinateSystem } from './coordinateSystem';
 import { PlateWell } from './types';
-import { columnForPosition, rowForPosition } from './utils';
 import { GENERAL_WELL_STYLE } from './wellUtils';
 
 export function FilledWell(props: {
+  coordinateSystem: CoordinateSystem;
   well: PlateWell;
   position: number;
   isDraggable: boolean;
 }) {
   const data = {
     coordinates: {
-      row: rowForPosition(props.position, PLATE_FLOW),
-      column: columnForPosition(props.position, PLATE_FLOW),
+      row: props.coordinateSystem.rowForRowFlowPosition(props.position),
+      column: props.coordinateSystem.columnForRowFlowPosition(props.position),
     },
   };
 
