@@ -1,3 +1,10 @@
+# [17.1.0](https://github.com/mll-lab/react-components/compare/v17.0.0...v17.1.0) (2024-05-22)
+
+
+### Features
+
+* add callto link to user details ([#269](https://github.com/mll-lab/react-components/issues/269)) ([fc007dc](https://github.com/mll-lab/react-components/commit/fc007dced3021f26bb4962390f1c232fb8d8e2e8))
+
 # [17.0.0](https://github.com/mll-lab/react-components/compare/v16.10.0...v17.0.0) (2024-04-21)
 
 
