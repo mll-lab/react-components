@@ -8,7 +8,11 @@ import { TextAreaRef } from '../Input';
 import { toFormInputOption } from '../Select';
 import { Space } from '../Space';
 
+import { AutocompleteField } from './AutocompleteField';
 import { CheckboxField } from './CheckboxField';
+import { CheckboxGroupField } from './CheckboxGroupField';
+import { DatePickerField } from './DatePickerField';
+import { DateRangePickerField } from './DateRangePickerField';
 import { FieldProvider, FieldProviderProps } from './FieldProvider';
 import { InputField } from './InputField';
 import { InputNumberField } from './InputNumberField';
@@ -23,13 +27,17 @@ export default {
 };
 
 type FormType = {
+  autocomplete: string;
   checkbox: boolean;
+  checkboxGroup: Array<string>;
   input: string;
   input_number: number;
   radio_group: 1 | 2;
   select: 'a' | 'b';
   switch: boolean;
   text_area: string;
+  date_range: string;
+  date_picker: string;
 };
 
 export const Default: Story<{
@@ -124,6 +132,14 @@ function AllFields() {
   const formMethods = useFormContext<FormType>();
   return (
     <Form>
+      <AutocompleteField
+        name="autocomplete"
+        control={formMethods.control}
+        formItem={{ label: 'Autocomplete' }}
+        component={{
+          options: ['foo', 'bar'].map(toFormInputOption),
+        }}
+      />
       <CheckboxField
         name="checkbox"
         control={formMethods.control}
@@ -133,6 +149,12 @@ function AllFields() {
       >
         Checkbox children
       </CheckboxField>
+      <CheckboxGroupField
+        name="checkboxGroup"
+        control={formMethods.control}
+        formItem={{ label: 'CheckboxGroup' }}
+        component={{ options: ['a', 'b'].map(toFormInputOption) }}
+      />
       <InputField
         name="input"
         rules={{ required: 'You really need this', maxLength: 3 }}
@@ -199,6 +221,17 @@ function AllFields() {
           label: 'Switch',
         }}
       />
+      <DatePickerField
+        name="date_picker"
+        control={formMethods.control}
+        formItem={{ label: 'DatePicker' }}
+        component={{ placeholder: 'Datum wählen' }}
+      />
+      <DateRangePickerField
+        name="date_range"
+        control={formMethods.control}
+        formItem={{ label: 'DateRangePicker' }}
+      />
       <TextAreaStory />
     </Form>
   );
@@ -209,7 +242,7 @@ function TextAreaStory() {
   const textAreaRequiredRef = useRef<TextAreaRef>(null);
   const textAreaStyledRef = useRef<TextAreaRef>(null);
   return (
-    <Space direction="horizontal">
+    <Space>
       <TextAreaField
         name="text_area"
         control={control}

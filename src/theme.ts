@@ -36,6 +36,7 @@ export type Theme = {
   backgroundColor: string;
   borderColor: string;
   collapseBackgroundColor: string;
+  collapseTransition?: string;
   containerBorderColor: string;
   dividerColor: string;
   focusedRowColor: string;
@@ -66,6 +67,7 @@ export const THEME: Theme = {
   backgroundColor: PALETTE.blueTintedGray,
   borderColor: PALETTE.blue,
   collapseBackgroundColor: PALETTE.lightBlue,
+  collapseTransition: '0.05s',
   containerBorderColor: PALETTE.gray4,
   dividerColor: PALETTE.gray4,
   focusedRowColor: PALETTE.lightBlue,

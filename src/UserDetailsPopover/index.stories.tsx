@@ -13,6 +13,7 @@ export default {
     email: { control: { type: 'text' }, defaultValue: 'john.doe@mll.com' },
     firstname: { control: { type: 'text' }, defaultValue: 'John' },
     lastname: { control: { type: 'text' }, defaultValue: 'Doe' },
+    phone: { control: { type: 'text' }, defaultValue: '123' },
     username: { control: { type: 'text' }, defaultValue: 'jdoe' },
     inactive: {
       control: {
@@ -33,7 +34,7 @@ export const Default: Story = function Link(args) {
   const [visible, setVisible] = useState(false);
   return (
     <Space
-      direction="vertical"
+      vertical
       align="center"
       style={{
         marginLeft: 100,
@@ -56,6 +57,7 @@ export const Default: Story = function Link(args) {
                 firstname: args.firstname,
                 lastname: args.lastname,
                 username: args.username,
+                phone: args.phone,
                 inactive: args.inactive,
               }
         }
@@ -73,6 +75,7 @@ export const WithCustomChildren: Story = function Link(args) {
       firstname: args.firstname,
       lastname: args.lastname,
       username: args.username,
+      phone: args.phone,
       inactive: args.inactive,
     }),
     [args],
@@ -80,7 +83,7 @@ export const WithCustomChildren: Story = function Link(args) {
 
   return (
     <Space
-      direction="vertical"
+      vertical
       align="center"
       style={{
         marginLeft: 100,

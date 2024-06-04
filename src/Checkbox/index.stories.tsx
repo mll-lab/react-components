@@ -27,6 +27,15 @@ export const DisabledCheckbox: Story<CheckboxProps> = function DisabledCheckbox(
   );
 };
 
+export const IndeterminateCheckbox: Story<CheckboxProps> =
+  function IndeterminateCheckbox(args) {
+    return (
+      <Checkbox indeterminate {...args}>
+        Checkbox
+      </Checkbox>
+    );
+  };
+
 export const WithoutLabel: Story<CheckboxProps> = function WithoutLabel(args) {
   return <Checkbox defaultChecked {...args} />;
 };

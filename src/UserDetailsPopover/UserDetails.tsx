@@ -8,6 +8,7 @@ import { Space } from '../Space';
 import { Typography } from '../Typography';
 
 import { EmailRow } from './EmailRow';
+import { PhoneRow } from './PhoneRow';
 import { GUTTER, SPACE } from './constants';
 
 type User = {
@@ -16,6 +17,7 @@ type User = {
   firstname?: string | null;
   inactive?: boolean;
   lastname?: string | null;
+  phone?: string | null;
   username: string;
 };
 
@@ -24,11 +26,12 @@ export type UserDetailsProps = {
 };
 
 export function UserDetails({ user }: UserDetailsProps) {
-  const { acronym, email, firstname, lastname, inactive, username } = user;
+  const { acronym, email, firstname, lastname, inactive, username, phone } =
+    user;
   const fullName = joinNonEmpty([firstname, lastname], ' ');
   const showFullName = !inactive && fullName;
   return (
-    <Space direction="vertical" size={SPACE}>
+    <Space vertical size={SPACE}>
       <Row gutter={GUTTER} align="middle">
         <Col flex="0 1 min-content">
           <UserAvatar username={acronym} />
@@ -54,9 +57,14 @@ export function UserDetails({ user }: UserDetailsProps) {
 
       <Divider style={{ marginTop: SPACE, marginBottom: SPACE }} />
 
-      {inactive
-        ? 'The user was deactivated'
-        : email && <EmailRow email={email} />}
+      {inactive ? (
+        'The user was deactivated'
+      ) : (
+        <>
+          {email && <EmailRow email={email} />}
+          {phone && <PhoneRow phone={phone} />}
+        </>
+      )}
     </Space>
   );
 }

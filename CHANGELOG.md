@@ -1,3 +1,141 @@
+# [17.1.0](https://github.com/mll-lab/react-components/compare/v17.0.0...v17.1.0) (2024-05-22)
+
+
+### Features
+
+* add callto link to user details ([#269](https://github.com/mll-lab/react-components/issues/269)) ([fc007dc](https://github.com/mll-lab/react-components/commit/fc007dced3021f26bb4962390f1c232fb8d8e2e8))
+
+# [17.0.0](https://github.com/mll-lab/react-components/compare/v16.10.0...v17.0.0) (2024-04-21)
+
+
+### Features
+
+* replace `Space` prop `direction` with `vertical` ([a678bf8](https://github.com/mll-lab/react-components/commit/a678bf8797008a14eabf1a1d4d36952c10642e8e))
+
+
+### BREAKING CHANGES
+
+* replace `direction="vertical"` with `vertical`, omit `direction="horizontal"` from Space
+
+# [16.10.0](https://github.com/mll-lab/react-components/compare/v16.9.2...v16.10.0) (2024-04-18)
+
+
+### Features
+
+* export CompareFn ([d9e5c23](https://github.com/mll-lab/react-components/commit/d9e5c239b96b431bb93b9012e45c69bb28147f4a))
+
+## [16.9.2](https://github.com/mll-lab/react-components/compare/v16.9.1...v16.9.2) (2024-04-15)
+
+
+### Bug Fixes
+
+* stable input during typing in InputNumberField ([#266](https://github.com/mll-lab/react-components/issues/266)) ([aa7a347](https://github.com/mll-lab/react-components/commit/aa7a3476ec9b1b42bb84debe64cb09ecf358fc25)), closes [#264](https://github.com/mll-lab/react-components/issues/264)
+
+## [16.9.1](https://github.com/mll-lab/react-components/compare/v16.9.0...v16.9.1) (2024-04-12)
+
+
+### Bug Fixes
+
+* stable value during typing in InputNumberField ([faf8edf](https://github.com/mll-lab/react-components/commit/faf8edf36e64fa0952a25287b6f9e2d05ceb3cdb)), closes [#265](https://github.com/mll-lab/react-components/issues/265)
+
+# [16.9.0](https://github.com/mll-lab/react-components/compare/v16.8.0...v16.9.0) (2024-03-18)
+
+
+### Features
+
+* customizable collapse transition ([5ddc372](https://github.com/mll-lab/react-components/commit/5ddc3725e3a38ddda20d3a5a999613b2a4b06dd3))
+
+# [16.8.0](https://github.com/mll-lab/react-components/compare/v16.7.0...v16.8.0) (2024-03-15)
+
+
+### Features
+
+* add Drawer ([6d37120](https://github.com/mll-lab/react-components/commit/6d37120c44cfad58bae201553c1306bdbe0cb20b))
+
+# [16.7.0](https://github.com/mll-lab/react-components/compare/v16.6.0...v16.7.0) (2024-03-14)
+
+
+### Features
+
+* add german locale to DateRangePickerField ([e95b9b1](https://github.com/mll-lab/react-components/commit/e95b9b13cf53435e96fa9fec4c8fcb28a7fc1e96))
+
+# [16.6.0](https://github.com/mll-lab/react-components/compare/v16.5.0...v16.6.0) (2024-03-14)
+
+
+### Features
+
+* add DatePickerField.tsx ([d8b961f](https://github.com/mll-lab/react-components/commit/d8b961fb6aabdac5b23029abf6eb1f6937b908ef))
+
+# [16.5.0](https://github.com/mll-lab/react-components/compare/v16.4.0...v16.5.0) (2024-03-14)
+
+
+### Features
+
+* add standard format to DateRangePickerField ([ed0dda3](https://github.com/mll-lab/react-components/commit/ed0dda3c86e7a30c8c357588016091197bf0be5c))
+
+# [16.4.0](https://github.com/mll-lab/react-components/compare/v16.3.0...v16.4.0) (2024-03-12)
+
+
+### Features
+
+* add DateRangePickerField ([#257](https://github.com/mll-lab/react-components/issues/257)) ([4296cac](https://github.com/mll-lab/react-components/commit/4296cacfd04fb045c273ec56fe1dad8093637d29))
+
+# [16.3.0](https://github.com/mll-lab/react-components/compare/v16.2.1...v16.3.0) (2024-03-11)
+
+
+### Features
+
+* add CheckboxGroupField ([fec1e64](https://github.com/mll-lab/react-components/commit/fec1e64a6914773eb5ce89bae7985297373d7909))
+
+## [16.2.1](https://github.com/mll-lab/react-components/compare/v16.2.0...v16.2.1) (2024-02-27)
+
+
+### Bug Fixes
+
+* actually export AutocompleteField ([37a8ad5](https://github.com/mll-lab/react-components/commit/37a8ad5c84b16c462520ac29e869421efb41b037))
+
+# [16.2.0](https://github.com/mll-lab/react-components/compare/v16.1.2...v16.2.0) (2024-02-27)
+
+
+### Features
+
+* add AutocompleteField ([b681531](https://github.com/mll-lab/react-components/commit/b6815314ad031b794f7ffa3f3e66cb19f5520a13))
+
+## [16.1.2](https://github.com/mll-lab/react-components/compare/v16.1.1...v16.1.2) (2024-02-22)
+
+
+### Bug Fixes
+
+* export already implemented component switch field ([7054726](https://github.com/mll-lab/react-components/commit/7054726e6f3a5f3b91e90b95411c26a9cd6ab595))
+
+## [16.1.1](https://github.com/mll-lab/react-components/compare/v16.1.0...v16.1.1) (2024-02-02)
+
+
+### Bug Fixes
+
+* build cjs with interop: auto ([f59d0f3](https://github.com/mll-lab/react-components/commit/f59d0f317e2156933a17ff9bd700545134fef383))
+
+# [16.1.0](https://github.com/mll-lab/react-components/compare/v16.0.2...v16.1.0) (2024-02-02)
+
+
+### Features
+
+* Add Autocomplete component ([c7d5725](https://github.com/mll-lab/react-components/commit/c7d57255ef143a7bbbe91353a4bfb202dd6ad0c6))
+
+## [16.0.2](https://github.com/mll-lab/react-components/compare/v16.0.1...v16.0.2) (2023-12-19)
+
+
+### Bug Fixes
+
+* bump @babel/runtime ([c402a6c](https://github.com/mll-lab/react-components/commit/c402a6cf7921ae3bf295e7e3e1ada582a217c856))
+
+## [16.0.1](https://github.com/mll-lab/react-components/compare/v16.0.0...v16.0.1) (2023-12-19)
+
+
+### Bug Fixes
+
+* adapt types to React 18 ([0cb085f](https://github.com/mll-lab/react-components/commit/0cb085f3dbd7e87aa684932f135352d417436205))
+
 # [16.0.0](https://github.com/mll-lab/react-components/compare/v15.8.0...v16.0.0) (2023-11-23)
 
 

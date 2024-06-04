@@ -1,4 +1,4 @@
-import babel from '@rollup/plugin-babel';
+import { babel } from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
@@ -16,6 +16,9 @@ export default {
       file: pkg.main,
       format: 'cjs',
       sourcemap: true,
+      // https://rollupjs.org/configuration-options/#output-interop
+      // Necessary in order for jest in consumers to work
+      interop: 'auto',
     },
     {
       file: pkg.module,
@@ -33,6 +36,9 @@ export default {
   // 9: var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
   context: 'this',
 
+  // https://www.npmjs.com/package/@rollup/plugin-babel#babelhelpers
+  external: [/@babel\/runtime/],
+
   plugins: [
     peerDepsExternal(),
     resolve(),
@@ -46,6 +52,7 @@ export default {
       },
     }),
     babel({
+      // https://www.npmjs.com/package/@rollup/plugin-babel#babelhelpers
       babelHelpers: 'runtime',
     }),
   ],
