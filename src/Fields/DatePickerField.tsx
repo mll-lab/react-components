@@ -27,7 +27,9 @@ export function DatePickerField<
   component,
   ...controller
 }: DatePickerFieldProps<TFieldValues, TName>) {
-  const { field: { ref, ...fieldProps } } = useController<TFieldValues, TName>(controller);
+  const {
+    field: { ref, ...fieldProps },
+  } = useController<TFieldValues, TName>(controller);
 
   const { disabled } = useFieldContext();
 
