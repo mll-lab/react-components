@@ -1,3 +1,10 @@
+## [17.1.1](https://github.com/mll-lab/react-components/compare/v17.1.0...v17.1.1) (2024-06-26)
+
+
+### Bug Fixes
+
+* do not pass `ref` to `DatePicker` in `DatePickerField` ([ea4e14b](https://github.com/mll-lab/react-components/commit/ea4e14bbf93155c49bd4cc15ed1ef00551d34f91))
+
 # [17.1.0](https://github.com/mll-lab/react-components/compare/v17.0.0...v17.1.0) (2024-05-22)
 
 
