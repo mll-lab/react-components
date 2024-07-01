@@ -3,7 +3,7 @@ import React from 'react';
 
 import { UserAvatar } from '../Avatar';
 import { Divider } from '../Divider';
-import { Col, Row } from '../Grid';
+import { Col, Row } from '../RowCol';
 import { Space } from '../Space';
 import { Typography } from '../Typography';
 

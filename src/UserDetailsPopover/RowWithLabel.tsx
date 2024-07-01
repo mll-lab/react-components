@@ -1,6 +1,6 @@
 import React, { PropsWithChildren, ReactNode } from 'react';
 
-import { Col, Row } from '../Grid';
+import { Col, Row } from '../RowCol';
 
 import { GUTTER } from './constants';
 
