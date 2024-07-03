@@ -1,3 +1,4 @@
+import { BarcodeOutlined } from '@ant-design/icons';
 import { Story } from '@storybook/react';
 import React, { useState } from 'react';
 
@@ -21,13 +22,15 @@ export default {
 
 export const Text: Story<InputProps> = function Text(args) {
   return (
-    <Space>
+    <Space vertical>
       <Input {...args} />
       <Input
         $inputStyle={{ background: 'red' }}
         $wrapperStyle={{ border: '5px green solid' }}
         {...args}
       />
+      {/* TODO looks off */}
+      <Input prefix={<BarcodeOutlined />} allowClear {...args} />
     </Space>
   );
 };
