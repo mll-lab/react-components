@@ -8,6 +8,9 @@ module.exports = {
       strictMode: true,
     },
   },
+  core: {
+    disableTelemetry: false,
+  },
   webpackFinal: (config) => {
     config.module.rules = [
       {
