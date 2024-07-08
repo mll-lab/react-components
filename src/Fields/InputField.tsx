@@ -6,7 +6,7 @@ import {
   FieldPath,
 } from 'react-hook-form';
 
-import { Input, InputProps } from '../Input';
+import { Input, InputProps, InputRef } from '../Input';
 
 import { useFieldContext } from './FieldProvider';
 import { FieldWrapper, FieldWrapperProps } from './FieldWrapper';
@@ -16,7 +16,9 @@ type InputFieldProps<
   TName extends FieldPath<TFieldValues>,
 > = UseControllerProps<TFieldValues, TName> &
   Pick<FieldWrapperProps<TFieldValues, TName>, 'formItem'> & {
-    component?: InputProps;
+    component?: InputProps & {
+      ref?: React.Ref<InputRef>;
+    };
   };
 
 export function InputField<
