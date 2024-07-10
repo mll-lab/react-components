@@ -1,3 +1,10 @@
+# [17.2.0](https://github.com/mll-lab/react-components/compare/v17.1.1...v17.2.0) (2024-07-08)
+
+
+### Features
+
+* add property `ref` to `InputField` ([fdceb91](https://github.com/mll-lab/react-components/commit/fdceb916e699374b1b998fed2c15d6213efea260))
+
 ## [17.1.1](https://github.com/mll-lab/react-components/compare/v17.1.0...v17.1.1) (2024-06-26)
 
 

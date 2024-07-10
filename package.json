@@ -1,7 +1,7 @@
 {
   "name": "@mll-lab/react-components",
   "description": "Shared React components of MLL",
-  "version": "17.1.1",
+  "version": "17.2.0",
   "main": "cjs/index.js",
   "module": "esm/index.js",
   "types": "types/index.d.ts",
@@ -129,5 +129,5 @@
     "typescript": "^5.3.2",
     "webpack": "^5.89.0"
   },
-  "packageManager": "yarn@4.1.1"
+  "packageManager": "yarn@4.3.1"
 }
