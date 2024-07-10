@@ -51,7 +51,6 @@ export function SelectField<
         // Makes the allowClear method able to actually affect the form value
         // See https://react-hook-form.com/api/usecontroller/controller
         // > Calling onChange with undefined is not valid. You should use null or the empty string as your default/cleared value instead.
-        // @ts-expect-error error make no sense to me and i spent to much time on it
         onChange={(value) => onChange(value ?? null)}
         {...component}
       />

@@ -4,8 +4,8 @@ import { BaseSelectRef } from 'rc-select';
 import React, {
   ForwardedRef,
   forwardRef,
-  ForwardRefExoticComponent,
   ReactElement,
+  ReactNode,
   RefAttributes,
   useCallback,
 } from 'react';
@@ -46,49 +46,49 @@ const StyledDropdown = styled.div`
   }
 `;
 
-type SelectType = ForwardRefExoticComponent<
-  SelectProps<unknown, BaseOptionType | DefaultOptionType> &
-    RefAttributes<BaseSelectRef>
-> & { Option: typeof AntdSelect.Option; OptGroup: typeof AntdSelect.OptGroup };
+function SelectInner<
+  ValueType = unknown,
+  OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
+>(
+  {
+    children,
+    dropdownRender,
+    onChange,
+    ...props
+  }: SelectProps<ValueType, OptionType>,
+  ref: ForwardedRef<BaseSelectRef>,
+) {
+  const styledDropdownRender = useCallback(
+    (menu: ReactElement) => (
+      <StyledDropdown>
+        {dropdownRender ? dropdownRender(menu) : menu}
+      </StyledDropdown>
+    ),
+    [dropdownRender],
+  );
 
-const InternalSelect = forwardRef<
+  return (
+    <StyledSelect<ValueType, OptionType>
+      ref={ref}
+      {...props}
+      dropdownRender={styledDropdownRender}
+    >
+      {children}
+    </StyledSelect>
+  );
+}
+
+export const Select = forwardRef<
   BaseSelectRef,
   SelectProps<unknown, BaseOptionType | DefaultOptionType>
+>(SelectInner) as unknown as (<
+  TValue = unknown,
+  TOption extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 >(
-  <
-    ValueType = unknown,
-    OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
-  >(
-    {
-      children,
-      dropdownRender,
-      onChange,
-      ...props
-    }: SelectProps<ValueType, OptionType>,
-    ref: ForwardedRef<BaseSelectRef>,
-  ) => {
-    const styledDropdownRender = useCallback(
-      (menu: ReactElement) => (
-        <StyledDropdown>
-          {dropdownRender ? dropdownRender(menu) : menu}
-        </StyledDropdown>
-      ),
-      [dropdownRender],
-    );
-
-    return (
-      <StyledSelect<ValueType, OptionType>
-        ref={ref}
-        {...props}
-        dropdownRender={styledDropdownRender}
-      >
-        {children}
-      </StyledSelect>
-    );
-  },
-);
-InternalSelect.displayName = 'Select';
-
-export const Select = InternalSelect as SelectType;
+  props: SelectProps<TValue, TOption> & RefAttributes<BaseSelectRef>,
+) => ReactNode) & {
+  Option: typeof AntdSelect.Option;
+  OptGroup: typeof AntdSelect.OptGroup;
+};
 Select.Option = AntdSelect.Option;
 Select.OptGroup = AntdSelect.OptGroup;
