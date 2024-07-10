@@ -33,8 +33,8 @@ const StyledSelect = styled(AntdSelect)`
   &.mll-ant-select-sm.mll-ant-select-multiple .mll-ant-select-selection-item {
     height: 16px;
     line-height: 12px;
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 ` as typeof AntdSelect;
 
@@ -51,7 +51,7 @@ type SelectType = ForwardRefExoticComponent<
     RefAttributes<BaseSelectRef>
 > & { Option: typeof AntdSelect.Option; OptGroup: typeof AntdSelect.OptGroup };
 
-export const InternalSelect = forwardRef<
+const InternalSelect = forwardRef<
   BaseSelectRef,
   SelectProps<unknown, BaseOptionType | DefaultOptionType>
 >(
@@ -87,12 +87,8 @@ export const InternalSelect = forwardRef<
     );
   },
 );
-
 InternalSelect.displayName = 'Select';
 
-const Select = InternalSelect as SelectType;
-
+export const Select = InternalSelect as SelectType;
 Select.Option = AntdSelect.Option;
 Select.OptGroup = AntdSelect.OptGroup;
-
-export { Select };
