@@ -1,3 +1,4 @@
+import type { BaseSelectRef } from 'rc-select';
 import React from 'react';
 import {
   useController,
@@ -16,7 +17,9 @@ type AutocompleteFieldProps<
   TName extends FieldPath<TFieldValues>,
 > = UseControllerProps<TFieldValues, TName> &
   Pick<FieldWrapperProps<TFieldValues, TName>, 'formItem'> & {
-    component?: AutocompleteProps;
+    component?: AutocompleteProps & {
+      ref?: React.Ref<BaseSelectRef>;
+    };
   };
 
 /**
