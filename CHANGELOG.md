@@ -1,3 +1,10 @@
+# [17.3.0](https://github.com/mll-lab/react-components/compare/v17.2.0...v17.3.0) (2024-07-10)
+
+
+### Features
+
+* add property `ref` to `SelectField` and `AutocompleteField` ([1f8f1ad](https://github.com/mll-lab/react-components/commit/1f8f1adf4edb301e1ce47b977a64d7e88b885c3d))
+
 # [17.2.0](https://github.com/mll-lab/react-components/compare/v17.1.1...v17.2.0) (2024-07-08)
 
 
