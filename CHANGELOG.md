@@ -1,3 +1,10 @@
+## [17.3.1](https://github.com/mll-lab/react-components/compare/v17.3.0...v17.3.1) (2024-07-11)
+
+
+### Bug Fixes
+
+* change return type of 'Select' to `ReactElement` ([1fb4960](https://github.com/mll-lab/react-components/commit/1fb4960d1b077f594cafebcaf6a582298241ec35))
+
 # [17.3.0](https://github.com/mll-lab/react-components/compare/v17.2.0...v17.3.0) (2024-07-10)
 
 
