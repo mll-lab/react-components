@@ -5,7 +5,6 @@ import React, {
   ForwardedRef,
   forwardRef,
   ReactElement,
-  ReactNode,
   RefAttributes,
   useCallback,
 } from 'react';
@@ -86,7 +85,7 @@ export const Select = forwardRef<
   TOption extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 >(
   props: SelectProps<TValue, TOption> & RefAttributes<BaseSelectRef>,
-) => ReactNode) & {
+) => ReactElement) & {
   Option: typeof AntdSelect.Option;
   OptGroup: typeof AntdSelect.OptGroup;
 };
