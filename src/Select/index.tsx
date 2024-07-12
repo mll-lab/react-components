@@ -49,12 +49,7 @@ function SelectInner<
   ValueType = unknown,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 >(
-  {
-    children,
-    dropdownRender,
-    onChange,
-    ...props
-  }: SelectProps<ValueType, OptionType>,
+  { children, dropdownRender, ...props }: SelectProps<ValueType, OptionType>,
   ref: ForwardedRef<BaseSelectRef>,
 ) {
   const styledDropdownRender = useCallback(
@@ -69,8 +64,8 @@ function SelectInner<
   return (
     <StyledSelect<ValueType, OptionType>
       ref={ref}
-      {...props}
       dropdownRender={styledDropdownRender}
+      {...props}
     >
       {children}
     </StyledSelect>
