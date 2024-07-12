@@ -1,3 +1,10 @@
+## [17.3.2](https://github.com/mll-lab/react-components/compare/v17.3.1...v17.3.2) (2024-07-12)
+
+
+### Bug Fixes
+
+* ensure prop `onChange` works on component `Select` ([38983f7](https://github.com/mll-lab/react-components/commit/38983f7bd836f016190f510082fa4dfbe4008e17))
+
 ## [17.3.1](https://github.com/mll-lab/react-components/compare/v17.3.0...v17.3.1) (2024-07-11)
 
 
