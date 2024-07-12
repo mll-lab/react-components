@@ -64,8 +64,8 @@ function SelectInner<
   return (
     <StyledSelect<ValueType, OptionType>
       ref={ref}
-      {...props}
       dropdownRender={styledDropdownRender}
+      {...props}
     >
       {children}
     </StyledSelect>
