@@ -1,3 +1,10 @@
+# [17.4.0](https://github.com/mll-lab/react-components/compare/v17.3.2...v17.4.0) (2024-08-05)
+
+
+### Features
+
+* export type `TableRowSelection` ([#279](https://github.com/mll-lab/react-components/issues/279)) ([ccc5bdc](https://github.com/mll-lab/react-components/commit/ccc5bdc8c9b8959a44890a48e75fde597a098085))
+
 ## [17.3.2](https://github.com/mll-lab/react-components/compare/v17.3.1...v17.3.2) (2024-07-12)
 
 
