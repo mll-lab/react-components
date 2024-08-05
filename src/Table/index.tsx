@@ -18,6 +18,7 @@ export {
   CompareFn,
   FilterDropdownProps,
   SortOrder,
+  TableRowSelection,
 } from 'antd/es/table/interface';
 
 export * from './utils';
