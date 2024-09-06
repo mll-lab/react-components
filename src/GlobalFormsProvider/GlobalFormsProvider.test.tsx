@@ -1,10 +1,16 @@
-import { act, renderHook } from '@testing-library/react-hooks';
+import {
+  act,
+  renderHook,
+  RenderHookOptions,
+} from '@testing-library/react-hooks';
 import React, { PropsWithChildren } from 'react';
 
 import { useGlobalForms, useGlobalForm } from './GlobalFormsContext';
 import { GlobalFormsProvider } from './GlobalFormsProvider';
 
-function createOptions() {
+function createRenderHookOptions(): RenderHookOptions<
+  PropsWithChildren<unknown>
+> {
   return {
     wrapper: function Wrapper({ children }: PropsWithChildren<unknown>) {
       return <GlobalFormsProvider>{children}</GlobalFormsProvider>;
@@ -20,7 +26,7 @@ describe('GlobalFormsProvider', () => {
       const { setSubmitting: setSubmitting2 } = useGlobalForm('form2');
 
       return { isSubmitting, setSubmitting1, setSubmitting2 };
-    }, createOptions());
+    }, createRenderHookOptions());
     expect(result.error).toBeFalsy();
     expect(result.current.isSubmitting).toBeFalsy();
 
@@ -35,7 +41,7 @@ describe('GlobalFormsProvider', () => {
       const { setSubmitting } = useGlobalForm('form');
 
       return { isSubmitting, setSubmitting };
-    }, createOptions());
+    }, createRenderHookOptions());
     expect(result.current.isSubmitting).toBeFalsy();
 
     act(() => result.current.setSubmitting(true));
@@ -52,7 +58,7 @@ describe('GlobalFormsProvider', () => {
       const { setResetCallback: setResetCallback2 } = useGlobalForm('form2');
 
       return { reset, setResetCallback1, setResetCallback2 };
-    }, createOptions());
+    }, createRenderHookOptions());
     result.current.reset();
 
     const reset1 = jest.fn();
@@ -77,7 +83,7 @@ describe('GlobalFormsProvider', () => {
       const { setResetCallback } = useGlobalForm('form');
 
       return { reset, setResetCallback };
-    }, createOptions());
+    }, createRenderHookOptions());
     const resetOld = jest.fn();
     act(() => result.current.setResetCallback(resetOld));
     result.current.reset();
@@ -97,7 +103,7 @@ describe('GlobalFormsProvider', () => {
       const { setSubmitCallback: setSubmitCallback2 } = useGlobalForm('form2');
 
       return { submit, setSubmitCallback1, setSubmitCallback2 };
-    }, createOptions());
+    }, createRenderHookOptions());
     await expect(result.current.submit()).resolves.toBeTruthy();
 
     const submit1 = jest.fn(() => Promise.resolve());
@@ -117,7 +123,7 @@ describe('GlobalFormsProvider', () => {
       const { setSubmitCallback } = useGlobalForm('form');
 
       return { submit, setSubmitCallback };
-    }, createOptions());
+    }, createRenderHookOptions());
 
     const submitOld = jest.fn(() => Promise.resolve());
     act(() => result.current.setSubmitCallback(submitOld));
@@ -155,7 +161,7 @@ describe('GlobalFormsProvider', () => {
         setSubmitCallbackFirst,
         setSubmitCallbackLast,
       };
-    }, createOptions());
+    }, createRenderHookOptions());
     const submitError = jest.fn(() => Promise.reject());
     act(() => result.current.setSubmitCallbackError(submitError));
 
