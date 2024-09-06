@@ -16,7 +16,7 @@ export type GlobalFormsContextType = {
   setSubmitting: (form: FormInfo, submitting: boolean) => void;
   setSubmitSuccessful: (form: FormInfo, submitSuccessful: boolean) => void;
   /**
-   * Returns a combined boolean of all submitSuccessful states
+   * Returns true when all forms were submitted successfully
    */
   submit: (additionalCallback?: CallbackWithOrder) => Promise<boolean>;
 };
