@@ -1,3 +1,45 @@
+# [17.4.0](https://github.com/mll-lab/react-components/compare/v17.3.2...v17.4.0) (2024-08-05)
+
+
+### Features
+
+* export type `TableRowSelection` ([#279](https://github.com/mll-lab/react-components/issues/279)) ([ccc5bdc](https://github.com/mll-lab/react-components/commit/ccc5bdc8c9b8959a44890a48e75fde597a098085))
+
+## [17.3.2](https://github.com/mll-lab/react-components/compare/v17.3.1...v17.3.2) (2024-07-12)
+
+
+### Bug Fixes
+
+* ensure prop `onChange` works on component `Select` ([38983f7](https://github.com/mll-lab/react-components/commit/38983f7bd836f016190f510082fa4dfbe4008e17))
+
+## [17.3.1](https://github.com/mll-lab/react-components/compare/v17.3.0...v17.3.1) (2024-07-11)
+
+
+### Bug Fixes
+
+* change return type of 'Select' to `ReactElement` ([1fb4960](https://github.com/mll-lab/react-components/commit/1fb4960d1b077f594cafebcaf6a582298241ec35))
+
+# [17.3.0](https://github.com/mll-lab/react-components/compare/v17.2.0...v17.3.0) (2024-07-10)
+
+
+### Features
+
+* add property `ref` to `SelectField` and `AutocompleteField` ([1f8f1ad](https://github.com/mll-lab/react-components/commit/1f8f1adf4edb301e1ce47b977a64d7e88b885c3d))
+
+# [17.2.0](https://github.com/mll-lab/react-components/compare/v17.1.1...v17.2.0) (2024-07-08)
+
+
+### Features
+
+* add property `ref` to `InputField` ([fdceb91](https://github.com/mll-lab/react-components/commit/fdceb916e699374b1b998fed2c15d6213efea260))
+
+## [17.1.1](https://github.com/mll-lab/react-components/compare/v17.1.0...v17.1.1) (2024-06-26)
+
+
+### Bug Fixes
+
+* do not pass `ref` to `DatePicker` in `DatePickerField` ([ea4e14b](https://github.com/mll-lab/react-components/commit/ea4e14bbf93155c49bd4cc15ed1ef00551d34f91))
+
 # [17.1.0](https://github.com/mll-lab/react-components/compare/v17.0.0...v17.1.0) (2024-05-22)
 
 
