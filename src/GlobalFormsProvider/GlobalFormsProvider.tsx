@@ -1,5 +1,5 @@
 import { callSequentially } from '@mll-lab/js-utils';
-import { keys, sortBy, values } from 'lodash';
+import { sortBy } from 'lodash';
 import React, {
   PropsWithChildren,
   useCallback,
@@ -19,9 +19,10 @@ export type GlobalFormsProviderProps = PropsWithChildren<unknown>;
 function findNextOrder(
   callbacks: Record<string, CallbackWithOrder> | undefined,
 ): number {
-  const orders =
-    callbacks && Object.values(callbacks).map((callback) => callback.order);
-  if (!orders || orders.length === 0) {
+  const orders = Object.values(callbacks ?? {}).map(
+    (callback) => callback.order,
+  );
+  if (orders.length === 0) {
     return 1;
   }
 
@@ -67,10 +68,12 @@ export function GlobalFormsProvider({ children }: GlobalFormsProviderProps) {
 
   const submit: GlobalFormsContextType['submit'] = useCallback(
     async (additionalCallback?: CallbackWithOrder) => {
-      keys(submitCallbacks).forEach((formName) => {
-        submitSuccessfulList.current[formName] = false;
-      });
-      const callbacks = values(submitCallbacks);
+      if (submitCallbacks) {
+        Object.keys(submitCallbacks).forEach((formName) => {
+          submitSuccessfulList.current[formName] = false;
+        });
+      }
+      const callbacks = Object.values(submitCallbacks ?? {});
       if (additionalCallback) {
         callbacks.push(additionalCallback);
       }
@@ -95,12 +98,12 @@ export function GlobalFormsProvider({ children }: GlobalFormsProviderProps) {
   );
 
   const isSubmitting = useMemo(
-    () => values(submittings).some(Boolean),
+    () => Object.values(submittings ?? {}).some(Boolean),
     [submittings],
   );
 
   const reset: GlobalFormsContextType['reset'] = useCallback(
-    () => values(resetCallbacks).forEach((callback) => callback()),
+    () => Object.values(resetCallbacks ?? {}).forEach((callback) => callback()),
     [resetCallbacks],
   );
 
