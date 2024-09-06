@@ -21,7 +21,7 @@ export type GlobalFormsContextType = {
   submit: (additionalCallback?: CallbackWithOrder) => Promise<boolean>;
 };
 
-const GlobalFormsContext = React.createContext<GlobalFormsContextType>({
+export const GlobalFormsContext = React.createContext<GlobalFormsContextType>({
   isSubmitting: false,
   reset: () => {},
   setResetCallback: () => {},
