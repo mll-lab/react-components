@@ -1,7 +1,7 @@
 import React, { useCallback, useContext, useMemo } from 'react';
 
 export type FormInfo = { name: string; order: number };
-type FormInfoMixed = string | FormInfo;
+type FormInfoObjectOrString = FormInfo | string;
 
 export type CallbackWithOrder = {
   callback: () => Promise<void>;
@@ -41,7 +41,7 @@ export function useGlobalForms() {
   };
 }
 
-export function normalizeFormInfo(form: FormInfoMixed): FormInfo {
+export function normalizeFormInfo(form: FormInfoObjectOrString): FormInfo {
   if (typeof form === 'string') {
     return { name: form, order: 0 };
   }
@@ -49,7 +49,7 @@ export function normalizeFormInfo(form: FormInfoMixed): FormInfo {
   return form;
 }
 
-export function useGlobalForm(form: FormInfoMixed) {
+export function useGlobalForm(form: FormInfoObjectOrString) {
   const formInfo = useMemo(() => normalizeFormInfo(form), [form]);
 
   const {
