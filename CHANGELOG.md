@@ -1,3 +1,10 @@
+# [17.5.0](https://github.com/mll-lab/react-components/compare/v17.4.0...v17.5.0) (2024-09-09)
+
+
+### Features
+
+* global forms provider ([#250](https://github.com/mll-lab/react-components/issues/250)) ([5ddf2ca](https://github.com/mll-lab/react-components/commit/5ddf2ca413d4c0bb1413697ca21278b2e7cad0c3))
+
 # [17.4.0](https://github.com/mll-lab/react-components/compare/v17.3.2...v17.4.0) (2024-08-05)
 
 
