@@ -4,9 +4,12 @@ import React from 'react';
 
 import { PALETTE } from '../theme';
 
-import { COORDINATES_COLUMNS, COORDINATES_ROWS, WELLS } from './constants';
+import {
+  COORDINATE_SYSTEM_96_WELL,
+  CoordinateSystem96Well,
+} from './coordinateSystem96Well';
 import { PlateProps, PlateWell } from './types';
-import { coordinatesForPosition } from './utils';
+import { allPositions, coordinatesForPosition } from './utils';
 
 import { Plate } from './index';
 
@@ -18,22 +21,34 @@ export default {
   },
 };
 
-const data: Array<PlateWell> = [
+const data: Array<PlateWell<CoordinateSystem96Well>> = [
   {
-    coordinates: { row: COORDINATES_ROWS[0], column: COORDINATES_COLUMNS[6] },
+    coordinates: {
+      row: COORDINATE_SYSTEM_96_WELL.rows[0],
+      column: COORDINATE_SYSTEM_96_WELL.columns[6],
+    },
     content: <i>It renders any ReactNode</i>,
   },
   {
-    coordinates: { row: COORDINATES_ROWS[0], column: COORDINATES_COLUMNS[7] },
+    coordinates: {
+      row: COORDINATE_SYSTEM_96_WELL.rows[0],
+      column: COORDINATE_SYSTEM_96_WELL.columns[7],
+    },
     content: 'Test',
     color: PALETTE.red,
   },
   {
-    coordinates: { row: COORDINATES_ROWS[1], column: COORDINATES_COLUMNS[2] },
+    coordinates: {
+      row: COORDINATE_SYSTEM_96_WELL.rows[1],
+      column: COORDINATE_SYSTEM_96_WELL.columns[2],
+    },
     content: 'Some text',
   },
   {
-    coordinates: { row: COORDINATES_ROWS[2], column: COORDINATES_COLUMNS[2] },
+    coordinates: {
+      row: COORDINATE_SYSTEM_96_WELL.rows[2],
+      column: COORDINATE_SYSTEM_96_WELL.columns[2],
+    },
     content: (
       <>
         <p>Kontrolle</p>
@@ -45,27 +60,39 @@ const data: Array<PlateWell> = [
   },
 ];
 
-const rowFlowData: Array<PlateWell> = WELLS.map((well) => ({
-  coordinates: coordinatesForPosition(well, 'row'),
-  content: well,
-}));
+const COORDINATE_SYSTEM_96_WELL_POSITIONS = allPositions(
+  COORDINATE_SYSTEM_96_WELL,
+);
 
-const columnFlowData: Array<PlateWell> = WELLS.map((well) => ({
-  coordinates: coordinatesForPosition(well, 'column'),
-  content: well,
-}));
+const rowFlowData: Array<PlateWell<CoordinateSystem96Well>> =
+  COORDINATE_SYSTEM_96_WELL_POSITIONS.map((well) => ({
+    coordinates: coordinatesForPosition(well, 'row', COORDINATE_SYSTEM_96_WELL),
+    content: well,
+  }));
 
-const Template: Story<Partial<PlateProps>> = function Template(args) {
-  return (
-    <Plate
-      data={null}
-      dndContextProps={{
-        onDragEnd: action('onDragEnd'), // dataLocation: `const sourceData = e.active.data.current; const targetData = e.over?.data.current;`
-      }}
-      {...args}
-    />
-  );
-};
+const columnFlowData: Array<PlateWell<CoordinateSystem96Well>> =
+  COORDINATE_SYSTEM_96_WELL_POSITIONS.map((well) => ({
+    coordinates: coordinatesForPosition(
+      well,
+      'column',
+      COORDINATE_SYSTEM_96_WELL,
+    ),
+    content: well,
+  }));
+
+const Template: Story<Partial<PlateProps<CoordinateSystem96Well>>> =
+  function Template(args) {
+    return (
+      <Plate
+        data={null}
+        coordinateSystem={COORDINATE_SYSTEM_96_WELL}
+        dndContextProps={{
+          onDragEnd: action('onDragEnd'), // dataLocation: `const sourceData = e.active.data.current; const targetData = e.over?.data.current;`
+        }}
+        {...args}
+      />
+    );
+  };
 
 export const Default = Template.bind({});
 Default.args = {

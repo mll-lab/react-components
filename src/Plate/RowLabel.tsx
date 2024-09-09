@@ -1,9 +1,13 @@
 import React from 'react';
 
 import { PLATE_FLOW } from './constants';
+import { CoordinateSystem } from './types';
 import { rowForPosition } from './utils';
 
-export function RowLabel(props: { position: number }) {
+export function RowLabel(props: {
+  position: number;
+  coordinateSystem: CoordinateSystem;
+}) {
   return (
     <span
       style={{
@@ -12,7 +16,9 @@ export function RowLabel(props: { position: number }) {
         alignItems: 'center',
       }}
     >
-      <strong>{rowForPosition(props.position, PLATE_FLOW)}</strong>
+      <strong>
+        {rowForPosition(props.position, PLATE_FLOW, props.coordinateSystem)}
+      </strong>
     </span>
   );
 }
