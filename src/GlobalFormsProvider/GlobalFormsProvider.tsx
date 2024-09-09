@@ -1,4 +1,4 @@
-import { callSequentially } from '@mll-lab/js-utils';
+import { Maybe, callSequentially } from '@mll-lab/js-utils';
 import { sortBy } from 'lodash';
 import React, {
   PropsWithChildren,
@@ -19,13 +19,11 @@ export type GlobalFormsProviderProps = PropsWithChildren<unknown>;
 function findNextOrder(
   callbacks: Maybe<Record<string, CallbackWithOrder>>,
 ): number {
-  if (! callbacks) {
+  if (!callbacks) {
     return 1;
   }
 
-  const orders = Object.values(callbacks).map(
-    (callback) => callback.order,
-  );
+  const orders = Object.values(callbacks).map((callback) => callback.order);
   if (orders.length === 0) {
     return 1;
   }
