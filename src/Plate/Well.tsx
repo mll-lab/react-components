@@ -1,3 +1,4 @@
+import { Maybe } from '@mll-lab/js-utils';
 import React from 'react';
 
 import { EmptyWell } from './EmptyWell';
@@ -5,23 +6,25 @@ import { FilledWell } from './FilledWell';
 import { CoordinateSystem } from './coordinateSystem';
 import { PlateWell } from './types';
 
-export function Well(props: {
+export function Well({
+  coordinateSystem,
+  position,
+  well,
+  isDraggable,
+}: {
   coordinateSystem: CoordinateSystem;
   position: number;
-  well?: PlateWell;
+  well: Maybe<PlateWell>;
   isDraggable: boolean;
 }) {
-  return props.well?.content ? (
+  return well?.content ? (
     <FilledWell
-      well={props.well}
-      position={props.position}
-      isDraggable={props.isDraggable}
-      coordinateSystem={props.coordinateSystem}
+      well={well}
+      position={position}
+      isDraggable={isDraggable}
+      coordinateSystem={coordinateSystem}
     />
   ) : (
-    <EmptyWell
-      position={props.position}
-      coordinateSystem={props.coordinateSystem}
-    />
+    <EmptyWell position={position} coordinateSystem={coordinateSystem} />
   );
 }

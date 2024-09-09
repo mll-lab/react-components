@@ -58,7 +58,7 @@ export function Plate(props: PlateProps) {
             </span>
           ))}
 
-          {props.coordinateSystem.all().map((position) => (
+          {props.coordinateSystem.allPositions().map((position) => (
             <Fragment key={position}>
               {props.coordinateSystem.columnForRowFlowPosition(position) ===
                 1 && (
@@ -77,7 +77,7 @@ export function Plate(props: PlateProps) {
                         position,
                         props.data,
                       )
-                    : undefined
+                    : null
                 }
                 isDraggable={props.isDraggable ?? false}
               />

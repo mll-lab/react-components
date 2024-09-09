@@ -41,7 +41,7 @@ export function ensureCoordinatesInRange<
 
 export function assertUniquePositions(data: Array<PlateWell>): void {
   const positions = data.map(
-    (well) => `${well.coordinate.row}${well.coordinate.column}`,
+    (well) => `${well.coordinates.row}${well.coordinates.column}`,
   );
 
   if (uniq(positions).length !== data.length) {
@@ -56,11 +56,11 @@ export function assertDataCoordinatesAreInCoordinateSystem(
 ): void {
   plateProps.data?.forEach((well) => {
     if (
-      well.coordinate.coordinateSystem.constructor.name !==
+      well.coordinates.coordinateSystem.constructor.name !==
       plateProps.coordinateSystem.constructor.name
     ) {
       throw new Error(
-        `Property "data" contains records that are not of type "${plateProps.coordinateSystem.constructor.name}": "${well.coordinate.coordinateSystem.constructor.name}"`,
+        `Property "data" contains records that are not of type "${plateProps.coordinateSystem.constructor.name}": "${well.coordinates.coordinateSystem.constructor.name}"`,
       );
     }
   });

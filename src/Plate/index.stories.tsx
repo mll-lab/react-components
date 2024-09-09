@@ -4,9 +4,9 @@ import React from 'react';
 
 import { PALETTE } from '../theme';
 
-import { Coordinate } from './coordinate';
 import { CoordinateSystem12Well } from './coordinateSystem12Well';
 import { CoordinateSystem96Well } from './coordinateSystem96Well';
+import { Coordinates } from './coordinates';
 import { PlateProps, PlateWell } from './types';
 
 import { Plate } from './index';
@@ -21,20 +21,20 @@ export default {
 
 const data: Array<PlateWell> = [
   {
-    coordinate: new Coordinate('A', 6, new CoordinateSystem96Well()),
+    coordinates: new Coordinates('A', 6, new CoordinateSystem96Well()),
     content: <i>It renders any ReactNode</i>,
   },
   {
-    coordinate: new Coordinate('A', 7, new CoordinateSystem96Well()),
+    coordinates: new Coordinates('A', 7, new CoordinateSystem96Well()),
     content: 'Test',
     color: PALETTE.red,
   },
   {
-    coordinate: new Coordinate('B', 2, new CoordinateSystem96Well()),
+    coordinates: new Coordinates('B', 2, new CoordinateSystem96Well()),
     content: 'Some text',
   },
   {
-    coordinate: new Coordinate('C', 2, new CoordinateSystem96Well()),
+    coordinates: new Coordinates('C', 2, new CoordinateSystem96Well()),
     content: (
       <>
         <p>Kontrolle</p>
@@ -47,9 +47,9 @@ const data: Array<PlateWell> = [
 ];
 
 const rowFlowData: Array<PlateWell> = new CoordinateSystem12Well()
-  .all()
+  .allPositions()
   .map((well) => ({
-    coordinate: Coordinate.fromPosition(
+    coordinates: Coordinates.fromPosition(
       well,
       'row',
       new CoordinateSystem96Well(),
@@ -58,9 +58,9 @@ const rowFlowData: Array<PlateWell> = new CoordinateSystem12Well()
   }));
 
 const columnFlowData: Array<PlateWell> = new CoordinateSystem96Well()
-  .all()
+  .allPositions()
   .map((well) => ({
-    coordinate: Coordinate.fromPosition(
+    coordinates: Coordinates.fromPosition(
       well,
       'column',
       new CoordinateSystem96Well(),

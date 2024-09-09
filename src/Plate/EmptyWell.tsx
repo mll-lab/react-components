@@ -6,16 +6,22 @@ import { PALETTE } from '../theme';
 import { CoordinateSystem } from './coordinateSystem';
 import { GENERAL_WELL_STYLE } from './wellUtils';
 
-export function EmptyWell(props: {
+export function EmptyWell({
+  position,
+  coordinateSystem,
+}: {
   position: number;
   coordinateSystem: CoordinateSystem;
 }) {
+  const row = coordinateSystem.rowForRowFlowPosition(position);
+  const column = coordinateSystem.columnForRowFlowPosition(position);
+
   const { setNodeRef, isOver } = useDroppable({
-    id: props.position,
+    id: position,
     data: {
       coordinates: {
-        row: props.coordinateSystem.rowForRowFlowPosition(props.position),
-        column: props.coordinateSystem.columnForRowFlowPosition(props.position),
+        row,
+        column,
       },
     },
   });
@@ -32,10 +38,7 @@ export function EmptyWell(props: {
         alignItems: 'center',
       }}
     >
-      <small>
-        {props.coordinateSystem.rowForRowFlowPosition(props.position) +
-          props.coordinateSystem.columnForRowFlowPosition(props.position)}
-      </small>
+      <small>{row + column}</small>
     </div>
   );
 }

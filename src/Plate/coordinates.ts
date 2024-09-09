@@ -1,7 +1,7 @@
 import { CoordinateSystem } from './coordinateSystem';
 import { CoordinatesXXXX, FlowDirection } from './types';
 
-export class Coordinate {
+export class Coordinates {
   public row: CoordinatesXXXX['row'];
 
   public column: CoordinatesXXXX['column'];
@@ -37,7 +37,7 @@ export class Coordinate {
   static fromString(
     coordinateString: string,
     coordinateSystem: CoordinateSystem,
-  ): Coordinate {
+  ): Coordinates {
     const rows = coordinateSystem.rows();
     const rowsOptions = rows.join('|');
 
@@ -77,7 +77,7 @@ export class Coordinate {
     position: number,
     direction: FlowDirection,
     coordinateSystem: CoordinateSystem,
-  ): Coordinate {
+  ): Coordinates {
     this.assertPositionInRange(coordinateSystem, position);
 
     switch (direction) {
@@ -116,10 +116,10 @@ export class Coordinate {
     coordinateSystem: CoordinateSystem,
     position: number,
   ): void {
-    if (!coordinateSystem.all().includes(position)) {
+    if (!coordinateSystem.allPositions().includes(position)) {
       throw new Error(
         `Expected a position between ${
-          coordinateSystem.all()[0]
+          coordinateSystem.allPositions()[0]
         } - ${coordinateSystem.positionsCount()}, got: ${position}.`,
       );
     }
