@@ -32,13 +32,7 @@ export const GlobalFormsContext = React.createContext<GlobalFormsContextType>({
 });
 
 export function useGlobalForms() {
-  const { isSubmitting, reset, submit } = useContext(GlobalFormsContext);
-
-  return {
-    isSubmitting,
-    reset,
-    submit,
-  };
+  return useContext(GlobalFormsContext);
 }
 
 export function normalizeFormInfo(form: FormInfoObjectOrString): FormInfo {
