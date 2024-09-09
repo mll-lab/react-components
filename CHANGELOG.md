@@ -1,3 +1,15 @@
+# [18.0.0](https://github.com/mll-lab/react-components/compare/v17.5.0...v18.0.0) (2024-09-09)
+
+
+### Features
+
+* support Plates with other coordinate systems then 96 wells ([#281](https://github.com/mll-lab/react-components/issues/281)) ([b6eaf5a](https://github.com/mll-lab/react-components/commit/b6eaf5abdf8fddd6012d64b1fb9dadcf72ec4f0e))
+
+
+### BREAKING CHANGES
+
+* require explicit coordinate system value and type instead of implicit 96 well
+
 # [17.5.0](https://github.com/mll-lab/react-components/compare/v17.4.0...v17.5.0) (2024-09-09)
 
 
