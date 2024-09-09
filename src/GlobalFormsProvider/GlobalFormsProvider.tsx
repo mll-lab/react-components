@@ -17,9 +17,13 @@ import {
 export type GlobalFormsProviderProps = PropsWithChildren<unknown>;
 
 function findNextOrder(
-  callbacks: Record<string, CallbackWithOrder> | undefined,
+  callbacks: Maybe<Record<string, CallbackWithOrder>>,
 ): number {
-  const orders = Object.values(callbacks ?? {}).map(
+  if (! callbacks) {
+    return 1;
+  }
+
+  const orders = Object.values(callbacks).map(
     (callback) => callback.order,
   );
   if (orders.length === 0) {
