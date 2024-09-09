@@ -1,122 +1,158 @@
-import { uniq } from 'lodash';
+import { Maybe } from '@mll-lab/js-utils';
+import { range, uniq } from 'lodash';
 
-import { COORDINATES_COLUMNS, COORDINATES_ROWS } from './constants';
-import { Coordinates, FlowDirection, PlateWell } from './types';
+import {
+  Coordinates,
+  CoordinateSystem,
+  FlowDirection,
+  PlateWell,
+} from './types';
 
-export function rowForPosition(
+export function rowForPosition<TCoordinateSystem extends CoordinateSystem>(
   position: number,
   flowDirection: FlowDirection,
-): Coordinates['row'] {
+  coordinateSystem: TCoordinateSystem,
+): Coordinates<TCoordinateSystem>['row'] {
   switch (flowDirection) {
     case 'row':
-      return COORDINATES_ROWS[
-        Math.floor((position - 1) / COORDINATES_COLUMNS.length)
+      return coordinateSystem.rows[
+        Math.floor((position - 1) / coordinateSystem.columns.length)
       ]!;
     case 'column':
-      return COORDINATES_ROWS[(position - 1) % COORDINATES_ROWS.length]!;
-    default:
-      throw new Error(`Unknown flow direction: ${flowDirection as string}`);
-  }
-}
-
-export function columnForPosition(
-  position: number,
-  flowDirection: FlowDirection,
-): Coordinates['column'] {
-  switch (flowDirection) {
-    case 'row':
-      return COORDINATES_COLUMNS[(position - 1) % COORDINATES_COLUMNS.length]!;
-    case 'column':
-      return COORDINATES_COLUMNS[
-        Math.floor((position - 1) / COORDINATES_ROWS.length)
+      return coordinateSystem.rows[
+        (position - 1) % coordinateSystem.rows.length
       ]!;
     default:
       throw new Error(`Unknown flow direction: ${flowDirection as string}`);
   }
 }
 
-export function coordinatesForPosition(
+export function columnForPosition<TCoordinateSystem extends CoordinateSystem>(
   position: number,
   flowDirection: FlowDirection,
-): Coordinates {
+  coordinateSystem: TCoordinateSystem,
+): Coordinates<TCoordinateSystem>['column'] {
+  switch (flowDirection) {
+    case 'row':
+      return coordinateSystem.columns[
+        (position - 1) % coordinateSystem.columns.length
+      ]!;
+    case 'column':
+      return coordinateSystem.columns[
+        Math.floor((position - 1) / coordinateSystem.rows.length)
+      ]!;
+    default:
+      throw new Error(`Unknown flow direction: ${flowDirection as string}`);
+  }
+}
+
+export function coordinatesForPosition<
+  TCoordinateSystem extends CoordinateSystem,
+>(
+  position: number,
+  flowDirection: FlowDirection,
+  coordinateSystem: TCoordinateSystem,
+): Coordinates<TCoordinateSystem> {
   return {
-    row: rowForPosition(position, flowDirection),
-    column: columnForPosition(position, flowDirection),
+    row: rowForPosition(position, flowDirection, coordinateSystem),
+    column: columnForPosition(position, flowDirection, coordinateSystem),
   };
 }
 
-export function positionForCoordinates(
-  coordinates: Coordinates,
+export function positionForCoordinates<
+  TCoordinateSystem extends CoordinateSystem,
+>(
+  coordinates: Coordinates<TCoordinateSystem>,
   flowDirection: FlowDirection,
+  coordinateSystem: TCoordinateSystem,
 ): number {
-  const rowIndex = COORDINATES_ROWS.indexOf(coordinates.row);
-  const columnIndex = COORDINATES_COLUMNS.indexOf(coordinates.column);
+  const rowIndex = coordinateSystem.rows.indexOf(coordinates.row);
+  const columnIndex = coordinateSystem.columns.indexOf(coordinates.column);
 
   switch (flowDirection) {
     case 'row':
-      return rowIndex * COORDINATES_COLUMNS.length + columnIndex + 1;
+      return rowIndex * coordinateSystem.columns.length + columnIndex + 1;
     case 'column':
-      return columnIndex * COORDINATES_ROWS.length + rowIndex + 1;
+      return columnIndex * coordinateSystem.rows.length + rowIndex + 1;
     default:
       throw new Error(`Unknown flow direction: ${flowDirection as string}`);
   }
 }
 
-export function wellAtPosition(
+export function wellAtPosition<TCoordinateSystem extends CoordinateSystem>(
   position: number,
-  data: Array<PlateWell>,
+  data: Array<PlateWell<TCoordinateSystem>>,
   flowDirection: FlowDirection,
-): PlateWell | undefined {
+  coordinateSystem: TCoordinateSystem,
+): Maybe<PlateWell<TCoordinateSystem>> {
   return data.find(
     (well) =>
-      well.coordinates.row === rowForPosition(position, flowDirection) &&
-      well.coordinates.column === columnForPosition(position, flowDirection),
+      well.coordinates.row ===
+        rowForPosition(position, flowDirection, coordinateSystem) &&
+      well.coordinates.column ===
+        columnForPosition(position, flowDirection, coordinateSystem),
   );
 }
 
-export function convertPositionFromColumnToRowFlow(position: number): number {
-  const coordinates = coordinatesForPosition(position, 'column');
+export function convertPositionFromColumnToRowFlow(
+  position: number,
+  coordinateSystem: CoordinateSystem,
+): number {
+  const coordinates = coordinatesForPosition(
+    position,
+    'column',
+    coordinateSystem,
+  );
 
-  return positionForCoordinates(coordinates, 'row');
+  return positionForCoordinates(coordinates, 'row', coordinateSystem);
 }
 
-export function convertPositionFromRowToColumnFlow(position: number): number {
-  const coordinates = coordinatesForPosition(position, 'row');
+export function convertPositionFromRowToColumnFlow(
+  position: number,
+  coordinateSystem: CoordinateSystem,
+): number {
+  const coordinates = coordinatesForPosition(position, 'row', coordinateSystem);
 
-  return positionForCoordinates(coordinates, 'column');
+  return positionForCoordinates(coordinates, 'column', coordinateSystem);
 }
 
 export function areEqualCoordinates<
-  A extends Coordinates,
-  B extends Coordinates,
+  A extends Coordinates<TCoordinateSystem>,
+  B extends Coordinates<TCoordinateSystem>,
+  TCoordinateSystem extends CoordinateSystem,
 >(a: A, b: B): boolean {
   return a.row === b.row && a.column === b.column;
 }
 
 export function ensureCoordinatesInRange<
-  T extends {
-    row: string;
-    column: number;
-  },
->(coordinates: T): T & Coordinates {
-  if (!COORDINATES_ROWS.includes(coordinates.row as Coordinates['row'])) {
+  T extends Coordinates<CoordinateSystem>,
+  TCoordinateSystem extends CoordinateSystem,
+>(
+  coordinates: T,
+  coordinateSystem: TCoordinateSystem,
+): T & Coordinates<TCoordinateSystem> {
+  if (!coordinateSystem.rows.includes(coordinates.row)) {
     throw new Error(
-      `The given coordinates row ${coordinates.row} is not in range A-H.`,
+      `The given coordinates row ${
+        coordinates.row
+      } is not in range ${coordinateSystem.rows.join(',')}.`,
     );
   }
 
-  if (
-    !COORDINATES_COLUMNS.includes(coordinates.column as Coordinates['column'])
-  ) {
+  if (!coordinateSystem.columns.includes(coordinates.column)) {
     throw new Error(
-      `The given coordinates column ${coordinates.column} is not in range 1-12.`,
+      `The given coordinates column ${
+        coordinates.column
+      } is not in range ${coordinateSystem.columns.join(',')}.`,
     );
   }
 
-  return coordinates as T & Coordinates;
+  return coordinates as T & Coordinates<TCoordinateSystem>;
 }
 
-export function assertUniquePositions(data: Array<PlateWell>): void {
+export function assertUniquePositions(
+  data: Array<PlateWell<CoordinateSystem>>,
+): void {
   const positions = data.map(
     (well) => `${well.coordinates.row}${well.coordinates.column}`,
   );
@@ -126,4 +162,13 @@ export function assertUniquePositions(data: Array<PlateWell>): void {
       'Property "data" contains records with non-unique positions.',
     );
   }
+}
+
+export function allCoordinateSystemPositions(
+  coordinateSystem: CoordinateSystem,
+): Array<number> {
+  return range(
+    1,
+    coordinateSystem.rows.length * coordinateSystem.columns.length + 1,
+  );
 }

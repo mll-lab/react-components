@@ -1,21 +1,28 @@
 import { Props } from '@dnd-kit/core/dist/components/DndContext/DndContext';
+import { Maybe } from '@mll-lab/js-utils';
 import { ReactNode } from 'react';
 
-export type Coordinates = {
-  row: 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H';
-  column: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+export type Coordinates<TCoordinateSystem extends CoordinateSystem> = {
+  row: TCoordinateSystem['rows'][number];
+  column: TCoordinateSystem['columns'][number];
 };
 
 export type FlowDirection = 'row' | 'column';
 
-export type PlateWell = {
-  coordinates: Coordinates;
+export type PlateWell<TCoordinateSystem extends CoordinateSystem> = {
+  coordinates: Coordinates<TCoordinateSystem>;
   content?: ReactNode;
   color?: string;
 };
 
-export type PlateProps = {
-  data: Array<PlateWell> | null;
+export type CoordinateSystem = {
+  rows: Array<string>;
+  columns: Array<number>;
+};
+
+export type PlateProps<TCoordinateSystem extends CoordinateSystem> = {
+  data: Maybe<Array<PlateWell<TCoordinateSystem>>>;
+  coordinateSystem: TCoordinateSystem;
   loading?: boolean;
   /** Activates DragAndDrop of the wells */
   isDraggable?: boolean;

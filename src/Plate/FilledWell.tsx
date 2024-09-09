@@ -5,19 +5,24 @@ import React from 'react';
 import { PALETTE } from '../theme';
 
 import { PLATE_FLOW } from './constants';
-import { PlateWell } from './types';
+import { CoordinateSystem, PlateWell } from './types';
 import { columnForPosition, rowForPosition } from './utils';
 import { GENERAL_WELL_STYLE } from './wellUtils';
 
-export function FilledWell(props: {
-  well: PlateWell;
+export function FilledWell<TCoordinateSystem extends CoordinateSystem>(props: {
+  well: PlateWell<TCoordinateSystem>;
+  coordinateSystem: TCoordinateSystem;
   position: number;
   isDraggable: boolean;
 }) {
   const data = {
     coordinates: {
-      row: rowForPosition(props.position, PLATE_FLOW),
-      column: columnForPosition(props.position, PLATE_FLOW),
+      row: rowForPosition(props.position, PLATE_FLOW, props.coordinateSystem),
+      column: columnForPosition(
+        props.position,
+        PLATE_FLOW,
+        props.coordinateSystem,
+      ),
     },
   };
 

@@ -1,3 +1,7 @@
+import {
+  COORDINATE_SYSTEM_96_WELL,
+  CoordinateSystem96Well,
+} from './coordinateSystem96Well';
 import { Coordinates } from './types';
 import {
   areEqualCoordinates,
@@ -73,65 +77,100 @@ const data = [
 
 describe.each(data)('rowForPosition', (dataSet) => {
   it('provides the row for a position depending on the flow', () => {
-    expect(rowForPosition(dataSet.rowFlowPosition, 'row')).toBe(dataSet.row);
-    expect(rowForPosition(dataSet.columnFlowPosition, 'column')).toBe(
-      dataSet.row,
-    );
+    expect(
+      rowForPosition(dataSet.rowFlowPosition, 'row', COORDINATE_SYSTEM_96_WELL),
+    ).toBe(dataSet.row);
+    expect(
+      rowForPosition(
+        dataSet.columnFlowPosition,
+        'column',
+        COORDINATE_SYSTEM_96_WELL,
+      ),
+    ).toBe(dataSet.row);
   });
 });
 
 describe.each(data)('columnForPosition', (dataSet) => {
   it('provides the column for a position depending on the flow', () => {
-    expect(columnForPosition(dataSet.rowFlowPosition, 'row')).toBe(
-      dataSet.column,
-    );
-    expect(columnForPosition(dataSet.columnFlowPosition, 'column')).toBe(
-      dataSet.column,
-    );
+    expect(
+      columnForPosition(
+        dataSet.rowFlowPosition,
+        'row',
+        COORDINATE_SYSTEM_96_WELL,
+      ),
+    ).toBe(dataSet.column);
+    expect(
+      columnForPosition(
+        dataSet.columnFlowPosition,
+        'column',
+        COORDINATE_SYSTEM_96_WELL,
+      ),
+    ).toBe(dataSet.column);
   });
 });
 
 describe.each(data)('convertPositionFromColumnToRowFlow', (dataSet) => {
   it(`converts ${dataSet.columnFlowPosition} to ${dataSet.rowFlowPosition}`, () => {
-    expect(convertPositionFromColumnToRowFlow(dataSet.columnFlowPosition)).toBe(
-      dataSet.rowFlowPosition,
-    );
+    expect(
+      convertPositionFromColumnToRowFlow(
+        dataSet.columnFlowPosition,
+        COORDINATE_SYSTEM_96_WELL,
+      ),
+    ).toBe(dataSet.rowFlowPosition);
   });
 });
 
 describe.each(data)('convertPositionFromRowToColumnFlow', (dataSet) => {
   it(`converts ${dataSet.rowFlowPosition} to ${dataSet.columnFlowPosition}`, () => {
-    expect(convertPositionFromRowToColumnFlow(dataSet.rowFlowPosition)).toBe(
-      dataSet.columnFlowPosition,
-    );
+    expect(
+      convertPositionFromRowToColumnFlow(
+        dataSet.rowFlowPosition,
+        COORDINATE_SYSTEM_96_WELL,
+      ),
+    ).toBe(dataSet.columnFlowPosition);
   });
 });
 
 describe('ensureCoordinatesInRange', () => {
   it('throws on invalid rows', () => {
-    expect(() => ensureCoordinatesInRange({ row: 'X', column: 2 })).toThrow();
+    expect(() =>
+      ensureCoordinatesInRange(
+        { row: 'X', column: 2 },
+        COORDINATE_SYSTEM_96_WELL,
+      ),
+    ).toThrow();
   });
 
   it('throws on invalid columns', () => {
-    expect(() => ensureCoordinatesInRange({ row: 'B', column: 23 })).toThrow();
+    expect(() =>
+      ensureCoordinatesInRange(
+        { row: 'B', column: 23 },
+        COORDINATE_SYSTEM_96_WELL,
+      ),
+    ).toThrow();
   });
 
   it('works with valid coordinates', () => {
-    const coordinates: Coordinates = { row: 'A', column: 3 };
-    expect(ensureCoordinatesInRange(coordinates)).toBe(coordinates);
+    const coordinates: Coordinates<CoordinateSystem96Well> = {
+      row: 'A',
+      column: 3,
+    };
+    expect(
+      ensureCoordinatesInRange(coordinates, COORDINATE_SYSTEM_96_WELL),
+    ).toBe(coordinates);
   });
 });
 
 describe('areEqualCoordinates', () => {
   it('match', () => {
-    const a: Coordinates = { row: 'A', column: 2 };
+    const a: Coordinates<CoordinateSystem96Well> = { row: 'A', column: 2 };
     expect(areEqualCoordinates(a, a)).toBe(true);
     expect(areEqualCoordinates(a, { ...a, foo: 'bar' })).toBe(true);
   });
 
   it('no match', () => {
-    const a: Coordinates = { row: 'A', column: 2 };
-    const b: Coordinates = { row: 'B', column: 3 };
+    const a: Coordinates<CoordinateSystem96Well> = { row: 'A', column: 2 };
+    const b: Coordinates<CoordinateSystem96Well> = { row: 'B', column: 3 };
     expect(areEqualCoordinates(a, b)).toBe(false);
     expect(areEqualCoordinates(a, { ...b, foo: 'bar' })).toBe(false);
   });

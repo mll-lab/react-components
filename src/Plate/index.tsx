@@ -6,19 +6,24 @@ import { MllSpinnerIcon } from '../Spinner';
 
 import { RowLabel } from './RowLabel';
 import { Well } from './Well';
-import { COORDINATES_COLUMNS, PLATE_FLOW, WELLS } from './constants';
-import { PlateProps } from './types';
+import { PLATE_FLOW } from './constants';
+import { CoordinateSystem, PlateProps } from './types';
 import {
+  allCoordinateSystemPositions,
   assertUniquePositions,
   columnForPosition,
   wellAtPosition,
 } from './utils';
 
 export * from './constants';
+export * from './coordinateSystem96Well';
 export * from './types';
 export * from './utils';
+export { GENERAL_WELL_STYLE } from './wellUtils';
 
-export function Plate(props: PlateProps) {
+export function Plate<TCoordinateSystem extends CoordinateSystem>(
+  props: PlateProps<TCoordinateSystem>,
+) {
   if (props.data) {
     assertUniquePositions(props.data);
   }
@@ -39,14 +44,14 @@ export function Plate(props: PlateProps) {
           style={{
             display: 'grid',
             gridTemplateColumns: `1fr ${'4fr '.repeat(
-              COORDINATES_COLUMNS.length,
+              props.coordinateSystem.columns.length,
             )}`,
             gridGap: '3px',
           }}
         >
           <span />
 
-          {COORDINATES_COLUMNS.map((column) => (
+          {props.coordinateSystem.columns.map((column) => (
             <span
               style={{
                 display: 'flex',
@@ -59,26 +64,40 @@ export function Plate(props: PlateProps) {
             </span>
           ))}
 
-          {WELLS.map((position) => (
-            <Fragment key={position}>
-              {columnForPosition(position, PLATE_FLOW) === 1 && (
-                <RowLabel position={position} />
-              )}
+          {allCoordinateSystemPositions(props.coordinateSystem).map(
+            (position) => (
+              <Fragment key={position}>
+                {columnForPosition(
+                  position,
+                  PLATE_FLOW,
+                  props.coordinateSystem,
+                ) === 1 && (
+                  <RowLabel
+                    position={position}
+                    coordinateSystem={props.coordinateSystem}
+                  />
+                )}
 
-              <Well
-                position={position}
-                well={
-                  props.data
-                    ? wellAtPosition(position, props.data, PLATE_FLOW)
-                    : undefined
-                }
-                isDraggable={props.isDraggable ?? false}
-              />
-            </Fragment>
-          ))}
+                <Well
+                  position={position}
+                  coordinateSystem={props.coordinateSystem}
+                  well={
+                    props.data
+                      ? wellAtPosition(
+                          position,
+                          props.data,
+                          PLATE_FLOW,
+                          props.coordinateSystem,
+                        )
+                      : null
+                  }
+                  isDraggable={props.isDraggable ?? false}
+                />
+              </Fragment>
+            ),
+          )}
         </div>
       </Spin>
     </DndContext>
   );
 }
-export { GENERAL_WELL_STYLE } from './wellUtils';
