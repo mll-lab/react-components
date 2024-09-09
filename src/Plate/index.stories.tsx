@@ -9,7 +9,7 @@ import {
   CoordinateSystem96Well,
 } from './coordinateSystem96Well';
 import { PlateProps, PlateWell } from './types';
-import { allPositions, coordinatesForPosition } from './utils';
+import { allCoordinateSystemPositions, coordinatesForPosition } from './utils';
 
 import { Plate } from './index';
 
@@ -60,7 +60,7 @@ const data: Array<PlateWell<CoordinateSystem96Well>> = [
   },
 ];
 
-const COORDINATE_SYSTEM_96_WELL_POSITIONS = allPositions(
+const COORDINATE_SYSTEM_96_WELL_POSITIONS = allCoordinateSystemPositions(
   COORDINATE_SYSTEM_96_WELL,
 );
 

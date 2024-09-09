@@ -164,7 +164,7 @@ export function assertUniquePositions(
   }
 }
 
-export function allPositions(
+export function allCoordinateSystemPositions(
   coordinateSystem: CoordinateSystem,
 ): Array<number> {
   return range(

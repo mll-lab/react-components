@@ -9,7 +9,7 @@ import { Well } from './Well';
 import { PLATE_FLOW } from './constants';
 import { CoordinateSystem, PlateProps } from './types';
 import {
-  allPositions,
+  allCoordinateSystemPositions,
   assertUniquePositions,
   columnForPosition,
   wellAtPosition,
@@ -64,36 +64,38 @@ export function Plate<TCoordinateSystem extends CoordinateSystem>(
             </span>
           ))}
 
-          {allPositions(props.coordinateSystem).map((position) => (
-            <Fragment key={position}>
-              {columnForPosition(
-                position,
-                PLATE_FLOW,
-                props.coordinateSystem,
-              ) === 1 && (
-                <RowLabel
+          {allCoordinateSystemPositions(props.coordinateSystem).map(
+            (position) => (
+              <Fragment key={position}>
+                {columnForPosition(
+                  position,
+                  PLATE_FLOW,
+                  props.coordinateSystem,
+                ) === 1 && (
+                  <RowLabel
+                    position={position}
+                    coordinateSystem={props.coordinateSystem}
+                  />
+                )}
+
+                <Well
                   position={position}
                   coordinateSystem={props.coordinateSystem}
+                  well={
+                    props.data
+                      ? wellAtPosition(
+                          position,
+                          props.data,
+                          PLATE_FLOW,
+                          props.coordinateSystem,
+                        )
+                      : null
+                  }
+                  isDraggable={props.isDraggable ?? false}
                 />
-              )}
-
-              <Well
-                position={position}
-                coordinateSystem={props.coordinateSystem}
-                well={
-                  props.data
-                    ? wellAtPosition(
-                        position,
-                        props.data,
-                        PLATE_FLOW,
-                        props.coordinateSystem,
-                      )
-                    : null
-                }
-                isDraggable={props.isDraggable ?? false}
-              />
-            </Fragment>
-          ))}
+              </Fragment>
+            ),
+          )}
         </div>
       </Spin>
     </DndContext>
