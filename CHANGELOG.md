@@ -1,3 +1,10 @@
+# [18.1.0](https://github.com/mll-lab/react-components/compare/v18.0.0...v18.1.0) (2024-09-10)
+
+
+### Features
+
+* add allCoordinateSystemCoordinates ([aad4eb2](https://github.com/mll-lab/react-components/commit/aad4eb297538fc16105d806fcfde87ef30f965cc))
+
 # [18.0.0](https://github.com/mll-lab/react-components/compare/v17.5.0...v18.0.0) (2024-09-09)
 
 
