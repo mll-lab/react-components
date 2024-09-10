@@ -172,3 +172,20 @@ export function allCoordinateSystemPositions(
     coordinateSystem.rows.length * coordinateSystem.columns.length + 1,
   );
 }
+
+export function allCoordinateSystemCoordinates<
+  TCoordinateSystem extends CoordinateSystem,
+>(
+  coordinateSystem: TCoordinateSystem,
+  flowDirection: FlowDirection,
+): Array<Coordinates<TCoordinateSystem>> {
+  if (flowDirection === 'column') {
+    return coordinateSystem.rows
+      .map((row) => coordinateSystem.columns.map((column) => ({ row, column })))
+      .flat();
+  }
+
+  return coordinateSystem.columns
+    .map((column) => coordinateSystem.rows.map((row) => ({ row, column })))
+    .flat();
+}

@@ -2,8 +2,10 @@ import {
   COORDINATE_SYSTEM_96_WELL,
   CoordinateSystem96Well,
 } from './coordinateSystem96Well';
-import { Coordinates } from './types';
+import { Coordinates, CoordinateSystem } from './types';
 import {
+  allCoordinateSystemCoordinates,
+  allCoordinateSystemPositions,
   areEqualCoordinates,
   columnForPosition,
   convertPositionFromColumnToRowFlow,
@@ -173,5 +175,42 @@ describe('areEqualCoordinates', () => {
     const b: Coordinates<CoordinateSystem96Well> = { row: 'B', column: 3 };
     expect(areEqualCoordinates(a, b)).toBe(false);
     expect(areEqualCoordinates(a, { ...b, foo: 'bar' })).toBe(false);
+  });
+});
+
+const COORDINATE_SYSTEM_2_BY_2 = {
+  rows: ['A', 'B'],
+  columns: [1, 2],
+} as const satisfies CoordinateSystem;
+
+describe('allCoordinateSystemPositions', () => {
+  it('returns an array of all positions in a coordinate systems', () => {
+    expect(allCoordinateSystemPositions(COORDINATE_SYSTEM_2_BY_2)).toEqual([
+      1, 2, 3, 4,
+    ]);
+  });
+});
+
+describe('allCoordinateSystemCoordinates', () => {
+  it('returns an array of all coordinates in column flow', () => {
+    expect(
+      allCoordinateSystemCoordinates(COORDINATE_SYSTEM_2_BY_2, 'column'),
+    ).toEqual([
+      { row: 'A', column: 1 },
+      { row: 'A', column: 2 },
+      { row: 'B', column: 1 },
+      { row: 'B', column: 2 },
+    ]);
+  });
+
+  it('returns an array of all coordinates in row flow', () => {
+    expect(
+      allCoordinateSystemCoordinates(COORDINATE_SYSTEM_2_BY_2, 'row'),
+    ).toEqual([
+      { row: 'A', column: 1 },
+      { row: 'B', column: 1 },
+      { row: 'A', column: 2 },
+      { row: 'B', column: 2 },
+    ]);
   });
 });
