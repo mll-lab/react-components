@@ -1,3 +1,10 @@
+## [18.2.1](https://github.com/mll-lab/react-components/compare/v18.2.0...v18.2.1) (2024-09-13)
+
+
+### Bug Fixes
+
+* add export for coordinate system 2x16 ([b5b4c86](https://github.com/mll-lab/react-components/commit/b5b4c869dba28cac18c32974e3da9ab7d4e04f9c))
+
 # [18.2.0](https://github.com/mll-lab/react-components/compare/v18.1.0...v18.2.0) (2024-09-13)
 
 
