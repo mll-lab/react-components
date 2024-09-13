@@ -1,3 +1,10 @@
+# [18.2.0](https://github.com/mll-lab/react-components/compare/v18.1.0...v18.2.0) (2024-09-13)
+
+
+### Features
+
+* add 2x16 coordinate system for plates ([3cde81d](https://github.com/mll-lab/react-components/commit/3cde81dc2c99328faf1db2e43fef478191aa15b7))
+
 # [18.1.0](https://github.com/mll-lab/react-components/compare/v18.0.0...v18.1.0) (2024-09-10)
 
 
