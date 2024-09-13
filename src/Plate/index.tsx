@@ -17,6 +17,7 @@ import {
 
 export * from './constants';
 export * from './coordinateSystem96Well';
+export * from './coordinateSystem2x16';
 export * from './types';
 export * from './utils';
 export { GENERAL_WELL_STYLE } from './wellUtils';
