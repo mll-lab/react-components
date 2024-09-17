@@ -1,3 +1,10 @@
+## [18.2.2-alpha.1](https://github.com/mll-lab/react-components/compare/v18.2.1...v18.2.2-alpha.1) (2024-09-17)
+
+
+### Bug Fixes
+
+* avoid Table with no data overlay covering other elements ([3ff6b5c](https://github.com/mll-lab/react-components/commit/3ff6b5c4f45e717bf6ec228209cb3aafb854fb13))
+
 ## [18.2.1](https://github.com/mll-lab/react-components/compare/v18.2.0...v18.2.1) (2024-09-13)
 
 
