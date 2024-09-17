@@ -30,27 +30,27 @@ const StyledTable = styled(AntdTable)`
     font-size: ${fontSizeFromTheme};
   }
 
-  ${(props) => {
+  /* Avoid raising the "Keine Daten" overlay above elements such as the menu or dropdown, which have z-index 1050 */
+  .mll-ant-table-placeholder {
+    z-index: 1049 !important;
+  }
+
+  ${(props) =>
     // @ts-expect-error TODO it seems unsafe to pass empty data to onRow?
-    if (props.onRow?.({})?.onClick) {
-      return `
+    props.onRow?.({})?.onClick
+      ? `
         tbody tr:hover {
           cursor: pointer;
         }
-        `;
-    }
-
-    return '';
-  }}
+        `
+      : ''}
 ` as <RecordType extends Record<string, unknown> = Record<string, unknown>>(
   props: TableProps<RecordType>,
 ) => ReactElement;
 
 export function Table<
   RecordType extends Record<string, unknown> = Record<string, unknown>,
->(props: TableProps<RecordType>) {
-  const { loading, ...rest } = props;
-
+>({ loading, ...rest }: TableProps<RecordType>) {
   return (
     <StyledTable
       rowKey="id"
@@ -58,7 +58,7 @@ export function Table<
       loading={
         typeof loading === 'object'
           ? {
-              spinning: Boolean(loading.spinning),
+              ...loading,
               indicator: loading.indicator ?? MllSpinnerSvg,
               size: loading.size ?? 'large',
             }
@@ -72,9 +72,7 @@ export function Table<
   );
 }
 
-/**
- * ag-grid like variant of the default table, has more contrast with other page elements.
- */
+/** ag-grid like variant of the default table, has more contrast with other page elements. */
 export const ColoredTable = styled(Table)`
   /* Always surround the entire table with a border */
   border: 1px solid ${(props) => props.theme.borderColor};
