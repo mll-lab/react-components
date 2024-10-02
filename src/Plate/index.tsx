@@ -16,7 +16,7 @@ import {
 } from './utils';
 
 export * from './constants';
-export * from './coordinateSystem96Well';
+export * from './coordinateSystem12x8';
 export * from './coordinateSystem2x16';
 export * from './types';
 export * from './utils';
