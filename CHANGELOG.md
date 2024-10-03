@@ -1,3 +1,15 @@
+# [19.0.0](https://github.com/mll-lab/react-components/compare/v18.2.2...v19.0.0) (2024-10-03)
+
+
+### Features
+
+* add COORDINATE_SYSTEM_12X8, CoordinateSystem12X8 ([8c1d573](https://github.com/mll-lab/react-components/commit/8c1d573563c2792473ea5ccb2cd93c1aca0e2bf1))
+
+
+### BREAKING CHANGES
+
+* rename COORDINATE_SYSTEM_96_WELL,CoordinateSystem96Well
+
 ## [18.2.2](https://github.com/mll-lab/react-components/compare/v18.2.1...v18.2.2) (2024-09-20)
 
 
