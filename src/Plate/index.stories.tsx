@@ -6,7 +6,7 @@ import { PALETTE } from '../theme';
 
 import {
   COORDINATE_SYSTEM_12X8,
-  CoordinateSystem12X8,
+  CoordinateSystem12x8,
 } from './coordinateSystem12x8';
 import { PlateProps, PlateWell } from './types';
 import { allCoordinateSystemPositions, coordinatesForPosition } from './utils';
@@ -21,7 +21,7 @@ export default {
   },
 };
 
-const data: Array<PlateWell<CoordinateSystem12X8>> = [
+const data: Array<PlateWell<CoordinateSystem12x8>> = [
   {
     coordinates: {
       row: COORDINATE_SYSTEM_12X8.rows[0],
@@ -64,19 +64,19 @@ const COORDINATE_SYSTEM_96_WELL_POSITIONS = allCoordinateSystemPositions(
   COORDINATE_SYSTEM_12X8,
 );
 
-const rowFlowData: Array<PlateWell<CoordinateSystem12X8>> =
+const rowFlowData: Array<PlateWell<CoordinateSystem12x8>> =
   COORDINATE_SYSTEM_96_WELL_POSITIONS.map((well) => ({
     coordinates: coordinatesForPosition(well, 'row', COORDINATE_SYSTEM_12X8),
     content: well,
   }));
 
-const columnFlowData: Array<PlateWell<CoordinateSystem12X8>> =
+const columnFlowData: Array<PlateWell<CoordinateSystem12x8>> =
   COORDINATE_SYSTEM_96_WELL_POSITIONS.map((well) => ({
     coordinates: coordinatesForPosition(well, 'column', COORDINATE_SYSTEM_12X8),
     content: well,
   }));
 
-const Template: Story<Partial<PlateProps<CoordinateSystem12X8>>> =
+const Template: Story<Partial<PlateProps<CoordinateSystem12x8>>> =
   function Template(args) {
     return (
       <Plate

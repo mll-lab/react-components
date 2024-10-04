@@ -5,4 +5,4 @@ export const COORDINATE_SYSTEM_12X8 = {
   columns: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
 } as const satisfies CoordinateSystem;
 
-export type CoordinateSystem12X8 = typeof COORDINATE_SYSTEM_12X8;
+export type CoordinateSystem12x8 = typeof COORDINATE_SYSTEM_12X8;

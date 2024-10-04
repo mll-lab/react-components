@@ -1,6 +1,6 @@
 import {
   COORDINATE_SYSTEM_12X8,
-  CoordinateSystem12X8,
+  CoordinateSystem12x8,
 } from './coordinateSystem12x8';
 import { Coordinates, CoordinateSystem } from './types';
 import {
@@ -146,7 +146,7 @@ describe('ensureCoordinatesInRange', () => {
   });
 
   it('works with valid coordinates', () => {
-    const coordinates: Coordinates<CoordinateSystem12X8> = {
+    const coordinates: Coordinates<CoordinateSystem12x8> = {
       row: 'A',
       column: 3,
     };
@@ -158,14 +158,14 @@ describe('ensureCoordinatesInRange', () => {
 
 describe('areEqualCoordinates', () => {
   it('match', () => {
-    const a: Coordinates<CoordinateSystem12X8> = { row: 'A', column: 2 };
+    const a: Coordinates<CoordinateSystem12x8> = { row: 'A', column: 2 };
     expect(areEqualCoordinates(a, a)).toBe(true);
     expect(areEqualCoordinates(a, { ...a, foo: 'bar' })).toBe(true);
   });
 
   it('no match', () => {
-    const a: Coordinates<CoordinateSystem12X8> = { row: 'A', column: 2 };
-    const b: Coordinates<CoordinateSystem12X8> = { row: 'B', column: 3 };
+    const a: Coordinates<CoordinateSystem12x8> = { row: 'A', column: 2 };
+    const b: Coordinates<CoordinateSystem12x8> = { row: 'B', column: 3 };
     expect(areEqualCoordinates(a, b)).toBe(false);
     expect(areEqualCoordinates(a, { ...b, foo: 'bar' })).toBe(false);
   });
