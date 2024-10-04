@@ -1,3 +1,10 @@
+## [19.0.1](https://github.com/mll-lab/react-components/compare/v19.0.0...v19.0.1) (2024-10-04)
+
+
+### Bug Fixes
+
+* export CoordinateSystem12x8 ([4a2ca15](https://github.com/mll-lab/react-components/commit/4a2ca15303ac6a63bed452d3320c6bc27ecb3c9f))
+
 # [19.0.0](https://github.com/mll-lab/react-components/compare/v18.2.2...v19.0.0) (2024-10-03)
 
 
