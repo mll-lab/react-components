@@ -11,8 +11,8 @@ export type FlowDirection = 'row' | 'column';
 
 export type PlateWell<TCoordinateSystem extends CoordinateSystem> = {
   coordinates: Coordinates<TCoordinateSystem>;
-  content?: ReactNode;
-  color?: string;
+  content?: Maybe<ReactNode>;
+  color?: Maybe<string>;
 };
 
 export type CoordinateSystem = {
@@ -23,9 +23,9 @@ export type CoordinateSystem = {
 export type PlateProps<TCoordinateSystem extends CoordinateSystem> = {
   data: Maybe<Array<PlateWell<TCoordinateSystem>>>;
   coordinateSystem: TCoordinateSystem;
-  loading?: boolean;
+  loading?: Maybe<boolean>;
   /** Activates DragAndDrop of the wells */
-  isDraggable?: boolean;
+  isDraggable?: Maybe<boolean>;
   /** Do not add props.dndContextProps conditionally, as it leads to problems. Use props.isDraggable instead. */
-  dndContextProps?: Props;
+  dndContextProps?: Maybe<Props>;
 };
