@@ -1,3 +1,10 @@
+# [19.1.0](https://github.com/mll-lab/react-components/compare/v19.0.1...v19.1.0) (2024-10-17)
+
+
+### Features
+
+* allow null for optional properties of Plate ([ddcccb0](https://github.com/mll-lab/react-components/commit/ddcccb0d5d206b440f91ed1420cdbb55adc4a3d8))
+
 ## [19.0.1](https://github.com/mll-lab/react-components/compare/v19.0.0...v19.0.1) (2024-10-04)
 
 
