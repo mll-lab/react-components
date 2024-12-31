@@ -1,3 +1,10 @@
+# [19.2.0](https://github.com/mll-lab/react-components/compare/v19.1.0...v19.2.0) (2024-12-31)
+
+
+### Features
+
+* export SwitchSize ([f5cd2a4](https://github.com/mll-lab/react-components/commit/f5cd2a456cafe45857f39a46fdf3b34c7283417e))
+
 # [19.1.0](https://github.com/mll-lab/react-components/compare/v19.0.1...v19.1.0) (2024-10-17)
 
 
