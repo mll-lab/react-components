@@ -1,5 +1,6 @@
 import { toggleElement } from '@mll-lab/js-utils';
 import React, { useState } from 'react';
+import styled from 'styled-components';
 
 import { Card } from '../Card';
 import { Table } from '../Table';
@@ -15,6 +16,14 @@ export {
   PipettingLossAbsolute,
   PipettingLossByFactor,
 } from './types';
+
+const TOTAL_VOLUME_ROW_CLASS = 'total-volume-row';
+
+const MasterMixTable = styled(Table)`
+  .${TOTAL_VOLUME_ROW_CLASS} {
+    background-color: lightgrey;
+  }
+`;
 
 /**
  * The reactants can be clicked and marked as pipetted.
@@ -43,13 +52,17 @@ export function MasterMix(props: MasterMixProps) {
         <Typography.Title level={5}>{props.name} MasterMix</Typography.Title>
       }
     >
-      <Table
+      <MasterMixTable
         style={{ maxWidth: 400 }}
-        rowClassName={(record) =>
-          highlightedEntries.includes(record.key.toString())
+        rowClassName={(record, index) => {
+          if (index === props.ingredients.length) {
+            return TOTAL_VOLUME_ROW_CLASS;
+          }
+
+          return highlightedEntries.includes(record.key.toString())
             ? 'mll-ant-table-row-selected'
-            : ''
-        }
+            : '';
+        }}
         dataSource={ingredientsWithSumRow}
         rowKey={(record) => record.key}
         pagination={{ defaultPageSize: 10, hideOnSinglePage: true }}
