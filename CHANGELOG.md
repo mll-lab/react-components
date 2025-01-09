@@ -1,3 +1,10 @@
+# [19.3.0](https://github.com/mll-lab/react-components/compare/v19.2.0...v19.3.0) (2025-01-09)
+
+
+### Features
+
+* mark last master mix column as total volume ([#289](https://github.com/mll-lab/react-components/issues/289)) ([041faff](https://github.com/mll-lab/react-components/commit/041faff92af3bcc86e052df959081158ac8d1950))
+
 # [19.2.0](https://github.com/mll-lab/react-components/compare/v19.1.0...v19.2.0) (2024-12-31)
 
 
