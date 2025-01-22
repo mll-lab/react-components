@@ -8,23 +8,18 @@ import { CoordinateSystem } from './types';
 import { columnForPosition, rowForPosition } from './utils';
 import { GENERAL_WELL_STYLE } from './wellUtils';
 
-export function EmptyWell<TCoordinateSystem extends CoordinateSystem>(props: {
+export function EmptyWell<TCoordinateSystem extends CoordinateSystem>({
+  coordinateSystem,
+  position,
+}: {
   position: number;
   coordinateSystem: TCoordinateSystem;
 }) {
-  const row = rowForPosition(
-    props.position,
-    PLATE_FLOW,
-    props.coordinateSystem,
-  );
-  const column = columnForPosition(
-    props.position,
-    PLATE_FLOW,
-    props.coordinateSystem,
-  );
+  const row = rowForPosition(position, PLATE_FLOW, coordinateSystem);
+  const column = columnForPosition(position, PLATE_FLOW, coordinateSystem);
 
   const { setNodeRef, isOver } = useDroppable({
-    id: props.position,
+    id: position,
     data: {
       coordinates: {
         row,
