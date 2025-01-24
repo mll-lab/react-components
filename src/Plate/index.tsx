@@ -4,6 +4,7 @@ import React, { Fragment } from 'react';
 
 import { MllSpinnerIcon } from '../Spinner';
 
+import { ColumnLabel } from './ColumnLabel';
 import { RowLabel } from './RowLabel';
 import { Well } from './Well';
 import { PLATE_FLOW } from './constants';
@@ -12,6 +13,7 @@ import {
   allCoordinateSystemPositions,
   assertUniquePositions,
   columnForPosition,
+  rowForPosition,
   wellAtPosition,
 } from './utils';
 
@@ -22,17 +24,21 @@ export * from './types';
 export * from './utils';
 export { GENERAL_WELL_STYLE } from './wellUtils';
 
-export function Plate<TCoordinateSystem extends CoordinateSystem>(
-  props: PlateProps<TCoordinateSystem>,
-) {
-  if (props.data) {
-    assertUniquePositions(props.data);
+export function Plate<TCoordinateSystem extends CoordinateSystem>({
+  coordinateSystem,
+  data,
+  dndContextProps,
+  isDraggable,
+  loading,
+}: PlateProps<TCoordinateSystem>) {
+  if (data) {
+    assertUniquePositions(data);
   }
 
   return (
-    <DndContext {...props.dndContextProps}>
+    <DndContext {...dndContextProps}>
       <Spin
-        spinning={props.loading ?? false}
+        spinning={loading ?? false}
         indicator={
           <MllSpinnerIcon
             style={{
@@ -44,59 +50,45 @@ export function Plate<TCoordinateSystem extends CoordinateSystem>(
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: `1fr ${'4fr '.repeat(
-              props.coordinateSystem.columns.length,
+            gridTemplateColumns: `1fr${' 4fr'.repeat(
+              coordinateSystem.columns.length,
             )}`,
             gridGap: '3px',
           }}
         >
+          {/* takes up the space in the upper left corner between A and 1 */}
           <span />
 
-          {props.coordinateSystem.columns.map((column) => (
-            <span
-              style={{
-                display: 'flex',
-                justifyContent: 'center',
-                padding: 4,
-              }}
-              key={column}
-            >
-              <strong>{column}</strong>
-            </span>
+          {coordinateSystem.columns.map((column) => (
+            <ColumnLabel key={column} column={column} />
           ))}
 
-          {allCoordinateSystemPositions(props.coordinateSystem).map(
-            (position) => (
-              <Fragment key={position}>
-                {columnForPosition(
-                  position,
-                  PLATE_FLOW,
-                  props.coordinateSystem,
-                ) === 1 && (
-                  <RowLabel
-                    position={position}
-                    coordinateSystem={props.coordinateSystem}
-                  />
-                )}
-
-                <Well
-                  position={position}
-                  coordinateSystem={props.coordinateSystem}
-                  well={
-                    props.data
-                      ? wellAtPosition(
-                          position,
-                          props.data,
-                          PLATE_FLOW,
-                          props.coordinateSystem,
-                        )
-                      : null
-                  }
-                  isDraggable={props.isDraggable ?? false}
+          {allCoordinateSystemPositions(coordinateSystem).map((position) => (
+            <Fragment key={position}>
+              {columnForPosition(position, PLATE_FLOW, coordinateSystem) ===
+                1 && (
+                <RowLabel
+                  row={rowForPosition(position, PLATE_FLOW, coordinateSystem)}
                 />
-              </Fragment>
-            ),
-          )}
+              )}
+
+              <Well
+                position={position}
+                coordinateSystem={coordinateSystem}
+                well={
+                  data
+                    ? wellAtPosition(
+                        position,
+                        data,
+                        PLATE_FLOW,
+                        coordinateSystem,
+                      )
+                    : null
+                }
+                isDraggable={isDraggable ?? false}
+              />
+            </Fragment>
+          ))}
         </div>
       </Spin>
     </DndContext>
