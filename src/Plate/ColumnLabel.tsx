@@ -6,7 +6,7 @@ export function ColumnLabel({ column }: { column: number }) {
       style={{
         display: 'flex',
         justifyContent: 'center',
-        padding: 4,
+        padding: '4px',
       }}
     >
       <strong>{column}</strong>
