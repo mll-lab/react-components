@@ -10,15 +10,15 @@ import { columnForPosition, rowForPosition } from './utils';
 import { GENERAL_WELL_STYLE } from './wellUtils';
 
 export function FilledWell<TCoordinateSystem extends CoordinateSystem>({
-  isDraggable,
-  well,
   coordinateSystem,
+  isDraggable,
   position,
+  well,
 }: {
-  well: PlateWell<TCoordinateSystem>;
   coordinateSystem: TCoordinateSystem;
-  position: number;
   isDraggable: boolean;
+  position: number;
+  well: PlateWell<TCoordinateSystem>;
 }) {
   const data = {
     coordinates: {

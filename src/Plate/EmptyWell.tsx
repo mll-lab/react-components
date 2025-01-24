@@ -12,8 +12,8 @@ export function EmptyWell<TCoordinateSystem extends CoordinateSystem>({
   coordinateSystem,
   position,
 }: {
-  position: number;
   coordinateSystem: TCoordinateSystem;
+  position: number;
 }) {
   const row = rowForPosition(position, PLATE_FLOW, coordinateSystem);
   const column = columnForPosition(position, PLATE_FLOW, coordinateSystem);

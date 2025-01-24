@@ -11,10 +11,10 @@ export function Well<TCoordinateSystem extends CoordinateSystem>({
   position,
   well,
 }: {
-  position: number;
-  well: Maybe<PlateWell<TCoordinateSystem>>;
   coordinateSystem: TCoordinateSystem;
   isDraggable: boolean;
+  position: number;
+  well: Maybe<PlateWell<TCoordinateSystem>>;
 }) {
   return well?.content ? (
     <FilledWell
