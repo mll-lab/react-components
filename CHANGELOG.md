@@ -1,3 +1,10 @@
+# [19.4.0](https://github.com/mll-lab/react-components/compare/v19.3.0...v19.4.0) (2025-02-12)
+
+
+### Features
+
+* add function objectEntriesToFormInputOptions ([9c08c78](https://github.com/mll-lab/react-components/commit/9c08c78a9265cfcf8300381860ad09d49d616dd6))
+
 # [19.3.0](https://github.com/mll-lab/react-components/compare/v19.2.0...v19.3.0) (2025-01-09)
 
 
