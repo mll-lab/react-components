@@ -129,8 +129,16 @@ export const ColoredTable = styled(Table)`
   /* Stripe rows */
 
   /* Depending on the table layout, the header may or may not count as a row */
-  .mll-ant-table.mll-ant-table-fixed-header tr:nth-child(odd) td,
-  .mll-ant-table:not(.mll-ant-table-fixed-header) tr:nth-child(even) td {
+  .mll-ant-table.mll-ant-table-fixed-header
+    tr:not(.mll-ant-table-expanded-row):nth-child(
+      odd of tr:not(.mll-ant-table-expanded-row)
+    )
+    > td,
+  .mll-ant-table:not(.mll-ant-table-fixed-header)
+    tr:not(.mll-ant-table-expanded-row):nth-child(
+      even of tr:not(.mll-ant-table-expanded-row)
+    )
+    > td {
     background-color: ${(props) => props.theme.tableRowStripeBackgroundColor};
   }
 

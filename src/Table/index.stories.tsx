@@ -137,3 +137,26 @@ export function ColoredTable() {
     />
   );
 }
+
+export function NestedColoredTable() {
+  const [selectedID, setSelectedID] = useState<number>();
+
+  return (
+    <StyledTable<Person>
+      bordered
+      columns={columns}
+      dataSource={data}
+      pagination={false}
+      onRow={(person) => ({
+        onClick: () => setSelectedID(person.id),
+      })}
+      rowSelection={{
+        selectedRowKeys: selectedID ? [selectedID] : undefined,
+        hideSelectAll: true,
+        renderCell: () => null,
+        columnWidth: 0,
+      }}
+      expandable={{ expandedRowRender: () => <ColoredTable /> }}
+    />
+  );
+}
