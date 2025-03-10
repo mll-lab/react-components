@@ -1,3 +1,10 @@
+## [19.4.1](https://github.com/mll-lab/react-components/compare/v19.4.0...v19.4.1) (2025-03-10)
+
+
+### Bug Fixes
+
+* reset stripes for expanded rows ([#293](https://github.com/mll-lab/react-components/issues/293)) ([e6f6a6c](https://github.com/mll-lab/react-components/commit/e6f6a6cdacd11e579375a566f2e9c25b4ae5bad9))
+
 # [19.4.0](https://github.com/mll-lab/react-components/compare/v19.3.0...v19.4.0) (2025-02-12)
 
 
