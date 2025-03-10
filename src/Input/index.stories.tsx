@@ -1,7 +1,10 @@
 import { Story } from '@storybook/react';
 import React, { useState } from 'react';
 
+import { AnimationsConfiguration } from '../AnimationsConfig/AnimationsConfiguration';
+import { Button } from '../Button';
 import { Space } from '../Space';
+import { Switch } from '../Switch';
 
 import { NumericIDInput, NumericIDInputProps } from './NumericIDInput';
 import {
@@ -41,15 +44,45 @@ export const Search: Story<SearchProps> = function Search(args) {
 };
 
 export const TextArea: Story<TextAreaProps> = function TextArea(args) {
+  const [minRows, setMinRows] = React.useState(1);
+  const [withoutAnimation, setWithoutAnimation] = React.useState(false);
+
   return (
-    <Space>
-      <Input.TextArea {...args} />
-      <Input.TextArea
-        $inputStyle={{ background: 'red' }}
-        $wrapperStyle={{ border: '5px green solid' }}
-        {...args}
-      />
-    </Space>
+    <AnimationsConfiguration $inputAnimationsDisabled={withoutAnimation}>
+      <Space block align="start">
+        <Space vertical>
+          <Input.TextArea
+            autoSize={{
+              minRows,
+            }}
+            $wrapperStyle={{ width: '200px' }}
+            {...args}
+          />
+          <Input.TextArea
+            $inputStyle={{ background: 'red' }}
+            $wrapperStyle={{ border: '5px green solid', width: '200px' }}
+            autoSize={{
+              minRows,
+            }}
+            {...args}
+          />
+        </Space>
+        <Button onClick={() => setMinRows((prev) => prev + 1)}>
+          Increase minRows
+        </Button>
+        <Button
+          onClick={() => setMinRows((prev) => (prev <= 1 ? 1 : prev - 1))}
+        >
+          Decrease minRows
+        </Button>
+        <Switch
+          checked={withoutAnimation}
+          onChange={setWithoutAnimation}
+          checkedChildren="Without animation"
+          unCheckedChildren="With animation"
+        />
+      </Space>
+    </AnimationsConfiguration>
   );
 };
 
