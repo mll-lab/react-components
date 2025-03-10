@@ -26,6 +26,7 @@ export * from './Dropdown';
 export * from './Empty';
 export * from './Fields'; // Might extract to separate package later due to dependency on react-hook-form
 export * from './Form';
+export * from './GlobalFormsProvider';
 export * from './Grid';
 export * from './Image';
 export * from './ImageMap';
