@@ -1,7 +1,7 @@
 import { Story } from '@storybook/react';
 import React, { useState } from 'react';
 
-import { AnimationsConfiguration } from '../AnimationsConfig/AnimationsConfiguration';
+import { AnimationsConfiguration } from '../AnimationsConfiguration/AnimationsConfiguration';
 import { Button } from '../Button';
 import { Space } from '../Space';
 import { Switch } from '../Switch';
