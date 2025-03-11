@@ -1,3 +1,10 @@
+# [19.5.0](https://github.com/mll-lab/react-components/compare/v19.4.1...v19.5.0) (2025-03-11)
+
+
+### Features
+
+* disable text area animation ([#294](https://github.com/mll-lab/react-components/issues/294)) ([53d37de](https://github.com/mll-lab/react-components/commit/53d37de2ec21de820f808b8195ca19de443b9a89))
+
 ## [19.4.1](https://github.com/mll-lab/react-components/compare/v19.4.0...v19.4.1) (2025-03-10)
 
 
