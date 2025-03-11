@@ -195,7 +195,14 @@ export const ColoredTable = styled(Table)`
   }
 
   /* Highlight selected row and avoid visibility of rowSelection checkbox  */
-  .mll-ant-table tr.mll-ant-table-row.mll-ant-table-row-selected td {
+  .mll-ant-table
+    table 
+    tr:not(
+      .mll-ant-table-expanded-row
+    ):nth-child(
+      n /* to be more specific than "odd" or "even" above */
+    ).mll-ant-table-row.mll-ant-table-row-selected
+    > td.mll-ant-table-cell {
     background-color: ${(props) => props.theme.focusedRowColor};
   }
 ` as typeof Table;
