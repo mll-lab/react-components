@@ -1,3 +1,10 @@
+# [19.6.0](https://github.com/mll-lab/react-components/compare/v19.5.0...v19.6.0) (2025-03-11)
+
+
+### Features
+
+* export global forms provider ([#295](https://github.com/mll-lab/react-components/issues/295)) ([457bac0](https://github.com/mll-lab/react-components/commit/457bac0bb7fba590cc23208c2e50e04afca6f8d8))
+
 # [19.5.0](https://github.com/mll-lab/react-components/compare/v19.4.1...v19.5.0) (2025-03-11)
 
 
