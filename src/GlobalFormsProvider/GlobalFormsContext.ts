@@ -33,7 +33,7 @@ export function useGlobalForms() {
   return useContext(GlobalFormsContext);
 }
 
-export function normalizeFormInfo(form: FormInfoObjectOrString): FormInfo {
+function normalizeFormInfo(form: FormInfoObjectOrString): FormInfo {
   if (typeof form === 'string') {
     return { name: form, order: 0 };
   }

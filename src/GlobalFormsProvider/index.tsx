@@ -136,3 +136,5 @@ export function GlobalFormsProvider({ children }: GlobalFormsProviderProps) {
     </GlobalFormsContext.Provider>
   );
 }
+
+export * from './GlobalFormsContext';
