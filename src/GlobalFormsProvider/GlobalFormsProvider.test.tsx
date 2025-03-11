@@ -6,7 +6,8 @@ import {
 import React, { PropsWithChildren } from 'react';
 
 import { useGlobalForms, useGlobalForm } from './GlobalFormsContext';
-import { GlobalFormsProvider } from './GlobalFormsProvider';
+
+import { GlobalFormsProvider } from './index';
 
 function createRenderHookOptions(): RenderHookOptions<
   PropsWithChildren<unknown>
