@@ -1,3 +1,10 @@
+## [19.7.1](https://github.com/mll-lab/react-components/compare/v19.7.0...v19.7.1) (2025-03-11)
+
+
+### Bug Fixes
+
+* selected stripe ([#297](https://github.com/mll-lab/react-components/issues/297)) ([0bfd641](https://github.com/mll-lab/react-components/commit/0bfd641fe262022520152e9249352536a7e99411))
+
 # [19.7.0](https://github.com/mll-lab/react-components/compare/v19.6.0...v19.7.0) (2025-03-11)
 
 
