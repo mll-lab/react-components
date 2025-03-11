@@ -104,8 +104,7 @@ export const TextArea: ForwardRefExoticComponent<TextAreaProps> &
   &.mll-ant-input {
     font-size: ${fontSizeFromTheme};
     ${(props) => props.$inputStyle}
-    min-height: initial !important;
-    height: initial !important;
+    transition: none !important;
   }
 `;
 Input.TextArea = TextArea;
