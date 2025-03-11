@@ -54,7 +54,7 @@ export const TextArea: Story<TextAreaProps> = function TextArea(args) {
           labelCol={{ span: 12 }}
           labelAlign="left"
         >
-          <Form.Item label="Input with minRows" >
+          <Form.Item label="Input with minRows">
             <Space>
               <Input.TextArea
                 autoSize={{
