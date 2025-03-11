@@ -1,3 +1,10 @@
+# [19.7.0](https://github.com/mll-lab/react-components/compare/v19.6.0...v19.7.0) (2025-03-11)
+
+
+### Features
+
+* export GlobalFormsContext ([#296](https://github.com/mll-lab/react-components/issues/296)) ([da39fe8](https://github.com/mll-lab/react-components/commit/da39fe8696cc3488c573d7a9e14945c91a1830b9))
+
 # [19.6.0](https://github.com/mll-lab/react-components/compare/v19.5.0...v19.6.0) (2025-03-11)
 
 
