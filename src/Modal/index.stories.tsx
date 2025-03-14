@@ -9,8 +9,8 @@ import { WithModal, WithModalProps } from './WithModal';
 
 export default {
   title: 'Modal',
-  argTypes: {
-    width: { control: 'number' },
+  args: {
+    width: 500,
   },
 };
 

@@ -6,8 +6,8 @@ import { Progress, ProgressProps } from './index';
 export default {
   title: 'Progress',
   component: Progress,
-  argTypes: {
-    percent: { control: 'number', defaultValue: 22 },
+  args: {
+    percent: 22,
   },
 };
 

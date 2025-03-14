@@ -20,24 +20,18 @@ import {
 export default {
   title: 'Button',
   component: Button,
+  args: {
+    loading: false,
+    disabled: false,
+  },
   argTypes: {
     color: { control: 'color' },
     onClick: { action: 'clicked' },
     size: {
       control: {
         type: 'select',
-        options: ['small', 'medium', 'large'],
       },
-    },
-    loading: {
-      control: {
-        type: 'boolean',
-      },
-    },
-    disabled: {
-      control: {
-        type: 'boolean',
-      },
+      options: ['small', 'medium', 'large'],
     },
   },
 };

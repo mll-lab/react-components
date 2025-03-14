@@ -5,16 +5,18 @@ import { notification, NotificationArgs } from './index';
 
 export default {
   title: 'notification',
+  args: {
+    level: 'error',
+    message: 'some title',
+    description: 'some description',
+  },
   argTypes: {
     level: {
+      options: ['info', 'success', 'warning', 'error'],
       control: {
         type: 'inline-radio',
-        options: ['info', 'success', 'warning', 'error'],
       },
-      defaultValue: 'error',
     },
-    message: { control: 'string', defaultValue: 'some title' },
-    description: { control: 'string', defaultValue: 'some description' },
   },
 };
 

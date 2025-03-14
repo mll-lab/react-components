@@ -11,16 +11,14 @@ export default {
     optionType: {
       control: {
         type: 'inline-radio',
-        options: ['default', 'button'],
-        default: 'button',
       },
+      options: ['default', 'button'],
     },
     buttonStyle: {
       control: {
         type: 'inline-radio',
-        options: ['solid', 'outline'],
-        default: 'outline',
       },
+      options: ['solid', 'outline'],
     },
   },
 };

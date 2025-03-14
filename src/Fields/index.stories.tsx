@@ -24,6 +24,9 @@ import { formItemFieldProps } from './formItemFieldProps';
 
 export default {
   title: 'Fields',
+  args: {
+    disabled: false,
+  },
 };
 
 type FormType = {
@@ -88,12 +91,6 @@ export const ControlledError: Story<{
   );
 };
 ControlledError.argTypes = {
-  disabled: {
-    control: {
-      type: 'boolean',
-      checked: false,
-    },
-  },
   hasError: {
     control: {
       type: 'boolean',
@@ -119,14 +116,6 @@ export const NestedProviders: Story<FieldProviderProps> =
       </FieldProvider>
     );
   };
-NestedProviders.argTypes = {
-  disabled: {
-    control: {
-      type: 'boolean',
-      checked: false,
-    },
-  },
-};
 
 function AllFields() {
   const formMethods = useFormContext<FormType>();

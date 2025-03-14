@@ -5,11 +5,8 @@ import { Popconfirm, PopconfirmProps } from './index';
 
 export default {
   title: 'Popconfirm',
-  argTypes: {
-    title: {
-      control: 'string',
-      defaultValue: 'Are you sure to delete this task?',
-    },
+  args: {
+    title: 'Are you sure to delete this task?',
   },
 };
 
