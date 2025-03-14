@@ -33,6 +33,10 @@ function SingleTab({ id, title }: TabPanelProps) {
 
 export default {
   title: 'Tabs',
+  args: {
+    activeTabID: 1,
+  },
+  component: Tabs,
 };
 
 export const Controlled: Story<TabsProps> = function Controlled(args) {
@@ -64,16 +68,6 @@ export const Controlled: Story<TabsProps> = function Controlled(args) {
       </>
     </Tabs>
   );
-};
-
-Controlled.argTypes = {
-  activeTabID: {
-    control: {
-      type: 'inline-radio',
-      options: [1, 2, 3, 4],
-      default: 1,
-    },
-  },
 };
 
 export const Uncontrolled: Story = function Uncontrolled() {

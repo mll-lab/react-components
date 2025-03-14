@@ -10,6 +10,9 @@ import { Avatar, AvatarProps, UserAvatar, UserAvatarProps } from './index';
 
 export default {
   title: 'Avatar',
+  args: {
+    username: 'ABC',
+  },
 };
 
 export const Default: Story<AvatarProps> = function Default(args) {
@@ -31,16 +34,12 @@ export const CustomizableUserAvatar: Story<UserAvatarProps> =
     return <UserAvatar {...args} />;
   };
 
-CustomizableUserAvatar.argTypes = {
-  username: { control: { type: 'text' }, defaultValue: 'ABC' },
-};
-
 export const VariableUserAvatars: Story<Omit<UserAvatarProps, 'username'>> =
   function VariableUserAvatars(args) {
     return (
       <>
         {range(1, 50).map((i) => (
-          <UserAvatar key={i} username={randomString()} {...args} />
+          <UserAvatar key={i} {...args} username={randomString()} />
         ))}
       </>
     );

@@ -15,9 +15,9 @@ import { Plate } from './index';
 
 export default {
   title: 'Plate',
-  argTypes: {
-    loading: { control: 'boolean' },
-    isDraggable: { control: 'boolean' },
+  args: {
+    isDraggable: false,
+    loading: false,
   },
 };
 
