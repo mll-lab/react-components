@@ -11,9 +11,6 @@ import { PopoverArea } from './PopoverArea';
 
 export default {
   title: 'ImageMap',
-  args: {
-    src: 'https://picsum.photos/600/600',
-  },
 };
 
 export const TecanLayoutExample: Story = function Default() {
@@ -65,4 +62,11 @@ export const Default: Story<ImageMapProps> = function Default(args) {
       />
     </ImageMap>
   );
+};
+
+Default.argTypes = {
+  src: {
+    control: { type: 'text' },
+    defaultValue: 'https://picsum.photos/600/600',
+  },
 };

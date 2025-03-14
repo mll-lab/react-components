@@ -30,13 +30,6 @@ export const TooltipForDate: Story<DateWithTooltipProps> =
     return <DateWithTooltip {...args} />;
   };
 
-TooltipForDate.argTypes = {
-  date: { control: { type: 'date' } },
-};
-TooltipForDate.args = {
-  date: new Date(),
-};
-
 export const TooltipForTrimmedText: Story<TextWithTooltipIfTrimmedProps> =
   function TooltipForTrimmedText(args) {
     return <TextWithTooltipIfTrimmed {...args} />;

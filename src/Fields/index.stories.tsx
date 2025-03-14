@@ -26,7 +26,6 @@ export default {
   title: 'Fields',
   args: {
     disabled: false,
-    hasError: false,
   },
 };
 
@@ -90,6 +89,14 @@ export const ControlledError: Story<{
       </FormProvider>
     </FieldProvider>
   );
+};
+ControlledError.argTypes = {
+  hasError: {
+    control: {
+      type: 'boolean',
+      checked: false,
+    },
+  },
 };
 
 export const NestedProviders: Story<FieldProviderProps> =
