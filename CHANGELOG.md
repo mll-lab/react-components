@@ -1,3 +1,10 @@
+# [19.8.0](https://github.com/mll-lab/react-components/compare/v19.7.1...v19.8.0) (2025-03-14)
+
+
+### Features
+
+* use font size from theme in Description component ([#298](https://github.com/mll-lab/react-components/issues/298)) ([7b9e933](https://github.com/mll-lab/react-components/commit/7b9e933ffbf7c92071fc8d562eba524159383ee2))
+
 ## [19.7.1](https://github.com/mll-lab/react-components/compare/v19.7.0...v19.7.1) (2025-03-11)
 
 
