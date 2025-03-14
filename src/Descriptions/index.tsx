@@ -12,7 +12,7 @@ const StyledDescriptions = styled(AntdDescriptions)`
   }
   .mll-ant-descriptions-title {
     font-size: calc(${fontSizeFromTheme} + 1px);
-    font-weight: 700;
+    font-weight: bold;
   }
   .mll-ant-descriptions-item-label,
   .mll-ant-descriptions-item-content {
