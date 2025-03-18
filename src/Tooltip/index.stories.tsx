@@ -30,16 +30,16 @@ export const TooltipForDate: Story<DateWithTooltipProps> =
     return <DateWithTooltip {...args} />;
   };
 
-TooltipForDate.argTypes = {
-  date: { control: { type: 'date' }, defaultValue: new Date() },
-};
-
 export const TooltipForTrimmedText: Story<TextWithTooltipIfTrimmedProps> =
   function TooltipForTrimmedText(args) {
     return <TextWithTooltipIfTrimmed {...args} />;
   };
 
 TooltipForTrimmedText.argTypes = {
-  text: { control: { type: 'text' }, defaultValue: 'Trimmmmmmmmmmmed' },
-  maxChars: { control: { type: 'number' }, defaultValue: 5 },
+  text: { control: { type: 'text' } },
+  maxChars: { control: { type: 'number' } },
+};
+TooltipForTrimmedText.args = {
+  text: 'Trimmmmmmmmmmmed',
+  maxChars: 5,
 };

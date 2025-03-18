@@ -15,16 +15,15 @@ import {
 export default {
   title: 'Table',
   component: Table,
+  args: {
+    loading: false,
+  },
   argTypes: {
     size: {
       control: {
         type: 'select',
-        options: ['small', 'middle', 'large'],
       },
-    },
-    loading: {
-      defaultValue: false,
-      control: 'boolean',
+      options: ['small', 'middle', 'large'],
     },
   },
 };

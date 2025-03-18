@@ -6,7 +6,9 @@ import { Image, ImageProps } from './index';
 export default {
   title: 'Image',
   component: Image,
-  argTypes: { width: { control: { type: 'number' }, defaultValue: 200 } },
+  args: {
+    width: 200,
+  },
 };
 
 export const Default: Story<ImageProps> = function Default(args) {

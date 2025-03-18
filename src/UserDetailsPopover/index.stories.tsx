@@ -8,25 +8,15 @@ import { UserAvatarWithDetailsPopover, UserDetailsPopover } from './index';
 
 export default {
   title: 'UserPopover',
-  argTypes: {
-    acronym: { control: { type: 'text' }, defaultValue: 'JD' },
-    email: { control: { type: 'text' }, defaultValue: 'john.doe@mll.com' },
-    firstname: { control: { type: 'text' }, defaultValue: 'John' },
-    lastname: { control: { type: 'text' }, defaultValue: 'Doe' },
-    phone: { control: { type: 'text' }, defaultValue: '123' },
-    username: { control: { type: 'text' }, defaultValue: 'jdoe' },
-    inactive: {
-      control: {
-        type: 'boolean',
-      },
-      defaultValue: false,
-    },
-    userUndefined: {
-      control: {
-        type: 'boolean',
-      },
-      defaultValue: false,
-    },
+  args: {
+    acronym: 'JD',
+    email: 'john.doe@mll.com',
+    firstname: 'John',
+    lastname: 'Doe',
+    phone: '123',
+    username: 'jdoe',
+    inactive: false,
+    userUndefined: false,
   },
 };
 
