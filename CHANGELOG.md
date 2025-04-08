@@ -1,3 +1,10 @@
+# [19.9.0](https://github.com/mll-lab/react-components/compare/v19.8.0...v19.9.0) (2025-04-08)
+
+
+### Features
+
+* use tableHeaderFontColor from theme ([#300](https://github.com/mll-lab/react-components/issues/300)) ([d4d23e0](https://github.com/mll-lab/react-components/commit/d4d23e09e389d838e045c454c52eee548a48e105))
+
 # [19.8.0](https://github.com/mll-lab/react-components/compare/v19.7.1...v19.8.0) (2025-03-14)
 
 
