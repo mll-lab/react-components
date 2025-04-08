@@ -97,7 +97,7 @@ export const ColoredTable = styled(Table)`
   /* Show the header in deep blue */
   th.mll-ant-table-cell {
     background-color: ${(props) => props.theme.tableHeaderBackgroundColor};
-    color: white;
+    color: ${(props) => props.theme.tableHeaderFontColor};
   }
 
   /* Less jarring than the default hover color */
