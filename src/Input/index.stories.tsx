@@ -1,3 +1,4 @@
+import { BarcodeOutlined } from '@ant-design/icons';
 import { Story } from '@storybook/react';
 import React, { useState } from 'react';
 
@@ -11,10 +12,9 @@ import {
   InputProps,
   PasswordProps,
   SearchProps,
-  TextAreaProps,
 } from './common';
 
-import { Input, InputNumber } from './index';
+import { Input, InputNumber, TextAreaProps } from './index';
 
 export default {
   title: 'Input',
@@ -23,13 +23,14 @@ export default {
 
 export const Text: Story<InputProps> = function Text(args) {
   return (
-    <Space>
+    <Space vertical>
       <Input {...args} />
       <Input
         $inputStyle={{ background: 'red' }}
         $wrapperStyle={{ border: '5px green solid' }}
         {...args}
       />
+      <Input prefix={<BarcodeOutlined />} allowClear {...args} />
     </Space>
   );
 };
@@ -72,6 +73,9 @@ export const TextArea: Story<TextAreaProps> = function TextArea(args) {
                 Decrease minRows
               </Button>
             </Space>
+          </Form.Item>
+          <Form.Item label="TextArea with allowClear">
+            <Input.TextArea allowClear {...args} />
           </Form.Item>
           <Form.Item label="Input with inputStyle and wrapperStyle">
             <Input.TextArea
