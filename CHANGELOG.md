@@ -1,3 +1,10 @@
+## [19.9.1](https://github.com/mll-lab/react-components/compare/v19.9.0...v19.9.1) (2025-04-30)
+
+
+### Bug Fixes
+
+* display Input prefix and clear symbol correctly ([#273](https://github.com/mll-lab/react-components/issues/273)) ([7a984a8](https://github.com/mll-lab/react-components/commit/7a984a8c47ba8616b7a8b585a316fc7be6833dbc))
+
 # [19.9.0](https://github.com/mll-lab/react-components/compare/v19.8.0...v19.9.0) (2025-04-08)
 
 
