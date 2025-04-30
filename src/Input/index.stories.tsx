@@ -12,10 +12,9 @@ import {
   InputProps,
   PasswordProps,
   SearchProps,
-  TextAreaProps,
 } from './common';
 
-import { Input, InputNumber } from './index';
+import { Input, InputNumber, TextAreaProps } from './index';
 
 export default {
   title: 'Input',
@@ -31,7 +30,6 @@ export const Text: Story<InputProps> = function Text(args) {
         $wrapperStyle={{ border: '5px green solid' }}
         {...args}
       />
-      {/* TODO looks off */}
       <Input prefix={<BarcodeOutlined />} allowClear {...args} />
     </Space>
   );
@@ -75,6 +73,9 @@ export const TextArea: Story<TextAreaProps> = function TextArea(args) {
                 Decrease minRows
               </Button>
             </Space>
+          </Form.Item>
+          <Form.Item label="TextArea with allowClear">
+            <Input.TextArea allowClear {...args} />
           </Form.Item>
           <Form.Item label="Input with inputStyle and wrapperStyle">
             <Input.TextArea
