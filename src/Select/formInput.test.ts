@@ -1,5 +1,6 @@
 import {
   mapToFormInputOptions,
+  objectEntriesToFormInputOptions,
   objectToFormInputOptions,
   toFormInputOption,
 } from './formInput';
@@ -26,6 +27,32 @@ describe('objectToFormInputOptions', () => {
     ).toEqual([
       {
         value: '1',
+        label: 'A descriptive label',
+      },
+    ]);
+  });
+});
+
+describe('objectEntriesToFormInputOptions', () => {
+  it('converts an array of manually declared object entries', () => {
+    expect(
+      objectEntriesToFormInputOptions([['foo', 'A descriptive label']]),
+    ).toEqual([
+      {
+        value: 'foo',
+        label: 'A descriptive label',
+      },
+    ]);
+  });
+
+  it('converts the result of calling Object.entries', () => {
+    expect(
+      objectEntriesToFormInputOptions(
+        Object.entries({ foo: 'A descriptive label' }),
+      ),
+    ).toEqual([
+      {
+        value: 'foo',
         label: 'A descriptive label',
       },
     ]);

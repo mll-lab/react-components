@@ -15,16 +15,15 @@ import {
 export default {
   title: 'Table',
   component: Table,
+  args: {
+    loading: false,
+  },
   argTypes: {
     size: {
       control: {
         type: 'select',
-        options: ['small', 'middle', 'large'],
       },
-    },
-    loading: {
-      defaultValue: false,
-      control: 'boolean',
+      options: ['small', 'middle', 'large'],
     },
   },
 };
@@ -134,6 +133,29 @@ export function ColoredTable() {
         renderCell: () => null,
         columnWidth: 0,
       }}
+    />
+  );
+}
+
+export function NestedColoredTable() {
+  const [selectedID, setSelectedID] = useState<number>();
+
+  return (
+    <StyledTable<Person>
+      bordered
+      columns={columns}
+      dataSource={data}
+      pagination={false}
+      onRow={(person) => ({
+        onClick: () => setSelectedID(person.id),
+      })}
+      rowSelection={{
+        selectedRowKeys: selectedID ? [selectedID] : undefined,
+        hideSelectAll: true,
+        renderCell: () => null,
+        columnWidth: 0,
+      }}
+      expandable={{ expandedRowRender: () => <ColoredTable /> }}
     />
   );
 }

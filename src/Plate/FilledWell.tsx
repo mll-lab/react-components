@@ -5,26 +5,32 @@ import React from 'react';
 import { PALETTE } from '../theme';
 
 import { PLATE_FLOW } from './constants';
-import { PlateWell } from './types';
+import { CoordinateSystem, PlateWell } from './types';
 import { columnForPosition, rowForPosition } from './utils';
 import { GENERAL_WELL_STYLE } from './wellUtils';
 
-export function FilledWell(props: {
-  well: PlateWell;
-  position: number;
+export function FilledWell<TCoordinateSystem extends CoordinateSystem>({
+  coordinateSystem,
+  isDraggable,
+  position,
+  well,
+}: {
+  coordinateSystem: TCoordinateSystem;
   isDraggable: boolean;
+  position: number;
+  well: PlateWell<TCoordinateSystem>;
 }) {
   const data = {
     coordinates: {
-      row: rowForPosition(props.position, PLATE_FLOW),
-      column: columnForPosition(props.position, PLATE_FLOW),
+      row: rowForPosition(position, PLATE_FLOW, coordinateSystem),
+      column: columnForPosition(position, PLATE_FLOW, coordinateSystem),
     },
   };
 
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
-    id: props.position,
+    id: position,
     data,
-    disabled: !props.isDraggable,
+    disabled: !isDraggable,
   });
 
   return (
@@ -35,10 +41,10 @@ export function FilledWell(props: {
       style={{
         ...GENERAL_WELL_STYLE,
         transform: CSS.Translate.toString(transform),
-        backgroundColor: props.well.color ?? PALETTE.gray3,
+        backgroundColor: well.color ?? PALETTE.gray3,
       }}
     >
-      {props.well.content}
+      {well.content}
     </div>
   );
 }

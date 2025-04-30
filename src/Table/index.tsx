@@ -18,6 +18,7 @@ export {
   CompareFn,
   FilterDropdownProps,
   SortOrder,
+  TableRowSelection,
 } from 'antd/es/table/interface';
 
 export * from './utils';
@@ -29,27 +30,28 @@ const StyledTable = styled(AntdTable)`
     font-size: ${fontSizeFromTheme};
   }
 
-  ${(props) => {
+  /* Avoid raising the "Keine Daten" overlay above elements such as the menu or dropdown, which have z-index 1050 */
+  .mll-ant-table-placeholder {
+    /* !important is necessary because antd sets the z-index to 9999 via the style attribute */
+    z-index: 1049 !important;
+  }
+
+  ${(props) =>
     // @ts-expect-error TODO it seems unsafe to pass empty data to onRow?
-    if (props.onRow?.({})?.onClick) {
-      return `
+    props.onRow?.({})?.onClick
+      ? `
         tbody tr:hover {
           cursor: pointer;
         }
-        `;
-    }
-
-    return '';
-  }}
+        `
+      : ''}
 ` as <RecordType extends Record<string, unknown> = Record<string, unknown>>(
   props: TableProps<RecordType>,
 ) => ReactElement;
 
 export function Table<
   RecordType extends Record<string, unknown> = Record<string, unknown>,
->(props: TableProps<RecordType>) {
-  const { loading, ...rest } = props;
-
+>({ loading, ...rest }: TableProps<RecordType>) {
   return (
     <StyledTable
       rowKey="id"
@@ -57,7 +59,7 @@ export function Table<
       loading={
         typeof loading === 'object'
           ? {
-              spinning: Boolean(loading.spinning),
+              ...loading,
               indicator: loading.indicator ?? MllSpinnerSvg,
               size: loading.size ?? 'large',
             }
@@ -71,9 +73,7 @@ export function Table<
   );
 }
 
-/**
- * ag-grid like variant of the default table, has more contrast with other page elements.
- */
+/** ag-grid like variant of the default table, has more contrast with other page elements. */
 export const ColoredTable = styled(Table)`
   /* Always surround the entire table with a border */
   border: 1px solid ${(props) => props.theme.borderColor};
@@ -97,7 +97,7 @@ export const ColoredTable = styled(Table)`
   /* Show the header in deep blue */
   th.mll-ant-table-cell {
     background-color: ${(props) => props.theme.tableHeaderBackgroundColor};
-    color: white;
+    color: ${(props) => props.theme.tableHeaderFontColor};
   }
 
   /* Less jarring than the default hover color */
@@ -129,8 +129,16 @@ export const ColoredTable = styled(Table)`
   /* Stripe rows */
 
   /* Depending on the table layout, the header may or may not count as a row */
-  .mll-ant-table.mll-ant-table-fixed-header tr:nth-child(odd) td,
-  .mll-ant-table:not(.mll-ant-table-fixed-header) tr:nth-child(even) td {
+  .mll-ant-table.mll-ant-table-fixed-header
+    tr:not(.mll-ant-table-expanded-row):nth-child(
+      odd of tr:not(.mll-ant-table-expanded-row)
+    )
+    > td,
+  .mll-ant-table:not(.mll-ant-table-fixed-header)
+    tr:not(.mll-ant-table-expanded-row):nth-child(
+      even of tr:not(.mll-ant-table-expanded-row)
+    )
+    > td {
     background-color: ${(props) => props.theme.tableRowStripeBackgroundColor};
   }
 
@@ -187,7 +195,14 @@ export const ColoredTable = styled(Table)`
   }
 
   /* Highlight selected row and avoid visibility of rowSelection checkbox  */
-  .mll-ant-table tr.mll-ant-table-row.mll-ant-table-row-selected td {
+  .mll-ant-table
+    table 
+    tr:not(
+      .mll-ant-table-expanded-row
+    ):nth-child(
+      n /* to be more specific than "odd" or "even" above */
+    ).mll-ant-table-row.mll-ant-table-row-selected
+    > td.mll-ant-table-cell {
     background-color: ${(props) => props.theme.focusedRowColor};
   }
 ` as typeof Table;

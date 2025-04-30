@@ -1,23 +1,29 @@
-# Setup
+## Setup
 
 1. Clone the repository
-1. `yarn`
+2. Run `yarn`
 
-# Usage
+## Usage
 
-## Validate correctness
+### Validate correctness
 
-    yarn validate
+```sh
+yarn validate
+```
 
-## Format code
+### Format code
 
-    yarn fix
+```sh
+yarn fix
+```
 
-## Try components interactively
+### Try components interactively
 
-    yarn storybook
+```sh
+yarn storybook
+```
 
-# Commit Messages
+## Commit Messages
 
 We use [semantic-release](https://github.com/semantic-release/semantic-release) to automatically generate
 - version number
@@ -28,3 +34,9 @@ This requires to write commit messages that follow the [Angular commit message f
 except that we do not use `scope` and `body` is always optional.
 
 Merge requests with a lot of intermediary commits must be cleaned up by force pushing rewritten commits.
+
+## Pre-releases
+
+When you want to test out your changes in a project before merging,
+you can push them to a branch `alpha` or `beta` to trigger a pre-release.
+See [publishing pre-releases](https://semantic-release.gitbook.io/semantic-release/recipes/release-workflow/pre-releases). 

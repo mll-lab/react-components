@@ -36,7 +36,7 @@ export function SelectField<
   ...controller
 }: SelectFieldProps<TFieldValues, TName, TOption>) {
   const {
-    field: { ref, onChange, ...fieldProps },
+    field: { onChange, ...fieldProps },
   } = useController<TFieldValues, TName>(controller);
 
   const { disabled } = useFieldContext();
