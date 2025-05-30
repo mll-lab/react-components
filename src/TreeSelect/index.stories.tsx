@@ -1,24 +1,97 @@
 import { Story } from '@storybook/react';
 import React from 'react';
 
-import { TreeSelect, TreeSelectProps } from './index';
+import { Provider } from '../Provider';
 
-const { TreeNode } = TreeSelect;
+import { TreeSelect, TreeSelectProps } from './index';
 
 export default {
   title: 'TreeSelect',
+  argTypes: {
+    size: {
+      control: {
+        type: 'inline-radio',
+      },
+      options: ['small', 'middle', 'large'],
+    },
+    status: {
+      control: {
+        type: 'inline-radio',
+      },
+      options: [undefined, 'warning', 'error'],
+    },
+    treeDefaultExpandAll: {
+      control: {
+        type: 'boolean',
+      },
+    },
+  },
 };
+
+const treeData: TreeSelectProps<string>['treeData'] = [
+  {
+    value: 'parent 1',
+    title: 'parent 1',
+    children: [
+      {
+        value: 'leaf1',
+        title: 'leaf1',
+      },
+      {
+        value: 'leaf2',
+        title: 'leaf2',
+      },
+    ],
+  },
+  {
+    value: 'leaf3',
+    title: 'leaf3',
+  },
+];
 
 export const Default: Story<TreeSelectProps<string>> = function Default(args) {
   return (
-    <TreeSelect<string> style={{ width: 120 }} {...args}>
-      <TreeNode value="1" title="1">
-        <TreeNode value="1-1" title="1-1"></TreeNode>
-        <TreeNode value="1-2" title="1-2">
-          <TreeNode value="1-2-1" title="1-2-1"></TreeNode>
-        </TreeNode>
-      </TreeNode>
-      <TreeNode value="2" title="2"></TreeNode>
-    </TreeSelect>
+    <TreeSelect<string>
+      treeData={treeData}
+      style={{ width: '120px' }}
+      {...args}
+    />
   );
+};
+
+Default.args = {
+  size: 'middle',
+};
+
+export const Checkable: Story<TreeSelectProps<string>> = function Checkable(
+  args,
+) {
+  return (
+    <TreeSelect<string>
+      treeData={treeData}
+      style={{ width: '120px' }}
+      treeCheckable
+      {...args}
+    />
+  );
+};
+
+Checkable.args = {
+  size: 'middle',
+};
+
+export const BigFont: Story<TreeSelectProps<string>> = function BigFont(args) {
+  return (
+    <Provider theme={{ fontSize: '16px' }}>
+      <TreeSelect<string>
+        treeData={treeData}
+        style={{ width: '120px' }}
+        {...args}
+      />
+    </Provider>
+  );
+};
+
+BigFont.args = {
+  size: 'middle',
 };
