@@ -1,3 +1,10 @@
+# [19.10.0](https://github.com/mll-lab/react-components/compare/v19.9.1...v19.10.0) (2025-06-03)
+
+
+### Features
+
+* theme aware TreeSelect ([#301](https://github.com/mll-lab/react-components/issues/301)) ([aceaac9](https://github.com/mll-lab/react-components/commit/aceaac96c86439e860c165e8f8e9726ebddfd50d))
+
 ## [19.9.1](https://github.com/mll-lab/react-components/compare/v19.9.0...v19.9.1) (2025-04-30)
 
 
