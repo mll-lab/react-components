@@ -41,6 +41,7 @@ export * from './Popconfirm';
 export * from './Popover';
 export * from './Progress';
 export * from './Radio';
+export * from './RangeWithValue';
 export * from './Result';
 export * from './Select';
 export * from './Skeleton';

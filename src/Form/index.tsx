@@ -4,6 +4,8 @@ import styled from 'styled-components';
 
 import { fontSizeFromTheme } from '../styled-utils';
 
+export * from './formInput';
+
 export type FormProps<T> = AntdFormProps<T>;
 export type FormItemProps<T> = AntdFormItemProps<T>;
 
