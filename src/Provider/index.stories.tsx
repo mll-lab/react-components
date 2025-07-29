@@ -23,6 +23,7 @@ import {
   Default as DefaultCollapseStory,
   Single as SingleCollapseStory,
 } from '../Collapse/index.stories';
+import { Default as DescriptionsStory } from '../Descriptions/index.stories';
 import { Form } from '../Form';
 import {
   TextArea as TextAreaStory,
@@ -47,17 +48,16 @@ import { Provider } from '.';
 
 export default {
   title: 'Provider',
+  args: {
+    size: 'small',
+    fontSize: '11px',
+  },
   argTypes: {
     size: {
       control: {
         type: 'select',
-        options: ['small', 'middle', 'large', undefined],
-        defaultValue: 'small',
       },
-    },
-    fontSize: {
-      control: { type: 'text' },
-      defaultValue: '11px',
+      options: ['small', 'middle', 'large', undefined],
     },
   },
 };
@@ -216,6 +216,7 @@ function SupportedComponents() {
       <CardsGridStory />
       <CardMetaStory />
       <StepsStory />
+      <DescriptionsStory />
     </Space>
   );
 }

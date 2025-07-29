@@ -13,8 +13,8 @@ export default {
     direction: {
       control: {
         type: 'inline-radio',
-        options: ['vertical', 'horizontal'],
       },
+      options: ['vertical', 'horizontal'],
     },
   },
 };

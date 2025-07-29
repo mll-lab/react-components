@@ -55,6 +55,7 @@ export type Theme = {
   warningColor: string;
 
   tableHeaderBackgroundColor: string;
+  tableHeaderFontColor: string;
   tableRowStripeBackgroundColor: string;
 
   fontSize?: string;
@@ -75,6 +76,7 @@ export const THEME: Theme = {
   panelBackgroundColor: PALETTE.gray3,
   tableBorderColor: PALETTE.gray4,
   tableHeaderBackgroundColor: PALETTE.tableHeaderBackgroundColor,
+  tableHeaderFontColor: PALETTE.white,
   tableRowStripeBackgroundColor: PALETTE.tableRowStripeBackgroundColor,
   titleColor: PALETTE.gray5,
   disabledColors: {

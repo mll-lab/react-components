@@ -1,6 +1,9 @@
+import { BarcodeOutlined } from '@ant-design/icons';
 import { Story } from '@storybook/react';
 import React, { useState } from 'react';
 
+import { Button } from '../Button';
+import { Form } from '../Form';
 import { Space } from '../Space';
 
 import { NumericIDInput, NumericIDInputProps } from './NumericIDInput';
@@ -9,10 +12,9 @@ import {
   InputProps,
   PasswordProps,
   SearchProps,
-  TextAreaProps,
 } from './common';
 
-import { Input, InputNumber } from './index';
+import { Input, InputNumber, TextAreaProps } from './index';
 
 export default {
   title: 'Input',
@@ -21,13 +23,14 @@ export default {
 
 export const Text: Story<InputProps> = function Text(args) {
   return (
-    <Space>
+    <Space vertical>
       <Input {...args} />
       <Input
         $inputStyle={{ background: 'red' }}
         $wrapperStyle={{ border: '5px green solid' }}
         {...args}
       />
+      <Input prefix={<BarcodeOutlined />} allowClear {...args} />
     </Space>
   );
 };
@@ -41,14 +44,48 @@ export const Search: Story<SearchProps> = function Search(args) {
 };
 
 export const TextArea: Story<TextAreaProps> = function TextArea(args) {
+  const [minRows, setMinRows] = React.useState(1);
+
   return (
-    <Space>
-      <Input.TextArea {...args} />
-      <Input.TextArea
-        $inputStyle={{ background: 'red' }}
-        $wrapperStyle={{ border: '5px green solid' }}
-        {...args}
-      />
+    <Space block align="start">
+      <Space vertical>
+        <Form
+          layout="vertical"
+          wrapperCol={{ span: 12 }}
+          labelCol={{ span: 12 }}
+          labelAlign="left"
+        >
+          <Form.Item label="Input with minRows">
+            <Space>
+              <Input.TextArea
+                autoSize={{
+                  minRows,
+                }}
+                $wrapperStyle={{ width: '200px' }}
+                {...args}
+              />
+              <Button onClick={() => setMinRows((prev) => prev + 1)}>
+                Increase minRows
+              </Button>
+              <Button
+                onClick={() => setMinRows((prev) => (prev <= 1 ? 1 : prev - 1))}
+              >
+                Decrease minRows
+              </Button>
+            </Space>
+          </Form.Item>
+          <Form.Item label="TextArea with allowClear">
+            <Input.TextArea allowClear {...args} />
+          </Form.Item>
+          <Form.Item label="Input with inputStyle and wrapperStyle">
+            <Input.TextArea
+              $inputStyle={{ background: 'red' }}
+              $wrapperStyle={{ border: '5px green solid', width: '200px' }}
+              {...args}
+            />
+          </Form.Item>
+        </Form>
+      </Space>
     </Space>
   );
 };

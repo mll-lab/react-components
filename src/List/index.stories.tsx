@@ -6,9 +6,9 @@ import { List, ListProps } from './index';
 export default {
   title: 'List',
   component: List,
-  argTypes: {
-    bordered: { control: 'boolean' },
-    loading: { control: 'boolean' },
+  args: {
+    bordered: false,
+    loading: false,
   },
 };
 

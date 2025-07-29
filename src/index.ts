@@ -26,6 +26,7 @@ export * from './Dropdown';
 export * from './Empty';
 export * from './Fields'; // Might extract to separate package later due to dependency on react-hook-form
 export * from './Form';
+export * from './GlobalFormsProvider';
 export * from './Grid';
 export * from './Image';
 export * from './ImageMap';
@@ -40,6 +41,7 @@ export * from './Popconfirm';
 export * from './Popover';
 export * from './Progress';
 export * from './Radio';
+export * from './RangeWithValue';
 export * from './Result';
 export * from './Select';
 export * from './Skeleton';

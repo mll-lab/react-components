@@ -1,15 +1,15 @@
 import React from 'react';
 
-export function RowLabel({ row }: { row: string }) {
+export function ColumnLabel({ column }: { column: number }) {
   return (
     <span
       style={{
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center',
+        padding: '4px',
       }}
     >
-      <strong>{row}</strong>
+      <strong>{column}</strong>
     </span>
   );
 }

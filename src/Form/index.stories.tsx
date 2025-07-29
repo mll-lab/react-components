@@ -8,9 +8,11 @@ import { Form, FormProps } from './index';
 
 export default {
   title: 'Form',
+  args: {
+    bordered: false,
+    loading: false,
+  },
   argTypes: {
-    bordered: { control: 'boolean' },
-    loading: { control: 'boolean' },
     onFinish: { action: 'clicked' },
     onFinishFailed: { action: 'clicked' },
   },

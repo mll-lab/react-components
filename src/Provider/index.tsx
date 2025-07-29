@@ -6,14 +6,12 @@ import { ThemeProvider } from 'styled-components';
 import { ModalConfirmStyles } from '../Modal';
 import { THEME, Theme } from '../theme';
 
-type ProviderProps = { theme?: Partial<Theme> };
-
 export const PREFIX_CLS = 'mll-ant';
 
 export function Provider({
   children,
   theme,
-}: PropsWithChildren<ProviderProps>) {
+}: PropsWithChildren<{ theme?: Partial<Theme> }>) {
   AntdConfigProvider.config({
     prefixCls: PREFIX_CLS,
   });

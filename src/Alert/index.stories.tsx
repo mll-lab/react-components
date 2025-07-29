@@ -5,26 +5,18 @@ import { Alert, AlertProps } from './index';
 
 export default {
   title: 'Alert',
+  args: {
+    closable: false,
+    showIcon: false,
+    type: 'success',
+  },
   argTypes: {
     onClose: { action: 'clicked' },
-    closable: {
-      control: {
-        type: 'boolean',
-        checked: false,
-      },
-    },
-    showIcon: {
-      control: {
-        type: 'boolean',
-        checked: false,
-      },
-    },
     type: {
       control: {
         type: 'inline-radio',
-        options: ['success', 'info', 'warning', 'error'],
-        default: 'success',
       },
+      options: ['success', 'info', 'warning', 'error'],
     },
   },
 };

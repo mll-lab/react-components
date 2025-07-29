@@ -2,7 +2,7 @@ import { Story } from '@storybook/react';
 import React from 'react';
 
 import { Plate } from '../Plate';
-import { COORDINATE_SYSTEM_96_WELL } from '../Plate/coordinateSystem96Well';
+import { COORDINATE_SYSTEM_12X8 } from '../Plate/coordinateSystem12x8';
 import { TecanLayout } from '../index';
 
 import { HiddenArea } from './HiddenArea';
@@ -23,7 +23,7 @@ export const TecanLayoutExample: Story = function Default() {
           content: (
             <Plate
               data={[{ coordinates: { row: 'A', column: 3 }, content: 'test' }]}
-              coordinateSystem={COORDINATE_SYSTEM_96_WELL}
+              coordinateSystem={COORDINATE_SYSTEM_12X8}
             />
           ),
         },
@@ -56,7 +56,7 @@ export const Default: Story<ImageMapProps> = function Default(args) {
         content={
           <Plate
             data={[{ coordinates: { row: 'A', column: 3 }, content: 'test' }]}
-            coordinateSystem={COORDINATE_SYSTEM_96_WELL}
+            coordinateSystem={COORDINATE_SYSTEM_12X8}
           />
         }
       />

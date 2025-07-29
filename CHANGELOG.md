@@ -1,9 +1,119 @@
-## [18.2.2-alpha.1](https://github.com/mll-lab/react-components/compare/v18.2.1...v18.2.2-alpha.1) (2024-09-17)
+# [19.10.0](https://github.com/mll-lab/react-components/compare/v19.9.1...v19.10.0) (2025-06-03)
+
+
+### Features
+
+* theme aware TreeSelect ([#301](https://github.com/mll-lab/react-components/issues/301)) ([aceaac9](https://github.com/mll-lab/react-components/commit/aceaac96c86439e860c165e8f8e9726ebddfd50d))
+
+## [19.9.1](https://github.com/mll-lab/react-components/compare/v19.9.0...v19.9.1) (2025-04-30)
 
 
 ### Bug Fixes
 
-* avoid Table with no data overlay covering other elements ([3ff6b5c](https://github.com/mll-lab/react-components/commit/3ff6b5c4f45e717bf6ec228209cb3aafb854fb13))
+* display Input prefix and clear symbol correctly ([#273](https://github.com/mll-lab/react-components/issues/273)) ([7a984a8](https://github.com/mll-lab/react-components/commit/7a984a8c47ba8616b7a8b585a316fc7be6833dbc))
+
+# [19.9.0](https://github.com/mll-lab/react-components/compare/v19.8.0...v19.9.0) (2025-04-08)
+
+
+### Features
+
+* use tableHeaderFontColor from theme ([#300](https://github.com/mll-lab/react-components/issues/300)) ([d4d23e0](https://github.com/mll-lab/react-components/commit/d4d23e09e389d838e045c454c52eee548a48e105))
+
+# [19.8.0](https://github.com/mll-lab/react-components/compare/v19.7.1...v19.8.0) (2025-03-14)
+
+
+### Features
+
+* use font size from theme in Description component ([#298](https://github.com/mll-lab/react-components/issues/298)) ([7b9e933](https://github.com/mll-lab/react-components/commit/7b9e933ffbf7c92071fc8d562eba524159383ee2))
+
+## [19.7.1](https://github.com/mll-lab/react-components/compare/v19.7.0...v19.7.1) (2025-03-11)
+
+
+### Bug Fixes
+
+* selected stripe ([#297](https://github.com/mll-lab/react-components/issues/297)) ([0bfd641](https://github.com/mll-lab/react-components/commit/0bfd641fe262022520152e9249352536a7e99411))
+
+# [19.7.0](https://github.com/mll-lab/react-components/compare/v19.6.0...v19.7.0) (2025-03-11)
+
+
+### Features
+
+* export GlobalFormsContext ([#296](https://github.com/mll-lab/react-components/issues/296)) ([da39fe8](https://github.com/mll-lab/react-components/commit/da39fe8696cc3488c573d7a9e14945c91a1830b9))
+
+# [19.6.0](https://github.com/mll-lab/react-components/compare/v19.5.0...v19.6.0) (2025-03-11)
+
+
+### Features
+
+* export global forms provider ([#295](https://github.com/mll-lab/react-components/issues/295)) ([457bac0](https://github.com/mll-lab/react-components/commit/457bac0bb7fba590cc23208c2e50e04afca6f8d8))
+
+# [19.5.0](https://github.com/mll-lab/react-components/compare/v19.4.1...v19.5.0) (2025-03-11)
+
+
+### Features
+
+* disable text area animation ([#294](https://github.com/mll-lab/react-components/issues/294)) ([53d37de](https://github.com/mll-lab/react-components/commit/53d37de2ec21de820f808b8195ca19de443b9a89))
+
+## [19.4.1](https://github.com/mll-lab/react-components/compare/v19.4.0...v19.4.1) (2025-03-10)
+
+
+### Bug Fixes
+
+* reset stripes for expanded rows ([#293](https://github.com/mll-lab/react-components/issues/293)) ([e6f6a6c](https://github.com/mll-lab/react-components/commit/e6f6a6cdacd11e579375a566f2e9c25b4ae5bad9))
+
+# [19.4.0](https://github.com/mll-lab/react-components/compare/v19.3.0...v19.4.0) (2025-02-12)
+
+
+### Features
+
+* add function objectEntriesToFormInputOptions ([9c08c78](https://github.com/mll-lab/react-components/commit/9c08c78a9265cfcf8300381860ad09d49d616dd6))
+
+# [19.3.0](https://github.com/mll-lab/react-components/compare/v19.2.0...v19.3.0) (2025-01-09)
+
+
+### Features
+
+* mark last master mix column as total volume ([#289](https://github.com/mll-lab/react-components/issues/289)) ([041faff](https://github.com/mll-lab/react-components/commit/041faff92af3bcc86e052df959081158ac8d1950))
+
+# [19.2.0](https://github.com/mll-lab/react-components/compare/v19.1.0...v19.2.0) (2024-12-31)
+
+
+### Features
+
+* export SwitchSize ([f5cd2a4](https://github.com/mll-lab/react-components/commit/f5cd2a456cafe45857f39a46fdf3b34c7283417e))
+
+# [19.1.0](https://github.com/mll-lab/react-components/compare/v19.0.1...v19.1.0) (2024-10-17)
+
+
+### Features
+
+* allow null for optional properties of Plate ([ddcccb0](https://github.com/mll-lab/react-components/commit/ddcccb0d5d206b440f91ed1420cdbb55adc4a3d8))
+
+## [19.0.1](https://github.com/mll-lab/react-components/compare/v19.0.0...v19.0.1) (2024-10-04)
+
+
+### Bug Fixes
+
+* export CoordinateSystem12x8 ([4a2ca15](https://github.com/mll-lab/react-components/commit/4a2ca15303ac6a63bed452d3320c6bc27ecb3c9f))
+
+# [19.0.0](https://github.com/mll-lab/react-components/compare/v18.2.2...v19.0.0) (2024-10-03)
+
+
+### Features
+
+* add COORDINATE_SYSTEM_12X8, CoordinateSystem12X8 ([8c1d573](https://github.com/mll-lab/react-components/commit/8c1d573563c2792473ea5ccb2cd93c1aca0e2bf1))
+
+
+### BREAKING CHANGES
+
+* rename COORDINATE_SYSTEM_96_WELL,CoordinateSystem96Well
+
+## [18.2.2](https://github.com/mll-lab/react-components/compare/v18.2.1...v18.2.2) (2024-09-20)
+
+
+### Bug Fixes
+
+* avoid Table with no data overlay covering other elements ([b558a64](https://github.com/mll-lab/react-components/commit/b558a644cb739c61791f3da0e799a47693e5cae5))
 
 ## [18.2.1](https://github.com/mll-lab/react-components/compare/v18.2.0...v18.2.1) (2024-09-13)
 
