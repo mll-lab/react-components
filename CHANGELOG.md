@@ -1,3 +1,10 @@
+# [19.13.0-alpha.2](https://github.com/mll-lab/react-components/compare/v19.13.0-alpha.1...v19.13.0-alpha.2) (2025-07-29)
+
+
+### Features
+
+* export FilterOptionFunction ([d2e719f](https://github.com/mll-lab/react-components/commit/d2e719f62284934184126a08ef2b006bba554010))
+
 # [19.13.0-alpha.1](https://github.com/mll-lab/react-components/compare/v19.12.0...v19.13.0-alpha.1) (2025-07-29)
 
 
