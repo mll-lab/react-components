@@ -1,3 +1,11 @@
+# [19.13.0-alpha.4](https://github.com/mll-lab/react-components/compare/v19.13.0-alpha.3...v19.13.0-alpha.4) (2025-07-29)
+
+
+### Bug Fixes
+
+* options is an Array ([7d508b7](https://github.com/mll-lab/react-components/commit/7d508b77cfc30f0a3fe8463e76a6a9068079819d))
+* OptionType and GroupedOptionType with generics ([9189668](https://github.com/mll-lab/react-components/commit/9189668484d025309e6040f12ec7e9177ce67174))
+
 # [19.13.0-alpha.3](https://github.com/mll-lab/react-components/compare/v19.13.0-alpha.2...v19.13.0-alpha.3) (2025-07-29)
 
 
