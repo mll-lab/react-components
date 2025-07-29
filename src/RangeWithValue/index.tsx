@@ -3,31 +3,38 @@ import { Tooltip } from 'antd';
 import React from 'react';
 import styled from 'styled-components';
 
-import { PALETTE, THEME } from '../theme';
+import { PALETTE, Theme, useTheme } from '../theme';
 
 export type RangeType = 'closed' | 'open-ended';
 
-function colorByRange(
-  isOutOfRange: boolean,
-  isNearMin: boolean,
-  isNearMax: boolean,
-  rangeType: RangeType,
-) {
+function colorByRange({
+  isOutOfRange,
+  isNearMin,
+  isNearMax,
+  rangeType,
+  theme,
+}: {
+  isOutOfRange: boolean;
+  isNearMin: boolean;
+  isNearMax: boolean;
+  rangeType: RangeType;
+  theme: Theme;
+}): number {
   if (isOutOfRange) {
-    return THEME.errorColor;
+    return theme.errorColor;
   }
   if (rangeType === 'closed' && (isNearMin || isNearMax)) {
-    return THEME.warningColor;
+    return theme.warningColor;
   }
   if (rangeType === 'open-ended' && isNearMax) {
-    return THEME.warningColor;
+    return theme.warningColor;
   }
 
-  return THEME.successColor;
+  return theme.successColor;
 }
 
-function widthOfValuePoint(value: number) {
-  const { length } = String(value);
+function widthOfValuePoint(value: number): number {
+  const { length } = value.toString();
   const minWidth = 20;
   const widthPerChar = 5;
 
@@ -41,7 +48,7 @@ const Container = styled.div`
 
 const Scale = styled.div`
   height: 8px;
-  background: ${THEME.backgroundColor};
+  background: ${(props) => props.theme.backgroundColor};
   border-radius: 4px;
   position: relative;
 `;
@@ -52,7 +59,7 @@ const RangeLine = styled.div<{ left: string }>`
   top: 6px;
   width: 1px;
   height: 10px;
-  background: ${THEME.borderColor};
+  background: ${(props) => props.theme.borderColor};
 `;
 
 const ValuePoint = styled.div<{
@@ -148,6 +155,8 @@ export function RangeWithValue({
   rangeType: RangeType;
   bufferPercentage?: number;
 }) {
+  const theme = useTheme();
+
   const rangeValues = getBufferedRange({
     max: Math.max(expectedMax, actualValue),
     min: Math.min(expectedMin, actualValue),
@@ -175,12 +184,13 @@ export function RangeWithValue({
   };
 
   const valuePointWidth = widthOfValuePoint(actualValue);
-  const valueColor = colorByRange(
+  const valueColor = colorByRange({
     isOutOfRange,
     isNearMin,
     isNearMax,
     rangeType,
-  );
+    theme,
+  });
 
   return (
     <Container>
@@ -191,7 +201,7 @@ export function RangeWithValue({
           title={(() => {
             if (isOutOfRange) {
               return (
-                <span style={{ color: THEME.errorColor }}>
+                <span style={{ color: theme.errorColor }}>
                   <ExclamationCircleOutlined /> Außerhalb des Bereichs
                 </span>
               );
@@ -201,7 +211,7 @@ export function RangeWithValue({
               (rangeType === 'open-ended' && isNearMax)
             ) {
               return (
-                <span style={{ color: THEME.warningColor }}>
+                <span style={{ color: theme.warningColor }}>
                   <ExclamationCircleOutlined /> Nahe am Grenzwert
                 </span>
               );
