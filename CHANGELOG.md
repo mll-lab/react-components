@@ -1,3 +1,19 @@
+# [19.13.0-alpha.1](https://github.com/mll-lab/react-components/compare/v19.12.0...v19.13.0-alpha.1) (2025-07-29)
+
+
+### Bug Fixes
+
+* avoid Table with no data overlay covering other elements ([3ff6b5c](https://github.com/mll-lab/react-components/commit/3ff6b5c4f45e717bf6ec228209cb3aafb854fb13))
+* update import of toFormInputOption from Select to Form ([9e2cd18](https://github.com/mll-lab/react-components/commit/9e2cd1825adf4c5661d9cd408a8fe65e7e3fa0cd))
+
+
+### Features
+
+* add RangeWithValue component with storybook integration ([2899126](https://github.com/mll-lab/react-components/commit/2899126069168e4c70fbddb5bf542c4abd62aa9a))
+* allow customizable buffer percentage in range calculations ([83e3555](https://github.com/mll-lab/react-components/commit/83e3555781febf5d733e201827cdf6ba65632aed))
+* export RangeWithValue component from index ([8e482db](https://github.com/mll-lab/react-components/commit/8e482db8d10186ad5012babcaca2f0659fb4e8e0))
+* improve Select option types ([34b7ee3](https://github.com/mll-lab/react-components/commit/34b7ee3b5fe61da756073e81e1d0687ae947333c))
+
 # [19.12.0](https://github.com/mll-lab/react-components/compare/v19.11.0...v19.12.0) (2025-07-29)
 
 
