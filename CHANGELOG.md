@@ -1,3 +1,10 @@
+# [19.13.0-alpha.3](https://github.com/mll-lab/react-components/compare/v19.13.0-alpha.2...v19.13.0-alpha.3) (2025-07-29)
+
+
+### Bug Fixes
+
+* options is an Array ([a4b8691](https://github.com/mll-lab/react-components/commit/a4b86912ea7670b2fa67018763a539555a1b18db))
+
 # [19.13.0-alpha.2](https://github.com/mll-lab/react-components/compare/v19.13.0-alpha.1...v19.13.0-alpha.2) (2025-07-29)
 
 
