@@ -1,7 +1,7 @@
 import { Story } from '@storybook/react';
 import React from 'react';
 
-import { toFormInputOption } from '../Select';
+import { toFormInputOption } from '../Form';
 
 import { AutocompleteProps, Autocomplete } from './index';
 

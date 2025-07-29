@@ -3,9 +3,8 @@ import React, { useCallback, useRef } from 'react';
 import { FormProvider, useForm, useFormContext } from 'react-hook-form';
 
 import { Button } from '../Button';
-import { Form } from '../Form';
+import { Form, toFormInputOption } from '../Form';
 import { TextAreaRef } from '../Input';
-import { toFormInputOption } from '../Select';
 import { Space } from '../Space';
 
 import { AutocompleteField } from './AutocompleteField';
