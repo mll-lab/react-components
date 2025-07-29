@@ -14,7 +14,7 @@ import { fontSizeFromTheme } from '../styled-utils';
 
 export type GroupedOptionType = {
   label: string;
-  options: BaseOptionType;
+  options: BaseOptionType | DefaultOptionType;
 };
 
 export type SelectProps<
