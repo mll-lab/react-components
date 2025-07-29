@@ -20,6 +20,8 @@ export type GroupedOptionType = {
 
 export type { DefaultOptionType } from 'antd/lib/select';
 
+export type { FilterFunc as FilterOptionFunction } from 'rc-select/es/Select';
+
 export type SelectProps<
   ValueType = unknown,
   OptionType extends DefaultOptionType | GroupedOptionType = DefaultOptionType,
