@@ -12,8 +12,6 @@ import styled from 'styled-components';
 
 import { fontSizeFromTheme } from '../styled-utils';
 
-export * from './formInput';
-
 export type SelectProps<
   ValueType = unknown,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
