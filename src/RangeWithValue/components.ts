@@ -16,7 +16,7 @@ export const Scale = styled.div`
 
 export const RangeLine = styled.div<{ left: string }>`
   position: absolute;
-  left: ${({ left }) => left};
+  left: ${(props) => props.left};
   top: 6px;
   width: 1px;
   height: 10px;
@@ -29,12 +29,12 @@ export const ValuePoint = styled.div<{
   color: string;
 }>`
   position: absolute;
-  left: ${({ left }) => left};
+  left: ${(props) => props.left};
   top: -26px;
-  width: ${({ width }) => width}px;
+  width: ${(props) => props.width}px;
   height: 24px;
   border-radius: 8px;
-  background: ${({ color }) => color};
+  background: ${(props) => props.color};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,7 +51,7 @@ export const DownwardLine = styled.div<{
   transform: translateX(-50%);
   width: 2px;
   height: 7px;
-  background: ${({ color }) => color};
+  background: ${(props) => props.color};
 `;
 
 export const LabelWrapper = styled.div`
