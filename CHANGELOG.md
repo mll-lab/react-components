@@ -1,3 +1,10 @@
+# [19.11.0](https://github.com/mll-lab/react-components/compare/v19.10.0...v19.11.0) (2025-07-29)
+
+
+### Features
+
+* add component `RangeWithValue` ([8e57336](https://github.com/mll-lab/react-components/commit/8e5733671a745cc8e3cbaedb7d53b80207c785da))
+
 # [19.10.0](https://github.com/mll-lab/react-components/compare/v19.9.1...v19.10.0) (2025-06-03)
 
 
