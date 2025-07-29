@@ -107,12 +107,14 @@ function getBufferedRange({
   actualValue,
   expectedMin,
   expectedMax,
+  bufferPercentage,
 }: {
   max: number;
   min: number;
   actualValue: number;
   expectedMin: number;
   expectedMax: number;
+  bufferPercentage: number;
 }) {
   let minValue = min;
   let maxValue = max;
@@ -124,7 +126,7 @@ function getBufferedRange({
     maxValue = actualValue;
   }
   const range = maxValue - minValue;
-  const buffer = range * 0.1;
+  const buffer = range * bufferPercentage;
 
   return {
     bufferedMin: minValue - buffer,
@@ -138,11 +140,13 @@ export function RangeWithValue({
   expectedMax,
   actualValue,
   rangeType,
+  bufferPercentage = 0.1,
 }: {
   expectedMin: number;
   expectedMax: number;
   actualValue: number;
   rangeType: RangeType;
+  bufferPercentage?: number;
 }) {
   const rangeValues = getBufferedRange({
     max: Math.max(expectedMax, actualValue),
@@ -150,8 +154,9 @@ export function RangeWithValue({
     actualValue,
     expectedMin,
     expectedMax,
+    bufferPercentage,
   });
-  const warnThreshold = rangeValues.range * 0.1;
+  const warnThreshold = rangeValues.range * bufferPercentage;
   const isRangeZero = expectedMin === expectedMax;
   const isNearMin = !isRangeZero && actualValue <= expectedMin + warnThreshold;
   const isNearMax = !isRangeZero && actualValue >= expectedMax - warnThreshold;
