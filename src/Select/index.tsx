@@ -12,9 +12,17 @@ import styled from 'styled-components';
 
 import { fontSizeFromTheme } from '../styled-utils';
 
+export type GroupedOptionType = {
+  label: string;
+  options: BaseOptionType;
+};
+
 export type SelectProps<
   ValueType = unknown,
-  OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
+  OptionType extends
+    | BaseOptionType
+    | DefaultOptionType
+    | GroupedOptionType = DefaultOptionType,
 > = AntdSelectProps<ValueType, OptionType> & RefAttributes<BaseSelectRef>;
 
 const StyledSelect = styled(AntdSelect)`
@@ -72,10 +80,13 @@ function SelectInner<
 
 export const Select = forwardRef<
   BaseSelectRef,
-  SelectProps<unknown, BaseOptionType | DefaultOptionType>
+  SelectProps<unknown, BaseOptionType | DefaultOptionType | GroupedOptionType>
 >(SelectInner) as unknown as (<
   TValue = unknown,
-  TOption extends BaseOptionType | DefaultOptionType = DefaultOptionType,
+  TOption extends
+    | BaseOptionType
+    | DefaultOptionType
+    | GroupedOptionType = DefaultOptionType,
 >(
   props: SelectProps<TValue, TOption> & RefAttributes<BaseSelectRef>,
 ) => ReactElement) & {
