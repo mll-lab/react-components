@@ -1,3 +1,10 @@
+# [19.12.0](https://github.com/mll-lab/react-components/compare/v19.11.0...v19.12.0) (2025-07-29)
+
+
+### Features
+
+* improve `GroupedOptionType` ([b149b9e](https://github.com/mll-lab/react-components/commit/b149b9ee5429919d2bb6bafaf67e26a17a8c174d))
+
 # [19.11.0](https://github.com/mll-lab/react-components/compare/v19.10.0...v19.11.0) (2025-07-29)
 
 
