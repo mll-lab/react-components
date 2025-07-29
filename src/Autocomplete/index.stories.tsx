@@ -14,9 +14,7 @@ export const WithOptions: Story<AutocompleteProps> = function WithOptions(
 ) {
   return (
     <Autocomplete
-      options={['food', 'foo', 'foobar', 'bar'].map((value: string) =>
-        toFormInputOption(value),
-      )}
+      options={['food', 'foo', 'foobar', 'bar'].map(toFormInputOption)}
       {...args}
     />
   );
