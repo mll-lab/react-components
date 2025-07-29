@@ -15,7 +15,7 @@ import { fontSizeFromTheme } from '../styled-utils';
 /** As described in https://4x.ant.design/components/select/#components-select-demo-optgroup. */
 export type GroupedOptionType = {
   label: string;
-  options: DefaultOptionType;
+  options: Array<DefaultOptionType>;
 };
 
 export type { DefaultOptionType } from 'antd/lib/select';
