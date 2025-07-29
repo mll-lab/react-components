@@ -1,7 +1,7 @@
 import { Story } from '@storybook/react';
 import React from 'react';
 
-import { toFormInputOption } from '../Select';
+import { toFormInputOption } from '../Form';
 
 import { AutocompleteProps, Autocomplete } from './index';
 
@@ -14,7 +14,9 @@ export const WithOptions: Story<AutocompleteProps> = function WithOptions(
 ) {
   return (
     <Autocomplete
-      options={['food', 'foo', 'foobar', 'bar'].map(toFormInputOption)}
+      options={['food', 'foo', 'foobar', 'bar'].map((value: string) =>
+        toFormInputOption(value),
+      )}
       {...args}
     />
   );
