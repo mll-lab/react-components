@@ -3,9 +3,8 @@ import React, { useCallback, useRef } from 'react';
 import { FormProvider, useForm, useFormContext } from 'react-hook-form';
 
 import { Button } from '../Button';
-import { Form } from '../Form';
+import { Form, toFormInputOption } from '../Form';
 import { TextAreaRef } from '../Input';
-import { toFormInputOption } from '../Select';
 import { Space } from '../Space';
 
 import { AutocompleteField } from './AutocompleteField';
@@ -126,7 +125,9 @@ function AllFields() {
         control={formMethods.control}
         formItem={{ label: 'Autocomplete' }}
         component={{
-          options: ['foo', 'bar'].map(toFormInputOption),
+          options: ['foo', 'bar'].map((value: string) =>
+            toFormInputOption(value),
+          ),
         }}
       />
       <CheckboxField
@@ -142,7 +143,9 @@ function AllFields() {
         name="checkboxGroup"
         control={formMethods.control}
         formItem={{ label: 'CheckboxGroup' }}
-        component={{ options: ['a', 'b'].map(toFormInputOption) }}
+        component={{
+          options: ['a', 'b'].map((value: string) => ({ label: value, value })),
+        }}
       />
       <InputField
         name="input"
@@ -200,7 +203,7 @@ function AllFields() {
           label: 'Select',
         }}
         component={{
-          options: ['a', 'b'].map(toFormInputOption),
+          options: ['a', 'b'].map((value: string) => toFormInputOption(value)),
         }}
       />
       <SwitchField
