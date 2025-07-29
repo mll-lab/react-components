@@ -1,4 +1,4 @@
-import { BaseOptionType, DefaultOptionType } from 'antd/lib/select';
+import { DefaultOptionType } from 'antd/lib/select';
 import React from 'react';
 import {
   useController,
@@ -9,7 +9,7 @@ import {
   UnpackNestedValue,
 } from 'react-hook-form';
 
-import { Select, SelectProps } from '../Select';
+import { GroupedOptionType, Select, SelectProps } from '../Select';
 
 import { useFieldContext } from './FieldProvider';
 import { FieldWrapper, FieldWrapperProps } from './FieldWrapper';
@@ -17,7 +17,7 @@ import { FieldWrapper, FieldWrapperProps } from './FieldWrapper';
 type SelectFieldProps<
   TFieldValues extends FieldValues,
   TName extends FieldPath<TFieldValues>,
-  TOption extends BaseOptionType | DefaultOptionType,
+  TOption extends DefaultOptionType | GroupedOptionType,
 > = UseControllerProps<TFieldValues, TName> &
   Pick<FieldWrapperProps<TFieldValues, TName>, 'formItem'> & {
     component?: SelectProps<
@@ -29,7 +29,7 @@ type SelectFieldProps<
 export function SelectField<
   TFieldValues extends FieldValues = FieldValues,
   TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TOption extends BaseOptionType | DefaultOptionType = DefaultOptionType,
+  TOption extends DefaultOptionType | GroupedOptionType = DefaultOptionType,
 >({
   formItem,
   component,
