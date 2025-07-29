@@ -199,7 +199,7 @@ function AllFields() {
           label: 'Select',
         }}
         component={{
-          options: ['a', 'b'].map(toFormInputOption),
+          options: (['a', 'b'] as const).map(toFormInputOption),
         }}
       />
       <SwitchField

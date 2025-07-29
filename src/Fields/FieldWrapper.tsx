@@ -5,7 +5,6 @@ import {
   UseControllerProps,
   FieldPathValue,
   FieldPath,
-  UnpackNestedValue,
 } from 'react-hook-form';
 
 import { Form, FormItemProps } from '../Form';
@@ -14,20 +13,20 @@ import { useFieldContext } from './FieldProvider';
 
 export type FieldWrapperProps<
   TFieldValues extends FieldValues,
-  TName extends FieldPath<TFieldValues>,
+  TFieldPath extends FieldPath<TFieldValues>,
 > = {
   children: ReactNode;
-  controller: UseControllerProps<TFieldValues, TName>;
-  formItem?: FormItemProps<
-    UnpackNestedValue<FieldPathValue<TFieldValues, TName>>
-  >;
+  controller: UseControllerProps<TFieldValues, TFieldPath>;
+  formItem?: FormItemProps<FieldPathValue<TFieldValues, TFieldPath>>;
 };
 
 export function FieldWrapper<
   TFieldValues extends FieldValues,
-  TName extends FieldPath<TFieldValues>,
->(props: FieldWrapperProps<TFieldValues, TName>) {
-  const { fieldState } = useController<TFieldValues, TName>(props.controller);
+  TFieldPath extends FieldPath<TFieldValues>,
+>(props: FieldWrapperProps<TFieldValues, TFieldPath>) {
+  const { fieldState } = useController<TFieldValues, TFieldPath>(
+    props.controller,
+  );
 
   const { formItemProps } = useFieldContext();
 
