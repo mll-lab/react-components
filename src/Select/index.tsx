@@ -1,5 +1,5 @@
 import { Select as AntdSelect, SelectProps as AntdSelectProps } from 'antd';
-import { BaseOptionType, DefaultOptionType } from 'antd/lib/select';
+import { DefaultOptionType } from 'antd/lib/select';
 import { BaseSelectRef } from 'rc-select';
 import React, {
   ForwardedRef,
@@ -12,17 +12,17 @@ import styled from 'styled-components';
 
 import { fontSizeFromTheme } from '../styled-utils';
 
+/** As described in https://4x.ant.design/components/select/#components-select-demo-optgroup. */
 export type GroupedOptionType = {
   label: string;
-  options: BaseOptionType | DefaultOptionType;
+  options: DefaultOptionType;
 };
+
+export type { DefaultOptionType } from 'antd/lib/select';
 
 export type SelectProps<
   ValueType = unknown,
-  OptionType extends
-    | BaseOptionType
-    | DefaultOptionType
-    | GroupedOptionType = DefaultOptionType,
+  OptionType extends DefaultOptionType | GroupedOptionType = DefaultOptionType,
 > = AntdSelectProps<ValueType, OptionType> & RefAttributes<BaseSelectRef>;
 
 const StyledSelect = styled(AntdSelect)`
@@ -52,8 +52,8 @@ const StyledDropdown = styled.div`
 `;
 
 function SelectInner<
-  ValueType = unknown,
-  OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
+  ValueType,
+  OptionType extends DefaultOptionType | GroupedOptionType,
 >(
   { children, dropdownRender, ...props }: SelectProps<ValueType, OptionType>,
   ref: ForwardedRef<BaseSelectRef>,
@@ -78,15 +78,9 @@ function SelectInner<
   );
 }
 
-export const Select = forwardRef<
-  BaseSelectRef,
-  SelectProps<unknown, BaseOptionType | DefaultOptionType | GroupedOptionType>
->(SelectInner) as unknown as (<
+export const Select = forwardRef(SelectInner) as unknown as (<
   TValue = unknown,
-  TOption extends
-    | BaseOptionType
-    | DefaultOptionType
-    | GroupedOptionType = DefaultOptionType,
+  TOption extends DefaultOptionType | GroupedOptionType = DefaultOptionType,
 >(
   props: SelectProps<TValue, TOption> & RefAttributes<BaseSelectRef>,
 ) => ReactElement) & {
