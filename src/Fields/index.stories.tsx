@@ -125,9 +125,7 @@ function AllFields() {
         control={formMethods.control}
         formItem={{ label: 'Autocomplete' }}
         component={{
-          options: ['foo', 'bar'].map((value: string) =>
-            toFormInputOption(value),
-          ),
+          options: ['foo', 'bar'].map(toFormInputOption),
         }}
       />
       <CheckboxField
@@ -143,9 +141,7 @@ function AllFields() {
         name="checkboxGroup"
         control={formMethods.control}
         formItem={{ label: 'CheckboxGroup' }}
-        component={{
-          options: ['a', 'b'].map((value: string) => ({ label: value, value })),
-        }}
+        component={{ options: ['a', 'b'].map(toFormInputOption) }}
       />
       <InputField
         name="input"
@@ -203,7 +199,7 @@ function AllFields() {
           label: 'Select',
         }}
         component={{
-          options: ['a', 'b'].map((value: string) => toFormInputOption(value)),
+          options: (['a', 'b'] as const).map(toFormInputOption),
         }}
       />
       <SwitchField

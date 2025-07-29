@@ -1,4 +1,3 @@
-import { DefaultOptionType } from 'antd/lib/select';
 import React from 'react';
 import {
   useController,
@@ -6,38 +5,43 @@ import {
   FieldPathValue,
   FieldValues,
   UseControllerProps,
-  UnpackNestedValue,
 } from 'react-hook-form';
 
-import { GroupedOptionType, Select, SelectProps } from '../Select';
+import { OptionType, GroupedOptionType, Select, SelectProps } from '../Select';
 
 import { useFieldContext } from './FieldProvider';
 import { FieldWrapper, FieldWrapperProps } from './FieldWrapper';
 
 type SelectFieldProps<
   TFieldValues extends FieldValues,
-  TName extends FieldPath<TFieldValues>,
-  TOption extends DefaultOptionType | GroupedOptionType,
-> = UseControllerProps<TFieldValues, TName> &
-  Pick<FieldWrapperProps<TFieldValues, TName>, 'formItem'> & {
-    component?: SelectProps<
-      UnpackNestedValue<FieldPathValue<TFieldValues, TName>>,
-      TOption
-    >;
+  TFieldPath extends FieldPath<TFieldValues>,
+  TFieldPathValue extends FieldPathValue<TFieldValues, TFieldPath>,
+  TOption extends
+    | OptionType<TFieldPathValue>
+    | GroupedOptionType<TFieldPathValue>,
+> = UseControllerProps<TFieldValues, TFieldPath> &
+  Pick<FieldWrapperProps<TFieldValues, TFieldPath>, 'formItem'> & {
+    component?: SelectProps<TFieldPathValue, TOption>;
   };
 
 export function SelectField<
   TFieldValues extends FieldValues = FieldValues,
-  TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TOption extends DefaultOptionType | GroupedOptionType = DefaultOptionType,
+  TFieldPath extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
+  TFieldPathValue extends FieldPathValue<
+    TFieldValues,
+    TFieldPath
+  > = FieldPathValue<TFieldValues, TFieldPath>,
+  TOption extends
+    | OptionType<TFieldPathValue>
+    | GroupedOptionType<TFieldPathValue> = OptionType<TFieldPathValue>,
 >({
   formItem,
   component,
   ...controller
-}: SelectFieldProps<TFieldValues, TName, TOption>) {
+}: SelectFieldProps<TFieldValues, TFieldPath, TFieldPathValue, TOption>) {
   const {
     field: { onChange, ...fieldProps },
-  } = useController<TFieldValues, TName>(controller);
+  } = useController<TFieldValues, TFieldPath>(controller);
 
   const { disabled } = useFieldContext();
 
