@@ -12,24 +12,28 @@ import styled from 'styled-components';
 
 import { fontSizeFromTheme } from '../styled-utils';
 
-export type OptionType<TValue = unknown> = {
+export type OptionType<TValue = unknown> =
+  | ValueOptionType<TValue>
+  | GroupedOptionType<TValue>;
+
+export type ValueOptionType<TValue = unknown> = {
   label: ReactNode;
   value: TValue;
+  disabled?: boolean;
 };
 
 /** As described in https://4x.ant.design/components/select/#components-select-demo-optgroup. */
 export type GroupedOptionType<TValue = unknown> = {
   label: ReactNode;
-  options: Array<OptionType<TValue>>;
+  options: Array<ValueOptionType<TValue>>;
+  disabled?: boolean;
 };
 
 export type { FilterFunc as FilterOptionFunction } from 'rc-select/es/Select';
 
 export type SelectProps<
   TValue = unknown,
-  TOption extends
-    | OptionType<TValue>
-    | GroupedOptionType<TValue> = OptionType<TValue>,
+  TOption extends OptionType<TValue> = OptionType<TValue>,
 > = AntdSelectProps<TValue, TOption> & RefAttributes<BaseSelectRef>;
 
 const StyledSelect = styled(AntdSelect)`
@@ -58,10 +62,7 @@ const StyledDropdown = styled.div`
   }
 `;
 
-function SelectInner<
-  TValue,
-  TOptionType extends OptionType<TValue> | GroupedOptionType<TValue>,
->(
+function SelectInner<TValue, TOptionType extends OptionType<TValue>>(
   { children, dropdownRender, ...props }: SelectProps<TValue, TOptionType>,
   ref: ForwardedRef<BaseSelectRef>,
 ) {
@@ -87,9 +88,7 @@ function SelectInner<
 
 export const Select = forwardRef(SelectInner) as unknown as (<
   TValue = unknown,
-  TOptionType extends
-    | OptionType<TValue>
-    | GroupedOptionType<TValue> = OptionType<TValue>,
+  TOptionType extends OptionType<TValue> = OptionType<TValue>,
 >(
   props: SelectProps<TValue, TOptionType> & RefAttributes<BaseSelectRef>,
 ) => ReactElement) & {
