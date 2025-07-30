@@ -1,3 +1,10 @@
+# [19.13.0-alpha.5](https://github.com/mll-lab/react-components/compare/v19.13.0-alpha.4...v19.13.0-alpha.5) (2025-07-30)
+
+
+### Bug Fixes
+
+* allow disabled ([37dd142](https://github.com/mll-lab/react-components/commit/37dd1424c683b3636150b31ae7ae37bf2090b203))
+
 # [19.13.0-alpha.4](https://github.com/mll-lab/react-components/compare/v19.13.0-alpha.3...v19.13.0-alpha.4) (2025-07-29)
 
 
