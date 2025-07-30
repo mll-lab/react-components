@@ -16,20 +16,21 @@ import { FieldWrapper, FieldWrapperProps } from './FieldWrapper';
 type SelectFieldProps<
   TFieldValues extends FieldValues,
   TFieldPath extends FieldPath<TFieldValues>,
-  TFieldPathValue extends FieldPathValue<TFieldValues, TFieldPath>,
-  TOption extends OptionType<UnpackNestedValue<TFieldPathValue>>,
+  TFieldPathValue extends UnpackNestedValue<
+    FieldPathValue<TFieldValues, TFieldPath>
+  >,
+  TOption extends OptionType<TFieldPathValue>,
 > = UseControllerProps<TFieldValues, TFieldPath> &
   Pick<FieldWrapperProps<TFieldValues, TFieldPath>, 'formItem'> & {
-    component?: SelectProps<UnpackNestedValue<TFieldPathValue>, TOption>;
+    component?: SelectProps<TFieldPathValue, TOption>;
   };
 
 export function SelectField<
   TFieldValues extends FieldValues = FieldValues,
   TFieldPath extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TFieldPathValue extends FieldPathValue<
-    TFieldValues,
-    TFieldPath
-  > = FieldPathValue<TFieldValues, TFieldPath>,
+  TFieldPathValue extends UnpackNestedValue<
+    FieldPathValue<TFieldValues, TFieldPath>
+  > = UnpackNestedValue<FieldPathValue<TFieldValues, TFieldPath>>,
   TOption extends OptionType<TFieldPathValue> = OptionType<TFieldPathValue>,
 >({
   formItem,
