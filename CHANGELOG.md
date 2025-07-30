@@ -1,3 +1,12 @@
+# [19.13.0-alpha.7](https://github.com/mll-lab/react-components/compare/v19.13.0-alpha.6...v19.13.0-alpha.7) (2025-07-30)
+
+
+### Bug Fixes
+
+* UnpackNestedValue ([6972bfc](https://github.com/mll-lab/react-components/commit/6972bfc39baa42e566ecc91335ce85a6bf4fddfa))
+* UnpackNestedValue ([5481369](https://github.com/mll-lab/react-components/commit/548136918eb8dab7ffcb9ba0170563b666e1ac45))
+* UnpackNestedValue ([ac1f909](https://github.com/mll-lab/react-components/commit/ac1f9096329211a6915ba66361e06dab1ecba3bf))
+
 # [19.13.0-alpha.6](https://github.com/mll-lab/react-components/compare/v19.13.0-alpha.5...v19.13.0-alpha.6) (2025-07-30)
 
 
