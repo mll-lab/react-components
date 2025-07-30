@@ -101,7 +101,7 @@ export const Select = forwardRef(SelectInner) as unknown as (<
   TValue = unknown,
   TOptionType extends OptionType<TValue> = OptionType<TValue>,
 >(
-  props: SelectProps<TValue, TOptionType> & RefAttributes<BaseSelectRef>,
+  props: SelectProps<TValue, TOptionType>,
 ) => ReactElement) & {
   Option: typeof AntdSelect.Option;
   OptGroup: typeof AntdSelect.OptGroup;
