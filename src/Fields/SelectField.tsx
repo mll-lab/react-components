@@ -7,7 +7,7 @@ import {
   UseControllerProps,
 } from 'react-hook-form';
 
-import { OptionType, GroupedOptionType, Select, SelectProps } from '../Select';
+import { Select, SelectProps, OptionType } from '../Select';
 
 import { useFieldContext } from './FieldProvider';
 import { FieldWrapper, FieldWrapperProps } from './FieldWrapper';
@@ -16,9 +16,7 @@ type SelectFieldProps<
   TFieldValues extends FieldValues,
   TFieldPath extends FieldPath<TFieldValues>,
   TFieldPathValue extends FieldPathValue<TFieldValues, TFieldPath>,
-  TOption extends
-    | OptionType<TFieldPathValue>
-    | GroupedOptionType<TFieldPathValue>,
+  TOption extends OptionType<TFieldPathValue>,
 > = UseControllerProps<TFieldValues, TFieldPath> &
   Pick<FieldWrapperProps<TFieldValues, TFieldPath>, 'formItem'> & {
     component?: SelectProps<TFieldPathValue, TOption>;
@@ -31,9 +29,7 @@ export function SelectField<
     TFieldValues,
     TFieldPath
   > = FieldPathValue<TFieldValues, TFieldPath>,
-  TOption extends
-    | OptionType<TFieldPathValue>
-    | GroupedOptionType<TFieldPathValue> = OptionType<TFieldPathValue>,
+  TOption extends OptionType<TFieldPathValue> = OptionType<TFieldPathValue>,
 >({
   formItem,
   component,
