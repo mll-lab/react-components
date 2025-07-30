@@ -1,5 +1,7 @@
+import { Modify } from '@mll-lab/js-utils';
 import { Select as AntdSelect, SelectProps as AntdSelectProps } from 'antd';
 import { BaseSelectRef } from 'rc-select';
+import type { FilterFunc as AntdFilterFunc } from 'rc-select/es/Select';
 import React, {
   ForwardedRef,
   forwardRef,
@@ -29,12 +31,21 @@ export type GroupedOptionType<TValue = unknown> = {
   disabled?: boolean;
 };
 
-export type { FilterFunc as FilterOptionFunction } from 'rc-select/es/Select';
+export type FilterOptionFunction<
+  TValue = unknown,
+  TOption extends OptionType<TValue> = OptionType<TValue>,
+> = AntdFilterFunc<TOption>;
 
 export type SelectProps<
   TValue = unknown,
   TOption extends OptionType<TValue> = OptionType<TValue>,
-> = AntdSelectProps<TValue, TOption> & RefAttributes<BaseSelectRef>;
+> = Modify<
+  AntdSelectProps<TValue, TOption>,
+  {
+    filterOption?: boolean | FilterOptionFunction<TValue, TOption>;
+  }
+> &
+  RefAttributes<BaseSelectRef>;
 
 const StyledSelect = styled(AntdSelect)`
   &,
