@@ -1,3 +1,10 @@
+# [19.13.0-alpha.9](https://github.com/mll-lab/react-components/compare/v19.13.0-alpha.8...v19.13.0-alpha.9) (2025-07-30)
+
+
+### Bug Fixes
+
+* simplify SelectProps ([4be6730](https://github.com/mll-lab/react-components/commit/4be6730c6d450cc5f0506cb0b9fc23cddc42274b))
+
 # [19.13.0-alpha.8](https://github.com/mll-lab/react-components/compare/v19.13.0-alpha.7...v19.13.0-alpha.8) (2025-07-30)
 
 
