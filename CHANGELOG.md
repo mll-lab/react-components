@@ -1,3 +1,10 @@
+# [19.13.0-alpha.6](https://github.com/mll-lab/react-components/compare/v19.13.0-alpha.5...v19.13.0-alpha.6) (2025-07-30)
+
+
+### Bug Fixes
+
+* generic type FilterOptionFunction ([41cb04a](https://github.com/mll-lab/react-components/commit/41cb04ace84cd628fd62867a81da04fc2f386146))
+
 # [19.13.0-alpha.5](https://github.com/mll-lab/react-components/compare/v19.13.0-alpha.4...v19.13.0-alpha.5) (2025-07-30)
 
 
