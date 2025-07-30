@@ -7,7 +7,7 @@ import {
   UseControllerProps,
 } from 'react-hook-form';
 
-import { Select, SelectProps, OptionType } from '../Select';
+import { Select, SelectProps, MaybeGroupedInputOption } from '../Select';
 
 import { useFieldContext } from './FieldProvider';
 import { FieldWrapper, FieldWrapperProps } from './FieldWrapper';
@@ -18,7 +18,7 @@ type SelectFieldProps<
   TFieldValues extends FieldValues,
   TFieldPath extends FieldPath<TFieldValues>,
   TFieldPathValue extends UnpackArray<FieldPathValue<TFieldValues, TFieldPath>>,
-  TOption extends OptionType<TFieldPathValue>,
+  TOption extends MaybeGroupedInputOption<TFieldPathValue>,
 > = UseControllerProps<TFieldValues, TFieldPath> &
   Pick<FieldWrapperProps<TFieldValues, TFieldPath>, 'formItem'> & {
     component?: SelectProps<TFieldPathValue, TOption>;
@@ -30,7 +30,8 @@ export function SelectField<
   TFieldPathValue extends UnpackArray<
     FieldPathValue<TFieldValues, TFieldPath>
   > = UnpackArray<FieldPathValue<TFieldValues, TFieldPath>>,
-  TOption extends OptionType<TFieldPathValue> = OptionType<TFieldPathValue>,
+  TOption extends
+    MaybeGroupedInputOption<TFieldPathValue> = MaybeGroupedInputOption<TFieldPathValue>,
 >({
   formItem,
   component,

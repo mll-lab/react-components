@@ -12,33 +12,34 @@ import React, {
 } from 'react';
 import styled from 'styled-components';
 
+import { FormInputOption } from '../Form';
 import { fontSizeFromTheme } from '../styled-utils';
 
-export type OptionType<TValue = unknown> =
-  | ValueOptionType<TValue>
-  | GroupedOptionType<TValue>;
-
-export type ValueOptionType<TValue = unknown> = {
-  label: ReactNode;
-  value: TValue;
-  disabled?: boolean;
-};
+export type MaybeGroupedInputOption<
+  TValue = unknown,
+  TLabel extends ReactNode = ReactNode,
+> = FormInputOption<TValue, TLabel> | GroupedInputOption<TValue, TLabel>;
 
 /** As described in https://4x.ant.design/components/select/#components-select-demo-optgroup. */
-export type GroupedOptionType<TValue = unknown> = {
-  label: ReactNode;
-  options: Array<ValueOptionType<TValue>>;
+export type GroupedInputOption<
+  TValue = unknown,
+  TLabel extends ReactNode = ReactNode,
+> = {
+  label: TLabel;
+  options: Array<FormInputOption<TValue, TLabel>>;
   disabled?: boolean;
 };
 
 export type FilterOptionFunction<
   TValue = unknown,
-  TOption extends OptionType<TValue> = OptionType<TValue>,
+  TOption extends
+    MaybeGroupedInputOption<TValue> = MaybeGroupedInputOption<TValue>,
 > = AntdFilterFunc<TOption>;
 
 export type SelectProps<
   TValue = unknown,
-  TOption extends OptionType<TValue> = OptionType<TValue>,
+  TOption extends
+    MaybeGroupedInputOption<TValue> = MaybeGroupedInputOption<TValue>,
 > = Modify<
   AntdSelectProps<TValue, TOption>,
   {
@@ -73,7 +74,10 @@ const StyledDropdown = styled.div`
   }
 `;
 
-function SelectInner<TValue, TOptionType extends OptionType<TValue>>(
+function SelectInner<
+  TValue,
+  TOptionType extends MaybeGroupedInputOption<TValue>,
+>(
   { children, dropdownRender, ...props }: SelectProps<TValue, TOptionType>,
   ref: ForwardedRef<BaseSelectRef>,
 ) {
@@ -99,7 +103,8 @@ function SelectInner<TValue, TOptionType extends OptionType<TValue>>(
 
 export const Select = forwardRef(SelectInner) as unknown as (<
   TValue = unknown,
-  TOptionType extends OptionType<TValue> = OptionType<TValue>,
+  TOptionType extends
+    MaybeGroupedInputOption<TValue> = MaybeGroupedInputOption<TValue>,
 >(
   props: SelectProps<TValue, TOptionType>,
 ) => ReactElement) & {
