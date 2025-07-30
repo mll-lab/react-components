@@ -1,3 +1,10 @@
+# [19.13.0-alpha.8](https://github.com/mll-lab/react-components/compare/v19.13.0-alpha.7...v19.13.0-alpha.8) (2025-07-30)
+
+
+### Bug Fixes
+
+* UnpackArray ([2bbd6e5](https://github.com/mll-lab/react-components/commit/2bbd6e5a84176dc40401c0e9416a2f72d5da887c))
+
 # [19.13.0-alpha.7](https://github.com/mll-lab/react-components/compare/v19.13.0-alpha.6...v19.13.0-alpha.7) (2025-07-30)
 
 
