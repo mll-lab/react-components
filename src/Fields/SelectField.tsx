@@ -5,6 +5,7 @@ import {
   FieldPathValue,
   FieldValues,
   UseControllerProps,
+  UnpackNestedValue,
 } from 'react-hook-form';
 
 import { Select, SelectProps, OptionType } from '../Select';
@@ -16,10 +17,10 @@ type SelectFieldProps<
   TFieldValues extends FieldValues,
   TFieldPath extends FieldPath<TFieldValues>,
   TFieldPathValue extends FieldPathValue<TFieldValues, TFieldPath>,
-  TOption extends OptionType<TFieldPathValue>,
+  TOption extends OptionType<UnpackNestedValue<TFieldPathValue>>,
 > = UseControllerProps<TFieldValues, TFieldPath> &
   Pick<FieldWrapperProps<TFieldValues, TFieldPath>, 'formItem'> & {
-    component?: SelectProps<TFieldPathValue, TOption>;
+    component?: SelectProps<UnpackNestedValue<TFieldPathValue>, TOption>;
   };
 
 export function SelectField<
