@@ -1,7 +1,7 @@
 {
   "name": "@mll-lab/react-components",
   "description": "Shared React components of MLL",
-  "version": "19.13.0-alpha.9",
+  "version": "19.13.0-alpha.10",
   "main": "cjs/index.js",
   "module": "esm/index.js",
   "types": "types/index.d.ts",

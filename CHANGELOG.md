@@ -1,3 +1,10 @@
+# [19.13.0-alpha.10](https://github.com/mll-lab/react-components/compare/v19.13.0-alpha.9...v19.13.0-alpha.10) (2025-07-30)
+
+
+### Bug Fixes
+
+* generic label ([b64e82f](https://github.com/mll-lab/react-components/commit/b64e82fed7673b33c9228d6698f71eb0da65ca12))
+
 # [19.13.0-alpha.9](https://github.com/mll-lab/react-components/compare/v19.13.0-alpha.8...v19.13.0-alpha.9) (2025-07-30)
 
 
