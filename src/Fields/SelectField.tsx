@@ -5,7 +5,6 @@ import {
   FieldPathValue,
   FieldValues,
   UseControllerProps,
-  UnpackNestedValue,
 } from 'react-hook-form';
 
 import { Select, SelectProps, OptionType } from '../Select';
@@ -13,12 +12,12 @@ import { Select, SelectProps, OptionType } from '../Select';
 import { useFieldContext } from './FieldProvider';
 import { FieldWrapper, FieldWrapperProps } from './FieldWrapper';
 
+type UnpackArray<T> = T extends Array<infer U> ? U : T;
+
 type SelectFieldProps<
   TFieldValues extends FieldValues,
   TFieldPath extends FieldPath<TFieldValues>,
-  TFieldPathValue extends UnpackNestedValue<
-    FieldPathValue<TFieldValues, TFieldPath>
-  >,
+  TFieldPathValue extends UnpackArray<FieldPathValue<TFieldValues, TFieldPath>>,
   TOption extends OptionType<TFieldPathValue>,
 > = UseControllerProps<TFieldValues, TFieldPath> &
   Pick<FieldWrapperProps<TFieldValues, TFieldPath>, 'formItem'> & {
@@ -28,9 +27,9 @@ type SelectFieldProps<
 export function SelectField<
   TFieldValues extends FieldValues = FieldValues,
   TFieldPath extends FieldPath<TFieldValues> = FieldPath<TFieldValues>,
-  TFieldPathValue extends UnpackNestedValue<
+  TFieldPathValue extends UnpackArray<
     FieldPathValue<TFieldValues, TFieldPath>
-  > = UnpackNestedValue<FieldPathValue<TFieldValues, TFieldPath>>,
+  > = UnpackArray<FieldPathValue<TFieldValues, TFieldPath>>,
   TOption extends OptionType<TFieldPathValue> = OptionType<TFieldPathValue>,
 >({
   formItem,
