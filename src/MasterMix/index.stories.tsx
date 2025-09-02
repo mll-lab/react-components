@@ -45,7 +45,7 @@ export default {
   },
 };
 
-function Template({
+export function Default({
   lossType = 'factorWithMinimum',
   lossValue = 0.1,
   minPositions = 2,
@@ -72,5 +72,3 @@ function Template({
 
   return <MasterMix {...props} pipettingLoss={pipettingLoss} />;
 }
-
-export const Default = Template;
