@@ -1,3 +1,10 @@
+# [19.13.0](https://github.com/mll-lab/react-components/compare/v19.12.0...v19.13.0) (2025-09-02)
+
+
+### Features
+
+* add support for 'factorWithMinimum' pipetting loss type ([753b999](https://github.com/mll-lab/react-components/commit/753b999d90f1f7108e7d70e95f33d43203ff57a5))
+
 # [19.12.0](https://github.com/mll-lab/react-components/compare/v19.11.0...v19.12.0) (2025-07-29)
 
 
