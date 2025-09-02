@@ -1,41 +1,74 @@
-import { Story } from '@storybook/react';
-import React from 'react';
+import React, { ReactElement } from 'react';
 
-import { MasterMixIngredient, MasterMixProps } from './types';
+import { MasterMixIngredient, MasterMixProps, PipettingLoss } from './types';
 
 import { MasterMix } from './index';
 
+const INGREDIENTS: Array<MasterMixIngredient> = [
+  { key: 1, title: 'Water', volume: 12 },
+  { key: 2, title: 'Primer Forward', volume: 1 },
+  { key: 3, title: 'Primer Reverse', volume: 1 },
+  { key: 4, title: 'Probe', volume: 1 },
+];
+
 export default {
   title: 'MasterMix',
+  component: MasterMix,
+  args: {
+    name: 'Example Mix',
+    count: 20,
+    ingredients: INGREDIENTS,
+    lossType: 'factorWithMinimum',
+    lossValue: 0.1,
+    minPositions: 2,
+  },
+  argTypes: {
+    name: { control: 'text' },
+    count: { control: { type: 'number', min: 1 } },
+    ingredients: { control: 'object' },
+    lossType: {
+      control: 'radio',
+      options: ['absolute', 'factor', 'factorWithMinimum'],
+    },
+    lossValue: {
+      control: { type: 'number', min: 0, step: 0.1 },
+    },
+    minPositions: {
+      control: { type: 'number', min: 0 },
+      if: { arg: 'lossType', eq: 'factorWithMinimum' },
+    },
+    pipettingLoss: {
+      table: {
+        disable: true,
+      },
+    },
+  },
 };
 
-const ingredients: Array<MasterMixIngredient> = [
-  { key: 1, title: 'Water', volume: 79.5 },
-  { key: 2, title: 'Primer Fordward', volume: 9.2 },
-  { key: 3, title: 'Primer Reverse', volume: 9 },
-  { key: 4, title: 'Probe', volume: 2.5 },
-];
-const name = 'Example';
-const count = 7;
+export function Default({
+  lossType = 'factorWithMinimum',
+  lossValue = 0.1,
+  minPositions = 2,
+  ...props
+}: MasterMixProps & {
+  lossType: 'absolute' | 'factor' | 'factorWithMinimum';
+  lossValue: number;
+  minPositions?: number;
+}): ReactElement {
+  const pipettingLoss = ((): PipettingLoss => {
+    switch (lossType) {
+      case 'absolute':
+        return { type: lossType, count: lossValue };
+      case 'factor':
+        return { type: lossType, factor: lossValue };
+      case 'factorWithMinimum':
+        return {
+          type: lossType,
+          factor: lossValue,
+          minPositions,
+        };
+    }
+  })();
 
-export const AbsolutePipettingLoss: Story<MasterMixProps> = function Default() {
-  return (
-    <MasterMix
-      name={name}
-      count={count}
-      ingredients={ingredients}
-      pipettingLoss={{ type: 'absolute', count: 2 }}
-    />
-  );
-};
-
-export const PipettingLossByFactor: Story<MasterMixProps> = function Default() {
-  return (
-    <MasterMix
-      name={name}
-      count={count}
-      ingredients={ingredients}
-      pipettingLoss={{ type: 'factor', factor: 0.1 }}
-    />
-  );
-};
+  return <MasterMix {...props} pipettingLoss={pipettingLoss} />;
+}
