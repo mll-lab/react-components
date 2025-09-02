@@ -9,16 +9,23 @@ import {
   PipettingLossTableColumnArgs,
 } from './types';
 
-function pipettingLossTitle(pipettingLoss: PipettingLoss): string {
+function pipettingLossTitle(
+  pipettingLoss: PipettingLoss,
+  count: number,
+): string {
+  // Beispielvolumen für die Vergleichsberechnung
   switch (pipettingLoss.type) {
     case 'absolute':
       return `${pipettingLoss.count}x`;
     case 'factor':
       return `${pipettingLoss.factor * 100}%`;
-    case 'factorWithMinimum':
-      return `${pipettingLoss.factor * 100}% (min. ${
-        pipettingLoss.minPositions
-      }x)`;
+    case 'factorWithMinimum': {
+      const factorLoss = count * pipettingLoss.factor;
+      const minPositionsLoss = pipettingLoss.minPositions;
+      return factorLoss > minPositionsLoss
+        ? `${(pipettingLoss.factor * 100).toFixed(0)}%`
+        : `${pipettingLoss.minPositions}x`;
+    }
   }
 }
 
@@ -52,7 +59,8 @@ export function pipettingLossTableColumn(
   return {
     title: (
       <Tooltip title="Pipettierverlust">
-        {args.count}x Ansätze + {pipettingLossTitle(args.pipettingLoss)} (PV)
+        {args.count}x Ansätze +{' '}
+        {pipettingLossTitle(args.pipettingLoss, args.count)} (PV)
       </Tooltip>
     ),
     render: (_: unknown, record: IngredientWithStringOrNumberKey) => (

@@ -5,10 +5,10 @@ import { MasterMixIngredient, MasterMixProps } from './types';
 import { MasterMix } from './index';
 
 const ingredients: Array<MasterMixIngredient> = [
-  { key: 1, title: 'Water', volume: 79.5 },
-  { key: 2, title: 'Primer Forward', volume: 9.2 },
-  { key: 3, title: 'Primer Reverse', volume: 9 },
-  { key: 4, title: 'Probe', volume: 2.5 },
+  { key: 1, title: 'Water', volume: 12 },
+  { key: 2, title: 'Primer Forward', volume: 1 },
+  { key: 3, title: 'Primer Reverse', volume: 1 },
+  { key: 4, title: 'Probe', volume: 1 },
 ];
 
 export default {
@@ -18,6 +18,9 @@ export default {
     name: 'Example Mix',
     count: 20,
     ingredients,
+    lossType: 'factorWithMinimum',
+    lossValue: 0.1,
+    minPositions: 2,
   },
   argTypes: {
     name: { control: 'text' },
