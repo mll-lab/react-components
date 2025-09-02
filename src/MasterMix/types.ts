@@ -7,14 +7,16 @@ export type MasterMixIngredient = {
   title: string | NonNullable<ReactNode>;
   volume: number;
 };
+
 export type MasterMixProps = {
   name: string;
   count: number;
   ingredients: Array<MasterMixIngredient>;
   pipettingLoss: PipettingLoss;
 };
-export type PipettingLossByFactor = { type: 'factor'; factor: number };
+
 export type PipettingLossAbsolute = { type: 'absolute'; count: number };
+export type PipettingLossByFactor = { type: 'factor'; factor: number };
 export type PipettingLossFactorWithMinimum = {
   type: 'factorWithMinimum';
   factor: number;
