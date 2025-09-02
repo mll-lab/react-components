@@ -57,19 +57,20 @@ function Template({
   minPositions = 2,
   ...props
 }: StoryProps): React.ReactElement {
-  let pipettingLoss;
-
-  if (lossType === 'absolute') {
-    pipettingLoss = { type: 'absolute', count: lossValue };
-  } else if (lossType === 'factor') {
-    pipettingLoss = { type: 'factor', factor: lossValue };
-  } else {
-    pipettingLoss = {
-      type: 'factorWithMinimum',
-      factor: lossValue,
-      minPositions,
-    };
-  }
+  const pipettingLoss = (() => {
+    switch (lossType) {
+      case 'absolute':
+        return { type: lossType, count: lossValue };
+      case 'factor':
+        return { type: lossType, factor: lossValue };
+      case 'factorWithMinimum':
+        return {
+          type: lossType,
+          factor: lossValue,
+          minPositions,
+        };
+    }
+  })();
 
   return <MasterMix {...props} pipettingLoss={pipettingLoss} />;
 }
