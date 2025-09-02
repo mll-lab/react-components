@@ -15,7 +15,15 @@ export type MasterMixProps = {
 };
 export type PipettingLossByFactor = { type: 'factor'; factor: number };
 export type PipettingLossAbsolute = { type: 'absolute'; count: number };
-export type PipettingLoss = PipettingLossByFactor | PipettingLossAbsolute;
+export type PipettingLossFactorWithMinimum = {
+  type: 'factorWithMinimum';
+  factor: number;
+  minPositions: number;
+};
+export type PipettingLoss =
+  | PipettingLossByFactor
+  | PipettingLossAbsolute
+  | PipettingLossFactorWithMinimum;
 
 export type IngredientWithStringOrNumberKey = Modify<
   MasterMixIngredient,
@@ -36,5 +44,5 @@ export type PipettingLossTableColumn = Modify<
 >;
 export type PipettingLossTableColumnArgs = {
   count: number;
-  pipettingLoss: PipettingLossByFactor | PipettingLossAbsolute;
+  pipettingLoss: PipettingLoss;
 };

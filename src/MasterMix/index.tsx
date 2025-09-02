@@ -15,6 +15,7 @@ export {
   PipettingLoss,
   PipettingLossAbsolute,
   PipettingLossByFactor,
+  PipettingLossFactorWithMinimum,
 } from './types';
 
 const TOTAL_VOLUME_ROW_CLASS = 'total-volume-row';

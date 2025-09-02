@@ -15,6 +15,10 @@ function pipettingLossTitle(pipettingLoss: PipettingLoss): string {
       return `${pipettingLoss.count}x`;
     case 'factor':
       return `${pipettingLoss.factor * 100}%`;
+    case 'factorWithMinimum':
+      return `${pipettingLoss.factor * 100}% (min. ${
+        pipettingLoss.minPositions
+      }x)`;
   }
 }
 
@@ -32,6 +36,13 @@ function totalVolume(
         record.volume * args.count +
         record.volume * args.count * args.pipettingLoss.factor
       ).toFixed(1);
+    case 'factorWithMinimum': {
+      const baseVolume = record.volume * args.count;
+      const factorLoss = baseVolume * args.pipettingLoss.factor;
+      const minPositionsLoss = record.volume * args.pipettingLoss.minPositions;
+      const pipettingLoss = Math.max(factorLoss, minPositionsLoss);
+      return (baseVolume + pipettingLoss).toFixed(1);
+    }
   }
 }
 
