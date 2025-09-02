@@ -31,7 +31,6 @@ function pipettingLossTitle(
   pipettingLoss: PipettingLoss,
   count: number,
 ): string {
-  // Beispielvolumen für die Vergleichsberechnung
   switch (pipettingLoss.type) {
     case 'absolute':
       return `${pipettingLoss.count}x`;
