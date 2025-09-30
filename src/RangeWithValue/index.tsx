@@ -32,7 +32,7 @@ export function RangeWithValue({
   actualValue,
   rangeType,
   bufferPercentage = 0.1,
-  showMean = false,
+  showMean,
 }: RangeWithValueProps) {
   const theme = useTheme();
 
