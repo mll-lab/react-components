@@ -19,6 +19,9 @@ export default {
     rangeType: {
       control: { type: 'select', options: ['closed', 'open-ended'] },
     },
+    showMean: {
+      control: { type: 'boolean' },
+    },
   },
 };
 
@@ -27,6 +30,7 @@ const Template: Story<{
   expectedMax: number;
   actualValue: number;
   rangeType: 'closed' | 'open-ended';
+  showMean: boolean;
 }> = function Template(args) {
   return (
     <div style={{ width: 300 }}>
@@ -41,4 +45,5 @@ Default.args = {
   expectedMax: 100,
   actualValue: 50,
   rangeType: 'closed',
+  showMean: false,
 };
