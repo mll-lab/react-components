@@ -1,3 +1,10 @@
+## [19.14.1](https://github.com/mll-lab/react-components/compare/v19.14.0...v19.14.1) (2025-09-30)
+
+
+### Bug Fixes
+
+* adjust positioning logic for mean label in RangeWithValue component ([#307](https://github.com/mll-lab/react-components/issues/307)) ([9790e68](https://github.com/mll-lab/react-components/commit/9790e683fcc5e802756084de75dabf827d2c07f6))
+
 # [19.14.0](https://github.com/mll-lab/react-components/compare/v19.13.0...v19.14.0) (2025-09-30)
 
 
