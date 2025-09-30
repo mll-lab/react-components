@@ -72,7 +72,7 @@ export function RangeWithValue({
   });
 
   const meanValue = (expectedMin + expectedMax) / 2;
-  const meanLabelWidth = 28;
+  const meanLabelWidth = 18;
 
   return (
     <Container>
@@ -80,13 +80,8 @@ export function RangeWithValue({
         <RangeLine left={`${percentage(expectedMin)}%`} />
         <RangeLine left={`${percentage(expectedMax)}%`} />
         {showMean && (
-          <Label
-            left={`calc(${percentage(meanValue)}% - ${meanLabelWidth / 2}px)`}
-          >
-            {meanValue.toFixed(2)}
-          </Label>
+          <RangeLine left={`calc(${percentage(meanValue)}% - 0.5px)`} />
         )}
-
         <Tooltip
           title={(() => {
             if (isOutOfRange) {
@@ -129,6 +124,13 @@ export function RangeWithValue({
         <Label left={`calc(${percentage(expectedMax)}% - 14px)`}>
           {expectedMax}
         </Label>
+        {showMean && (
+          <Label
+            left={`calc(${percentage(meanValue)}% - ${meanLabelWidth / 2}px)`}
+          >
+            {meanValue.toFixed(2)}
+          </Label>
+        )}
       </LabelWrapper>
     </Container>
   );
