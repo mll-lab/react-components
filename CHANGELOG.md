@@ -1,3 +1,10 @@
+# [19.14.0](https://github.com/mll-lab/react-components/compare/v19.13.0...v19.14.0) (2025-09-30)
+
+
+### Features
+
+* add `showMean` prop to RangeWithValue component ([#306](https://github.com/mll-lab/react-components/issues/306)) ([d23fb22](https://github.com/mll-lab/react-components/commit/d23fb22a2e516461fda15c62bbc9803ccd0064cb))
+
 # [19.13.0](https://github.com/mll-lab/react-components/compare/v19.12.0...v19.13.0) (2025-09-02)
 
 
