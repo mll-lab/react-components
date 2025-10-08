@@ -1,6 +1,9 @@
 import { ReactNode } from 'react';
 
-export type FormInputOption<TValue, TLabel extends ReactNode> = {
+export type FormInputOption<
+  TValue = unknown,
+  TLabel extends ReactNode = ReactNode,
+> = {
   value: TValue;
   label: TLabel;
   disabled?: boolean;

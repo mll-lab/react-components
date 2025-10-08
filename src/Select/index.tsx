@@ -1,29 +1,52 @@
+import { Modify } from '@mll-lab/js-utils';
 import { Select as AntdSelect, SelectProps as AntdSelectProps } from 'antd';
-import { BaseOptionType, DefaultOptionType } from 'antd/lib/select';
 import { BaseSelectRef } from 'rc-select';
+import type { FilterFunc as AntdFilterFunc } from 'rc-select/es/Select';
 import React, {
   ForwardedRef,
   forwardRef,
   ReactElement,
+  ReactNode,
   RefAttributes,
   useCallback,
 } from 'react';
 import styled from 'styled-components';
 
+import { FormInputOption } from '../Form';
 import { fontSizeFromTheme } from '../styled-utils';
 
-export type GroupedOptionType = {
-  label: string;
-  options: BaseOptionType | DefaultOptionType;
+export type MaybeGroupedInputOption<
+  TValue = unknown,
+  TLabel extends ReactNode = ReactNode,
+> = FormInputOption<TValue, TLabel> | GroupedInputOption<TValue, TLabel>;
+
+/** As described in https://4x.ant.design/components/select/#components-select-demo-optgroup. */
+export type GroupedInputOption<
+  TValue = unknown,
+  TLabel extends ReactNode = ReactNode,
+> = {
+  label: TLabel;
+  options: Array<FormInputOption<TValue, TLabel>>;
+  disabled?: boolean;
 };
 
+export type FilterOptionFunction<
+  TValue = unknown,
+  TOption extends
+    MaybeGroupedInputOption<TValue> = MaybeGroupedInputOption<TValue>,
+> = AntdFilterFunc<TOption>;
+
 export type SelectProps<
-  ValueType = unknown,
-  OptionType extends
-    | BaseOptionType
-    | DefaultOptionType
-    | GroupedOptionType = DefaultOptionType,
-> = AntdSelectProps<ValueType, OptionType> & RefAttributes<BaseSelectRef>;
+  TValue = unknown,
+  TOption extends
+    MaybeGroupedInputOption<TValue> = MaybeGroupedInputOption<TValue>,
+> = Modify<
+  AntdSelectProps<TValue, TOption>,
+  {
+    filterOption?: boolean | FilterOptionFunction<TValue, TOption>;
+  }
+> &
+  RefAttributes<BaseSelectRef>;
 
 const StyledSelect = styled(AntdSelect)`
   &,
@@ -52,10 +75,10 @@ const StyledDropdown = styled.div`
 `;
 
 function SelectInner<
-  ValueType = unknown,
-  OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
+  TValue,
+  TOptionType extends MaybeGroupedInputOption<TValue>,
 >(
-  { children, dropdownRender, ...props }: SelectProps<ValueType, OptionType>,
+  { children, dropdownRender, ...props }: SelectProps<TValue, TOptionType>,
   ref: ForwardedRef<BaseSelectRef>,
 ) {
   const styledDropdownRender = useCallback(
@@ -68,7 +91,7 @@ function SelectInner<
   );
 
   return (
-    <StyledSelect<ValueType, OptionType>
+    <StyledSelect<TValue, TOptionType>
       ref={ref}
       dropdownRender={styledDropdownRender}
       {...props}
@@ -78,17 +101,12 @@ function SelectInner<
   );
 }
 
-export const Select = forwardRef<
-  BaseSelectRef,
-  SelectProps<unknown, BaseOptionType | DefaultOptionType | GroupedOptionType>
->(SelectInner) as unknown as (<
+export const Select = forwardRef(SelectInner) as unknown as (<
   TValue = unknown,
-  TOption extends
-    | BaseOptionType
-    | DefaultOptionType
-    | GroupedOptionType = DefaultOptionType,
+  TOptionType extends
+    MaybeGroupedInputOption<TValue> = MaybeGroupedInputOption<TValue>,
 >(
-  props: SelectProps<TValue, TOption> & RefAttributes<BaseSelectRef>,
+  props: SelectProps<TValue, TOptionType>,
 ) => ReactElement) & {
   Option: typeof AntdSelect.Option;
   OptGroup: typeof AntdSelect.OptGroup;
