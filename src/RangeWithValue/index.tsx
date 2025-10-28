@@ -23,6 +23,7 @@ export type RangeWithValueProps = {
   actualValue: number;
   rangeType: RangeWithValueType;
   bufferPercentage?: number;
+  showMean?: boolean;
 };
 
 export function RangeWithValue({
@@ -31,6 +32,7 @@ export function RangeWithValue({
   actualValue,
   rangeType,
   bufferPercentage = 0.1,
+  showMean,
 }: RangeWithValueProps) {
   const theme = useTheme();
 
@@ -69,11 +71,17 @@ export function RangeWithValue({
     theme,
   });
 
+  const meanValue = (expectedMin + expectedMax) / 2;
+  const meanLabelWidth = 18;
+
   return (
     <Container>
       <Scale>
         <RangeLine left={`${percentage(expectedMin)}%`} />
         <RangeLine left={`${percentage(expectedMax)}%`} />
+        {showMean && (
+          <RangeLine left={`calc(${percentage(meanValue)}% - 0.5px)`} />
+        )}
         <Tooltip
           title={(() => {
             if (isOutOfRange) {
@@ -116,6 +124,13 @@ export function RangeWithValue({
         <Label left={`calc(${percentage(expectedMax)}% - 14px)`}>
           {expectedMax}
         </Label>
+        {showMean && (
+          <Label
+            left={`calc(${percentage(meanValue)}% - ${meanLabelWidth / 2}px)`}
+          >
+            {meanValue.toFixed(2)}
+          </Label>
+        )}
       </LabelWrapper>
     </Container>
   );

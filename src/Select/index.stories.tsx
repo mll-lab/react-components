@@ -31,7 +31,7 @@ export const Multiple: Story<SelectProps> = function Multiple(args) {
   return <Default mode="multiple" {...args} />;
 };
 
-export const OptGroup: Story<SelectProps> = function OptGroup(args) {
+export const Group: Story<SelectProps> = function Group(args) {
   return (
     <Select defaultValue="lucy" style={{ width: 120 }} {...args}>
       <Select.OptGroup label="Guys">
@@ -43,35 +43,7 @@ export const OptGroup: Story<SelectProps> = function OptGroup(args) {
       <Select.OptGroup label="Gals">
         <Select.Option value="lucy">Lucy</Select.Option>
       </Select.OptGroup>
-      <Select.OptGroup label="Other" disabled>
-        <Select.Option value="juice">Juice</Select.Option>
-      </Select.OptGroup>
     </Select>
-  );
-};
-
-export const OptionsGroup: Story<SelectProps> = function OptionsGroups(args) {
-  return (
-    <Select
-      defaultValue="lucy"
-      style={{ width: 120 }}
-      options={[
-        {
-          label: 'Guys',
-          options: [
-            { label: 'Jack', value: 'jack' },
-            { label: 'Henry', value: 'henry', disabled: true },
-          ],
-        },
-        { label: 'Gals', options: [{ label: 'Lucy', value: 'lucy' }] },
-        {
-          label: 'Other',
-          disabled: true,
-          options: [{ label: 'Juice', value: 'juice' }],
-        },
-      ]}
-      {...args}
-    />
   );
 };
 

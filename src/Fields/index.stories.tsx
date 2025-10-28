@@ -31,12 +31,11 @@ export default {
 type FormType = {
   autocomplete: string;
   checkbox: boolean;
-  checkbox_group: Array<string>;
+  checkboxGroup: Array<string>;
   input: string;
   input_number: number;
   radio_group: 1 | 2;
   select: 'a' | 'b';
-  select_multiple: Array<string>;
   switch: boolean;
   text_area: string;
   date_range: string;
@@ -118,13 +117,12 @@ export const NestedProviders: Story<FieldProviderProps> =
   };
 
 function AllFields() {
-  const { control } = useFormContext<FormType>();
-
+  const formMethods = useFormContext<FormType>();
   return (
     <Form>
       <AutocompleteField
         name="autocomplete"
-        control={control}
+        control={formMethods.control}
         formItem={{ label: 'Autocomplete' }}
         component={{
           options: ['foo', 'bar'].map(toFormInputOption),
@@ -132,7 +130,7 @@ function AllFields() {
       />
       <CheckboxField
         name="checkbox"
-        control={control}
+        control={formMethods.control}
         formItem={{
           label: 'Checkbox',
         }}
@@ -140,22 +138,22 @@ function AllFields() {
         Checkbox children
       </CheckboxField>
       <CheckboxGroupField
-        name="checkbox_group"
-        control={control}
+        name="checkboxGroup"
+        control={formMethods.control}
         formItem={{ label: 'CheckboxGroup' }}
         component={{ options: ['a', 'b'].map(toFormInputOption) }}
       />
       <InputField
         name="input"
         rules={{ required: 'You really need this', maxLength: 3 }}
-        control={control}
+        control={formMethods.control}
         formItem={{
           label: 'Input required',
         }}
       />
       <InputField
         name="input"
-        control={control}
+        control={formMethods.control}
         formItem={{
           label: 'Input styled',
         }}
@@ -168,14 +166,14 @@ function AllFields() {
       <InputNumberField
         name="input_number"
         rules={{ required: 'Absolutely necessary' }}
-        control={control}
+        control={formMethods.control}
         formItem={{
           label: 'InputNumber required',
         }}
       />
       <InputNumberField
         name="input_number"
-        control={control}
+        control={formMethods.control}
         formItem={{
           label: 'InputNumber styled',
         }}
@@ -186,7 +184,7 @@ function AllFields() {
       />
       <RadioGroupField
         name="radio_group"
-        control={control}
+        control={formMethods.control}
         formItem={{
           label: 'RadioGroup',
         }}
@@ -196,41 +194,30 @@ function AllFields() {
       />
       <SelectField
         name="select"
-        control={control}
+        control={formMethods.control}
         formItem={{
           label: 'Select',
         }}
         component={{
-          options: (['a', 'b'] as const).map(toFormInputOption),
-        }}
-      />
-      <SelectField
-        name="select_multiple"
-        control={control}
-        formItem={{
-          label: 'Select Multiple',
-        }}
-        component={{
-          mode: 'tags',
-          options: ['x', 'y', 'z'].map(toFormInputOption),
+          options: ['a', 'b'].map(toFormInputOption),
         }}
       />
       <SwitchField
         name="switch"
-        control={control}
+        control={formMethods.control}
         formItem={{
           label: 'Switch',
         }}
       />
       <DatePickerField
         name="date_picker"
-        control={control}
+        control={formMethods.control}
         formItem={{ label: 'DatePicker' }}
         component={{ placeholder: 'Datum wählen' }}
       />
       <DateRangePickerField
         name="date_range"
-        control={control}
+        control={formMethods.control}
         formItem={{ label: 'DateRangePicker' }}
       />
       <TextAreaStory />

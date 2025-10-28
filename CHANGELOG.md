@@ -1,84 +1,23 @@
-# [19.13.0-alpha.10](https://github.com/mll-lab/react-components/compare/v19.13.0-alpha.9...v19.13.0-alpha.10) (2025-07-30)
+## [19.14.1](https://github.com/mll-lab/react-components/compare/v19.14.0...v19.14.1) (2025-09-30)
 
 
 ### Bug Fixes
 
-* generic label ([b64e82f](https://github.com/mll-lab/react-components/commit/b64e82fed7673b33c9228d6698f71eb0da65ca12))
+* adjust positioning logic for mean label in RangeWithValue component ([#307](https://github.com/mll-lab/react-components/issues/307)) ([9790e68](https://github.com/mll-lab/react-components/commit/9790e683fcc5e802756084de75dabf827d2c07f6))
 
-# [19.13.0-alpha.9](https://github.com/mll-lab/react-components/compare/v19.13.0-alpha.8...v19.13.0-alpha.9) (2025-07-30)
-
-
-### Bug Fixes
-
-* simplify SelectProps ([4be6730](https://github.com/mll-lab/react-components/commit/4be6730c6d450cc5f0506cb0b9fc23cddc42274b))
-
-# [19.13.0-alpha.8](https://github.com/mll-lab/react-components/compare/v19.13.0-alpha.7...v19.13.0-alpha.8) (2025-07-30)
-
-
-### Bug Fixes
-
-* UnpackArray ([2bbd6e5](https://github.com/mll-lab/react-components/commit/2bbd6e5a84176dc40401c0e9416a2f72d5da887c))
-
-# [19.13.0-alpha.7](https://github.com/mll-lab/react-components/compare/v19.13.0-alpha.6...v19.13.0-alpha.7) (2025-07-30)
-
-
-### Bug Fixes
-
-* UnpackNestedValue ([6972bfc](https://github.com/mll-lab/react-components/commit/6972bfc39baa42e566ecc91335ce85a6bf4fddfa))
-* UnpackNestedValue ([5481369](https://github.com/mll-lab/react-components/commit/548136918eb8dab7ffcb9ba0170563b666e1ac45))
-* UnpackNestedValue ([ac1f909](https://github.com/mll-lab/react-components/commit/ac1f9096329211a6915ba66361e06dab1ecba3bf))
-
-# [19.13.0-alpha.6](https://github.com/mll-lab/react-components/compare/v19.13.0-alpha.5...v19.13.0-alpha.6) (2025-07-30)
-
-
-### Bug Fixes
-
-* generic type FilterOptionFunction ([41cb04a](https://github.com/mll-lab/react-components/commit/41cb04ace84cd628fd62867a81da04fc2f386146))
-
-# [19.13.0-alpha.5](https://github.com/mll-lab/react-components/compare/v19.13.0-alpha.4...v19.13.0-alpha.5) (2025-07-30)
-
-
-### Bug Fixes
-
-* allow disabled ([37dd142](https://github.com/mll-lab/react-components/commit/37dd1424c683b3636150b31ae7ae37bf2090b203))
-
-# [19.13.0-alpha.4](https://github.com/mll-lab/react-components/compare/v19.13.0-alpha.3...v19.13.0-alpha.4) (2025-07-29)
-
-
-### Bug Fixes
-
-* options is an Array ([7d508b7](https://github.com/mll-lab/react-components/commit/7d508b77cfc30f0a3fe8463e76a6a9068079819d))
-* OptionType and GroupedOptionType with generics ([9189668](https://github.com/mll-lab/react-components/commit/9189668484d025309e6040f12ec7e9177ce67174))
-
-# [19.13.0-alpha.3](https://github.com/mll-lab/react-components/compare/v19.13.0-alpha.2...v19.13.0-alpha.3) (2025-07-29)
-
-
-### Bug Fixes
-
-* options is an Array ([a4b8691](https://github.com/mll-lab/react-components/commit/a4b86912ea7670b2fa67018763a539555a1b18db))
-
-# [19.13.0-alpha.2](https://github.com/mll-lab/react-components/compare/v19.13.0-alpha.1...v19.13.0-alpha.2) (2025-07-29)
+# [19.14.0](https://github.com/mll-lab/react-components/compare/v19.13.0...v19.14.0) (2025-09-30)
 
 
 ### Features
 
-* export FilterOptionFunction ([d2e719f](https://github.com/mll-lab/react-components/commit/d2e719f62284934184126a08ef2b006bba554010))
+* add `showMean` prop to RangeWithValue component ([#306](https://github.com/mll-lab/react-components/issues/306)) ([d23fb22](https://github.com/mll-lab/react-components/commit/d23fb22a2e516461fda15c62bbc9803ccd0064cb))
 
-# [19.13.0-alpha.1](https://github.com/mll-lab/react-components/compare/v19.12.0...v19.13.0-alpha.1) (2025-07-29)
-
-
-### Bug Fixes
-
-* avoid Table with no data overlay covering other elements ([3ff6b5c](https://github.com/mll-lab/react-components/commit/3ff6b5c4f45e717bf6ec228209cb3aafb854fb13))
-* update import of toFormInputOption from Select to Form ([9e2cd18](https://github.com/mll-lab/react-components/commit/9e2cd1825adf4c5661d9cd408a8fe65e7e3fa0cd))
+# [19.13.0](https://github.com/mll-lab/react-components/compare/v19.12.0...v19.13.0) (2025-09-02)
 
 
 ### Features
 
-* add RangeWithValue component with storybook integration ([2899126](https://github.com/mll-lab/react-components/commit/2899126069168e4c70fbddb5bf542c4abd62aa9a))
-* allow customizable buffer percentage in range calculations ([83e3555](https://github.com/mll-lab/react-components/commit/83e3555781febf5d733e201827cdf6ba65632aed))
-* export RangeWithValue component from index ([8e482db](https://github.com/mll-lab/react-components/commit/8e482db8d10186ad5012babcaca2f0659fb4e8e0))
-* improve Select option types ([34b7ee3](https://github.com/mll-lab/react-components/commit/34b7ee3b5fe61da756073e81e1d0687ae947333c))
+* add support for 'factorWithMinimum' pipetting loss type ([753b999](https://github.com/mll-lab/react-components/commit/753b999d90f1f7108e7d70e95f33d43203ff57a5))
 
 # [19.12.0](https://github.com/mll-lab/react-components/compare/v19.11.0...v19.12.0) (2025-07-29)
 
