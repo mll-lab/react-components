@@ -1,3 +1,10 @@
+## [19.14.2](https://github.com/mll-lab/react-components/compare/v19.14.1...v19.14.2) (2025-10-29)
+
+
+### Bug Fixes
+
+* decrease z-index for table placeholder ([#308](https://github.com/mll-lab/react-components/issues/308)) ([0f1c3e2](https://github.com/mll-lab/react-components/commit/0f1c3e2a454a65e70bf1ddf9cc9f15e451a6f41c))
+
 ## [19.14.1](https://github.com/mll-lab/react-components/compare/v19.14.0...v19.14.1) (2025-09-30)
 
 
