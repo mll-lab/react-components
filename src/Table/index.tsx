@@ -30,10 +30,11 @@ const StyledTable = styled(AntdTable)`
     font-size: ${fontSizeFromTheme};
   }
 
-  /* Avoid raising the "Keine Daten" overlay above elements such as the menu or dropdown, which have z-index 1050 */
+  /* Avoid raising the "Keine Daten" overlay above elements such as the menu or dropdown, which have z-index 1050 
+  or modals, which have z-index 1000 */
   .mll-ant-table-placeholder {
     /* !important is necessary because antd sets the z-index to 9999 via the style attribute */
-    z-index: 1049 !important;
+    z-index: 990 !important;
   }
 
   ${(props) =>
