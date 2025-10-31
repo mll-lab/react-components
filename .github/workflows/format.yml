@@ -6,13 +6,15 @@ jobs:
   eslint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           ref: ${{ github.head_ref }}
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
       - run: corepack enable
       - run: yarn install
       - run: yarn run fix
-      - uses: stefanzweifel/git-auto-commit-action@v4
+      - uses: stefanzweifel/git-auto-commit-action@v7
         with:
           commit_message: "refactor: Apply eslint fix"
