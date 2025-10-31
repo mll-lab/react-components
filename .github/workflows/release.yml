@@ -6,17 +6,22 @@ on:
       - alpha
 
 jobs:
-  # https://docs.github.com/en/actions/guides/publishing-nodejs-packages#publishing-packages-using-yarn
-  # https://github.com/semantic-release/semantic-release/blob/master/docs/recipes/github-actions.md
+  # https://github.com/semantic-release/semantic-release/blob/master/docs/recipes/ci-configurations/github-actions.md#githubworkflowsreleaseyml-configuration-for-node-projects
   package:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      id-token: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
       - run: corepack enable
       - run: yarn install
       - run: yarn run build
       - run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
