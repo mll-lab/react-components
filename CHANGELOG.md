@@ -1,3 +1,10 @@
+# [19.15.0](https://github.com/mll-lab/react-components/compare/v19.14.2...v19.15.0) (2025-11-03)
+
+
+### Features
+
+* enable npm provenance for OIDC publishing ([b1f577f](https://github.com/mll-lab/react-components/commit/b1f577f856f26625b4662457d39bf64bcc2cff24))
+
 ## [19.14.2](https://github.com/mll-lab/react-components/compare/v19.14.1...v19.14.2) (2025-10-29)
 
 
