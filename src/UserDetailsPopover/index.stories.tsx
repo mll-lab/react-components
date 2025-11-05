@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React, { useMemo, useState } from 'react';
 
 import { Form } from '../Form';
@@ -20,7 +20,7 @@ export default {
   },
 };
 
-export const Default: Story = function Link(args) {
+export const Default: StoryFn = function Link(args) {
   const [visible, setVisible] = useState(false);
   return (
     <Space
@@ -56,7 +56,7 @@ export const Default: Story = function Link(args) {
   );
 };
 
-export const WithCustomChildren: Story = function Link(args) {
+export const WithCustomChildren: StoryFn = function Link(args) {
   const [visible, setVisible] = useState(false);
   const userProps = useMemo(
     () => ({

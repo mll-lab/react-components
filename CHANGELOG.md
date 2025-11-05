@@ -9,6 +9,26 @@
 ### Features
 
 * enable npm provenance for OIDC publishing ([240f8c2](https://github.com/mll-lab/react-components/commit/240f8c2a914035b9603d5217cde3e06cd5154d40))
+* update tooling dependencies
+
+# [19.15.0](https://github.com/mll-lab/react-components/compare/v19.14.2...v19.15.0) (2025-11-03)
+
+
+### Features
+
+* enable npm provenance for OIDC publishing ([b1f577f](https://github.com/mll-lab/react-components/commit/b1f577f856f26625b4662457d39bf64bcc2cff24))
+
+## [19.14.2](https://github.com/mll-lab/react-components/compare/v19.14.1...v19.14.2) (2025-10-29)
+
+
+### Bug Fixes
+
+* decrease z-index for table placeholder ([#308](https://github.com/mll-lab/react-components/issues/308)) ([0f1c3e2](https://github.com/mll-lab/react-components/commit/0f1c3e2a454a65e70bf1ddf9cc9f15e451a6f41c))
+
+
+### Features
+
+* enable npm provenance for OIDC publishing ([240f8c2](https://github.com/mll-lab/react-components/commit/240f8c2a914035b9603d5217cde3e06cd5154d40))
 
 # [19.15.0-alpha.1](https://github.com/mll-lab/react-components/compare/v19.14.1...v19.15.0-alpha.1) (2025-10-28)
 

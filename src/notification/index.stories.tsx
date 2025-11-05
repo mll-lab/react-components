@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { notification, NotificationArgs } from './index';
@@ -20,7 +20,7 @@ export default {
   },
 };
 
-export const Default: Story<
+export const Default: StoryFn<
   NotificationArgs & { level: 'info' | 'success' | 'warning' | 'error' }
 > = function Default(args) {
   const { level, ...rest } = args;

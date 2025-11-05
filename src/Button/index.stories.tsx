@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import {
@@ -36,16 +36,16 @@ export default {
   },
 };
 
-export const Default: Story<ButtonProps> = function Default(args) {
+export const Default: StoryFn<ButtonProps> = function Default(args) {
   return <Button {...args}>Default</Button>;
 };
-export const Create: Story<ButtonProps> = function Create(args) {
+export const Create: StoryFn<ButtonProps> = function Create(args) {
   return <CreateButton {...args} />;
 };
-export const Save: Story<ButtonProps> = function Save(args) {
+export const Save: StoryFn<ButtonProps> = function Save(args) {
   return <SaveButton {...args} />;
 };
-export const SaveWithHotkey: Story<SaveButtonByNumpadEnterProps> =
+export const SaveWithHotkey: StoryFn<SaveButtonByNumpadEnterProps> =
   function SaveWithHotkey(args) {
     return (
       <div>
@@ -56,26 +56,26 @@ export const SaveWithHotkey: Story<SaveButtonByNumpadEnterProps> =
       </div>
     );
   };
-export const Info: Story<ButtonProps> = function Info(args) {
+export const Info: StoryFn<ButtonProps> = function Info(args) {
   return <InfoButton {...args}>Info</InfoButton>;
 };
-export const Edit: Story<ButtonProps> = function Edit(args) {
+export const Edit: StoryFn<ButtonProps> = function Edit(args) {
   return <EditButton {...args} />;
 };
-export const Warning: Story<ButtonProps> = function Warning(args) {
+export const Warning: StoryFn<ButtonProps> = function Warning(args) {
   return (
     <WarningButton {...args}>Do something slightly dangerous</WarningButton>
   );
 };
-export const Cancel: Story<ButtonProps> = function Cancel(args) {
+export const Cancel: StoryFn<ButtonProps> = function Cancel(args) {
   return <CancelButton {...args} />;
 };
-export const Reset: Story<ButtonProps> = function Reset(args) {
+export const Reset: StoryFn<ButtonProps> = function Reset(args) {
   return <ResetButton {...args} />;
 };
-export const Delete: Story<ButtonProps> = function Delete(args) {
+export const Delete: StoryFn<ButtonProps> = function Delete(args) {
   return <DeleteButton {...args} />;
 };
-export const Send: Story<ButtonProps> = function Send(args) {
+export const Send: StoryFn<ButtonProps> = function Send(args) {
   return <SendButton {...args} />;
 };

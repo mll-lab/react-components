@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { SingleCollapse } from '../Collapse';
@@ -9,7 +9,7 @@ export default {
   title: 'Timeline',
 };
 
-export const Default: Story<TimelineProps> = function Default(args) {
+export const Default: StoryFn<TimelineProps> = function Default(args) {
   return (
     <Timeline {...args}>
       <Timeline.Item>

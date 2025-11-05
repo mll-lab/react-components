@@ -1,5 +1,5 @@
 import { VerticalAlignTopOutlined } from '@ant-design/icons';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { BackTop, BackTopProps } from './index';
@@ -8,7 +8,7 @@ export default {
   title: 'BackTop',
 };
 
-export const Default: Story<BackTopProps> = function Default(args) {
+export const Default: StoryFn<BackTopProps> = function Default(args) {
   return (
     <div>
       <div style={{ height: '1600px' }}>

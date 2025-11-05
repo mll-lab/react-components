@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { Popconfirm, PopconfirmProps } from './index';
@@ -10,7 +10,7 @@ export default {
   },
 };
 
-export const Default: Story<PopconfirmProps> = function Default(args) {
+export const Default: StoryFn<PopconfirmProps> = function Default(args) {
   return (
     <Popconfirm okText="Yes" cancelText="No" {...args}>
       <button type="button">Delete</button>

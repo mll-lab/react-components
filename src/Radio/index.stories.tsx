@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { Radio, RadioGroupProps } from './index';
@@ -23,7 +23,7 @@ export default {
   },
 };
 
-export const Default: Story<RadioGroupProps> = function Default(args) {
+export const Default: StoryFn<RadioGroupProps> = function Default(args) {
   return (
     <Radio.Group
       options={[

@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { range } from 'lodash';
 import React from 'react';
 
@@ -15,7 +15,7 @@ export default {
   },
 };
 
-export const Default: Story<AvatarProps> = function Default(args) {
+export const Default: StoryFn<AvatarProps> = function Default(args) {
   return (
     <Avatar
       style={{
@@ -29,12 +29,12 @@ export const Default: Story<AvatarProps> = function Default(args) {
   );
 };
 
-export const CustomizableUserAvatar: Story<UserAvatarProps> =
+export const CustomizableUserAvatar: StoryFn<UserAvatarProps> =
   function CustomizableUserAvatar(args) {
     return <UserAvatar {...args} />;
   };
 
-export const VariableUserAvatars: Story<Omit<UserAvatarProps, 'username'>> =
+export const VariableUserAvatars: StoryFn<Omit<UserAvatarProps, 'username'>> =
   function VariableUserAvatars(args) {
     return (
       <>

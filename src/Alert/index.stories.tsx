@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { Alert, AlertProps } from './index';
@@ -21,7 +21,7 @@ export default {
   },
 };
 
-export const Default: Story<AlertProps> = function Default(args) {
+export const Default: StoryFn<AlertProps> = function Default(args) {
   return (
     <Alert message="Warning Text" type="warning" closable showIcon {...args} />
   );

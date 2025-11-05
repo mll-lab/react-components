@@ -1,5 +1,5 @@
 import { BarcodeOutlined } from '@ant-design/icons';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React, { useState } from 'react';
 
 import { Button } from '../Button';
@@ -21,7 +21,7 @@ export default {
   onChange: { action: 'clicked' },
 };
 
-export const Text: Story<InputProps> = function Text(args) {
+export const Text: StoryFn<InputProps> = function Text(args) {
   return (
     <Space vertical>
       <Input {...args} />
@@ -35,15 +35,15 @@ export const Text: Story<InputProps> = function Text(args) {
   );
 };
 
-export const Password: Story<PasswordProps> = function Password(args) {
+export const Password: StoryFn<PasswordProps> = function Password(args) {
   return <Input.Password {...args} />;
 };
 
-export const Search: Story<SearchProps> = function Search(args) {
+export const Search: StoryFn<SearchProps> = function Search(args) {
   return <Input.Search {...args} />;
 };
 
-export const TextArea: Story<TextAreaProps> = function TextArea(args) {
+export const TextArea: StoryFn<TextAreaProps> = function TextArea(args) {
   const [minRows, setMinRows] = React.useState(1);
 
   return (
@@ -90,7 +90,7 @@ export const TextArea: Story<TextAreaProps> = function TextArea(args) {
   );
 };
 
-export const Number: Story<InputNumberProps<number>> = function Number(args) {
+export const Number: StoryFn<InputNumberProps<number>> = function Number(args) {
   const [num, setNum] = useState<number | null>(0);
 
   return (
@@ -104,6 +104,8 @@ export const Number: Story<InputNumberProps<number>> = function Number(args) {
   );
 };
 
-export const NumericID: Story<NumericIDInputProps> = function NumericID(args) {
+export const NumericID: StoryFn<NumericIDInputProps> = function NumericID(
+  args,
+) {
   return <NumericIDInput {...args} />;
 };

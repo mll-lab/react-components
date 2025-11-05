@@ -2,7 +2,7 @@
 /* eslint-disable import/extensions */
 
 import { ClockCircleOutlined } from '@ant-design/icons';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { CreateButton } from '../Button/Button';
@@ -62,7 +62,7 @@ export default {
   },
 };
 
-export const Default: Story<Theme> = function Default(args) {
+export const Default: StoryFn<Theme> = function Default(args) {
   return (
     <Provider
       theme={{
@@ -77,7 +77,7 @@ export const Default: Story<Theme> = function Default(args) {
 
 // AntD applies styles on all labels within its form.
 // This story is useful to take care of this behavior.
-export const DefaultWithinForm: Story<Theme> = function DefaultWithinForm(
+export const DefaultWithinForm: StoryFn<Theme> = function DefaultWithinForm(
   args,
 ) {
   return (
@@ -96,7 +96,7 @@ export const DefaultWithinForm: Story<Theme> = function DefaultWithinForm(
   );
 };
 
-export const NestedOverwrite: Story<Theme> = function NestedOverwrite(args) {
+export const NestedOverwrite: StoryFn<Theme> = function NestedOverwrite(args) {
   return (
     <Provider
       theme={{
@@ -120,7 +120,7 @@ export const NestedOverwrite: Story<Theme> = function NestedOverwrite(args) {
   );
 };
 
-export const NestedOverwriteOnlyFontSize: Story<Theme> =
+export const NestedOverwriteOnlyFontSize: StoryFn<Theme> =
   function NestedOverwriteOnlyFontSize(args) {
     return (
       <Provider
@@ -144,7 +144,7 @@ export const NestedOverwriteOnlyFontSize: Story<Theme> =
     );
   };
 
-export const PropsHavePriority: Story<Theme> = function PropsHavePriority(
+export const PropsHavePriority: StoryFn<Theme> = function PropsHavePriority(
   args,
 ) {
   return (

@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { Button } from '../Button';
@@ -10,7 +10,7 @@ export default {
   component: Popover,
 };
 
-export const Default: Story<PopoverProps> = function Default() {
+export const Default: StoryFn<PopoverProps> = function Default() {
   return (
     <Popover title="Some title" content={<div>Some content</div>}>
       <Button>Hover me</Button>
