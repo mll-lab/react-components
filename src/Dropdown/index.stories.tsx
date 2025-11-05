@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { Menu } from '../Menu';
@@ -9,7 +9,7 @@ export default {
   title: 'Dropdown',
 };
 
-export const Default: Story<Omit<DropdownProps, 'overlay'>> = function Default(
+export const Default: StoryFn<Omit<DropdownProps, 'overlay'>> = function Default(
   args,
 ) {
   return (

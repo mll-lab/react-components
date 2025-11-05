@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import {
@@ -15,7 +15,7 @@ export default {
   component: Tooltip,
 };
 
-export const Default: Story<TooltipProps> = function Default(
+export const Default: StoryFn<TooltipProps> = function Default(
   args: TooltipProps,
 ) {
   return (
@@ -25,12 +25,12 @@ export const Default: Story<TooltipProps> = function Default(
   );
 };
 
-export const TooltipForDate: Story<DateWithTooltipProps> =
+export const TooltipForDate: StoryFn<DateWithTooltipProps> =
   function TooltipForDate(args) {
     return <DateWithTooltip {...args} />;
   };
 
-export const TooltipForTrimmedText: Story<TextWithTooltipIfTrimmedProps> =
+export const TooltipForTrimmedText: StoryFn<TextWithTooltipIfTrimmedProps> =
   function TooltipForTrimmedText(args) {
     return <TextWithTooltipIfTrimmed {...args} />;
   };

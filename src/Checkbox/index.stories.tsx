@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { Form } from '../Form';
@@ -9,7 +9,7 @@ export default {
   title: 'Checkbox',
 };
 
-export const Default: Story<CheckboxProps> = function Default(args) {
+export const Default: StoryFn<CheckboxProps> = function Default(args) {
   return (
     <Checkbox defaultChecked {...args}>
       Checkbox
@@ -17,7 +17,7 @@ export const Default: Story<CheckboxProps> = function Default(args) {
   );
 };
 
-export const DisabledCheckbox: Story<CheckboxProps> = function DisabledCheckbox(
+export const DisabledCheckbox: StoryFn<CheckboxProps> = function DisabledCheckbox(
   args,
 ) {
   return (
@@ -27,7 +27,7 @@ export const DisabledCheckbox: Story<CheckboxProps> = function DisabledCheckbox(
   );
 };
 
-export const IndeterminateCheckbox: Story<CheckboxProps> =
+export const IndeterminateCheckbox: StoryFn<CheckboxProps> =
   function IndeterminateCheckbox(args) {
     return (
       <Checkbox indeterminate {...args}>
@@ -36,11 +36,11 @@ export const IndeterminateCheckbox: Story<CheckboxProps> =
     );
   };
 
-export const WithoutLabel: Story<CheckboxProps> = function WithoutLabel(args) {
+export const WithoutLabel: StoryFn<CheckboxProps> = function WithoutLabel(args) {
   return <Checkbox defaultChecked {...args} />;
 };
 
-export const WithFormLabel: Story<CheckboxProps> = function WithFormLabel(
+export const WithFormLabel: StoryFn<CheckboxProps> = function WithFormLabel(
   args,
 ) {
   return (

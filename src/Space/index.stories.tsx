@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { Button } from '../Button/Button';
@@ -18,7 +18,7 @@ export default {
   },
 };
 
-export const Default: Story<SpaceProps> = function Default(args) {
+export const Default: StoryFn<SpaceProps> = function Default(args) {
   return (
     <Space {...args}>
       <Button>Button</Button>
@@ -28,7 +28,7 @@ export const Default: Story<SpaceProps> = function Default(args) {
   );
 };
 
-export const Block: Story<SpaceProps> = function Block(args) {
+export const Block: StoryFn<SpaceProps> = function Block(args) {
   return (
     <Space vertical block>
       <Card title="Vertical space without block">

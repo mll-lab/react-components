@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React, { ComponentType, ReactElement } from 'react';
 
 import { TabPanelProps, TabsProps } from './types';
@@ -35,7 +35,7 @@ export default {
   title: 'Tabs',
 };
 
-export const Controlled: Story<TabsProps> = function Controlled(args) {
+export const Controlled: StoryFn<TabsProps> = function Controlled(args) {
   const WrappedTab = dummyHOC(SingleTab);
 
   return (
@@ -76,7 +76,7 @@ Controlled.argTypes = {
   },
 };
 
-export const Uncontrolled: Story = function Uncontrolled() {
+export const Uncontrolled: StoryFn = function Uncontrolled() {
   return (
     <Tabs>
       <TabPanel id={1} title="first">

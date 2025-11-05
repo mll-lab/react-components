@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import { Input } from 'antd';
 import React from 'react';
 
@@ -23,7 +23,7 @@ type FormValues = {
   password: string;
 };
 
-export const Default: Story<FormProps<FormValues>> = function Default(args) {
+export const Default: StoryFn<FormProps<FormValues>> = function Default(args) {
   return (
     <Form<FormValues>
       name="basic"

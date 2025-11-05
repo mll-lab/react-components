@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { toFormInputOption } from '../Form';
@@ -9,7 +9,7 @@ export default {
   title: 'Autocomplete',
 };
 
-export const WithOptions: Story<AutocompleteProps> = function WithOptions(
+export const WithOptions: StoryFn<AutocompleteProps> = function WithOptions(
   args,
 ) {
   return (

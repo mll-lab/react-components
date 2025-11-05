@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { Plate } from '../Plate';
@@ -13,7 +13,7 @@ export default {
   title: 'ImageMap',
 };
 
-export const TecanLayoutExample: Story = function Default() {
+export const TecanLayoutExample: StoryFn = function Default() {
   return (
     <TecanLayout
       src="https://picsum.photos/600/400"
@@ -32,7 +32,7 @@ export const TecanLayoutExample: Story = function Default() {
   );
 };
 
-export const Default: Story<ImageMapProps> = function Default(args) {
+export const Default: StoryFn<ImageMapProps> = function Default(args) {
   return (
     <ImageMap {...args}>
       <HiddenArea

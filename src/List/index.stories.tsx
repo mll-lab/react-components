@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { List, ListProps } from './index';
@@ -12,7 +12,7 @@ export default {
   },
 };
 
-export const Strings: Story<ListProps<string>> = function Strings(args) {
+export const Strings: StoryFn<ListProps<string>> = function Strings(args) {
   return (
     <List
       dataSource={['foo', 'bar', 'baz']}

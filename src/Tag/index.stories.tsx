@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { PALETTE } from '../theme';
@@ -10,7 +10,7 @@ export default {
   component: Tag,
 };
 
-export const HexColored: Story<TagProps> = function HexColored(args) {
+export const HexColored: StoryFn<TagProps> = function HexColored(args) {
   return (
     <Tag color={PALETTE.gold} {...args}>
       Test
@@ -18,7 +18,7 @@ export const HexColored: Story<TagProps> = function HexColored(args) {
   );
 };
 
-export const PresetColored: Story<TagProps> = function PresetColored(args) {
+export const PresetColored: StoryFn<TagProps> = function PresetColored(args) {
   return (
     <Tag color="red" {...args}>
       Test
@@ -26,6 +26,6 @@ export const PresetColored: Story<TagProps> = function PresetColored(args) {
   );
 };
 
-export const Checkable: Story<TagProps> = function Checkable() {
+export const Checkable: StoryFn<TagProps> = function Checkable() {
   return <Tag.CheckableTag checked>Checkable Tag</Tag.CheckableTag>;
 };

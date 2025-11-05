@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React, { useCallback, useRef } from 'react';
 import { FormProvider, useForm, useFormContext } from 'react-hook-form';
 
@@ -42,7 +42,7 @@ type FormType = {
   date_picker: string;
 };
 
-export const Default: Story<{
+export const Default: StoryFn<{
   disabled: boolean;
 }> = function Default(props) {
   const formMethods = useForm<FormType>({ mode: 'all' });
@@ -56,7 +56,7 @@ export const Default: Story<{
   );
 };
 
-export const ControlledError: Story<{
+export const ControlledError: StoryFn<{
   hasError: boolean;
   disabled: boolean;
 }> = function ControlledError(props) {
@@ -98,7 +98,7 @@ ControlledError.argTypes = {
   },
 };
 
-export const NestedProviders: Story<FieldProviderProps> =
+export const NestedProviders: StoryFn<FieldProviderProps> =
   function NestedProviders(props) {
     const formMethods = useForm<FormType>({
       mode: 'all',

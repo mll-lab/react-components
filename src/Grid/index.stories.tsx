@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { Row, Col, RowProps } from './index';
@@ -8,7 +8,7 @@ export default {
   component: Row,
 };
 
-export const Default: Story<RowProps> = function Default() {
+export const Default: StoryFn<RowProps> = function Default() {
   return (
     <>
       <Row>

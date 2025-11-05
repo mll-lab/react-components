@@ -1,5 +1,5 @@
 import { HomeOutlined } from '@ant-design/icons';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { Breadcrumb, BreadcrumbProps } from './index';
@@ -8,7 +8,7 @@ export default {
   title: 'Breadcrumb',
 };
 
-export const Default: Story<BreadcrumbProps> = function Default(args) {
+export const Default: StoryFn<BreadcrumbProps> = function Default(args) {
   return (
     <Breadcrumb {...args}>
       <Breadcrumb.Item>

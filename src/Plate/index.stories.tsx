@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { PALETTE } from '../theme';
@@ -76,7 +76,7 @@ const columnFlowData: Array<PlateWell<CoordinateSystem12x8>> =
     content: well,
   }));
 
-const Template: Story<Partial<PlateProps<CoordinateSystem12x8>>> =
+const Template: StoryFn<Partial<PlateProps<CoordinateSystem12x8>>> =
   function Template(args) {
     return (
       <Plate

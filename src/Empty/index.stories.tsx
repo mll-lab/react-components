@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { Empty } from './index';
@@ -8,6 +8,6 @@ export default {
   component: Empty,
 };
 
-export const Default: Story = function Default(args) {
+export const Default: StoryFn = function Default(args) {
   return <Empty {...args} />;
 };

@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React, { useState } from 'react';
 
 import { Input } from '../Input';
@@ -9,7 +9,7 @@ export default {
   title: 'Collapse',
 };
 
-export const Default: Story<CollapseProps> = function Default(args) {
+export const Default: StoryFn<CollapseProps> = function Default(args) {
   return (
     <Collapse defaultActiveKey={['1']} {...args}>
       <Collapse.Panel header="This is panel header 1" key="1">
@@ -25,7 +25,7 @@ export const Default: Story<CollapseProps> = function Default(args) {
   );
 };
 
-export const DefaultWithComponentInHeader: Story<CollapseProps> =
+export const DefaultWithComponentInHeader: StoryFn<CollapseProps> =
   function DefaultWithComponentInHeader(args) {
     return (
       <Collapse defaultActiveKey={['1']} {...args}>
@@ -36,7 +36,7 @@ export const DefaultWithComponentInHeader: Story<CollapseProps> =
     );
   };
 
-export const Single: Story = function Single() {
+export const Single: StoryFn = function Single() {
   return (
     <SingleCollapse
       panel={{ header: 'Uncontrolled collapse, closed by default' }}
@@ -46,7 +46,7 @@ export const Single: Story = function Single() {
   );
 };
 
-export const SingleWithOpenDefault: Story = function SingleWithOpenDefault() {
+export const SingleWithOpenDefault: StoryFn = function SingleWithOpenDefault() {
   return (
     <SingleCollapse
       panel={{ header: 'Uncontrolled collapse, open by default' }}
@@ -57,7 +57,7 @@ export const SingleWithOpenDefault: Story = function SingleWithOpenDefault() {
   );
 };
 
-export const SingleControlled: Story = function SingleControlled() {
+export const SingleControlled: StoryFn = function SingleControlled() {
   const [open, setOpen] = useState(true);
 
   return (

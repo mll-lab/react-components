@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { RangeWithValue } from './index';
@@ -25,7 +25,7 @@ export default {
   },
 };
 
-const Template: Story<{
+const Template: StoryFn<{
   expectedMin: number;
   expectedMax: number;
   actualValue: number;
