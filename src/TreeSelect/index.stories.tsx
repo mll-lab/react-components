@@ -49,7 +49,9 @@ const treeData: TreeSelectProps<string>['treeData'] = [
   },
 ];
 
-export const Default: StoryFn<TreeSelectProps<string>> = function Default(args) {
+export const Default: StoryFn<TreeSelectProps<string>> = function Default(
+  args,
+) {
   return (
     <TreeSelect<string>
       treeData={treeData}
@@ -80,7 +82,9 @@ Checkable.args = {
   size: 'middle',
 };
 
-export const BigFont: StoryFn<TreeSelectProps<string>> = function BigFont(args) {
+export const BigFont: StoryFn<TreeSelectProps<string>> = function BigFont(
+  args,
+) {
   return (
     <Provider theme={{ fontSize: '16px' }}>
       <TreeSelect<string>

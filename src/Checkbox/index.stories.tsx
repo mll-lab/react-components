@@ -17,15 +17,14 @@ export const Default: StoryFn<CheckboxProps> = function Default(args) {
   );
 };
 
-export const DisabledCheckbox: StoryFn<CheckboxProps> = function DisabledCheckbox(
-  args,
-) {
-  return (
-    <Checkbox defaultChecked disabled {...args}>
-      Checkbox
-    </Checkbox>
-  );
-};
+export const DisabledCheckbox: StoryFn<CheckboxProps> =
+  function DisabledCheckbox(args) {
+    return (
+      <Checkbox defaultChecked disabled {...args}>
+        Checkbox
+      </Checkbox>
+    );
+  };
 
 export const IndeterminateCheckbox: StoryFn<CheckboxProps> =
   function IndeterminateCheckbox(args) {
@@ -36,7 +35,9 @@ export const IndeterminateCheckbox: StoryFn<CheckboxProps> =
     );
   };
 
-export const WithoutLabel: StoryFn<CheckboxProps> = function WithoutLabel(args) {
+export const WithoutLabel: StoryFn<CheckboxProps> = function WithoutLabel(
+  args,
+) {
   return <Checkbox defaultChecked {...args} />;
 };
 

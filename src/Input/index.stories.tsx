@@ -104,6 +104,8 @@ export const Number: StoryFn<InputNumberProps<number>> = function Number(args) {
   );
 };
 
-export const NumericID: StoryFn<NumericIDInputProps> = function NumericID(args) {
+export const NumericID: StoryFn<NumericIDInputProps> = function NumericID(
+  args,
+) {
   return <NumericIDInput {...args} />;
 };
