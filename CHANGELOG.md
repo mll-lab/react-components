@@ -1,3 +1,34 @@
+# [19.16.0-alpha.1](https://github.com/mll-lab/react-components/compare/v19.15.0...v19.16.0-alpha.1) (2025-11-05)
+
+
+### Bug Fixes
+
+* adjust z-index for table placeholder to prevent overlay issues ([68da57b](https://github.com/mll-lab/react-components/commit/68da57bbc01e414ec369bda8594b42d26ea4f0fa))
+* allow disabled ([37dd142](https://github.com/mll-lab/react-components/commit/37dd1424c683b3636150b31ae7ae37bf2090b203))
+* avoid Table with no data overlay covering other elements ([3ff6b5c](https://github.com/mll-lab/react-components/commit/3ff6b5c4f45e717bf6ec228209cb3aafb854fb13))
+* generic label ([b64e82f](https://github.com/mll-lab/react-components/commit/b64e82fed7673b33c9228d6698f71eb0da65ca12))
+* generic type FilterOptionFunction ([41cb04a](https://github.com/mll-lab/react-components/commit/41cb04ace84cd628fd62867a81da04fc2f386146))
+* options is an Array ([a4b8691](https://github.com/mll-lab/react-components/commit/a4b86912ea7670b2fa67018763a539555a1b18db))
+* options is an Array ([7d508b7](https://github.com/mll-lab/react-components/commit/7d508b77cfc30f0a3fe8463e76a6a9068079819d))
+* OptionType and GroupedOptionType with generics ([9189668](https://github.com/mll-lab/react-components/commit/9189668484d025309e6040f12ec7e9177ce67174))
+* simplify SelectProps ([4be6730](https://github.com/mll-lab/react-components/commit/4be6730c6d450cc5f0506cb0b9fc23cddc42274b))
+* UnpackArray ([2bbd6e5](https://github.com/mll-lab/react-components/commit/2bbd6e5a84176dc40401c0e9416a2f72d5da887c))
+* UnpackNestedValue ([6972bfc](https://github.com/mll-lab/react-components/commit/6972bfc39baa42e566ecc91335ce85a6bf4fddfa))
+* UnpackNestedValue ([5481369](https://github.com/mll-lab/react-components/commit/548136918eb8dab7ffcb9ba0170563b666e1ac45))
+* UnpackNestedValue ([ac1f909](https://github.com/mll-lab/react-components/commit/ac1f9096329211a6915ba66361e06dab1ecba3bf))
+* update import of toFormInputOption from Select to Form ([9e2cd18](https://github.com/mll-lab/react-components/commit/9e2cd1825adf4c5661d9cd408a8fe65e7e3fa0cd))
+
+
+### Features
+
+* add RangeWithValue component with storybook integration ([2899126](https://github.com/mll-lab/react-components/commit/2899126069168e4c70fbddb5bf542c4abd62aa9a))
+* allow customizable buffer percentage in range calculations ([83e3555](https://github.com/mll-lab/react-components/commit/83e3555781febf5d733e201827cdf6ba65632aed))
+* enable npm provenance for OIDC publishing ([240f8c2](https://github.com/mll-lab/react-components/commit/240f8c2a914035b9603d5217cde3e06cd5154d40))
+* export FilterOptionFunction ([d2e719f](https://github.com/mll-lab/react-components/commit/d2e719f62284934184126a08ef2b006bba554010))
+* export RangeWithValue component from index ([8e482db](https://github.com/mll-lab/react-components/commit/8e482db8d10186ad5012babcaca2f0659fb4e8e0))
+* improve Select option types ([34b7ee3](https://github.com/mll-lab/react-components/commit/34b7ee3b5fe61da756073e81e1d0687ae947333c))
+* update tooling dependencies ([4c45848](https://github.com/mll-lab/react-components/commit/4c4584842b5c170a5697956a38a835a7acfe82fe))
+
 # [19.15.0-alpha.2](https://github.com/mll-lab/react-components/compare/v19.15.0-alpha.1...v19.15.0-alpha.2) (2025-10-31)
 
 
