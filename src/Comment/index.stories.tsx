@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { Comment, CommentProps } from './index';
@@ -8,7 +8,7 @@ export default {
   component: Comment,
 };
 
-export const Default: Story<Omit<CommentProps, 'content'>> = function Default(
+export const Default: StoryFn<Omit<CommentProps, 'content'>> = function Default(
   args,
 ) {
   return (

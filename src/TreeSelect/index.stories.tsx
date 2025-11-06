@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { Provider } from '../Provider';
@@ -49,7 +49,9 @@ const treeData: TreeSelectProps<string>['treeData'] = [
   },
 ];
 
-export const Default: Story<TreeSelectProps<string>> = function Default(args) {
+export const Default: StoryFn<TreeSelectProps<string>> = function Default(
+  args,
+) {
   return (
     <TreeSelect<string>
       treeData={treeData}
@@ -63,7 +65,7 @@ Default.args = {
   size: 'middle',
 };
 
-export const Checkable: Story<TreeSelectProps<string>> = function Checkable(
+export const Checkable: StoryFn<TreeSelectProps<string>> = function Checkable(
   args,
 ) {
   return (
@@ -80,7 +82,9 @@ Checkable.args = {
   size: 'middle',
 };
 
-export const BigFont: Story<TreeSelectProps<string>> = function BigFont(args) {
+export const BigFont: StoryFn<TreeSelectProps<string>> = function BigFont(
+  args,
+) {
   return (
     <Provider theme={{ fontSize: '16px' }}>
       <TreeSelect<string>

@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React, { useState } from 'react';
 
 import { THEME } from '../theme';
@@ -69,7 +69,7 @@ const columns: ColumnsType<Person> = [
   },
 ];
 
-const Template: Story<TableProps<Person>> = function Template(args) {
+const Template: StoryFn<TableProps<Person>> = function Template(args) {
   return <Table<Person> {...args} />;
 };
 

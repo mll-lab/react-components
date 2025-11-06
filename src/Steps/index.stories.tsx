@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { SingleCollapse } from '../Collapse';
@@ -19,7 +19,7 @@ export default {
   },
 };
 
-export const Default: Story<StepsProps> = function Default(args) {
+export const Default: StoryFn<StepsProps> = function Default(args) {
   return (
     <Steps current={1} {...args}>
       <Step title="Finished" description="This is a description." />

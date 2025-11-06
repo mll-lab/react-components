@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { Image, ImageProps } from './index';
@@ -11,7 +11,7 @@ export default {
   },
 };
 
-export const Default: Story<ImageProps> = function Default(args) {
+export const Default: StoryFn<ImageProps> = function Default(args) {
   return (
     <Image
       src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"

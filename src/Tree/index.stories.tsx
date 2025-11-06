@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { Tree, TreeProps } from './index';
@@ -55,6 +55,6 @@ const treeData: TreeData = [
   },
 ];
 
-export const Default: Story<TreeProps> = function Default(args) {
+export const Default: StoryFn<TreeProps> = function Default(args) {
   return <Tree {...args} treeData={treeData} />;
 };

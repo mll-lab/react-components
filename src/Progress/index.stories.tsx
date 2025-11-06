@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { Progress, ProgressProps } from './index';
@@ -11,6 +11,6 @@ export default {
   },
 };
 
-export const Default: Story<ProgressProps> = function Default(args) {
+export const Default: StoryFn<ProgressProps> = function Default(args) {
   return <Progress {...args} />;
 };

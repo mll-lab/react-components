@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { Skeleton, SkeletonProps } from './index';
@@ -8,6 +8,6 @@ export default {
   component: Skeleton,
 };
 
-export const Default: Story<SkeletonProps> = function Default(args) {
+export const Default: StoryFn<SkeletonProps> = function Default(args) {
   return <Skeleton {...args} />;
 };

@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { Button } from '../Button/Button';
@@ -20,7 +20,7 @@ const renderShowModal: WithModalProps['opener'] = function renderShowModal(
   return <Button onClick={showModal}>Click to open</Button>;
 };
 
-export const OpenByButton: Story<ModalProps> = function OpenByButton(args) {
+export const OpenByButton: StoryFn<ModalProps> = function OpenByButton(args) {
   return (
     <WithModal
       opener={renderShowModal}
@@ -34,7 +34,7 @@ export const OpenByButton: Story<ModalProps> = function OpenByButton(args) {
   );
 };
 
-export const OpenFullScreenByButton: Story<ModalProps> =
+export const OpenFullScreenByButton: StoryFn<ModalProps> =
   function OpenFullScreenByButton(args) {
     return (
       <WithModal
@@ -50,7 +50,7 @@ export const OpenFullScreenByButton: Story<ModalProps> =
     );
   };
 
-export const ModalConfirm: Story<ModalProps> = function ModalConfirm(args) {
+export const ModalConfirm: StoryFn<ModalProps> = function ModalConfirm(args) {
   const openModal = () =>
     Modal.confirm({
       title: 'Programmatically opened confirm modal',

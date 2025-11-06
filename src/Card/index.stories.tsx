@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { THEME } from '../theme';
@@ -9,7 +9,7 @@ export default {
   title: 'Card',
 };
 
-export const Default: Story<CardProps> = function Default(args) {
+export const Default: StoryFn<CardProps> = function Default(args) {
   return (
     <Card title="Default size card" {...args}>
       <p>Card content</p>
@@ -17,7 +17,7 @@ export const Default: Story<CardProps> = function Default(args) {
   );
 };
 
-export const InnerCard: Story<CardProps> = function InnerCard(args) {
+export const InnerCard: StoryFn<CardProps> = function InnerCard(args) {
   return (
     <Card type="inner" title="Inner Card title" extra="Extra content" {...args}>
       Inner Card content
@@ -25,7 +25,7 @@ export const InnerCard: Story<CardProps> = function InnerCard(args) {
   );
 };
 
-export const TabsCard: Story<CardProps> = function TabsCard(args) {
+export const TabsCard: StoryFn<CardProps> = function TabsCard(args) {
   return (
     <Card
       title="Card with Tabs"
@@ -51,7 +51,7 @@ const gridStyle = {
   width: '25%',
 };
 
-export const CardsGrid: Story<CardProps> = function CardsGrid(args) {
+export const CardsGrid: StoryFn<CardProps> = function CardsGrid(args) {
   return (
     <Card title="Cards Grid" {...args} style={{ width: 400 }}>
       <Card.Grid style={gridStyle}>Content</Card.Grid>
@@ -63,7 +63,7 @@ export const CardsGrid: Story<CardProps> = function CardsGrid(args) {
   );
 };
 
-export const CardMeta: Story<CardProps> = function CardMeta(args) {
+export const CardMeta: StoryFn<CardProps> = function CardMeta(args) {
   return (
     <Card hoverable style={{ width: 240 }} cover="Some cover" {...args}>
       <Card.Meta title="Europe Street beat" description="www.google.com" />
@@ -71,7 +71,7 @@ export const CardMeta: Story<CardProps> = function CardMeta(args) {
   );
 };
 
-export const CardOnColoredBackground: Story<CardProps> =
+export const CardOnColoredBackground: StoryFn<CardProps> =
   function CardOnColoredBackground(args) {
     return (
       <div style={{ background: THEME.backgroundColor, padding: 20 }}>

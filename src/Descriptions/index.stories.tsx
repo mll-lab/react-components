@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { Descriptions, DescriptionsProps } from './index';
@@ -8,7 +8,7 @@ export default {
   component: Descriptions,
 };
 
-export const Default: Story<DescriptionsProps> = function Default(args) {
+export const Default: StoryFn<DescriptionsProps> = function Default(args) {
   return (
     <Descriptions title="User Info" bordered {...args}>
       <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>

@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React, { ReactElement } from 'react';
 
 import { Select, SelectProps } from './index';
@@ -15,7 +15,7 @@ export default {
   },
 };
 
-export const Default: Story<SelectProps> = function Default(args) {
+export const Default: StoryFn<SelectProps> = function Default(args) {
   return (
     <Select defaultValue="lucy" style={{ width: 120 }} size="small" {...args}>
       <Select.Option value="jack">Jack</Select.Option>
@@ -27,11 +27,11 @@ export const Default: Story<SelectProps> = function Default(args) {
   );
 };
 
-export const Multiple: Story<SelectProps> = function Multiple(args) {
+export const Multiple: StoryFn<SelectProps> = function Multiple(args) {
   return <Default mode="multiple" {...args} />;
 };
 
-export const Group: Story<SelectProps> = function Group(args) {
+export const Group: StoryFn<SelectProps> = function Group(args) {
   return (
     <Select defaultValue="lucy" style={{ width: 120 }} {...args}>
       <Select.OptGroup label="Guys">
@@ -47,7 +47,7 @@ export const Group: Story<SelectProps> = function Group(args) {
   );
 };
 
-export const CustomDropdown: Story<SelectProps> = function CustomDropdown(
+export const CustomDropdown: StoryFn<SelectProps> = function CustomDropdown(
   args,
 ) {
   return <Multiple dropdownRender={renderDropdown} {...args} />;

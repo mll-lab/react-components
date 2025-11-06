@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react';
+import { StoryFn } from '@storybook/react';
 import React from 'react';
 
 import { Button } from '../Button/Button';
@@ -10,7 +10,7 @@ export default {
   component: Result,
 };
 
-const Template: Story<ResultProps> = function Template(args) {
+const Template: StoryFn<ResultProps> = function Template(args) {
   return <Result {...args} />;
 };
 
@@ -20,6 +20,6 @@ Default.args = {
   extra: <Button>OK</Button>,
 };
 
-export const EntityNotFoundExample: Story = function EntityNotFoundExample() {
+export const EntityNotFoundExample: StoryFn = function EntityNotFoundExample() {
   return <EntityNotFound entity="Kontrolle" id="4" />;
 };
