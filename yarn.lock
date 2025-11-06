@@ -2252,15 +2252,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mll-lab/js-utils@npm:^2.36.1":
-  version: 2.36.1
-  resolution: "@mll-lab/js-utils@npm:2.36.1"
+"@mll-lab/js-utils@npm:^2.41.0":
+  version: 2.41.0
+  resolution: "@mll-lab/js-utils@npm:2.41.0"
   dependencies:
     date-fns: "npm:3.0.1"
-    lodash: "npm:4.17.15"
+    lodash: "npm:4.17.21"
   peerDependencies:
     "@babel/runtime": ">=7.13.6"
-  checksum: 10c0/c71446f60cb1f30e9ffa0e2e2b357465468df8d17d6b7febdb2d2dd75847434fc2fb5bdf7e864bb61edc5c94382fa38e6f3ab95d3cf8193aecfe79c60b060462
+  checksum: 10c0/7d857462a11470a0d01102de5db10ca7f9abfe44dff19289736569d49efe39825fb570e3fcf1f2bce74f9f858a12927824b209d849dd89190582933b6a808f8f
   languageName: node
   linkType: hard
 
@@ -2285,7 +2285,7 @@ __metadata:
     "@dnd-kit/core": "npm:^6.0.8"
     "@mll-lab/eslint-config": "npm:^3.1.0"
     "@mll-lab/eslint-plugin": "npm:^1.3.4"
-    "@mll-lab/js-utils": "npm:^2.36.1"
+    "@mll-lab/js-utils": "npm:^2.41.0"
     "@mll-lab/prettier-config": "npm:^1.0.0"
     "@mll-lab/tsconfig": "npm:^3.0.0"
     "@rollup/plugin-babel": "npm:^6.0.4"
@@ -10713,14 +10713,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:4.17.15":
-  version: 4.17.15
-  resolution: "lodash@npm:4.17.15"
-  checksum: 10c0/c029ab298357d007252d5802348f1deb343099ba734ae6e6776a908e4995db5b8ed4ae51ff83a2937a1f6e3c41a0c8941eb941926e1a7f2ddfc3d235ec1e8aa7
-  languageName: node
-  linkType: hard
-
-"lodash@npm:^4.17.15, lodash@npm:^4.17.20, lodash@npm:^4.17.21, lodash@npm:^4.17.4":
+"lodash@npm:4.17.21, lodash@npm:^4.17.15, lodash@npm:^4.17.20, lodash@npm:^4.17.21, lodash@npm:^4.17.4":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: 10c0/d8cbea072bb08655bb4c989da418994b073a608dffa608b09ac04b43a791b12aeae7cd7ad919aa4c925f33b48490b5cfe6c1f71d827956071dae2e7bb3a6b74c
