@@ -1,5 +1,5 @@
 import { VerticalAlignTopOutlined } from '@ant-design/icons';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-webpack5';
 import React from 'react';
 
 import { BackTop, BackTopProps } from './index';

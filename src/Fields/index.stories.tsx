@@ -1,4 +1,4 @@
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-webpack5';
 import React, { useCallback, useRef } from 'react';
 import { FormProvider, useForm, useFormContext } from 'react-hook-form';
 

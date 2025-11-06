@@ -1,4 +1,4 @@
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-webpack5';
 import React, { ComponentType, ReactElement } from 'react';
 
 import { TabPanelProps, TabsProps } from './types';
