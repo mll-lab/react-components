@@ -1,3 +1,10 @@
+# [19.16.0](https://github.com/mll-lab/react-components/compare/v19.15.0...v19.16.0) (2025-11-06)
+
+
+### Features
+
+* update tooling dependencies ([#310](https://github.com/mll-lab/react-components/issues/310)) ([884e352](https://github.com/mll-lab/react-components/commit/884e352efdccc6f7d6488674235fa94ba6aa19e8))
+
 # [19.15.0](https://github.com/mll-lab/react-components/compare/v19.14.2...v19.15.0) (2025-11-03)
 
 
