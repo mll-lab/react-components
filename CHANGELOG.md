@@ -1,3 +1,25 @@
+# [20.0.0](https://github.com/mll-lab/react-components/compare/v19.16.0...v20.0.0) (2025-11-06)
+
+
+* Fix security vulnerabilities 311 ([#312](https://github.com/mll-lab/react-components/issues/312)) ([de720d6](https://github.com/mll-lab/react-components/commit/de720d6c27ebcac8d922d7f67a2b2e647ae163fc)), closes [#311](https://github.com/mll-lab/react-components/issues/311) [#311](https://github.com/mll-lab/react-components/issues/311)
+
+
+### BREAKING CHANGES
+
+* Requires one-time manual setup in GitHub Pages settings.
+After merging, change Pages source from "Deploy from a branch" to
+"GitHub Actions" at: Settings → Pages → Build and deployment → Source
+
+Security impact:
+- Eliminates 1 CRITICAL vulnerability (parse-url SSRF)
+- Reduces total vulnerabilities from 25 to ~16
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>
+
+* simplify show
+
 # [19.16.0](https://github.com/mll-lab/react-components/compare/v19.15.0...v19.16.0) (2025-11-06)
 
 
