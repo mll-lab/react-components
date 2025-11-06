@@ -82,7 +82,6 @@
     "@storybook/addon-essentials": "^8.2.10",
     "@storybook/react": "^8.2.10",
     "@storybook/react-webpack5": "^8.2.10",
-    "@storybook/storybook-deployer": "^2.8.16",
     "@testing-library/dom": "^9.3.3",
     "@testing-library/jest-dom": "^6.6.4",
     "@testing-library/react": "^14.1.2",

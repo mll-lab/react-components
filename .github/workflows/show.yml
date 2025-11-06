@@ -3,9 +3,24 @@ on:
   push:
     branches:
       - master
+  workflow_dispatch:
+
+# Required permissions for Pages deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Prevent concurrent deployments
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   storybook:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -14,6 +29,15 @@ jobs:
           node-version: 22
       - run: corepack enable
       - run: yarn install
-      - run: yarn run storybook-to-ghpages --ci --script=storybook:build
-        env:
-          GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
+      - run: yarn storybook:build
+
+      # GitHub Pages deployment
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./storybook-static
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
