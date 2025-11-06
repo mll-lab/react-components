@@ -2,7 +2,7 @@
 /* eslint-disable import/extensions */
 
 import { ClockCircleOutlined } from '@ant-design/icons';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-webpack5';
 import React from 'react';
 
 import { CreateButton } from '../Button/Button';

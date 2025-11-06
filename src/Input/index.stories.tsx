@@ -1,5 +1,5 @@
 import { BarcodeOutlined } from '@ant-design/icons';
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-webpack5';
 import React, { useState } from 'react';
 
 import { Button } from '../Button';

@@ -1,4 +1,4 @@
-import { StoryFn } from '@storybook/react';
+import { StoryFn } from '@storybook/react-webpack5';
 import React, { useMemo, useState } from 'react';
 
 import { Form } from '../Form';
