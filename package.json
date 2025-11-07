@@ -81,6 +81,7 @@
     "@semantic-release/changelog": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "@storybook/addon-docs": "^10.0.5",
+    "@storybook/addon-webpack5-compiler-babel": "^3.0.6",
     "@storybook/react-webpack5": "^10.0.5",
     "@testing-library/dom": "^9.3.3",
     "@testing-library/jest-dom": "^6.6.4",
