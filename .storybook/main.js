@@ -20,12 +20,6 @@ module.exports = {
           {
             loader: 'babel-loader',
           },
-          {
-            loader: 'ts-loader',
-            options: {
-              transpileOnly: true,
-            },
-          },
         ],
       },
       {
@@ -48,6 +42,13 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
     ];
+
+    // Suppress warnings about TypeScript type-only re-exports
+    // These are harmless - types are stripped during compilation, but webpack still tries to verify them
+    config.ignoreWarnings = [
+      /export .* \(reexported as .*\) was not found/,
+    ];
+
     return config;
   },
 };
