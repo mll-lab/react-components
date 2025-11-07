@@ -1,9 +1,9 @@
-module.exports = {
+import type { StorybookConfig } from '@storybook/react-webpack5';
+import type { Configuration } from 'webpack';
+
+const config: StorybookConfig = {
   stories: ['../src/**/*.stories.tsx'],
-  addons: [
-    '@storybook/addon-docs',
-    '@storybook/addon-webpack5-compiler-babel',
-  ],
+  addons: ['@storybook/addon-docs', '@storybook/addon-webpack5-compiler-babel'],
   framework: {
     name: '@storybook/react-webpack5',
     options: {
@@ -11,8 +11,8 @@ module.exports = {
       strictMode: true,
     },
   },
-  webpackFinal: (config) => {
-    config.module.rules.push({
+  webpackFinal: (webpackConfig: Configuration) => {
+    webpackConfig.module!.rules!.push({
       test: /\.less$/,
       use: [
         'style-loader',
@@ -30,10 +30,12 @@ module.exports = {
 
     // Suppress warnings about TypeScript type-only re-exports
     // These are harmless - types are stripped during compilation, but webpack still tries to verify them
-    config.ignoreWarnings = [
+    webpackConfig.ignoreWarnings = [
       /export .* \(reexported as .*\) was not found/,
     ];
 
-    return config;
+    return webpackConfig;
   },
 };
+
+export default config;
