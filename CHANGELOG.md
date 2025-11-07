@@ -1,3 +1,10 @@
+## [20.0.1](https://github.com/mll-lab/react-components/compare/v20.0.0...v20.0.1) (2025-11-07)
+
+
+### Bug Fixes
+
+* upgrade Storybook to v10.0.5 to resolve security vulnerabilities ([45f4fbd](https://github.com/mll-lab/react-components/commit/45f4fbd0e2f4ad22283804af1f465cad09920a06)), closes [hi#severity](https://github.com/hi/issues/severity) [#311](https://github.com/mll-lab/react-components/issues/311)
+
 # [20.0.0](https://github.com/mll-lab/react-components/compare/v19.16.0...v20.0.0) (2025-11-06)
 
 
