@@ -1,6 +1,5 @@
 import { StoryFn } from '@storybook/react-webpack5';
 import React from 'react';
-import { action } from 'storybook/test';
 
 import { PALETTE } from '../theme';
 
@@ -83,7 +82,10 @@ const Template: StoryFn<Partial<PlateProps<CoordinateSystem12x8>>> =
         data={null}
         coordinateSystem={COORDINATE_SYSTEM_12X8}
         dndContextProps={{
-          onDragEnd: action('onDragEnd'), // dataLocation: `const sourceData = e.active.data.current; const targetData = e.over?.data.current;`
+          onDragEnd: () => {
+            // Handle drag end event
+            // Access data via event parameter if needed: const sourceData = e.active.data.current; const targetData = e.over?.data.current;
+          },
         }}
         {...args}
       />

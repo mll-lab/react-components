@@ -20,6 +20,7 @@ import {
 export * from './constants';
 export * from './coordinateSystem12x8';
 export * from './coordinateSystem2x16';
+export * from './coordinateSystem6x4';
 export * from './types';
 export * from './utils';
 export { GENERAL_WELL_STYLE } from './wellUtils';
@@ -50,7 +51,7 @@ export function Plate<TCoordinateSystem extends CoordinateSystem>({
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: `1fr${' 4fr'.repeat(
+            gridTemplateColumns: `auto${' auto'.repeat(
               coordinateSystem.columns.length,
             )}`,
             gridGap: '3px',
