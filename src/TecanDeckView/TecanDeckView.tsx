@@ -5,6 +5,8 @@ import { PALETTE } from '../theme';
 import { EmptyLabware } from './EmptyLabware';
 import { LabwareDetailItem } from './LabwareDetailItem';
 import {
+  getFilledLabwaresByColumn,
+  getFilledLabwaresByRow,
   GRID_LAYOUT,
   isLeftColumn,
   isRightColumn,
@@ -36,11 +38,9 @@ const CONTAINER_STYLE = {
 
 const GRID_CONTAINER_STYLE = {
   display: 'grid',
-  gap: '8px',
   gridTemplateAreas: GRID_LAYOUT.map((row) => `"${row.join(' ')}"`).join(
     '\n  ',
   ),
-  gridTemplateRows: 'auto auto auto',
   padding: '8px',
   backgroundColor: PALETTE.gray1,
   borderRadius: '4px',
@@ -67,6 +67,42 @@ const RIGHT_COLUMN_STYLE = {
   ...SPANNING_COLUMN_BASE_STYLE,
   gridArea: 'rightColumn',
 } as const;
+
+// Helper functions for dynamic grid sizing
+
+/**
+ * Calculates dynamic grid-template-columns based on which columns have content.
+ * Empty columns get minimal width (40-60px), filled columns get 1fr.
+ */
+function calculateGridTemplateColumns(labwares: TecanLabwares): string {
+  const filledByColumn = getFilledLabwaresByColumn(labwares);
+
+  const columnSizes = [
+    'auto', // Left column (mmPlate)
+    (filledByColumn[1]?.length ?? 0) > 0 ? '1fr' : 'minmax(40px, 60px)', // Column 1
+    (filledByColumn[2]?.length ?? 0) > 0 ? '1fr' : 'minmax(40px, 60px)', // Column 2
+    (filledByColumn[3]?.length ?? 0) > 0 ? '1fr' : 'minmax(40px, 60px)', // Column 3
+    'auto', // Right column (destPcr1/2)
+  ];
+
+  return columnSizes.join(' ');
+}
+
+/**
+ * Calculates dynamic grid-template-rows based on which rows have content.
+ * Empty rows get minimal height (40-60px), filled rows get auto.
+ */
+function calculateGridTemplateRows(labwares: TecanLabwares): string {
+  const filledByRow = getFilledLabwaresByRow(labwares);
+
+  const rowSizes = [
+    (filledByRow[0]?.length ?? 0) > 0 ? 'auto' : 'minmax(40px, 60px)', // Row 0
+    (filledByRow[1]?.length ?? 0) > 0 ? 'auto' : 'minmax(40px, 60px)', // Row 1
+    (filledByRow[2]?.length ?? 0) > 0 ? 'auto' : 'minmax(40px, 60px)', // Row 2
+  ];
+
+  return rowSizes.join(' ');
+}
 
 export function TecanDeckView({ labwares }: { labwares: TecanLabwares }) {
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -106,6 +142,16 @@ export function TecanDeckView({ labwares }: { labwares: TecanLabwares }) {
     setScaleFactor(calculatedScale);
   }, [availableWidth]);
 
+  // Calculate dynamic grid styling based on content
+  const gridStyle = React.useMemo(
+    () => ({
+      gridTemplateColumns: calculateGridTemplateColumns(labwares),
+      gridTemplateRows: calculateGridTemplateRows(labwares),
+      gap: '8px',
+    }),
+    [labwares],
+  );
+
   // Group labwares into spanning columns and main grid in a single pass
   const { leftColumnLabwares, rightColumnLabwares, mainGridLabwares } =
     React.useMemo(() => {
@@ -121,7 +167,7 @@ export function TecanDeckView({ labwares }: { labwares: TecanLabwares }) {
             style: {
               ...LABWARE_ITEM_BASE_STYLE,
               gridArea: key,
-              alignSelf: metadata.gridPosition.alignment,
+              alignSelf: 'center',
             },
           };
 
@@ -159,6 +205,7 @@ export function TecanDeckView({ labwares }: { labwares: TecanLabwares }) {
       <div
         style={{
           ...GRID_CONTAINER_STYLE,
+          ...gridStyle,
           transform: `scale(${scaleFactor})`,
           transformOrigin: 'top left',
         }}
