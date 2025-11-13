@@ -26,12 +26,10 @@ const CONTAINER_STYLE = {
 export function LabwareDetailItem({
   backgroundColor = PALETTE.white,
   content,
-  scaleFactor,
   shortLabel,
 }: {
   shortLabel: string;
   content: React.ReactElement;
-  scaleFactor: number;
   backgroundColor?: string;
 }) {
   return (
@@ -43,7 +41,7 @@ export function LabwareDetailItem({
         boxShadow: `0 2px 4px ${PALETTE.black}1a`,
       }}
     >
-      <div style={{ zoom: scaleFactor }}>{content}</div>
+      {content}
       <div style={LABEL_STYLE}>{shortLabel}</div>
     </div>
   );

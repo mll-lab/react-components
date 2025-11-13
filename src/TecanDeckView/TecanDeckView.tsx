@@ -17,17 +17,17 @@ import {
   TecanLabwares,
 } from './types';
 
-// Responsive scaling constants
-const GRID_PADDING = 8; // Padding around the grid container (from style.padding)
-const GRID_GAP = 8; // Gap between grid cells (from style.gap)
-const COLUMN_COUNT = 5; // Number of columns in the grid
-const GRID_OVERHEAD = GRID_PADDING * 2 + GRID_GAP * (COLUMN_COUNT - 1); // Total space used by padding and gaps
-const COLUMN_OVERHEAD = 60; // Estimated width per column for borders and padding
-const BASE_CONTENT_WIDTH = 1400; // Designed content width at 1.0 scale factor
-const SCALE_SAFETY_MARGIN = 0.95; // 5% safety margin to prevent overflow
-const MIN_SCALE_FACTOR = 0.1; // Minimum scale to keep content readable
-const MAX_SCALE_FACTOR = 1.0; // Maximum scale (100% of designed size)
-const INITIAL_SCALE_FACTOR = 0.7; // Initial scale before container width is measured
+// Scaling constants for fit-to-width behavior
+const GRID_PADDING = 8;
+const GRID_GAP = 8;
+const COLUMN_COUNT = 5;
+const GRID_OVERHEAD = GRID_PADDING * 2 + GRID_GAP * (COLUMN_COUNT - 1);
+const COLUMN_OVERHEAD = 60;
+const BASE_CONTENT_WIDTH = 1400;
+const SCALE_SAFETY_MARGIN = 0.95;
+const MIN_SCALE_FACTOR = 0.1;
+const MAX_SCALE_FACTOR = 1.0;
+const INITIAL_SCALE_FACTOR = 0.7;
 
 // Static styles
 const CONTAINER_STYLE = {
@@ -75,9 +75,7 @@ export function TecanDeckView({ labwares }: { labwares: TecanLabwares }) {
 
   React.useEffect(() => {
     const container = containerRef.current;
-    if (!container) {
-      return;
-    }
+    if (!container) return;
 
     const updateWidth = () => {
       setAvailableWidth(container.offsetWidth);
@@ -94,9 +92,7 @@ export function TecanDeckView({ labwares }: { labwares: TecanLabwares }) {
   }, []);
 
   React.useEffect(() => {
-    if (availableWidth === undefined) {
-      return;
-    }
+    if (availableWidth === undefined) return;
 
     const totalColumnOverhead = COLUMN_OVERHEAD * COLUMN_COUNT;
     const availableContentWidth =
@@ -152,7 +148,6 @@ export function TecanDeckView({ labwares }: { labwares: TecanLabwares }) {
       <LabwareDetailItem
         shortLabel={labware.shortLabel}
         content={labware.content}
-        scaleFactor={scaleFactor}
         backgroundColor={labware.color}
       />
     ) : (
@@ -161,7 +156,13 @@ export function TecanDeckView({ labwares }: { labwares: TecanLabwares }) {
 
   return (
     <div ref={containerRef} style={CONTAINER_STYLE}>
-      <div style={GRID_CONTAINER_STYLE}>
+      <div
+        style={{
+          ...GRID_CONTAINER_STYLE,
+          transform: `scale(${scaleFactor})`,
+          transformOrigin: 'top left',
+        }}
+      >
         <div style={LEFT_COLUMN_STYLE}>
           {leftColumnLabwares.map((labware) => (
             <div key={labware.key}>{renderLabware(labware)}</div>
