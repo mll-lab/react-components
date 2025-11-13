@@ -1,3 +1,10 @@
+# [20.1.0-beta.3](https://github.com/mll-lab/react-components/compare/v20.1.0-beta.2...v20.1.0-beta.3) (2025-11-13)
+
+
+### Features
+
+* update grid layout calculation to reflect physical Tecan deck dimensions ([b6f1544](https://github.com/mll-lab/react-components/commit/b6f1544efafa28831e1a2fed8766cc308b9e6b94))
+
 # [20.1.0-beta.2](https://github.com/mll-lab/react-components/compare/v20.1.0-beta.1...v20.1.0-beta.2) (2025-11-13)
 
 
