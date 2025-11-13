@@ -41,7 +41,6 @@ export const Default: StoryFn<{
 }> = function Default(args) {
   const { textLength } = args;
 
-  // Define text content based on length preference
   const getText = (base: string) => {
     if (textLength === 'extreme') {
       return `${base}-ExtremelyLongTextThatShouldDefinitelyBeTruncatedInTheDetailView`;
@@ -52,7 +51,6 @@ export const Default: StoryFn<{
     return base;
   };
 
-  // Build labwares object based on individual toggles
   const labwares: TecanLabwares = {};
 
   if (args.showMmPlate) {
@@ -67,6 +65,7 @@ export const Default: StoryFn<{
             { coordinates: { row: 'P', column: 1 }, content: getText('S31') },
           ]}
           coordinateSystem={COORDINATE_SYSTEM_2X16}
+          wellSizing="compact"
         />
       ),
     };
@@ -91,6 +90,7 @@ export const Default: StoryFn<{
             },
           ]}
           coordinateSystem={COORDINATE_SYSTEM_6X4}
+          wellSizing="compact"
         />
       ),
     };
@@ -111,6 +111,7 @@ export const Default: StoryFn<{
             },
           ]}
           coordinateSystem={COORDINATE_SYSTEM_6X4}
+          wellSizing="compact"
         />
       ),
     };
@@ -142,6 +143,7 @@ export const Default: StoryFn<{
             },
           ]}
           coordinateSystem={COORDINATE_SYSTEM_12X8}
+          wellSizing="compact"
         />
       ),
     };
@@ -158,6 +160,7 @@ export const Default: StoryFn<{
             },
           ]}
           coordinateSystem={COORDINATE_SYSTEM_12X8}
+          wellSizing="compact"
         />
       ),
     };
@@ -171,6 +174,7 @@ export const Default: StoryFn<{
             { coordinates: { row: 'E', column: 5 }, content: getText('TM-53') },
           ]}
           coordinateSystem={COORDINATE_SYSTEM_12X8}
+          wellSizing="compact"
         />
       ),
     };
@@ -195,6 +199,7 @@ export const Default: StoryFn<{
             },
           ]}
           coordinateSystem={COORDINATE_SYSTEM_12X8}
+          wellSizing="compact"
         />
       ),
     };
@@ -211,6 +216,7 @@ export const Default: StoryFn<{
             },
           ]}
           coordinateSystem={COORDINATE_SYSTEM_12X8}
+          wellSizing="compact"
         />
       ),
     };
@@ -228,6 +234,7 @@ export const Default: StoryFn<{
             },
           ]}
           coordinateSystem={COORDINATE_SYSTEM_12X8}
+          wellSizing="compact"
         />
       ),
     };
@@ -244,6 +251,7 @@ export const Default: StoryFn<{
             },
           ]}
           coordinateSystem={COORDINATE_SYSTEM_12X8}
+          wellSizing="compact"
         />
       ),
     };
@@ -260,6 +268,7 @@ export const Default: StoryFn<{
             },
           ]}
           coordinateSystem={COORDINATE_SYSTEM_12X8}
+          wellSizing="compact"
         />
       ),
     };
@@ -330,7 +339,6 @@ Default.argTypes = {
 
 Default.args = {
   textLength: 'short',
-  // Toggle any combination of labwares to create custom layouts
   showMmPlate: true,
   showAPlate: false,
   showBPlate: false,
@@ -345,18 +353,13 @@ Default.args = {
   showDestPcr2: false,
 };
 
-/**
- * Full deck layout with all labwares populated.
- * Useful for testing maximum capacity and complex layouts.
- */
 export const FullDeck = Default.bind({});
 
 FullDeck.args = {
-  textLength: 'short',
   showMmPlate: true,
   showAPlate: true,
   showBPlate: true,
-  showNemoWater: false,
+  showNemoWater: true,
   showNemoDilution: true,
   showNemoDestPcr2: true,
   showNemoDestTaqMan: true,

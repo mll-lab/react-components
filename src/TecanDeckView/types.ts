@@ -28,3 +28,15 @@ export type LabwareConfig = {
   content?: React.ReactElement;
   color: string;
 };
+
+export type GridPosition = {
+  row: 0 | 1 | 2;
+  column: 0 | 1 | 2 | 3 | 4;
+  alignment: 'start' | 'center' | 'end';
+};
+
+export type GridCell = LabwareKey | 'leftColumn' | 'rightColumn';
+
+export type LabwareWithStyle = LabwareConfig & {
+  style: React.CSSProperties;
+};

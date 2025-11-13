@@ -2,9 +2,8 @@ import * as React from 'react';
 
 import { PALETTE } from '../theme';
 
-/* eslint-disable @mll-lab/no-color-literals */
+/* eslint-disable-next-line @mll-lab/no-color-literals -- Hardware-specific color must match physical label appearance */
 const LABEL_BACKGROUND_COLOR = '#e0e559';
-/* eslint-enable @mll-lab/no-color-literals */
 
 const LABEL_STYLE = {
   backgroundColor: LABEL_BACKGROUND_COLOR,
