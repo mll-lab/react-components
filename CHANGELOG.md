@@ -1,3 +1,12 @@
+# [20.1.0-beta.1](https://github.com/mll-lab/react-components/compare/v20.0.1...v20.1.0-beta.1) (2025-11-13)
+
+
+### Features
+
+* enhance TecanDeckView with responsive grid layout and styling improvements ([78afd98](https://github.com/mll-lab/react-components/commit/78afd98c0f7bace42bbed43d19f2496644afa664))
+* include beta branch in release workflow as desribed in readme.md ([660eee1](https://github.com/mll-lab/react-components/commit/660eee15d8a73c5860b92dddd598b956ae338941))
+* introduce TecanDeckView component for visualizing labware layout ([36fc547](https://github.com/mll-lab/react-components/commit/36fc5472576552da682fca251fbd8f9eb2245e79))
+
 ## [20.0.1](https://github.com/mll-lab/react-components/compare/v20.0.0...v20.0.1) (2025-11-07)
 
 
