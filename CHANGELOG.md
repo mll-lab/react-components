@@ -1,3 +1,10 @@
+# [20.1.0](https://github.com/mll-lab/react-components/compare/v20.0.1...v20.1.0) (2025-11-13)
+
+
+### Features
+
+* add component `Segmented` ([75abd25](https://github.com/mll-lab/react-components/commit/75abd258d3b504a189481cfa64302f80a8a0ea01))
+
 ## [20.0.1](https://github.com/mll-lab/react-components/compare/v20.0.0...v20.0.1) (2025-11-07)
 
 
