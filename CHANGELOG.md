@@ -1,3 +1,10 @@
+# [20.1.0-beta.4](https://github.com/mll-lab/react-components/compare/v20.1.0-beta.3...v20.1.0-beta.4) (2025-11-13)
+
+
+### Bug Fixes
+
+* update column size calculation for Tecan deck view to ensure proper layout ([35bdadd](https://github.com/mll-lab/react-components/commit/35bdadd7a31ea36e8835ddc98c71f4104577489b))
+
 # [20.1.0-beta.3](https://github.com/mll-lab/react-components/compare/v20.1.0-beta.2...v20.1.0-beta.3) (2025-11-13)
 
 
