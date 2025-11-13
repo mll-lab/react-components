@@ -72,16 +72,17 @@ const RIGHT_COLUMN_STYLE = {
 
 /**
  * Calculates dynamic grid-template-columns based on which columns have content.
- * Empty columns get minimal width (40-60px), filled columns get 1fr.
+ * Empty columns get minimal width (40-60px), filled columns get proportional sizes
+ * matching physical Tecan deck dimensions (column 1: 0.5fr, columns 2-3: 1fr).
  */
 function calculateGridTemplateColumns(labwares: TecanLabwares): string {
   const filledByColumn = getFilledLabwaresByColumn(labwares);
 
   const columnSizes = [
     'auto', // Left column (mmPlate)
-    (filledByColumn[1]?.length ?? 0) > 0 ? '1fr' : 'minmax(40px, 60px)', // Column 1
-    (filledByColumn[2]?.length ?? 0) > 0 ? '1fr' : 'minmax(40px, 60px)', // Column 2
-    (filledByColumn[3]?.length ?? 0) > 0 ? '1fr' : 'minmax(40px, 60px)', // Column 3
+    (filledByColumn[1]?.length ?? 0) > 0 ? '0.5fr' : 'minmax(40px, 60px)', // Column 1 - half size
+    (filledByColumn[2]?.length ?? 0) > 0 ? '1fr' : 'minmax(40px, 60px)', // Column 2 - standard
+    (filledByColumn[3]?.length ?? 0) > 0 ? '1fr' : 'minmax(40px, 60px)', // Column 3 - standard
     'auto', // Right column (destPcr1/2)
   ];
 
