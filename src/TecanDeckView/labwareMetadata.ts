@@ -1,4 +1,4 @@
-import { GridCell, GridPosition, LabwareKey } from './types';
+import { GridCell, GridPosition, LabwareKey, TecanLabwares } from './types';
 
 // Column constants
 export const COLUMN_LEFT_SPANNING = 0; // Left column that spans all three rows (mmPlate)
@@ -23,73 +23,73 @@ export const LABWARE_METADATA: Record<LabwareKey, LabwareMetadata> = {
     label: 'MM Plate',
     shortLabel: 'MM',
     color: LABWARE_COLOR_MM_PLATE,
-    gridPosition: { row: 0, column: 0, alignment: 'center' },
+    gridPosition: { row: 0, column: 0 },
   },
   aPlate: {
     label: 'A Plate (200µl #1)',
     shortLabel: 'A',
     color: LABWARE_COLOR_STANDARD_PLATE,
-    gridPosition: { row: 0, column: 1, alignment: 'start' },
+    gridPosition: { row: 0, column: 1 },
   },
   nemoDilution: {
     label: 'NeMo Dilution',
     shortLabel: 'NeMoDilution',
     color: LABWARE_COLOR_STANDARD_PLATE,
-    gridPosition: { row: 0, column: 2, alignment: 'start' },
+    gridPosition: { row: 0, column: 2 },
   },
   destPcr: {
     label: 'Dest PCR',
     shortLabel: 'DestPCR',
     color: LABWARE_COLOR_STANDARD_PLATE,
-    gridPosition: { row: 0, column: 3, alignment: 'start' },
+    gridPosition: { row: 0, column: 3 },
   },
   destPcr1: {
     label: 'Dest PCR 1',
     shortLabel: 'DestPCR1',
     color: LABWARE_COLOR_STANDARD_PLATE,
-    gridPosition: { row: 0, column: COLUMN_RIGHT_SPANNING, alignment: 'start' },
+    gridPosition: { row: 0, column: COLUMN_RIGHT_SPANNING },
   },
   destPcr2: {
     label: 'Dest PCR 2',
     shortLabel: 'DestPCR2',
     color: LABWARE_COLOR_STANDARD_PLATE,
-    gridPosition: { row: 0, column: COLUMN_RIGHT_SPANNING, alignment: 'start' },
+    gridPosition: { row: 0, column: COLUMN_RIGHT_SPANNING },
   },
   bPlate: {
     label: 'B Plate (200µl #2)',
     shortLabel: 'B',
     color: LABWARE_COLOR_STANDARD_PLATE,
-    gridPosition: { row: 1, column: 1, alignment: 'center' },
+    gridPosition: { row: 1, column: 1 },
   },
   nemoDestPcr2: {
     label: 'NeMo Dest PCR 2',
     shortLabel: 'DestPCR2',
     color: LABWARE_COLOR_STANDARD_PLATE,
-    gridPosition: { row: 1, column: 2, alignment: 'center' },
+    gridPosition: { row: 1, column: 2 },
   },
   destLc: {
     label: 'Dest LC',
     shortLabel: 'DestLC',
     color: LABWARE_COLOR_STANDARD_PLATE,
-    gridPosition: { row: 1, column: 3, alignment: 'center' },
+    gridPosition: { row: 1, column: 3 },
   },
   nemoWater: {
     label: 'NeMo Water',
     shortLabel: 'NeMoWasser',
     color: LABWARE_COLOR_STANDARD_PLATE,
-    gridPosition: { row: 2, column: 1, alignment: 'end' },
+    gridPosition: { row: 2, column: 1 },
   },
   nemoDestTaqMan: {
     label: 'Dest TaqMan',
     shortLabel: 'Dest-TaqMan',
     color: LABWARE_COLOR_TAQMAN_DARK,
-    gridPosition: { row: 2, column: 2, alignment: 'end' },
+    gridPosition: { row: 2, column: 2 },
   },
   fluidX: {
     label: 'FluidX',
     shortLabel: 'FluidX',
     color: LABWARE_COLOR_FLUIDX,
-    gridPosition: { row: 2, column: 3, alignment: 'end' },
+    gridPosition: { row: 2, column: 3 },
   },
 };
 
@@ -111,4 +111,48 @@ export function isLeftColumn(key: LabwareKey) {
 
 export function isRightColumn(key: LabwareKey) {
   return LABWARE_METADATA[key].gridPosition.column === COLUMN_RIGHT_SPANNING;
+}
+
+/**
+ * Returns a map of column numbers to arrays of filled labware keys.
+ * Used to determine which columns have content for dynamic grid sizing.
+ */
+export function getFilledLabwaresByColumn(
+  labwares: TecanLabwares,
+): Record<number, Array<LabwareKey>> {
+  const filledByColumn: Record<number, Array<LabwareKey>> = {};
+
+  (Object.keys(LABWARE_METADATA) as Array<LabwareKey>).forEach((key) => {
+    if (labwares[key]?.content) {
+      const { column } = LABWARE_METADATA[key].gridPosition;
+      if (!filledByColumn[column]) {
+        filledByColumn[column] = [];
+      }
+      filledByColumn[column]!.push(key);
+    }
+  });
+
+  return filledByColumn;
+}
+
+/**
+ * Returns a map of row numbers to arrays of filled labware keys.
+ * Used to determine which rows have content for dynamic grid sizing.
+ */
+export function getFilledLabwaresByRow(
+  labwares: TecanLabwares,
+): Record<number, Array<LabwareKey>> {
+  const filledByRow: Record<number, Array<LabwareKey>> = {};
+
+  (Object.keys(LABWARE_METADATA) as Array<LabwareKey>).forEach((key) => {
+    if (labwares[key]?.content) {
+      const { row } = LABWARE_METADATA[key].gridPosition;
+      if (!filledByRow[row]) {
+        filledByRow[row] = [];
+      }
+      filledByRow[row]!.push(key);
+    }
+  });
+
+  return filledByRow;
 }
