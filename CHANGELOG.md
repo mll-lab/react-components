@@ -1,3 +1,10 @@
+# [20.1.0-beta.2](https://github.com/mll-lab/react-components/compare/v20.1.0-beta.1...v20.1.0-beta.2) (2025-11-13)
+
+
+### Bug Fixes
+
+* decrease opacity of EmptyLabware component for better visibility ([8eab07e](https://github.com/mll-lab/react-components/commit/8eab07eb31ca837bf5b94e312fee348e4f289184))
+
 # [20.1.0-beta.1](https://github.com/mll-lab/react-components/compare/v20.0.1...v20.1.0-beta.1) (2025-11-13)
 
 
