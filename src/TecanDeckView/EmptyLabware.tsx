@@ -13,7 +13,7 @@ export function EmptyLabware({ shortLabel }: { shortLabel: string }) {
         borderRadius: '2px',
         padding: '8px 4px',
         backgroundColor: PALETTE.gray1,
-        opacity: 0.7,
+        opacity: 0.6,
         fontSize: '9px',
         fontWeight: 500,
         color: PALETTE.gray6,
