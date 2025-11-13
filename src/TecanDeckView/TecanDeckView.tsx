@@ -7,12 +7,46 @@ import { LabwareDetailItem } from './LabwareDetailItem';
 import { LABWARE_METADATA } from './labwareMetadata';
 import { LabwareConfig, LabwareKey, TecanLabwares } from './types';
 
-function getGridArea(key: LabwareKey): string {
-  if (key === 'destPcr1' || key === 'destPcr2') {
-    return 'rightColumn';
-  }
-  return key;
-}
+// Responsive scaling constants
+const GRID_PADDING = 8; // Padding around the grid container (from style.padding)
+const GRID_GAP = 8; // Gap between grid cells (from style.gap)
+const COLUMN_COUNT = 5; // Number of columns in the grid
+const GRID_OVERHEAD = GRID_PADDING * 2 + GRID_GAP * (COLUMN_COUNT - 1); // Total space used by padding and gaps
+const COLUMN_OVERHEAD = 60; // Estimated width per column for borders and padding
+const BASE_CONTENT_WIDTH = 1400; // Designed content width at 1.0 scale factor
+const SCALE_SAFETY_MARGIN = 0.95; // 5% safety margin to prevent overflow
+
+// Static styles
+const CONTAINER_STYLE = {
+  width: '100%',
+} as const;
+
+const GRID_CONTAINER_BASE_STYLE = {
+  display: 'grid',
+  gridTemplateColumns: 'auto auto auto auto auto',
+  gap: '8px',
+  gridTemplateAreas: `
+    "mmPlate aPlate nemoDilution destPcr rightColumn"
+    "mmPlate bPlate nemoDestPcr2 destLc rightColumn"
+    "mmPlate nemoWater nemoDestTaqMan fluidX rightColumn"
+  `,
+  padding: '8px',
+  backgroundColor: PALETTE.gray1,
+  borderRadius: '4px',
+  width: 'fit-content',
+} as const;
+
+const LABWARE_ITEM_BASE_STYLE = {
+  justifySelf: 'center',
+} as const;
+
+const RIGHT_COLUMN_STYLE = {
+  gridArea: 'rightColumn',
+  display: 'grid',
+  gridTemplateRows: 'auto auto',
+  alignSelf: 'center',
+  gap: '8px',
+} as const;
 
 export function TecanDeckView({ labwares }: { labwares: TecanLabwares }) {
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -44,48 +78,54 @@ export function TecanDeckView({ labwares }: { labwares: TecanLabwares }) {
       return;
     }
 
-    const gridOverhead = 16 + 32;
-    const itemOverheadPerColumn = 60;
-    const totalItemOverhead = itemOverheadPerColumn * 5;
-    const baseContentWidth = 1400;
+    const totalColumnOverhead = COLUMN_OVERHEAD * COLUMN_COUNT;
     const availableContentWidth =
-      (availableWidth - gridOverhead - totalItemOverhead) * 0.95;
+      (availableWidth - GRID_OVERHEAD - totalColumnOverhead) *
+      SCALE_SAFETY_MARGIN;
 
     const calculatedScale = Math.max(
       0.1,
-      Math.min(1.0, availableContentWidth / baseContentWidth),
+      Math.min(1.0, availableContentWidth / BASE_CONTENT_WIDTH),
     );
     setScaleFactor(calculatedScale);
   }, [availableWidth]);
 
-  const allLabwareKeys = Object.keys(LABWARE_METADATA) as Array<LabwareKey>;
-  const allLabwares: Array<LabwareConfig> = allLabwareKeys.map((key) => ({
-    key,
-    ...LABWARE_METADATA[key],
-    content: labwares[key]?.content,
-  }));
+  const allLabwares: Array<LabwareConfig> = React.useMemo(() => {
+    const allLabwareKeys = Object.keys(LABWARE_METADATA) as Array<LabwareKey>;
+    return allLabwareKeys.map((key) => ({
+      key,
+      ...LABWARE_METADATA[key],
+      content: labwares[key]?.content,
+    }));
+  }, [labwares]);
 
   const isRightColumnAndNeedContainer = (key: LabwareKey) =>
     key === 'destPcr1' || key === 'destPcr2';
 
-  const ROW_1_KEYS = new Set<LabwareKey>([
-    'aPlate',
-    'nemoDilution',
-    'destPcr',
-    'destPcr1',
-    'destPcr2',
-  ]);
-  const ROW_2_KEYS = new Set<LabwareKey>(['bPlate', 'nemoDestPcr2', 'destLc']);
-  const ROW_3_KEYS = new Set<LabwareKey>([
-    'nemoWater',
-    'nemoDestTaqMan',
-    'fluidX',
-  ]);
+  const ROWS = [
+    {
+      keys: new Set<LabwareKey>([
+        'aPlate',
+        'nemoDilution',
+        'destPcr',
+        'destPcr1',
+        'destPcr2',
+      ]),
+      alignment: 'start' as const,
+    },
+    {
+      keys: new Set<LabwareKey>(['bPlate', 'nemoDestPcr2', 'destLc']),
+      alignment: 'center' as const,
+    },
+    {
+      keys: new Set<LabwareKey>(['nemoWater', 'nemoDestTaqMan', 'fluidX']),
+      alignment: 'end' as const,
+    },
+  ];
 
   const getVerticalAlignment = (key: LabwareKey): string => {
-    if (ROW_1_KEYS.has(key)) return 'start';
-    if (ROW_3_KEYS.has(key)) return 'end';
-    return 'center';
+    const row = ROWS.find((r) => r.keys.has(key));
+    return row?.alignment ?? 'center';
   };
 
   const renderLabware = (labware: LabwareConfig) =>
@@ -104,41 +144,19 @@ export function TecanDeckView({ labwares }: { labwares: TecanLabwares }) {
   const isRowEmpty = (rowKeys: Set<LabwareKey>): boolean =>
     Array.from(rowKeys).every((key) => !labwares[key]?.content);
 
-  const row1Empty = isRowEmpty(ROW_1_KEYS);
-  const row2Empty = isRowEmpty(ROW_2_KEYS);
-  const row3Empty = isRowEmpty(ROW_3_KEYS);
-
   const EMPTY_ROW_SIZE = '0.3fr';
   const CONTENT_ROW_SIZE = '1fr';
 
-  const gridTemplateRows = [
-    row1Empty ? EMPTY_ROW_SIZE : CONTENT_ROW_SIZE,
-    row2Empty ? EMPTY_ROW_SIZE : CONTENT_ROW_SIZE,
-    row3Empty ? EMPTY_ROW_SIZE : CONTENT_ROW_SIZE,
-  ].join(' ');
+  const gridTemplateRows = ROWS.map((row) =>
+    isRowEmpty(row.keys) ? EMPTY_ROW_SIZE : CONTENT_ROW_SIZE,
+  ).join(' ');
 
   return (
-    <div
-      ref={containerRef}
-      style={{
-        width: '100%',
-      }}
-    >
+    <div ref={containerRef} style={CONTAINER_STYLE}>
       <div
         style={{
-          display: 'grid',
-          gridTemplateColumns: 'auto auto auto auto auto',
+          ...GRID_CONTAINER_BASE_STYLE,
           gridTemplateRows,
-          gap: '8px',
-          gridTemplateAreas: `
-          "mmPlate aPlate nemoDilution destPcr rightColumn"
-          "mmPlate bPlate nemoDestPcr2 destLc rightColumn"
-          "mmPlate nemoWater nemoDestTaqMan fluidX rightColumn"
-        `,
-          padding: '8px',
-          backgroundColor: PALETTE.gray1,
-          borderRadius: '4px',
-          width: 'fit-content',
         }}
       >
         {allLabwares
@@ -147,24 +165,16 @@ export function TecanDeckView({ labwares }: { labwares: TecanLabwares }) {
             <div
               key={labware.key}
               style={{
-                gridArea: getGridArea(labware.key),
+                ...LABWARE_ITEM_BASE_STYLE,
+                gridArea: labware.key,
                 alignSelf: getVerticalAlignment(labware.key),
-                justifySelf: 'center',
               }}
             >
               {renderLabware(labware)}
             </div>
           ))}
 
-        <div
-          style={{
-            gridArea: 'rightColumn',
-            display: 'grid',
-            gridTemplateRows: 'auto auto',
-            alignSelf: 'center',
-            gap: '8px',
-          }}
-        >
+        <div style={RIGHT_COLUMN_STYLE}>
           {allLabwares
             .filter((labware) => isRightColumnAndNeedContainer(labware.key))
             .map((labware) => (
