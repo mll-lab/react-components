@@ -79,11 +79,11 @@ function calculateGridTemplateColumns(labwares: TecanLabwares): string {
   const filledByColumn = getFilledLabwaresByColumn(labwares);
 
   const columnSizes = [
-    'auto', // Left column (mmPlate)
-    (filledByColumn[1]?.length ?? 0) > 0 ? '0.5fr' : 'minmax(40px, 60px)', // Column 1 - half size
-    (filledByColumn[2]?.length ?? 0) > 0 ? '1fr' : 'minmax(40px, 60px)', // Column 2 - standard
-    (filledByColumn[3]?.length ?? 0) > 0 ? '1fr' : 'minmax(40px, 60px)', // Column 3 - standard
-    'auto', // Right column (destPcr1/2)
+    (filledByColumn[0]?.length ?? 0) > 0 ? 'auto' : 'minmax(40px, 60px)', // Column 0
+    (filledByColumn[1]?.length ?? 0) > 0 ? 'auto' : 'minmax(40px, 60px)', // Column 1
+    (filledByColumn[2]?.length ?? 0) > 0 ? 'auto' : 'minmax(40px, 60px)', // Column 2
+    (filledByColumn[3]?.length ?? 0) > 0 ? 'auto' : 'minmax(40px, 60px)', // Column 3
+    (filledByColumn[4]?.length ?? 0) > 0 ? 'auto' : 'minmax(40px, 60px)', // Column 4
   ];
 
   return columnSizes.join(' ');
