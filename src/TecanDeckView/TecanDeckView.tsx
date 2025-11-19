@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { Plate } from '../Plate';
 import { PALETTE } from '../theme';
 
 import { EmptyLabware } from './EmptyLabware';
@@ -13,13 +14,13 @@ import {
   LABWARE_METADATA,
 } from './labwareMetadata';
 import {
+  Labware,
   LabwareConfig,
   LabwareKey,
   LabwareWithStyle,
   TecanLabwares,
 } from './types';
 
-// Scaling constants for fit-to-width behavior
 const GRID_PADDING = 8;
 const GRID_GAP = 8;
 const COLUMN_COUNT = 5;
@@ -51,7 +52,6 @@ const LABWARE_ITEM_BASE_STYLE = {
   justifySelf: 'center',
 } as const;
 
-// Shared style for columns that span all 3 grid rows
 const SPANNING_COLUMN_BASE_STYLE = {
   display: 'grid',
   alignSelf: 'center',
@@ -68,38 +68,27 @@ const RIGHT_COLUMN_STYLE = {
   gridArea: 'rightColumn',
 } as const;
 
-// Helper functions for dynamic grid sizing
-
-/**
- * Calculates dynamic grid-template-columns based on which columns have content.
- * Empty columns get minimal width (40-60px), filled columns get proportional sizes
- * matching physical Tecan deck dimensions (column 1: 0.5fr, columns 2-3: 1fr).
- */
 function calculateGridTemplateColumns(labwares: TecanLabwares): string {
   const filledByColumn = getFilledLabwaresByColumn(labwares);
 
   const columnSizes = [
-    (filledByColumn[0]?.length ?? 0) > 0 ? 'auto' : 'minmax(40px, 60px)', // Column 0
-    (filledByColumn[1]?.length ?? 0) > 0 ? 'auto' : 'minmax(40px, 60px)', // Column 1
-    (filledByColumn[2]?.length ?? 0) > 0 ? 'auto' : 'minmax(40px, 60px)', // Column 2
-    (filledByColumn[3]?.length ?? 0) > 0 ? 'auto' : 'minmax(40px, 60px)', // Column 3
-    (filledByColumn[4]?.length ?? 0) > 0 ? 'auto' : 'minmax(40px, 60px)', // Column 4
+    (filledByColumn[0]?.length ?? 0) > 0 ? 'auto' : 'minmax(40px, 60px)',
+    (filledByColumn[1]?.length ?? 0) > 0 ? 'auto' : 'minmax(40px, 60px)',
+    (filledByColumn[2]?.length ?? 0) > 0 ? 'auto' : 'minmax(40px, 60px)',
+    (filledByColumn[3]?.length ?? 0) > 0 ? 'auto' : 'minmax(40px, 60px)',
+    (filledByColumn[4]?.length ?? 0) > 0 ? 'auto' : 'minmax(40px, 60px)',
   ];
 
   return columnSizes.join(' ');
 }
 
-/**
- * Calculates dynamic grid-template-rows based on which rows have content.
- * Empty rows get minimal height (40-60px), filled rows get auto.
- */
 function calculateGridTemplateRows(labwares: TecanLabwares): string {
   const filledByRow = getFilledLabwaresByRow(labwares);
 
   const rowSizes = [
-    (filledByRow[0]?.length ?? 0) > 0 ? 'auto' : 'minmax(40px, 60px)', // Row 0
-    (filledByRow[1]?.length ?? 0) > 0 ? 'auto' : 'minmax(40px, 60px)', // Row 1
-    (filledByRow[2]?.length ?? 0) > 0 ? 'auto' : 'minmax(40px, 60px)', // Row 2
+    (filledByRow[0]?.length ?? 0) > 0 ? 'auto' : 'minmax(40px, 60px)',
+    (filledByRow[1]?.length ?? 0) > 0 ? 'auto' : 'minmax(40px, 60px)',
+    (filledByRow[2]?.length ?? 0) > 0 ? 'auto' : 'minmax(40px, 60px)',
   ];
 
   return rowSizes.join(' ');
@@ -164,7 +153,7 @@ export function TecanDeckView({ labwares }: { labwares: TecanLabwares }) {
           const labware: LabwareWithStyle = {
             key,
             ...metadata,
-            content: labwares[key]?.content,
+            labware: labwares[key],
             style: {
               ...LABWARE_ITEM_BASE_STYLE,
               gridArea: key,
@@ -190,15 +179,36 @@ export function TecanDeckView({ labwares }: { labwares: TecanLabwares }) {
       );
     }, [labwares]);
 
-  const renderLabware = (labware: LabwareConfig) =>
-    labware.content ? (
+  const renderLabwareContent = (
+    labware: Labware,
+    coordinateSystem: LabwareConfig['coordinateSystem'],
+  ) => {
+    if (labware.type === 'custom') {
+      return labware.content;
+    }
+
+    return (
+      <Plate
+        coordinateSystem={coordinateSystem}
+        data={labware.data}
+        loading={labware.loading}
+        wellSizing={labware.wellSizing ?? 'compact'}
+      />
+    );
+  };
+
+  const renderLabware = (labwareConfig: LabwareConfig) =>
+    labwareConfig.labware ? (
       <LabwareDetailItem
-        shortLabel={labware.shortLabel}
-        content={labware.content}
-        backgroundColor={labware.color}
+        shortLabel={labwareConfig.shortLabel}
+        content={renderLabwareContent(
+          labwareConfig.labware,
+          labwareConfig.coordinateSystem,
+        )}
+        backgroundColor={labwareConfig.color}
       />
     ) : (
-      <EmptyLabware shortLabel={labware.shortLabel} />
+      <EmptyLabware shortLabel={labwareConfig.shortLabel} />
     );
 
   return (

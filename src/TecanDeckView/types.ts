@@ -1,8 +1,18 @@
 import * as React from 'react';
 
-export type Labware = {
-  content: React.ReactElement;
-};
+import type { CoordinateSystem, PlateWell } from '../Plate';
+
+export type Labware =
+  | {
+      type: 'custom';
+      content: React.ReactElement;
+    }
+  | {
+      type: 'plate';
+      data: Array<PlateWell<CoordinateSystem>>;
+      loading?: boolean;
+      wellSizing?: 'uniform' | 'compact';
+    };
 
 export type TecanLabwares = {
   mmPlate?: Labware;
@@ -25,8 +35,9 @@ export type LabwareConfig = {
   key: LabwareKey;
   label: string;
   shortLabel: string;
-  content?: React.ReactElement;
+  labware?: Labware;
   color: string;
+  coordinateSystem: CoordinateSystem;
 };
 
 export type GridPosition = {
