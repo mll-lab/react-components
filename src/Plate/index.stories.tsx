@@ -1,6 +1,6 @@
 import { StoryFn } from '@storybook/react-webpack5';
 import React from 'react';
-import { action } from 'storybook/test';
+import { action } from 'storybook/actions';
 
 import { PALETTE } from '../theme';
 
@@ -18,6 +18,15 @@ export default {
   args: {
     isDraggable: false,
     loading: false,
+    wellSizing: 'uniform',
+  },
+  argTypes: {
+    wellSizing: {
+      control: { type: 'select' },
+      options: ['uniform', 'compact'],
+      description:
+        "Controls well sizing. Row labels always use 3ch. 'uniform' gives equal proportional width (spacious), 'compact' fits content (minimal width).",
+    },
   },
 };
 

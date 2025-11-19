@@ -4,6 +4,7 @@ on:
     branches:
       - master
       - alpha
+      - beta
 
 jobs:
   # https://github.com/semantic-release/semantic-release/blob/master/docs/recipes/ci-configurations/github-actions.md#githubworkflowsreleaseyml-configuration-for-node-projects

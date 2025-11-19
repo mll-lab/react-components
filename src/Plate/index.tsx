@@ -7,7 +7,13 @@ import { MllSpinnerIcon } from '../Spinner';
 import { ColumnLabel } from './ColumnLabel';
 import { RowLabel } from './RowLabel';
 import { Well } from './Well';
-import { PLATE_FLOW } from './constants';
+import {
+  GRID_GAP,
+  PLATE_FLOW,
+  ROW_LABEL_WIDTH,
+  WELL_COLUMN_WIDTH_COMPACT,
+  WELL_COLUMN_WIDTH_UNIFORM,
+} from './constants';
 import { CoordinateSystem, PlateProps } from './types';
 import {
   allCoordinateSystemPositions,
@@ -20,6 +26,7 @@ import {
 export * from './constants';
 export * from './coordinateSystem12x8';
 export * from './coordinateSystem2x16';
+export * from './coordinateSystem6x4';
 export * from './types';
 export * from './utils';
 export { GENERAL_WELL_STYLE } from './wellUtils';
@@ -30,6 +37,7 @@ export function Plate<TCoordinateSystem extends CoordinateSystem>({
   dndContextProps,
   isDraggable,
   loading,
+  wellSizing = 'uniform',
 }: PlateProps<TCoordinateSystem>) {
   if (data) {
     assertUniquePositions(data);
@@ -50,10 +58,14 @@ export function Plate<TCoordinateSystem extends CoordinateSystem>({
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: `1fr${' 4fr'.repeat(
-              coordinateSystem.columns.length,
-            )}`,
-            gridGap: '3px',
+            gridTemplateColumns: `${ROW_LABEL_WIDTH} repeat(${
+              coordinateSystem.columns.length
+            }, ${
+              wellSizing === 'compact'
+                ? WELL_COLUMN_WIDTH_COMPACT
+                : WELL_COLUMN_WIDTH_UNIFORM
+            })`,
+            gridGap: GRID_GAP,
           }}
         >
           {/* takes up the space in the upper left corner between A and 1 */}
