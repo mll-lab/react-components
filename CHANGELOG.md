@@ -1,3 +1,10 @@
+# [20.1.0-beta.5](https://github.com/mll-lab/react-components/compare/v20.1.0-beta.4...v20.1.0-beta.5) (2025-11-19)
+
+
+### Features
+
+* enhance TecanDeckView to support dynamic labware types and improve layout handling ([79800a8](https://github.com/mll-lab/react-components/commit/79800a8cf90d231e25d84e6411c7fa05abe9d931))
+
 # [20.1.0-beta.4](https://github.com/mll-lab/react-components/compare/v20.1.0-beta.3...v20.1.0-beta.4) (2025-11-13)
 
 
