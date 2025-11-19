@@ -1,3 +1,10 @@
+# [20.2.0](https://github.com/mll-lab/react-components/compare/v20.1.0...v20.2.0) (2025-11-19)
+
+
+### Features
+
+* introduce TecanDeckView component for visualizing labware layout ([#315](https://github.com/mll-lab/react-components/issues/315)) ([86e0994](https://github.com/mll-lab/react-components/commit/86e0994f67505ea9cbdc27cfa513a064ddb86802))
+
 # [20.1.0](https://github.com/mll-lab/react-components/compare/v20.0.1...v20.1.0) (2025-11-13)
 
 
