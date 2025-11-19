@@ -1,10 +1,6 @@
 import { StoryFn } from '@storybook/react-webpack5';
 import React from 'react';
 
-import { Plate } from '../Plate';
-import { COORDINATE_SYSTEM_12X8 } from '../Plate/coordinateSystem12x8';
-import { COORDINATE_SYSTEM_2X16 } from '../Plate/coordinateSystem2x16';
-import { COORDINATE_SYSTEM_6X4 } from '../Plate/coordinateSystem6x4';
 import { PALETTE } from '../theme';
 
 import { TecanDeckView } from './TecanDeckView';
@@ -16,13 +12,11 @@ export default {
 };
 
 /**
- * Interactive story to test TecanDeckView component.
- *
- * Use the toggles below to show/hide individual labwares.
  * Tests various scenarios:
  * - Text Length: Various well text lengths to test truncation and popover display
  * - Empty Columns: Tests dynamic column width adjustment for empty wells
  * - Layout flexibility: Toggle any combination of labwares
+ * - Both API modes: 'plate' (data-driven) and 'custom' (ReactElement)
  */
 export const Default: StoryFn<{
   textLength: 'short' | 'long' | 'extreme';
@@ -55,70 +49,45 @@ export const Default: StoryFn<{
 
   if (args.showMmPlate) {
     labwares.mmPlate = {
-      content: (
-        <Plate
-          data={[
-            { coordinates: { row: 'A', column: 1 }, content: getText('S1') },
-            { coordinates: { row: 'A', column: 2 }, content: getText('S2') },
-            { coordinates: { row: 'E', column: 1 }, content: getText('S5') },
-            { coordinates: { row: 'H', column: 2 }, content: getText('S16') },
-            { coordinates: { row: 'P', column: 1 }, content: getText('S31') },
-          ]}
-          coordinateSystem={COORDINATE_SYSTEM_2X16}
-          wellSizing="compact"
-        />
-      ),
+      type: 'plate',
+      data: [
+        { coordinates: { row: 'A', column: 1 }, content: getText('S1') },
+        { coordinates: { row: 'A', column: 2 }, content: getText('S2') },
+        { coordinates: { row: 'E', column: 1 }, content: getText('S5') },
+        { coordinates: { row: 'H', column: 2 }, content: getText('S16') },
+        { coordinates: { row: 'P', column: 1 }, content: getText('S31') },
+      ],
+      wellSizing: 'compact',
     };
   }
 
   if (args.showAPlate) {
     labwares.aPlate = {
-      content: (
-        <Plate
-          data={[
-            {
-              coordinates: { row: 'A', column: 1 },
-              content: getText('200µl-1'),
-            },
-            {
-              coordinates: { row: 'B', column: 3 },
-              content: getText('200µl-2'),
-            },
-            {
-              coordinates: { row: 'D', column: 4 },
-              content: getText('200µl-3'),
-            },
-          ]}
-          coordinateSystem={COORDINATE_SYSTEM_6X4}
-          wellSizing="compact"
-        />
-      ),
+      type: 'plate',
+      data: [
+        { coordinates: { row: 'A', column: 1 }, content: getText('200µl-1') },
+        { coordinates: { row: 'B', column: 3 }, content: getText('200µl-2') },
+        { coordinates: { row: 'D', column: 4 }, content: getText('200µl-3') },
+      ],
+      wellSizing: 'compact',
     };
   }
 
   if (args.showBPlate) {
     labwares.bPlate = {
-      content: (
-        <Plate
-          data={[
-            {
-              coordinates: { row: 'A', column: 2 },
-              content: getText('200µl-4'),
-            },
-            {
-              coordinates: { row: 'C', column: 4 },
-              content: getText('200µl-5'),
-            },
-          ]}
-          coordinateSystem={COORDINATE_SYSTEM_6X4}
-          wellSizing="compact"
-        />
-      ),
+      type: 'plate',
+      data: [
+        { coordinates: { row: 'A', column: 2 }, content: getText('200µl-4') },
+        { coordinates: { row: 'C', column: 4 }, content: getText('200µl-5') },
+      ],
+      wellSizing: 'compact',
     };
   }
 
+  // Example of 'custom' API - for non-plate content
   if (args.showNemoWater) {
     labwares.nemoWater = {
+      type: 'custom',
       content: (
         <div
           style={{
@@ -133,144 +102,85 @@ export const Default: StoryFn<{
 
   if (args.showNemoDilution) {
     labwares.nemoDilution = {
-      content: (
-        <Plate
-          data={[
-            { coordinates: { row: 'A', column: 1 }, content: getText('DIL-1') },
-            {
-              coordinates: { row: 'H', column: 12 },
-              content: getText('DIL-96'),
-            },
-          ]}
-          coordinateSystem={COORDINATE_SYSTEM_12X8}
-          wellSizing="compact"
-        />
-      ),
+      type: 'plate',
+      data: [
+        { coordinates: { row: 'A', column: 1 }, content: getText('DIL-1') },
+        { coordinates: { row: 'H', column: 12 }, content: getText('DIL-96') },
+      ],
+      wellSizing: 'compact',
     };
   }
 
   if (args.showNemoDestPcr2) {
     labwares.nemoDestPcr2 = {
-      content: (
-        <Plate
-          data={[
-            {
-              coordinates: { row: 'A', column: 6 },
-              content: getText('PCR2-6'),
-            },
-          ]}
-          coordinateSystem={COORDINATE_SYSTEM_12X8}
-          wellSizing="compact"
-        />
-      ),
+      type: 'plate',
+      data: [
+        { coordinates: { row: 'A', column: 6 }, content: getText('PCR2-6') },
+      ],
+      wellSizing: 'compact',
     };
   }
 
   if (args.showNemoDestTaqMan) {
     labwares.nemoDestTaqMan = {
-      content: (
-        <Plate
-          data={[
-            { coordinates: { row: 'E', column: 5 }, content: getText('TM-53') },
-          ]}
-          coordinateSystem={COORDINATE_SYSTEM_12X8}
-          wellSizing="compact"
-        />
-      ),
+      type: 'plate',
+      data: [
+        { coordinates: { row: 'E', column: 5 }, content: getText('TM-53') },
+      ],
+      wellSizing: 'compact',
     };
   }
 
   if (args.showDestPcr) {
     labwares.destPcr = {
-      content: (
-        <Plate
-          data={[
-            {
-              coordinates: { row: 'A', column: 1 },
-              content: getText('PCR-A1'),
-            },
-            {
-              coordinates: { row: 'D', column: 6 },
-              content: getText('PCR-D6'),
-            },
-            {
-              coordinates: { row: 'H', column: 12 },
-              content: getText('P96'),
-            },
-          ]}
-          coordinateSystem={COORDINATE_SYSTEM_12X8}
-          wellSizing="compact"
-        />
-      ),
+      type: 'plate',
+      data: [
+        { coordinates: { row: 'A', column: 1 }, content: getText('PCR-A1') },
+        { coordinates: { row: 'D', column: 6 }, content: getText('PCR-D6') },
+        { coordinates: { row: 'H', column: 12 }, content: getText('P96') },
+      ],
+      wellSizing: 'compact',
     };
   }
 
   if (args.showDestLc) {
     labwares.destLc = {
-      content: (
-        <Plate
-          data={[
-            {
-              coordinates: { row: 'A', column: 3 },
-              content: getText('LC-A3'),
-            },
-          ]}
-          coordinateSystem={COORDINATE_SYSTEM_12X8}
-          wellSizing="compact"
-        />
-      ),
+      type: 'plate',
+      data: [
+        { coordinates: { row: 'A', column: 3 }, content: getText('LC-A3') },
+      ],
+      wellSizing: 'compact',
     };
   }
 
   if (args.showFluidX) {
     labwares.fluidX = {
-      content: (
-        <Plate
-          data={[
-            { coordinates: { row: 'A', column: 1 }, content: getText('FX-1') },
-            {
-              coordinates: { row: 'H', column: 12 },
-              content: getText('FX-96'),
-            },
-          ]}
-          coordinateSystem={COORDINATE_SYSTEM_12X8}
-          wellSizing="compact"
-        />
-      ),
+      type: 'plate',
+      data: [
+        { coordinates: { row: 'A', column: 1 }, content: getText('FX-1') },
+        { coordinates: { row: 'H', column: 12 }, content: getText('FX-96') },
+      ],
+      wellSizing: 'compact',
     };
   }
 
   if (args.showDestPcr1) {
     labwares.destPcr1 = {
-      content: (
-        <Plate
-          data={[
-            {
-              coordinates: { row: 'D', column: 8 },
-              content: getText('DP1-44'),
-            },
-          ]}
-          coordinateSystem={COORDINATE_SYSTEM_12X8}
-          wellSizing="compact"
-        />
-      ),
+      type: 'plate',
+      data: [
+        { coordinates: { row: 'D', column: 8 }, content: getText('DP1-44') },
+      ],
+      wellSizing: 'compact',
     };
   }
 
   if (args.showDestPcr2) {
     labwares.destPcr2 = {
-      content: (
-        <Plate
-          data={[
-            {
-              coordinates: { row: 'F', column: 10 },
-              content: getText('DP2-70'),
-            },
-          ]}
-          coordinateSystem={COORDINATE_SYSTEM_12X8}
-          wellSizing="compact"
-        />
-      ),
+      type: 'plate',
+      data: [
+        { coordinates: { row: 'F', column: 10 }, content: getText('DP2-70') },
+      ],
+      wellSizing: 'compact',
     };
   }
 
@@ -289,51 +199,63 @@ Default.argTypes = {
   },
   showMmPlate: {
     control: { type: 'boolean' },
-    description: 'Toggle MM Plate (2x16 coordinate system)',
+    description:
+      'Toggle MM Plate (uses type: "plate" API, library assigns 2x16 coordinate system)',
   },
   showAPlate: {
     control: { type: 'boolean' },
-    description: 'Toggle A Plate (6x4 coordinate system)',
+    description:
+      'Toggle A Plate (uses type: "plate" API, library assigns 6x4 coordinate system)',
   },
   showBPlate: {
     control: { type: 'boolean' },
-    description: 'Toggle B Plate (6x4 coordinate system)',
+    description:
+      'Toggle B Plate (uses type: "plate" API, library assigns 6x4 coordinate system)',
   },
   showNemoWater: {
     control: { type: 'boolean' },
-    description: 'Toggle Nemo Water (non-plate content)',
+    description:
+      'Toggle Nemo Water (uses type: "custom" API for non-plate content)',
   },
   showNemoDilution: {
     control: { type: 'boolean' },
-    description: 'Toggle Nemo Dilution (12x8 coordinate system)',
+    description:
+      'Toggle Nemo Dilution (uses type: "plate" API, library assigns 12x8 coordinate system)',
   },
   showNemoDestPcr2: {
     control: { type: 'boolean' },
-    description: 'Toggle Nemo Dest PCR2 (12x8 coordinate system)',
+    description:
+      'Toggle Nemo Dest PCR2 (uses type: "plate" API, library assigns 12x8 coordinate system)',
   },
   showNemoDestTaqMan: {
     control: { type: 'boolean' },
-    description: 'Toggle Nemo Dest TaqMan (12x8 coordinate system)',
+    description:
+      'Toggle Nemo Dest TaqMan (uses type: "plate" API, library assigns 12x8 coordinate system)',
   },
   showDestPcr: {
     control: { type: 'boolean' },
-    description: 'Toggle Dest PCR (12x8 coordinate system)',
+    description:
+      'Toggle Dest PCR (uses type: "plate" API, library assigns 12x8 coordinate system)',
   },
   showDestLc: {
     control: { type: 'boolean' },
-    description: 'Toggle Dest LC (12x8 coordinate system)',
+    description:
+      'Toggle Dest LC (uses type: "plate" API, library assigns 12x8 coordinate system)',
   },
   showFluidX: {
     control: { type: 'boolean' },
-    description: 'Toggle FluidX (12x8 coordinate system)',
+    description:
+      'Toggle FluidX (uses type: "plate" API, library assigns 12x8 coordinate system)',
   },
   showDestPcr1: {
     control: { type: 'boolean' },
-    description: 'Toggle Dest PCR1 (12x8 coordinate system)',
+    description:
+      'Toggle Dest PCR1 (uses type: "plate" API, library assigns 12x8 coordinate system)',
   },
   showDestPcr2: {
     control: { type: 'boolean' },
-    description: 'Toggle Dest PCR2 (12x8 coordinate system)',
+    description:
+      'Toggle Dest PCR2 (uses type: "plate" API, library assigns 12x8 coordinate system)',
   },
 };
 
