@@ -1,6 +1,6 @@
 import { StoryFn } from '@storybook/react-webpack5';
 import React, { useState } from 'react';
-import { action } from 'storybook/test';
+import { action } from 'storybook/actions';
 
 import { THEME } from '../theme';
 

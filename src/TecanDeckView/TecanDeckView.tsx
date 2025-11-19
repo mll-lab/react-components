@@ -24,6 +24,7 @@ import {
 const GRID_PADDING = 8;
 const GRID_GAP = 8;
 const COLUMN_COUNT = 5;
+const ROW_COUNT = 3;
 const GRID_OVERHEAD = GRID_PADDING * 2 + GRID_GAP * (COLUMN_COUNT - 1);
 const COLUMN_OVERHEAD = 60;
 const BASE_CONTENT_WIDTH = 1400;
@@ -71,27 +72,17 @@ const RIGHT_COLUMN_STYLE = {
 function calculateGridTemplateColumns(labwares: TecanLabwares): string {
   const filledByColumn = getFilledLabwaresByColumn(labwares);
 
-  const columnSizes = [
-    (filledByColumn[0]?.length ?? 0) > 0 ? 'auto' : 'minmax(40px, 60px)',
-    (filledByColumn[1]?.length ?? 0) > 0 ? 'auto' : 'minmax(40px, 60px)',
-    (filledByColumn[2]?.length ?? 0) > 0 ? 'auto' : 'minmax(40px, 60px)',
-    (filledByColumn[3]?.length ?? 0) > 0 ? 'auto' : 'minmax(40px, 60px)',
-    (filledByColumn[4]?.length ?? 0) > 0 ? 'auto' : 'minmax(40px, 60px)',
-  ];
-
-  return columnSizes.join(' ');
+  return Array.from({ length: COLUMN_COUNT }, (_, i) =>
+    (filledByColumn[i]?.length ?? 0) > 0 ? 'auto' : 'minmax(40px, 60px)',
+  ).join(' ');
 }
 
 function calculateGridTemplateRows(labwares: TecanLabwares): string {
   const filledByRow = getFilledLabwaresByRow(labwares);
 
-  const rowSizes = [
-    (filledByRow[0]?.length ?? 0) > 0 ? 'auto' : 'minmax(40px, 60px)',
-    (filledByRow[1]?.length ?? 0) > 0 ? 'auto' : 'minmax(40px, 60px)',
-    (filledByRow[2]?.length ?? 0) > 0 ? 'auto' : 'minmax(40px, 60px)',
-  ];
-
-  return rowSizes.join(' ');
+  return Array.from({ length: ROW_COUNT }, (_, i) =>
+    (filledByRow[i]?.length ?? 0) > 0 ? 'auto' : 'minmax(40px, 60px)',
+  ).join(' ');
 }
 
 export function TecanDeckView({ labwares }: { labwares: TecanLabwares }) {
