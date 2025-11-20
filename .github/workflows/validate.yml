@@ -60,3 +60,22 @@ jobs:
       - run: corepack enable
       - run: yarn install
       - run: yarn run storybook:build
+
+  test-storybook:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - run: corepack enable
+      - run: yarn install
+      - name: Install Playwright
+        run: npx playwright install --with-deps chromium
+      - name: Build Storybook
+        run: yarn run storybook:build
+      - name: Serve Storybook and run tests
+        run: |
+          npx http-server storybook-static --port 6006 --silent &
+          npx wait-on tcp:6006
+          yarn run test:storybook

@@ -1,4 +1,5 @@
-import { Button as AntdButton, ButtonProps as AntdButtonProps } from 'antd';
+import AntdButton from 'antd/es/button';
+import type { ButtonProps as AntdButtonProps } from 'antd/es/button';
 import ButtonGroup from 'antd/es/button/button-group';
 import * as React from 'react';
 import styled from 'styled-components';
