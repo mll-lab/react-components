@@ -20,9 +20,8 @@ function calculatePipettingLosses(
   pipettingLoss: PipettingLossFactorWithMinimum,
   volume = 1,
 ): PipettingLosses {
-  const baseVolume = volume * count;
   return {
-    factorLoss: baseVolume * pipettingLoss.factor,
+    factorLoss: volume * Math.ceil(count * pipettingLoss.factor),
     minPositionsLoss: volume * pipettingLoss.minPositions,
   };
 }
@@ -59,8 +58,8 @@ function totalVolume(
       );
     case 'factor':
       return (
-        record.volume * args.count +
-        record.volume * args.count * args.pipettingLoss.factor
+        record.volume *
+        (args.count + Math.ceil(args.count * args.pipettingLoss.factor))
       ).toFixed(1);
     case 'factorWithMinimum': {
       const baseVolume = record.volume * args.count;
