@@ -15,14 +15,18 @@ type PipettingLosses = {
   minPositionsLoss: number;
 };
 
+function calculateAdditionalSamples(count: number, factor: number): number {
+  return Math.ceil(count * factor);
+}
+
 function calculatePipettingLosses(
   count: number,
   pipettingLoss: PipettingLossFactorWithMinimum,
   volume = 1,
 ): PipettingLosses {
-  const baseVolume = volume * count;
   return {
-    factorLoss: baseVolume * pipettingLoss.factor,
+    factorLoss:
+      volume * calculateAdditionalSamples(count, pipettingLoss.factor),
     minPositionsLoss: volume * pipettingLoss.minPositions,
   };
 }
@@ -59,8 +63,9 @@ function totalVolume(
       );
     case 'factor':
       return (
-        record.volume * args.count +
-        record.volume * args.count * args.pipettingLoss.factor
+        record.volume *
+        (args.count +
+          calculateAdditionalSamples(args.count, args.pipettingLoss.factor))
       ).toFixed(1);
     case 'factorWithMinimum': {
       const baseVolume = record.volume * args.count;
