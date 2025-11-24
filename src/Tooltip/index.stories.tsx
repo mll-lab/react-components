@@ -30,6 +30,10 @@ export const TooltipForDate: StoryFn<DateWithTooltipProps> =
     return <DateWithTooltip {...args} />;
   };
 
+TooltipForDate.args = {
+  date: new Date('2024-01-15T10:30:00'),
+};
+
 export const TooltipForTrimmedText: StoryFn<TextWithTooltipIfTrimmedProps> =
   function TooltipForTrimmedText(args) {
     return <TextWithTooltipIfTrimmed {...args} />;
