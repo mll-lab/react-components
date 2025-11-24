@@ -25,7 +25,8 @@ function calculatePipettingLosses(
   volume = 1,
 ): PipettingLosses {
   return {
-    factorLoss: volume * calculateAdditionalSamples(count, pipettingLoss.factor),
+    factorLoss:
+      volume * calculateAdditionalSamples(count, pipettingLoss.factor),
     minPositionsLoss: volume * pipettingLoss.minPositions,
   };
 }
