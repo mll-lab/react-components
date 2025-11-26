@@ -1,3 +1,10 @@
+## [20.2.1](https://github.com/mll-lab/react-components/compare/v20.2.0...v20.2.1) (2025-11-26)
+
+
+### Bug Fixes
+
+* trigger release for pipetting loss calculation updates ([055e087](https://github.com/mll-lab/react-components/commit/055e087a504e908f2d205cc1942e5e1cd9983146))
+
 # [20.2.0](https://github.com/mll-lab/react-components/compare/v20.1.0...v20.2.0) (2025-11-19)
 
 
