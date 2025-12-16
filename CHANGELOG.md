@@ -1,3 +1,10 @@
+## [20.2.2](https://github.com/mll-lab/react-components/compare/v20.2.1...v20.2.2) (2025-12-16)
+
+
+### Bug Fixes
+
+* **deps:** update glob and js-yaml to fix security vulnerabilities ([#319](https://github.com/mll-lab/react-components/issues/319)) ([17ef476](https://github.com/mll-lab/react-components/commit/17ef47621bc184915937ae94a0a3f6c55c076f19))
+
 ## [20.2.1](https://github.com/mll-lab/react-components/compare/v20.2.0...v20.2.1) (2025-11-26)
 
 
