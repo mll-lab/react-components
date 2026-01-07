@@ -164,13 +164,16 @@ export function assertUniquePositions(
   }
 }
 
+export function coordinateSystemSize(
+  coordinateSystem: CoordinateSystem,
+): number {
+  return coordinateSystem.rows.length * coordinateSystem.columns.length;
+}
+
 export function allCoordinateSystemPositions(
   coordinateSystem: CoordinateSystem,
 ): Array<number> {
-  return range(
-    1,
-    coordinateSystem.rows.length * coordinateSystem.columns.length + 1,
-  );
+  return range(1, coordinateSystemSize(coordinateSystem) + 1);
 }
 
 export function allCoordinateSystemCoordinates<

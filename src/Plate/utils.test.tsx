@@ -10,6 +10,7 @@ import {
   columnForPosition,
   convertPositionFromColumnToRowFlow,
   convertPositionFromRowToColumnFlow,
+  coordinateSystemSize,
   ensureCoordinatesInRange,
   rowForPosition,
 } from './utils';
@@ -175,6 +176,13 @@ const COORDINATE_SYSTEM_2_BY_2 = {
   rows: ['A', 'B'],
   columns: [1, 2],
 } as const satisfies CoordinateSystem;
+
+describe('coordinateSystemSize', () => {
+  it('returns the total number of positions in a coordinate system', () => {
+    expect(coordinateSystemSize(COORDINATE_SYSTEM_2_BY_2)).toBe(4);
+    expect(coordinateSystemSize(COORDINATE_SYSTEM_12X8)).toBe(96);
+  });
+});
 
 describe('allCoordinateSystemPositions', () => {
   it('returns an array of all positions in a coordinate systems', () => {
