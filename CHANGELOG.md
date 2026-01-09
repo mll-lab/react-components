@@ -1,3 +1,10 @@
+# [20.3.0](https://github.com/mll-lab/react-components/compare/v20.2.2...v20.3.0) (2026-01-09)
+
+
+### Features
+
+* **Plate:** add coordinateSystemSize utility function ([ca71dc8](https://github.com/mll-lab/react-components/commit/ca71dc83e2424a413b4a2e8e4e4d6979ee92f07a))
+
 ## [20.2.2](https://github.com/mll-lab/react-components/compare/v20.2.1...v20.2.2) (2025-12-16)
 
 
