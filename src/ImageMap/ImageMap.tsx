@@ -17,7 +17,7 @@ export function ImageMap(props: ImageMapProps) {
     props.onError?.(error);
   }
 
-  if (dimensions === null) {
+  if (dimensions == null) {
     return null;
   }
 
