@@ -1,4 +1,4 @@
-name: "Show"
+name: Show
 
 on:
   push:
