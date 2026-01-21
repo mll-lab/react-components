@@ -20,7 +20,7 @@ export function SingleCollapse({
   collapse,
   panel,
 }: SingleCollapseProps) {
-  const isControlled = collapse?.open !== undefined;
+  const isControlled = collapse?.open != null;
   if (isControlled) {
     return (
       <Collapse

@@ -109,7 +109,7 @@ export function TecanDeckView({ labwares }: { labwares: TecanLabwares }) {
   }, []);
 
   React.useEffect(() => {
-    if (availableWidth === undefined) return;
+    if (availableWidth == null) return;
 
     const totalColumnOverhead = COLUMN_OVERHEAD * COLUMN_COUNT;
     const availableContentWidth =
