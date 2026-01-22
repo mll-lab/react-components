@@ -1,3 +1,10 @@
+# [20.4.0](https://github.com/mll-lab/react-components/compare/v20.3.0...v20.4.0) (2026-01-22)
+
+
+### Features
+
+* Add RcFile type from Ant Design Upload ([#325](https://github.com/mll-lab/react-components/issues/325)) ([9bc8e80](https://github.com/mll-lab/react-components/commit/9bc8e803c9de42e43bf3677c0aeee6443b2c9f95))
+
 # [20.3.0](https://github.com/mll-lab/react-components/compare/v20.2.2...v20.3.0) (2026-01-09)
 
 
