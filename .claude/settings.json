@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(yarn install:*)",
+      "Bash(yarn run build:*)",
+      "Bash(yarn run build:clean:*)",
+      "Bash(yarn run build:es:*)",
+      "Bash(yarn run build:ts:*)",
+      "Bash(yarn run validate:*)",
+      "Bash(yarn run test:*)",
+      "Bash(yarn run test:watch:*)",
+      "Bash(yarn run test:storybook:*)",
+      "Bash(yarn run lint:*)",
+      "Bash(yarn run fix:*)",
+      "Bash(yarn run typecheck:*)",
+      "Bash(yarn run storybook:*)",
+      "Bash(yarn run storybook:build:*)",
+      "Bash(yarn playwright install:*)"
+    ],
+    "deny": [
+      "Bash(yarn run release:*)"
+    ]
+  }
+}
