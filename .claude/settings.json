@@ -1,7 +1,6 @@
 {
   "permissions": {
     "allow": [
-      "Bash(yarn install:*)",
       "Bash(yarn run build:*)",
       "Bash(yarn run build:clean:*)",
       "Bash(yarn run build:es:*)",
