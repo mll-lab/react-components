@@ -1,3 +1,10 @@
+## [20.4.1](https://github.com/mll-lab/react-components/compare/v20.4.0...v20.4.1) (2026-03-05)
+
+
+### Bug Fixes
+
+* Address Dependabot security alerts ([331a38b](https://github.com/mll-lab/react-components/commit/331a38bede2af10294ac6944cf9078d4a5bacb1a))
+
 # [20.4.0](https://github.com/mll-lab/react-components/compare/v20.3.0...v20.4.0) (2026-01-22)
 
 
