@@ -25,7 +25,8 @@ type RangePickerProps<T> = AntdRangePickerProps<T>;
 export type DatePickerProps = PickerProps<Date> &
   Omit<PickerDateProps<Date>, 'picker'>;
 
-// TODO remove when https://github.com/react-component/picker/pull/289 fixes https://github.com/react-component/picker/issues/147
+// TODO remove after upgrading to antd v5 — rc-picker v4.1.5 fixed https://github.com/react-component/picker/issues/147
+// via https://github.com/react-component/picker/pull/763 but the fix was never backported to the 2.x series used by antd v4
 // eslint-disable-next-line @getify/proper-arrows/where
 const localeParse = (format: string) =>
   format
@@ -44,7 +45,7 @@ export const BaseDatePicker: ComponentClass<PickerProps<Date>, unknown> & {
   QuarterPicker: ComponentClass<Omit<PickerTimeProps<Date>, 'picker'>, unknown>;
 } = generatePicker<Date>({
   ...dateFnsGenerateConfig,
-  // TODO remove when https://github.com/react-component/picker/pull/289 fixes https://github.com/react-component/picker/issues/147
+  // TODO remove after upgrading to antd v5 — same as above
   locale: {
     getWeekFirstDay: () => de.options!.weekStartsOn!,
     getWeekFirstDate: (_, date) => startOfWeek(date, { locale: de }),
