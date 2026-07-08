@@ -35,7 +35,7 @@ export function DatePickerField<
 
   return (
     <FieldWrapper controller={controller} formItem={formItem}>
-      <DatePicker disabled={disabled} {...fieldProps} {...component} />
+      <DatePicker {...fieldProps} disabled={disabled} {...component} />
     </FieldWrapper>
   );
 }
