@@ -1,12 +1,23 @@
 import { reactionVolume, sumVolume } from './reactionVolume';
-import { MasterMixTableRow, ReactionMix } from './types';
+import { MasterMixIngredient, MasterMixTableRow, ReactionMix } from './types';
 
-// Non-numeric strings, guaranteed to be unique since ingredient keys must be of type number.
+// Free of the separator, so they can never collide with an ingredient row key.
 const MASTER_MIX_SECTION_KEY = 'masterMixSection';
 const MASTER_MIX_TOTAL_KEY = 'masterMixTotal';
 const REACTION_TOTAL_KEY = 'reactionTotal';
 
 export const MASTER_MIX_LABEL = 'MasterMix';
+
+/**
+ * Both ingredient lists are keyed by the consumer and typically start at 1,
+ * so the row kind namespaces otherwise colliding keys apart.
+ */
+function ingredientRowKey(
+  rowKind: 'masterMixIngredient' | 'perReactionIngredient',
+  ingredient: MasterMixIngredient,
+): string {
+  return `${rowKind}-${ingredient.key}`;
+}
 
 /**
  * Lists what to pipette, from the inside out: the ingredients of the master mix,
@@ -25,7 +36,7 @@ export function mixRows({
   const masterMixIngredients: Array<MasterMixTableRow> = ingredients.map(
     (ingredient) => ({
       ...ingredient,
-      key: ingredient.key.toString(),
+      key: ingredientRowKey('masterMixIngredient', ingredient),
       rowKind: 'masterMixIngredient',
     }),
   );
@@ -45,7 +56,7 @@ export function mixRows({
     ...perReactionIngredients.map(
       (ingredient): MasterMixTableRow => ({
         ...ingredient,
-        key: ingredient.key.toString(),
+        key: ingredientRowKey('perReactionIngredient', ingredient),
         rowKind: 'perReactionIngredient',
       }),
     ),

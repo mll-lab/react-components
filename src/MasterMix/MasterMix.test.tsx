@@ -79,6 +79,31 @@ describe('MasterMix', () => {
     expect(screen.getAllByText('–')).toHaveLength(2);
   });
 
+  it('keeps the rows apart when both ingredient lists use the same key', () => {
+    render(
+      <MasterMix
+        name="Test"
+        count={count}
+        ingredients={[{ key: 1, title: 'Water', volume: 12 }]}
+        perReactionIngredients={[{ key: 1, title: 'cDNA', volume: 5 }]}
+        pipettingLoss={{ type: 'absolute', count: 2 }}
+      />,
+    );
+
+    /*
+     * The row key is only observable through the attribute antd renders it into,
+     * which no user-facing query can reach.
+     */
+    /* eslint-disable testing-library/no-node-access */
+    expect(
+      document.querySelector('[data-row-key="masterMixIngredient-1"]'),
+    ).toBeInTheDocument();
+    expect(
+      document.querySelector('[data-row-key="perReactionIngredient-1"]'),
+    ).toBeInTheDocument();
+    /* eslint-enable testing-library/no-node-access */
+  });
+
   it('omits the reaction volume without per reaction ingredients', () => {
     render(
       <MasterMix
