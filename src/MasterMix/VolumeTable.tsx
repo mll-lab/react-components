@@ -8,10 +8,6 @@ export const MASTER_MIX_END_ROW_CLASS = 'master-mix-end-row';
 export const PIPETTED_ROW_CLASS = 'pipetted-row';
 export const REFERENCE_VOLUME_CLASS = 'reference-volume';
 
-/**
- * The width is set by the surrounding container, since antd wins the specificity tie for
- * `max-width` on `.mll-ant-table-wrapper`.
- */
 export const VolumeTable = styled(Table)`
   .${TOTAL_VOLUME_ROW_CLASS} {
     background-color: ${PALETTE.gray3};

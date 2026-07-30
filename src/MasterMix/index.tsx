@@ -20,6 +20,10 @@ export {
   PipettingLossFactorWithMinimum,
 } from './types';
 
+/**
+ * Constrains the table from the outside, since antd wins the specificity tie for
+ * `max-width` on `.mll-ant-table-wrapper`.
+ */
 const MixContent = styled.div`
   max-width: 400px;
 `;
