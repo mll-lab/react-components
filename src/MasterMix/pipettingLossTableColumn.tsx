@@ -99,7 +99,8 @@ export function pipettingLossTableColumn(
         case 'perReactionIngredient':
         case 'reactionTotal':
           return <>–</>;
-        default:
+        case 'masterMixIngredient':
+        case 'masterMixTotal':
           return <>{totalVolume(record, args)} µl</>;
       }
     },
