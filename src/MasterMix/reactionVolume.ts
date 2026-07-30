@@ -1,10 +1,9 @@
+import { sumBy } from 'lodash';
+
 import { MasterMixIngredient, ReactionMix } from './types';
 
 export function sumVolume(ingredients: Array<MasterMixIngredient>): number {
-  return ingredients.reduce(
-    (volumeAccumulator, ingredient) => volumeAccumulator + ingredient.volume,
-    0,
-  );
+  return sumBy(ingredients, (ingredient) => ingredient.volume);
 }
 
 /**
