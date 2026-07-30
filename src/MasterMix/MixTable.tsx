@@ -5,7 +5,6 @@ import {
   MASTER_MIX_BLOCK_ROW_CLASS,
   MASTER_MIX_END_ROW_CLASS,
   PIPETTED_ROW_CLASS,
-  SECTION_ROW_CLASS,
   TOTAL_VOLUME_ROW_CLASS,
   UNCLICKABLE_ROW_CLASS,
   VolumeTable,
@@ -24,12 +23,6 @@ function rowClassName(
   nested: boolean,
 ): string {
   switch (record.rowKind) {
-    case 'masterMixSection':
-      return [
-        SECTION_ROW_CLASS,
-        MASTER_MIX_BLOCK_ROW_CLASS,
-        UNCLICKABLE_ROW_CLASS,
-      ].join(' ');
     case 'masterMixIngredient':
       return [
         nested ? MASTER_MIX_BLOCK_ROW_CLASS : '',
@@ -80,7 +73,7 @@ export function MixTable({
           },
         }))
       }
-      columns={volumeColumns(scaling, pipettedKeys)}
+      columns={volumeColumns(scaling, pipettedKeys, nested)}
     />
   );
 }

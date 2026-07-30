@@ -9,10 +9,7 @@ import {
   PipettingScaling,
 } from './types';
 
-/**
- * The rows the master mix is made of, which are indented into it and are the only ones
- * scaled by the number of reactions.
- */
+/** Only the master mix is mixed for all reactions at once, so only it is scaled. */
 function belongsToMasterMix(record: MasterMixTableRow): boolean {
   return (
     record.rowKind === 'masterMixIngredient' ||
@@ -20,15 +17,28 @@ function belongsToMasterMix(record: MasterMixTableRow): boolean {
   );
 }
 
+/**
+ * Within a reaction mix the total names the master mix, so it stays on the level of the
+ * other per reaction rows. On its own there is no such level to stand out from, and
+ * outdenting it would leave the ingredients indented against nothing.
+ */
+function isIndented(record: MasterMixTableRow, nested: boolean): boolean {
+  return (
+    record.rowKind === 'masterMixIngredient' ||
+    (!nested && record.rowKind === 'masterMixTotal')
+  );
+}
+
 export function volumeColumns(
   scaling: PipettingScaling | undefined,
   pipettedKeys: Array<string>,
+  nested: boolean,
 ): Array<PipettingLossTableColumn> {
   return [
     {
       title: 'Name',
       render: (_: unknown, record: MasterMixTableRow) =>
-        belongsToMasterMix(record) ? (
+        isIndented(record, nested) ? (
           <MasterMixRowName pipetted={pipettedKeys.includes(record.key)}>
             {record.title}
           </MasterMixRowName>
@@ -45,10 +55,9 @@ export function volumeColumns(
             ? REFERENCE_VOLUME_CLASS
             : undefined,
       }),
-      render: (_: unknown, record: MasterMixTableRow) =>
-        record.rowKind === 'masterMixSection' ? null : (
-          <>{record.volume.toFixed(1)} µl</>
-        ),
+      render: (_: unknown, record: MasterMixTableRow) => (
+        <>{record.volume.toFixed(1)} µl</>
+      ),
     },
     ...(scaling ? [pipettingLossTableColumn(scaling)] : []),
   ];

@@ -2,7 +2,6 @@ import { reactionVolume, sumVolume } from './reactionVolume';
 import { MasterMixIngredient, MasterMixTableRow, ReactionMix } from './types';
 
 // Free of the separator, so they can never collide with an ingredient row key.
-const MASTER_MIX_SECTION_KEY = 'masterMixSection';
 const MASTER_MIX_TOTAL_KEY = 'masterMixTotal';
 const REACTION_TOTAL_KEY = 'reactionTotal';
 
@@ -29,7 +28,8 @@ export function mixRows({
 }: ReactionMix): Array<MasterMixTableRow> {
   const masterMixTotal: MasterMixTableRow = {
     key: MASTER_MIX_TOTAL_KEY,
-    title: 'Gesamtvolumen',
+    /** Within a reaction mix the total doubles as the amount of master mix per reaction. */
+    title: perReactionIngredients?.length ? MASTER_MIX_LABEL : 'Gesamtvolumen',
     volume: sumVolume(ingredients),
     rowKind: 'masterMixTotal',
   };
@@ -46,11 +46,6 @@ export function mixRows({
   }
 
   return [
-    {
-      key: MASTER_MIX_SECTION_KEY,
-      title: MASTER_MIX_LABEL,
-      rowKind: 'masterMixSection',
-    },
     ...masterMixIngredients,
     masterMixTotal,
     ...perReactionIngredients.map(

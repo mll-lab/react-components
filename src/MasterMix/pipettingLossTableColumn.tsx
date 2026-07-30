@@ -52,10 +52,7 @@ function pipettingLossTitle(
   }
 }
 
-function totalVolume(
-  record: Exclude<MasterMixTableRow, { rowKind: 'masterMixSection' }>,
-  args: PipettingScaling,
-) {
+function totalVolume(record: MasterMixTableRow, args: PipettingScaling) {
   switch (args.pipettingLoss.type) {
     case 'absolute':
       return (record.volume * (args.count + args.pipettingLoss.count)).toFixed(
@@ -93,8 +90,6 @@ export function pipettingLossTableColumn(
     ),
     render: (_: unknown, record: MasterMixTableRow) => {
       switch (record.rowKind) {
-        case 'masterMixSection':
-          return null;
         /** Pipetted into each reaction individually, so the loss does not apply. */
         case 'perReactionIngredient':
         case 'reactionTotal':

@@ -48,23 +48,17 @@ export type PipettingLoss =
   | PipettingLossAbsolute
   | PipettingLossFactorWithMinimum;
 
-/** Keyed by string, since the rows the table adds around the ingredients have no numeric key. */
-type MixTableRow = {
+export type MasterMixTableRow = {
+  /** A string, since the total rows the table adds have no numeric key of their own. */
   key: string;
   title: MasterMixIngredient['title'];
+  volume: number;
+  rowKind:
+    | 'masterMixIngredient'
+    | 'masterMixTotal'
+    | 'perReactionIngredient'
+    | 'reactionTotal';
 };
-
-export type MasterMixTableRow =
-  | (MixTableRow & {
-      volume: number;
-      rowKind:
-        | 'masterMixIngredient'
-        | 'masterMixTotal'
-        | 'perReactionIngredient'
-        | 'reactionTotal';
-    })
-  /** Labels the master mix within the reaction mix, so it carries no volume of its own. */
-  | (MixTableRow & { rowKind: 'masterMixSection' });
 
 export type PipettingLossTableColumn = Modify<
   ColumnType<MasterMixTableRow>,

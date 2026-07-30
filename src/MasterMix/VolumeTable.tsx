@@ -6,7 +6,6 @@ import { PALETTE } from '../theme';
 export const TOTAL_VOLUME_ROW_CLASS = 'total-volume-row';
 export const MASTER_MIX_BLOCK_ROW_CLASS = 'master-mix-block-row';
 export const MASTER_MIX_END_ROW_CLASS = 'master-mix-end-row';
-export const SECTION_ROW_CLASS = 'section-row';
 export const PIPETTED_ROW_CLASS = 'pipetted-row';
 export const UNCLICKABLE_ROW_CLASS = 'unclickable-row';
 export const REFERENCE_VOLUME_CLASS = 'reference-volume';
@@ -18,9 +17,6 @@ export const REFERENCE_VOLUME_CLASS = 'reference-volume';
 export const VolumeTable = styled(Table)`
   .${TOTAL_VOLUME_ROW_CLASS} {
     background-color: ${PALETTE.gray3};
-  }
-
-  .${TOTAL_VOLUME_ROW_CLASS}, .${SECTION_ROW_CLASS} {
     font-weight: bold;
   }
 
