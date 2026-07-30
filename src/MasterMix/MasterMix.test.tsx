@@ -3,7 +3,7 @@ import React from 'react';
 
 import { MasterMixIngredient } from './types';
 
-import { MasterMix, reactionVolume } from './index';
+import { MasterMix } from './index';
 
 describe('MasterMix', () => {
   const ingredients: Array<MasterMixIngredient> = [
@@ -51,6 +51,21 @@ describe('MasterMix', () => {
     ).toFixed(1);
     expect(totalVolume === '901.8').toBeTruthy();
     expect(screen.getByText(`${totalVolume} µl`)).toBeInTheDocument();
+  });
+
+  it('renders as reaction mix containing the master mix', () => {
+    render(
+      <MasterMix
+        name={name}
+        count={count}
+        ingredients={ingredients}
+        perReactionIngredients={[{ key: 5, title: 'cDNA', volume: 5 }]}
+        pipettingLoss={{ type: 'absolute', count: 2 }}
+      />,
+    );
+
+    expect(screen.getByText(`${name} Reaktionsmix`)).toBeInTheDocument();
+    expect(screen.getByText('MasterMix')).toBeInTheDocument();
   });
 
   it('excludes per reaction ingredients from the master mix', () => {
@@ -132,24 +147,5 @@ describe('MasterMix', () => {
         .getAllByRole('row')
         .filter((row) => row.classList.contains('mll-ant-table-row-selected')),
     ).toHaveLength(0);
-  });
-});
-
-describe('reactionVolume', () => {
-  it('sums master mix and per reaction ingredients', () => {
-    expect(
-      reactionVolume({
-        ingredients: [{ key: 1, title: 'Water', volume: 13 }],
-        perReactionIngredients: [{ key: 2, title: 'cDNA', volume: 5 }],
-      }),
-    ).toBe(18);
-  });
-
-  it('sums master mix ingredients without per reaction ingredients', () => {
-    expect(
-      reactionVolume({
-        ingredients: [{ key: 1, title: 'Water', volume: 13 }],
-      }),
-    ).toBe(13);
   });
 });
