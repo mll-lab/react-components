@@ -17,28 +17,16 @@ function belongsToMasterMix(record: MasterMixTableRow): boolean {
   );
 }
 
-/**
- * Within a reaction mix the total names the master mix, so it stays on the level of the
- * other per reaction rows. On its own there is no such level to stand out from, and
- * outdenting it would leave the ingredients indented against nothing.
- */
-function isIndented(record: MasterMixTableRow, nested: boolean): boolean {
-  return (
-    record.rowKind === 'masterMixIngredient' ||
-    (!nested && record.rowKind === 'masterMixTotal')
-  );
-}
-
 export function volumeColumns(
   scaling: PipettingScaling | undefined,
   pipettedKeys: Array<string>,
-  nested: boolean,
 ): Array<PipettingLossTableColumn> {
   return [
     {
       title: 'Name',
+      /** Indented as parts of the total below them, which stays flush as their sum. */
       render: (_: unknown, record: MasterMixTableRow) =>
-        isIndented(record, nested) ? (
+        record.rowKind === 'masterMixIngredient' ? (
           <MasterMixRowName pipetted={pipettedKeys.includes(record.key)}>
             {record.title}
           </MasterMixRowName>
