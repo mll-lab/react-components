@@ -4,7 +4,6 @@ import { Table } from '../Table';
 import { PALETTE } from '../theme';
 
 export const TOTAL_VOLUME_ROW_CLASS = 'total-volume-row';
-export const MASTER_MIX_END_ROW_CLASS = 'master-mix-end-row';
 export const PIPETTED_ROW_CLASS = 'pipetted-row';
 export const REFERENCE_VOLUME_CLASS = 'reference-volume';
 
@@ -14,8 +13,8 @@ export const VolumeTable = styled(Table)`
     font-weight: bold;
   }
 
-  /* Closes the master mix, so that what follows reads as added per reaction. */
-  .mll-ant-table-tbody > tr.${MASTER_MIX_END_ROW_CLASS} > td {
+  /* A total with rows below it closes a mix that those rows add to. */
+  .mll-ant-table-tbody > tr.${TOTAL_VOLUME_ROW_CLASS}:not(:last-child) > td {
     border-bottom: 2px solid ${PALETTE.gray5};
   }
 

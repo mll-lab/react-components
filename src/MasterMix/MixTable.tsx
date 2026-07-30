@@ -1,8 +1,7 @@
-import { insertIf, toggleElement } from '@mll-lab/js-utils';
+import { toggleElement } from '@mll-lab/js-utils';
 import React, { useState } from 'react';
 
 import {
-  MASTER_MIX_END_ROW_CLASS,
   PIPETTED_ROW_CLASS,
   TOTAL_VOLUME_ROW_CLASS,
   VolumeTable,
@@ -19,20 +18,15 @@ type MixTableProps = ReactionMix & {
 function rowClassName(
   record: MasterMixTableRow,
   pipettedKeys: Array<string>,
-  withinReactionMix: boolean,
 ): string {
   switch (record.rowKind) {
     case 'masterMixIngredient':
       return pipettedKeys.includes(record.key) ? PIPETTED_ROW_CLASS : '';
     case 'masterMixTotal':
-      return [
-        TOTAL_VOLUME_ROW_CLASS,
-        ...insertIf(withinReactionMix, MASTER_MIX_END_ROW_CLASS),
-      ].join(' ');
-    case 'perReactionIngredient':
-      return '';
     case 'reactionTotal':
       return TOTAL_VOLUME_ROW_CLASS;
+    case 'perReactionIngredient':
+      return '';
   }
 }
 
@@ -52,7 +46,7 @@ export function MixTable({
       rowKey={(record: MasterMixTableRow) => record.key}
       pagination={false}
       rowClassName={(record: MasterMixTableRow) =>
-        rowClassName(record, pipettedKeys, withinReactionMix)
+        rowClassName(record, pipettedKeys)
       }
       onRow={
         scaling &&
