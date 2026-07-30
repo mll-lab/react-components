@@ -1,28 +1,50 @@
 import React from 'react';
 
+import { MasterMixIngredientName } from './MasterMixIngredientName';
+import { REFERENCE_VOLUME_CLASS } from './VolumeTable';
 import { pipettingLossTableColumn } from './pipettingLossTableColumn';
-import { MasterMixTableRow, PipettingLossTableColumnArgs } from './types';
+import {
+  MasterMixTableRow,
+  PipettingLossTableColumn,
+  PipettingScaling,
+} from './types';
 
-// Fixed widths keep the columns of the master mix and the reaction table aligned.
-const VOLUME_COLUMN_WIDTH = '80px';
-const PIPETTING_LOSS_COLUMN_WIDTH = '150px';
+/** Only the master mix is scaled, so all other volumes are shown for a single reaction only. */
+function isScaled(record: MasterMixTableRow): boolean {
+  return (
+    record.rowKind === 'masterMixIngredient' ||
+    record.rowKind === 'masterMixTotal'
+  );
+}
 
-export function volumeColumns(args: PipettingLossTableColumnArgs) {
+export function volumeColumns(
+  scaling: PipettingScaling | undefined,
+  pipettedKeys: Array<string>,
+): Array<PipettingLossTableColumn> {
   return [
     {
       title: 'Name',
-      render: (_: unknown, record: MasterMixTableRow) => record.title,
+      render: (_: unknown, record: MasterMixTableRow) =>
+        record.rowKind === 'masterMixIngredient' ? (
+          <MasterMixIngredientName pipetted={pipettedKeys.includes(record.key)}>
+            {record.title}
+          </MasterMixIngredientName>
+        ) : (
+          record.title
+        ),
     },
     {
-      title: '1x',
-      width: VOLUME_COLUMN_WIDTH,
-      render: (_: unknown, record: MasterMixTableRow) => (
-        <>{record.volume.toFixed(1)} µl</>
-      ),
+      title: scaling ? '1x' : 'Volumen',
+      align: 'right',
+      onCell: (record: MasterMixTableRow) => ({
+        className:
+          scaling && isScaled(record) ? REFERENCE_VOLUME_CLASS : undefined,
+      }),
+      render: (_: unknown, record: MasterMixTableRow) =>
+        record.rowKind === 'masterMixSection' ? null : (
+          <>{record.volume.toFixed(1)} µl</>
+        ),
     },
-    {
-      ...pipettingLossTableColumn(args),
-      width: PIPETTING_LOSS_COLUMN_WIDTH,
-    },
+    ...(scaling ? [pipettingLossTableColumn(scaling)] : []),
   ];
 }

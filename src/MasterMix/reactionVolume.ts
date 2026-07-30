@@ -1,4 +1,4 @@
-import { MasterMixIngredient, MasterMixProps } from './types';
+import { MasterMixIngredient, ReactionMix } from './types';
 
 export function sumVolume(ingredients: Array<MasterMixIngredient>): number {
   return ingredients.reduce(
@@ -11,8 +11,6 @@ export function sumVolume(ingredients: Array<MasterMixIngredient>): number {
  * Volume of a single reaction: the master mix plus everything added per reaction.
  * Concentrations of the ingredients are relative to this volume.
  */
-export function reactionVolume(
-  mix: Pick<MasterMixProps, 'ingredients' | 'perReactionIngredients'>,
-): number {
+export function reactionVolume(mix: ReactionMix): number {
   return sumVolume([...mix.ingredients, ...(mix.perReactionIngredients ?? [])]);
 }

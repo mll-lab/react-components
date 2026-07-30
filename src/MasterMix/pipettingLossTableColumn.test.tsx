@@ -5,7 +5,7 @@ import { pipettingLossTableColumn } from './pipettingLossTableColumn';
 
 describe('pipettingLossTableColumn', () => {
   describe('with "absolute" pipetting loss type', () => {
-    it('should render the total volume and title correctly', () => {
+    it('adds the absolute loss to the scaled volume', () => {
       const column = pipettingLossTableColumn({
         count: 2,
         pipettingLoss: { type: 'absolute', count: 1 },
@@ -14,7 +14,7 @@ describe('pipettingLossTableColumn', () => {
         <>
           {column.render(
             null,
-            { volume: 10, title: '', key: 1, rowKind: 'masterMixIngredient' },
+            { volume: 10, title: '', key: '1', rowKind: 'masterMixIngredient' },
             1,
           )}
         </>,
@@ -27,7 +27,7 @@ describe('pipettingLossTableColumn', () => {
   });
 
   describe('with "factor" pipetting loss type', () => {
-    it('should render the total volume and title correctly', () => {
+    it('adds the loss factor to the scaled volume', () => {
       const column = pipettingLossTableColumn({
         count: 2,
         pipettingLoss: { type: 'factor', factor: 0.1 },
@@ -36,7 +36,7 @@ describe('pipettingLossTableColumn', () => {
         <>
           {column.render(
             null,
-            { volume: 10, title: '', key: 1, rowKind: 'masterMixIngredient' },
+            { volume: 10, title: '', key: '1', rowKind: 'masterMixIngredient' },
             1,
           )}
         </>,
@@ -49,7 +49,7 @@ describe('pipettingLossTableColumn', () => {
   });
 
   describe('with "factorWithMinimum" pipetting loss type', () => {
-    it('should use minimum positions when factor loss is slightly below minimum positions', () => {
+    it('uses the minimum positions when the factor loss stays below them', () => {
       // 19 ansätze × 10µl = 190µl
       // factor loss: ceil(19 × 10%) = ceil(1.9) = 2 positions × 10µl = 20µl
       // min positions loss: 2 × 10µl = 20µl
@@ -67,7 +67,7 @@ describe('pipettingLossTableColumn', () => {
         <>
           {column.render(
             null,
-            { volume: 10, title: '', key: 1, rowKind: 'masterMixIngredient' },
+            { volume: 10, title: '', key: '1', rowKind: 'masterMixIngredient' },
             1,
           )}
         </>,
@@ -77,7 +77,7 @@ describe('pipettingLossTableColumn', () => {
       expect(screen.getByText('19x Ansätze + 2x (PV)')).toBeInTheDocument();
     });
 
-    it('should use factor loss when it is slightly above minimum positions', () => {
+    it('uses the factor loss when it exceeds the minimum positions', () => {
       // 21 ansätze × 10µl = 210µl
       // factor loss: ceil(21 × 10%) = ceil(2.1) = 3 positions × 10µl = 30µl
       // min positions loss: 2 × 10µl = 20µl
@@ -95,7 +95,7 @@ describe('pipettingLossTableColumn', () => {
         <>
           {column.render(
             null,
-            { volume: 10, title: '', key: 1, rowKind: 'masterMixIngredient' },
+            { volume: 10, title: '', key: '1', rowKind: 'masterMixIngredient' },
             1,
           )}
         </>,

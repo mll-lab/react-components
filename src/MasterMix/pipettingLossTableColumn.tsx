@@ -7,7 +7,7 @@ import {
   PipettingLoss,
   PipettingLossFactorWithMinimum,
   PipettingLossTableColumn,
-  PipettingLossTableColumnArgs,
+  PipettingScaling,
 } from './types';
 
 type PipettingLosses = {
@@ -53,8 +53,8 @@ function pipettingLossTitle(
 }
 
 function totalVolume(
-  record: MasterMixTableRow,
-  args: PipettingLossTableColumnArgs,
+  record: Exclude<MasterMixTableRow, { rowKind: 'masterMixSection' }>,
+  args: PipettingScaling,
 ) {
   switch (args.pipettingLoss.type) {
     case 'absolute':
@@ -81,21 +81,27 @@ function totalVolume(
 }
 
 export function pipettingLossTableColumn(
-  args: PipettingLossTableColumnArgs,
+  args: PipettingScaling,
 ): PipettingLossTableColumn {
   return {
+    align: 'right',
     title: (
       <Tooltip title="Pipettierverlust">
         {args.count}x Ansätze +{' '}
         {pipettingLossTitle(args.pipettingLoss, args.count)} (PV)
       </Tooltip>
     ),
-    render: (_: unknown, record: MasterMixTableRow) =>
-      record.rowKind === 'perReactionIngredient' ||
-      record.rowKind === 'reactionTotal' ? (
-        <>–</>
-      ) : (
-        <>{totalVolume(record, args)} µl</>
-      ),
+    render: (_: unknown, record: MasterMixTableRow) => {
+      switch (record.rowKind) {
+        case 'masterMixSection':
+          return null;
+        /** Pipetted into each reaction individually, so the loss does not apply. */
+        case 'perReactionIngredient':
+        case 'reactionTotal':
+          return <>–</>;
+        default:
+          return <>{totalVolume(record, args)} µl</>;
+      }
+    },
   };
 }

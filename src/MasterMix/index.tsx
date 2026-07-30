@@ -4,65 +4,63 @@ import styled from 'styled-components';
 import { Card } from '../Card';
 import { Typography } from '../Typography';
 
-import { MasterMixTable } from './MasterMixTable';
-import { ReactionTable } from './ReactionTable';
+import { MixTable } from './MixTable';
+import { MASTER_MIX_LABEL } from './mixRows';
 import { MasterMixProps } from './types';
 
 export { reactionVolume } from './reactionVolume';
 export {
   MasterMixProps,
   MasterMixIngredient,
+  ReactionMix,
+  PipettingScaling,
+  RecipeMode,
   PipettingLoss,
   PipettingLossAbsolute,
   PipettingLossByFactor,
   PipettingLossFactorWithMinimum,
 } from './types';
 
-const NestedMasterMixCard = styled(Card)`
+/** Hugs the table instead of stretching across whatever the surrounding layout offers. */
+const MixCard = styled(Card)`
+  width: fit-content;
+`;
+
+const MixContent = styled.div`
   max-width: 400px;
-  margin-bottom: 8px;
 `;
 
 /**
- * Shows what to pipette for a given number of reactions.
+ * Shows what to pipette for a given number of reactions, or as a plain recipe in `mode="recipe"`.
  * Ingredients added per reaction turn the master mix into a part of the reaction mix.
  */
 export function MasterMix({
   name,
+  mode,
+  count,
+  pipettingLoss,
   ingredients,
   perReactionIngredients,
-  ...columnArgs
 }: MasterMixProps) {
-  const masterMixTable = (
-    <MasterMixTable ingredients={ingredients} {...columnArgs} />
-  );
+  const scaling =
+    mode === 'recipe' ? undefined : { count, pipettingLoss, mode };
 
   return (
-    <Card
+    <MixCard
       title={
         <Typography.Title level={5}>
-          {name} {perReactionIngredients?.length ? 'Reaktionsmix' : 'MasterMix'}
+          {name}{' '}
+          {perReactionIngredients?.length ? 'Reaktionsmix' : MASTER_MIX_LABEL}
         </Typography.Title>
       }
     >
-      {perReactionIngredients?.length ? (
-        <>
-          <NestedMasterMixCard
-            title="MasterMix"
-            size="small"
-            bodyStyle={{ padding: 0 }}
-          >
-            {masterMixTable}
-          </NestedMasterMixCard>
-          <ReactionTable
-            masterMixIngredients={ingredients}
-            perReactionIngredients={perReactionIngredients}
-            {...columnArgs}
-          />
-        </>
-      ) : (
-        masterMixTable
-      )}
-    </Card>
+      <MixContent>
+        <MixTable
+          ingredients={ingredients}
+          perReactionIngredients={perReactionIngredients}
+          scaling={scaling}
+        />
+      </MixContent>
+    </MixCard>
   );
 }
