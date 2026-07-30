@@ -14,8 +14,6 @@ export {
   MasterMixProps,
   MasterMixIngredient,
   ReactionMix,
-  PipettingScaling,
-  RecipeMode,
   PipettingLoss,
   PipettingLossAbsolute,
   PipettingLossByFactor,
