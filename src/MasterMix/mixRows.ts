@@ -16,10 +16,7 @@ function ingredientRowKey(
   return `${rowKind}-${ingredient.key}`;
 }
 
-/**
- * Lists what to pipette, from the inside out: the ingredients of the master mix,
- * their total as the amount that goes into each reaction, and what is added per reaction.
- */
+/** Ordered from the inside out, so that every total follows what it sums up. */
 export function mixRows({
   ingredients,
   perReactionIngredients,
