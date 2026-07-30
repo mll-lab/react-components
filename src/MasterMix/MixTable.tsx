@@ -43,7 +43,7 @@ export function MixTable({
   return (
     <VolumeTable
       dataSource={mixRows({ ingredients, perReactionIngredients })}
-      rowKey={(record: MasterMixTableRow) => record.key}
+      rowKey="key"
       pagination={false}
       rowClassName={(record: MasterMixTableRow) =>
         rowClassName(record, pipettedKeys)
