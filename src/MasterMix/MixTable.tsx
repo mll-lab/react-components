@@ -2,7 +2,6 @@ import { toggleElement } from '@mll-lab/js-utils';
 import React, { useState } from 'react';
 
 import {
-  MASTER_MIX_BLOCK_ROW_CLASS,
   MASTER_MIX_END_ROW_CLASS,
   PIPETTED_ROW_CLASS,
   TOTAL_VOLUME_ROW_CLASS,
@@ -24,15 +23,11 @@ function rowClassName(
 ): string {
   switch (record.rowKind) {
     case 'masterMixIngredient':
-      return [
-        nested ? MASTER_MIX_BLOCK_ROW_CLASS : '',
-        pipettedKeys.includes(record.key) ? PIPETTED_ROW_CLASS : '',
-      ].join(' ');
+      return pipettedKeys.includes(record.key) ? PIPETTED_ROW_CLASS : '';
     case 'masterMixTotal':
       return [
         TOTAL_VOLUME_ROW_CLASS,
         UNCLICKABLE_ROW_CLASS,
-        nested ? MASTER_MIX_BLOCK_ROW_CLASS : '',
         nested ? MASTER_MIX_END_ROW_CLASS : '',
       ].join(' ');
     case 'perReactionIngredient':
