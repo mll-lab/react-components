@@ -29,7 +29,10 @@ export const VolumeTable = styled(Table)`
     position: relative;
   }
 
-  /* Overlaps the gap between the row boxes, which a border per row would leave open. */
+  /*
+   * Overlaps the gap between the row boxes, which a border per row would leave open.
+   * Both edges of the box share one gray, since dividerColor vanishes on the total row.
+   */
   .mll-ant-table-tbody
     > tr.${MASTER_MIX_BLOCK_ROW_CLASS}
     > td:first-child::before {
@@ -39,7 +42,7 @@ export const VolumeTable = styled(Table)`
     bottom: -1px;
     left: 0;
     width: 2px;
-    background-color: ${(props) => props.theme.dividerColor};
+    background-color: ${PALETTE.gray5};
   }
 
   /* Closes the master mix, so that what follows reads as added per reaction. */
