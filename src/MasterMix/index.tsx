@@ -21,11 +21,6 @@ export {
   PipettingLossFactorWithMinimum,
 } from './types';
 
-/** Hugs the table instead of stretching across whatever the surrounding layout offers. */
-const MixCard = styled(Card)`
-  width: fit-content;
-`;
-
 const MixContent = styled.div`
   max-width: 400px;
 `;
@@ -46,7 +41,7 @@ export function MasterMix({
     mode === 'recipe' ? undefined : { count, pipettingLoss, mode };
 
   return (
-    <MixCard
+    <Card
       title={
         <Typography.Title level={5}>
           {name}{' '}
@@ -61,6 +56,6 @@ export function MasterMix({
           scaling={scaling}
         />
       </MixContent>
-    </MixCard>
+    </Card>
   );
 }
