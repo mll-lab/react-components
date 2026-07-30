@@ -36,27 +36,32 @@ const StyledTable = styled(AntdTable)`
     /* !important is necessary because antd sets the z-index to 9999 via the style attribute */
     z-index: 990 !important;
   }
-
-  ${(props) =>
-    // @ts-expect-error TODO it seems unsafe to pass empty data to onRow?
-    props.onRow?.({})?.onClick
-      ? `
-        tbody tr:hover {
-          cursor: pointer;
-        }
-        `
-      : ''}
 ` as <RecordType extends Record<string, unknown> = Record<string, unknown>>(
   props: TableProps<RecordType>,
 ) => ReactElement;
 
 export function Table<
   RecordType extends Record<string, unknown> = Record<string, unknown>,
->({ loading, ...rest }: TableProps<RecordType>) {
+>({ loading, onRow, ...rest }: TableProps<RecordType>) {
   return (
-    <StyledTable
+    <StyledTable<RecordType>
       rowKey="id"
       {...rest}
+      onRow={
+        onRow &&
+        ((record, index) => {
+          const rowProps = onRow(record, index);
+
+          /** Only rows that actually react to a click show that they can be clicked. */
+          return {
+            ...rowProps,
+            style: {
+              cursor: rowProps.onClick ? 'pointer' : undefined,
+              ...rowProps.style,
+            },
+          };
+        })
+      }
       loading={
         typeof loading === 'object'
           ? {

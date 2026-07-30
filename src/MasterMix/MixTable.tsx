@@ -5,7 +5,6 @@ import {
   MASTER_MIX_END_ROW_CLASS,
   PIPETTED_ROW_CLASS,
   TOTAL_VOLUME_ROW_CLASS,
-  UNCLICKABLE_ROW_CLASS,
   VolumeTable,
 } from './VolumeTable';
 import { hasPerReactionIngredients } from './hasPerReactionIngredients';
@@ -28,13 +27,12 @@ function rowClassName(
     case 'masterMixTotal':
       return [
         TOTAL_VOLUME_ROW_CLASS,
-        UNCLICKABLE_ROW_CLASS,
         ...insertIf(withinReactionMix, MASTER_MIX_END_ROW_CLASS),
       ].join(' ');
     case 'perReactionIngredient':
-      return UNCLICKABLE_ROW_CLASS;
+      return '';
     case 'reactionTotal':
-      return [TOTAL_VOLUME_ROW_CLASS, UNCLICKABLE_ROW_CLASS].join(' ');
+      return TOTAL_VOLUME_ROW_CLASS;
   }
 }
 
@@ -58,16 +56,15 @@ export function MixTable({
       }
       onRow={
         scaling &&
-        ((record: MasterMixTableRow) => ({
-          onClick: () => {
-            if (record.rowKind !== 'masterMixIngredient') {
-              return;
-            }
-            setPipettedKeys((previouslyPipetted) =>
-              toggleElement(previouslyPipetted, record.key),
-            );
-          },
-        }))
+        ((record: MasterMixTableRow) =>
+          record.rowKind === 'masterMixIngredient'
+            ? {
+                onClick: () =>
+                  setPipettedKeys((previouslyPipetted) =>
+                    toggleElement(previouslyPipetted, record.key),
+                  ),
+              }
+            : {})
       }
       columns={volumeColumns(scaling, pipettedKeys, withinReactionMix)}
     />
