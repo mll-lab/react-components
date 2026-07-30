@@ -6,9 +6,9 @@ const INDENT_STEP_IN_PIXELS = 20;
 const MARK_GAP_IN_PIXELS = 5;
 
 /**
- * Indents by one step per sum the row contributes to, and holds the mark right before the
- * name so that checking one off neither shifts the layout nor detaches from its row.
- * The offset separates the mark from the name without moving the name on any level.
+ * Holds the mark right before the name, so that checking one off neither shifts the layout
+ * nor detaches from its row. The offset separates the mark from the name without moving
+ * the name on any level.
  */
 const Indent = styled.span<{ $level: number }>`
   display: inline-block;
