@@ -1,3 +1,4 @@
+import { hasPerReactionIngredients } from './hasPerReactionIngredients';
 import { reactionVolume, sumVolume } from './reactionVolume';
 import { MasterMixIngredient, MasterMixTableRow, ReactionMix } from './types';
 
@@ -26,7 +27,9 @@ export function mixRows({
   const masterMixTotal: MasterMixTableRow = {
     key: 'masterMixTotal',
     /** Within a reaction mix the total doubles as the amount of master mix per reaction. */
-    title: perReactionIngredients?.length ? MASTER_MIX_LABEL : 'Gesamtvolumen',
+    title: hasPerReactionIngredients(perReactionIngredients)
+      ? MASTER_MIX_LABEL
+      : 'Gesamtvolumen',
     volume: sumVolume(ingredients),
     rowKind: 'masterMixTotal',
   };
@@ -38,7 +41,7 @@ export function mixRows({
     }),
   );
 
-  if (!perReactionIngredients?.length) {
+  if (!hasPerReactionIngredients(perReactionIngredients)) {
     return [...masterMixIngredients, masterMixTotal];
   }
 

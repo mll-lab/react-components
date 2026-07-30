@@ -8,6 +8,7 @@ import {
   UNCLICKABLE_ROW_CLASS,
   VolumeTable,
 } from './VolumeTable';
+import { hasPerReactionIngredients } from './hasPerReactionIngredients';
 import { mixRows } from './mixRows';
 import { MasterMixTableRow, PipettingScaling, ReactionMix } from './types';
 import { volumeColumns } from './volumeColumns';
@@ -19,7 +20,7 @@ type MixTableProps = ReactionMix & {
 function rowClassName(
   record: MasterMixTableRow,
   pipettedKeys: Array<string>,
-  nested: boolean,
+  withinReactionMix: boolean,
 ): string {
   switch (record.rowKind) {
     case 'masterMixIngredient':
@@ -28,7 +29,7 @@ function rowClassName(
       return [
         TOTAL_VOLUME_ROW_CLASS,
         UNCLICKABLE_ROW_CLASS,
-        ...insertIf(nested, MASTER_MIX_END_ROW_CLASS),
+        ...insertIf(withinReactionMix, MASTER_MIX_END_ROW_CLASS),
       ].join(' ');
     case 'perReactionIngredient':
       return UNCLICKABLE_ROW_CLASS;
@@ -45,7 +46,7 @@ export function MixTable({
 }: MixTableProps) {
   const [pipettedKeys, setPipettedKeys] = useState<Array<string>>([]);
 
-  const nested = Boolean(perReactionIngredients?.length);
+  const withinReactionMix = hasPerReactionIngredients(perReactionIngredients);
 
   return (
     <VolumeTable
@@ -53,7 +54,7 @@ export function MixTable({
       rowKey={(record: MasterMixTableRow) => record.key}
       pagination={false}
       rowClassName={(record: MasterMixTableRow) =>
-        rowClassName(record, pipettedKeys, nested)
+        rowClassName(record, pipettedKeys, withinReactionMix)
       }
       onRow={
         scaling &&
@@ -68,7 +69,7 @@ export function MixTable({
           },
         }))
       }
-      columns={volumeColumns(scaling, pipettedKeys, nested)}
+      columns={volumeColumns(scaling, pipettedKeys, withinReactionMix)}
     />
   );
 }

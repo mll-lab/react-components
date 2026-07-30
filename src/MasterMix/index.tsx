@@ -5,6 +5,7 @@ import { Card } from '../Card';
 import { Typography } from '../Typography';
 
 import { MixTable } from './MixTable';
+import { hasPerReactionIngredients } from './hasPerReactionIngredients';
 import { MASTER_MIX_LABEL } from './mixRows';
 import { MasterMixProps } from './types';
 
@@ -44,7 +45,9 @@ export function MasterMix({
       title={
         <Typography.Title level={5}>
           {name}{' '}
-          {perReactionIngredients?.length ? 'Reaktionsmix' : MASTER_MIX_LABEL}
+          {hasPerReactionIngredients(perReactionIngredients)
+            ? 'Reaktionsmix'
+            : MASTER_MIX_LABEL}
         </Typography.Title>
       }
     >
