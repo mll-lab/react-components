@@ -7,7 +7,11 @@ import { Table } from '../Table';
 import { Typography } from '../Typography';
 
 import { pipettingLossTableColumn } from './pipettingLossTableColumn';
-import { MasterMixProps } from './types';
+import {
+  MasterMixIngredient,
+  MasterMixProps,
+  MasterMixTableRow,
+} from './types';
 
 export {
   MasterMixProps,
@@ -20,11 +24,32 @@ export {
 
 const TOTAL_VOLUME_ROW_CLASS = 'total-volume-row';
 
+// Non-numeric strings, guaranteed to be unique since ingredient keys must be of type number.
+const MASTER_MIX_TOTAL_KEY = 'masterMixTotal';
+const REACTION_TOTAL_KEY = 'reactionTotal';
+
 const MasterMixTable = styled(Table)`
   .${TOTAL_VOLUME_ROW_CLASS} {
     background-color: lightgrey;
   }
 `;
+
+function sumVolume(ingredients: Array<MasterMixIngredient>): number {
+  return ingredients.reduce(
+    (volumeAccumulator, ingredient) => volumeAccumulator + ingredient.volume,
+    0,
+  );
+}
+
+/**
+ * Volume of a single reaction: the master mix plus everything added per reaction.
+ * Concentrations of the ingredients are relative to this volume.
+ */
+export function reactionVolume(
+  mix: Pick<MasterMixProps, 'ingredients' | 'perReactionIngredients'>,
+): number {
+  return sumVolume([...mix.ingredients, ...(mix.perReactionIngredients ?? [])]);
+}
 
 /**
  * The reactants can be clicked and marked as pipetted.
@@ -34,17 +59,37 @@ export function MasterMix(props: MasterMixProps) {
     [],
   );
 
-  const ingredientsWithSumRow = [
-    ...props.ingredients,
+  const perReactionIngredients = props.perReactionIngredients ?? [];
+  const masterMixVolume = sumVolume(props.ingredients);
+
+  const reactionTotalRow: Array<MasterMixTableRow> =
+    perReactionIngredients.length > 0
+      ? [
+          {
+            key: REACTION_TOTAL_KEY,
+            title: <h4>Reaktionsvolumen</h4>,
+            volume: masterMixVolume + sumVolume(perReactionIngredients),
+            rowKind: 'reactionTotal',
+          },
+        ]
+      : [];
+
+  const rows: Array<MasterMixTableRow> = [
+    ...props.ingredients.map((ingredient) => ({
+      ...ingredient,
+      rowKind: 'masterMixIngredient' as const,
+    })),
     {
-      key: 'Total Volume (non-numeric string, guaranteed to be unique since ingredients keys must be of type number)',
+      key: MASTER_MIX_TOTAL_KEY,
       title: <h4>Gesamtvolumen</h4>,
-      volume: props.ingredients.reduce(
-        (volumeAccumulator, ingredient) =>
-          volumeAccumulator + ingredient.volume,
-        0,
-      ),
+      volume: masterMixVolume,
+      rowKind: 'masterMixTotal',
     },
+    ...perReactionIngredients.map((ingredient) => ({
+      ...ingredient,
+      rowKind: 'perReactionIngredient' as const,
+    })),
+    ...reactionTotalRow,
   ];
 
   return (
@@ -55,8 +100,11 @@ export function MasterMix(props: MasterMixProps) {
     >
       <MasterMixTable
         style={{ maxWidth: 400 }}
-        rowClassName={(record, index) => {
-          if (index === props.ingredients.length) {
+        rowClassName={(record: MasterMixTableRow) => {
+          if (
+            record.rowKind === 'masterMixTotal' ||
+            record.rowKind === 'reactionTotal'
+          ) {
             return TOTAL_VOLUME_ROW_CLASS;
           }
 
@@ -64,13 +112,12 @@ export function MasterMix(props: MasterMixProps) {
             ? 'mll-ant-table-row-selected'
             : '';
         }}
-        dataSource={ingredientsWithSumRow}
-        rowKey={(record) => record.key}
-        pagination={{ defaultPageSize: 10, hideOnSinglePage: true }}
-        onRow={(record, index) => ({
+        dataSource={rows}
+        rowKey={(record: MasterMixTableRow) => record.key}
+        pagination={false}
+        onRow={(record: MasterMixTableRow) => ({
           onClick: () => {
-            if (index === props.ingredients.length) {
-              // last row with the sum should not be clickable
+            if (record.rowKind !== 'masterMixIngredient') {
               return;
             }
             setHighlightedEntries((prevIDs) =>
@@ -81,11 +128,13 @@ export function MasterMix(props: MasterMixProps) {
         columns={[
           {
             title: 'Name',
-            render: (_, record) => record.title,
+            render: (_: unknown, record: MasterMixTableRow) => record.title,
           },
           {
             title: '1x',
-            render: (_, record) => <>{record.volume.toFixed(1)} µl</>,
+            render: (_: unknown, record: MasterMixTableRow) => (
+              <>{record.volume.toFixed(1)} µl</>
+            ),
           },
           pipettingLossTableColumn(props),
         ]}

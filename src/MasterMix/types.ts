@@ -12,6 +12,11 @@ export type MasterMixProps = {
   name: string;
   count: number;
   ingredients: Array<MasterMixIngredient>;
+  /**
+   * Ingredients added to each reaction individually, e.g. template or standard.
+   * They contribute to the reaction volume, but are never part of the shared master mix.
+   */
+  perReactionIngredients?: Array<MasterMixIngredient>;
   pipettingLoss: PipettingLoss;
 };
 
@@ -34,12 +39,22 @@ export type IngredientWithStringOrNumberKey = Modify<
   }
 >;
 
+export type MasterMixTableRowKind =
+  | 'masterMixIngredient'
+  | 'masterMixTotal'
+  | 'perReactionIngredient'
+  | 'reactionTotal';
+
+export type MasterMixTableRow = IngredientWithStringOrNumberKey & {
+  rowKind: MasterMixTableRowKind;
+};
+
 export type PipettingLossTableColumn = Modify<
-  ColumnType<IngredientWithStringOrNumberKey>,
+  ColumnType<MasterMixTableRow>,
   {
     render: (
       value: unknown,
-      record: IngredientWithStringOrNumberKey,
+      record: MasterMixTableRow,
       index: number,
     ) => React.ReactNode;
   }

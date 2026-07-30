@@ -45,16 +45,22 @@ export default {
   },
 };
 
+const PER_REACTION_INGREDIENTS: Array<MasterMixIngredient> = [
+  { key: 5, title: 'cDNA', volume: 5 },
+];
+
+type StoryProps = MasterMixProps & {
+  lossType: 'absolute' | 'factor' | 'factorWithMinimum';
+  lossValue: number;
+  minPositions?: number;
+};
+
 export function Default({
   lossType = 'factorWithMinimum',
   lossValue = 0.1,
   minPositions = 2,
   ...props
-}: MasterMixProps & {
-  lossType: 'absolute' | 'factor' | 'factorWithMinimum';
-  lossValue: number;
-  minPositions?: number;
-}): ReactElement {
+}: StoryProps): ReactElement {
   const pipettingLoss = ((): PipettingLoss => {
     switch (lossType) {
       case 'absolute':
@@ -71,4 +77,10 @@ export function Default({
   })();
 
   return <MasterMix {...props} pipettingLoss={pipettingLoss} />;
+}
+
+export function WithPerReactionIngredients(props: StoryProps): ReactElement {
+  return (
+    <Default {...props} perReactionIngredients={PER_REACTION_INGREDIENTS} />
+  );
 }

@@ -3,7 +3,7 @@ import React from 'react';
 import { Tooltip } from '../Tooltip';
 
 import {
-  IngredientWithStringOrNumberKey,
+  MasterMixTableRow,
   PipettingLoss,
   PipettingLossFactorWithMinimum,
   PipettingLossTableColumn,
@@ -53,7 +53,7 @@ function pipettingLossTitle(
 }
 
 function totalVolume(
-  record: IngredientWithStringOrNumberKey,
+  record: MasterMixTableRow,
   args: PipettingLossTableColumnArgs,
 ) {
   switch (args.pipettingLoss.type) {
@@ -90,8 +90,12 @@ export function pipettingLossTableColumn(
         {pipettingLossTitle(args.pipettingLoss, args.count)} (PV)
       </Tooltip>
     ),
-    render: (_: unknown, record: IngredientWithStringOrNumberKey) => (
-      <>{totalVolume(record, args)} µl</>
-    ),
+    render: (_: unknown, record: MasterMixTableRow) =>
+      record.rowKind === 'perReactionIngredient' ||
+      record.rowKind === 'reactionTotal' ? (
+        <>–</>
+      ) : (
+        <>{totalVolume(record, args)} µl</>
+      ),
   };
 }
