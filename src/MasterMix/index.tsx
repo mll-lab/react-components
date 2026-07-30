@@ -31,14 +31,13 @@ const MixContent = styled.div`
  */
 export function MasterMix({
   name,
-  mode,
   count,
   pipettingLoss,
   ingredients,
   perReactionIngredients,
 }: MasterMixProps) {
-  const scaling =
-    mode === 'recipe' ? undefined : { count, pipettingLoss, mode };
+  /** Keyed on the scaling data itself, so a caller without types degrades to the recipe. */
+  const scaling = pipettingLoss != null ? { count, pipettingLoss } : undefined;
 
   return (
     <Card
