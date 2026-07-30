@@ -2,29 +2,33 @@ import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
 const PIPETTED_MARK = '✓';
+const INDENT_STEP_IN_PIXELS = 20;
 
 /**
- * Indents the ingredient to show it is part of the master mix and reserves the space
- * for the mark, so checking one off does not shift the layout.
+ * Indents by one step per sum the row contributes to, and holds the mark right before the
+ * name so that checking one off neither shifts the layout nor detaches from its row.
  */
-const MarkSlot = styled.span`
+const Indent = styled.span<{ $level: number }>`
   display: inline-block;
-  width: 20px;
+  width: ${(props) => props.$level * INDENT_STEP_IN_PIXELS}px;
+  text-align: right;
   color: ${(props) => props.theme.successColor};
 `;
 
 export function MasterMixRowName({
+  level,
   pipetted,
   children,
 }: {
+  level: number;
   pipetted: boolean;
   children: ReactNode;
 }) {
   return (
     <>
-      <MarkSlot title={pipetted ? 'pipettiert' : undefined}>
+      <Indent $level={level} title={pipetted ? 'pipettiert' : undefined}>
         {pipetted ? PIPETTED_MARK : null}
-      </MarkSlot>
+      </Indent>
       {children}
     </>
   );

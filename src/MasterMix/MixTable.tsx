@@ -73,7 +73,7 @@ export function MixTable({
           },
         }))
       }
-      columns={volumeColumns(scaling, pipettedKeys)}
+      columns={volumeColumns(scaling, pipettedKeys, nested)}
     />
   );
 }

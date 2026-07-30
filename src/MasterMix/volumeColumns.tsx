@@ -17,22 +17,39 @@ function belongsToMasterMix(record: MasterMixTableRow): boolean {
   );
 }
 
+/**
+ * Every row is indented one step further than the total it is a summand of, so the master
+ * mix and the ingredients added per reaction meet on the level of the reaction volume.
+ */
+function indentLevel(record: MasterMixTableRow, nested: boolean): number {
+  switch (record.rowKind) {
+    case 'masterMixIngredient':
+      return nested ? 2 : 1;
+    case 'masterMixTotal':
+      return nested ? 1 : 0;
+    case 'perReactionIngredient':
+      return 1;
+    case 'reactionTotal':
+      return 0;
+  }
+}
+
 export function volumeColumns(
   scaling: PipettingScaling | undefined,
   pipettedKeys: Array<string>,
+  nested: boolean,
 ): Array<PipettingLossTableColumn> {
   return [
     {
       title: 'Name',
-      /** Indented as parts of the total below them, which stays flush as their sum. */
-      render: (_: unknown, record: MasterMixTableRow) =>
-        record.rowKind === 'masterMixIngredient' ? (
-          <MasterMixRowName pipetted={pipettedKeys.includes(record.key)}>
-            {record.title}
-          </MasterMixRowName>
-        ) : (
-          record.title
-        ),
+      render: (_: unknown, record: MasterMixTableRow) => (
+        <MasterMixRowName
+          level={indentLevel(record, nested)}
+          pipetted={pipettedKeys.includes(record.key)}
+        >
+          {record.title}
+        </MasterMixRowName>
+      ),
     },
     {
       title: scaling ? '1x' : 'Volumen',
