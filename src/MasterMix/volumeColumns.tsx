@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { MasterMixIngredientName } from './MasterMixIngredientName';
+import { MasterMixRowName } from './MasterMixRowName';
 import { REFERENCE_VOLUME_CLASS } from './VolumeTable';
 import { pipettingLossTableColumn } from './pipettingLossTableColumn';
 import {
@@ -9,8 +9,11 @@ import {
   PipettingScaling,
 } from './types';
 
-/** Only the master mix is scaled, so all other volumes are shown for a single reaction only. */
-function isScaled(record: MasterMixTableRow): boolean {
+/**
+ * The rows the master mix is made of, which are indented into it and are the only ones
+ * scaled by the number of reactions.
+ */
+function belongsToMasterMix(record: MasterMixTableRow): boolean {
   return (
     record.rowKind === 'masterMixIngredient' ||
     record.rowKind === 'masterMixTotal'
@@ -25,10 +28,10 @@ export function volumeColumns(
     {
       title: 'Name',
       render: (_: unknown, record: MasterMixTableRow) =>
-        record.rowKind === 'masterMixIngredient' ? (
-          <MasterMixIngredientName pipetted={pipettedKeys.includes(record.key)}>
+        belongsToMasterMix(record) ? (
+          <MasterMixRowName pipetted={pipettedKeys.includes(record.key)}>
             {record.title}
-          </MasterMixIngredientName>
+          </MasterMixRowName>
         ) : (
           record.title
         ),
@@ -38,7 +41,9 @@ export function volumeColumns(
       align: 'right',
       onCell: (record: MasterMixTableRow) => ({
         className:
-          scaling && isScaled(record) ? REFERENCE_VOLUME_CLASS : undefined,
+          scaling && belongsToMasterMix(record)
+            ? REFERENCE_VOLUME_CLASS
+            : undefined,
       }),
       render: (_: unknown, record: MasterMixTableRow) =>
         record.rowKind === 'masterMixSection' ? null : (

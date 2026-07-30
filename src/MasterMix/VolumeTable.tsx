@@ -50,10 +50,6 @@ export const VolumeTable = styled(Table)`
     border-bottom: 2px solid ${PALETTE.gray5};
   }
 
-  .mll-ant-table-tbody > tr.${MASTER_MIX_END_ROW_CLASS} + tr > td {
-    padding-top: 16px;
-  }
-
   .${PIPETTED_ROW_CLASS} {
     color: ${PALETTE.gray6};
   }

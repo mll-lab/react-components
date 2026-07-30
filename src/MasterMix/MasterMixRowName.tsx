@@ -13,7 +13,7 @@ const MarkSlot = styled.span`
   color: ${(props) => props.theme.successColor};
 `;
 
-export function MasterMixIngredientName({
+export function MasterMixRowName({
   pipetted,
   children,
 }: {
