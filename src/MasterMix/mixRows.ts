@@ -24,30 +24,31 @@ export function mixRows({
   ingredients,
   perReactionIngredients,
 }: ReactionMix): Array<MasterMixTableRow> {
-  const masterMixTotal: MasterMixTableRow = {
-    key: 'masterMixTotal',
-    /** Within a reaction mix the total doubles as the amount of master mix per reaction. */
-    title: hasPerReactionIngredients(perReactionIngredients)
-      ? MASTER_MIX_LABEL
-      : 'Gesamtvolumen',
-    volume: sumVolume(ingredients),
-    rowKind: 'masterMixTotal',
-  };
-  const masterMixIngredients: Array<MasterMixTableRow> = ingredients.map(
-    (ingredient) => ({
-      ...ingredient,
-      key: ingredientRowKey('masterMixIngredient', ingredient),
-      rowKind: 'masterMixIngredient',
-    }),
-  );
+  const masterMixRows: Array<MasterMixTableRow> = [
+    ...ingredients.map(
+      (ingredient): MasterMixTableRow => ({
+        ...ingredient,
+        key: ingredientRowKey('masterMixIngredient', ingredient),
+        rowKind: 'masterMixIngredient',
+      }),
+    ),
+    {
+      key: 'masterMixTotal',
+      /** Within a reaction mix the total doubles as the amount of master mix per reaction. */
+      title: hasPerReactionIngredients(perReactionIngredients)
+        ? MASTER_MIX_LABEL
+        : 'Gesamtvolumen',
+      volume: sumVolume(ingredients),
+      rowKind: 'masterMixTotal',
+    },
+  ];
 
   if (!hasPerReactionIngredients(perReactionIngredients)) {
-    return [...masterMixIngredients, masterMixTotal];
+    return masterMixRows;
   }
 
   return [
-    ...masterMixIngredients,
-    masterMixTotal,
+    ...masterMixRows,
     ...perReactionIngredients.map(
       (ingredient): MasterMixTableRow => ({
         ...ingredient,
