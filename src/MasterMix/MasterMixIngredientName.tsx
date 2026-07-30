@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
-export const PIPETTED_MARK = '✓';
+const PIPETTED_MARK = '✓';
 
 /**
  * Indents the ingredient to show it is part of the master mix and reserves the space
