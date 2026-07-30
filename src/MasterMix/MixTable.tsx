@@ -1,4 +1,4 @@
-import { toggleElement } from '@mll-lab/js-utils';
+import { insertIf, toggleElement } from '@mll-lab/js-utils';
 import React, { useState } from 'react';
 
 import {
@@ -12,7 +12,7 @@ import { mixRows } from './mixRows';
 import { MasterMixTableRow, PipettingScaling, ReactionMix } from './types';
 import { volumeColumns } from './volumeColumns';
 
-export type MixTableProps = ReactionMix & {
+type MixTableProps = ReactionMix & {
   scaling?: PipettingScaling;
 };
 
@@ -28,7 +28,7 @@ function rowClassName(
       return [
         TOTAL_VOLUME_ROW_CLASS,
         UNCLICKABLE_ROW_CLASS,
-        nested ? MASTER_MIX_END_ROW_CLASS : '',
+        ...insertIf(nested, MASTER_MIX_END_ROW_CLASS),
       ].join(' ');
     case 'perReactionIngredient':
       return UNCLICKABLE_ROW_CLASS;
