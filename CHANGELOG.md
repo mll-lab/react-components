@@ -1,3 +1,10 @@
+# [20.5.0](https://github.com/mll-lab/react-components/compare/v20.4.1...v20.5.0) (2026-08-03)
+
+
+### Features
+
+* **MasterMix:** distinguish per reaction ingredients and add recipe mode ([#330](https://github.com/mll-lab/react-components/issues/330)) ([0817ab1](https://github.com/mll-lab/react-components/commit/0817ab10ad3ea60e56296b441d75046a8e3b815c))
+
 ## [20.4.1](https://github.com/mll-lab/react-components/compare/v20.4.0...v20.4.1) (2026-03-05)
 
 
