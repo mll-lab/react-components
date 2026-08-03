@@ -52,7 +52,6 @@ export function Table<
         ((record, index) => {
           const rowProps = onRow(record, index);
 
-          /** Only rows that actually react to a click show that they can be clicked. */
           return {
             ...rowProps,
             style: {
