@@ -3,11 +3,11 @@ import React from 'react';
 import { Tooltip } from '../Tooltip';
 
 import {
-  IngredientWithStringOrNumberKey,
+  MasterMixTableRow,
   PipettingLoss,
   PipettingLossFactorWithMinimum,
   PipettingLossTableColumn,
-  PipettingLossTableColumnArgs,
+  PipettingScaling,
 } from './types';
 
 type PipettingLosses = {
@@ -52,10 +52,7 @@ function pipettingLossTitle(
   }
 }
 
-function totalVolume(
-  record: IngredientWithStringOrNumberKey,
-  args: PipettingLossTableColumnArgs,
-) {
+function totalVolume(record: MasterMixTableRow, args: PipettingScaling) {
   switch (args.pipettingLoss.type) {
     case 'absolute':
       return (record.volume * (args.count + args.pipettingLoss.count)).toFixed(
@@ -81,17 +78,26 @@ function totalVolume(
 }
 
 export function pipettingLossTableColumn(
-  args: PipettingLossTableColumnArgs,
+  args: PipettingScaling,
 ): PipettingLossTableColumn {
   return {
+    align: 'right',
     title: (
       <Tooltip title="Pipettierverlust">
         {args.count}x Ansätze +{' '}
         {pipettingLossTitle(args.pipettingLoss, args.count)} (PV)
       </Tooltip>
     ),
-    render: (_: unknown, record: IngredientWithStringOrNumberKey) => (
-      <>{totalVolume(record, args)} µl</>
-    ),
+    render: (_: unknown, record: MasterMixTableRow) => {
+      switch (record.rowKind) {
+        /** Pipetted into each reaction individually, so the loss does not apply. */
+        case 'perReactionIngredient':
+        case 'reactionTotal':
+          return <>–</>;
+        case 'masterMixIngredient':
+        case 'masterMixTotal':
+          return <>{totalVolume(record, args)} µl</>;
+      }
+    },
   };
 }

@@ -1,95 +1,65 @@
-import { toggleElement } from '@mll-lab/js-utils';
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 import { Card } from '../Card';
-import { Table } from '../Table';
 import { Typography } from '../Typography';
 
-import { pipettingLossTableColumn } from './pipettingLossTableColumn';
+import { MixTable } from './MixTable';
+import { hasPerReactionIngredients } from './hasPerReactionIngredients';
+import { MASTER_MIX_LABEL } from './mixRows';
 import { MasterMixProps } from './types';
 
+export { reactionVolume } from './reactionVolume';
 export {
   MasterMixProps,
   MasterMixIngredient,
+  ReactionMix,
   PipettingLoss,
   PipettingLossAbsolute,
   PipettingLossByFactor,
   PipettingLossFactorWithMinimum,
 } from './types';
 
-const TOTAL_VOLUME_ROW_CLASS = 'total-volume-row';
-
-const MasterMixTable = styled(Table)`
-  .${TOTAL_VOLUME_ROW_CLASS} {
-    background-color: lightgrey;
-  }
+/**
+ * Constrains the table from the outside, since antd wins the specificity tie for
+ * `max-width` on `.mll-ant-table-wrapper`.
+ */
+const MixContent = styled.div`
+  max-width: 400px;
 `;
 
 /**
- * The reactants can be clicked and marked as pipetted.
+ * Shows what to pipette for a given number of reactions, or as a plain recipe in `mode="recipe"`.
+ * Ingredients added per reaction turn the master mix into a part of the reaction mix.
  */
-export function MasterMix(props: MasterMixProps) {
-  const [highlightedEntries, setHighlightedEntries] = useState<Array<string>>(
-    [],
-  );
-
-  const ingredientsWithSumRow = [
-    ...props.ingredients,
-    {
-      key: 'Total Volume (non-numeric string, guaranteed to be unique since ingredients keys must be of type number)',
-      title: <h4>Gesamtvolumen</h4>,
-      volume: props.ingredients.reduce(
-        (volumeAccumulator, ingredient) =>
-          volumeAccumulator + ingredient.volume,
-        0,
-      ),
-    },
-  ];
+export function MasterMix({
+  name,
+  count,
+  pipettingLoss,
+  ingredients,
+  perReactionIngredients,
+}: MasterMixProps) {
+  /** Keyed on the scaling data itself, so a caller without types degrades to the recipe. */
+  const scaling = pipettingLoss != null ? { count, pipettingLoss } : undefined;
 
   return (
     <Card
       title={
-        <Typography.Title level={5}>{props.name} MasterMix</Typography.Title>
+        <Typography.Title level={5}>
+          {name}{' '}
+          {hasPerReactionIngredients(perReactionIngredients)
+            ? 'Reaktionsmix'
+            : MASTER_MIX_LABEL}
+        </Typography.Title>
       }
     >
-      <MasterMixTable
-        style={{ maxWidth: 400 }}
-        rowClassName={(record, index) => {
-          if (index === props.ingredients.length) {
-            return TOTAL_VOLUME_ROW_CLASS;
-          }
-
-          return highlightedEntries.includes(record.key.toString())
-            ? 'mll-ant-table-row-selected'
-            : '';
-        }}
-        dataSource={ingredientsWithSumRow}
-        rowKey={(record) => record.key}
-        pagination={{ defaultPageSize: 10, hideOnSinglePage: true }}
-        onRow={(record, index) => ({
-          onClick: () => {
-            if (index === props.ingredients.length) {
-              // last row with the sum should not be clickable
-              return;
-            }
-            setHighlightedEntries((prevIDs) =>
-              toggleElement(prevIDs, record.key.toString()),
-            );
-          },
-        })}
-        columns={[
-          {
-            title: 'Name',
-            render: (_, record) => record.title,
-          },
-          {
-            title: '1x',
-            render: (_, record) => <>{record.volume.toFixed(1)} µl</>,
-          },
-          pipettingLossTableColumn(props),
-        ]}
-      />
+      <MixContent>
+        <MixTable
+          ingredients={ingredients}
+          perReactionIngredients={perReactionIngredients}
+          scaling={scaling}
+        />
+      </MixContent>
     </Card>
   );
 }
