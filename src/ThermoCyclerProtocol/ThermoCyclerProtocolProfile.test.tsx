@@ -34,6 +34,19 @@ describe('ThermoCyclerProtocolProfile', () => {
     expect(screen.getAllByText('45 ×')).toHaveLength(1);
   });
 
+  it('starts the bracket of the cycled stage where the preceding plateau ends', () => {
+    renderProfile();
+
+    expect(screen.getByTestId('plateau-stage-0-step-0')).toHaveAttribute(
+      'x2',
+      '118',
+    );
+    expect(screen.getByTestId('stage-bracket-1')).toHaveAttribute(
+      'd',
+      expect.stringContaining('M 118 '),
+    );
+  });
+
   it('prints hold time and the ramp rate of the approach under every step', () => {
     renderProfile();
 

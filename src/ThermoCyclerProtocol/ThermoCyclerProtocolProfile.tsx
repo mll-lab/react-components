@@ -20,7 +20,7 @@ import {
 
 const HEIGHT = 200;
 const PADDING_TOP = 48;
-const PADDING_BOTTOM = 40;
+const PADDING_BOTTOM = 26;
 const PADDING_X = 12;
 const BASELINE_Y = HEIGHT - PADDING_BOTTOM;
 
@@ -31,13 +31,17 @@ const BRACKET_TICK = 7;
 const LABEL_OFFSET = 8;
 const ANNEALING_MARKER_OFFSET = 21;
 const HOLD_BASELINE_OFFSET = 15;
-const RAMP_BASELINE_OFFSET = 29;
+const RAMP_LABEL_OFFSET = 6;
 
 const ANNEALING_FONT_WEIGHT = 700;
 
+const DEGREES_PER_RADIAN = 180 / Math.PI;
+
 /** No time axis: a 10 s hold beside a 600 s one cannot be drawn to scale at readable size. */
-const STEP_WIDTH = 88;
-const TRANSITION_WIDTH = 30;
+const STEP_WIDTH = 60;
+
+/** The ramp rate is read along the slope, so the gap carries it instead of the plateau. */
+const APPROACH_WIDTH = 46;
 
 type Plateau = {
   step: StepRow;
@@ -45,12 +49,23 @@ type Plateau = {
   y: number;
 };
 
-type Transition = {
+type Segment = {
+  x1: number;
+  y1: number;
+  x2: number;
+  y2: number;
+};
+
+/**
+ * The approach into a step: its ramp rate is a property of getting there, not of staying there.
+ * The first step has no segment — the source names no temperature the block starts from.
+ */
+type Approach = {
   step: StepRow;
-  fromX: number;
-  fromY: number;
-  toX: number;
-  toY: number;
+  labelX: number;
+  labelY: number;
+  angle: number;
+  segment: Segment | null;
 };
 
 type Band = {
@@ -82,13 +97,13 @@ const AnnealingPlateauLine = styled.line`
   stroke-width: 6;
 `;
 
-const TransitionLine = styled.line`
+const ApproachLine = styled.line`
   stroke: ${PALETTE.tableHeaderBackgroundColor};
   stroke-width: 2;
 `;
 
-/** Without a ramp rate the transition is not measured, so it must not look like a measured one. */
-const UnknownTransitionLine = styled(TransitionLine)`
+/** Without a ramp rate the approach is not measured, so it must not look like a measured one. */
+const UnknownApproachLine = styled(ApproachLine)`
   stroke: ${PALETTE.gray5};
   stroke-dasharray: 3 2;
 `;
@@ -103,7 +118,7 @@ const StageLabel = styled.text`
   font-size: 11px;
 `;
 
-const Repeats = styled.text`
+const Repeats = styled.tspan`
   fill: ${PALETTE.gray9};
   font-size: 13px;
   font-weight: 600;
@@ -134,53 +149,86 @@ function temperatureY(scale: TemperatureScale, temperature: number): number {
   );
 }
 
+/** Along the slope for a drawn approach, centred in the leading gap for the first step. */
+function approachLabel(
+  segment: Segment | null,
+  plateauX: number,
+  plateauY: number,
+): Pick<Approach, 'labelX' | 'labelY' | 'angle'> {
+  if (segment == null) {
+    return {
+      labelX: plateauX - APPROACH_WIDTH / 2,
+      labelY: plateauY,
+      angle: 0,
+    };
+  }
+
+  return {
+    labelX: (segment.x1 + segment.x2) / 2,
+    labelY: (segment.y1 + segment.y2) / 2,
+    angle:
+      Math.atan2(segment.y2 - segment.y1, segment.x2 - segment.x1) *
+      DEGREES_PER_RADIAN,
+  };
+}
+
 /** Draws each stage once and brackets the cycled ones, rather than repeating them 45 times. */
 function profileLayout(stages: Array<StageRow>): {
   plateaus: Array<Plateau>;
-  transitions: Array<Transition>;
+  approaches: Array<Approach>;
   bands: Array<Band>;
   width: number;
 } {
   const scale = temperatureScale(stepTemperatures(stages));
   const plateaus: Array<Plateau> = [];
-  const transitions: Array<Transition> = [];
+  const approaches: Array<Approach> = [];
   const bands: Array<Band> = [];
-  let cursor = PADDING_X;
+  let cursor = PADDING_X + APPROACH_WIDTH;
 
   stages.forEach((stage) => {
-    const stageStart = cursor;
+    /**
+     * The approach into the first step of a cycled stage runs on every repeat — coming from the
+     * previous stage only in the first one, from the stage's own last step in all others. The
+     * bracket therefore starts before it, not at the plateau.
+     */
+    const bracketStart = plateaus.length > 0 ? cursor - APPROACH_WIDTH : cursor;
 
     stage.steps.forEach((step) => {
       const previous = plateaus[plateaus.length - 1];
       const y = temperatureY(scale, step.temperature);
+      const segment =
+        previous == null
+          ? null
+          : {
+              x1: previous.x + STEP_WIDTH,
+              y1: previous.y,
+              x2: cursor,
+              y2: y,
+            };
 
-      if (previous != null) {
-        transitions.push({
-          step,
-          fromX: previous.x + STEP_WIDTH,
-          fromY: previous.y,
-          toX: cursor,
-          toY: y,
-        });
-      }
+      approaches.push({
+        step,
+        ...approachLabel(segment, cursor, y),
+        segment,
+      });
 
       plateaus.push({ step, x: cursor, y });
-      cursor += STEP_WIDTH + TRANSITION_WIDTH;
+      cursor += STEP_WIDTH + APPROACH_WIDTH;
     });
 
     bands.push({
       stageIndex: stage.stageIndex,
       repeats: stage.repeats,
-      x: stageStart,
-      width: cursor - TRANSITION_WIDTH - stageStart,
+      x: bracketStart,
+      width: cursor - APPROACH_WIDTH - bracketStart,
     });
   });
 
   return {
     plateaus,
-    transitions,
+    approaches,
     bands,
-    width: cursor - TRANSITION_WIDTH + PADDING_X,
+    width: cursor - APPROACH_WIDTH + PADDING_X,
   };
 }
 
@@ -201,53 +249,69 @@ export function ThermoCyclerProtocolProfile({
   protocol,
   annealing,
 }: ThermoCyclerProtocolProps) {
-  const { plateaus, transitions, bands, width } = profileLayout(
+  const { plateaus, approaches, bands, width } = profileLayout(
     stageRows(protocol, annealing),
   );
 
   return (
-    <>
+    /* The annealing temperature belongs over the drawing, so both share one width. */
+    <div style={{ maxWidth: `${width}px` }}>
       <ProtocolIdentity name={protocol.name} annealing={annealing} />
       <Profile
         viewBox={`0 0 ${width} ${HEIGHT}`}
-        style={{ maxWidth: `${width}px` }}
         role="img"
         aria-label={`Temperaturprofil mit ${plateaus.length} Schritten`}
       >
         <Baseline x1={0} y1={BASELINE_Y} x2={width} y2={BASELINE_Y} />
         {bands.map((band) => (
           <React.Fragment key={`header-stage-${band.stageIndex}`}>
-            <StageLabel x={band.x} y={HEADER_TEXT_Y}>
+            <StageLabel
+              x={band.x + band.width / 2}
+              y={HEADER_TEXT_Y}
+              textAnchor="middle"
+            >
               {band.stageIndex + 1}. {STAGE_LABEL}
+              {band.repeats > 1 ? (
+                <>
+                  {' · '}
+                  <Repeats>
+                    {band.repeats} {REPEATS_SIGN}
+                  </Repeats>
+                </>
+              ) : null}
             </StageLabel>
             {band.repeats > 1 ? (
-              <>
-                <Repeats
-                  x={band.x + band.width}
-                  y={HEADER_TEXT_Y}
-                  textAnchor="end"
-                >
-                  {band.repeats} {REPEATS_SIGN}
-                </Repeats>
-                <Bracket d={bracketPath(band)} />
-              </>
+              <Bracket
+                id={`stage-bracket-${band.stageIndex}`}
+                d={bracketPath(band)}
+              />
             ) : null}
           </React.Fragment>
         ))}
-        {transitions.map((transition) => {
+        {approaches.map((approach) => {
           const Line =
-            transition.step.rampRate == null
-              ? UnknownTransitionLine
-              : TransitionLine;
+            approach.step.rampRate == null ? UnknownApproachLine : ApproachLine;
 
           return (
-            <Line
-              key={`transition-${transition.step.key}`}
-              x1={transition.fromX}
-              y1={transition.fromY}
-              x2={transition.toX}
-              y2={transition.toY}
-            />
+            <React.Fragment key={`approach-${approach.step.key}`}>
+              {approach.segment != null ? (
+                <Line
+                  x1={approach.segment.x1}
+                  y1={approach.segment.y1}
+                  x2={approach.segment.x2}
+                  y2={approach.segment.y2}
+                />
+              ) : null}
+              <RampLabel
+                x={approach.labelX}
+                y={approach.labelY}
+                dy={-RAMP_LABEL_OFFSET}
+                textAnchor="middle"
+                transform={`rotate(${approach.angle} ${approach.labelX} ${approach.labelY})`}
+              >
+                {rampRateLabel(approach.step)}
+              </RampLabel>
+            </React.Fragment>
           );
         })}
         {plateaus.map((plateau) => {
@@ -259,6 +323,7 @@ export function ThermoCyclerProtocolProfile({
           return (
             <React.Fragment key={`plateau-${plateau.step.key}`}>
               <Line
+                id={`plateau-${plateau.step.key}`}
                 x1={plateau.x}
                 y1={plateau.y}
                 x2={plateau.x + STEP_WIDTH}
@@ -290,17 +355,10 @@ export function ThermoCyclerProtocolProfile({
               >
                 {formatHold(plateau.step.hold)}
               </HoldLabel>
-              <RampLabel
-                x={centerX}
-                y={BASELINE_Y + RAMP_BASELINE_OFFSET}
-                textAnchor="middle"
-              >
-                {rampRateLabel(plateau.step)}
-              </RampLabel>
             </React.Fragment>
           );
         })}
       </Profile>
-    </>
+    </div>
   );
 }
