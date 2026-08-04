@@ -1,6 +1,11 @@
 import { Maybe } from '@mll-lab/js-utils';
 
-import { Hold, Stage, Step, ThermoCyclerProtocol } from './types';
+import {
+  ThermoCyclerHold,
+  ThermoCyclerStage,
+  ThermoCyclerStep,
+  ThermoCyclerProtocol,
+} from './types';
 
 /** One step as stored in the protocol column: temperature, hold time and a free-text annotation. */
 type RawStep = {
@@ -66,13 +71,13 @@ function parseRawStep(step: unknown, index: string): RawStep {
 }
 
 type CollectedStages = {
-  stages: Array<Stage>;
+  stages: Array<ThermoCyclerStage>;
   openLoop: Maybe<Array<RawStep>>;
 };
 
 const NOTHING_COLLECTED: CollectedStages = { stages: [], openLoop: null };
 
-function parseStages(rawSteps: Array<RawStep>): Array<Stage> {
+function parseStages(rawSteps: Array<RawStep>): Array<ThermoCyclerStage> {
   const { stages, openLoop } = rawSteps.reduce(collectStage, NOTHING_COLLECTED);
 
   if (openLoop) {
@@ -94,6 +99,12 @@ function collectStage(
   const { boundary, repeats } = parseLoop(rawStep.loop);
 
   if (openLoop) {
+    if (boundary === 'opens') {
+      throw new Error(
+        `Loop wird geoeffnet, obwohl noch einer offen ist: ${rawStep.loop}.`,
+      );
+    }
+
     const loop = [...openLoop, rawStep];
 
     return boundary === 'closes'
@@ -121,7 +132,7 @@ function collectStage(
  * The cycle count sits on an arbitrary step inside the loop, not on its boundaries.
  * A loop without it is the uncorrected data state and must never degrade to a single pass.
  */
-function loopStage(rawSteps: Array<RawStep>): Stage {
+function loopStage(rawSteps: Array<RawStep>): ThermoCyclerStage {
   const repeats = rawSteps
     .map((rawStep) => parseLoop(rawStep.loop).repeats)
     .find((candidate) => candidate != null);
@@ -137,7 +148,7 @@ function loopDescription(rawSteps: Array<RawStep>): string {
   return rawSteps.map((rawStep) => `${rawStep.Tp} °C`).join(', ');
 }
 
-function parseStep(rawStep: RawStep): Step {
+function parseStep(rawStep: RawStep): ThermoCyclerStep {
   const { rampRate } = parseLoop(rawStep.loop);
 
   return {
@@ -147,7 +158,7 @@ function parseStep(rawStep: RawStep): Step {
   };
 }
 
-function parseHold(hold: string): Hold {
+function parseHold(hold: string): ThermoCyclerHold {
   if (hold === INDEFINITE_HOLD) {
     return { indefinite: true };
   }

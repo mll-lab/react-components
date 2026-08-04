@@ -6,6 +6,15 @@ import {
 } from './exampleProtocols';
 import { parseThermoCyclerProtocol } from './parseThermoCyclerProtocol';
 
+/**
+ * Two openers without a close between them, otherwise well-formed: cycle count and closing
+ * marker are present, so flattening would yield a stage of four steps rather than an error.
+ */
+const NESTED_LOOPS = {
+  name: 'ExampleAssay_LC480_58C',
+  protocol: String.raw`{"0":{"Tp":95,"t":"10 sec","loop":"\\ Ramp Rate 4.4"},"1":{"Tp":58,"t":"30 sec","loop":"\\ Ramp Rate 2.2"},"2":{"Tp":72,"t":"30 sec","loop":"&nbsp;45x Ramp Rate 4.4"},"3":{"Tp":40,"t":"Cool","loop":"/ Ramp Rate 2.2"}}`,
+};
+
 describe('parseThermoCyclerProtocol', () => {
   it('nests the loop into a stage and leaves the surrounding steps at a single pass', () => {
     expect(parseThermoCyclerProtocol(ANNEALING_58)).toStrictEqual({
@@ -48,6 +57,12 @@ describe('parseThermoCyclerProtocol', () => {
   it('throws when the loop carries no cycle count', () => {
     expect(() => parseThermoCyclerProtocol(WITHOUT_CYCLE_COUNT)).toThrow(
       'Zyklenzahl fehlt im Loop: 95 °C, 58 °C, 72 °C.',
+    );
+  });
+
+  it('throws when a loop opens inside an open loop instead of flattening both', () => {
+    expect(() => parseThermoCyclerProtocol(NESTED_LOOPS)).toThrow(
+      String.raw`Loop wird geoeffnet, obwohl noch einer offen ist: \ Ramp Rate 2.2.`,
     );
   });
 

@@ -1,6 +1,6 @@
 import { maxBy, minBy } from 'lodash';
 
-import { Step, ThermoCyclerProtocol } from './types';
+import { ThermoCyclerStep, ThermoCyclerProtocol } from './types';
 
 /**
  * Lets a boundary tell "this protocol cannot be shown" apart from a rendering bug,
@@ -15,12 +15,12 @@ export type AnnealingPosition = {
 
 export type ProtocolSummary = {
   cycles: number;
-  annealingStep: Step;
+  annealingStep: ThermoCyclerStep;
   /**
    * The hottest step of the cycled stage. Annealing alone does not tell two protocols apart:
    * the denaturation pair is what a reader checks the protocol against.
    */
-  denaturationStep: Step;
+  denaturationStep: ThermoCyclerStep;
   /**
    * Where the annealing step sits. Views mark it by position rather than by object identity,
    * because any copy of the protocol on its way into the component would drop the marking

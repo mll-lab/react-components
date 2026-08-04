@@ -17,7 +17,7 @@ import {
  * Acquisition mode and detection format live in the device template, not in the protocol source,
  * so the view must not read as the complete device program.
  */
-export const EXCERPT_NOTE =
+const EXCERPT_NOTE =
   'Ausschnitt des Cycler-Programms: Acquisition Mode und Detektionsformat stehen nicht in dieser Quelle.';
 
 const Identity = styled.div`
@@ -28,7 +28,7 @@ const Identity = styled.div`
 `;
 
 /** The name is a verbatim identifier, so it is set monospaced to keep separators legible. */
-export const ProtocolName = styled.div`
+const ProtocolName = styled.div`
   flex: 1 1 auto;
   min-width: 12em;
   font-family: monospace;
@@ -60,7 +60,7 @@ const FigureLabel = styled.div`
   letter-spacing: 0.06em;
 `;
 
-export const Origin = styled.div`
+const Origin = styled.div`
   color: ${PALETTE.gray7};
   font-size: 0.9em;
 `;

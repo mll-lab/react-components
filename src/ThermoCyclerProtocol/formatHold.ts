@@ -1,16 +1,13 @@
-import { Hold } from './types';
+import { padStart } from 'lodash';
+
+import { ThermoCyclerHold } from './types';
 import { INDEFINITE_HOLD_SIGN } from './units';
 
 const SECONDS_PER_MINUTE = 60;
 const SECONDS_PER_HOUR = 3600;
 
-/** Two digits without `padStart`, which the compile target does not offer. */
-function twoDigits(value: number): string {
-  return `0${value}`.slice(-2);
-}
-
 /** `hh:mm:ss` as the device shows a hold time. */
-export function formatHold(hold: Hold): string {
+export function formatHold(hold: ThermoCyclerHold): string {
   if ('indefinite' in hold) {
     return INDEFINITE_HOLD_SIGN;
   }
@@ -21,5 +18,7 @@ export function formatHold(hold: Hold): string {
   );
   const seconds = hold.seconds % SECONDS_PER_MINUTE;
 
-  return [hours, minutes, seconds].map(twoDigits).join(':');
+  return [hours, minutes, seconds]
+    .map((value) => padStart(`${value}`, 2, '0'))
+    .join(':');
 }

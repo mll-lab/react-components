@@ -1,20 +1,20 @@
 export type ThermoCyclerProtocol = {
   name: string;
-  stages: Array<Stage>;
+  stages: Array<ThermoCyclerStage>;
 };
 
-export type Stage = {
+export type ThermoCyclerStage = {
   repeats: number;
-  steps: Array<Step>;
+  steps: Array<ThermoCyclerStep>;
 };
 
-export type Step = {
+export type ThermoCyclerStep = {
   temperature: number;
-  hold: Hold;
+  hold: ThermoCyclerHold;
   rampRate?: number;
 };
 
-export type Hold = { seconds: number } | { indefinite: true };
+export type ThermoCyclerHold = { seconds: number } | { indefinite: true };
 
 export type ThermoCyclerProtocolProps = {
   protocol: ThermoCyclerProtocol;

@@ -1,7 +1,7 @@
 import { AnnealingPosition } from './protocolSummary';
-import { Step, ThermoCyclerProtocol } from './types';
+import { ThermoCyclerStep, ThermoCyclerProtocol } from './types';
 
-export type StepRow = Step & {
+export type StepRow = ThermoCyclerStep & {
   key: string;
   isAnnealing: boolean;
 };
