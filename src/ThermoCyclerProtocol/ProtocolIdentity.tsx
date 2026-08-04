@@ -4,8 +4,8 @@ import styled from 'styled-components';
 import { PALETTE } from '../theme';
 
 import { formatHold } from './formatHold';
-import { protocolSummary } from './protocolSummary';
-import { ThermoCyclerProtocolProps } from './types';
+import { ThermoCyclerProtocolSummary } from './protocolSummary';
+import { ThermoCyclerProtocol, ThermoCyclerProtocolProps } from './types';
 import {
   ANNEALING_DERIVATION_NOTE,
   ANNEALING_LABEL,
@@ -25,11 +25,12 @@ const Identity = styled.div`
   flex-wrap: wrap;
   align-items: flex-end;
   gap: 4px 32px;
+  font-variant-numeric: tabular-nums;
 `;
 
 /** The name is a verbatim identifier, so it is set monospaced to keep separators legible. */
 const ProtocolName = styled.div`
-  flex: 1 1 auto;
+  flex-grow: 1;
   min-width: 12em;
   font-family: monospace;
   font-size: 1.15em;
@@ -38,7 +39,6 @@ const ProtocolName = styled.div`
 `;
 
 const Figure = styled.div`
-  font-variant-numeric: tabular-nums;
   white-space: nowrap;
 `;
 
@@ -50,7 +50,6 @@ const FigureValue = styled.span`
 
 const FigureUnit = styled.span`
   margin-left: 0.15em;
-  font-size: 1em;
 `;
 
 const FigureLabel = styled.div`
@@ -69,11 +68,8 @@ const Origin = styled.div`
  * The annealing temperature alone does not identify a protocol — two assays may share it.
  * The pair with the denaturation step is what a reader checks the protocol against.
  */
-const Denaturation = styled.div`
+const Denaturation = styled(Origin)`
   flex-basis: 100%;
-  color: ${PALETTE.gray7};
-  font-size: 0.9em;
-  font-variant-numeric: tabular-nums;
 `;
 
 export const ExcerptNote = styled.p`
@@ -82,17 +78,22 @@ export const ExcerptNote = styled.p`
   font-size: 0.85em;
 `;
 
+type ProtocolIdentityProps = {
+  name: ThermoCyclerProtocol['name'];
+  source: ThermoCyclerProtocolProps['source'];
+  summary: ThermoCyclerProtocolSummary;
+};
+
 /** Protocol name, annealing temperature and cycle count, so none of them needs the table. */
 export function ProtocolIdentity({
-  protocol,
+  name,
   source,
-}: ThermoCyclerProtocolProps) {
-  const { cycles, annealingStep, denaturationStep } = protocolSummary(protocol);
-
+  summary: { cycles, annealingStep, denaturationStep },
+}: ProtocolIdentityProps) {
   return (
     <>
       <Identity>
-        <ProtocolName>{protocol.name}</ProtocolName>
+        <ProtocolName>{name}</ProtocolName>
         <Figure>
           <FigureValue>{annealingStep.temperature}</FigureValue>
           <FigureUnit>{DEGREES_CELSIUS}</FigureUnit>

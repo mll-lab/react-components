@@ -10,7 +10,11 @@
  * component in an error boundary — an uncaught throw unmounts the surrounding tree.
  */
 export { parseThermoCyclerProtocol } from './parseThermoCyclerProtocol';
-export { protocolSummary, UndisplayableProtocolError } from './protocolSummary';
+export {
+  protocolSummary,
+  UndisplayableProtocolError,
+  ThermoCyclerProtocolSummary,
+} from './protocolSummary';
 export { formatHold } from './formatHold';
 
 export { ThermoCyclerProtocolProfile } from './ThermoCyclerProtocolProfile';
@@ -22,4 +26,3 @@ export {
   ThermoCyclerStep,
   ThermoCyclerHold,
 } from './types';
-export { ProtocolSummary, AnnealingPosition } from './protocolSummary';

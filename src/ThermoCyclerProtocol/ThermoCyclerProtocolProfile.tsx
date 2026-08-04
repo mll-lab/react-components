@@ -23,11 +23,18 @@ const HEIGHT = 200;
 const PADDING_TOP = 48;
 const PADDING_BOTTOM = 40;
 const PADDING_X = 12;
+const BASELINE_Y = HEIGHT - PADDING_BOTTOM;
+
+const HEADER_TEXT_Y = 15;
 const BRACKET_Y = 30;
 const BRACKET_TICK = 7;
+
 const LABEL_OFFSET = 8;
+const ANNEALING_MARKER_OFFSET = 21;
 const HOLD_BASELINE_OFFSET = 15;
 const RAMP_BASELINE_OFFSET = 29;
+
+const ANNEALING_FONT_WEIGHT = 700;
 
 /**
  * Every step is equally wide and every transition equally long. A hold of 10 s beside one of
@@ -44,16 +51,14 @@ type Plateau = {
 };
 
 type Transition = {
-  key: string;
+  step: StepRow;
   fromX: number;
   fromY: number;
   toX: number;
   toY: number;
-  isMeasured: boolean;
 };
 
 type Band = {
-  key: string;
   stageIndex: number;
   repeats: number;
   x: number;
@@ -69,7 +74,6 @@ const Profile = styled.svg`
 
 const Baseline = styled.line`
   stroke: ${(props) => props.theme.containerBorderColor};
-  stroke-width: 1;
 `;
 
 const PlateauLine = styled.line`
@@ -100,7 +104,6 @@ const UnknownTransitionLine = styled(TransitionLine)`
 const Bracket = styled.path`
   fill: none;
   stroke: ${PALETTE.gray7};
-  stroke-width: 1;
 `;
 
 const StageLabel = styled.text`
@@ -119,13 +122,12 @@ const TemperatureLabel = styled.text`
   font-size: 12px;
 `;
 
-const AnnealingTemperatureLabel = styled(TemperatureLabel)`
-  font-weight: 700;
-`;
-
-const AnnealingMarker = styled.text`
+const RampLabel = styled.text`
   fill: ${PALETTE.gray7};
   font-size: 9px;
+`;
+
+const AnnealingMarker = styled(RampLabel)`
   letter-spacing: 0.06em;
 `;
 
@@ -134,16 +136,9 @@ const HoldLabel = styled.text`
   font-size: 10px;
 `;
 
-const RampLabel = styled.text`
-  fill: ${PALETTE.gray7};
-  font-size: 9px;
-`;
-
 function temperatureY(scale: TemperatureScale, temperature: number): number {
   return (
-    HEIGHT -
-    PADDING_BOTTOM -
-    scale(temperature) * (HEIGHT - PADDING_TOP - PADDING_BOTTOM)
+    BASELINE_Y - scale(temperature) * (HEIGHT - PADDING_TOP - PADDING_BOTTOM)
   );
 }
 
@@ -169,12 +164,11 @@ function profileLayout(stages: Array<StageRow>): {
 
       if (previous != null) {
         transitions.push({
-          key: step.key,
+          step,
           fromX: previous.x + STEP_WIDTH,
           fromY: previous.y,
           toX: cursor,
           toY: y,
-          isMeasured: step.rampRate != null,
         });
       }
 
@@ -183,7 +177,6 @@ function profileLayout(stages: Array<StageRow>): {
     });
 
     bands.push({
-      key: stage.key,
       stageIndex: stage.stageIndex,
       repeats: stage.repeats,
       x: stageStart,
@@ -219,30 +212,37 @@ export function ThermoCyclerProtocolProfile({
   protocol,
   source,
 }: ThermoCyclerProtocolProps) {
-  const { annealingPosition } = protocolSummary(protocol);
+  const summary = protocolSummary(protocol);
   const { plateaus, transitions, bands, width } = profileLayout(
-    stageRows(protocol, annealingPosition),
+    stageRows(protocol, summary.annealingPosition),
   );
-  const baselineY = HEIGHT - PADDING_BOTTOM;
 
   return (
     <>
-      <ProtocolIdentity protocol={protocol} source={source} />
+      <ProtocolIdentity
+        name={protocol.name}
+        source={source}
+        summary={summary}
+      />
       <Profile
         viewBox={`0 0 ${width} ${HEIGHT}`}
         style={{ maxWidth: `${width}px` }}
         role="img"
         aria-label={`Temperaturprofil mit ${plateaus.length} Schritten`}
       >
-        <Baseline x1={0} y1={baselineY} x2={width} y2={baselineY} />
+        <Baseline x1={0} y1={BASELINE_Y} x2={width} y2={BASELINE_Y} />
         {bands.map((band) => (
-          <React.Fragment key={`header-${band.key}`}>
-            <StageLabel x={band.x} y={14}>
+          <React.Fragment key={`header-stage-${band.stageIndex}`}>
+            <StageLabel x={band.x} y={HEADER_TEXT_Y}>
               {band.stageIndex + 1}. {STAGE_LABEL}
             </StageLabel>
             {band.repeats > 1 ? (
               <>
-                <Repeats x={band.x + band.width} y={15} textAnchor="end">
+                <Repeats
+                  x={band.x + band.width}
+                  y={HEADER_TEXT_Y}
+                  textAnchor="end"
+                >
                   {band.repeats} {REPEATS_SIGN}
                 </Repeats>
                 <Bracket d={bracketPath(band)} />
@@ -251,13 +251,14 @@ export function ThermoCyclerProtocolProfile({
           </React.Fragment>
         ))}
         {transitions.map((transition) => {
-          const Line = transition.isMeasured
-            ? TransitionLine
-            : UnknownTransitionLine;
+          const Line =
+            transition.step.rampRate == null
+              ? UnknownTransitionLine
+              : TransitionLine;
 
           return (
             <Line
-              key={`transition-${transition.key}`}
+              key={`transition-${transition.step.key}`}
               x1={transition.fromX}
               y1={transition.fromY}
               x2={transition.toX}
@@ -269,9 +270,6 @@ export function ThermoCyclerProtocolProfile({
           const Line = plateau.step.isAnnealing
             ? AnnealingPlateauLine
             : PlateauLine;
-          const Label = plateau.step.isAnnealing
-            ? AnnealingTemperatureLabel
-            : TemperatureLabel;
           const centerX = plateau.x + STEP_WIDTH / 2;
 
           return (
@@ -285,29 +283,32 @@ export function ThermoCyclerProtocolProfile({
               {plateau.step.isAnnealing ? (
                 <AnnealingMarker
                   x={centerX}
-                  y={plateau.y - LABEL_OFFSET - 13}
+                  y={plateau.y - ANNEALING_MARKER_OFFSET}
                   textAnchor="middle"
                 >
                   {ANNEALING_LABEL}
                 </AnnealingMarker>
               ) : null}
-              <Label
+              <TemperatureLabel
                 x={centerX}
                 y={plateau.y - LABEL_OFFSET}
                 textAnchor="middle"
+                fontWeight={
+                  plateau.step.isAnnealing ? ANNEALING_FONT_WEIGHT : undefined
+                }
               >
                 {plateau.step.temperature} {DEGREES_CELSIUS}
-              </Label>
+              </TemperatureLabel>
               <HoldLabel
                 x={centerX}
-                y={baselineY + HOLD_BASELINE_OFFSET}
+                y={BASELINE_Y + HOLD_BASELINE_OFFSET}
                 textAnchor="middle"
               >
                 {formatHold(plateau.step.hold)}
               </HoldLabel>
               <RampLabel
                 x={centerX}
-                y={baselineY + RAMP_BASELINE_OFFSET}
+                y={BASELINE_Y + RAMP_BASELINE_OFFSET}
                 textAnchor="middle"
               >
                 {rampRateLabel(plateau.step)}

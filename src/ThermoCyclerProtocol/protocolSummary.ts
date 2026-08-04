@@ -13,7 +13,7 @@ export type AnnealingPosition = {
   stepIndex: number;
 };
 
-export type ProtocolSummary = {
+export type ThermoCyclerProtocolSummary = {
   cycles: number;
   annealingStep: ThermoCyclerStep;
   /**
@@ -42,7 +42,7 @@ export type ProtocolSummary = {
 export function protocolSummary({
   name,
   stages,
-}: ThermoCyclerProtocol): ProtocolSummary {
+}: ThermoCyclerProtocol): ThermoCyclerProtocolSummary {
   const [cycled, ...furtherCycled] = stages
     .map((stage, stageIndex) => ({ stage, stageIndex }))
     .filter(({ stage }) => stage.repeats > 1);
