@@ -6,10 +6,7 @@ import {
 } from './exampleProtocols';
 import { parseThermoCyclerProtocol } from './parseThermoCyclerProtocol';
 
-/**
- * Two openers without a close between them, otherwise well-formed: cycle count and closing
- * marker are present, so flattening would yield a stage of four steps rather than an error.
- */
+/** Two openers without a close between them, otherwise well-formed — flattening would not error. */
 const NESTED_LOOPS = {
   name: 'ExampleAssay_LC480_58C',
   protocol: String.raw`{"0":{"Tp":95,"t":"10 sec","loop":"\\ Ramp Rate 4.4"},"1":{"Tp":58,"t":"30 sec","loop":"\\ Ramp Rate 2.2"},"2":{"Tp":72,"t":"30 sec","loop":"&nbsp;45x Ramp Rate 4.4"},"3":{"Tp":40,"t":"Cool","loop":"/ Ramp Rate 2.2"}}`,

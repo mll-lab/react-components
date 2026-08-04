@@ -16,11 +16,18 @@ export type ThermoCyclerStep = {
 
 export type ThermoCyclerHold = { seconds: number } | { indefinite: true };
 
+/** Located by position, not by object identity — a copy of the protocol would drop that silently. */
+export type Annealing = {
+  stageIndex: number;
+  stepIndex: number;
+  temperature: ThermoCyclerStep['temperature'];
+};
+
 export type ThermoCyclerProtocolProps = {
   protocol: ThermoCyclerProtocol;
   /**
-   * Where the protocol was read from, e.g. `NeMo #12`.
-   * Shown to keep the view from being mistaken for the complete device program.
+   * Which step anneals is derived, not stored, so the caller states it rather than the view
+   * guessing it. `findAnnealing` derives it for protocols of the LightCycler 480 software.
    */
-  source: string;
+  annealing: Annealing;
 };

@@ -4,10 +4,8 @@ const PADDING_DEGREES = 4;
 export type TemperatureScale = (temperature: number) => number;
 
 /**
- * Scaled to the protocol's own temperatures rather than to a fixed window: there is nothing
- * to clamp, so no step can be drawn at a height that contradicts its printed value.
- *
- * Returns 0 at the coldest drawn temperature and 1 at the hottest.
+ * Scaled to the protocol's own temperatures rather than a fixed window, so nothing is clamped
+ * to a height that contradicts its printed value. Returns 0 at the coldest, 1 at the hottest.
  */
 export function temperatureScale(
   temperatures: Array<number>,

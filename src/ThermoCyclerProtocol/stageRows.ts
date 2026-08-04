@@ -1,5 +1,4 @@
-import { AnnealingPosition } from './protocolSummary';
-import { ThermoCyclerStep, ThermoCyclerProtocol } from './types';
+import { Annealing, ThermoCyclerProtocol, ThermoCyclerStep } from './types';
 
 export type StepRow = ThermoCyclerStep & {
   key: string;
@@ -19,7 +18,7 @@ export function stepTemperatures(stages: Array<StageRow>): Array<number> {
 /** Neither stages nor steps carry an ID, so their position in the protocol identifies them. */
 export function stageRows(
   { stages }: ThermoCyclerProtocol,
-  annealing: AnnealingPosition,
+  annealing: Annealing,
 ): Array<StageRow> {
   return stages.map((stage, stageIndex) => ({
     stageIndex,

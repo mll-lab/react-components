@@ -5,15 +5,17 @@ import { Provider } from '../Provider';
 
 import { ThermoCyclerProtocolProfile } from './ThermoCyclerProtocolProfile';
 import { ANNEALING_58 } from './exampleProtocols';
+import { findAnnealing } from './findAnnealing';
 import { parseThermoCyclerProtocol } from './parseThermoCyclerProtocol';
 import { ANNEALING_LABEL } from './units';
 
 const PROTOCOL = parseThermoCyclerProtocol(ANNEALING_58);
+const ANNEALING = findAnnealing(PROTOCOL);
 
 function renderProfile(): void {
   render(
     <Provider>
-      <ThermoCyclerProtocolProfile protocol={PROTOCOL} source="NeMo" />
+      <ThermoCyclerProtocolProfile protocol={PROTOCOL} annealing={ANNEALING} />
     </Provider>,
   );
 }
@@ -48,15 +50,10 @@ describe('ThermoCyclerProtocolProfile', () => {
     expect(screen.getAllByText(ANNEALING_LABEL)).toHaveLength(2);
   });
 
-  it('states protocol name, annealing pair and origin above the drawing', () => {
+  it('leads with protocol name and annealing temperature above the drawing', () => {
     renderProfile();
 
     expect(screen.getByText(PROTOCOL.name)).toBeInTheDocument();
     expect(screen.getByText('58')).toBeInTheDocument();
-    expect(screen.getByText('45')).toBeInTheDocument();
-    expect(
-      screen.getByText('Denaturierung 95 °C / 00:00:10'),
-    ).toBeInTheDocument();
-    expect(screen.getByText('aus NeMo')).toBeInTheDocument();
   });
 });

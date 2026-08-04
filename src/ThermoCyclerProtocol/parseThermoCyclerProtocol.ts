@@ -7,7 +7,7 @@ import {
   ThermoCyclerProtocol,
 } from './types';
 
-/** One step as stored in the protocol column: temperature, hold time and a free-text annotation. */
+/** One step as stored in the protocol column. */
 type RawStep = {
   Tp: number;
   t: string;
@@ -89,9 +89,6 @@ function parseStages(rawSteps: Array<RawStep>): Array<ThermoCyclerStage> {
   return stages;
 }
 
-/**
- * A step inside a `\`…`/` pair joins the open loop, every other step is a stage of its own.
- */
 function collectStage(
   { stages, openLoop }: CollectedStages,
   rawStep: RawStep,
@@ -128,10 +125,7 @@ function collectStage(
   };
 }
 
-/**
- * The cycle count sits on an arbitrary step inside the loop, not on its boundaries.
- * A loop without it is the uncorrected data state and must never degrade to a single pass.
- */
+/** The cycle count sits on an arbitrary step inside the loop, not on its boundaries. */
 function loopStage(rawSteps: Array<RawStep>): ThermoCyclerStage {
   const repeats = rawSteps
     .map((rawStep) => parseLoop(rawStep.loop).repeats)

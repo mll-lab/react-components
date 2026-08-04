@@ -3,9 +3,8 @@ import styled from 'styled-components';
 
 import { PALETTE } from '../theme';
 
-import { ExcerptNote, ProtocolIdentity } from './ProtocolIdentity';
+import { ProtocolIdentity } from './ProtocolIdentity';
 import { formatHold } from './formatHold';
-import { protocolSummary } from './protocolSummary';
 import { StageRow, StepRow, stageRows, stepTemperatures } from './stageRows';
 import { TemperatureScale, temperatureScale } from './temperatureScale';
 import { ThermoCyclerProtocolProps } from './types';
@@ -36,11 +35,7 @@ const RAMP_BASELINE_OFFSET = 29;
 
 const ANNEALING_FONT_WEIGHT = 700;
 
-/**
- * Every step is equally wide and every transition equally long. A hold of 10 s beside one of
- * 600 s cannot be drawn to scale at readable size, and a compressed axis still reads as a
- * duration — so this view claims no time axis at all and prints hold time and ramp rate as text.
- */
+/** No time axis: a 10 s hold beside a 600 s one cannot be drawn to scale at readable size. */
 const STEP_WIDTH = 88;
 const TRANSITION_WIDTH = 30;
 
@@ -81,10 +76,7 @@ const PlateauLine = styled.line`
   stroke-width: 3;
 `;
 
-/**
- * A dark, heavier plateau rather than another hue: the marking has to survive a greyscale
- * printout, where colour alone carries nothing.
- */
+/** Darker and heavier rather than another hue, so the marking survives a greyscale printout. */
 const AnnealingPlateauLine = styled.line`
   stroke: ${PALETTE.gray9};
   stroke-width: 6;
@@ -204,26 +196,18 @@ function rampRateLabel({ rampRate }: StepRow): string {
     : `${TRANSITION_SIGN} ${rampRate} ${DEGREES_CELSIUS_PER_SECOND}`;
 }
 
-/**
- * The protocol as a schematic staircase: one plateau per step, the cycled stage under a bracket
- * that carries its cycle count. Hold time and the ramp rate of the approach stand under the step.
- */
+/** One plateau per step, the cycled stage under a bracket that carries its cycle count. */
 export function ThermoCyclerProtocolProfile({
   protocol,
-  source,
+  annealing,
 }: ThermoCyclerProtocolProps) {
-  const summary = protocolSummary(protocol);
   const { plateaus, transitions, bands, width } = profileLayout(
-    stageRows(protocol, summary.annealingPosition),
+    stageRows(protocol, annealing),
   );
 
   return (
     <>
-      <ProtocolIdentity
-        name={protocol.name}
-        source={source}
-        summary={summary}
-      />
+      <ProtocolIdentity name={protocol.name} annealing={annealing} />
       <Profile
         viewBox={`0 0 ${width} ${HEIGHT}`}
         style={{ maxWidth: `${width}px` }}
@@ -317,11 +301,6 @@ export function ThermoCyclerProtocolProfile({
           );
         })}
       </Profile>
-      <ExcerptNote>
-        Keine Zeitachse — jeder Schritt ist gleich breit. Unter dem Schritt
-        stehen seine Haltezeit und die Ramp Rate der Anfahrt; eine unbekannte
-        Anfahrt bleibt eine gestrichelte Lücke.
-      </ExcerptNote>
     </>
   );
 }
