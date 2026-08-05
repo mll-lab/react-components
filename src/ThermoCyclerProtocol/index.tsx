@@ -1,18 +1,11 @@
-/**
- * `findAnnealing` throws `UndisplayableProtocolError` when cycle count or annealing step cannot be
- * determined, rather than returning a guess. It is the caller's job to catch that before
- * rendering — `ThermoCyclerProtocolProfile` draws what it is handed.
- */
 export { parseThermoCyclerProtocol } from './parseThermoCyclerProtocol';
-export { findAnnealing, UndisplayableProtocolError } from './findAnnealing';
-export { formatHold } from './formatHold';
+export { UndisplayableThermoCyclerProtocolError } from './UndisplayableThermoCyclerProtocolError';
 
 export { ThermoCyclerProtocolProfile } from './ThermoCyclerProtocolProfile';
+export type { ThermoCyclerProtocolProfileProps } from './ThermoCyclerProtocolProfile';
 
-export {
-  Annealing,
+export type {
   ThermoCyclerProtocol,
-  ThermoCyclerProtocolProps,
   ThermoCyclerStage,
   ThermoCyclerStep,
   ThermoCyclerHold,

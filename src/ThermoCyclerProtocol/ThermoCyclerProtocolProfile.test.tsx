@@ -5,17 +5,14 @@ import { Provider } from '../Provider';
 
 import { ThermoCyclerProtocolProfile } from './ThermoCyclerProtocolProfile';
 import { ANNEALING_58 } from './exampleProtocols';
-import { findAnnealing } from './findAnnealing';
 import { parseThermoCyclerProtocol } from './parseThermoCyclerProtocol';
-import { ANNEALING_LABEL } from './units';
 
 const PROTOCOL = parseThermoCyclerProtocol(ANNEALING_58);
-const ANNEALING = findAnnealing(PROTOCOL);
 
 function renderProfile(): void {
   render(
     <Provider>
-      <ThermoCyclerProtocolProfile protocol={PROTOCOL} annealing={ANNEALING} />
+      <ThermoCyclerProtocolProfile protocol={PROTOCOL} />
     </Provider>,
   );
 }
@@ -47,6 +44,16 @@ describe('ThermoCyclerProtocolProfile', () => {
     );
   });
 
+  it('centers the header of an uncycled stage over its own steps, having no bracket', () => {
+    renderProfile();
+
+    expect(screen.getByTestId('plateau-stage-2-step-0')).toHaveAttribute(
+      'x1',
+      '482',
+    );
+    expect(screen.getByTestId('stage-header-2')).toHaveAttribute('x', '512');
+  });
+
   it('prints hold time and the ramp rate of the approach under every step', () => {
     renderProfile();
 
@@ -57,16 +64,9 @@ describe('ThermoCyclerProtocolProfile', () => {
     expect(screen.getAllByText('→ 2.2 °C/s')).toHaveLength(2);
   });
 
-  it('marks the annealing plateau by name, not by colour alone', () => {
-    renderProfile();
-
-    expect(screen.getAllByText(ANNEALING_LABEL)).toHaveLength(2);
-  });
-
-  it('leads with protocol name and annealing temperature above the drawing', () => {
+  it('leads with the protocol name above the drawing', () => {
     renderProfile();
 
     expect(screen.getByText(PROTOCOL.name)).toBeInTheDocument();
-    expect(screen.getByText('58')).toBeInTheDocument();
   });
 });

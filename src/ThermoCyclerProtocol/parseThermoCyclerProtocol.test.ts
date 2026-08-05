@@ -1,16 +1,13 @@
+import { UndisplayableThermoCyclerProtocolError } from './UndisplayableThermoCyclerProtocolError';
 import {
   ANNEALING_58,
   ANNEALING_60,
   MELTING_CURVE,
+  MELTING_CURVE_WITH_CANONICAL_RAMP_RATES,
+  NESTED_LOOPS,
   WITHOUT_CYCLE_COUNT,
 } from './exampleProtocols';
 import { parseThermoCyclerProtocol } from './parseThermoCyclerProtocol';
-
-/** Two openers without a close between them, otherwise well-formed — flattening would not error. */
-const NESTED_LOOPS = {
-  name: 'ExampleAssay_LC480_58C',
-  protocol: String.raw`{"0":{"Tp":95,"t":"10 sec","loop":"\\ Ramp Rate 4.4"},"1":{"Tp":58,"t":"30 sec","loop":"\\ Ramp Rate 2.2"},"2":{"Tp":72,"t":"30 sec","loop":"&nbsp;45x Ramp Rate 4.4"},"3":{"Tp":40,"t":"Cool","loop":"/ Ramp Rate 2.2"}}`,
-};
 
 describe('parseThermoCyclerProtocol', () => {
   it('nests the loop into a stage and leaves the surrounding steps at a single pass', () => {
@@ -70,16 +67,14 @@ describe('parseThermoCyclerProtocol', () => {
   });
 
   it('throws on the melting curve, whose second loop pair is no repetition', () => {
-    const withCanonicalRampRates = {
-      name: MELTING_CURVE.name,
-      protocol: MELTING_CURVE.protocol.replace(
-        /([\d.]+)&deg;C\/s/g,
-        'Ramp Rate $1',
-      ),
-    };
+    expect(() =>
+      parseThermoCyclerProtocol(MELTING_CURVE_WITH_CANONICAL_RAMP_RATES),
+    ).toThrow('Zyklenzahl fehlt im Loop: 95 °C, 40 °C, 75 °C.');
+  });
 
-    expect(() => parseThermoCyclerProtocol(withCanonicalRampRates)).toThrow(
-      'Zyklenzahl fehlt im Loop: 95 °C, 40 °C, 75 °C.',
+  it('throws an error a caller can tell apart from a library bug', () => {
+    expect(() => parseThermoCyclerProtocol(MELTING_CURVE)).toThrow(
+      UndisplayableThermoCyclerProtocolError,
     );
   });
 });

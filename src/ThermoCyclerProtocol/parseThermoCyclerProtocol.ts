@@ -1,11 +1,13 @@
 import { Maybe } from '@mll-lab/js-utils';
 
+import { UndisplayableThermoCyclerProtocolError } from './UndisplayableThermoCyclerProtocolError';
 import {
   ThermoCyclerHold,
   ThermoCyclerStage,
   ThermoCyclerStep,
   ThermoCyclerProtocol,
 } from './types';
+import { SECONDS_PER_MINUTE } from './units';
 
 /** One step as stored in the protocol column. */
 type RawStep = {
@@ -24,7 +26,6 @@ type ParsedLoop = {
 
 const INDEFINITE_HOLD = 'Cool';
 const HOLD_PATTERN = /^(\d+) (sec|min)$/;
-const SECONDS_PER_MINUTE = 60;
 
 const LOOP_OPENS = '\\ ';
 const LOOP_CLOSES = '/ ';
@@ -48,7 +49,9 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 function parseRawSteps(protocol: string): Array<RawStep> {
   const parsed: unknown = JSON.parse(protocol);
   if (!isRecord(parsed)) {
-    throw new Error(`Protokoll ist kein Objekt: ${protocol}.`);
+    throw new UndisplayableThermoCyclerProtocolError(
+      `Protokoll ist kein Objekt: ${protocol}.`,
+    );
   }
 
   /** The keys are array indices, so they enumerate in the order the steps run. */
@@ -62,7 +65,7 @@ function parseRawStep(step: unknown, index: string): RawStep {
     typeof step.t !== 'string' ||
     typeof step.loop !== 'string'
   ) {
-    throw new Error(
+    throw new UndisplayableThermoCyclerProtocolError(
       `Schritt ${index} ist kein Protokollschritt: ${JSON.stringify(step)}.`,
     );
   }
@@ -81,7 +84,7 @@ function parseStages(rawSteps: Array<RawStep>): Array<ThermoCyclerStage> {
   const { stages, openLoop } = rawSteps.reduce(collectStage, NOTHING_COLLECTED);
 
   if (openLoop) {
-    throw new Error(
+    throw new UndisplayableThermoCyclerProtocolError(
       `Loop wird nicht geschlossen: ${loopDescription(openLoop)}.`,
     );
   }
@@ -97,7 +100,7 @@ function collectStage(
 
   if (openLoop) {
     if (boundary === 'opens') {
-      throw new Error(
+      throw new UndisplayableThermoCyclerProtocolError(
         `Loop wird geoeffnet, obwohl noch einer offen ist: ${rawStep.loop}.`,
       );
     }
@@ -110,7 +113,7 @@ function collectStage(
   }
 
   if (boundary === 'closes') {
-    throw new Error(
+    throw new UndisplayableThermoCyclerProtocolError(
       `Loop wird geschlossen, ohne geoeffnet worden zu sein: ${rawStep.loop}.`,
     );
   }
@@ -132,7 +135,9 @@ function loopStage(rawSteps: Array<RawStep>): ThermoCyclerStage {
     .find((candidate) => candidate != null);
 
   if (repeats == null) {
-    throw new Error(`Zyklenzahl fehlt im Loop: ${loopDescription(rawSteps)}.`);
+    throw new UndisplayableThermoCyclerProtocolError(
+      `Zyklenzahl fehlt im Loop: ${loopDescription(rawSteps)}.`,
+    );
   }
 
   return { repeats, steps: rawSteps.map(parseStep) };
@@ -159,7 +164,9 @@ function parseHold(hold: string): ThermoCyclerHold {
 
   const [, amount, unit] = HOLD_PATTERN.exec(hold) ?? [];
   if (amount == null || unit == null) {
-    throw new Error(`Unbekannte Haltezeit: ${hold}.`);
+    throw new UndisplayableThermoCyclerProtocolError(
+      `Unbekannte Haltezeit: ${hold}.`,
+    );
   }
 
   return {
@@ -208,7 +215,9 @@ function parseRampRate(annotation: string): number | undefined {
 
   const [, rate] = RAMP_RATE_PATTERN.exec(annotation) ?? [];
   if (rate == null) {
-    throw new Error(`Unbekannte Loop-Anmerkung: ${annotation}.`);
+    throw new UndisplayableThermoCyclerProtocolError(
+      `Unbekannte Loop-Anmerkung: ${annotation}.`,
+    );
   }
 
   /** `parseGermanNumber` would read the decimal point as a thousands separator and turn 4.4 into 44. */

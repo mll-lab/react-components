@@ -1,10 +1,11 @@
 import { ThermoCyclerHold } from './types';
-import { INDEFINITE_HOLD_SIGN } from './units';
+import {
+  INDEFINITE_HOLD_SIGN,
+  SECONDS_PER_HOUR,
+  SECONDS_PER_MINUTE,
+} from './units';
 
-const SECONDS_PER_MINUTE = 60;
-const SECONDS_PER_HOUR = 3600;
-
-/** `hh:mm:ss` as the device shows a hold time. */
+/** `h:mm:ss` as the device shows a hold time, padded to at least two digits per part. */
 export function formatHold(hold: ThermoCyclerHold): string {
   if ('indefinite' in hold) {
     return INDEFINITE_HOLD_SIGN;

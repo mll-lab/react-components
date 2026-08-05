@@ -29,3 +29,15 @@ export const MELTING_CURVE = {
   name: 'ExampleMeltingCurve_480',
   protocol: String.raw`{"0":{"Tp":95,"t":"10 min","loop":"4.4&deg;C/s"},"1":{"Tp":95,"t":"10 sec","loop":"\\ 4.4&deg;C/s"},"2":{"Tp":60,"t":"30 sec","loop":"&nbsp;45x 2.2&deg;C/s"},"3":{"Tp":72,"t":"30 sec","loop":"/ 4.4&deg;C/s"},"4":{"Tp":95,"t":"1 min","loop":"\\ 4.4&deg;C/s"},"5":{"Tp":40,"t":"1 min","loop":"2.2&deg;C/s"},"6":{"Tp":75,"t":"","loop":"/ 0.11&deg;C/s"},"7":{"Tp":40,"t":"30 sec","loop":"2.2&deg;C/s"}}`,
 };
+
+/** `MELTING_CURVE` with canonical ramp rates, so only its second loop pair still misses the format. */
+export const MELTING_CURVE_WITH_CANONICAL_RAMP_RATES = {
+  name: 'ExampleMeltingCurve_480',
+  protocol: String.raw`{"0":{"Tp":95,"t":"10 min","loop":"Ramp Rate 4.4"},"1":{"Tp":95,"t":"10 sec","loop":"\\ Ramp Rate 4.4"},"2":{"Tp":60,"t":"30 sec","loop":"&nbsp;45x Ramp Rate 2.2"},"3":{"Tp":72,"t":"30 sec","loop":"/ Ramp Rate 4.4"},"4":{"Tp":95,"t":"1 min","loop":"\\ Ramp Rate 4.4"},"5":{"Tp":40,"t":"1 min","loop":"Ramp Rate 2.2"},"6":{"Tp":75,"t":"","loop":"/ Ramp Rate 0.11"},"7":{"Tp":40,"t":"30 sec","loop":"Ramp Rate 2.2"}}`,
+};
+
+/** Two openers without a close between them, otherwise well-formed — flattening would not error. */
+export const NESTED_LOOPS = {
+  name: 'ExampleAssay_LC480_58C',
+  protocol: String.raw`{"0":{"Tp":95,"t":"10 sec","loop":"\\ Ramp Rate 4.4"},"1":{"Tp":58,"t":"30 sec","loop":"\\ Ramp Rate 2.2"},"2":{"Tp":72,"t":"30 sec","loop":"&nbsp;45x Ramp Rate 4.4"},"3":{"Tp":40,"t":"Cool","loop":"/ Ramp Rate 2.2"}}`,
+};
