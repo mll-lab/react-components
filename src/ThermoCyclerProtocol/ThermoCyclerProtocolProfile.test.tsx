@@ -64,6 +64,29 @@ describe('ThermoCyclerProtocolProfile', () => {
     expect(screen.getAllByText('→ 2.2 °C/s')).toHaveLength(2);
   });
 
+  it('names an approach without a measured ramp rate instead of showing a zero', () => {
+    render(
+      <Provider>
+        <ThermoCyclerProtocolProfile
+          protocol={{
+            name: 'ExampleAssay_LC480_58C',
+            stages: [
+              {
+                repeats: 1,
+                steps: [
+                  { temperature: 95, hold: { seconds: 10 }, rampRate: 4.4 },
+                  { temperature: 58, hold: { seconds: 30 } },
+                ],
+              },
+            ],
+          }}
+        />
+      </Provider>,
+    );
+
+    expect(screen.getByText('Anfahrt unbekannt')).toBeInTheDocument();
+  });
+
   it('leads with the protocol name above the drawing', () => {
     renderProfile();
 
