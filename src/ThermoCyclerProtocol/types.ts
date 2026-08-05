@@ -1,10 +1,13 @@
+import { Maybe } from '@mll-lab/js-utils';
+
 export type ThermoCyclerProtocol = {
   name: string;
   stages: Array<ThermoCyclerStage>;
 };
 
 export type ThermoCyclerStage = {
-  repeats: number;
+  /** A loop whose cycle count the source never carried, which is not the same as running once. */
+  repeats: Maybe<number>;
   steps: Array<ThermoCyclerStep>;
 };
 

@@ -14,6 +14,7 @@ import {
   STAGE_LABEL,
   TRANSITION_SIGN,
   UNKNOWN_RAMP_LABEL,
+  UNKNOWN_REPEATS_LABEL,
 } from './units';
 
 const HEIGHT = 200;
@@ -61,7 +62,7 @@ type Extent = {
 /** Spans the plateaus of one stage — the bracket of a cycled stage reaches further left. */
 type Band = Extent & {
   stageIndex: number;
-  repeats: number;
+  repeats: Maybe<number>;
   entersFromPrecedingStep: boolean;
 };
 
@@ -189,6 +190,10 @@ function rampRateLabel({ rampRate }: ThermoCyclerStep): string {
     : `${TRANSITION_SIGN} ${rampRate} ${DEGREES_CELSIUS_PER_SECOND}`;
 }
 
+function repeatsLabel(repeats: Maybe<number>): string {
+  return repeats == null ? UNKNOWN_REPEATS_LABEL : `${repeats} ${REPEATS_SIGN}`;
+}
+
 /** Draws each stage once and brackets the cycled ones, rather than repeating them 45 times. */
 function profileLayout({ stages }: ThermoCyclerProtocol): {
   plateaus: Array<Plateau>;
@@ -253,7 +258,8 @@ export function ThermoCyclerProtocolProfile({
       >
         <Baseline x1={0} y1={BASELINE_Y} x2={width} y2={BASELINE_Y} />
         {bands.map((band) => {
-          const cycled = band.repeats > 1;
+          /** Only a loop yields an unknown count, so a missing one still means the stage is cycled. */
+          const cycled = band.repeats == null || band.repeats > 1;
           /** A cycled stage's header captions its bracket, an uncycled one its own steps. */
           const extent = cycled ? cycleExtent(band) : band;
 
@@ -269,9 +275,7 @@ export function ThermoCyclerProtocolProfile({
                 {cycled ? (
                   <>
                     {' · '}
-                    <Repeats>
-                      {band.repeats} {REPEATS_SIGN}
-                    </Repeats>
+                    <Repeats>{repeatsLabel(band.repeats)}</Repeats>
                   </>
                 ) : null}
               </StageLabel>

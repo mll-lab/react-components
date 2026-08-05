@@ -9,12 +9,7 @@ export const ANNEALING_58 = {
   protocol: String.raw`{"0":{"Tp":95,"t":"600 sec","loop":"Ramp Rate 4.4"},"1":{"Tp":95,"t":"10 sec","loop":"\\ Ramp Rate 4.4"},"2":{"Tp":58,"t":"30 sec","loop":"&nbsp;45x Ramp Rate 2.2"},"3":{"Tp":72,"t":"30 sec","loop":"/ Ramp Rate 4.4"},"4":{"Tp":40,"t":"Cool","loop":"Ramp Rate 2.2"}}`,
 };
 
-export const ANNEALING_60 = {
-  name: 'ExampleAssay_LC480_60C',
-  protocol: String.raw`{"0":{"Tp":95,"t":"600 sec","loop":"Ramp Rate 4.4"},"1":{"Tp":95,"t":"10 sec","loop":"\\ Ramp Rate 4.4"},"2":{"Tp":60,"t":"30 sec","loop":"&nbsp;45x Ramp Rate 2.2"},"3":{"Tp":72,"t":"30 sec","loop":"/ Ramp Rate 4.4"},"4":{"Tp":40,"t":"Cool","loop":"Ramp Rate 2.2"}}`,
-};
-
-/** `ANNEALING_58` as the data looks before the cycle count is corrected. */
+/** `ANNEALING_58` with a loop whose cycle count no step of it carries. */
 export const WITHOUT_CYCLE_COUNT = {
   name: 'ExampleAssay_LC480_58C',
   protocol: String.raw`{"0":{"Tp":95,"t":"600 sec","loop":"Ramp Rate 4.4"},"1":{"Tp":95,"t":"10 sec","loop":"\\ Ramp Rate 4.4"},"2":{"Tp":58,"t":"30 sec","loop":"Ramp Rate 2.2"},"3":{"Tp":72,"t":"30 sec","loop":"/ Ramp Rate 4.4"},"4":{"Tp":40,"t":"Cool","loop":"Ramp Rate 2.2"}}`,
@@ -34,6 +29,39 @@ export const MELTING_CURVE = {
 export const MELTING_CURVE_WITH_CANONICAL_RAMP_RATES = {
   name: 'ExampleMeltingCurve_480',
   protocol: String.raw`{"0":{"Tp":95,"t":"10 min","loop":"Ramp Rate 4.4"},"1":{"Tp":95,"t":"10 sec","loop":"\\ Ramp Rate 4.4"},"2":{"Tp":60,"t":"30 sec","loop":"&nbsp;45x Ramp Rate 2.2"},"3":{"Tp":72,"t":"30 sec","loop":"/ Ramp Rate 4.4"},"4":{"Tp":95,"t":"1 min","loop":"\\ Ramp Rate 4.4"},"5":{"Tp":40,"t":"1 min","loop":"Ramp Rate 2.2"},"6":{"Tp":75,"t":"","loop":"/ Ramp Rate 0.11"},"7":{"Tp":40,"t":"30 sec","loop":"Ramp Rate 2.2"}}`,
+};
+
+/** The column is plain text, so it also holds strings that were never complete JSON. */
+export const TRUNCATED = {
+  name: 'ExampleAssay_LC480_58C',
+  protocol: String.raw`{"0":{"Tp":95,"t":"600 sec","loop":"Ramp Rate 4.4"}`,
+};
+
+/**
+ * A block cycler has one ramp rate for the whole protocol instead of one per step, writes its loop
+ * markers without an annotation behind them, and ends on a hold that runs until someone opens the lid.
+ */
+export const PROTOCOL_RAMP_RATE = {
+  name: 'ExampleAssay_LC480_58C',
+  protocol: String.raw`{"0":{"Tp":94,"t":"5 min","loop":""},"1":{"Tp":95,"t":"45 sec","loop":"\\"},"2":{"Tp":58,"t":"45 sec","loop":"&nbsp;35x"},"3":{"Tp":72,"t":"45 sec","loop":"/"},"4":{"Tp":12,"t":"forever","loop":""},"rampRate":{"Temp":"3","name":"Temperature Ramp Rate","loop":""}}`,
+};
+
+/** The cycle count can sit behind the annotation, on the marker that closes the loop. */
+export const COUNT_AT_LOOP_CLOSE = {
+  name: 'ExampleAssay_LC480_58C',
+  protocol: String.raw`{"0":{"Tp":95,"t":"10 min","loop":"Slope 20"},"1":{"Tp":95,"t":"1 sec","loop":"\\ Slope 20"},"2":{"Tp":58,"t":"10 sec","loop":"Slope 20"},"3":{"Tp":72,"t":"10 sec","loop":"/ Slope 2 41x"},"4":{"Tp":40,"t":"Cool","loop":"Slope 20"}}`,
+};
+
+/** An export that never bracketed its loop repeats the cycle count on every step of it. */
+export const IMPLICIT_LOOP = {
+  name: 'ExampleAssay_LC480_58C',
+  protocol: String.raw`{"0":{"Tp":95,"t":"15 min","loop":""},"1":{"Tp":95,"t":"60 sec","loop":"&nbsp;35x"},"2":{"Tp":58,"t":"60 sec","loop":"&nbsp;35x"},"3":{"Tp":72,"t":"150 sec","loop":"&nbsp;35x"},"4":{"Tp":72,"t":"10 min","loop":""}}`,
+};
+
+/** Only the protocol ramp rate is a known entry beside the step indices, so anything else is refused. */
+export const WITH_UNKNOWN_ENTRY = {
+  name: 'ExampleAssay_LC480_58C',
+  protocol: String.raw`{"0":{"Tp":95,"t":"600 sec","loop":"Ramp Rate 4.4"},"comment":{"Temp":"3","name":"Temperature Ramp Rate","loop":""}}`,
 };
 
 /** Two openers without a close between them, otherwise well-formed — flattening would not error. */

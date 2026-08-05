@@ -4,7 +4,7 @@ import React from 'react';
 import { Provider } from '../Provider';
 
 import { ThermoCyclerProtocolProfile } from './ThermoCyclerProtocolProfile';
-import { ANNEALING_58 } from './exampleProtocols';
+import { ANNEALING_58, WITHOUT_CYCLE_COUNT } from './exampleProtocols';
 import { parseThermoCyclerProtocol } from './parseThermoCyclerProtocol';
 
 const PROTOCOL = parseThermoCyclerProtocol(ANNEALING_58);
@@ -85,6 +85,19 @@ describe('ThermoCyclerProtocolProfile', () => {
     );
 
     expect(screen.getByText('Anfahrt unbekannt')).toBeInTheDocument();
+  });
+
+  it('brackets a loop whose cycle count the source never carried, naming it unknown', () => {
+    render(
+      <Provider>
+        <ThermoCyclerProtocolProfile
+          protocol={parseThermoCyclerProtocol(WITHOUT_CYCLE_COUNT)}
+        />
+      </Provider>,
+    );
+
+    expect(screen.getByText('Zyklen unbekannt')).toBeInTheDocument();
+    expect(screen.getByTestId('stage-bracket-1')).toBeInTheDocument();
   });
 
   it('leads with the protocol name above the drawing', () => {

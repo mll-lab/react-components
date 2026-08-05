@@ -15,3 +15,4 @@ export const TRANSITION_SIGN = '→';
 export const STAGE_LABEL = 'Programm';
 
 export const UNKNOWN_RAMP_LABEL = 'Anfahrt unbekannt';
+export const UNKNOWN_REPEATS_LABEL = 'Zyklen unbekannt';

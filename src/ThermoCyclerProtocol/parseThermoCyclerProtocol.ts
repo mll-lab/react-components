@@ -16,7 +16,12 @@ type RawStep = {
   loop: string;
 };
 
-type LoopBoundary = 'opens' | 'closes';
+type RawProtocol = {
+  steps: Array<RawStep>;
+  rampRate?: number;
+};
+
+export type LoopBoundary = 'opens' | 'closes';
 
 type ParsedLoop = {
   boundary?: LoopBoundary;
@@ -24,13 +29,27 @@ type ParsedLoop = {
   rampRate?: number;
 };
 
-const INDEFINITE_HOLD = 'Cool';
-const HOLD_PATTERN = /^(\d+) (sec|min)$/;
+/** A step whose loop field is read, before its place in the loop structure is resolved. */
+type DecomposedStep = {
+  rawStep: RawStep;
+  loop: ParsedLoop;
+};
 
-const LOOP_OPENS = '\\ ';
-const LOOP_CLOSES = '/ ';
-const REPEATS_PATTERN = /^&nbsp;(\d+)x /;
-const RAMP_RATE_PATTERN = /^Ramp Rate (\d+(?:\.\d+)?)$/;
+const INDEFINITE_HOLDS: Array<string> = ['Cool', 'forever'];
+const HOLD_PATTERN = /^(\d+)\s*(sec|min)$/;
+
+const STEP_INDEX_PATTERN = /^\d+$/;
+
+/** Block cyclers store one ramp rate for the whole protocol instead of one per step. */
+const PROTOCOL_RAMP_RATE_KEY = 'rampRate';
+const NUMBER_PATTERN = /^\d+(?:\.\d+)?$/;
+
+const LOOP_OPENS_PATTERN = /^\\\s*/;
+const LOOP_CLOSES_PATTERN = /^\/\/?\s*/;
+const REPEATS_PREFIX_PATTERN = /^&nbsp;\s*(?:(\d+)x|x\s*(\d+))\s*/;
+const REPEATS_SUFFIX_PATTERN = /\s*(\d+)x$/;
+/** `Slope` is what a LightCycler calls the same quantity. */
+const RAMP_RATE_PATTERN = /^(?:Ramp Rate|Slope) (\d+(?:\.\d+)?)$/;
 
 export function parseThermoCyclerProtocol({
   name,
@@ -39,15 +58,21 @@ export function parseThermoCyclerProtocol({
   name: ThermoCyclerProtocol['name'];
   protocol: string;
 }): ThermoCyclerProtocol {
-  return { name, stages: parseStages(parseRawSteps(protocol)) };
+  const { steps, rampRate } = parseRawProtocol(protocol);
+  const stages = parseStages(bracketImplicitLoop(steps.map(decomposeStep)));
+
+  return {
+    name,
+    stages: rampRate == null ? stages : withRampRate(stages, rampRate),
+  };
 }
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value != null;
 }
 
-function parseRawSteps(protocol: string): Array<RawStep> {
-  const parsed: unknown = JSON.parse(protocol);
+function parseRawProtocol(protocol: string): RawProtocol {
+  const parsed: unknown = parseJson(protocol);
   if (!isRecord(parsed)) {
     throw new UndisplayableThermoCyclerProtocolError(
       `Protokoll ist kein Objekt: ${protocol}.`,
@@ -55,7 +80,47 @@ function parseRawSteps(protocol: string): Array<RawStep> {
   }
 
   /** The keys are array indices, so they enumerate in the order the steps run. */
-  return Object.keys(parsed).map((index) => parseRawStep(parsed[index], index));
+  const steps = Object.keys(parsed)
+    .filter((key) => key !== PROTOCOL_RAMP_RATE_KEY)
+    .map((key) => {
+      if (!STEP_INDEX_PATTERN.test(key)) {
+        throw new UndisplayableThermoCyclerProtocolError(
+          `Protokolleintrag ist kein Schritt: ${key}.`,
+        );
+      }
+
+      return parseRawStep(parsed[key], key);
+    });
+
+  return {
+    steps,
+    rampRate: parseProtocolRampRate(parsed[PROTOCOL_RAMP_RATE_KEY]),
+  };
+}
+
+function parseJson(protocol: string): unknown {
+  try {
+    return JSON.parse(protocol);
+  } catch {
+    throw new UndisplayableThermoCyclerProtocolError(
+      `Protokoll ist kein JSON: ${protocol}.`,
+    );
+  }
+}
+
+function parseProtocolRampRate(entry: unknown): number | undefined {
+  if (entry == null) {
+    return undefined;
+  }
+
+  const rate = isRecord(entry) ? entry.Temp : undefined;
+  if (typeof rate !== 'string' || !NUMBER_PATTERN.test(rate)) {
+    throw new UndisplayableThermoCyclerProtocolError(
+      `Rampenrate des Protokolls ist unlesbar: ${JSON.stringify(entry)}.`,
+    );
+  }
+
+  return Number(rate);
 }
 
 function parseRawStep(step: unknown, index: string): RawStep {
@@ -73,15 +138,47 @@ function parseRawStep(step: unknown, index: string): RawStep {
   return { Tp: step.Tp, t: step.t, loop: step.loop };
 }
 
+function decomposeStep(rawStep: RawStep): DecomposedStep {
+  return { rawStep, loop: parseLoop(rawStep.loop) };
+}
+
+/**
+ * An export that never bracketed its loop leaves the cycle count on every step of it, so
+ * consecutive steps carrying the same count are one loop and not one stage each.
+ * Restricting this to protocols without any bracket keeps it from nesting a loop.
+ */
+function bracketImplicitLoop(
+  steps: Array<DecomposedStep>,
+): Array<DecomposedStep> {
+  if (steps.some((step) => step.loop.boundary != null)) {
+    return steps;
+  }
+
+  return steps.map((step, index) => {
+    const { repeats } = step.loop;
+    const startsLoop = steps[index - 1]?.loop.repeats !== repeats;
+    const endsLoop = steps[index + 1]?.loop.repeats !== repeats;
+
+    if (repeats == null || startsLoop === endsLoop) {
+      return step;
+    }
+
+    return {
+      ...step,
+      loop: { ...step.loop, boundary: startsLoop ? 'opens' : 'closes' },
+    };
+  });
+}
+
 type CollectedStages = {
   stages: Array<ThermoCyclerStage>;
-  openLoop: Maybe<Array<RawStep>>;
+  openLoop: Maybe<Array<DecomposedStep>>;
 };
 
 const NOTHING_COLLECTED: CollectedStages = { stages: [], openLoop: null };
 
-function parseStages(rawSteps: Array<RawStep>): Array<ThermoCyclerStage> {
-  const { stages, openLoop } = rawSteps.reduce(collectStage, NOTHING_COLLECTED);
+function parseStages(steps: Array<DecomposedStep>): Array<ThermoCyclerStage> {
+  const { stages, openLoop } = steps.reduce(collectStage, NOTHING_COLLECTED);
 
   if (openLoop) {
     throw new UndisplayableThermoCyclerProtocolError(
@@ -94,18 +191,18 @@ function parseStages(rawSteps: Array<RawStep>): Array<ThermoCyclerStage> {
 
 function collectStage(
   { stages, openLoop }: CollectedStages,
-  rawStep: RawStep,
+  step: DecomposedStep,
 ): CollectedStages {
-  const { boundary, repeats } = parseLoop(rawStep.loop);
+  const { boundary, repeats } = step.loop;
 
   if (openLoop) {
     if (boundary === 'opens') {
       throw new UndisplayableThermoCyclerProtocolError(
-        `Loop wird geoeffnet, obwohl noch einer offen ist: ${rawStep.loop}.`,
+        `Loop wird geoeffnet, obwohl noch einer offen ist: ${step.rawStep.loop}.`,
       );
     }
 
-    const loop = [...openLoop, rawStep];
+    const loop = [...openLoop, step];
 
     return boundary === 'closes'
       ? { stages: [...stages, loopStage(loop)], openLoop: null }
@@ -114,51 +211,58 @@ function collectStage(
 
   if (boundary === 'closes') {
     throw new UndisplayableThermoCyclerProtocolError(
-      `Loop wird geschlossen, ohne geoeffnet worden zu sein: ${rawStep.loop}.`,
+      `Loop wird geschlossen, ohne geoeffnet worden zu sein: ${step.rawStep.loop}.`,
     );
   }
 
   if (boundary === 'opens') {
-    return { stages, openLoop: [rawStep] };
+    return { stages, openLoop: [step] };
   }
 
   return {
-    stages: [...stages, { repeats: repeats ?? 1, steps: [parseStep(rawStep)] }],
+    stages: [...stages, { repeats: repeats ?? 1, steps: [parseStep(step)] }],
     openLoop: null,
   };
 }
 
-/** The cycle count sits on an arbitrary step inside the loop, not on its boundaries. */
-function loopStage(rawSteps: Array<RawStep>): ThermoCyclerStage {
-  const repeats = rawSteps
-    .map((rawStep) => parseLoop(rawStep.loop).repeats)
+/** The cycle count sits on an arbitrary step of the loop, its boundaries included. */
+function loopStage(steps: Array<DecomposedStep>): ThermoCyclerStage {
+  const repeats = steps
+    .map((step) => step.loop.repeats)
     .find((candidate) => candidate != null);
 
-  if (repeats == null) {
-    throw new UndisplayableThermoCyclerProtocolError(
-      `Zyklenzahl fehlt im Loop: ${loopDescription(rawSteps)}.`,
-    );
-  }
-
-  return { repeats, steps: rawSteps.map(parseStep) };
+  /**
+   * A loop the source never counted keeps its readable steps and is drawn without a count.
+   * Any number here would be indistinguishable from one the source actually carried.
+   */
+  return { repeats: repeats ?? null, steps: steps.map(parseStep) };
 }
 
-function loopDescription(rawSteps: Array<RawStep>): string {
-  return rawSteps.map((rawStep) => `${rawStep.Tp} °C`).join(', ');
+function loopDescription(steps: Array<DecomposedStep>): string {
+  return steps.map((step) => `${step.rawStep.Tp} °C`).join(', ');
 }
 
-function parseStep(rawStep: RawStep): ThermoCyclerStep {
-  const { rampRate } = parseLoop(rawStep.loop);
-
+function parseStep({ rawStep, loop }: DecomposedStep): ThermoCyclerStep {
   return {
     temperature: rawStep.Tp,
     hold: parseHold(rawStep.t),
-    ...(rampRate == null ? {} : { rampRate }),
+    ...(loop.rampRate == null ? {} : { rampRate: loop.rampRate }),
   };
 }
 
-function parseHold(hold: string): ThermoCyclerHold {
-  if (hold === INDEFINITE_HOLD) {
+/** A protocol-wide ramp rate describes every approach the steps do not describe themselves. */
+function withRampRate(
+  stages: Array<ThermoCyclerStage>,
+  rampRate: number,
+): Array<ThermoCyclerStage> {
+  return stages.map((stage) => ({
+    ...stage,
+    steps: stage.steps.map((step) => ({ rampRate, ...step })),
+  }));
+}
+
+export function parseHold(hold: string): ThermoCyclerHold {
+  if (INDEFINITE_HOLDS.includes(hold)) {
     return { indefinite: true };
   }
 
@@ -175,37 +279,56 @@ function parseHold(hold: string): ThermoCyclerHold {
 }
 
 /**
- * A loop field is one optional marker followed by an annotation:
+ * A loop field holds an optional marker, an optional cycle count and an optional annotation,
+ * in notations that differ per device:
  *
- * - `Ramp Rate 4.4` — annotation only
- * - `\ Ramp Rate 4.4` — opens a loop
- * - `&nbsp;45x Ramp Rate 2.2` — carries the cycle count
- * - `/ Ramp Rate 4.4` — closes a loop
+ * - `Ramp Rate 4.4`, `Slope 20` — annotation only
+ * - `\ Slope 20`, `\` — opens a loop
+ * - `&nbsp;45x`, `&nbsp;x 45`, `Slope 20 45x` — carry the cycle count
+ * - `/ Slope 20 41x`, `//&nbsp;40x` — close a loop and carry the count
  */
-function parseLoop(loop: string): ParsedLoop {
-  if (loop.indexOf(LOOP_OPENS) === 0) {
+export function parseLoop(loop: string): ParsedLoop {
+  const { boundary, rest: counted } = parseBoundary(loop);
+  const { repeats, rest: annotation } = parseRepeats(counted);
+
+  return { boundary, repeats, rampRate: parseRampRate(annotation.trim()) };
+}
+
+function parseBoundary(loop: string): {
+  boundary?: LoopBoundary;
+  rest: string;
+} {
+  const [opens] = LOOP_OPENS_PATTERN.exec(loop) ?? [];
+  if (opens != null) {
+    return { boundary: 'opens', rest: loop.slice(opens.length) };
+  }
+
+  const [closes] = LOOP_CLOSES_PATTERN.exec(loop) ?? [];
+  if (closes != null) {
+    return { boundary: 'closes', rest: loop.slice(closes.length) };
+  }
+
+  return { rest: loop };
+}
+
+function parseRepeats(counted: string): { repeats?: number; rest: string } {
+  const [prefix, beforeX, afterX] = REPEATS_PREFIX_PATTERN.exec(counted) ?? [];
+  if (prefix != null) {
     return {
-      boundary: 'opens',
-      rampRate: parseRampRate(loop.slice(LOOP_OPENS.length)),
+      repeats: Number(beforeX ?? afterX),
+      rest: counted.slice(prefix.length),
     };
   }
 
-  if (loop.indexOf(LOOP_CLOSES) === 0) {
+  const suffix = REPEATS_SUFFIX_PATTERN.exec(counted);
+  if (suffix) {
     return {
-      boundary: 'closes',
-      rampRate: parseRampRate(loop.slice(LOOP_CLOSES.length)),
+      repeats: Number(suffix[1]),
+      rest: counted.slice(0, suffix.index),
     };
   }
 
-  const [marker, repeats] = REPEATS_PATTERN.exec(loop) ?? [];
-  if (marker != null && repeats != null) {
-    return {
-      repeats: Number(repeats),
-      rampRate: parseRampRate(loop.slice(marker.length)),
-    };
-  }
-
-  return { rampRate: parseRampRate(loop) };
+  return { rest: counted };
 }
 
 function parseRampRate(annotation: string): number | undefined {
