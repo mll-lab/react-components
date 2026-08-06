@@ -92,6 +92,13 @@ function parseRawProtocol(protocol: string): RawProtocol {
       return parseRawStep(parsed[key], key);
     });
 
+  /** Nothing to draw is undisplayable input, and the view may rely on at least one temperature. */
+  if (steps.length === 0) {
+    throw new UndisplayableThermoCyclerProtocolError(
+      `Protokoll ohne Schritte: ${protocol}.`,
+    );
+  }
+
   return {
     steps,
     rampRate: parseProtocolRampRate(parsed[PROTOCOL_RAMP_RATE_KEY]),

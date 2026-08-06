@@ -9,6 +9,7 @@ import {
   PROTOCOL_RAMP_RATE,
   TRUNCATED,
   WITHOUT_CYCLE_COUNT,
+  WITHOUT_STEPS,
   WITH_UNKNOWN_ENTRY,
 } from './exampleProtocols';
 import {
@@ -125,6 +126,12 @@ describe('parseThermoCyclerProtocol', () => {
   it('refuses a protocol that was never complete JSON without letting a SyntaxError escape', () => {
     expect(() => parseThermoCyclerProtocol(TRUNCATED)).toThrow(
       UndisplayableThermoCyclerProtocolError,
+    );
+  });
+
+  it('refuses a protocol without a single step instead of returning nothing to draw', () => {
+    expect(() => parseThermoCyclerProtocol(WITHOUT_STEPS)).toThrow(
+      'Protokoll ohne Schritte: {"rampRate":{"Temp":"3","name":"Temperature Ramp Rate","loop":""}}.',
     );
   });
 

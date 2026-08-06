@@ -58,6 +58,12 @@ export const IMPLICIT_LOOP = {
   protocol: String.raw`{"0":{"Tp":95,"t":"15 min","loop":""},"1":{"Tp":95,"t":"60 sec","loop":"&nbsp;35x"},"2":{"Tp":58,"t":"60 sec","loop":"&nbsp;35x"},"3":{"Tp":72,"t":"150 sec","loop":"&nbsp;35x"},"4":{"Tp":72,"t":"10 min","loop":""}}`,
 };
 
+/** A protocol whose only entry is the ramp rate has no step to draw. */
+export const WITHOUT_STEPS = {
+  name: 'ExampleAssay_LC480_58C',
+  protocol: String.raw`{"rampRate":{"Temp":"3","name":"Temperature Ramp Rate","loop":""}}`,
+};
+
 /** Only the protocol ramp rate is a known entry beside the step indices, so anything else is refused. */
 export const WITH_UNKNOWN_ENTRY = {
   name: 'ExampleAssay_LC480_58C',
