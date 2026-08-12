@@ -1,3 +1,10 @@
+# [20.6.0](https://github.com/mll-lab/react-components/compare/v20.5.0...v20.6.0) (2026-08-12)
+
+
+### Features
+
+* **ThermoCyclerProtocol:** render thermal cycler protocols as a temperature profile ([#331](https://github.com/mll-lab/react-components/issues/331)) ([a3b3121](https://github.com/mll-lab/react-components/commit/a3b3121636c98e65978fb07a10134f92cb64e732))
+
 # [20.5.0](https://github.com/mll-lab/react-components/compare/v20.4.1...v20.5.0) (2026-08-03)
 
 
