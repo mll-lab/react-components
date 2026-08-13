@@ -39,4 +39,4 @@ Merge requests with a lot of intermediary commits must be cleaned up by force pu
 
 When you want to test out your changes in a project before merging,
 you can push them to a branch `alpha` or `beta` to trigger a pre-release.
-See [publishing pre-releases](https://semantic-release.gitbook.io/semantic-release/recipes/release-workflow/pre-releases). 
+See [publishing pre-releases](https://semantic-release.gitbook.io/semantic-release/recipes/release-workflow/pre-releases).
