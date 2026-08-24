@@ -13,19 +13,16 @@ export default {
   title: 'TecanWorklist',
 };
 
-/** An existing worklist, rendered for reading. */
 export function Worklist(): ReactElement {
   return <TecanWorklist gwl={DILUTION_RUN_WORKLIST} />;
 }
 
-/** A worklist whose device is already known, named by the consumer. */
 export function WorklistOfKnownDevice(): ReactElement {
   return (
     <TecanWorklist gwl={DILUTION_RUN_WORKLIST} toolbar={<span>Tecan C</span>} />
   );
 }
 
-/** Not yet pipetted, so the tip count is still the user's choice. */
 export function Preview(): ReactElement {
   const [device, setDevice] = React.useState('A');
 

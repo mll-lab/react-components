@@ -64,11 +64,15 @@ const SERIALIZES_INTO_FIELD_COUNT: Record<string, (count: number) => boolean> =
     [COMMAND.REAGENT_DISTRIBUTION]: (count) => count >= 16,
   };
 
-function fieldRole(
-  commandLetter: string,
-  index: number,
-  fieldCount: number,
-): GwlFieldRole {
+function fieldRole({
+  commandLetter,
+  index,
+  fieldCount,
+}: {
+  commandLetter: string;
+  index: number;
+  fieldCount: number;
+}): GwlFieldRole {
   if (index === 0) {
     return 'command';
   }
@@ -95,14 +99,14 @@ function fieldRole(
 }
 
 function parseCommand(line: string, lineNumber: number): GwlCommandLine {
-  const texts = line.split(FIELD_SEPARATOR);
-  const commandLetter = texts[0] ?? '';
+  const fieldTexts = line.split(FIELD_SEPARATOR);
+  const commandLetter = fieldTexts[0] ?? '';
 
   return {
     lineNumber,
-    fields: texts.map((text, index) => ({
+    fields: fieldTexts.map((text, index) => ({
       text,
-      role: fieldRole(commandLetter, index, texts.length),
+      role: fieldRole({ commandLetter, index, fieldCount: fieldTexts.length }),
     })),
   };
 }

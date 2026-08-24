@@ -4,8 +4,7 @@ import { PALETTE } from '../theme';
 
 import { COMMAND, GwlField, GwlFieldRole } from './parseGwl';
 
-/** Only pipetting commands get a color, the rest merely keeps the robot going. */
-const COMMAND_COLOR: Record<string, string> = {
+const PIPETTING_COMMAND_COLOR: Record<string, string> = {
   [COMMAND.ASPIRATE]: PALETTE.red,
   [COMMAND.DISPENSE]: PALETTE.gold,
   [COMMAND.REAGENT_DISTRIBUTION]: PALETTE.blue,
@@ -26,6 +25,6 @@ export function fieldStyle({ role, text }: GwlField): CSSProperties {
 
   return {
     ...FIELD_STYLE.command,
-    color: COMMAND_COLOR[text] ?? PALETTE.gray7,
+    color: PIPETTING_COMMAND_COLOR[text] ?? PALETTE.gray7,
   };
 }
