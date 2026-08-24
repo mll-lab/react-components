@@ -26,6 +26,7 @@ import {
 export * from './constants';
 export * from './coordinateSystem12x8';
 export * from './coordinateSystem2x16';
+export * from './coordinateSystem2x16NoJ';
 export * from './coordinateSystem6x4';
 export * from './types';
 export * from './utils';
