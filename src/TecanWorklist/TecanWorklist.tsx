@@ -1,8 +1,10 @@
 import React, { CSSProperties, ReactElement, ReactNode } from 'react';
 import styled from 'styled-components';
 
+import { Card } from '../Card';
 import { Checkbox } from '../Checkbox';
 import { Space } from '../Space';
+import { Typography } from '../Typography';
 import { PALETTE } from '../theme';
 
 import { GwlField, GwlFieldRole, GwlStep, parseGwl } from './parseGwl';
@@ -21,6 +23,7 @@ const FIELD_STYLE: Record<GwlFieldRole, CSSProperties> = {
   command: { fontWeight: 'bold' },
   plain: { color: PALETTE.gray6 },
   position: { color: PALETTE.tableHeaderBackgroundColor, fontWeight: 'bold' },
+  tubeID: { color: PALETTE.gray9, fontWeight: 'bold' },
   volume: { color: PALETTE.green, fontWeight: 'bold' },
 };
 
@@ -35,19 +38,24 @@ function fieldStyle({ role, text }: GwlField): CSSProperties {
   };
 }
 
-const CODE_STYLE: CSSProperties = {
-  backgroundColor: PALETTE.white,
-  border: `1px solid ${PALETTE.gray3}`,
-  fontFamily: 'monospace',
+const CodeCard = styled(Card)`
+  font-family: monospace;
+`;
+
+const CODE_BODY_STYLE: CSSProperties = {
   maxHeight: '400px',
   overflow: 'auto',
-  width: '100%',
+  padding: 0,
 };
 
-const LINE_STYLE: CSSProperties = {
-  display: 'flex',
-  whiteSpace: 'pre',
-};
+const Step = styled.div`
+  padding-bottom: 4px;
+`;
+
+const Line = styled.div`
+  display: flex;
+  white-space: pre;
+`;
 
 /**
  * The line number is generated content, not text: `user-select: none` alone
@@ -67,29 +75,22 @@ const Gutter = styled.span`
   }
 `;
 
-const COMMENT_LINE_STYLE: CSSProperties = {
-  paddingLeft: '8px',
-};
-
-const COMMENT_STYLE: CSSProperties = {
-  color: PALETTE.gray9,
-  fontWeight: 'bold',
-};
+const Comment = styled.span`
+  padding-left: 8px;
+`;
 
 /** Ties the commands visually to the comment they carry out. */
-const COMMAND_STYLE: CSSProperties = {
-  borderLeft: `2px solid ${PALETTE.gray3}`,
-  marginLeft: '8px',
-  paddingLeft: '10px',
-};
+const Command = styled.span`
+  border-left: 2px solid ${PALETTE.gray3};
+  margin-left: 8px;
+  padding-left: 10px;
+`;
 
-const STEP_STYLE: CSSProperties = {
-  paddingBottom: '4px',
-};
+function Separator(): ReactElement {
+  return <Typography.Text type="secondary">;</Typography.Text>;
+}
 
-const SEPARATOR_STYLE: CSSProperties = {
-  color: PALETTE.gray5,
-};
+export const TECAN_WORKLIST_CODE_ID = 'tecan-worklist-code';
 
 export type TecanWorklistProps = {
   /** Raw Gemini worklist to render. */
@@ -106,39 +107,38 @@ function GwlStepView({
   showCommands: boolean;
 }): ReactElement {
   return (
-    <div style={STEP_STYLE}>
+    <Step>
       {step.comment == null ? null : (
-        <div style={LINE_STYLE}>
+        <Line>
           <Gutter data-line-number={step.lineNumber} />
           {/* The C; prefix stays so a copied selection is valid GWL again. */}
-          <span style={COMMENT_LINE_STYLE}>
+          <Comment>
             <span style={fieldStyle({ role: 'command', text: 'C' })}>C</span>
-            <span style={SEPARATOR_STYLE}>;</span>
-            <span style={COMMENT_STYLE}>{step.comment}</span>
-          </span>
-        </div>
+            <Separator />
+            <Typography.Text strong>{step.comment}</Typography.Text>
+          </Comment>
+        </Line>
       )}
-      {showCommands
+      {/* An undocumented step has no comment to collapse into, so it always shows. */}
+      {showCommands || step.comment == null
         ? step.commands.map((command) => (
-            <div key={command.lineNumber} style={LINE_STYLE}>
+            <Line key={command.lineNumber}>
               <Gutter data-line-number={command.lineNumber} />
-              <span style={COMMAND_STYLE}>
+              <Command>
                 {command.fields.map((field, index) => (
                   // The index is the identity of a field: its position in the
                   // record is what gives it meaning, fields never reorder.
                   // eslint-disable-next-line react/no-array-index-key
                   <React.Fragment key={index}>
-                    {index === 0 ? null : (
-                      <span style={SEPARATOR_STYLE}>;</span>
-                    )}
+                    {index === 0 ? null : <Separator />}
                     <span style={fieldStyle(field)}>{field.text}</span>
                   </React.Fragment>
                 ))}
-              </span>
-            </div>
+              </Command>
+            </Line>
           ))
         : null}
-    </div>
+    </Step>
   );
 }
 
@@ -162,10 +162,15 @@ export function TecanWorklist({
           checked={showCommands}
           onChange={(event) => setShowCommands(event.target.checked)}
         >
+          {/* Show commands */}
           Befehle anzeigen
         </Checkbox>
       </Space>
-      <div style={CODE_STYLE}>
+      <CodeCard
+        size="small"
+        id={TECAN_WORKLIST_CODE_ID}
+        bodyStyle={CODE_BODY_STYLE}
+      >
         {steps.map((step) => (
           <GwlStepView
             key={step.lineNumber}
@@ -173,7 +178,7 @@ export function TecanWorklist({
             showCommands={showCommands}
           />
         ))}
-      </div>
+      </CodeCard>
     </Space>
   );
 }

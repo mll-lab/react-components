@@ -12,6 +12,15 @@ W;
 A;MM;;Eppis 32x1.5 ml Cooled;1;;198;Dilution_Run_No_Mix;;2
 D;MM;;Eppis 32x1.5 ml Cooled;32;;198;Dilution_Run_No_Mix;;2
 W;
+A;MM;;Eppis 32x1.5 ml Cooled;1;;198;Dilution_Run_No_Mix;;4
+D;MM;;Eppis 32x1.5 ml Cooled;32;;198;Dilution_Run_No_Mix;;4
+W;
+A;MM;;Eppis 32x1.5 ml Cooled;1;;198;Dilution_Run_No_Mix;;8
+D;MM;;Eppis 32x1.5 ml Cooled;32;;198;Dilution_Run_No_Mix;;8
+W;
+A;MM;;Eppis 32x1.5 ml Cooled;1;;198;Dilution_Run_No_Mix;;16
+D;MM;;Eppis 32x1.5 ml Cooled;32;;198;Dilution_Run_No_Mix;;16
+W;
 C;Transfer von 110 µl von MM-Rack (B1) nach MM-Rack (Q2)
 A;MM;;Eppis 32x1.5 ml Cooled;2;;110;Dilution_Run_Mix_High_Dispense;;32
 D;MM;;Eppis 32x1.5 ml Cooled;32;;110;Dilution_Run_Mix_High_Dispense;;32

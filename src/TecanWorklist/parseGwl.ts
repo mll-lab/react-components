@@ -1,7 +1,12 @@
 import { Maybe } from '@mll-lab/js-utils';
 
 /** Roles a command field can play, each highlighted differently. */
-export type GwlFieldRole = 'command' | 'plain' | 'position' | 'volume';
+export type GwlFieldRole =
+  | 'command'
+  | 'plain'
+  | 'position'
+  | 'tubeID'
+  | 'volume';
 
 export type GwlField = {
   role: GwlFieldRole;
@@ -15,7 +20,7 @@ export type GwlCommandLine = {
 };
 
 /**
- * A comment and the commands carrying it out.
+ * A comment and the commands following it.
  * `comment` is null only for commands preceding the first comment.
  */
 export type GwlStep = {
@@ -45,13 +50,46 @@ const POSITION_FIELDS: Record<string, Array<number>> = {
   R: [4, 5, 9, 10], // source start and end, then target start and end
 };
 
-function fieldRole(commandLetter: string, index: number): GwlFieldRole {
+/**
+ * Field index of the tube barcode per command letter.
+ * A barcode location carries no position, so this is the only
+ * identification of the tube being pipetted from or into.
+ */
+const TUBE_ID_FIELD: Record<string, number> = {
+  A: 5,
+  D: 5,
+};
+
+/**
+ * Fields a command letter serializes into, so a line of an unexpected shape
+ * gets no highlighting rather than highlighting the wrong values.
+ */
+const HAS_EXPECTED_FIELD_COUNT: Record<string, (count: number) => boolean> = {
+  A: (count) => count === 10,
+  D: (count) => count === 10,
+  R: (count) => count >= 16, // excluded target wells are appended
+};
+
+function fieldRole(
+  commandLetter: string,
+  index: number,
+  fieldCount: number,
+): GwlFieldRole {
   if (index === 0) {
     return 'command';
   }
 
+  const hasExpectedFieldCount = HAS_EXPECTED_FIELD_COUNT[commandLetter];
+  if (hasExpectedFieldCount && !hasExpectedFieldCount(fieldCount)) {
+    return 'plain';
+  }
+
   if (index === VOLUME_FIELD[commandLetter]) {
     return 'volume';
+  }
+
+  if (index === TUBE_ID_FIELD[commandLetter]) {
+    return 'tubeID';
   }
 
   if (POSITION_FIELDS[commandLetter]?.includes(index)) {
@@ -69,7 +107,7 @@ function parseCommand(line: string, lineNumber: number): GwlCommandLine {
     lineNumber,
     fields: texts.map((text, index) => ({
       text,
-      role: fieldRole(commandLetter, index),
+      role: fieldRole(commandLetter, index, texts.length),
     })),
   };
 }
@@ -84,7 +122,8 @@ function parseCommand(line: string, lineNumber: number): GwlCommandLine {
 export function parseGwl(gwl: string): Array<GwlStep> {
   const steps: Array<GwlStep> = [];
 
-  gwl.split('\n').forEach((line, index) => {
+  // MLL\Utils\Tecan writes CRLF, so a lone \n split would leave \r in the last field.
+  gwl.split(/\r?\n/).forEach((line, index) => {
     const lineNumber = index + 1;
 
     if (line.trim() === '') {
@@ -101,7 +140,7 @@ export function parseGwl(gwl: string): Array<GwlStep> {
       return;
     }
 
-    const openStep = steps[steps.length - 1];
+    const openStep = steps.at(-1);
     const command = parseCommand(line, lineNumber);
 
     if (openStep) {

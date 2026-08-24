@@ -5,8 +5,8 @@ import { TecanWorklistPreview } from './TecanWorklistPreview';
 import { DILUTION_RUN_WORKLIST } from './exampleWorklist';
 
 const TIP_COUNT_OPTIONS = [
-  { tipCount: 4, value: 'A' },
-  { tipCount: 8, value: 'E' },
+  { tipCount: 4, device: 'A' },
+  { tipCount: 8, device: 'E' },
 ];
 
 export default {

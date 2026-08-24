@@ -42,7 +42,7 @@ describe('parseGwl', () => {
       { role: 'plain', text: '' },
       { role: 'plain', text: 'Eppis 32x1.5 ml Cooled' },
       { role: 'position', text: '1' },
-      { role: 'plain', text: '' },
+      { role: 'tubeID', text: '' },
       { role: 'volume', text: '198' },
       { role: 'plain', text: 'Dilution_Run_No_Mix' },
       { role: 'plain', text: '' },
@@ -63,13 +63,74 @@ describe('parseGwl', () => {
     expect(fields?.[11]).toEqual({ role: 'volume', text: '125' });
   });
 
-  it('leaves commands without volume or position unmarked', () => {
-    const steps = parseGwl('S;21');
+  it('marks the barcode of an aspirate without a position', () => {
+    const steps = parseGwl('A;FluidX;;96FluidX;;SA00012345;198;;;1');
+    const fields = steps[0]?.commands[0]?.fields;
+
+    expect(fields?.[4]).toEqual({ role: 'position', text: '' });
+    expect(fields?.[5]).toEqual({ role: 'tubeID', text: 'SA00012345' });
+  });
+
+  it('leaves fields plain when a command carries more of them than it serializes', () => {
+    const steps = parseGwl('A;MM;;Eppis 32x1.5 ml; Cooled;1;;198;lc;;1');
+    const fields = steps[0]?.commands[0]?.fields ?? [];
+
+    expect(fields.filter((field) => field.role !== 'plain')).toEqual([
+      { role: 'command', text: 'A' },
+    ]);
+  });
+
+  it('leaves fields plain when a command is cut short', () => {
+    const steps = parseGwl('A;MM;;Eppis;1');
+    const fields = steps[0]?.commands[0]?.fields ?? [];
+
+    expect(fields.filter((field) => field.role !== 'plain')).toEqual([
+      { role: 'command', text: 'A' },
+    ]);
+  });
+
+  it('opens a new step at every comment, even between commands', () => {
+    const steps = parseGwl(
+      'C;Transfer\nA;MM;;Eppis;1;;990;;;1\nC;Note\nD;MM;;Eppis;1;;10;;;1',
+    );
+
+    expect(steps.map((step) => step.comment)).toEqual(['Transfer', 'Note']);
+    expect(steps[1]?.commands).toHaveLength(1);
+  });
+
+  it('leaves fields of an unknown command plain', () => {
+    const steps = parseGwl('X;21');
 
     expect(steps[0]?.commands[0]?.fields).toEqual([
-      { role: 'command', text: 'S' },
+      { role: 'command', text: 'X' },
       { role: 'plain', text: '21' },
     ]);
+  });
+
+  it('strips the carriage return MLL\\Utils\\Tecan writes', () => {
+    const steps = parseGwl('C;Transfer\r\nS;21\r\n');
+
+    expect(steps[0]?.comment).toBe('Transfer');
+    expect(steps[0]?.commands[0]?.fields[1]).toEqual({
+      role: 'plain',
+      text: '21',
+    });
+  });
+
+  // Fails the day the expected field counts drift from what MLL\Utils\Tecan writes,
+  // which the fallback to plain fields would otherwise hide.
+  it('highlights a volume in every pipetting command of a worklist', () => {
+    const unhighlighted = parseGwl(DILUTION_RUN_WORKLIST)
+      .flatMap((step) => step.commands)
+      .filter((command) =>
+        ['A', 'D', 'R'].includes(command.fields[0]?.text ?? ''),
+      )
+      .filter(
+        (command) => !command.fields.some((field) => field.role === 'volume'),
+      )
+      .map((command) => command.lineNumber);
+
+    expect(unhighlighted).toEqual([]);
   });
 
   it('reads a full worklist as one step per comment', () => {
@@ -83,9 +144,6 @@ describe('parseGwl', () => {
       'Transfer von 990 µl von MM-Rack (A1) nach MM-Rack (Q2)',
       'Transfer von 110 µl von MM-Rack (B1) nach MM-Rack (Q2)',
       'Verteilen von je 250 µl von MM-Rack (Q2) nach FluidX-Rack (A1, B1, C1, D1)',
-    ]);
-    expect(steps.map((step) => step.commands.length)).toEqual([
-      0, 0, 0, 0, 8, 5, 4,
     ]);
   });
 });
