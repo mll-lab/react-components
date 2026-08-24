@@ -6,7 +6,7 @@ import { PALETTE } from '../theme';
 
 import { Separator } from './Separator';
 import { fieldStyle } from './fieldStyle';
-import { GwlStep } from './parseGwl';
+import { COMMAND, GwlStep } from './parseGwl';
 
 const Step = styled.div`
   padding-bottom: 4px;
@@ -52,21 +52,26 @@ export function GwlStepView({
   step: GwlStep;
   showCommands: boolean;
 }): ReactElement {
+  const isUndocumented = step.comment == null;
+
   return (
     <Step>
-      {step.comment == null ? null : (
+      {isUndocumented ? null : (
         <Line>
           <Gutter data-line-number={step.lineNumber} />
           {/* The C; prefix stays so a copied selection is valid GWL again. */}
           <Comment>
-            <span style={fieldStyle({ role: 'command', text: 'C' })}>C</span>
+            <span
+              style={fieldStyle({ role: 'command', text: COMMAND.COMMENT })}
+            >
+              {COMMAND.COMMENT}
+            </span>
             <Separator />
             <Typography.Text strong>{step.comment}</Typography.Text>
           </Comment>
         </Line>
       )}
-      {/* An undocumented step has no comment to collapse into, so it always shows. */}
-      {showCommands || step.comment == null
+      {showCommands || isUndocumented
         ? step.commands.map((command) => (
             <Line key={command.lineNumber}>
               <Gutter data-line-number={command.lineNumber} />

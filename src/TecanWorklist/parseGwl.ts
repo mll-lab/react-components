@@ -27,33 +27,42 @@ export type GwlStep = {
 
 const FIELD_SEPARATOR = ';';
 
-const COMMENT_PREFIX = `C${FIELD_SEPARATOR}`;
+export const COMMAND = {
+  ASPIRATE: 'A',
+  COMMENT: 'C',
+  DISPENSE: 'D',
+  REAGENT_DISTRIBUTION: 'R',
+} as const;
+
+const COMMENT_PREFIX = `${COMMAND.COMMENT}${FIELD_SEPARATOR}`;
 
 /** All field indexes below mirror the serialization in MLL\Utils\Tecan\BasicCommands. */
 const VOLUME_FIELD: Record<string, number> = {
-  A: 6, // Aspirate
-  D: 6, // Dispense
-  R: 11, // ReagentDistribution
+  [COMMAND.ASPIRATE]: 6,
+  [COMMAND.DISPENSE]: 6,
+  [COMMAND.REAGENT_DISTRIBUTION]: 11,
 };
 
 const POSITION_FIELDS: Record<string, Array<number>> = {
-  A: [4],
-  D: [4],
-  R: [4, 5, 9, 10], // source start and end, then target start and end
+  [COMMAND.ASPIRATE]: [4],
+  [COMMAND.DISPENSE]: [4],
+  // source start and end, then target start and end
+  [COMMAND.REAGENT_DISTRIBUTION]: [4, 5, 9, 10],
 };
 
-/** A barcode location carries no position, so the barcode identifies the tube. */
+/** A barcode location carries no position, the barcode identifies the tube. */
 const TUBE_ID_FIELD: Record<string, number> = {
-  A: 5,
-  D: 5,
+  [COMMAND.ASPIRATE]: 5,
+  [COMMAND.DISPENSE]: 5,
 };
 
-/** A line of an unexpected shape gets no highlighting rather than a wrong one. */
-const HAS_EXPECTED_FIELD_COUNT: Record<string, (count: number) => boolean> = {
-  A: (count) => count === 10,
-  D: (count) => count === 10,
-  R: (count) => count >= 16, // excluded target wells are appended
-};
+const SERIALIZES_INTO_FIELD_COUNT: Record<string, (count: number) => boolean> =
+  {
+    [COMMAND.ASPIRATE]: (count) => count === 10,
+    [COMMAND.DISPENSE]: (count) => count === 10,
+    // excluded target wells are appended
+    [COMMAND.REAGENT_DISTRIBUTION]: (count) => count >= 16,
+  };
 
 function fieldRole(
   commandLetter: string,
@@ -64,8 +73,9 @@ function fieldRole(
     return 'command';
   }
 
-  const hasExpectedFieldCount = HAS_EXPECTED_FIELD_COUNT[commandLetter];
-  if (hasExpectedFieldCount && !hasExpectedFieldCount(fieldCount)) {
+  // A line of an unexpected shape gets no highlighting rather than a wrong one.
+  const serializesIntoFieldCount = SERIALIZES_INTO_FIELD_COUNT[commandLetter];
+  if (serializesIntoFieldCount && !serializesIntoFieldCount(fieldCount)) {
     return 'plain';
   }
 

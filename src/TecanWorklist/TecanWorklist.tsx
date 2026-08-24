@@ -21,9 +21,7 @@ const CODE_BODY_STYLE: CSSProperties = {
 export const TECAN_WORKLIST_CODE_ID = 'tecan-worklist-code';
 
 export type TecanWorklistProps = {
-  /** Raw Gemini worklist to render. */
   gwl: string;
-  /** Controls placed before the command toggle, such as a device selection. */
   toolbar?: ReactNode;
 };
 

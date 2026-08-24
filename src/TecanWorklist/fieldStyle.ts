@@ -2,13 +2,13 @@ import { CSSProperties } from 'react';
 
 import { PALETTE } from '../theme';
 
-import { GwlField, GwlFieldRole } from './parseGwl';
+import { COMMAND, GwlField, GwlFieldRole } from './parseGwl';
 
 /** Only pipetting commands get a color, the rest merely keeps the robot going. */
 const COMMAND_COLOR: Record<string, string> = {
-  A: PALETTE.red, // Aspirate
-  D: PALETTE.gold, // Dispense
-  R: PALETTE.blue, // ReagentDistribution
+  [COMMAND.ASPIRATE]: PALETTE.red,
+  [COMMAND.DISPENSE]: PALETTE.gold,
+  [COMMAND.REAGENT_DISTRIBUTION]: PALETTE.blue,
 };
 
 const FIELD_STYLE: Record<GwlFieldRole, CSSProperties> = {
