@@ -2,7 +2,7 @@ import { CoordinateSystem } from './types';
 
 /**
  * The Tecan MM block has no J on its rows.
- * Mirrors MLL\Utils\Microplate\CoordinateSystem2x16NoJ.
+ * Mirrors https://github.com/mll-lab/php-utils/blob/master/src/Microplate/CoordinateSystem2x16NoJ.php.
  */
 export const COORDINATE_SYSTEM_2X16_NO_J = {
   rows: [
