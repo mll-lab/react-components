@@ -1,3 +1,10 @@
+## [20.6.1](https://github.com/mll-lab/react-components/compare/v20.6.0...v20.6.1) (2026-08-24)
+
+
+### Bug Fixes
+
+* **TecanDeckView:** render the master mix rack without row J ([#333](https://github.com/mll-lab/react-components/issues/333)) ([59e46e3](https://github.com/mll-lab/react-components/commit/59e46e382ef70ce0e28d4dc348652b33500e724e))
+
 # [20.6.0](https://github.com/mll-lab/react-components/compare/v20.5.0...v20.6.0) (2026-08-12)
 
 
