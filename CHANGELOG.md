@@ -1,3 +1,10 @@
+# [20.7.0](https://github.com/mll-lab/react-components/compare/v20.6.1...v20.7.0) (2026-08-24)
+
+
+### Features
+
+* **TecanWorklist:** GWL-Vorschau in die Library ziehen ([#332](https://github.com/mll-lab/react-components/issues/332)) ([3f664bd](https://github.com/mll-lab/react-components/commit/3f664bdce0b0c05b1cb1a914d49aff116df80475))
+
 ## [20.6.1](https://github.com/mll-lab/react-components/compare/v20.6.0...v20.6.1) (2026-08-24)
 
 
