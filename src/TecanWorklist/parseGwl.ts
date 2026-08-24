@@ -12,8 +12,7 @@ export type GwlField = {
   text: string;
 };
 
-export type GwlCommandLine = {
-  /** 1-based line in the source worklist. */
+type GwlCommandLine = {
   lineNumber: number;
   fields: Array<GwlField>;
 };

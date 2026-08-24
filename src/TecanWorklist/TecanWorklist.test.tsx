@@ -12,7 +12,7 @@ import { DILUTION_RUN_WORKLIST } from './exampleWorklist';
 const SHOW_COMMANDS_LABEL = 'Befehle anzeigen';
 
 describe('TecanWorklist', () => {
-  it('leads with the comments, holding the commands back until asked for', async () => {
+  it('leads with the comments, holding the commands back until asked for and again after', async () => {
     render(
       <Provider>
         <TecanWorklist gwl={DILUTION_RUN_WORKLIST} />
@@ -25,6 +25,10 @@ describe('TecanWorklist', () => {
     await userEvent.click(screen.getByLabelText(SHOW_COMMANDS_LABEL));
 
     expect(screen.getAllByText('198')).toHaveLength(10);
+
+    await userEvent.click(screen.getByLabelText(SHOW_COMMANDS_LABEL));
+
+    expect(screen.queryByText('198')).not.toBeInTheDocument();
   });
 
   it('shows the commands of a worklist documenting nothing, which has no comment to collapse into', () => {

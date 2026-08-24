@@ -31,7 +31,7 @@ export function TecanWorklist({
 }: TecanWorklistProps): ReactElement {
   const [showCommands, setShowCommands] = React.useState(false);
 
-  const steps = parseGwl(gwl);
+  const steps = React.useMemo(() => parseGwl(gwl), [gwl]);
 
   return (
     <Space vertical style={{ width: '100%' }}>
