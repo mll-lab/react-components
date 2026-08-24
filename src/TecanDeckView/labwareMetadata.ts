@@ -1,7 +1,7 @@
 import type { CoordinateSystem } from '../Plate';
 import {
   COORDINATE_SYSTEM_12X8,
-  COORDINATE_SYSTEM_2X16,
+  COORDINATE_SYSTEM_2X16_NO_J,
   COORDINATE_SYSTEM_6X4,
 } from '../Plate';
 
@@ -17,7 +17,7 @@ type LabwareMetadata = {
   gridPosition: GridPosition;
   /**
    * Standard mappings per Tecan deck layout:
-   * - mmPlate: 2x16 (master mix tubes)
+   * - mmPlate: 2x16 without J (master mix tubes)
    * - aPlate, bPlate: 6x4 (reagent plates)
    * - All other positions: 12x8 (standard PCR plates)
    */
@@ -37,7 +37,7 @@ export const LABWARE_METADATA: Record<LabwareKey, LabwareMetadata> = {
     shortLabel: 'MM',
     color: LABWARE_COLOR_MASTERMIX_PLATE,
     gridPosition: { row: 0, column: 0 },
-    coordinateSystem: COORDINATE_SYSTEM_2X16,
+    coordinateSystem: COORDINATE_SYSTEM_2X16_NO_J,
   },
   aPlate: {
     label: 'A Plate (200µl #1)',
