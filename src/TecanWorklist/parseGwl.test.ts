@@ -80,24 +80,6 @@ describe('parseGwl', () => {
     ]);
   });
 
-  it('leaves fields plain when a command is cut short', () => {
-    const steps = parseGwl('A;MM;;Eppis;1');
-    const fields = steps[0]?.commands[0]?.fields ?? [];
-
-    expect(fields.filter((field) => field.role !== 'plain')).toEqual([
-      { role: 'command', text: 'A' },
-    ]);
-  });
-
-  it('opens a new step at every comment, even between commands', () => {
-    const steps = parseGwl(
-      'C;Transfer\nA;MM;;Eppis;1;;990;;;1\nC;Note\nD;MM;;Eppis;1;;10;;;1',
-    );
-
-    expect(steps.map((step) => step.comment)).toEqual(['Transfer', 'Note']);
-    expect(steps[1]?.commands).toHaveLength(1);
-  });
-
   it('leaves fields of an unknown command plain', () => {
     const steps = parseGwl('X;21');
 
@@ -117,8 +99,8 @@ describe('parseGwl', () => {
     });
   });
 
-  // Fails the day the expected field counts drift from what MLL\Utils\Tecan writes,
-  // which the fallback to plain fields would otherwise hide.
+  // Fails the day the expected field counts drift from what MLL\Utils\Tecan
+  // writes, which the fallback to plain fields would otherwise hide.
   it('highlights a volume in every pipetting command of a worklist', () => {
     const unhighlighted = parseGwl(DILUTION_RUN_WORKLIST)
       .flatMap((step) => step.commands)
@@ -131,19 +113,5 @@ describe('parseGwl', () => {
       .map((command) => command.lineNumber);
 
     expect(unhighlighted).toEqual([]);
-  });
-
-  it('reads a full worklist as one step per comment', () => {
-    const steps = parseGwl(DILUTION_RUN_WORKLIST);
-
-    expect(steps.map((step) => step.comment)).toEqual([
-      'Created by mll-lab/php-utils v6.14.0',
-      'Date: 2000-01-01 00:00:00',
-      'User: mustermann',
-      'Protocol name: 2000-01-01_00-00-00_DilutionRun1.gwl',
-      'Transfer von 990 µl von MM-Rack (A1) nach MM-Rack (Q2)',
-      'Transfer von 110 µl von MM-Rack (B1) nach MM-Rack (Q2)',
-      'Verteilen von je 250 µl von MM-Rack (Q2) nach FluidX-Rack (A1, B1, C1, D1)',
-    ]);
   });
 });

@@ -1,6 +1,5 @@
 import { Maybe } from '@mll-lab/js-utils';
 
-/** Roles a command field can play, each highlighted differently. */
 export type GwlFieldRole =
   | 'command'
   | 'plain'
@@ -14,15 +13,12 @@ export type GwlField = {
 };
 
 export type GwlCommandLine = {
-  /** 1-based line in the source worklist, so the gutter stays truthful. */
+  /** 1-based line in the source worklist. */
   lineNumber: number;
   fields: Array<GwlField>;
 };
 
-/**
- * A comment and the commands following it.
- * `comment` is null only for commands preceding the first comment.
- */
+/** `comment` is null only for commands preceding the first comment. */
 export type GwlStep = {
   lineNumber: number;
   comment: Maybe<string>;
@@ -33,37 +29,26 @@ const FIELD_SEPARATOR = ';';
 
 const COMMENT_PREFIX = `C${FIELD_SEPARATOR}`;
 
-/**
- * Field index of the pipetted volume per command letter.
- * Mirrors the serialization in MLL\Utils\Tecan\BasicCommands.
- */
+/** All field indexes below mirror the serialization in MLL\Utils\Tecan\BasicCommands. */
 const VOLUME_FIELD: Record<string, number> = {
   A: 6, // Aspirate
   D: 6, // Dispense
   R: 11, // ReagentDistribution
 };
 
-/** Field indexes holding a rack position per command letter. */
 const POSITION_FIELDS: Record<string, Array<number>> = {
   A: [4],
   D: [4],
   R: [4, 5, 9, 10], // source start and end, then target start and end
 };
 
-/**
- * Field index of the tube barcode per command letter.
- * A barcode location carries no position, so this is the only
- * identification of the tube being pipetted from or into.
- */
+/** A barcode location carries no position, so the barcode identifies the tube. */
 const TUBE_ID_FIELD: Record<string, number> = {
   A: 5,
   D: 5,
 };
 
-/**
- * Fields a command letter serializes into, so a line of an unexpected shape
- * gets no highlighting rather than highlighting the wrong values.
- */
+/** A line of an unexpected shape gets no highlighting rather than a wrong one. */
 const HAS_EXPECTED_FIELD_COUNT: Record<string, (count: number) => boolean> = {
   A: (count) => count === 10,
   D: (count) => count === 10,
@@ -113,11 +98,8 @@ function parseCommand(line: string, lineNumber: number): GwlCommandLine {
 }
 
 /**
- * Groups a Gemini worklist into the steps it documents.
- *
  * A worklist documents itself: each `C;` comment describes what the commands
- * following it do, so the comment reads as the step and the commands as its detail.
- * Blank lines are dropped, the retained line numbers still show where they were.
+ * following it do, which makes the comment a step and the commands its detail.
  */
 export function parseGwl(gwl: string): Array<GwlStep> {
   const steps: Array<GwlStep> = [];

@@ -10,7 +10,6 @@ import { TecanWorklist } from './TecanWorklist';
  */
 export type TecanTipCountOption<TDevice extends string> = {
   tipCount: number;
-  /** Device the worklist is requested for, opaque to this component. */
   device: TDevice;
 };
 
@@ -22,13 +21,7 @@ export type TecanWorklistPreviewProps<TDevice extends string> = {
   onDeviceChange: (device: TDevice) => void;
 };
 
-/**
- * Previews the worklist a run would produce, for a tip count the user picks.
- * For a worklist that already exists, render TecanWorklist directly.
- *
- * Exists so the label wording and the placement of the tip count control are
- * decided once here, rather than in every app that offers such a preview.
- */
+/** For a worklist that already exists, render TecanWorklist directly. */
 export function TecanWorklistPreview<TDevice extends string>({
   gwl,
   device,
@@ -46,7 +39,7 @@ export function TecanWorklistPreview<TDevice extends string>({
             value: option.device,
           }))}
           value={device}
-          // Wrapped because Select also passes the option, which is none of the consumer's business.
+          // Wrapped because Select also passes the option, which the consumer has no use for.
           onChange={(selected) => onDeviceChange(selected)}
         />
       }

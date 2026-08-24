@@ -9,10 +9,7 @@ import { PALETTE } from '../theme';
 
 import { GwlField, GwlFieldRole, GwlStep, parseGwl } from './parseGwl';
 
-/**
- * Colors the pipetting commands apart, so a glance shows what a step does.
- * Commands without a color merely keep the robot going (wash, break, tip type).
- */
+/** Only pipetting commands get a color, the rest merely keeps the robot going. */
 const COMMAND_COLOR: Record<string, string> = {
   A: PALETTE.red, // Aspirate
   D: PALETTE.gold, // Dispense
@@ -79,7 +76,6 @@ const Comment = styled.span`
   padding-left: 8px;
 `;
 
-/** Ties the commands visually to the comment they carry out. */
 const Command = styled.span`
   border-left: 2px solid ${PALETTE.gray3};
   margin-left: 8px;
@@ -126,8 +122,7 @@ function GwlStepView({
               <Gutter data-line-number={command.lineNumber} />
               <Command>
                 {command.fields.map((field, index) => (
-                  // The index is the identity of a field: its position in the
-                  // record is what gives it meaning, fields never reorder.
+                  // A field is identified by its position, fields never reorder.
                   // eslint-disable-next-line react/no-array-index-key
                   <React.Fragment key={index}>
                     {index === 0 ? null : <Separator />}
@@ -142,10 +137,6 @@ function GwlStepView({
   );
 }
 
-/**
- * Renders a Tecan worklist grouped into the steps its comments describe,
- * as a code view keeping the source line numbers.
- */
 export function TecanWorklist({
   gwl,
   toolbar,
@@ -162,7 +153,6 @@ export function TecanWorklist({
           checked={showCommands}
           onChange={(event) => setShowCommands(event.target.checked)}
         >
-          {/* Show commands */}
           Befehle anzeigen
         </Checkbox>
       </Space>
