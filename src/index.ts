@@ -56,6 +56,7 @@ export * from './Table';
 export * from './Tabs';
 export * from './Tag';
 export * from './TecanDeckView';
+export * from './TecanWorklist';
 export * from './ThermoCyclerProtocol';
 export * from './Timeline';
 export * from './Tooltip';
