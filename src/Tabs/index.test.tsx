@@ -50,6 +50,27 @@ describe('Tabs', () => {
     expect(tabContent2).toBeVisible();
   });
 
+  it('shows tabs in ascending order, no matter when they mount', () => {
+    const { rerender } = render(
+      <Tabs>
+        <TabPanel key={1} id={1} title="first" order={1} />
+        <TabPanel key={3} id={3} title="third" order={3} />
+      </Tabs>,
+    );
+
+    rerender(
+      <Tabs>
+        <TabPanel key={1} id={1} title="first" order={1} />
+        <TabPanel key={2} id={2} title="second" order={2} />
+        <TabPanel key={3} id={3} title="third" order={3} />
+      </Tabs>,
+    );
+
+    expect(
+      screen.getAllByRole('listitem').map((title) => title.textContent),
+    ).toEqual(['first', 'second', 'third']);
+  });
+
   it('set active tab to last tabID', () => {
     const title1 = 'My tab title1';
     const content1 = 'My tab content1';

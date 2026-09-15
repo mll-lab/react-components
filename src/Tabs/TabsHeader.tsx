@@ -38,12 +38,16 @@ const TabTitle = styled.li<TabTitleProps>`
     `}
 `;
 
+function sortedByOrder(tabs: Array<TabPanelProps>): Array<TabPanelProps> {
+  return [...tabs].sort((tab, other) => (tab.order ?? 0) - (other.order ?? 0));
+}
+
 export function TabsHeader() {
   const context = useContext(TabsContext);
 
   return (
     <TitleList>
-      {context.tabs.map((tab: TabPanelProps) => {
+      {sortedByOrder(context.tabs).map((tab: TabPanelProps) => {
         const isActiveTab = context.activeTabID === tab.id;
 
         return (
