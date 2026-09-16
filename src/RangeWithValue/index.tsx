@@ -7,6 +7,7 @@ import { useTheme } from '../theme';
 import {
   Container,
   DownwardLine,
+  InvalidRange,
   Label,
   LabelWrapper,
   RangeLine,
@@ -36,6 +37,17 @@ export function RangeWithValue({
 }: RangeWithValueProps) {
   const theme = useTheme();
 
+  if (expectedMax < expectedMin) {
+    return (
+      <Container>
+        <InvalidRange>
+          <ExclamationCircleOutlined /> Ungültige Grenzwerte: {expectedMin} ist
+          größer als {expectedMax}
+        </InvalidRange>
+      </Container>
+    );
+  }
+
   const rangeValues = getBufferedRange({
     max: Math.max(expectedMax, actualValue),
     min: Math.min(expectedMin, actualValue),
@@ -49,10 +61,11 @@ export function RangeWithValue({
   const isNearMin = !isRangeZero && actualValue <= expectedMin + warnThreshold;
   const isNearMax = !isRangeZero && actualValue >= expectedMax - warnThreshold;
   const isOutOfRange = actualValue < expectedMin || actualValue > expectedMax;
+  const isScaleCollapsed = rangeValues.bufferedMax === rangeValues.bufferedMin;
 
   const percentage = (val: number) => {
-    if (isRangeZero) {
-      return 50; // Special case: range 0 -> always centered
+    if (isScaleCollapsed) {
+      return 50;
     }
 
     return (
@@ -72,14 +85,13 @@ export function RangeWithValue({
   });
 
   const meanValue = (expectedMin + expectedMax) / 2;
-  const meanLabelWidth = 18;
 
   return (
     <Container>
       <Scale>
         <RangeLine left={`${percentage(expectedMin)}%`} />
-        <RangeLine left={`${percentage(expectedMax)}%`} />
-        {showMean && (
+        {!isRangeZero && <RangeLine left={`${percentage(expectedMax)}%`} />}
+        {showMean && !isRangeZero && (
           <RangeLine left={`calc(${percentage(meanValue)}% - 0.5px)`} />
         )}
         <Tooltip
@@ -118,16 +130,14 @@ export function RangeWithValue({
         </Tooltip>
       </Scale>
       <LabelWrapper>
-        <Label left={`calc(${percentage(expectedMin)}% - 14px)`}>
-          {expectedMin}
+        <Label left={`${percentage(expectedMin)}%`}>
+          {isRangeZero ? `= ${expectedMin}` : expectedMin}
         </Label>
-        <Label left={`calc(${percentage(expectedMax)}% - 14px)`}>
-          {expectedMax}
-        </Label>
-        {showMean && (
-          <Label
-            left={`calc(${percentage(meanValue)}% - ${meanLabelWidth / 2}px)`}
-          >
+        {!isRangeZero && (
+          <Label left={`${percentage(expectedMax)}%`}>{expectedMax}</Label>
+        )}
+        {showMean && !isRangeZero && (
+          <Label left={`${percentage(meanValue)}%`}>
             {meanValue.toFixed(2)}
           </Label>
         )}

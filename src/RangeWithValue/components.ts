@@ -59,11 +59,16 @@ export const LabelWrapper = styled.div`
   height: 18px;
 `;
 
+export const InvalidRange = styled.span`
+  color: ${(props) => props.theme.errorColor};
+  font-size: 12px;
+`;
+
 export const Label = styled.span<{ left: string }>`
   position: absolute;
   left: ${({ left }) => left};
   top: 9px;
-  min-width: 28px;
-  text-align: center;
+  transform: translateX(-50%);
+  white-space: nowrap;
   font-size: 12px;
 `;
