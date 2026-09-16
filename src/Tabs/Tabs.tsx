@@ -2,6 +2,7 @@ import React, { Reducer, useMemo, useReducer } from 'react';
 
 import { TabsContext, TabsContextProps } from './TabsContext';
 import { TabsHeader } from './TabsHeader';
+import { sortedByOrder } from './sortedByOrder';
 import { TabPanelProps, TabsProps } from './types';
 
 type State<TTabID = number | string> = {
@@ -33,7 +34,12 @@ function reducer<TTabID = number | string>(
         (tab) => tab.id === action.newTab.id,
       );
       if (tabWasAlreadyRegistered) {
-        return state;
+        return {
+          ...state,
+          tabs: state.tabs.map((tab) =>
+            tab.id === action.newTab.id ? action.newTab : tab,
+          ),
+        };
       }
 
       return {
@@ -46,14 +52,13 @@ function reducer<TTabID = number | string>(
       const tabsWithoutUnregistered = state.tabs.filter(
         (tab) => tab.id !== action.tabID,
       );
-      const firstTab = tabsWithoutUnregistered[0];
+      if (state.activeTabID !== action.tabID) {
+        return { ...state, tabs: tabsWithoutUnregistered };
+      }
 
       return {
         tabs: tabsWithoutUnregistered,
-        activeTabID:
-          state.activeTabID === action.tabID && firstTab
-            ? firstTab.id
-            : undefined,
+        activeTabID: sortedByOrder(tabsWithoutUnregistered)[0]?.id,
       };
     }
     case 'onSelected': {

@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import styled, { css } from 'styled-components';
 
 import { TabsContext } from './TabsContext';
+import { sortedByOrder } from './sortedByOrder';
 import { TabPanelProps } from './types';
 
 const TitleList = styled.ul`
@@ -37,10 +38,6 @@ const TabTitle = styled.li<TabTitleProps>`
       border-bottom: solid 3px ${props.theme.borderColor};
     `}
 `;
-
-function sortedByOrder(tabs: Array<TabPanelProps>): Array<TabPanelProps> {
-  return [...tabs].sort((tab, other) => (tab.order ?? 0) - (other.order ?? 0));
-}
 
 export function TabsHeader() {
   const context = useContext(TabsContext);
