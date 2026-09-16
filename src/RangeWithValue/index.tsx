@@ -90,9 +90,13 @@ export function RangeWithValue({
     <Container>
       <Scale>
         <RangeLine left={`${percentage(expectedMin)}%`} />
-        {!isRangeZero && <RangeLine left={`${percentage(expectedMax)}%`} />}
-        {showMean && !isRangeZero && (
-          <RangeLine left={`calc(${percentage(meanValue)}% - 0.5px)`} />
+        {!isRangeZero && (
+          <>
+            <RangeLine left={`${percentage(expectedMax)}%`} />
+            {showMean && (
+              <RangeLine left={`calc(${percentage(meanValue)}% - 0.5px)`} />
+            )}
+          </>
         )}
         <Tooltip
           title={(() => {
@@ -134,12 +138,14 @@ export function RangeWithValue({
           {isRangeZero ? `= ${expectedMin}` : expectedMin}
         </Label>
         {!isRangeZero && (
-          <Label left={`${percentage(expectedMax)}%`}>{expectedMax}</Label>
-        )}
-        {showMean && !isRangeZero && (
-          <Label left={`${percentage(meanValue)}%`}>
-            {meanValue.toFixed(2)}
-          </Label>
+          <>
+            <Label left={`${percentage(expectedMax)}%`}>{expectedMax}</Label>
+            {showMean && (
+              <Label left={`${percentage(meanValue)}%`}>
+                {meanValue.toFixed(2)}
+              </Label>
+            )}
+          </>
         )}
       </LabelWrapper>
     </Container>
