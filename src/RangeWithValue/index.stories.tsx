@@ -75,6 +75,15 @@ InvalidBounds.args = {
   showMean: false,
 };
 
+export const MeanNeedsMoreDecimals = Template.bind({});
+MeanNeedsMoreDecimals.args = {
+  expectedMin: 0.04,
+  expectedMax: 0.15,
+  actualValue: 0.1,
+  rangeType: 'closed',
+  showMean: true,
+};
+
 export const EqualBoundsMet = Template.bind({});
 EqualBoundsMet.args = {
   expectedMin: 0,

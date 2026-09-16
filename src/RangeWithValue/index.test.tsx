@@ -35,6 +35,20 @@ describe('RangeWithValue', () => {
     });
   });
 
+  it('labels a mean that needs more decimals than its bounds', () => {
+    render(
+      <RangeWithValue
+        expectedMin={0.04}
+        expectedMax={0.15}
+        actualValue={0.1}
+        rangeType="closed"
+        showMean
+      />,
+    );
+
+    expect(screen.getByText('0.095')).toBeVisible();
+  });
+
   it('centers a range that collapses onto the value', () => {
     const { container } = render(
       <RangeWithValue
