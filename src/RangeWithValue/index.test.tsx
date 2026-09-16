@@ -30,6 +30,9 @@ describe('RangeWithValue', () => {
     );
 
     expect(screen.getByText('= 0.029')).toHaveStyle({ left: '0%' });
+    expect(screen.getByText('0.03')).toHaveStyle({
+      left: 'calc(100% - 17.5px)',
+    });
   });
 
   it('centers a range that collapses onto the value', () => {
