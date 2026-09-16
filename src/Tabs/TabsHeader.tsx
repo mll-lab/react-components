@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import styled, { css } from 'styled-components';
 
 import { TabsContext } from './TabsContext';
+import { sortedByOrder } from './sortedByOrder';
 import { TabPanelProps } from './types';
 
 const TitleList = styled.ul`
@@ -43,7 +44,7 @@ export function TabsHeader() {
 
   return (
     <TitleList>
-      {context.tabs.map((tab: TabPanelProps) => {
+      {sortedByOrder(context.tabs).map((tab: TabPanelProps) => {
         const isActiveTab = context.activeTabID === tab.id;
 
         return (
