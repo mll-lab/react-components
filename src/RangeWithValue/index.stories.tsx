@@ -84,6 +84,15 @@ MeanNeedsMoreDecimals.args = {
   showMean: true,
 };
 
+export const MissingMeasurement = Template.bind({});
+MissingMeasurement.args = {
+  expectedMin: 0.04,
+  expectedMax: 0.15,
+  actualValue: NaN,
+  rangeType: 'closed',
+  showMean: false,
+};
+
 export const EqualBoundsMet = Template.bind({});
 EqualBoundsMet.args = {
   expectedMin: 0,
