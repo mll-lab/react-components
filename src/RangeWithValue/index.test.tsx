@@ -50,7 +50,7 @@ describe('RangeWithValue', () => {
   });
 
   it('centers a range that collapses onto the value', () => {
-    const { container } = render(
+    render(
       <RangeWithValue
         expectedMin={0.029}
         expectedMax={0.029}
@@ -59,7 +59,24 @@ describe('RangeWithValue', () => {
       />,
     );
 
-    expect(container.innerHTML).not.toContain('NaN');
+    expect(screen.getByText('= 0.029')).toHaveStyle({ left: '50%' });
+  });
+
+  it('refuses to call a missing measurement in range', () => {
+    render(
+      <RangeWithValue
+        expectedMin={0.04}
+        expectedMax={0.15}
+        actualValue={NaN}
+        rangeType="closed"
+      />,
+    );
+
+    expect(
+      screen.getByText('Keine gültigen Zahlenwerte: 0.04 / 0.15 / NaN', {
+        exact: false,
+      }),
+    ).toBeVisible();
   });
 
   it('reports a maximum below the minimum instead of drawing a scale', () => {

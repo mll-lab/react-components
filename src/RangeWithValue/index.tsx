@@ -42,12 +42,22 @@ export function RangeWithValue({
 }: RangeWithValueProps) {
   const theme = useTheme();
 
-  if (expectedMax < expectedMin) {
+  const invalidInput = (() => {
+    if (![expectedMin, expectedMax, actualValue].every(Number.isFinite)) {
+      return `Keine gültigen Zahlenwerte: ${expectedMin} / ${expectedMax} / ${actualValue}`;
+    }
+    if (expectedMax < expectedMin) {
+      return `Ungültige Grenzwerte: ${expectedMin} ist größer als ${expectedMax}`;
+    }
+
+    return null;
+  })();
+
+  if (invalidInput) {
     return (
       <Container>
         <InvalidRange>
-          <ExclamationCircleOutlined /> Ungültige Grenzwerte: {expectedMin} ist
-          größer als {expectedMax}
+          <ExclamationCircleOutlined /> {invalidInput}
         </InvalidRange>
       </Container>
     );
