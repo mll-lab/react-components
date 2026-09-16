@@ -1,3 +1,10 @@
+## [20.7.1-alpha.1](https://github.com/mll-lab/react-components/compare/v20.7.0...v20.7.1-alpha.1) (2026-09-16)
+
+
+### Bug Fixes
+
+* **RangeWithValue:** handle degenerate ranges instead of drawing them wrong ([259ec2d](https://github.com/mll-lab/react-components/commit/259ec2dc68afbe0f83b181d8e264115d120730d6))
+
 # [20.7.0](https://github.com/mll-lab/react-components/compare/v20.6.1...v20.7.0) (2026-08-24)
 
 
