@@ -14,7 +14,12 @@ import {
   Scale,
   ValuePoint,
 } from './components';
-import { colorByRange, getBufferedRange, widthOfValuePoint } from './utils';
+import {
+  colorByRange,
+  getBufferedRange,
+  widthOfValuePoint,
+  withoutFloatingPointNoise,
+} from './utils';
 
 export type RangeWithValueType = 'closed' | 'open-ended';
 
@@ -142,7 +147,7 @@ export function RangeWithValue({
             <Label left={`${percentage(expectedMax)}%`}>{expectedMax}</Label>
             {showMean && (
               <Label left={`${percentage(meanValue)}%`}>
-                {meanValue.toFixed(2)}
+                {withoutFloatingPointNoise(meanValue)}
               </Label>
             )}
           </>

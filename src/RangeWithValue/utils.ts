@@ -28,6 +28,11 @@ export function colorByRange({
   return theme.successColor;
 }
 
+/** Averaging 0.04 and 0.15 yields 0.09500000000000001. */
+export function withoutFloatingPointNoise(value: number): number {
+  return Number(value.toPrecision(12));
+}
+
 export function widthOfValuePoint(value: number): number {
   const { length } = value.toString();
   const minWidth = 20;
