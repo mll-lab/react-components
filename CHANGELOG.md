@@ -1,3 +1,10 @@
+## [20.7.1-alpha.2](https://github.com/mll-lab/react-components/compare/v20.7.1-alpha.1...v20.7.1-alpha.2) (2026-09-16)
+
+
+### Bug Fixes
+
+* **RangeWithValue:** label the mean with the decimals it actually has ([0e11cd2](https://github.com/mll-lab/react-components/commit/0e11cd291e2c0d0074b45118aac4ac741a981d46))
+
 ## [20.7.1-alpha.1](https://github.com/mll-lab/react-components/compare/v20.7.0...v20.7.1-alpha.1) (2026-09-16)
 
 
