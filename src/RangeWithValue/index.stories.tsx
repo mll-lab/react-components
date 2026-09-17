@@ -22,6 +22,9 @@ export default {
     showMean: {
       control: { type: 'boolean' },
     },
+    meanType: {
+      control: { type: 'select', options: ['arithmetic', 'geometric'] },
+    },
   },
 };
 
@@ -31,6 +34,7 @@ const Template: StoryFn<{
   actualValue: number;
   rangeType: 'closed' | 'open-ended';
   showMean: boolean;
+  meanType: 'arithmetic' | 'geometric';
 }> = function Template(args) {
   return (
     <div style={{ width: 300 }}>
@@ -82,6 +86,16 @@ MeanNeedsMoreDecimals.args = {
   actualValue: 0.1,
   rangeType: 'closed',
   showMean: true,
+};
+
+export const GeometricMean = Template.bind({});
+GeometricMean.args = {
+  expectedMin: 0.038,
+  expectedMax: 0.152,
+  actualValue: 0.1,
+  rangeType: 'closed',
+  showMean: true,
+  meanType: 'geometric',
 };
 
 export const MissingMeasurement = Template.bind({});
