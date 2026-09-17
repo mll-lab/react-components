@@ -91,7 +91,7 @@ MeanNeedsMoreDecimals.args = {
 export const LogarithmicScale = Template.bind({});
 LogarithmicScale.args = {
   expectedMin: 0.038,
-  expectedMax: 0.152,
+  expectedMax: 0.153,
   actualValue: 0.1,
   rangeType: 'closed',
   showMean: true,
