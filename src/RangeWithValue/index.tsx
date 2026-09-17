@@ -22,6 +22,7 @@ import {
   positionOnScale,
   projectOntoScale,
   RangeWithValueScale,
+  scaleHasTickLabels,
   ticksOfScale,
   withoutFloatingPointNoise,
 } from './scale';
@@ -132,20 +133,23 @@ export function RangeWithValue({
     ...(isRangeZero ? [] : [expectedMax]),
     ...(showMean && !isRangeZero ? [meanValue] : []),
   ].map(percentage);
-  const ticksToLabel = ticks
-    .filter(({ isLabelled }) => isLabelled)
-    .map(({ value }) => value)
-    .filter((value) =>
-      labelledValues.every(
-        (position) =>
-          Math.abs(percentage(value) - position) > MINIMUM_LABEL_GAP_PERCENT,
-      ),
-    );
+  const ticksToLabel = scaleHasTickLabels({
+    bufferedMin: rangeValues.bufferedMin,
+    bufferedMax: rangeValues.bufferedMax,
+    scale,
+  })
+    ? ticks.filter((value) =>
+        labelledValues.every(
+          (position) =>
+            Math.abs(percentage(value) - position) > MINIMUM_LABEL_GAP_PERCENT,
+        ),
+      )
+    : [];
 
   return (
     <Container>
       <Scale>
-        {ticks.map(({ value }) => (
+        {ticks.map((value) => (
           <ScaleTick key={value} left={`${percentage(value)}%`} />
         ))}
         <RangeLine left={`${percentage(expectedMin)}%`} />

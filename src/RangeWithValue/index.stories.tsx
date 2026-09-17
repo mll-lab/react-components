@@ -98,6 +98,16 @@ LogarithmicScale.args = {
   scale: 'logarithmic',
 };
 
+export const LogarithmicScaleSpanningDecades = Template.bind({});
+LogarithmicScaleSpanningDecades.args = {
+  expectedMin: 0.01,
+  expectedMax: 10,
+  actualValue: 1.5,
+  rangeType: 'closed',
+  showMean: true,
+  scale: 'logarithmic',
+};
+
 export const LogarithmicScaleWithZeroBound = Template.bind({});
 LogarithmicScaleWithZeroBound.args = {
   expectedMin: 0,

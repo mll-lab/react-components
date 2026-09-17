@@ -104,53 +104,72 @@ export function ticksOfScale({
   bufferedMin: number;
   bufferedMax: number;
   scale: RangeWithValueScale;
-}): Array<ScaleTickValue> {
+}): Array<number> {
   const ticks =
     scale === 'logarithmic'
       ? logarithmicTicks(bufferedMin, bufferedMax)
-      : linearTicks(bufferedMin, bufferedMax).map((value) => ({
-          value,
-          isLabelled: true,
-        }));
+      : linearTicks(bufferedMin, bufferedMax);
 
   return ticks
-    .filter(({ value }) => value >= bufferedMin && value <= bufferedMax)
-    .map(({ value, isLabelled }) => ({
-      value: withoutFloatingPointNoise(value),
-      isLabelled,
-    }));
+    .filter((value) => value >= bufferedMin && value <= bufferedMax)
+    .map(withoutFloatingPointNoise);
 }
 
-export type ScaleTickValue = { value: number; isLabelled: boolean };
+const LABELLED_SPAN_IN_DECADES = 1;
 
-const LABELLED_SUBDIVISIONS = [1, 2, 3, 5, 7];
-const LABELLED_SUBDIVISIONS_OF_A_STRETCHED_DECADE = [1, 2, 3, 4, 5, 6, 7];
-const STRETCHED_DECADE_SPAN = 1.5;
+/** Below one decade the bounds and the mean already fill the label row. */
+export function scaleHasTickLabels({
+  bufferedMin,
+  bufferedMax,
+  scale,
+}: {
+  bufferedMin: number;
+  bufferedMax: number;
+  scale: RangeWithValueScale;
+}): boolean {
+  return (
+    scale !== 'logarithmic' ||
+    Math.log10(bufferedMax / bufferedMin) >= LABELLED_SPAN_IN_DECADES
+  );
+}
+
+const SUBDIVISIONS = [1, 2, 3, 5, 7];
+const SUBDIVISIONS_OF_A_NARROW_WINDOW = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 function logarithmicTicks(
   bufferedMin: number,
   bufferedMax: number,
-): Array<ScaleTickValue> {
+): Array<number> {
   const firstDecade = Math.floor(Math.log10(bufferedMin));
   const decadeCount = Math.ceil(Math.log10(bufferedMax)) - firstDecade + 1;
-  const subdivisions =
-    decadeCount > DECADES_WITHOUT_SUBDIVISION
-      ? [1]
-      : [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  const labelledSubdivisions =
-    Math.log10(bufferedMax / bufferedMin) < STRETCHED_DECADE_SPAN
-      ? LABELLED_SUBDIVISIONS_OF_A_STRETCHED_DECADE
-      : LABELLED_SUBDIVISIONS;
 
   return Array.from(
     { length: decadeCount },
     (_, index) => firstDecade + index,
   ).flatMap((decade) =>
-    subdivisions.map((multiple) => ({
-      value: multiple * 10 ** decade,
-      isLabelled: labelledSubdivisions.includes(multiple),
-    })),
+    logarithmicSubdivisions(bufferedMin, bufferedMax, decadeCount).map(
+      (multiple) => multiple * 10 ** decade,
+    ),
   );
+}
+
+/** Unlabelled strokes may sit denser, and a narrow window needs them to read as a scale. */
+function logarithmicSubdivisions(
+  bufferedMin: number,
+  bufferedMax: number,
+  decadeCount: number,
+): Array<number> {
+  if (decadeCount > DECADES_WITHOUT_SUBDIVISION) {
+    return [1];
+  }
+
+  return scaleHasTickLabels({
+    bufferedMin,
+    bufferedMax,
+    scale: 'logarithmic',
+  })
+    ? SUBDIVISIONS
+    : SUBDIVISIONS_OF_A_NARROW_WINDOW;
 }
 
 function linearTicks(bufferedMin: number, bufferedMax: number): Array<number> {
