@@ -81,8 +81,3 @@ export const Label = styled.span<{ left: string }>`
   white-space: nowrap;
   font-size: 12px;
 `;
-
-export const TickLabel = styled(Label)`
-  font-size: 10px;
-  color: ${PALETTE.gray6};
-`;

@@ -68,24 +68,7 @@ describe('RangeWithValue', () => {
     expect(screen.queryByText('0.0762495901628')).not.toBeInTheDocument();
   });
 
-  it('leaves the ticks unlabelled when a logarithmic scale spans less than a decade', () => {
-    render(
-      <RangeWithValue
-        expectedMin={0.038}
-        expectedMax={0.153}
-        actualValue={0.05}
-        rangeType="closed"
-        scale="logarithmic"
-      />,
-    );
-
-    expect(screen.getByText('0.038')).toBeVisible();
-    expect(screen.getByText('0.153')).toBeVisible();
-    expect(screen.queryByText('0.1')).not.toBeInTheDocument();
-    expect(screen.queryByText('0.04')).not.toBeInTheDocument();
-  });
-
-  it('labels the ticks of a logarithmic scale spanning decades', () => {
+  it('leaves the ticks of a logarithmic scale unlabelled', () => {
     render(
       <RangeWithValue
         expectedMin={0.01}
@@ -96,10 +79,12 @@ describe('RangeWithValue', () => {
       />,
     );
 
-    expect(screen.getByText('0.1')).toBeVisible();
+    expect(screen.getByText('0.01')).toBeVisible();
+    expect(screen.getByText('10')).toBeVisible();
+    expect(screen.queryByText('0.1')).not.toBeInTheDocument();
   });
 
-  it('labels the ticks of a linear scale in even steps', () => {
+  it('leaves the ticks of a linear scale unlabelled', () => {
     render(
       <RangeWithValue
         expectedMin={0.038}
@@ -109,7 +94,9 @@ describe('RangeWithValue', () => {
       />,
     );
 
-    expect(screen.getByText('0.12')).toBeVisible();
+    expect(screen.getByText('0.038')).toBeVisible();
+    expect(screen.getByText('0.153')).toBeVisible();
+    expect(screen.queryByText('0.12')).not.toBeInTheDocument();
   });
 
   it('centers the mean of a logarithmic scale', () => {
