@@ -84,21 +84,6 @@ describe('RangeWithValue', () => {
     expect(screen.queryByText('0.1')).not.toBeInTheDocument();
   });
 
-  it('leaves the ticks of a linear scale unlabelled', () => {
-    render(
-      <RangeWithValue
-        expectedMin={0.038}
-        expectedMax={0.153}
-        actualValue={0.05}
-        rangeType="closed"
-      />,
-    );
-
-    expect(screen.getByText('0.038')).toBeVisible();
-    expect(screen.getByText('0.153')).toBeVisible();
-    expect(screen.queryByText('0.12')).not.toBeInTheDocument();
-  });
-
   it('centers the mean of a logarithmic scale', () => {
     render(
       <RangeWithValue

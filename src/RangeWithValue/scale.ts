@@ -1,7 +1,7 @@
 export type RangeWithValueScale = 'linear' | 'logarithmic';
 
 /** Averaging 0.04 and 0.15 yields 0.09500000000000001. */
-export function withoutFloatingPointNoise(value: number): number {
+function withoutFloatingPointNoise(value: number): number {
   return Number(value.toPrecision(12));
 }
 
@@ -13,18 +13,14 @@ export function projectOntoScale(
   return scale === 'logarithmic' ? Math.log(value) : value;
 }
 
-/** Always ensure the value is visible and add 10% padding to the range. */
+/** Keeps the value inside the scale and pads it by bufferPercentage on both ends. */
 export function getBufferedRange({
-  max,
-  min,
   actualValue,
   expectedMin,
   expectedMax,
   bufferPercentage,
   scale,
 }: {
-  max: number;
-  min: number;
   actualValue: number;
   expectedMin: number;
   expectedMax: number;
@@ -35,18 +31,14 @@ export function getBufferedRange({
   bufferedMax: number;
   scaleSpan: number;
 } {
-  let minValue = min;
-  let maxValue = max;
-  if (actualValue < expectedMin) {
-    minValue = actualValue;
-    maxValue = expectedMax;
-  } else if (actualValue > expectedMax) {
-    minValue = expectedMin;
-    maxValue = actualValue;
-  }
-
-  const projectedMin = projectOntoScale(minValue, scale);
-  const projectedMax = projectOntoScale(maxValue, scale);
+  const projectedMin = projectOntoScale(
+    Math.min(expectedMin, actualValue),
+    scale,
+  );
+  const projectedMax = projectOntoScale(
+    Math.max(expectedMax, actualValue),
+    scale,
+  );
   const scaleSpan = projectedMax - projectedMin;
   const buffer = scaleSpan * bufferPercentage;
 
@@ -92,10 +84,7 @@ export function positionOnScale({
 const DECADES_WITHOUT_SUBDIVISION = 4;
 const TARGET_LINEAR_TICKS = 6;
 
-/**
- * Ticks make the scale readable and its type visible: evenly spaced when
- * linear, crowding towards the lower bound when logarithmic.
- */
+/** Evenly spaced when linear, crowding towards the lower bound when logarithmic. */
 export function ticksOfScale({
   bufferedMin,
   bufferedMax,
@@ -173,7 +162,7 @@ export function meanOfScale({
   scale: RangeWithValueScale;
 }): number {
   if (scale !== 'logarithmic') {
-    return (expectedMin + expectedMax) / 2;
+    return withoutFloatingPointNoise((expectedMin + expectedMax) / 2);
   }
 
   const decimals = Math.max(
