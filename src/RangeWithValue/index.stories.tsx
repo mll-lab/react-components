@@ -22,8 +22,8 @@ export default {
     showMean: {
       control: { type: 'boolean' },
     },
-    meanType: {
-      control: { type: 'select', options: ['arithmetic', 'geometric'] },
+    scale: {
+      control: { type: 'select', options: ['linear', 'logarithmic'] },
     },
   },
 };
@@ -34,7 +34,7 @@ const Template: StoryFn<{
   actualValue: number;
   rangeType: 'closed' | 'open-ended';
   showMean: boolean;
-  meanType: 'arithmetic' | 'geometric';
+  scale: 'linear' | 'logarithmic';
 }> = function Template(args) {
   return (
     <div style={{ width: 300 }}>
@@ -88,14 +88,24 @@ MeanNeedsMoreDecimals.args = {
   showMean: true,
 };
 
-export const GeometricMean = Template.bind({});
-GeometricMean.args = {
+export const LogarithmicScale = Template.bind({});
+LogarithmicScale.args = {
   expectedMin: 0.038,
   expectedMax: 0.152,
   actualValue: 0.1,
   rangeType: 'closed',
   showMean: true,
-  meanType: 'geometric',
+  scale: 'logarithmic',
+};
+
+export const LogarithmicScaleWithZeroBound = Template.bind({});
+LogarithmicScaleWithZeroBound.args = {
+  expectedMin: 0,
+  expectedMax: 0.002,
+  actualValue: 0.001,
+  rangeType: 'open-ended',
+  showMean: true,
+  scale: 'logarithmic',
 };
 
 export const MissingMeasurement = Template.bind({});
