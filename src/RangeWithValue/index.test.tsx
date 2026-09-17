@@ -1,6 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import React from 'react';
 
+import { THEME } from '../theme';
+
 import { RangeWithValue } from './index';
 
 describe('RangeWithValue', () => {
@@ -111,6 +113,37 @@ describe('RangeWithValue', () => {
 
     expect(screen.getByText('10')).toHaveStyle({
       left: 'calc(9.090909090909092% - 12.5px)',
+    });
+  });
+
+  it('warns about a value within a tenth of the span of a linear bound', () => {
+    render(
+      <RangeWithValue
+        expectedMin={1}
+        expectedMax={100}
+        actualValue={5}
+        rangeType="closed"
+      />,
+    );
+
+    expect(screen.getByText('5')).toHaveStyle({
+      background: THEME.warningColor,
+    });
+  });
+
+  it('warns about a value within a tenth of the ratio of a logarithmic bound', () => {
+    render(
+      <RangeWithValue
+        expectedMin={1}
+        expectedMax={100}
+        actualValue={5}
+        rangeType="closed"
+        scale="logarithmic"
+      />,
+    );
+
+    expect(screen.getByText('5')).toHaveStyle({
+      background: THEME.successColor,
     });
   });
 
