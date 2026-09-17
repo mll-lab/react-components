@@ -1,3 +1,11 @@
+# [20.8.0-alpha.4](https://github.com/mll-lab/react-components/compare/v20.8.0-alpha.3...v20.8.0-alpha.4) (2026-09-17)
+
+
+### Features
+
+* **RangeWithValue:** give the scale ticks and label them ([e51a51c](https://github.com/mll-lab/react-components/commit/e51a51cf2e14790bfbd3c543995d63b7c3b4b45b))
+* **RangeWithValue:** label more of the logarithmic ticks ([575ce21](https://github.com/mll-lab/react-components/commit/575ce215141a3c96651974204e8adc333734e569))
+
 # [20.8.0-alpha.3](https://github.com/mll-lab/react-components/compare/v20.8.0-alpha.2...v20.8.0-alpha.3) (2026-09-17)
 
 
