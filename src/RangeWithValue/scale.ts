@@ -84,6 +84,7 @@ export function positionOnScale({
   );
 }
 
+/** A geometric mean is rarely representable, so it follows the decimals of its bounds. */
 export function meanOfScale({
   expectedMin,
   expectedMax,
@@ -93,7 +94,27 @@ export function meanOfScale({
   expectedMax: number;
   scale: RangeWithValueScale;
 }): number {
-  return scale === 'logarithmic'
-    ? Math.sqrt(expectedMin * expectedMax)
-    : (expectedMin + expectedMax) / 2;
+  if (scale !== 'logarithmic') {
+    return (expectedMin + expectedMax) / 2;
+  }
+
+  const decimals = Math.max(
+    decimalsOf(expectedMin),
+    decimalsOf(expectedMax),
+    MINIMUM_MEAN_DECIMALS,
+  );
+
+  return Number(Math.sqrt(expectedMin * expectedMax).toFixed(decimals));
+}
+
+const MINIMUM_MEAN_DECIMALS = 2;
+const EXPONENTIAL_MEAN_DECIMALS = 12;
+
+function decimalsOf(value: number): number {
+  const text = value.toString();
+  if (text.includes('e')) {
+    return EXPONENTIAL_MEAN_DECIMALS;
+  }
+
+  return text.split('.')[1]?.length ?? 0;
 }

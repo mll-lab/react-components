@@ -55,7 +55,7 @@ describe('RangeWithValue', () => {
     render(
       <RangeWithValue
         expectedMin={0.038}
-        expectedMax={0.152}
+        expectedMax={0.153}
         actualValue={0.1}
         rangeType="closed"
         showMean
@@ -64,7 +64,8 @@ describe('RangeWithValue', () => {
     );
 
     expect(screen.getByText('0.076')).toBeVisible();
-    expect(screen.queryByText('0.095')).not.toBeInTheDocument();
+    expect(screen.queryByText('0.0955')).not.toBeInTheDocument();
+    expect(screen.queryByText('0.0762495901628')).not.toBeInTheDocument();
   });
 
   it('centers the mean of a logarithmic scale', () => {
