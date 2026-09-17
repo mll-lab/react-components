@@ -27,7 +27,7 @@ import {
 } from './scale';
 import { colorByRange, widthOfValuePoint } from './utils';
 
-const MINIMUM_LABEL_GAP_PERCENT = 10;
+const MINIMUM_LABEL_GAP_PERCENT = 7;
 
 export type RangeWithValueType = 'closed' | 'open-ended';
 
@@ -120,13 +120,14 @@ export function RangeWithValue({
 
   const meanValue = meanOfScale({ expectedMin, expectedMax, scale });
 
-  const ticks = ticksOfScale({
-    bufferedMin: rangeValues.bufferedMin,
-    bufferedMax: rangeValues.bufferedMax,
-    scale,
-  });
+  const ticks = isRangeZero
+    ? []
+    : ticksOfScale({
+        bufferedMin: rangeValues.bufferedMin,
+        bufferedMax: rangeValues.bufferedMax,
+        scale,
+      });
   const labelledValues = [
-    actualValue,
     expectedMin,
     ...(isRangeZero ? [] : [expectedMax]),
     ...(showMean && !isRangeZero ? [meanValue] : []),

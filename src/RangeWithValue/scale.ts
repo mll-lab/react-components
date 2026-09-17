@@ -123,7 +123,9 @@ export function ticksOfScale({
 
 export type ScaleTickValue = { value: number; isLabelled: boolean };
 
-const LABELLED_SUBDIVISIONS = [1, 2, 5];
+const LABELLED_SUBDIVISIONS = [1, 2, 3, 5, 7];
+const LABELLED_SUBDIVISIONS_OF_A_STRETCHED_DECADE = [1, 2, 3, 4, 5, 6, 7];
+const STRETCHED_DECADE_SPAN = 1.5;
 
 function logarithmicTicks(
   bufferedMin: number,
@@ -135,6 +137,10 @@ function logarithmicTicks(
     decadeCount > DECADES_WITHOUT_SUBDIVISION
       ? [1]
       : [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const labelledSubdivisions =
+    Math.log10(bufferedMax / bufferedMin) < STRETCHED_DECADE_SPAN
+      ? LABELLED_SUBDIVISIONS_OF_A_STRETCHED_DECADE
+      : LABELLED_SUBDIVISIONS;
 
   return Array.from(
     { length: decadeCount },
@@ -142,7 +148,7 @@ function logarithmicTicks(
   ).flatMap((decade) =>
     subdivisions.map((multiple) => ({
       value: multiple * 10 ** decade,
-      isLabelled: LABELLED_SUBDIVISIONS.includes(multiple),
+      isLabelled: labelledSubdivisions.includes(multiple),
     })),
   );
 }
