@@ -57,7 +57,7 @@ describe('RangeWithValue', () => {
         actualValue={0.1}
         rangeType="closed"
         showMean
-        meanType="geometric"
+        scale="logarithmic"
       />,
     );
 
@@ -65,7 +65,56 @@ describe('RangeWithValue', () => {
     expect(screen.queryByText('0.095')).not.toBeInTheDocument();
   });
 
-  it('reports that a lower bound of zero has no geometric mean', () => {
+  it('centers the mean of a logarithmic scale', () => {
+    render(
+      <RangeWithValue
+        expectedMin={1}
+        expectedMax={100}
+        actualValue={20}
+        rangeType="closed"
+        bufferPercentage={0}
+        showMean
+        scale="logarithmic"
+      />,
+    );
+
+    expect(screen.getByText('10')).toHaveStyle({ left: '50%' });
+  });
+
+  it('places a value by its ratio to the bounds on a logarithmic scale', () => {
+    render(
+      <RangeWithValue
+        expectedMin={1}
+        expectedMax={100}
+        actualValue={10}
+        rangeType="closed"
+        bufferPercentage={0}
+        scale="logarithmic"
+      />,
+    );
+
+    expect(screen.getByText('10')).toHaveStyle({
+      left: 'calc(50% - 12.5px)',
+    });
+  });
+
+  it('places a value by its distance to the bounds on a linear scale', () => {
+    render(
+      <RangeWithValue
+        expectedMin={1}
+        expectedMax={100}
+        actualValue={10}
+        rangeType="closed"
+        bufferPercentage={0}
+      />,
+    );
+
+    expect(screen.getByText('10')).toHaveStyle({
+      left: 'calc(9.090909090909092% - 12.5px)',
+    });
+  });
+
+  it('refuses a logarithmic scale for a lower bound of zero', () => {
     render(
       <RangeWithValue
         expectedMin={0}
@@ -73,13 +122,13 @@ describe('RangeWithValue', () => {
         actualValue={0.001}
         rangeType="closed"
         showMean
-        meanType="geometric"
+        scale="logarithmic"
       />,
     );
 
     expect(
       screen.getByText(
-        'Kein geometrischer Mittelwert für eine untere Grenze von 0',
+        'Keine logarithmische Skala für Werte kleiner oder gleich null: 0',
         {
           exact: false,
         },

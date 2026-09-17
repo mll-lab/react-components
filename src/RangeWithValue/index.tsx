@@ -17,13 +17,14 @@ import {
 import {
   colorByRange,
   getBufferedRange,
+  positionOnScale,
   widthOfValuePoint,
   withoutFloatingPointNoise,
 } from './utils';
 
 export type RangeWithValueType = 'closed' | 'open-ended';
 
-export type RangeWithValueMeanType = 'arithmetic' | 'geometric';
+export type RangeWithValueScale = 'linear' | 'logarithmic';
 
 export type RangeWithValueProps = {
   expectedMin: number;
@@ -32,7 +33,7 @@ export type RangeWithValueProps = {
   rangeType: RangeWithValueType;
   bufferPercentage?: number;
   showMean?: boolean;
-  meanType?: RangeWithValueMeanType;
+  scale?: RangeWithValueScale;
 };
 
 export function RangeWithValue({
@@ -42,7 +43,7 @@ export function RangeWithValue({
   rangeType,
   bufferPercentage = 0.1,
   showMean,
-  meanType = 'arithmetic',
+  scale = 'linear',
 }: RangeWithValueProps) {
   const theme = useTheme();
 
@@ -53,8 +54,11 @@ export function RangeWithValue({
     if (expectedMax < expectedMin) {
       return `Ungültige Grenzwerte: ${expectedMin} ist größer als ${expectedMax}`;
     }
-    if (showMean && meanType === 'geometric' && expectedMin <= 0) {
-      return `Kein geometrischer Mittelwert für eine untere Grenze von ${expectedMin}`;
+    if (scale === 'logarithmic' && Math.min(expectedMin, actualValue) <= 0) {
+      return `Keine logarithmische Skala für Werte kleiner oder gleich null: ${Math.min(
+        expectedMin,
+        actualValue,
+      )}`;
     }
 
     return null;
@@ -77,25 +81,21 @@ export function RangeWithValue({
     expectedMin,
     expectedMax,
     bufferPercentage,
+    scale,
   });
   const warnThreshold = rangeValues.range * bufferPercentage;
   const isRangeZero = expectedMin === expectedMax;
   const isNearMin = !isRangeZero && actualValue <= expectedMin + warnThreshold;
   const isNearMax = !isRangeZero && actualValue >= expectedMax - warnThreshold;
   const isOutOfRange = actualValue < expectedMin || actualValue > expectedMax;
-  const isScaleCollapsed = rangeValues.bufferedMax === rangeValues.bufferedMin;
 
-  const percentage = (val: number) => {
-    if (isScaleCollapsed) {
-      return 50;
-    }
-
-    return (
-      ((val - rangeValues.bufferedMin) /
-        (rangeValues.bufferedMax - rangeValues.bufferedMin)) *
-      100
-    );
-  };
+  const percentage = (value: number) =>
+    positionOnScale({
+      value,
+      bufferedMin: rangeValues.bufferedMin,
+      bufferedMax: rangeValues.bufferedMax,
+      scale,
+    });
 
   const valuePointWidth = widthOfValuePoint(actualValue);
   const valueColor = colorByRange({
@@ -107,7 +107,7 @@ export function RangeWithValue({
   });
 
   const meanValue =
-    meanType === 'geometric'
+    scale === 'logarithmic'
       ? Math.sqrt(expectedMin * expectedMax)
       : (expectedMin + expectedMax) / 2;
 

@@ -1,6 +1,6 @@
 import { Theme } from '../theme';
 
-import { RangeWithValueType } from './index';
+import { RangeWithValueScale, RangeWithValueType } from './index';
 
 export function colorByRange({
   isOutOfRange,
@@ -49,6 +49,7 @@ export function getBufferedRange({
   expectedMin,
   expectedMax,
   bufferPercentage,
+  scale,
 }: {
   max: number;
   min: number;
@@ -56,6 +57,7 @@ export function getBufferedRange({
   expectedMin: number;
   expectedMax: number;
   bufferPercentage: number;
+  scale: RangeWithValueScale;
 }): {
   bufferedMin: number;
   bufferedMax: number;
@@ -71,6 +73,18 @@ export function getBufferedRange({
     maxValue = actualValue;
   }
   const range = maxValue - minValue;
+
+  if (scale === 'logarithmic') {
+    const logBuffer =
+      (Math.log(maxValue) - Math.log(minValue)) * bufferPercentage;
+
+    return {
+      bufferedMin: Math.exp(Math.log(minValue) - logBuffer),
+      bufferedMax: Math.exp(Math.log(maxValue) + logBuffer),
+      range,
+    };
+  }
+
   const buffer = range * bufferPercentage;
 
   return {
@@ -78,4 +92,25 @@ export function getBufferedRange({
     bufferedMax: maxValue + buffer,
     range,
   };
+}
+
+export function positionOnScale({
+  value,
+  bufferedMin,
+  bufferedMax,
+  scale,
+}: {
+  value: number;
+  bufferedMin: number;
+  bufferedMax: number;
+  scale: RangeWithValueScale;
+}): number {
+  if (bufferedMax === bufferedMin) {
+    return 50;
+  }
+
+  const project = scale === 'logarithmic' ? Math.log : (raw: number) => raw;
+  const from = project(bufferedMin);
+
+  return ((project(value) - from) / (project(bufferedMax) - from)) * 100;
 }
