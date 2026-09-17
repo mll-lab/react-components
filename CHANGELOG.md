@@ -1,3 +1,10 @@
+# [20.8.0-alpha.3](https://github.com/mll-lab/react-components/compare/v20.8.0-alpha.2...v20.8.0-alpha.3) (2026-09-17)
+
+
+### Bug Fixes
+
+* **RangeWithValue:** round a geometric mean to the decimals of its bounds ([f49553e](https://github.com/mll-lab/react-components/commit/f49553ece7db59222f9dc486d18031a87061b5c8))
+
 # [20.8.0-alpha.2](https://github.com/mll-lab/react-components/compare/v20.8.0-alpha.1...v20.8.0-alpha.2) (2026-09-17)
 
 
