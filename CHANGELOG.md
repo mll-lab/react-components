@@ -1,3 +1,15 @@
+# [20.8.0-alpha.1](https://github.com/mll-lab/react-components/compare/v20.7.1-alpha.2...v20.8.0-alpha.1) (2026-09-17)
+
+
+### Bug Fixes
+
+* **RangeWithValue:** stop showing a missing measurement as in range ([d605ac2](https://github.com/mll-lab/react-components/commit/d605ac2e926909582a62071d46202bb85be20b13))
+
+
+### Features
+
+* **RangeWithValue:** let the caller choose the mean type ([2c080c6](https://github.com/mll-lab/react-components/commit/2c080c6f89d33cb4e10c368fbc7151f3658b351d))
+
 ## [20.7.1-alpha.2](https://github.com/mll-lab/react-components/compare/v20.7.1-alpha.1...v20.7.1-alpha.2) (2026-09-16)
 
 
