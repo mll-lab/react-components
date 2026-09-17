@@ -68,6 +68,34 @@ describe('RangeWithValue', () => {
     expect(screen.queryByText('0.0762495901628')).not.toBeInTheDocument();
   });
 
+  it('labels the ticks of a logarithmic scale by decade', () => {
+    render(
+      <RangeWithValue
+        expectedMin={0.038}
+        expectedMax={0.153}
+        actualValue={0.05}
+        rangeType="closed"
+        scale="logarithmic"
+      />,
+    );
+
+    expect(screen.getByText('0.1')).toBeVisible();
+    expect(screen.queryByText('0.12')).not.toBeInTheDocument();
+  });
+
+  it('labels the ticks of a linear scale in even steps', () => {
+    render(
+      <RangeWithValue
+        expectedMin={0.038}
+        expectedMax={0.153}
+        actualValue={0.05}
+        rangeType="closed"
+      />,
+    );
+
+    expect(screen.getByText('0.12')).toBeVisible();
+  });
+
   it('centers the mean of a logarithmic scale', () => {
     render(
       <RangeWithValue
