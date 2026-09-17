@@ -1,3 +1,10 @@
+# [20.8.0-alpha.2](https://github.com/mll-lab/react-components/compare/v20.8.0-alpha.1...v20.8.0-alpha.2) (2026-09-17)
+
+
+### Features
+
+* **RangeWithValue:** let the caller choose a logarithmic scale ([519497f](https://github.com/mll-lab/react-components/commit/519497ff5e1a1edb60e8583349d2096adcc22173))
+
 # [20.8.0-alpha.1](https://github.com/mll-lab/react-components/compare/v20.7.1-alpha.2...v20.8.0-alpha.1) (2026-09-17)
 
 
