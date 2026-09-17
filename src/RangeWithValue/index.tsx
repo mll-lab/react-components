@@ -15,16 +15,21 @@ import {
   ValuePoint,
 } from './components';
 import {
-  colorByRange,
   getBufferedRange,
+  meanOfScale,
   positionOnScale,
+  projectOntoScale,
+  RangeWithValueScale,
+} from './scale';
+import {
+  colorByRange,
   widthOfValuePoint,
   withoutFloatingPointNoise,
 } from './utils';
 
 export type RangeWithValueType = 'closed' | 'open-ended';
 
-export type RangeWithValueScale = 'linear' | 'logarithmic';
+export type { RangeWithValueScale };
 
 export type RangeWithValueProps = {
   expectedMin: number;
@@ -83,10 +88,15 @@ export function RangeWithValue({
     bufferPercentage,
     scale,
   });
-  const warnThreshold = rangeValues.range * bufferPercentage;
+  const warnThreshold = rangeValues.scaleSpan * bufferPercentage;
+  const projectedValue = projectOntoScale(actualValue, scale);
   const isRangeZero = expectedMin === expectedMax;
-  const isNearMin = !isRangeZero && actualValue <= expectedMin + warnThreshold;
-  const isNearMax = !isRangeZero && actualValue >= expectedMax - warnThreshold;
+  const isNearMin =
+    !isRangeZero &&
+    projectedValue <= projectOntoScale(expectedMin, scale) + warnThreshold;
+  const isNearMax =
+    !isRangeZero &&
+    projectedValue >= projectOntoScale(expectedMax, scale) - warnThreshold;
   const isOutOfRange = actualValue < expectedMin || actualValue > expectedMax;
 
   const percentage = (value: number) =>
@@ -106,10 +116,7 @@ export function RangeWithValue({
     theme,
   });
 
-  const meanValue =
-    scale === 'logarithmic'
-      ? Math.sqrt(expectedMin * expectedMax)
-      : (expectedMin + expectedMax) / 2;
+  const meanValue = meanOfScale({ expectedMin, expectedMax, scale });
 
   return (
     <Container>
