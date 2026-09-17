@@ -1,3 +1,10 @@
+# [20.8.0-alpha.6](https://github.com/mll-lab/react-components/compare/v20.8.0-alpha.5...v20.8.0-alpha.6) (2026-09-17)
+
+
+### Bug Fixes
+
+* **RangeWithValue:** drop the tick labels ([59c0c8a](https://github.com/mll-lab/react-components/commit/59c0c8a177caf94c6e2321236144921d5c5faea2))
+
 # [20.8.0-alpha.5](https://github.com/mll-lab/react-components/compare/v20.8.0-alpha.4...v20.8.0-alpha.5) (2026-09-17)
 
 
