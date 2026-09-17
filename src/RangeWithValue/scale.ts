@@ -115,26 +115,7 @@ export function ticksOfScale({
     .map(withoutFloatingPointNoise);
 }
 
-const LABELLED_SPAN_IN_DECADES = 1;
-
-/** Below one decade the bounds and the mean already fill the label row. */
-export function scaleHasTickLabels({
-  bufferedMin,
-  bufferedMax,
-  scale,
-}: {
-  bufferedMin: number;
-  bufferedMax: number;
-  scale: RangeWithValueScale;
-}): boolean {
-  return (
-    scale !== 'logarithmic' ||
-    Math.log10(bufferedMax / bufferedMin) >= LABELLED_SPAN_IN_DECADES
-  );
-}
-
-const SUBDIVISIONS = [1, 2, 3, 5, 7];
-const SUBDIVISIONS_OF_A_NARROW_WINDOW = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const SUBDIVISIONS = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 function logarithmicTicks(
   bufferedMin: number,
@@ -142,34 +123,15 @@ function logarithmicTicks(
 ): Array<number> {
   const firstDecade = Math.floor(Math.log10(bufferedMin));
   const decadeCount = Math.ceil(Math.log10(bufferedMax)) - firstDecade + 1;
+  const subdivisions =
+    decadeCount > DECADES_WITHOUT_SUBDIVISION ? [1] : SUBDIVISIONS;
 
   return Array.from(
     { length: decadeCount },
     (_, index) => firstDecade + index,
   ).flatMap((decade) =>
-    logarithmicSubdivisions(bufferedMin, bufferedMax, decadeCount).map(
-      (multiple) => multiple * 10 ** decade,
-    ),
+    subdivisions.map((multiple) => multiple * 10 ** decade),
   );
-}
-
-/** Unlabelled strokes may sit denser, and a narrow window needs them to read as a scale. */
-function logarithmicSubdivisions(
-  bufferedMin: number,
-  bufferedMax: number,
-  decadeCount: number,
-): Array<number> {
-  if (decadeCount > DECADES_WITHOUT_SUBDIVISION) {
-    return [1];
-  }
-
-  return scaleHasTickLabels({
-    bufferedMin,
-    bufferedMax,
-    scale: 'logarithmic',
-  })
-    ? SUBDIVISIONS
-    : SUBDIVISIONS_OF_A_NARROW_WINDOW;
 }
 
 function linearTicks(bufferedMin: number, bufferedMax: number): Array<number> {
