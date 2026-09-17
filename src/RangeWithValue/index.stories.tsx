@@ -52,20 +52,20 @@ Default.args = {
   showMean: false,
 };
 
-export const ThreeDecimals = Template.bind({});
-ThreeDecimals.args = {
-  expectedMin: 0,
+export const EqualBounds = Template.bind({});
+EqualBounds.args = {
+  expectedMin: 0.029,
   expectedMax: 0.029,
   actualValue: 0.03,
   rangeType: 'open-ended',
   showMean: false,
 };
 
-export const EqualBounds = Template.bind({});
-EqualBounds.args = {
-  expectedMin: 0.029,
-  expectedMax: 0.029,
-  actualValue: 0.03,
+export const EqualBoundsMet = Template.bind({});
+EqualBoundsMet.args = {
+  expectedMin: 0,
+  expectedMax: 0,
+  actualValue: 0,
   rangeType: 'open-ended',
   showMean: false,
 };
@@ -77,15 +77,6 @@ InvalidBounds.args = {
   actualValue: 0.031,
   rangeType: 'open-ended',
   showMean: false,
-};
-
-export const MeanNeedsMoreDecimals = Template.bind({});
-MeanNeedsMoreDecimals.args = {
-  expectedMin: 0.04,
-  expectedMax: 0.15,
-  actualValue: 0.1,
-  rangeType: 'closed',
-  showMean: true,
 };
 
 export const LogarithmicScale = Template.bind({});
@@ -124,14 +115,5 @@ MissingMeasurement.args = {
   expectedMax: 0.15,
   actualValue: NaN,
   rangeType: 'closed',
-  showMean: false,
-};
-
-export const EqualBoundsMet = Template.bind({});
-EqualBoundsMet.args = {
-  expectedMin: 0,
-  expectedMax: 0,
-  actualValue: 0,
-  rangeType: 'open-ended',
   showMean: false,
 };

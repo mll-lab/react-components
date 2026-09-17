@@ -22,7 +22,6 @@ import {
   projectOntoScale,
   RangeWithValueScale,
   ticksOfScale,
-  withoutFloatingPointNoise,
 } from './scale';
 import { colorByRange, widthOfValuePoint } from './utils';
 
@@ -51,18 +50,16 @@ export function RangeWithValue({
 }: RangeWithValueProps) {
   const theme = useTheme();
 
+  const lowestValue = Math.min(expectedMin, actualValue);
   const invalidInput = (() => {
     if (![expectedMin, expectedMax, actualValue].every(Number.isFinite)) {
-      return `Keine gültigen Zahlenwerte: ${expectedMin} / ${expectedMax} / ${actualValue}`;
+      return `Keine gültigen Zahlenwerte: ${expectedMin} / ${expectedMax} / ${actualValue}.`;
     }
     if (expectedMax < expectedMin) {
-      return `Ungültige Grenzwerte: ${expectedMin} ist größer als ${expectedMax}`;
+      return `Ungültige Grenzwerte: ${expectedMin} ist größer als ${expectedMax}.`;
     }
-    if (scale === 'logarithmic' && Math.min(expectedMin, actualValue) <= 0) {
-      return `Keine logarithmische Skala für Werte kleiner oder gleich null: ${Math.min(
-        expectedMin,
-        actualValue,
-      )}`;
+    if (scale === 'logarithmic' && lowestValue <= 0) {
+      return `Keine logarithmische Skala für Werte kleiner oder gleich null: ${lowestValue}.`;
     }
 
     return null;
@@ -79,8 +76,6 @@ export function RangeWithValue({
   }
 
   const rangeValues = getBufferedRange({
-    max: Math.max(expectedMax, actualValue),
-    min: Math.min(expectedMin, actualValue),
     actualValue,
     expectedMin,
     expectedMax,
@@ -183,9 +178,7 @@ export function RangeWithValue({
           <>
             <Label left={`${percentage(expectedMax)}%`}>{expectedMax}</Label>
             {showMean && (
-              <Label left={`${percentage(meanValue)}%`}>
-                {withoutFloatingPointNoise(meanValue)}
-              </Label>
+              <Label left={`${percentage(meanValue)}%`}>{meanValue}</Label>
             )}
           </>
         )}
