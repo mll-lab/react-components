@@ -23,6 +23,8 @@ import {
 
 export type RangeWithValueType = 'closed' | 'open-ended';
 
+export type RangeWithValueMeanType = 'arithmetic' | 'geometric';
+
 export type RangeWithValueProps = {
   expectedMin: number;
   expectedMax: number;
@@ -30,6 +32,7 @@ export type RangeWithValueProps = {
   rangeType: RangeWithValueType;
   bufferPercentage?: number;
   showMean?: boolean;
+  meanType?: RangeWithValueMeanType;
 };
 
 export function RangeWithValue({
@@ -39,6 +42,7 @@ export function RangeWithValue({
   rangeType,
   bufferPercentage = 0.1,
   showMean,
+  meanType = 'arithmetic',
 }: RangeWithValueProps) {
   const theme = useTheme();
 
@@ -48,6 +52,9 @@ export function RangeWithValue({
     }
     if (expectedMax < expectedMin) {
       return `Ungültige Grenzwerte: ${expectedMin} ist größer als ${expectedMax}`;
+    }
+    if (showMean && meanType === 'geometric' && expectedMin <= 0) {
+      return `Kein geometrischer Mittelwert für eine untere Grenze von ${expectedMin}`;
     }
 
     return null;
@@ -99,7 +106,10 @@ export function RangeWithValue({
     theme,
   });
 
-  const meanValue = (expectedMin + expectedMax) / 2;
+  const meanValue =
+    meanType === 'geometric'
+      ? Math.sqrt(expectedMin * expectedMax)
+      : (expectedMin + expectedMax) / 2;
 
   return (
     <Container>

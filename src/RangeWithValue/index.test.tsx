@@ -49,6 +49,44 @@ describe('RangeWithValue', () => {
     expect(screen.getByText('0.095')).toBeVisible();
   });
 
+  it('labels the geometric mean of a multiplicatively derived range', () => {
+    render(
+      <RangeWithValue
+        expectedMin={0.038}
+        expectedMax={0.152}
+        actualValue={0.1}
+        rangeType="closed"
+        showMean
+        meanType="geometric"
+      />,
+    );
+
+    expect(screen.getByText('0.076')).toBeVisible();
+    expect(screen.queryByText('0.095')).not.toBeInTheDocument();
+  });
+
+  it('reports that a lower bound of zero has no geometric mean', () => {
+    render(
+      <RangeWithValue
+        expectedMin={0}
+        expectedMax={0.002}
+        actualValue={0.001}
+        rangeType="closed"
+        showMean
+        meanType="geometric"
+      />,
+    );
+
+    expect(
+      screen.getByText(
+        'Kein geometrischer Mittelwert für eine untere Grenze von 0',
+        {
+          exact: false,
+        },
+      ),
+    ).toBeVisible();
+  });
+
   it('centers a range that collapses onto the value', () => {
     render(
       <RangeWithValue
