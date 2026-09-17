@@ -117,15 +117,15 @@ describe('RangeWithValue', () => {
       <RangeWithValue
         expectedMin={1}
         expectedMax={100}
-        actualValue={10}
+        actualValue={4}
         rangeType="closed"
         bufferPercentage={0}
         scale="logarithmic"
       />,
     );
 
-    expect(screen.getByText('10')).toHaveStyle({
-      left: 'calc(50% - 12.5px)',
+    expect(screen.getByText('4')).toHaveStyle({
+      left: 'calc(30.10299956639812% - 10px)',
     });
   });
 
@@ -134,14 +134,14 @@ describe('RangeWithValue', () => {
       <RangeWithValue
         expectedMin={1}
         expectedMax={100}
-        actualValue={10}
+        actualValue={4}
         rangeType="closed"
         bufferPercentage={0}
       />,
     );
 
-    expect(screen.getByText('10')).toHaveStyle({
-      left: 'calc(9.090909090909092% - 12.5px)',
+    expect(screen.getByText('4')).toHaveStyle({
+      left: 'calc(3.0303030303030303% - 10px)',
     });
   });
 
