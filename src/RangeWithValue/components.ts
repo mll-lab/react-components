@@ -23,6 +23,15 @@ export const RangeLine = styled.div<{ left: string }>`
   background: ${(props) => props.theme.borderColor};
 `;
 
+export const ScaleTick = styled.div<{ left: string }>`
+  position: absolute;
+  left: ${(props) => props.left};
+  top: 100%;
+  width: 1px;
+  height: 4px;
+  background: ${PALETTE.gray5};
+`;
+
 export const ValuePoint = styled.div<{
   left: string;
   width: number;
@@ -71,4 +80,9 @@ export const Label = styled.span<{ left: string }>`
   transform: translateX(-50%);
   white-space: nowrap;
   font-size: 12px;
+`;
+
+export const TickLabel = styled(Label)`
+  font-size: 10px;
+  color: ${PALETTE.gray6};
 `;

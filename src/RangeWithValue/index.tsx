@@ -12,6 +12,8 @@ import {
   LabelWrapper,
   RangeLine,
   Scale,
+  ScaleTick,
+  TickLabel,
   ValuePoint,
 } from './components';
 import {
@@ -20,12 +22,12 @@ import {
   positionOnScale,
   projectOntoScale,
   RangeWithValueScale,
-} from './scale';
-import {
-  colorByRange,
-  widthOfValuePoint,
+  ticksOfScale,
   withoutFloatingPointNoise,
-} from './utils';
+} from './scale';
+import { colorByRange, widthOfValuePoint } from './utils';
+
+const MINIMUM_LABEL_GAP_PERCENT = 10;
 
 export type RangeWithValueType = 'closed' | 'open-ended';
 
@@ -118,9 +120,33 @@ export function RangeWithValue({
 
   const meanValue = meanOfScale({ expectedMin, expectedMax, scale });
 
+  const ticks = ticksOfScale({
+    bufferedMin: rangeValues.bufferedMin,
+    bufferedMax: rangeValues.bufferedMax,
+    scale,
+  });
+  const labelledValues = [
+    actualValue,
+    expectedMin,
+    ...(isRangeZero ? [] : [expectedMax]),
+    ...(showMean && !isRangeZero ? [meanValue] : []),
+  ].map(percentage);
+  const ticksToLabel = ticks
+    .filter(({ isLabelled }) => isLabelled)
+    .map(({ value }) => value)
+    .filter((value) =>
+      labelledValues.every(
+        (position) =>
+          Math.abs(percentage(value) - position) > MINIMUM_LABEL_GAP_PERCENT,
+      ),
+    );
+
   return (
     <Container>
       <Scale>
+        {ticks.map(({ value }) => (
+          <ScaleTick key={value} left={`${percentage(value)}%`} />
+        ))}
         <RangeLine left={`${percentage(expectedMin)}%`} />
         {!isRangeZero && (
           <>
@@ -166,6 +192,11 @@ export function RangeWithValue({
         </Tooltip>
       </Scale>
       <LabelWrapper>
+        {ticksToLabel.map((value) => (
+          <TickLabel key={value} left={`${percentage(value)}%`}>
+            {value}
+          </TickLabel>
+        ))}
         <Label left={`${percentage(expectedMin)}%`}>
           {isRangeZero ? `= ${expectedMin}` : expectedMin}
         </Label>
