@@ -7,15 +7,27 @@ import { useTheme } from '../theme';
 import {
   Container,
   DownwardLine,
+  InvalidRange,
   Label,
   LabelWrapper,
   RangeLine,
   Scale,
+  ScaleTick,
   ValuePoint,
 } from './components';
-import { colorByRange, getBufferedRange, widthOfValuePoint } from './utils';
+import {
+  getBufferedRange,
+  meanOfScale,
+  positionOnScale,
+  projectOntoScale,
+  RangeWithValueScale,
+  ticksOfScale,
+} from './scale';
+import { colorByRange, widthOfValuePoint } from './utils';
 
 export type RangeWithValueType = 'closed' | 'open-ended';
+
+export type { RangeWithValueScale };
 
 export type RangeWithValueProps = {
   expectedMin: number;
@@ -24,6 +36,7 @@ export type RangeWithValueProps = {
   rangeType: RangeWithValueType;
   bufferPercentage?: number;
   showMean?: boolean;
+  scale?: RangeWithValueScale;
 };
 
 export function RangeWithValue({
@@ -33,34 +46,60 @@ export function RangeWithValue({
   rangeType,
   bufferPercentage = 0.1,
   showMean,
+  scale = 'linear',
 }: RangeWithValueProps) {
   const theme = useTheme();
 
+  const lowestValue = Math.min(expectedMin, actualValue);
+  const invalidInput = (() => {
+    if (![expectedMin, expectedMax, actualValue].every(Number.isFinite)) {
+      return `Keine gültigen Zahlenwerte: ${expectedMin} / ${expectedMax} / ${actualValue}.`;
+    }
+    if (expectedMax < expectedMin) {
+      return `Ungültige Grenzwerte: ${expectedMin} ist größer als ${expectedMax}.`;
+    }
+    if (scale === 'logarithmic' && lowestValue <= 0) {
+      return `Keine logarithmische Skala für Werte kleiner oder gleich null: ${lowestValue}.`;
+    }
+
+    return null;
+  })();
+
+  if (invalidInput) {
+    return (
+      <Container>
+        <InvalidRange>
+          <ExclamationCircleOutlined /> {invalidInput}
+        </InvalidRange>
+      </Container>
+    );
+  }
+
   const rangeValues = getBufferedRange({
-    max: Math.max(expectedMax, actualValue),
-    min: Math.min(expectedMin, actualValue),
     actualValue,
     expectedMin,
     expectedMax,
     bufferPercentage,
+    scale,
   });
-  const warnThreshold = rangeValues.range * bufferPercentage;
+  const warnThreshold = rangeValues.scaleSpan * bufferPercentage;
+  const projectedValue = projectOntoScale(actualValue, scale);
   const isRangeZero = expectedMin === expectedMax;
-  const isNearMin = !isRangeZero && actualValue <= expectedMin + warnThreshold;
-  const isNearMax = !isRangeZero && actualValue >= expectedMax - warnThreshold;
+  const isNearMin =
+    !isRangeZero &&
+    projectedValue <= projectOntoScale(expectedMin, scale) + warnThreshold;
+  const isNearMax =
+    !isRangeZero &&
+    projectedValue >= projectOntoScale(expectedMax, scale) - warnThreshold;
   const isOutOfRange = actualValue < expectedMin || actualValue > expectedMax;
 
-  const percentage = (val: number) => {
-    if (isRangeZero) {
-      return 50; // Special case: range 0 -> always centered
-    }
-
-    return (
-      ((val - rangeValues.bufferedMin) /
-        (rangeValues.bufferedMax - rangeValues.bufferedMin)) *
-      100
-    );
-  };
+  const percentage = (value: number) =>
+    positionOnScale({
+      value,
+      bufferedMin: rangeValues.bufferedMin,
+      bufferedMax: rangeValues.bufferedMax,
+      scale,
+    });
 
   const valuePointWidth = widthOfValuePoint(actualValue);
   const valueColor = colorByRange({
@@ -71,16 +110,30 @@ export function RangeWithValue({
     theme,
   });
 
-  const meanValue = (expectedMin + expectedMax) / 2;
-  const meanLabelWidth = 18;
+  const meanValue = meanOfScale({ expectedMin, expectedMax, scale });
+
+  const ticks = isRangeZero
+    ? []
+    : ticksOfScale({
+        bufferedMin: rangeValues.bufferedMin,
+        bufferedMax: rangeValues.bufferedMax,
+        scale,
+      });
 
   return (
     <Container>
       <Scale>
+        {ticks.map((value) => (
+          <ScaleTick key={value} left={`${percentage(value)}%`} />
+        ))}
         <RangeLine left={`${percentage(expectedMin)}%`} />
-        <RangeLine left={`${percentage(expectedMax)}%`} />
-        {showMean && (
-          <RangeLine left={`calc(${percentage(meanValue)}% - 0.5px)`} />
+        {!isRangeZero && (
+          <>
+            <RangeLine left={`${percentage(expectedMax)}%`} />
+            {showMean && (
+              <RangeLine left={`calc(${percentage(meanValue)}% - 0.5px)`} />
+            )}
+          </>
         )}
         <Tooltip
           title={(() => {
@@ -118,18 +171,16 @@ export function RangeWithValue({
         </Tooltip>
       </Scale>
       <LabelWrapper>
-        <Label left={`calc(${percentage(expectedMin)}% - 14px)`}>
-          {expectedMin}
+        <Label left={`${percentage(expectedMin)}%`}>
+          {isRangeZero ? `= ${expectedMin}` : expectedMin}
         </Label>
-        <Label left={`calc(${percentage(expectedMax)}% - 14px)`}>
-          {expectedMax}
-        </Label>
-        {showMean && (
-          <Label
-            left={`calc(${percentage(meanValue)}% - ${meanLabelWidth / 2}px)`}
-          >
-            {meanValue.toFixed(2)}
-          </Label>
+        {!isRangeZero && (
+          <>
+            <Label left={`${percentage(expectedMax)}%`}>{expectedMax}</Label>
+            {showMean && (
+              <Label left={`${percentage(meanValue)}%`}>{meanValue}</Label>
+            )}
+          </>
         )}
       </LabelWrapper>
     </Container>

@@ -8,19 +8,22 @@ export default {
   component: RangeWithValue,
   argTypes: {
     expectedMin: {
-      control: { type: 'range', min: 0, max: 200, step: 1 },
+      control: { type: 'number', step: 0.001 },
     },
     expectedMax: {
-      control: { type: 'range', min: 0, max: 200, step: 1 },
+      control: { type: 'number', step: 0.001 },
     },
     actualValue: {
-      control: { type: 'range', min: 0, max: 200, step: 1 },
+      control: { type: 'number', step: 0.001 },
     },
     rangeType: {
       control: { type: 'select', options: ['closed', 'open-ended'] },
     },
     showMean: {
       control: { type: 'boolean' },
+    },
+    scale: {
+      control: { type: 'select', options: ['linear', 'logarithmic'] },
     },
   },
 };
@@ -31,6 +34,7 @@ const Template: StoryFn<{
   actualValue: number;
   rangeType: 'closed' | 'open-ended';
   showMean: boolean;
+  scale: 'linear' | 'logarithmic';
 }> = function Template(args) {
   return (
     <div style={{ width: 300 }}>
@@ -44,6 +48,72 @@ Default.args = {
   expectedMin: 10,
   expectedMax: 100,
   actualValue: 50,
+  rangeType: 'closed',
+  showMean: false,
+};
+
+export const EqualBounds = Template.bind({});
+EqualBounds.args = {
+  expectedMin: 0.029,
+  expectedMax: 0.029,
+  actualValue: 0.03,
+  rangeType: 'open-ended',
+  showMean: false,
+};
+
+export const EqualBoundsMet = Template.bind({});
+EqualBoundsMet.args = {
+  expectedMin: 0,
+  expectedMax: 0,
+  actualValue: 0,
+  rangeType: 'open-ended',
+  showMean: false,
+};
+
+export const InvalidBounds = Template.bind({});
+InvalidBounds.args = {
+  expectedMin: 0.029,
+  expectedMax: 0.024,
+  actualValue: 0.031,
+  rangeType: 'open-ended',
+  showMean: false,
+};
+
+export const LogarithmicScale = Template.bind({});
+LogarithmicScale.args = {
+  expectedMin: 0.038,
+  expectedMax: 0.153,
+  actualValue: 0.1,
+  rangeType: 'closed',
+  showMean: true,
+  scale: 'logarithmic',
+};
+
+export const LogarithmicScaleSpanningDecades = Template.bind({});
+LogarithmicScaleSpanningDecades.args = {
+  expectedMin: 0.01,
+  expectedMax: 10,
+  actualValue: 1.5,
+  rangeType: 'closed',
+  showMean: true,
+  scale: 'logarithmic',
+};
+
+export const LogarithmicScaleWithZeroBound = Template.bind({});
+LogarithmicScaleWithZeroBound.args = {
+  expectedMin: 0,
+  expectedMax: 0.002,
+  actualValue: 0.001,
+  rangeType: 'open-ended',
+  showMean: true,
+  scale: 'logarithmic',
+};
+
+export const MissingMeasurement = Template.bind({});
+MissingMeasurement.args = {
+  expectedMin: 0.04,
+  expectedMax: 0.15,
+  actualValue: NaN,
   rangeType: 'closed',
   showMean: false,
 };
