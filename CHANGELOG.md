@@ -1,3 +1,10 @@
+## [20.7.1](https://github.com/mll-lab/react-components/compare/v20.7.0...v20.7.1) (2026-09-21)
+
+
+### Bug Fixes
+
+* **RangeWithValue:** correct the display of degenerate ranges and add a logarithmic scale ([#335](https://github.com/mll-lab/react-components/issues/335)) ([15ceb0e](https://github.com/mll-lab/react-components/commit/15ceb0e8d36c8dde685d61bc164281a092f2efa5))
+
 # [20.7.0](https://github.com/mll-lab/react-components/compare/v20.6.1...v20.7.0) (2026-08-24)
 
 
