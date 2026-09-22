@@ -1,3 +1,10 @@
+# [20.8.0](https://github.com/mll-lab/react-components/compare/v20.7.1...v20.8.0) (2026-09-22)
+
+
+### Features
+
+* **Tabs:** order tab panels independently of mount order ([#334](https://github.com/mll-lab/react-components/issues/334)) ([f01d2fb](https://github.com/mll-lab/react-components/commit/f01d2fb2fbd09cb0b8ce72acdf6528fbbf36e56e))
+
 ## [20.7.1](https://github.com/mll-lab/react-components/compare/v20.7.0...v20.7.1) (2026-09-21)
 
 
