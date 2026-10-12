@@ -26,7 +26,6 @@ export {
  * `max-width` on `.mll-ant-table-wrapper`.
  */
 const MixContent = styled.div`
-  width: 100%;
   max-width: 400px;
 `;
 
