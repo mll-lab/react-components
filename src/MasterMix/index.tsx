@@ -26,7 +26,7 @@ export {
  * `max-width` on `.mll-ant-table-wrapper`.
  */
 const MixContent = styled.div`
-  max-width: 400px;
+  max-width: 480px;
 `;
 
 const MixCard = styled(Card)<{
