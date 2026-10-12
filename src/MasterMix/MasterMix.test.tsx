@@ -1,6 +1,8 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import React from 'react';
 
+import { Provider } from '../Provider';
+
 import { MasterMixIngredient } from './types';
 
 import { MasterMix } from './index';
@@ -158,4 +160,55 @@ describe('MasterMix', () => {
 
     expect(screen.queryAllByTitle('pipettiert')).toHaveLength(0);
   });
+
+  /* eslint-disable testing-library/no-container, testing-library/no-node-access -- antd wrappers have no role */
+  it('applies the given style', () => {
+    const { container } = render(
+      <Provider>
+        <MasterMix
+          name="Test"
+          mode="recipe"
+          ingredients={ingredients}
+          perReactionIngredients={[{ key: 5, title: 'cDNA', volume: 5 }]}
+          bodyPadding="12px"
+          headerSpacing="4px"
+          indentStepInPixels={12}
+        />
+      </Provider>,
+    );
+
+    expect(container.querySelector('.mll-ant-card-body')).toHaveStyle({
+      padding: '12px',
+    });
+    expect(container.querySelector('.mll-ant-card-head-title')).toHaveStyle({
+      paddingBlock: '4px',
+    });
+    expect(screen.getByText('Water').firstElementChild).toHaveStyle({
+      width: '24px',
+    });
+  });
+
+  it('keeps the default style without style props', () => {
+    const { container } = render(
+      <Provider>
+        <MasterMix
+          name="Test"
+          mode="recipe"
+          ingredients={ingredients}
+          perReactionIngredients={[{ key: 5, title: 'cDNA', volume: 5 }]}
+        />
+      </Provider>,
+    );
+
+    expect(container.querySelector('.mll-ant-card-body')).not.toHaveAttribute(
+      'style',
+    );
+    expect(container.querySelector('.mll-ant-card-head-title')).not.toHaveStyle(
+      { paddingBlock: '4px' },
+    );
+    expect(screen.getByText('Water').firstElementChild).toHaveStyle({
+      width: '40px',
+    });
+  });
+  /* eslint-enable testing-library/no-container, testing-library/no-node-access */
 });
