@@ -1,3 +1,31 @@
+# [20.9.0-alpha.1](https://github.com/mll-lab/react-components/compare/v20.8.0...v20.9.0-alpha.1) (2026-10-12)
+
+
+### Bug Fixes
+
+* **RangeWithValue:** drop the tick labels ([59c0c8a](https://github.com/mll-lab/react-components/commit/59c0c8a177caf94c6e2321236144921d5c5faea2))
+* **RangeWithValue:** drop the tick labels of a narrow logarithmic scale ([747bb74](https://github.com/mll-lab/react-components/commit/747bb74f92039e7d75c46752fa32fe2cec3b0559))
+* **RangeWithValue:** handle degenerate ranges instead of drawing them wrong ([259ec2d](https://github.com/mll-lab/react-components/commit/259ec2dc68afbe0f83b181d8e264115d120730d6))
+* **RangeWithValue:** label the mean with the decimals it actually has ([0e11cd2](https://github.com/mll-lab/react-components/commit/0e11cd291e2c0d0074b45118aac4ac741a981d46))
+* **RangeWithValue:** label the mean with the decimals it actually has ([4ab3d44](https://github.com/mll-lab/react-components/commit/4ab3d44f40cff9cfae030bc64b8b60a53df64168))
+* **RangeWithValue:** round a geometric mean to the decimals of its bounds ([f49553e](https://github.com/mll-lab/react-components/commit/f49553ece7db59222f9dc486d18031a87061b5c8))
+* **RangeWithValue:** round a geometric mean to the decimals of its bounds ([47d989a](https://github.com/mll-lab/react-components/commit/47d989a9016831749057b7b10f52305e6c05a21e))
+* **RangeWithValue:** stop showing a missing measurement as in range ([d605ac2](https://github.com/mll-lab/react-components/commit/d605ac2e926909582a62071d46202bb85be20b13))
+* **RangeWithValue:** stop showing a missing measurement as in range ([9bc698a](https://github.com/mll-lab/react-components/commit/9bc698ae53239f35294f920430087bb2b0431524))
+
+
+### Features
+
+* **MasterMix:** add bodyPadding, headerSpacing and indentStepInPixels to compact the card ([280aed6](https://github.com/mll-lab/react-components/commit/280aed6d9935310f7d667fdbe40978fb7455e2a9))
+* **RangeWithValue:** give the scale ticks and label them ([e51a51c](https://github.com/mll-lab/react-components/commit/e51a51cf2e14790bfbd3c543995d63b7c3b4b45b))
+* **RangeWithValue:** give the scale ticks and label them ([56bce52](https://github.com/mll-lab/react-components/commit/56bce52516c5eb44e94c16b4c970868a2d8079c4))
+* **RangeWithValue:** label more of the logarithmic ticks ([575ce21](https://github.com/mll-lab/react-components/commit/575ce215141a3c96651974204e8adc333734e569))
+* **RangeWithValue:** label more of the logarithmic ticks ([2030f2f](https://github.com/mll-lab/react-components/commit/2030f2f327b5e22bd4136ba6adb5645e394c8ebe))
+* **RangeWithValue:** let the caller choose a logarithmic scale ([519497f](https://github.com/mll-lab/react-components/commit/519497ff5e1a1edb60e8583349d2096adcc22173))
+* **RangeWithValue:** let the caller choose a logarithmic scale ([7510025](https://github.com/mll-lab/react-components/commit/7510025c8eec01f39ae1c3734d240f9386ae2f50))
+* **RangeWithValue:** let the caller choose the mean type ([2c080c6](https://github.com/mll-lab/react-components/commit/2c080c6f89d33cb4e10c368fbc7151f3658b351d))
+* **RangeWithValue:** let the caller choose the mean type ([f400e62](https://github.com/mll-lab/react-components/commit/f400e622511afda5ab00ceeda45ad06cd1a5c78a))
+
 # [20.8.0-alpha.7](https://github.com/mll-lab/react-components/compare/v20.8.0-alpha.6...v20.8.0-alpha.7) (2026-09-21)
 
 
