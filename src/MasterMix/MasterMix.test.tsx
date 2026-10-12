@@ -188,6 +188,23 @@ describe('MasterMix', () => {
     });
   });
 
+  it('adds pixels to a numeric header spacing', () => {
+    const { container } = render(
+      <Provider>
+        <MasterMix
+          name="Test"
+          mode="recipe"
+          ingredients={ingredients}
+          headerSpacing={4}
+        />
+      </Provider>,
+    );
+
+    expect(container.querySelector('.mll-ant-card-head-title')).toHaveStyle({
+      paddingBlock: '4px',
+    });
+  });
+
   it('keeps the default style without style props', () => {
     const { container } = render(
       <Provider>

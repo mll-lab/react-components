@@ -39,7 +39,9 @@ const MixCard = styled(Card)<{
         min-height: 0;
       }
       .mll-ant-card-head-title {
-        padding-block: ${props.$headerSpacing};
+        padding-block: ${typeof props.$headerSpacing === 'number'
+          ? `${props.$headerSpacing}px`
+          : props.$headerSpacing};
       }
       .mll-ant-card-head-title .mll-ant-typography {
         margin-bottom: 0;

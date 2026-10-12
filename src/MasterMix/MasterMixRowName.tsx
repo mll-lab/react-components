@@ -1,6 +1,8 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
+import { MasterMixStyle } from './types';
+
 const PIPETTED_MARK = '✓';
 const DEFAULT_INDENT_STEP_IN_PIXELS = 20;
 const MARK_GAP_IN_PIXELS = 5;
@@ -27,7 +29,7 @@ export function MasterMixRowName({
 }: {
   level: number;
   pipetted: boolean;
-  indentStepInPixels?: number;
+  indentStepInPixels?: MasterMixStyle['indentStepInPixels'];
   children: ReactNode;
 }) {
   return (
