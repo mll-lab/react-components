@@ -33,8 +33,7 @@ export type RecipeMode = {
 
 export type MasterMixStyle = {
   bodyPadding?: CSSProperties['padding'];
-  /** Vertical padding of the title row. */
-  headerSpacing?: CSSProperties['padding'];
+  headerSpacing?: CSSProperties['paddingBlock'];
   indentStepInPixels?: number;
 };
 

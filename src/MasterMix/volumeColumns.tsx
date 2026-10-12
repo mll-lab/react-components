@@ -5,6 +5,7 @@ import { REFERENCE_VOLUME_CLASS } from './VolumeTable';
 import { indentLevel } from './indentLevel';
 import { pipettingLossTableColumn } from './pipettingLossTableColumn';
 import {
+  MasterMixStyle,
   MasterMixTableRow,
   PipettingLossTableColumn,
   PipettingScaling,
@@ -27,7 +28,7 @@ export function volumeColumns({
   scaling: PipettingScaling | undefined;
   pipettedKeys: Array<string>;
   withinReactionMix: boolean;
-  indentStepInPixels: number | undefined;
+  indentStepInPixels: MasterMixStyle['indentStepInPixels'];
 }): Array<PipettingLossTableColumn> {
   return [
     {
