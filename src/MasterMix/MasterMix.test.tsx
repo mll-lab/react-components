@@ -49,6 +49,26 @@ describe('MasterMix', () => {
     expect(screen.getByText('901.8 µl')).toBeInTheDocument();
   });
 
+  it('keeps each volume together with its unit', () => {
+    const keepWhitespace = (text: string) => text;
+
+    render(
+      <MasterMix
+        name="Test"
+        count={count}
+        ingredients={ingredients}
+        pipettingLoss={{ type: 'absolute', count: 2 }}
+      />,
+    );
+
+    expect(
+      screen.getByText('79.5\u00A0µl', { normalizer: keepWhitespace }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText('901.8\u00A0µl', { normalizer: keepWhitespace }),
+    ).toBeInTheDocument();
+  });
+
   it('renders as reaction mix containing the master mix', () => {
     render(
       <MasterMix

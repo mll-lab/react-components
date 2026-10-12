@@ -53,7 +53,7 @@ export function volumeColumns({
             : undefined,
       }),
       render: (_: unknown, record: MasterMixTableRow) => (
-        <>{record.volume.toFixed(1)} µl</>
+        <>{record.volume.toFixed(1)}&nbsp;µl</>
       ),
     },
     ...(scaling ? [pipettingLossTableColumn(scaling)] : []),
