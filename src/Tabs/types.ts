@@ -11,5 +11,9 @@ export type TabsProps<TTabID = number | string> = {
 export type TabPanelProps<TTabID = number | string> = {
   id: TTabID;
   title: ReactNode;
+
+  /** Ascending, panels sharing an order keep the order they mounted in. */
+  order?: number;
+
   children?: ReactNode;
 };

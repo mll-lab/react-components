@@ -10,13 +10,18 @@ export function TabPanel(props: TabPanelProps) {
     context.registerTab({
       id: props.id,
       title: props.title,
+      order: props.order,
     });
-
-    return () => {
-      context.unregisterTab(props.id);
-    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.id, props.title]);
+  }, [props.id, props.title, props.order]);
+
+  useEffect(
+    () => () => {
+      context.unregisterTab(props.id);
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [props.id],
+  );
 
   return (
     <div

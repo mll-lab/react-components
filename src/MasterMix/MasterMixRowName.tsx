@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 
 const PIPETTED_MARK = '✓';
-const INDENT_STEP_IN_PIXELS = 20;
+const DEFAULT_INDENT_STEP_IN_PIXELS = 20;
 const MARK_GAP_IN_PIXELS = 5;
 
 /**
@@ -10,11 +10,11 @@ const MARK_GAP_IN_PIXELS = 5;
  * nor detaches from its row. The offset separates the mark from the name without moving
  * the name on any level.
  */
-const Indent = styled.span<{ $level: number }>`
+const Indent = styled.span<{ $widthInPixels: number }>`
   display: inline-block;
   position: relative;
   right: ${MARK_GAP_IN_PIXELS}px;
-  width: ${(props) => props.$level * INDENT_STEP_IN_PIXELS}px;
+  width: ${(props) => props.$widthInPixels}px;
   text-align: right;
   color: ${(props) => props.theme.successColor};
 `;
@@ -22,15 +22,20 @@ const Indent = styled.span<{ $level: number }>`
 export function MasterMixRowName({
   level,
   pipetted,
+  indentStepInPixels = DEFAULT_INDENT_STEP_IN_PIXELS,
   children,
 }: {
   level: number;
   pipetted: boolean;
+  indentStepInPixels?: number;
   children: ReactNode;
 }) {
   return (
     <>
-      <Indent $level={level} title={pipetted ? 'pipettiert' : undefined}>
+      <Indent
+        $widthInPixels={level * indentStepInPixels}
+        title={pipetted ? 'pipettiert' : undefined}
+      >
         {pipetted ? PIPETTED_MARK : null}
       </Indent>
       {children}

@@ -8,12 +8,18 @@ import {
 } from './VolumeTable';
 import { hasPerReactionIngredients } from './hasPerReactionIngredients';
 import { mixRows } from './mixRows';
-import { MasterMixTableRow, PipettingScaling, ReactionMix } from './types';
+import {
+  MasterMixStyle,
+  MasterMixTableRow,
+  PipettingScaling,
+  ReactionMix,
+} from './types';
 import { volumeColumns } from './volumeColumns';
 
-type MixTableProps = ReactionMix & {
-  scaling?: PipettingScaling;
-};
+type MixTableProps = ReactionMix &
+  Pick<MasterMixStyle, 'indentStepInPixels'> & {
+    scaling?: PipettingScaling;
+  };
 
 function rowClassName(
   record: MasterMixTableRow,
@@ -35,6 +41,7 @@ export function MixTable({
   ingredients,
   perReactionIngredients,
   scaling,
+  indentStepInPixels,
 }: MixTableProps) {
   const [pipettedKeys, setPipettedKeys] = useState<Array<string>>([]);
 
@@ -60,7 +67,12 @@ export function MixTable({
               }
             : {})
       }
-      columns={volumeColumns(scaling, pipettedKeys, withinReactionMix)}
+      columns={volumeColumns({
+        scaling,
+        pipettedKeys,
+        withinReactionMix,
+        indentStepInPixels,
+      })}
     />
   );
 }
