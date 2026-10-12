@@ -1,3 +1,11 @@
+# [20.9.0-alpha.3](https://github.com/mll-lab/react-components/compare/v20.9.0-alpha.2...v20.9.0-alpha.3) (2026-10-12)
+
+
+### Bug Fixes
+
+* **MasterMix:** keep each volume on one line with its unit ([db2a965](https://github.com/mll-lab/react-components/commit/db2a9653abf1280f4fa2d61b229313a6f49f219e))
+* **MasterMix:** widen the table to 480px so long names and the loss header stay on one line ([7a3ecb2](https://github.com/mll-lab/react-components/commit/7a3ecb2eed56961b2cddca490277e43aa2f92c9a))
+
 # [20.9.0-alpha.2](https://github.com/mll-lab/react-components/compare/v20.9.0-alpha.1...v20.9.0-alpha.2) (2026-10-12)
 
 
