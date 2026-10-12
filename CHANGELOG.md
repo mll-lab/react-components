@@ -1,3 +1,10 @@
+# [20.9.0-alpha.2](https://github.com/mll-lab/react-components/compare/v20.9.0-alpha.1...v20.9.0-alpha.2) (2026-10-12)
+
+
+### Bug Fixes
+
+* **MasterMix:** give a numeric headerSpacing a pixel unit and type it as paddingBlock ([ba14cc1](https://github.com/mll-lab/react-components/commit/ba14cc1f9b7cef2c6f52cd2d9ec607c008bf1c4f))
+
 # [20.9.0-alpha.1](https://github.com/mll-lab/react-components/compare/v20.8.0...v20.9.0-alpha.1) (2026-10-12)
 
 
