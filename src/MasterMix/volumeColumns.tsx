@@ -5,6 +5,7 @@ import { REFERENCE_VOLUME_CLASS } from './VolumeTable';
 import { indentLevel } from './indentLevel';
 import { pipettingLossTableColumn } from './pipettingLossTableColumn';
 import {
+  MasterMixStyle,
   MasterMixTableRow,
   PipettingLossTableColumn,
   PipettingScaling,
@@ -18,11 +19,17 @@ function belongsToMasterMix(record: MasterMixTableRow): boolean {
   );
 }
 
-export function volumeColumns(
-  scaling: PipettingScaling | undefined,
-  pipettedKeys: Array<string>,
-  withinReactionMix: boolean,
-): Array<PipettingLossTableColumn> {
+export function volumeColumns({
+  scaling,
+  pipettedKeys,
+  withinReactionMix,
+  indentStepInPixels,
+}: {
+  scaling: PipettingScaling | undefined;
+  pipettedKeys: Array<string>;
+  withinReactionMix: boolean;
+  indentStepInPixels: MasterMixStyle['indentStepInPixels'];
+}): Array<PipettingLossTableColumn> {
   return [
     {
       title: 'Name',
@@ -30,6 +37,7 @@ export function volumeColumns(
         <MasterMixRowName
           level={indentLevel(record, withinReactionMix)}
           pipetted={pipettedKeys.includes(record.key)}
+          indentStepInPixels={indentStepInPixels}
         >
           {record.title}
         </MasterMixRowName>
@@ -45,7 +53,7 @@ export function volumeColumns(
             : undefined,
       }),
       render: (_: unknown, record: MasterMixTableRow) => (
-        <>{record.volume.toFixed(1)} µl</>
+        <>{record.volume.toFixed(1)}&nbsp;µl</>
       ),
     },
     ...(scaling ? [pipettingLossTableColumn(scaling)] : []),

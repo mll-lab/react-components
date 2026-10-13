@@ -99,3 +99,20 @@ export function Recipe({ name, ingredients }: StoryProps): ReactElement {
     />
   );
 }
+
+export function NarrowCard(props: StoryProps): ReactElement {
+  return (
+    <div style={{ width: '400px' }}>
+      <MasterMix
+        name={props.name}
+        count={props.count}
+        ingredients={props.ingredients}
+        perReactionIngredients={PER_REACTION_INGREDIENTS}
+        pipettingLoss={{ type: 'factor', factor: props.lossValue }}
+        bodyPadding="12px"
+        headerSpacing="4px"
+        indentStepInPixels={12}
+      />
+    </div>
+  );
+}

@@ -1,6 +1,6 @@
 import { Modify } from '@mll-lab/js-utils';
 import { ColumnType } from 'antd/es/table';
-import { ReactNode } from 'react';
+import { CSSProperties, ReactNode } from 'react';
 
 export type MasterMixIngredient = {
   key: number;
@@ -31,9 +31,16 @@ export type RecipeMode = {
   pipettingLoss?: never;
 };
 
+export type MasterMixStyle = {
+  bodyPadding?: CSSProperties['padding'];
+  headerSpacing?: CSSProperties['paddingBlock'];
+  indentStepInPixels?: number;
+};
+
 export type MasterMixProps = {
   name: string;
 } & ReactionMix &
+  MasterMixStyle &
   (PipettingScaling | RecipeMode);
 
 export type PipettingLossAbsolute = { type: 'absolute'; count: number };

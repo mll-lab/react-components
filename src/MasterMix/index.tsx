@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { Card } from '../Card';
 import { Typography } from '../Typography';
@@ -7,11 +7,12 @@ import { Typography } from '../Typography';
 import { MixTable } from './MixTable';
 import { hasPerReactionIngredients } from './hasPerReactionIngredients';
 import { MASTER_MIX_LABEL } from './mixRows';
-import { MasterMixProps } from './types';
+import { MasterMixProps, MasterMixStyle } from './types';
 
 export { reactionVolume } from './reactionVolume';
 export {
   MasterMixProps,
+  MasterMixStyle,
   MasterMixIngredient,
   ReactionMix,
   PipettingLoss,
@@ -25,7 +26,27 @@ export {
  * `max-width` on `.mll-ant-table-wrapper`.
  */
 const MixContent = styled.div`
-  max-width: 400px;
+  max-width: 480px;
+`;
+
+const MixCard = styled(Card)<{
+  $headerSpacing: MasterMixStyle['headerSpacing'];
+}>`
+  ${(props) =>
+    props.$headerSpacing != null &&
+    css`
+      .mll-ant-card-head {
+        min-height: 0;
+      }
+      .mll-ant-card-head-title {
+        padding-block: ${typeof props.$headerSpacing === 'number'
+          ? `${props.$headerSpacing}px`
+          : props.$headerSpacing};
+      }
+      .mll-ant-card-head-title .mll-ant-typography {
+        margin-bottom: 0;
+      }
+    `}
 `;
 
 /**
@@ -38,12 +59,17 @@ export function MasterMix({
   pipettingLoss,
   ingredients,
   perReactionIngredients,
+  bodyPadding,
+  headerSpacing,
+  indentStepInPixels,
 }: MasterMixProps) {
   /** Keyed on the scaling data itself, so a caller without types degrades to the recipe. */
   const scaling = pipettingLoss != null ? { count, pipettingLoss } : undefined;
 
   return (
-    <Card
+    <MixCard
+      $headerSpacing={headerSpacing}
+      bodyStyle={bodyPadding != null ? { padding: bodyPadding } : undefined}
       title={
         <Typography.Title level={5}>
           {name}{' '}
@@ -58,8 +84,9 @@ export function MasterMix({
           ingredients={ingredients}
           perReactionIngredients={perReactionIngredients}
           scaling={scaling}
+          indentStepInPixels={indentStepInPixels}
         />
       </MixContent>
-    </Card>
+    </MixCard>
   );
 }
