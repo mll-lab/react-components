@@ -1,3 +1,10 @@
+# [20.9.0](https://github.com/mll-lab/react-components/compare/v20.8.0...v20.9.0) (2026-10-13)
+
+
+### Features
+
+* **MasterMix:** add style props to compact the card ([#336](https://github.com/mll-lab/react-components/issues/336)) ([9d2f3f3](https://github.com/mll-lab/react-components/commit/9d2f3f30cfe3a60b0840b3752fdb06df6bf5b090))
+
 # [20.8.0](https://github.com/mll-lab/react-components/compare/v20.7.1...v20.8.0) (2026-09-22)
 
 
