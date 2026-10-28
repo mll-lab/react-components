@@ -19,11 +19,13 @@ export default {
       // https://rollupjs.org/configuration-options/#output-interop
       // Necessary in order for jest in consumers to work
       interop: 'auto',
+      assetFileNames: '[name][extname]',
     },
     {
       file: pkg.module,
       format: 'esm',
       sourcemap: true,
+      assetFileNames: '[name][extname]',
     },
   ],
 
@@ -47,6 +49,9 @@ export default {
       exclude: '**/*.(test|stories).(ts|tsx)',
     }),
     styles({
+      mode: ['extract', 'index.css'],
+      // Keeps url('#linearGradient-1') of antd's Empty instead of emitting it as an asset
+      url: false,
       less: {
         javascriptEnabled: true,
       },

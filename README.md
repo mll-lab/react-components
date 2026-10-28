@@ -13,6 +13,12 @@ Shared React components of MLL
 
 ## Usage
 
+Import the styles once in the entry point of your application:
+
+```ts
+import '@mll-lab/react-components/esm/index.css';
+```
+
 To set up proper styles, wrap your application in `<Provider>`:
 
 ```tsx
