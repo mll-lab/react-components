@@ -1,6 +1,3 @@
-// eslint-disable-next-line @mll-lab/no-global-styles
-import './antd.less';
-
 // Global configuration
 export * from './theme';
 export * from './Provider';

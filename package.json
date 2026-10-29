@@ -8,13 +8,18 @@
   "files": [
     "cjs",
     "esm",
+    "styles",
     "types"
   ],
+  "sideEffects": [
+    "**/*.css"
+  ],
   "scripts": {
-    "build:clean": "rimraf cjs esm types",
+    "build:clean": "rimraf cjs esm styles types",
+    "build:styles": "node scripts/antd-styles.cjs",
     "build:es": "rollup --config --bundleConfigAsCjs",
     "build:ts": "tsc --declaration --declarationDir types --emitDeclarationOnly",
-    "build": "yarn run build:clean && yarn run build:es && yarn run build:ts",
+    "build": "yarn run build:clean && yarn run build:styles && yarn run build:es && yarn run build:ts",
     "validate": "yarn run lint && yarn run typecheck && yarn run test && yarn run test:storybook",
     "test": "jest",
     "test:watch": "jest --watch",

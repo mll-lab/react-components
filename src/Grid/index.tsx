@@ -1,3 +1,7 @@
-import 'antd/es/grid/style/index';
+import AntdCol from 'antd/es/col';
+import AntdRow from 'antd/es/row';
 
-export { Row, Col, RowProps } from 'antd';
+export type { RowProps } from 'antd/es/row';
+
+export const Row: typeof AntdRow = AntdRow;
+export const Col: typeof AntdCol = AntdCol;

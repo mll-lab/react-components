@@ -6,3 +6,4 @@ types
 node_modules
 storybook-static
 *.log
+styles
