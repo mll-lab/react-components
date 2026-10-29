@@ -1,3 +1,17 @@
+# [21.0.0](https://github.com/mll-lab/react-components/compare/v20.9.0...v21.0.0) (2026-10-29)
+
+
+* feat!: ship the CSS as esm/index.css instead of injecting it ([#337](https://github.com/mll-lab/react-components/issues/337)) ([440080e](https://github.com/mll-lab/react-components/commit/440080eccf1ad0cf7d06e6f838c6bbbea8528c41))
+
+
+### BREAKING CHANGES
+
+* the library no longer injects its CSS into the page.
+Import it once in the entry point of your application:
+import '@mll-lab/react-components/esm/index.css';
+
+🤖 Generated with Claude Code
+
 # [20.9.0](https://github.com/mll-lab/react-components/compare/v20.8.0...v20.9.0) (2026-10-13)
 
 
