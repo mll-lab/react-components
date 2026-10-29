@@ -1,3 +1,11 @@
+## [21.0.1-alpha.1](https://github.com/mll-lab/react-components/compare/v21.0.0...v21.0.1-alpha.1) (2026-10-29)
+
+
+### Performance Improvements
+
+* drop the unprefixed antd styles of Grid and DatePicker ([1068e2f](https://github.com/mll-lab/react-components/commit/1068e2fbc89ee68b4e30ab75e0947edcd84312f9))
+* minify the shipped CSS ([c6b1b47](https://github.com/mll-lab/react-components/commit/c6b1b47956cbc2d15c0665adf6f45ca3dda96405))
+
 # [21.0.0](https://github.com/mll-lab/react-components/compare/v20.9.0...v21.0.0) (2026-10-29)
 
 
