@@ -1,45 +1,95 @@
+import path from 'path';
+
 import { babel } from '@rollup/plugin-babel';
 import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
-import styles from 'rollup-plugin-styles';
 
 // eslint-disable-next-line import/extensions
 import pkg from './package.json';
+
+const {
+  BASE,
+  hasStyleEntry,
+  styleClosure,
+} = require('./scripts/antd-styles.cjs');
+
+const stylesDir = path.resolve('styles');
+const dependencyNames = Object.keys(pkg.dependencies);
+
+const isDependency = (id) =>
+  /^@babel\/runtime|^rc-picker/.test(id) ||
+  dependencyNames.some((name) => id === name || id.startsWith(`${name}/`));
+
+// Imports the stylesheets of the antd components a module uses, so that bundlers only ship those
+const antdStyleImports = () => ({
+  name: 'antd-style-imports',
+  resolveId(source) {
+    return source.startsWith(stylesDir) ? { id: source, external: true } : null;
+  },
+  renderChunk(code, chunk) {
+    const toStyles = path.posix.relative(
+      path.posix.dirname(chunk.fileName),
+      '../styles',
+    );
+    return {
+      code: code.split(`${stylesDir}/`).join(`${toStyles}/`),
+      map: null,
+    };
+  },
+  transform(code, id) {
+    if (id.includes('node_modules')) return null;
+    const used = new Set(
+      [...code.matchAll(/from ['"]antd\/(?:es|lib)\/([a-z-]+)/g)]
+        .map((match) => match[1])
+        .filter(hasStyleEntry),
+    );
+    if (used.size === 0) return null;
+    const stylesheets = new Set([BASE]);
+    used.forEach((name) =>
+      styleClosure(name).forEach((s) => stylesheets.add(s)),
+    );
+    const imports = [...stylesheets].map(
+      (s) => `import '${stylesDir}/${s}.css';`,
+    );
+    return { code: `${imports.join('\n')}\n${code}`, map: null };
+  },
+});
+
+const toEs = (id) => id.replace(/^antd\/lib\//, 'antd/es/');
+const toLib = (id) => id.replace(/^antd\/es\//, 'antd/lib/');
+
+const output = {
+  preserveModules: true,
+  preserveModulesRoot: 'src',
+  sourcemap: true,
+  assetFileNames: '[name][extname]',
+};
 
 export default {
   input: 'src/index.ts',
 
   output: [
     {
-      file: pkg.main,
+      ...output,
+      dir: 'cjs',
       format: 'cjs',
-      sourcemap: true,
       // https://rollupjs.org/configuration-options/#output-interop
       // Necessary in order for jest in consumers to work
       interop: 'auto',
-      assetFileNames: '[name][extname]',
+      exports: 'named',
+      paths: toLib,
     },
     {
-      file: pkg.module,
+      ...output,
+      dir: 'esm',
       format: 'esm',
-      sourcemap: true,
-      assetFileNames: '[name][extname]',
+      paths: toEs,
     },
   ],
 
-  // this resolves to window in the browser, thus enabling caching in the antd code below
-  // (!) `this` has been rewritten to `undefined`
-  // https://rollupjs.org/guide/en/#error-this-is-undefined
-  //     node_modules/antd/es/affix/index.js
-  // 7: import _typeof from "@babel/runtime/helpers/esm/typeof";
-  // 8:
-  // 9: var __decorate = this && this.__decorate || function (decorators, target, key, desc) {
-  context: 'this',
-
-  // https://www.npmjs.com/package/@rollup/plugin-babel#babelhelpers
-  external: [/@babel\/runtime/],
+  external: isDependency,
 
   plugins: [
     peerDepsExternal(),
@@ -48,17 +98,24 @@ export default {
     typescript({
       exclude: '**/*.(test|stories).(ts|tsx)',
     }),
-    styles({
-      mode: ['extract', 'index.css'],
-      // Keeps url('#linearGradient-1') of antd's Empty instead of emitting it as an asset
-      url: false,
-      less: {
-        javascriptEnabled: true,
-      },
+    // The TS plugin leaves `import { X } from 'antd'` alone, this maps it to `antd/es/x`
+    babel({
+      babelHelpers: 'bundled',
+      extensions: ['.ts', '.tsx'],
+      include: 'src/**',
+      babelrc: false,
+      configFile: false,
+      plugins: [
+        [
+          'import',
+          { libraryName: 'antd', libraryDirectory: 'es', style: false },
+        ],
+      ],
     }),
     babel({
       // https://www.npmjs.com/package/@rollup/plugin-babel#babelhelpers
       babelHelpers: 'runtime',
     }),
+    antdStyleImports(),
   ],
 };

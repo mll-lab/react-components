@@ -5,7 +5,6 @@ import generatePicker, {
   PickerTimeProps as AntdPickerTimeProps,
   RangePickerProps as AntdRangePickerProps,
 } from 'antd/es/date-picker/generatePicker';
-import 'antd/es/date-picker/style/index';
 import {
   format as formatDate,
   parse as parseDate,
