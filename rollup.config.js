@@ -50,6 +50,7 @@ export default {
     }),
     styles({
       mode: ['extract', 'index.css'],
+      minimize: true,
       // Keeps url('#linearGradient-1') of antd's Empty instead of emitting it as an asset
       url: false,
       less: {
