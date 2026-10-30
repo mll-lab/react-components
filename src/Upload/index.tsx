@@ -1,6 +1,6 @@
 import { Upload as AntdUpload, UploadProps as AntdUploadProps } from 'antd';
 import { RcFile as AntdRcFile } from 'antd/es/upload';
-import { UploadFile as AntdUploadFile } from 'antd/lib/upload/interface';
+import { UploadFile as AntdUploadFile } from 'antd/es/upload/interface';
 
 export const Upload: typeof AntdUpload = AntdUpload;
 export type UploadProps = AntdUploadProps;

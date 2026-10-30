@@ -1,6 +1,6 @@
 import { Collapse as AntdCollapse } from 'antd';
-import { CollapseProps as AntdCollapseProps } from 'antd/lib/collapse/Collapse';
-import { CollapsePanelProps as AntdCollapsePanelProps } from 'antd/lib/collapse/CollapsePanel';
+import { CollapseProps as AntdCollapseProps } from 'antd/es/collapse/Collapse';
+import { CollapsePanelProps as AntdCollapsePanelProps } from 'antd/es/collapse/CollapsePanel';
 import styled, { css } from 'styled-components';
 
 import { fontSizeFromTheme } from '../styled-utils';

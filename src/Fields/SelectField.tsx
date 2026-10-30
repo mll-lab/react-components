@@ -1,4 +1,4 @@
-import { BaseOptionType, DefaultOptionType } from 'antd/lib/select';
+import { BaseOptionType, DefaultOptionType } from 'antd/es/select';
 import React from 'react';
 import {
   useController,
