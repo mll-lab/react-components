@@ -1,5 +1,5 @@
 import { ConfigProvider as AntdConfigProvider } from 'antd';
-import deDE from 'antd/lib/locale/de_DE';
+import deDE from 'antd/es/locale/de_DE';
 import React, { PropsWithChildren } from 'react';
 import { ThemeProvider } from 'styled-components';
 

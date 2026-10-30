@@ -2,10 +2,10 @@ import {
   Skeleton as AntdSkeleton,
   SkeletonProps as AntdSkeletonProps,
 } from 'antd';
-import SkeletonAvatar from 'antd/lib/skeleton/Avatar';
-import SkeletonButton from 'antd/lib/skeleton/Button';
-import SkeletonImage from 'antd/lib/skeleton/Image';
-import SkeletonInput from 'antd/lib/skeleton/Input';
+import SkeletonAvatar from 'antd/es/skeleton/Avatar';
+import SkeletonButton from 'antd/es/skeleton/Button';
+import SkeletonImage from 'antd/es/skeleton/Image';
+import SkeletonInput from 'antd/es/skeleton/Input';
 import * as React from 'react';
 
 // Copied from antd/lib/skeleton/Skeleton.d.ts to fix:
