@@ -1,3 +1,10 @@
+## [21.0.1](https://github.com/mll-lab/react-components/compare/v21.0.0...v21.0.1) (2026-10-30)
+
+
+### Performance Improvements
+
+* shrink the shipped CSS ([#338](https://github.com/mll-lab/react-components/issues/338)) ([c95153b](https://github.com/mll-lab/react-components/commit/c95153bb5f6400ffd769e4a3ec8844e2f150aee6))
+
 # [21.0.0](https://github.com/mll-lab/react-components/compare/v20.9.0...v21.0.0) (2026-10-29)
 
 
