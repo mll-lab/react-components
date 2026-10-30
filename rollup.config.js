@@ -65,6 +65,8 @@ const output = {
   preserveModulesRoot: 'src',
   sourcemap: true,
   assetFileNames: '[name][extname]',
+  // npm pack drops every node_modules directory, so bundled dependencies need another folder name
+  entryFileNames: (chunk) => `${chunk.name.replace(/node_modules/g, 'vendor')}.js`,
 };
 
 export default {
