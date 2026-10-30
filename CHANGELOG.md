@@ -1,3 +1,10 @@
+## [21.0.2](https://github.com/mll-lab/react-components/compare/v21.0.1...v21.0.2) (2026-10-30)
+
+
+### Bug Fixes
+
+* resolve antd to one copy in tests and Storybook ([#340](https://github.com/mll-lab/react-components/issues/340)) ([a4c961b](https://github.com/mll-lab/react-components/commit/a4c961b03861ca5383f1a0e07e15e8cb630991f7))
+
 ## [21.0.1](https://github.com/mll-lab/react-components/compare/v21.0.0...v21.0.1) (2026-10-30)
 
 
