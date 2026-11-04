@@ -3,8 +3,9 @@ import React from 'react';
 
 import { FilledButton } from '../Button/ColoredButtons';
 import { DatePicker } from '../DatePicker';
+import { Modal } from '../Modal';
 
-import { Provider } from './index';
+import { PrefixProvider, Provider } from './index';
 
 function unprefixedAntdClasses(container: HTMLElement): Array<string> {
   return Array.from(container.querySelectorAll('[class]')).flatMap((element) =>
@@ -32,5 +33,29 @@ describe('<Provider />', () => {
     );
 
     expect(screen.getByPlaceholderText('Datum auswählen')).toBeInTheDocument();
+  });
+});
+
+describe('<PrefixProvider />', () => {
+  it('prefixes components', () => {
+    const { container } = render(
+      <PrefixProvider>
+        <FilledButton>Speichern</FilledButton>
+        <DatePicker />
+      </PrefixProvider>,
+    );
+
+    expect(unprefixedAntdClasses(container)).toEqual([]);
+  });
+
+  it('keeps the locale of a surrounding <Provider> once it unmounts', () => {
+    render(<Provider />);
+    render(<PrefixProvider />).unmount();
+
+    render(<Modal visible />);
+
+    expect(
+      screen.getByRole('button', { name: 'Abbrechen' }),
+    ).toBeInTheDocument();
   });
 });
