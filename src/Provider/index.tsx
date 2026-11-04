@@ -29,3 +29,10 @@ export function Provider({
     </ThemeProvider>
   );
 }
+
+/** Prefixes content that antd renders outside of <Provider>, without changing the global locale. */
+export function PrefixProvider({ children }: PropsWithChildren) {
+  return (
+    <AntdConfigProvider prefixCls={PREFIX_CLS}>{children}</AntdConfigProvider>
+  );
+}
