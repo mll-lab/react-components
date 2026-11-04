@@ -1,3 +1,10 @@
+# [21.1.0](https://github.com/mll-lab/react-components/compare/v21.0.2...v21.1.0) (2026-11-04)
+
+
+### Features
+
+* add PrefixProvider for content antd renders outside of Provider ([#341](https://github.com/mll-lab/react-components/issues/341)) ([813181b](https://github.com/mll-lab/react-components/commit/813181b5ff8eb3075d0c509f3d65ddf49872f428))
+
 ## [21.0.2](https://github.com/mll-lab/react-components/compare/v21.0.1...v21.0.2) (2026-10-30)
 
 
