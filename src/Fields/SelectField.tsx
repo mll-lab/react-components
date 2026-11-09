@@ -19,12 +19,25 @@ type SelectedValue<TValue> = TValue extends ReadonlyArray<infer TElement>
   ? TElement
   : NonNullable<TValue>;
 
+// Mirrors rc-select, so handlers typed by antd's SelectProps stay assignable
+type ArrayElementType<TValue> = TValue extends Array<infer TElement>
+  ? TElement
+  : TValue;
+
+// TODO drop the ArrayElementType handlers in the next major release
+type SelectFieldHandler<
+  TFieldValue,
+  TOption extends BaseOptionType | DefaultOptionType,
+> =
+  | SelectHandler<SelectedValue<TFieldValue>, TOption>
+  | SelectHandler<ArrayElementType<TFieldValue>, TOption>;
+
 type SelectFieldComponentProps<
   TFieldValue,
   TOption extends BaseOptionType | DefaultOptionType,
 > = Omit<SelectProps<TFieldValue, TOption>, 'onSelect' | 'onDeselect'> & {
-  onSelect?: SelectHandler<SelectedValue<TFieldValue>, TOption>;
-  onDeselect?: SelectHandler<SelectedValue<TFieldValue>, TOption>;
+  onSelect?: SelectFieldHandler<TFieldValue, TOption>;
+  onDeselect?: SelectFieldHandler<TFieldValue, TOption>;
 };
 
 type SelectFieldProps<
@@ -48,9 +61,9 @@ export function SelectField<
   component,
   ...controller
 }: SelectFieldProps<TFieldValues, TName, TOption>) {
-  type SelectedFieldValue = SelectedValue<
-    UnpackNestedValue<FieldPathValue<TFieldValues, TName>>
-  >;
+  type FieldValue = UnpackNestedValue<FieldPathValue<TFieldValues, TName>>;
+  type SelectedFieldValue = SelectedValue<FieldValue> &
+    ArrayElementType<FieldValue>;
 
   const {
     field: { onChange, ...fieldProps },
