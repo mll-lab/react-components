@@ -1,3 +1,10 @@
+## [21.1.1-alpha.3](https://github.com/mll-lab/react-components/compare/v21.1.1-alpha.2...v21.1.1-alpha.3) (2026-11-09)
+
+
+### Bug Fixes
+
+* keep SelectField handlers typed by antd SelectProps assignable ([af6b001](https://github.com/mll-lab/react-components/commit/af6b001b1f63da245d43191f28091757fb82c732))
+
 ## [21.1.1-alpha.2](https://github.com/mll-lab/react-components/compare/v21.1.1-alpha.1...v21.1.1-alpha.2) (2026-11-09)
 
 
