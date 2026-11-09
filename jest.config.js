@@ -1,8 +1,11 @@
 const esModules = ['.*/es/', '.*@babel', '@mll-lab'].join('|');
 
 module.exports = {
+  // Jest defaults to one worker per core, which exhausts memory on many-core machines
+  maxWorkers: '25%',
   transform: {
-    '^.+\\.tsx?$': 'ts-jest',
+    // CI type-checks with tsc, so skip it per test worker
+    '^.+\\.tsx?$': ['ts-jest', { isolatedModules: true }],
     [`(${esModules}).+\\.js$`]: 'babel-jest',
   },
   transformIgnorePatterns: [`/node_modules/(?!${esModules})`],
