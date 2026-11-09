@@ -1,3 +1,11 @@
+## [21.1.1-alpha.2](https://github.com/mll-lab/react-components/compare/v21.1.1-alpha.1...v21.1.1-alpha.2) (2026-11-09)
+
+
+### Bug Fixes
+
+* resolve a single selected value for fields that mix scalar and array types ([5019727](https://github.com/mll-lab/react-components/commit/50197272a98e262870f2b737da83d33b3f84b885))
+* type SelectField onSelect and onDeselect by the selected option value ([f4d61d9](https://github.com/mll-lab/react-components/commit/f4d61d9085ba6af1b6cd6b15a525dffe39904bf3))
+
 ## [21.1.1-alpha.1](https://github.com/mll-lab/react-components/compare/v21.1.0...v21.1.1-alpha.1) (2026-11-09)
 
 
