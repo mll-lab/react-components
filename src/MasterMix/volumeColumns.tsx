@@ -2,6 +2,7 @@ import React from 'react';
 
 import { MasterMixRowName } from './MasterMixRowName';
 import { REFERENCE_VOLUME_CLASS } from './VolumeTable';
+import { formatVolume } from './formatVolume';
 import { indentLevel } from './indentLevel';
 import { pipettingLossTableColumn } from './pipettingLossTableColumn';
 import {
@@ -53,7 +54,7 @@ export function volumeColumns({
             : undefined,
       }),
       render: (_: unknown, record: MasterMixTableRow) => (
-        <>{record.volume.toFixed(1)}&nbsp;µl</>
+        <>{formatVolume(record.volume)}&nbsp;µl</>
       ),
     },
     ...(scaling ? [pipettingLossTableColumn(scaling)] : []),

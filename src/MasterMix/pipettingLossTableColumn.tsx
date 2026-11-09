@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Tooltip } from '../Tooltip';
 
+import { formatVolume } from './formatVolume';
 import {
   MasterMixTableRow,
   PipettingLoss,
@@ -52,18 +53,19 @@ function pipettingLossTitle(
   }
 }
 
-function totalVolume(record: MasterMixTableRow, args: PipettingScaling) {
+function totalVolume(
+  record: MasterMixTableRow,
+  args: PipettingScaling,
+): number {
   switch (args.pipettingLoss.type) {
     case 'absolute':
-      return (record.volume * (args.count + args.pipettingLoss.count)).toFixed(
-        1,
-      );
+      return record.volume * (args.count + args.pipettingLoss.count);
     case 'factor':
       return (
         record.volume *
         (args.count +
           calculateAdditionalSamples(args.count, args.pipettingLoss.factor))
-      ).toFixed(1);
+      );
     case 'factorWithMinimum': {
       const baseVolume = record.volume * args.count;
       const { factorLoss, minPositionsLoss } = calculatePipettingLosses(
@@ -72,7 +74,7 @@ function totalVolume(record: MasterMixTableRow, args: PipettingScaling) {
         record.volume,
       );
       const pipettingLoss = Math.max(factorLoss, minPositionsLoss);
-      return (baseVolume + pipettingLoss).toFixed(1);
+      return baseVolume + pipettingLoss;
     }
   }
 }
@@ -96,7 +98,7 @@ export function pipettingLossTableColumn(
           return <>–</>;
         case 'masterMixIngredient':
         case 'masterMixTotal':
-          return <>{totalVolume(record, args)}&nbsp;µl</>;
+          return <>{formatVolume(totalVolume(record, args))}&nbsp;µl</>;
       }
     },
   };
