@@ -1,4 +1,5 @@
 import { BaseOptionType, DefaultOptionType } from 'antd/es/select';
+import { SelectHandler } from 'rc-select/lib/Select';
 import React from 'react';
 import {
   useController,
@@ -14,13 +15,25 @@ import { Select, SelectProps } from '../Select';
 import { useFieldContext } from './FieldProvider';
 import { FieldWrapper, FieldWrapperProps } from './FieldWrapper';
 
+type SelectedValue<TValue> = NonNullable<TValue> extends Array<infer TElement>
+  ? TElement
+  : NonNullable<TValue>;
+
+type SelectFieldComponentProps<
+  TFieldValue,
+  TOption extends BaseOptionType | DefaultOptionType,
+> = Omit<SelectProps<TFieldValue, TOption>, 'onSelect' | 'onDeselect'> & {
+  onSelect?: SelectHandler<SelectedValue<TFieldValue>, TOption>;
+  onDeselect?: SelectHandler<SelectedValue<TFieldValue>, TOption>;
+};
+
 type SelectFieldProps<
   TFieldValues extends FieldValues,
   TName extends FieldPath<TFieldValues>,
   TOption extends BaseOptionType | DefaultOptionType,
 > = UseControllerProps<TFieldValues, TName> &
   Pick<FieldWrapperProps<TFieldValues, TName>, 'formItem'> & {
-    component?: SelectProps<
+    component?: SelectFieldComponentProps<
       UnpackNestedValue<FieldPathValue<TFieldValues, TName>>,
       TOption
     >;
