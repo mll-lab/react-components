@@ -1,10 +1,23 @@
-## [21.0.1-alpha.1](https://github.com/mll-lab/react-components/compare/v21.0.0...v21.0.1-alpha.1) (2026-10-29)
+# [21.1.0](https://github.com/mll-lab/react-components/compare/v21.0.2...v21.1.0) (2026-11-04)
+
+
+### Features
+
+* add PrefixProvider for content antd renders outside of Provider ([#341](https://github.com/mll-lab/react-components/issues/341)) ([813181b](https://github.com/mll-lab/react-components/commit/813181b5ff8eb3075d0c509f3d65ddf49872f428))
+
+## [21.0.2](https://github.com/mll-lab/react-components/compare/v21.0.1...v21.0.2) (2026-10-30)
+
+
+### Bug Fixes
+
+* resolve antd to one copy in tests and Storybook ([#340](https://github.com/mll-lab/react-components/issues/340)) ([a4c961b](https://github.com/mll-lab/react-components/commit/a4c961b03861ca5383f1a0e07e15e8cb630991f7))
+
+## [21.0.1](https://github.com/mll-lab/react-components/compare/v21.0.0...v21.0.1) (2026-10-30)
 
 
 ### Performance Improvements
 
-* drop the unprefixed antd styles of Grid and DatePicker ([1068e2f](https://github.com/mll-lab/react-components/commit/1068e2fbc89ee68b4e30ab75e0947edcd84312f9))
-* minify the shipped CSS ([c6b1b47](https://github.com/mll-lab/react-components/commit/c6b1b47956cbc2d15c0665adf6f45ca3dda96405))
+* shrink the shipped CSS ([#338](https://github.com/mll-lab/react-components/issues/338)) ([c95153b](https://github.com/mll-lab/react-components/commit/c95153bb5f6400ffd769e4a3ec8844e2f150aee6))
 
 # [21.0.0](https://github.com/mll-lab/react-components/compare/v20.9.0...v21.0.0) (2026-10-29)
 

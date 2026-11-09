@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { fontSizeFromTheme } from '../styled-utils';
 
 export { CheckboxProps } from 'antd';
-export { CheckboxChangeEvent } from 'antd/lib/checkbox';
+export { CheckboxChangeEvent } from 'antd/es/checkbox';
 
 /**
  * Are there both truthy and falsy values in the given array of booleans?

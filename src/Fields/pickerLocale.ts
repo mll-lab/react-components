@@ -1,4 +1,4 @@
-import { PickerLocale } from 'antd/lib/date-picker/generatePicker';
+import { PickerLocale } from 'antd/es/date-picker/generatePicker';
 import CalendarLocale from 'rc-picker/lib/locale/de_DE';
 
 export const PICKER_LOCALE: PickerLocale = {

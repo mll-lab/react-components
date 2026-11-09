@@ -3,7 +3,7 @@ import {
   TagProps as AntdTagProps,
   TagType as AntdTagType,
 } from 'antd';
-import { CheckableTagProps as AntdCheckableTagProps } from 'antd/lib/tag/CheckableTag';
+import { CheckableTagProps as AntdCheckableTagProps } from 'antd/es/tag/CheckableTag';
 import styled from 'styled-components';
 
 import { fontSizeFromTheme } from '../styled-utils';

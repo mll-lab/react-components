@@ -2,7 +2,7 @@ import { Space as AntdSpace, SpaceProps as AntdSpaceProps } from 'antd';
 import * as React from 'react';
 import styled, { css } from 'styled-components';
 
-export { SpaceSize } from 'antd/lib/space';
+export { SpaceSize } from 'antd/es/space';
 
 export type SpaceProps = Omit<AntdSpaceProps, 'direction'> & {
   block?: boolean;

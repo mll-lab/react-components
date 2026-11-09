@@ -13,6 +13,8 @@ module.exports = {
   testPathIgnorePatterns: ['node_modules/'],
   testMatch: ['**/*.test.(ts|tsx)'],
   moduleNameMapper: {
+    // Resolves antd like the rollup build does, so Provider and subpath imports share one ConfigProvider
+    '^antd$': 'antd/es',
     // Mocks out all these file formats when tests are run.
     '\\.(jpg|ico|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
       'identity-obj-proxy',

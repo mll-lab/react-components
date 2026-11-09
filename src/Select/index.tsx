@@ -1,5 +1,5 @@
 import { Select as AntdSelect, SelectProps as AntdSelectProps } from 'antd';
-import { BaseOptionType, DefaultOptionType } from 'antd/lib/select';
+import { BaseOptionType, DefaultOptionType } from 'antd/es/select';
 import { BaseSelectRef } from 'rc-select';
 import React, {
   ForwardedRef,

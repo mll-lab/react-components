@@ -1,5 +1,5 @@
 import { Empty as AntdEmpty } from 'antd';
-import { EmptyProps } from 'antd/lib/empty';
+import { EmptyProps } from 'antd/es/empty';
 import { FC, ReactNode } from 'react';
 
 // We have to redefine this in order to avoid the TypeScript error:

@@ -7,14 +7,6 @@ module.exports = {
   plugins: [
     'babel-plugin-styled-components',
     '@babel/plugin-transform-runtime',
-    [
-      // https://4x.ant.design/docs/react/getting-started#Import-on-Demand
-      'import',
-      {
-        libraryName: 'antd',
-        style: false,
-      },
-    ],
   ],
   env: {
     test: {
