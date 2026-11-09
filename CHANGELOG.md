@@ -1,3 +1,16 @@
+## [21.1.1-alpha.1](https://github.com/mll-lab/react-components/compare/v21.1.0...v21.1.1-alpha.1) (2026-11-09)
+
+
+### Bug Fixes
+
+* show MasterMix volumes with up to two decimals in German format ([9bfaab0](https://github.com/mll-lab/react-components/commit/9bfaab0ffd2918737fa3bd318c2fbea278b04f7d))
+
+
+### Performance Improvements
+
+* drop the unprefixed antd styles of Grid and DatePicker ([1068e2f](https://github.com/mll-lab/react-components/commit/1068e2fbc89ee68b4e30ab75e0947edcd84312f9))
+* minify the shipped CSS ([c6b1b47](https://github.com/mll-lab/react-components/commit/c6b1b47956cbc2d15c0665adf6f45ca3dda96405))
+
 # [21.1.0](https://github.com/mll-lab/react-components/compare/v21.0.2...v21.1.0) (2026-11-04)
 
 
