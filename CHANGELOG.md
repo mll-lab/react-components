@@ -1,3 +1,10 @@
+## [21.1.2](https://github.com/mll-lab/react-components/compare/v21.1.1...v21.1.2) (2026-11-10)
+
+
+### Bug Fixes
+
+* type SelectField onSelect and onDeselect by the selected option value ([#344](https://github.com/mll-lab/react-components/issues/344)) ([a90a342](https://github.com/mll-lab/react-components/commit/a90a34224f20dc793ef2c0ecf4dbf17b9eeabe3a))
+
 ## [21.1.1](https://github.com/mll-lab/react-components/compare/v21.1.0...v21.1.1) (2026-11-10)
 
 
