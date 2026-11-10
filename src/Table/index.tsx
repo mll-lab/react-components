@@ -1,3 +1,4 @@
+import { Maybe } from '@mll-lab/js-utils';
 import { Table as AntdTable, TableProps as AntdTableProps } from 'antd';
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
@@ -23,7 +24,12 @@ export {
 
 export * from './utils';
 
-export type TableProps<RecordType> = AntdTableProps<RecordType>;
+export type TableProps<RecordType> = Omit<
+  AntdTableProps<RecordType>,
+  'dataSource'
+> & {
+  dataSource?: Maybe<ReadonlyArray<RecordType>>;
+};
 
 const StyledTable = styled(AntdTable)`
   .mll-ant-table {
@@ -37,16 +43,17 @@ const StyledTable = styled(AntdTable)`
     z-index: 990 !important;
   }
 ` as <RecordType extends Record<string, unknown> = Record<string, unknown>>(
-  props: TableProps<RecordType>,
+  props: AntdTableProps<RecordType>,
 ) => ReactElement;
 
 export function Table<
   RecordType extends Record<string, unknown> = Record<string, unknown>,
->({ loading, onRow, ...rest }: TableProps<RecordType>) {
+>({ loading, onRow, dataSource, ...rest }: TableProps<RecordType>) {
   return (
     <StyledTable<RecordType>
       rowKey="id"
       {...rest}
+      dataSource={dataSource ?? undefined}
       onRow={
         onRow &&
         ((record, index) => {
