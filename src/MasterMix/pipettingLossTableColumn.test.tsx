@@ -20,7 +20,7 @@ describe('pipettingLossTableColumn', () => {
     );
     render(<>{column.title}</>);
 
-    expect(screen.getByText('30.0 µl')).toBeInTheDocument();
+    expect(screen.getByText('30 µl')).toBeInTheDocument();
     expect(screen.getByText('2x Ansätze + 1x (PV)')).toBeInTheDocument();
   });
 
@@ -40,7 +40,7 @@ describe('pipettingLossTableColumn', () => {
     );
     render(<>{column.title}</>);
 
-    expect(screen.getByText('30.0 µl')).toBeInTheDocument();
+    expect(screen.getByText('30 µl')).toBeInTheDocument();
     expect(screen.getByText('2x Ansätze + 10% (PV)')).toBeInTheDocument();
   });
 
@@ -68,7 +68,7 @@ describe('pipettingLossTableColumn', () => {
       </>,
     );
 
-    expect(screen.getByText('210.0 µl')).toBeInTheDocument();
+    expect(screen.getByText('210 µl')).toBeInTheDocument();
     expect(screen.getByText('19x Ansätze + 2x (PV)')).toBeInTheDocument();
   });
 
@@ -96,7 +96,7 @@ describe('pipettingLossTableColumn', () => {
       </>,
     );
 
-    expect(screen.getByText('240.0 µl')).toBeInTheDocument();
+    expect(screen.getByText('240 µl')).toBeInTheDocument();
     expect(screen.getByText('21x Ansätze + 10% (PV)')).toBeInTheDocument();
   });
 });

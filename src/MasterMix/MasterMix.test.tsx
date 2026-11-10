@@ -41,12 +41,33 @@ describe('MasterMix', () => {
       />,
     );
 
-    expect(screen.getByText('79.5 µl')).toBeInTheDocument();
-    expect(screen.getByText('9.2 µl')).toBeInTheDocument();
-    expect(screen.getByText('9.0 µl')).toBeInTheDocument();
-    expect(screen.getByText('2.5 µl')).toBeInTheDocument();
-    expect(screen.getByText('100.2 µl')).toBeInTheDocument();
-    expect(screen.getByText('901.8 µl')).toBeInTheDocument();
+    expect(screen.getByText('79,5 µl')).toBeInTheDocument();
+    expect(screen.getByText('9,2 µl')).toBeInTheDocument();
+    expect(screen.getByText('9 µl')).toBeInTheDocument();
+    expect(screen.getByText('2,5 µl')).toBeInTheDocument();
+    expect(screen.getByText('100,2 µl')).toBeInTheDocument();
+    expect(screen.getByText('901,8 µl')).toBeInTheDocument();
+  });
+
+  it('keeps the significant decimals of small volumes in German format', () => {
+    render(
+      <MasterMix
+        name="Test"
+        count={45}
+        ingredients={[
+          { key: 1, title: 'Enzyme', volume: 0.28 },
+          { key: 2, title: 'Water', volume: 9.72 },
+        ]}
+        pipettingLoss={{ type: 'absolute', count: 0 }}
+      />,
+    );
+
+    expect(screen.getByText('0,28 µl')).toBeInTheDocument();
+    expect(screen.getByText('12,6 µl')).toBeInTheDocument();
+    expect(screen.getByText('9,72 µl')).toBeInTheDocument();
+    expect(screen.getByText('437,4 µl')).toBeInTheDocument();
+    expect(screen.getByText('10 µl')).toBeInTheDocument();
+    expect(screen.getByText('450 µl')).toBeInTheDocument();
   });
 
   it('keeps each volume together with its unit', () => {
@@ -62,10 +83,10 @@ describe('MasterMix', () => {
     );
 
     expect(
-      screen.getByText('79.5\u00A0µl', { normalizer: keepWhitespace }),
+      screen.getByText('79,5\u00A0µl', { normalizer: keepWhitespace }),
     ).toBeInTheDocument();
     expect(
-      screen.getByText('901.8\u00A0µl', { normalizer: keepWhitespace }),
+      screen.getByText('901,8\u00A0µl', { normalizer: keepWhitespace }),
     ).toBeInTheDocument();
   });
 
@@ -95,9 +116,9 @@ describe('MasterMix', () => {
       />,
     );
 
-    expect(screen.getByText('100.2 µl')).toBeInTheDocument();
-    expect(screen.getByText('901.8 µl')).toBeInTheDocument();
-    expect(screen.getByText('105.2 µl')).toBeInTheDocument();
+    expect(screen.getByText('100,2 µl')).toBeInTheDocument();
+    expect(screen.getByText('901,8 µl')).toBeInTheDocument();
+    expect(screen.getByText('105,2 µl')).toBeInTheDocument();
     expect(screen.getAllByText('–')).toHaveLength(2);
   });
 
@@ -168,8 +189,8 @@ describe('MasterMix', () => {
       />,
     );
 
-    expect(screen.getByText('100.2 µl')).toBeInTheDocument();
-    expect(screen.getByText('105.2 µl')).toBeInTheDocument();
+    expect(screen.getByText('100,2 µl')).toBeInTheDocument();
+    expect(screen.getByText('105,2 µl')).toBeInTheDocument();
     expect(screen.queryByText(/Ansätze/)).not.toBeInTheDocument();
   });
 
