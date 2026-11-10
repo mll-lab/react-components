@@ -1,3 +1,10 @@
+## [21.1.1](https://github.com/mll-lab/react-components/compare/v21.1.0...v21.1.1) (2026-11-10)
+
+
+### Bug Fixes
+
+* show MasterMix volumes with up to two decimals in German format ([#343](https://github.com/mll-lab/react-components/issues/343)) ([df35d18](https://github.com/mll-lab/react-components/commit/df35d189638051536901fd19cedbbbe232d4fce9))
+
 # [21.1.0](https://github.com/mll-lab/react-components/compare/v21.0.2...v21.1.0) (2026-11-04)
 
 
