@@ -1,4 +1,5 @@
 import { BaseOptionType, DefaultOptionType } from 'antd/es/select';
+import { SelectHandler } from 'rc-select/lib/Select';
 import React from 'react';
 import {
   useController,
@@ -14,13 +15,38 @@ import { Select, SelectProps } from '../Select';
 import { useFieldContext } from './FieldProvider';
 import { FieldWrapper, FieldWrapperProps } from './FieldWrapper';
 
+type SelectedValue<TValue> = TValue extends ReadonlyArray<infer TElement>
+  ? TElement
+  : NonNullable<TValue>;
+
+// Mirrors rc-select, so handlers typed by antd's SelectProps stay assignable
+type ArrayElementType<TValue> = TValue extends Array<infer TElement>
+  ? TElement
+  : TValue;
+
+// TODO drop the ArrayElementType handlers in the next major release
+type SelectFieldHandler<
+  TFieldValue,
+  TOption extends BaseOptionType | DefaultOptionType,
+> =
+  | SelectHandler<SelectedValue<TFieldValue>, TOption>
+  | SelectHandler<ArrayElementType<TFieldValue>, TOption>;
+
+type SelectFieldComponentProps<
+  TFieldValue,
+  TOption extends BaseOptionType | DefaultOptionType,
+> = Omit<SelectProps<TFieldValue, TOption>, 'onSelect' | 'onDeselect'> & {
+  onSelect?: SelectFieldHandler<TFieldValue, TOption>;
+  onDeselect?: SelectFieldHandler<TFieldValue, TOption>;
+};
+
 type SelectFieldProps<
   TFieldValues extends FieldValues,
   TName extends FieldPath<TFieldValues>,
   TOption extends BaseOptionType | DefaultOptionType,
 > = UseControllerProps<TFieldValues, TName> &
   Pick<FieldWrapperProps<TFieldValues, TName>, 'formItem'> & {
-    component?: SelectProps<
+    component?: SelectFieldComponentProps<
       UnpackNestedValue<FieldPathValue<TFieldValues, TName>>,
       TOption
     >;
@@ -35,11 +61,16 @@ export function SelectField<
   component,
   ...controller
 }: SelectFieldProps<TFieldValues, TName, TOption>) {
+  type FieldValue = UnpackNestedValue<FieldPathValue<TFieldValues, TName>>;
+  type SelectedFieldValue = SelectedValue<FieldValue> &
+    ArrayElementType<FieldValue>;
+
   const {
     field: { onChange, ...fieldProps },
   } = useController<TFieldValues, TName>(controller);
 
   const { disabled } = useFieldContext();
+  const { onSelect, onDeselect, ...selectProps } = component ?? {};
 
   return (
     <FieldWrapper controller={controller} formItem={formItem}>
@@ -52,7 +83,16 @@ export function SelectField<
         // See https://react-hook-form.com/api/usecontroller/controller
         // > Calling onChange with undefined is not valid. You should use null or the empty string as your default/cleared value instead.
         onChange={(value) => onChange(value ?? null)}
-        {...component}
+        {...selectProps}
+        // rc-select types these with the field value, but calls them with a single option value
+        onSelect={
+          onSelect &&
+          ((value, option) => onSelect(value as SelectedFieldValue, option))
+        }
+        onDeselect={
+          onDeselect &&
+          ((value, option) => onDeselect(value as SelectedFieldValue, option))
+        }
       />
     </FieldWrapper>
   );
